@@ -941,7 +941,7 @@ function groupsOf(m){
   const pos=c=>{ const name=CONT[c.ci].toLowerCase(); const i=BOOK_ORDER.findIndex(k=>name.startsWith(k)); return i<0?BOOK_ORDER.length:i; };
   return list.map((c,i)=>({c,i})).sort((a,b)=>pos(a.c)-pos(b.c)||a.i-b.i).map(x=>x.c);
 }
-const BOOK_ORDER = ["l'impresa","beni e diritti reali","matrimonio","titoli di credito","scritture contabili","società di persone","risoluzione e invalidità","vicende modificative","le obbligazioni","contratti tipici","società di capitali"];
+const BOOK_ORDER = ["l'impresa","beni e diritti reali","matrimonio","titoli di credito","scritture contabili","società di persone","risoluzione e invalidità","vicende modificative","le obbligazioni","conclusione, interpretazione","contratti tipici","società di capitali"];
 function gstats(ids){
   let seen=0,ok=0,wr=0,att=0,cor=0;
   for(const n of ids){ const r=S.m[Q[n-1][0]][n]; if(!r) continue; seen++; att+=r[0]; cor+=r[1]; if(r[2]) ok++; else wr++; }
