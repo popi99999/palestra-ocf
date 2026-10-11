@@ -936,8 +936,12 @@ function groupsOf(m){
   // argomenti (contenuti OCF) e sottogruppi (sub-contenuti) nell'ordine della banca dati
   const conts=new Map();
   for(const n of BY_MAT[m]){ const q=Q[n-1]; if(!conts.has(q[1])) conts.set(q[1],{ci:q[1],ids:[],subs:new Map()}); const c=conts.get(q[1]); c.ids.push(n); if(!c.subs.has(q[2])) c.subs.set(q[2],{si:q[2],ids:[]}); c.subs.get(q[2]).ids.push(n); }
-  return [...conts.values()].map(c=>({ci:c.ci, ids:c.ids, subs:[...c.subs.values()]}));
+  const list=[...conts.values()].map(c=>({ci:c.ci, ids:c.ids, subs:[...c.subs.values()]}));
+  // ordine delle categorie come nel libro di Brando; quelle non elencate restano in fondo nell'ordine della banca dati
+  const pos=c=>{ const name=CONT[c.ci].toLowerCase(); const i=BOOK_ORDER.findIndex(k=>name.startsWith(k)); return i<0?BOOK_ORDER.length:i; };
+  return list.map((c,i)=>({c,i})).sort((a,b)=>pos(a.c)-pos(b.c)||a.i-b.i).map(x=>x.c);
 }
+const BOOK_ORDER = ["l'impresa","beni e diritti reali","matrimonio","titoli di credito","scritture contabili","società di persone","risoluzione e invalidità","vicende modificative"];
 function gstats(ids){
   let seen=0,ok=0,wr=0,att=0,cor=0;
   for(const n of ids){ const r=S.m[Q[n-1][0]][n]; if(!r) continue; seen++; att+=r[0]; cor+=r[1]; if(r[2]) ok++; else wr++; }
