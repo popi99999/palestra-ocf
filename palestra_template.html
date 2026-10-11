@@ -22,6 +22,40 @@ button{font-family:var(--font)}
 .mi{font-family:"Material Icons";font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;font-feature-settings:"liga"}
 :focus-visible{outline:3px solid var(--ocf-brand-green);outline-offset:2px}
 
+.page,.dialog{zoom:var(--zoom,1)}
+main{overflow-x:clip}
+.trainbar{zoom:var(--tbz,1)}
+.studia-materia-row__meta{flex-wrap:wrap}
+.prova-card__date{flex-wrap:wrap}
+@media (max-width:767.98px){
+  .zoom-big .stat-cards{grid-template-columns:minmax(0,1fr)}
+  .zoom-big .studia-materia-row__meta{white-space:normal}
+  .zoom-big .ocf-landing-hero__right{gap:16px}
+  .zoom-big .test-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"when score" "what what" "goal goal"}
+  .zoom-big .test-row__n{display:none}
+  .zoom-big .prova-card{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"body score" "badge badge"}
+  .zoom-big .prova-card__num{display:none}
+  .zoom-big .day-head__stats{font-size:12px}
+  .zoom-big .studia-materia-row.cat-row{grid-template-columns:22px minmax(0,1fr);grid-template-areas:"check badge" "main main" "breakdown breakdown" "levels levels" "actions actions" "subs subs"}
+  .zoom-big .cat-row .studia-materia-row__actions{flex-direction:column}
+  .zoom-big .grp-sub{grid-template-columns:22px minmax(0,1fr)}
+  .zoom-big .sub-name{flex-wrap:wrap}
+}
+.linkbtn{white-space:normal;flex-wrap:wrap;text-align:left}
+.cardhead{flex-wrap:wrap}
+.page .btn{white-space:normal;max-width:100%;text-align:center}
+.page .sess-bar .push{max-width:100%}
+.page .chip{max-width:100%;white-space:normal;height:auto;min-height:32px;padding-top:4px;padding-bottom:4px}
+.page .timer-big,.page .goal-chip{min-height:34px}
+.appbar h6{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.page .quesito-alt-row__body,.page .quesito-box__testo,.page .tq-q{overflow-wrap:anywhere}
+@media (max-width:599.98px){ .appbar h6{font-size:15px} .appbar .sep{display:none} }
+.zoom-ctl{display:inline-flex;align-items:center;margin-right:4px}
+.zoom-val{font-size:12px;font-weight:600;min-width:38px;text-align:center;font-variant-numeric:tabular-nums}
+.nav-zoom{display:flex;align-items:center;gap:10px;padding:8px 16px;color:var(--mud-nav)}
+.nav-zoom>span:nth-child(2){flex:1}
+.nav-zoom b{min-width:40px;text-align:center;font-variant-numeric:tabular-nums}
+@media (max-width:599.98px){ .zoom-ctl .zoom-val{display:none} .zoom-ctl .iconbtn{width:40px} }
 /* ---------- app bar ---------- */
 .appbar{position:fixed;top:0;left:0;right:0;height:calc(64px + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);background:var(--ocf-brand-green);color:var(--white);display:flex;align-items:center;z-index:30;
   box-shadow:0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12)}
@@ -605,6 +639,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   <span class="brandmark" aria-hidden="true"><span class="mi">fitness_center</span></span>
   <h6>Palestra OCF — Workspace candidato</h6>
   <div class="acts">
+    <span class="zoom-ctl" role="group" aria-label="Dimensione del testo"><button class="iconbtn" id="z-minus" title="Testo più piccolo" aria-label="Testo più piccolo"><span class="mi">text_decrease</span></button><span class="zoom-val" id="z-val">100%</span><button class="iconbtn" id="z-plus" title="Testo più grande" aria-label="Testo più grande"><span class="mi">text_increase</span></button></span>
     <button class="iconbtn" id="hdr-browse" title="Sfoglia i quesiti" aria-label="Sfoglia i quesiti"><span class="mi">menu_book</span></button>
     <button class="iconbtn" id="hdr-sync" title="Sincronizza i dispositivi" aria-label="Sincronizza i dispositivi"><span class="mi">cloud_sync</span></button>
     <span class="sep"></span>
@@ -618,6 +653,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   <a href="#" data-nav="tests"><span class="mi">history</span>Test fatti</a>
   <a href="#" data-nav="sfoglia"><span class="mi">menu_book</span>Sfoglia le domande</a>
   <hr>
+  <div class="nav-zoom"><span class="mi">format_size</span><span>Testo</span><button class="btn btn-outlined btn-sm" id="nz-minus" aria-label="Testo più piccolo">A−</button><b id="nz-val">100%</b><button class="btn btn-outlined btn-sm" id="nz-plus" aria-label="Testo più grande">A+</button></div>
   <button class="navlink" id="nav-sync"><span class="mi">cloud_sync</span>Sincronizza i dispositivi</button>
 </nav>
 <div class="scrim" id="scrim" hidden></div>
@@ -945,6 +981,11 @@ function go(v){
 }
 document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",e=>{ e.preventDefault(); if(a.dataset.nav==="sfoglia"){ state.browse.ids=null; state.browse.label=""; } go(a.dataset.nav); }));
 $("#hdr-sync").onclick=openSyncDialog; $("#hdr-status").onclick=openSyncDialog; $("#nav-sync").onclick=()=>{ closeDrawerMobile(); openSyncDialog(); };
+// dimensione del testo: dal 100% al 200%, ricordata sul dispositivo
+const ZOOM_KEY="palestra-ocf-zoom", ZOOMS=[1,1.15,1.3,1.5,1.75,2];
+function applyZoom(z){ z=ZOOMS.includes(z)?z:1; document.documentElement.style.setProperty("--zoom", z); document.documentElement.classList.toggle("zoom-big", z>=1.3); document.documentElement.style.setProperty("--tbz", (Math.min(z,1.15)/z).toFixed(3)); /* la barra in basso resta compatta */ lsSet(ZOOM_KEY, String(z)); const p=Math.round(z*100)+"%"; ["#z-val","#nz-val"].forEach(s=>{ const el=$(s); if(el) el.textContent=p; }); if(state.view==="stats") render(); }
+function stepZoom(d){ const cur=+getComputedStyle(document.documentElement).getPropertyValue("--zoom")||1; const i=Math.max(0,Math.min(ZOOMS.length-1, ZOOMS.indexOf(ZOOMS.reduce((a,b)=>Math.abs(b-cur)<Math.abs(a-cur)?b:a))+d)); applyZoom(ZOOMS[i]); }
+["#z-plus","#nz-plus"].forEach(s=>$(s).onclick=()=>stepZoom(1)); ["#z-minus","#nz-minus"].forEach(s=>$(s).onclick=()=>stepZoom(-1));
 $("#hdr-browse").onclick=()=>{ state.browse.ids=null; state.browse.label=""; go("sfoglia"); };
 const mq = window.matchMedia("(max-width:959.98px)");
 $("#menu").onclick=()=>{ if(mq.matches){ document.body.classList.toggle("drawer-open"); $("#scrim").hidden=!document.body.classList.contains("drawer-open"); } else document.body.classList.toggle("drawer-closed"); };
@@ -1863,6 +1904,7 @@ window.addEventListener("beforeunload",()=>{ lsWrite(); saveLive(); });
 window.addEventListener("pagehide",()=>{ lsWrite(); saveLive(); });
 
 { const l=lsRead(); if(l) setLocal(l); } // progressi del dispositivo subito, prima della sincronizzazione
+applyZoom(+lsGet("palestra-ocf-zoom")||1);
 render();
 initStore();
 })();
