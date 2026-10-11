@@ -419,6 +419,51 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .tempo-row .mi{color:var(--ocf-brand-green-dark);font-size:20px}
 .tempo-row .sep{opacity:.5}
 .tempo-row .muted{color:var(--ocf-ink-muted)}
+/* ---------- test fatti ---------- */
+.test-list{display:flex;flex-direction:column;gap:8px}
+.test-row{display:grid;grid-template-columns:44px 150px minmax(0,1fr) 92px 140px 24px;gap:14px;align-items:center;width:100%;text-align:left;font:inherit;color:inherit;background:#fff;border:1px solid var(--ocf-line);border-radius:10px;padding:12px 14px;cursor:pointer;transition:box-shadow 140ms,border-color 140ms}
+.test-row:hover{box-shadow:0 6px 16px -10px rgba(0,0,0,.2);border-color:#C8E6C9}
+.test-row__n{font-weight:700;color:var(--ocf-ink-muted);font-variant-numeric:tabular-nums}
+.test-row__when,.test-row__what,.test-row__score{display:flex;flex-direction:column;gap:2px;min-width:0}
+.test-row__when b{font-size:14px;color:var(--ocf-ink)} .test-row__when span{font-size:12px;color:var(--ocf-ink-soft);font-variant-numeric:tabular-nums}
+.test-row__what b{font-size:14px;font-weight:600;color:var(--ocf-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.test-row__what span{font-size:12px;color:var(--ocf-ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.test-row__score{align-items:flex-end;font-variant-numeric:tabular-nums}
+.test-row__score b{font-size:18px} .test-row__score span{font-size:12px;font-weight:600}
+.test-row__score.ok b,.test-row__score.ok span{color:var(--ocf-brand-green-dark)} .test-row__score.mid b,.test-row__score.mid span{color:#B7560B} .test-row__score.ko b,.test-row__score.ko span{color:var(--ocf-red)}
+.test-row__goal{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;border-radius:12px;padding:3px 10px;justify-self:start;white-space:nowrap}
+.test-row__goal .mi{font-size:15px}
+.test-row__goal.ok{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark)} .test-row__goal.ko{background:#FFEBEE;color:#C62828}
+.test-row__go{color:var(--ocf-ink-muted)}
+.test-row__title{display:flex;align-items:center;gap:6px;min-width:0}
+.test-row__title b{min-width:0}
+.tag-cut{flex-shrink:0;font-style:normal;display:inline-block;font-size:11px;font-weight:600;background:#FFF4E5;color:#B7560B;border-radius:8px;padding:0 6px;margin-left:4px;vertical-align:middle}
+.tmeta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 16px;background:#FAFAFA;border:1px solid var(--ocf-line);border-radius:8px;padding:12px 14px}
+.tmeta div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.tmeta span{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--ocf-ink-muted);font-weight:600}
+.tmeta b{font-size:14px;color:var(--ocf-ink);font-weight:500}
+.tq-list{display:flex;flex-direction:column;gap:8px}
+.tq{border:1px solid var(--ocf-line);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;background:#fff}
+.tq-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--ocf-ink-soft)}
+.tq-n{font-weight:700;color:var(--ocf-ink);min-width:20px}
+.tq-cat{flex:1;min-width:0}
+.tq-sec{font-variant-numeric:tabular-nums;color:var(--ocf-ink-muted)}
+.tq-q{font-style:italic;font-size:15px;color:var(--ocf-ink)}
+.tq-a{display:flex;gap:8px;align-items:flex-start;background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);border-radius:6px;padding:6px 10px;font-size:14px}
+.tq-a .mi{font-size:18px}
+@media (max-width:767.98px){
+  .test-row{grid-template-columns:36px minmax(0,1fr) auto;grid-template-areas:"n when score" "n what what" "n goal goal";row-gap:6px;column-gap:10px}
+  .test-row__n{grid-area:n;align-self:start}.test-row__when{grid-area:when}.test-row__what{grid-area:what}.test-row__score{grid-area:score}.test-row__goal{grid-area:goal}.test-row__go{display:none}
+}
+/* ---------- giorni ---------- */
+.day-block{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.day-head{display:flex;align-items:center;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:10px 14px;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:10px}
+.day-head__date{display:inline-flex;align-items:center;gap:8px;color:var(--ocf-brand-green-dark);font-size:15px}
+.day-head__date b{text-transform:none}
+.day-head__date .mi{font-size:20px}
+.day-head__stats{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:13px;color:var(--ocf-ink-soft)}
+.day-head__stats b{color:var(--ocf-ink);font-variant-numeric:tabular-nums}
+.day-head__stats .ok b{color:var(--ocf-brand-green-dark)} .day-head__stats .mid b{color:#B7560B} .day-head__stats .ko b{color:var(--ocf-red)}
 /* ---------- obiettivo di tempo ---------- */
 .goal-chip{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);font-weight:600;height:34px;font-variant-numeric:tabular-nums}
 .goal-chip.over{background:#FFEBEE;color:#C62828}
@@ -434,6 +479,8 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .alert-nonloso{border-color:#F5C08A;color:#7A3E06;background:#FFF8EE}
 .alert-nonloso b{color:#C62828}
 /* ---------- statistiche ---------- */
+.stats-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.stats-head .pagehead{margin:0}
 .stat-card__value .of{font-size:16px;font-weight:500;color:var(--ocf-ink-muted);margin-left:2px}
 .stat-card__sub{font-size:12px;color:var(--ocf-ink-soft)}
 .chart-hover{position:relative}
@@ -568,6 +615,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   <a href="#" data-nav="home"><span class="mi">home</span>Home</a>
   <a href="#" data-nav="materia"><span class="mi">category</span>Categorie e allenamento</a>
   <a href="#" data-nav="stats"><span class="mi">insights</span>Statistiche</a>
+  <a href="#" data-nav="tests"><span class="mi">history</span>Test fatti</a>
   <a href="#" data-nav="sfoglia"><span class="mi">menu_book</span>Sfoglia le domande</a>
   <hr>
   <button class="navlink" id="nav-sync"><span class="mi">cloud_sync</span>Sincronizza i dispositivi</button>
@@ -612,129 +660,259 @@ const hm = t => new Date(t).toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2
 const icon = n => `<span class="mi" aria-hidden="true">${n}</span>`;
 const pad2 = n => String(n).padStart(2,"0");
 
-/* ================= progressi: sincronizzati online con il codice personale ================= */
-// Web app (GitHub Pages): i progressi vanno nel database online, legati a un codice segreto generato sul primo dispositivo.
-// Dentro Claude (artifact) la rete esterna è bloccata: lì si usa lo spazio dati dell'artifact.
-const LS_KEY = "palestra-ocf-v1", CODE_KEY = "palestra-ocf-code", SYNC_AT_KEY = "palestra-ocf-sync-at";
+/* ================= progressi v2: ogni risposta registrata, sincronizzazione con versioni ================= */
+// S.base = conteggi delle risposte date con le versioni precedenti (senza dettaglio).
+// S.h = test fatti; dal 11/10/2026 ognuno ha id e q = [[n, esito, secondi]] (esito 1 giusta, -1 sbagliata, -2 non la sapevo, 0 non data).
+// S.m (viste, giuste, ultima giusta per domanda) si ricalcola da base + h: due dispositivi si uniscono sempre allo stesso risultato.
+const LS_KEY = "palestra-ocf-v2", LS_OLD = "palestra-ocf-v1", CODE_KEY = "palestra-ocf-code", SYNC_AT_KEY = "palestra-ocf-sync-at", LIVE_KEY = "palestra-ocf-live";
 const CLOUD = {url:"https://owxiwgfufhqxwygysgzu.supabase.co", key:"sb_publishable_scf7sDpikMUHXqGRkoQBcA_8eoxz-yt"};
 const IN_CLAUDE = !!(window.claude && window.claude.use);
-let S = {m:{1:{},2:{},3:{},4:{},5:{}}, h:[]}; // m[mat][n] = [viste, giuste, ultimaGiusta]
-const store = {db:null, uid:null, code:null, online:false, lastSync:null};
+const CODE_RE = /^[A-HJ-NP-Z2-9]{4}(-[A-HJ-NP-Z2-9]{4}){4}$/; // alfabeto dei codici: niente 0, 1, I, O
+const blankBase = () => ({1:{},2:{},3:{},4:{},5:{}});
+const blank = () => ({v:2, base:blankBase(), h:[]});
+let S = {v:2, base:blankBase(), h:[], m:blankBase()};
+const store = {db:null, uid:null, code:null, online:false, lastSync:null, ver:0, err:null};
 const lsGet = k => { try{ return localStorage.getItem(k); }catch(e){ return null; } };
 const lsSet = (k,v) => { try{ v===null?localStorage.removeItem(k):localStorage.setItem(k,v); }catch(e){} };
-function lsRead(){ try{ const v=lsGet(LS_KEY); return v?JSON.parse(v):null; }catch(e){ return null; } }
-function lsWrite(){ lsSet(LS_KEY, JSON.stringify(S)); }
+const persisted = () => ({v:2, base:S.base, h:S.h});
 function setSync(t){ const el=$("#sync"); if(el) el.textContent=t; }
-function hasData(s){ return s && ((s.h||[]).length || [1,2,3,4,5].some(k=>Object.keys((s.m||{})[k]||{}).length)); }
-function blank(){ return {m:{1:{},2:{},3:{},4:{},5:{}}, h:[]}; }
-// unisce i progressi di due dispositivi: per ogni quesito vince chi l'ha visto più volte; lo storico si somma
-function merge(a,b){
-  const out=blank();
-  for(const k of [1,2,3,4,5]){ const A=(a.m||{})[k]||{}, B=(b.m||{})[k]||{};
-    for(const n of new Set([...Object.keys(A),...Object.keys(B)])){ const x=A[n], y=B[n]; out.m[k][n] = !x?y : !y?x : (y[0]>x[0]?y:x); } }
-  const seen=new Map(); for(const h of [...(a.h||[]),...(b.h||[])]){ const key=h.t+"|"+h.k; const prev=seen.get(key); if(!prev || (h.det && !prev.det)) seen.set(key,h); }
-  out.h=[...seen.values()].sort((x,y)=>x.t-y.t).slice(-800);
+function hasData(s){ return s && ((s.h||[]).length || [1,2,3,4,5].some(k=>Object.keys((s.base||{})[k]||{}).length)); }
+function sid(){ const a=new Uint8Array(8); crypto.getRandomValues(a); return [...a].map(x=>x.toString(16).padStart(2,"0")).join(""); }
+// --- pulizia dei dati (anche quelli arrivati dal server: niente valori strani o script)
+const int = (v,lo,hi) => { v=Math.round(+v); if(!Number.isFinite(v)) return null; return Math.min(hi, Math.max(lo, v)); };
+const intArr = a => a.map(x=>int(x,0,100000)).filter(x=>x!==null).slice(0,600);
+const qn = v => { v=+v; return Number.isInteger(v) && v>=1 && v<=Q.length ? v : null; }; // numero di domanda esistente, altrimenti scartato
+function cleanSession(h){
+  if(!h || typeof h!=="object" || Array.isArray(h)) return null;
+  const t0=+h.t; if(!(t0>0) || t0>Date.now()+864e5) return null; // date assurde o nel futuro: la sessione si scarta, non si corregge
+  const t=Math.round(t0);
+  const o={t, k:["studio","sim","migliora","seq","mat","err"].includes(h.k)?h.k:"studio", title:String(h.title==null?"":h.title).slice(0,160),
+    n:int(h.n,0,5000)||0, ok:int(h.ok,0,5000)||0, sec:int(h.sec,0,864000)||0};
+  if(o.ok>o.n) o.ok=o.n;
+  if(typeof h.id==="string" && /^[a-f0-9]{8,32}$/.test(h.id)) o.id=h.id;
+  for(const f of ["start","goal","g60","pts"]) if(h[f]!=null){ const v=int(h[f],0,9e15); if(v!==null) o[f]=v; }
+  for(const f of ["ms","cats","subs"]) if(Array.isArray(h[f])) o[f]=intArr(h[f]);
+  for(const f of ["selC","selS"]) if(h[f]===null) o[f]=null; else if(Array.isArray(h[f])) o[f]=intArr(h[f]);
+  if(["all","new","err","worst","redo"].includes(h.w)) o.w=h.w;
+  if(["free","q60","q85","tot"].includes(h.tm)) o.tm=h.tm;
+  if(["bar","cat","group","home-new","home-err","redo","worst"].includes(h.src)) o.src=h.src;
+  if(h.fb===0 || h.fb===1) o.fb=h.fb;
+  if(h.nc===true) o.nc=true;
+  if(h.cut===true) o.cut=true;
+  if(Array.isArray(h.q)) o.q=h.q.filter(x=>Array.isArray(x)).map(x=>[qn(x[0]), [1,-1,-2,0].includes(+x[1])?+x[1]:0, x[2]==null?null:int(x[2],0,86400)]).filter(x=>x[0]).slice(0,5000);
+  if(Array.isArray(h.det)) o.det=h.det.filter(x=>Array.isArray(x)).map(x=>[qn(x[0]), int(x[1],-2,3), String(x[2]||"").replace(/[^0-3]/g,"").slice(0,4)]).filter(x=>x[0] && x[2].length===4).slice(0,100);
+  return o;
+}
+function cleanBase(b){
+  const out=blankBase(); if(!b || typeof b!=="object") return out;
+  for(const k of [1,2,3,4,5]){ const src=b[k]; if(!src || typeof src!=="object") continue;
+    for(const key of Object.keys(src)){ const n=qn(key), r=src[key]; if(!n || !Array.isArray(r)) continue;
+      const v=int(r[0],0,1e6)||0, g=Math.min(v, int(r[1],0,1e6)||0); if(v>0) out[k][n]=[v,g,r[2]?1:0]; } }
   return out;
 }
-const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+function clean(raw){
+  // accetta il formato v2 e quello precedente {m,h}: in quello precedente i conteggi m diventano la base
+  if(!raw || typeof raw!=="object") return blank();
+  const legacy = raw.v!==2;
+  const h=(Array.isArray(raw.h)?raw.h:[]).map(cleanSession).filter(Boolean);
+  if(legacy) h.forEach(x=>{ delete x.q; }); // nel formato precedente quelle risposte sono già contate in m
+  return {v:2, base:cleanBase(legacy?raw.m:raw.base), h};
+}
+// --- unione deterministica: stesso risultato qualunque sia l'ordine dei dispositivi
+const skey = h => h.id || (h.t+"|"+h.k);
+function canon(x){ if(Array.isArray(x)) return "["+x.map(canon).join(",")+"]"; if(x && typeof x==="object") return "{"+Object.keys(x).sort().map(k=>JSON.stringify(k)+":"+canon(x[k])).join(",")+"}"; return JSON.stringify(x===undefined?null:x); }
+function better(x,y){ for(let i=0;i<3;i++){ const a=x[i]||0, b=y[i]||0; if(a!==b) return a>b?x:y; } return x; }
+function richer(x,y){ const w=s=>(s.q?4:0)+(s.det?2:0)+Object.keys(s).length/100; if(w(x)!==w(y)) return w(x)>w(y)?x:y; return canon(x)>=canon(y)?x:y; }
+function merge(a,b){
+  const base=blankBase();
+  for(const k of [1,2,3,4,5]){ const A=a.base[k]||{}, B=b.base[k]||{};
+    for(const n of new Set([...Object.keys(A),...Object.keys(B)])) base[k][n] = !A[n]?B[n] : !B[n]?A[n] : better(A[n],B[n]); }
+  const map=new Map(); for(const h of [...a.h, ...b.h]){ const key=skey(h), p=map.get(key); map.set(key, p?richer(p,h):h); }
+  const h=[...map.values()].sort((x,y)=>(x.t-y.t) || (skey(x)<skey(y)?-1:1));
+  return {v:2, base, h};
+}
+function derive(){
+  const m=JSON.parse(JSON.stringify(S.base));
+  for(const h of S.h.slice().sort((x,y)=>x.t-y.t)) for(const [n,e] of (h.q||[])){ if(e===0) continue; const qq=Q[n-1]; if(!qq) continue;
+    const r=m[qq[0]][n]||[0,0,0]; r[0]++; if(e===1) r[1]++; r[2]=e===1?1:0; m[qq[0]][n]=r; }
+  S.m=m;
+}
+function setLocal(st){ S={v:2, base:st.base, h:st.h, m:null}; derive(); }
+function lsRead(){ try{ const v=lsGet(LS_KEY); if(v) return clean(JSON.parse(v)); const o=lsGet(LS_OLD); if(o) return clean(JSON.parse(o)); }catch(e){} return null; }
+function lsWrite(){ lsSet(LS_KEY, JSON.stringify(persisted())); }
 function newCode(){
   const abc="ABCDEFGHJKLMNPQRSTUVWXYZ23456789", v=new Uint8Array(20); crypto.getRandomValues(v);
   return [...v].map(x=>abc[x%32]).join("").match(/.{4}/g).join("-");
 }
 const normCode = c => String(c||"").toUpperCase().replace(/[^A-Z0-9]/g,"").match(/.{1,4}/g)?.join("-") || "";
-async function rpc(fn, body){
-  const r = await fetch(`${CLOUD.url}/rest/v1/rpc/${fn}`, {method:"POST", headers:{"apikey":CLOUD.key,"Content-Type":"application/json"}, body:JSON.stringify(body)});
-  if(!r.ok) throw new Error("rete "+r.status);
-  return r.json();
-}
-function stamp(){ store.lastSync=Date.now(); lsSet(SYNC_AT_KEY,String(store.lastSync)); }
-function syncLabel(){ return store.online ? "salvati online · sincronizzati" : "salvati sul dispositivo · in attesa di rete"; }
-async function cloudPull(){
-  // scarica, unisce con il dispositivo e rimanda online se qui c'era qualcosa di nuovo
-  if(IN_CLAUDE || !store.code) return false;
+// --- rete
+async function rpc(fn, body, ms=10000){
+  const ctl=new AbortController(), to=setTimeout(()=>ctl.abort(), ms), payload=JSON.stringify(body);
   try{
-    const remote = await rpc("load_progress", {p_code:store.code}) || blank();
-    const merged = merge(S, remote), changedHere = !same(merged, S), needPush = !same(merged, merge(remote, blank()));
-    S = merged; lsWrite();
-    if(needPush) await rpc("save_progress", {p_code:store.code, p_data:S});
-    store.online=true; stamp(); setSync(syncLabel());
-    return changedHere;
-  }catch(e){ store.online=false; setSync(syncLabel()); return false; }
+    const r=await fetch(`${CLOUD.url}/rest/v1/rpc/${fn}`, {method:"POST", headers:{"apikey":CLOUD.key,"Content-Type":"application/json"}, body:payload, signal:ctl.signal, keepalive:payload.length<60000});
+    if(!r.ok){ const err=new Error("server "+r.status); err.server=true; try{ err.detail=(await r.json()).message; }catch(e){} throw err; }
+    return await r.json();
+  } finally { clearTimeout(to); }
 }
-let pushTimer=null, pushing=Promise.resolve();
-function cloudPush(){
-  if(IN_CLAUDE || !store.code) return;
-  clearTimeout(pushTimer);
-  pushTimer=setTimeout(()=>{ pushing = pushing.then(async()=>{
-    try{ const remote = await rpc("load_progress", {p_code:store.code}) || blank(); S = merge(S, remote); lsWrite(); await rpc("save_progress", {p_code:store.code, p_data:S}); store.online=true; stamp(); }
-    catch(e){ store.online=false; }
-    setSync(syncLabel());
-  }); }, 800);
+async function remoteLoad(code){
+  // {data, ver} dal salvataggio v2; se l'account è nato con la versione precedente lo si legge da lì (ver 0 = da migrare); null = non esiste
+  const r=await rpc("load_progress2", {p_code:code});
+  if(r) return {data:clean(r.data), ver:r.ver};
+  const old=await rpc("load_progress", {p_code:code});
+  if(old) return {data:clean(old), ver:0, legacy:true};
+  return null;
 }
+function stamp(){ store.lastSync=Date.now(); lsSet(SYNC_AT_KEY, String(store.lastSync)); }
+function syncLabel(){
+  if(!IN_CLAUDE && !store.code) return "dispositivo da collegare";
+  const acc = store.code ? ` · account ${store.code.slice(0,4)}` : "";
+  if(store.err) return `errore di salvataggio online${acc}`;
+  return store.online ? `salvati online${acc}` : `salvati sul dispositivo${acc} · in attesa di rete`;
+}
+let syncChain=Promise.resolve();
+function sync(){ syncChain=syncChain.then(doSync, doSync); return syncChain; }
+async function doSync(){
+  // scarica, unisce, e salva con controllo di versione: se un altro dispositivo ha salvato nel frattempo si riparte
+  if(IN_CLAUDE || !store.code) return false;
+  const code=store.code, before=canon(persisted());
+  try{
+    let saved=false;
+    for(let attempt=0; attempt<5 && !saved; attempt++){
+      const remote=await remoteLoad(code);
+      if(store.code!==code) return false;
+      const rdata=remote?remote.data:blank(), ver=remote?remote.ver:0;
+      const merged=merge(clean(persisted()), rdata);
+      setLocal(merged); lsWrite();
+      if(remote && !remote.legacy && canon(merged)===canon(rdata)){ store.ver=ver; saved=true; break; }
+      const res=await rpc("save_progress2", {p_code:code, p_data:persisted(), p_ver:ver});
+      if(store.code!==code) return false;
+      if(res && res.ok){ store.ver=res.ver; saved=true; }
+    }
+    store.online=saved; store.err=saved?null:"conflitto";
+    if(saved) stamp();
+  }catch(e){ store.online=false; store.err = e && e.server ? (e.detail||"errore del server") : null; }
+  setSync(syncLabel());
+  return canon(persisted())!==before;
+}
+let syncTimer=null;
+function queueSync(delay){ clearTimeout(syncTimer); syncTimer=setTimeout(async()=>{ const ch=await sync(); if(ch && state.view!=="session") render(); }, delay||0); }
+async function syncNow(ms){ if(IN_CLAUDE || !store.code) return; await Promise.race([sync(), new Promise(r=>setTimeout(r, ms||6000))]); }
+// --- test in corso: salvato a ogni risposta, così non si perde se l'app viene chiusa
+function saveLive(){
+  const T=state.T;
+  if(!T || T.done || !T.t0){ lsSet(LIVE_KEY, null); return; }
+  lsSet(LIVE_KEY, JSON.stringify({id:T.id, kind:T.kind, title:T.title, meta:T.meta, fb:T.fb, t0:T.t0, i:T.i, saved:Date.now(),
+    items:T.items.map(x=>[x.n, x.pick, x.locked?1:0, x.spent==null?null:x.spent])}));
+}
+function recoverLive(){
+  let L=null; try{ L=JSON.parse(lsGet(LIVE_KEY)||"null"); }catch(e){}
+  lsSet(LIVE_KEY, null);
+  if(!L || !Array.isArray(L.items) || L.kind==="sim") return; // una simulazione interrotta non si valuta, come all'esame
+  const items=L.items.map(([n,p,lk,sp])=>({n:qn(n), pick:[0,1,2,3,-2].includes(p)?p:null, locked:!!lk, spent:sp==null?null:int(sp,0,86400)})).filter(x=>x.n);
+  const counted=items.filter((x,k)=>k<L.i || x.pick!==null || x.locked);
+  if(!counted.some(x=>x.pick!==null)) return;
+  const T={id:typeof L.id==="string"?L.id:sid(), kind:L.kind||"studio", title:String(L.title||"Allenamento")+" (interrotto)", meta:L.meta||{}, t0:int(L.t0,1,9e15)||Date.now()};
+  const e=cleanSession(Object.assign(buildEntry(T, counted, int(L.saved,1,9e15)||Date.now()), {cut:true}));
+  if(e){ S.h.push(e); derive(); lsWrite(); }
+}
+// --- avvio
 async function initStore(){
-  const local=lsRead(); if(local && local.m) S=local;
   store.lastSync=+lsGet(SYNC_AT_KEY)||null;
+  recoverLive();
   if(!IN_CLAUDE){
-    store.code = lsGet(CODE_KEY);
-    if(!store.code){ store.code=newCode(); lsSet(CODE_KEY, store.code); }
-    setSync("sincronizzazione…");
-    await cloudPull();
-    if(state.view!=="session") render();
-    document.addEventListener("visibilitychange", async()=>{ if(document.visibilityState==="visible"){ const ch=await cloudPull(); if(ch && state.view!=="session") render(); } });
-    window.addEventListener("online", ()=>cloudPull());
+    const saved=lsGet(CODE_KEY), c=normCode(saved);
+    store.code = CODE_RE.test(c) ? c : null;   // un codice salvato non valido (versioni vecchie) va ricollegato
+    if(!store.code){ setSync(syncLabel()); openLinkDialog(saved?"Il codice salvato su questo dispositivo non è valido. Inserisci quello del tuo account: i progressi di qui verranno uniti.":""); }
+    else { setSync("sincronizzazione…"); await sync(); if(state.view!=="session") render(); }
+    document.addEventListener("visibilitychange", ()=>{
+      const T=state.T;
+      if(document.visibilityState==="hidden"){ if(T && !T.done){ T.hiddenAt=Date.now(); saveLive(); } lsWrite(); if(store.code) sync(); }
+      else { if(T && !T.done && T.hiddenAt){ const d=Date.now()-T.hiddenAt; T.t0+=d; T.qStart+=d; T.hiddenAt=null; } queueSync(0); }
+    });
+    window.addEventListener("focus", ()=>queueSync(300));
+    window.addEventListener("pageshow", ()=>queueSync(0));
+    window.addEventListener("online", ()=>queueSync(0));
+    setInterval(()=>{ if(document.visibilityState==="visible" && state.view!=="session") queueSync(0); }, 60000);
     if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js").catch(()=>{});
     return;
   }
+  // dentro Claude (artifact) la rete esterna è bloccata: si usa lo spazio dati dell'artifact
   setSync("salvati in questo browser");
   try{
-    const [db,user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    const [db,user]=await Promise.all([window.claude.use("db"), window.claude.use("user")]);
     if(!db || !user) return;
-    const uid = await user.id(); if(!uid) return;
+    const uid=await user.id(); if(!uid) return;
     store.db=db; store.uid=uid;
-    const col = db.collection("data/users/"+uid);
-    const snaps = await Promise.all(["m1","m2","m3","m4","m5","hist"].map(k=>col.doc(k).get()));
-    const remote = blank();
-    snaps.slice(0,5).forEach((s,i)=>{ if(s.exists) remote.m[i+1]=JSON.parse(JSON.stringify(s.data().q||{})); });
-    if(snaps[5].exists) remote.h=JSON.parse(JSON.stringify(snaps[5].data().h||[]));
-    if(hasData(remote)){ S=merge(S,remote); lsWrite(); } else if(hasData(S)){ await pushAll([1,2,3,4,5]); }
-    setSync("salvati sul tuo account");
+    const snap=await db.collection("data/users/"+uid).doc("state2").get();
+    if(snap.exists){ let raw=null; try{ raw=JSON.parse(snap.data().json||"null"); }catch(e){} if(raw){ setLocal(merge(clean(persisted()), clean(raw))); lsWrite(); } }
+    store.online=true; setSync("salvati sul tuo account"); artifactSave();
     if(state.view!=="session") render();
   }catch(e){ setSync("salvati in questo browser"); }
 }
-let saving = Promise.resolve();
-function pushAll(mats){
-  cloudPush();
-  if(!store.db) return Promise.resolve();
-  const col = store.db.collection("data/users/"+store.uid);
-  saving = saving.then(async()=>{
-    // il documento ha un limite di 256 KB: il dettaglio quesito per quesito resta solo per le ultime 30 simulazioni
-    const sl=S.h.slice(-400), withDet=sl.map((h,i)=>h.det?i:-1).filter(i=>i>=0), keep=new Set(withDet.slice(-30));
-    const hist=sl.map((h,i)=>{ if(!h.det||keep.has(i)) return h; const {det,...rest}=h; return rest; });
-    try{ for(const k of mats){ await col.doc("m"+k).set({q:S.m[k]}); } await col.doc("hist").set({h:hist}); setSync("salvati sul tuo account"); }
-    catch(e){ setSync("non salvati online: restano in questo browser"); }
+let artChain=Promise.resolve();
+function artifactSave(){
+  if(!store.db) return;
+  artChain=artChain.then(async()=>{
+    const p=persisted(); let j=JSON.stringify(p);
+    if(j.length>240000) j=JSON.stringify({v:2, base:p.base, h:p.h.slice(-300)});
+    if(j.length>250000) return;
+    try{ await store.db.collection("data/users/"+store.uid).doc("state2").set({json:j}); setSync("salvati sul tuo account"); }catch(e){ setSync("non salvati online: restano in questo browser"); }
   });
-  return saving;
+}
+function pushAll(){ if(IN_CLAUDE) artifactSave(); else queueSync(0); }
+/* ---------- primo avvio su un dispositivo: collegarlo all'account ---------- */
+async function linkCode(raw, create){
+  const c=normCode(raw);
+  if(!CODE_RE.test(c)) return {ok:false, msg:"Codice non valido: sono 20 caratteri tra lettere e numeri da 2 a 9 (nei codici non esistono 0, 1, I e O)."};
+  let remote=null;
+  try{ remote=await remoteLoad(c); }catch(e){ return {ok:false, msg:"Non riesco a raggiungere il server. Controlla la connessione e riprova."}; }
+  if(!remote && !create) return {ok:false, msg:"Nessun account con questo codice. Controlla di averlo scritto esattamente come sull'altro dispositivo."};
+  store.code=c; lsSet(CODE_KEY, c); setSync("sincronizzazione…");
+  await sync(); if(state.view!=="session") render();
+  return {ok:true};
+}
+function openLinkDialog(note){
+  dialog({title:"Collega questo dispositivo", body:`
+    ${note?`<div class="alert" style="margin-bottom:12px">${icon("info_outline")}<span>${esc(note)}</span></div>`:""}
+    <p style="margin:0 0 12px">Per avere <b>gli stessi progressi</b> su telefono e computer, inserisci il <b>codice personale</b> che trovi sull'altro dispositivo: icona ${icon("cloud_sync")} in alto → <i>Sincronizza i dispositivi</i>.</p>
+    <div class="field"><label for="link-in">Il tuo codice</label>
+      <div style="display:flex;gap:8px"><input id="link-in" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false" style="flex:1;min-width:0;font-size:17px;letter-spacing:.04em"><button class="btn btn-outlined btn-sm" id="link-paste" type="button">${icon("content_paste")} Incolla</button></div>
+      <span class="hint" id="link-hint">20 caratteri, del tipo ABCD-EFGH-JKLM-NPQR-STUV. I progressi già presenti qui vengono uniti, niente va perso.</span></div>`,
+    actions:[{label:"È il mio primo dispositivo"},{label:"Collega",primary:true}]});
+  const inp=$("#link-in"), hint=$("#link-hint"), btns=[...document.querySelectorAll("#dlg .actions .btn")], primary=$("#dlg .btn-filled");
+  inp.focus();
+  const busy=on=>{ btns.forEach(b=>b.disabled=on); inp.disabled=on; primary.innerHTML=on?"Collego…":"Collega"; };
+  $("#link-paste").onclick=async()=>{ try{ inp.value=await navigator.clipboard.readText(); }catch(e){ inp.focus(); hint.textContent="Incolla con tasto lungo o Cmd+V nel campo."; } };
+  $("#dlg .btn-text").onclick=()=>{ dialog({title:"Creare un nuovo account?", body:"Solo se è il <b>primo</b> dispositivo su cui usi la Palestra. Se l'hai già usata altrove, torna indietro e inserisci quel codice, altrimenti i progressi restano separati.", actions:[{label:"Torna indietro",run:()=>openLinkDialog(note)},{label:"Crea nuovo codice",primary:true,run:async()=>{ const r=await linkCode(newCode(), true); if(r.ok) openSyncDialog(); else openLinkDialog(r.msg); }}]}); };
+  primary.onclick=async()=>{
+    busy(true); const r=await linkCode(inp.value, false); busy(false);
+    if(!r.ok){ inp.style.borderColor="#C62828"; hint.style.color="#C62828"; hint.textContent=r.msg; return; }
+    closeDialog();
+    const s=gstats(BY_MAT[ONLY]);
+    dialog({title:"Dispositivo collegato", body: store.online?`Fatto: questo dispositivo usa l'account <b>${esc(store.code.slice(0,4))}</b>. Domande fatte su questo account: <b>${s.seen}</b>.`:"Codice salvato: appena c'è connessione i progressi vengono sincronizzati.", actions:[{label:"Ok",primary:true}]});
+  };
 }
 /* ---------- finestra "Sincronizza i dispositivi" ---------- */
 function openSyncDialog(){
-  if(IN_CLAUDE){ dialog({title:"Salvataggio", body:"Qui dentro Claude i progressi si salvano sul tuo account Claude. Per averli uguali su telefono e computer usa la web app: <b>popi99999.github.io/palestra-ocf</b>.", actions:[{label:"Chiudi",primary:true}]}); return; }
+  if(IN_CLAUDE){ dialog({title:"Salvataggio", body:"Qui dentro Claude i progressi restano separati. Per averli uguali su telefono e computer usa la web app: <b>popi99999.github.io/palestra-ocf</b>.", actions:[{label:"Chiudi",primary:true}]}); return; }
+  if(!store.code) return openLinkDialog();
   const when = store.lastSync ? `${dmy(store.lastSync)} alle ${hm(store.lastSync)}` : "mai";
   dialog({title:"Sincronizza i dispositivi", body:`
     <p style="margin:0 0 10px">I progressi si salvano online con questo <b>codice personale</b>. Inseriscilo una volta sugli altri dispositivi (telefono, computer) e restano tutti allineati.</p>
     <div class="syncbox"><code id="sync-code">${esc(store.code)}</code><button class="btn btn-outlined btn-sm" id="sync-copy">${icon("content_copy")} Copia</button></div>
-    <p class="hint">Stato: ${esc(syncLabel())} · ultima sincronizzazione: ${when}. Tienilo per te: chi ha il codice vede i tuoi progressi.</p>
-    <div class="field" style="margin-top:18px"><label for="sync-in">Hai già un codice su un altro dispositivo?</label><input id="sync-in" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><span class="hint">I progressi di questo dispositivo vengono uniti a quelli del codice inserito, niente va perso.</span></div>`,
-    actions:[{label:"Chiudi"},{label:"Usa questo codice",primary:true}]});
+    <p class="hint">Stato: ${esc(syncLabel())} · domande fatte su questo account: <b>${gstats(BY_MAT[ONLY]).seen}</b> · test fatti: <b>${S.h.length}</b> · ultima sincronizzazione: ${when}. Tienilo per te: chi ha il codice vede i tuoi progressi.</p>
+    <div class="field" style="margin-top:18px"><label for="sync-in">Vuoi usare un altro account?</label><input id="sync-in" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><span class="hint" id="sync-hint">I progressi di questo dispositivo vengono uniti a quelli del codice inserito, niente va perso.</span></div>`,
+    actions:[{label:"Sincronizza ora"},{label:"Usa questo codice",primary:true}]});
   $("#sync-copy").onclick=()=>{ const c=store.code; navigator.clipboard?.writeText(c).then(()=>{ $("#sync-copy").innerHTML=icon("check")+" Copiato"; }).catch(()=>{ const r=document.createRange(); r.selectNodeContents($("#sync-code")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }); };
-  $("#dlg .btn-filled").onclick=async()=>{
-    const c=normCode($("#sync-in").value);
-    if(c.replace(/-/g,"").length<20){ $("#sync-in").style.borderColor="#C62828"; $("#sync-in").nextElementSibling.textContent="Il codice ha 20 caratteri, del tipo ABCD-EFGH-JKLM-NPQR-STUV."; return; }
-    store.code=c; lsSet(CODE_KEY,c); closeDialog(); setSync("sincronizzazione…");
-    await cloudPull(); render();
-    dialog({title:"Dispositivo collegato", body: store.online?"Fatto: questo dispositivo ora usa il tuo codice e i progressi sono uniti.":"Codice salvato. Appena c'è connessione i progressi vengono sincronizzati.", actions:[{label:"Ok",primary:true}]});
+  $("#dlg .btn-text").onclick=async e=>{ e.currentTarget.disabled=true; e.currentTarget.textContent="Sincronizzo…"; await sync(); closeDialog(); if(state.view!=="session") render(); openSyncDialog(); };
+  $("#dlg .btn-filled").onclick=async e=>{
+    const b=e.currentTarget; b.disabled=true; b.textContent="Collego…";
+    const r=await linkCode($("#sync-in").value, false);
+    b.disabled=false; b.textContent="Usa questo codice";
+    if(!r.ok){ $("#sync-in").style.borderColor="#C62828"; $("#sync-hint").style.color="#C62828"; $("#sync-hint").textContent=r.msg; return; }
+    closeDialog(); dialog({title:"Dispositivo collegato", body:"Fatto: questo dispositivo ora usa quel codice e i progressi sono uniti.", actions:[{label:"Ok",primary:true}]});
   };
 }
-function record(n, ok){ const m=Q[n-1][0]; const r=S.m[m][n]||[0,0,0]; r[0]++; if(ok) r[1]++; r[2]=ok?1:0; S.m[m][n]=r; }
 function matStats(m){
   let seen=0, okNow=0, wrongNow=0, att=0, cor=0;
   for(const n of BY_MAT[m]){ const r=S.m[m][n]; if(!r) continue; seen++; att+=r[0]; cor+=r[1]; if(r[2]) okNow++; else wrongNow++; }
@@ -754,6 +932,7 @@ const ONLY = 5; // l'app per ora lavora solo su Nozioni di diritto privato e di 
 const state = {view:"home", T:null, sel:0, browse:{mat:ONLY,q:"",page:0,ids:null,label:""}, matSel:ONLY, open:new Set(), picked:new Set(), train:{n:25, which:"all", fb:true, time:"free"}};
 function navKey(){
   if(state.view==="session"||state.view==="riepilogo") return "materia";
+  if(state.view==="test") return "tests";
   return state.view;
 }
 function setNavActive(){
@@ -786,6 +965,8 @@ function render(){
   else if(v==="report-sim") renderReportSim();
   else if(v==="sfoglia") renderSfoglia();
   else if(v==="stats") renderStats();
+  else if(v==="tests") renderTests();
+  else if(v==="test") renderTestDetail();
   setNavActive();
   if(v==="session"){ timerId=setInterval(tick,250); tick(); }
 }
@@ -836,18 +1017,20 @@ function renderHome(){
     <button class="btn btn-filled" id="q-new" ${daFare?"":"disabled"}>${icon("fiber_new")} Domande mai fatte (${daFare})</button>
     <button class="btn btn-outlined" id="q-err" ${err?"":"disabled"}>${icon("replay")} Ripassa le sbagliate (${err})</button>
     <button class="btn btn-outlined" data-goto="stats">${icon("insights")} Statistiche</button>
+    <button class="btn btn-outlined" id="q-xls">${icon("download")} Scarica Excel</button>
     <button class="btn btn-outlined" data-goto="sfoglia">${icon("menu_book")} Sfoglia con le risposte</button>
   </div>
   <section class="paper dashboard-prove"><div class="dashboard-prove__header"><div><h3 class="dashboard-prove__title">${icon("history")} Ultimi allenamenti</h3><p class="dashboard-prove__subtitle">Punteggio di ogni sessione, dalla più recente.</p></div></div>
-    ${recent.length?`<div class="dashboard-prove__list">${recent.map(h=>{ const p=h.n?Math.round(h.ok/h.n*100):0, good=p>=80;
+    ${recent.length?`<div class="dashboard-prove__list">${recent.map(h=>{ const ans=sessCounts(h).answered, p=ans?Math.round(h.ok/ans*100):0, good=p>=80;
       return `<div class="prova-card ${good?"prova-card--superata":"prova-card--non-superata"}" style="cursor:default"><span class="prova-card__num">${p}<span class="prova-card__num-hash">%</span></span>
         <span class="prova-card__body"><span class="prova-card__label" style="display:block">${esc(h.title)}</span><span class="prova-card__date">${icon("event")}${dmy(h.t)}<span class="prova-card__date-sep">·</span>${hm(h.t)}<span class="prova-card__date-sep">·</span>${mmss(h.sec)}</span></span>
-        <span class="prova-card__score"><span class="prova-card__score-value">${h.ok}</span><span class="prova-card__score-max">/${h.n}</span></span><span></span></div>`; }).join("")}</div>`
+        <span class="prova-card__score"><span class="prova-card__score-value">${h.ok}</span><span class="prova-card__score-max">/${ans}</span></span><span></span></div>`; }).join("")}</div>`
       :`<div class="alert">${icon("info_outline")}<span>Ancora nessun allenamento. Tocca "Domande totali" e scegli le categorie.</span></div>`}
   </section>`;
   bindGoto();
-  const qn=$("#q-new"); qn.onclick=()=>startSession({kind:"studio", title:"Domande mai fatte", ids:BY_MAT[m].filter(n=>!S.m[m][n]).slice(0,25), fb:"now"});
-  const qe=$("#q-err"); qe.onclick=()=>startSession({kind:"studio", title:"Ripasso sbagliate", ids:shuffle(errorsOf(m)).slice(0,50), fb:"now"});
+  const qn=$("#q-new"); qn.onclick=()=>startSession({kind:"studio", title:"Domande mai fatte", ids:BY_MAT[m].filter(n=>!S.m[m][n]).slice(0,25), fb:"now", w:"new", src:"home-new"});
+  $("#q-xls").onclick=e=>exportReport(e.currentTarget);
+  const qe=$("#q-err"); qe.onclick=()=>startSession({kind:"studio", title:"Ripasso sbagliate", ids:shuffle(errorsOf(m)).slice(0,50), fb:"now", w:"err", src:"home-err"});
 }
 function matBars(){
   const any=[1,2,3,4,5].some(m=>matStats(m).att>0);
@@ -1051,7 +1234,8 @@ function startTraining(base, label){
   const pool = tr.which==="new"&&fresh.length?fresh : tr.which==="err"&&wrong.length?wrong : base;
   const n=Math.max(1,Math.min(pool.length, tr.n||25));
   const tm = tr.time==="q60"?{perQ:60} : tr.time==="q85"?{perQ:85} : tr.time==="tot"?{limit:n*85} : {};
-  startSession(Object.assign({kind:"studio", title:`${label}${pool===fresh&&tr.which==="new"?" · mai fatte":pool===wrong&&tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end"}, tm));
+  const keys = base.length ? [...new Set(base.map(x=>Q[x-1][1]+":"+Q[x-1][2]))] : null;
+  startSession(Object.assign({kind:"studio", title:`${label}${pool===fresh&&tr.which==="new"?" · mai fatte":pool===wrong&&tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end", meta:sessionMeta(keys, pool===fresh&&tr.which==="new"?"new":pool===wrong&&tr.which==="err"?"err":"all", "cat")}, tm));
 }
 function renderTrainbar(G){
   const tr=state.train, base=selectionIds(G), picked=pickedIds(G).length>0;
@@ -1086,8 +1270,14 @@ function renderTrainbar(G){
   $("#tb-go").onclick=()=>{
     const label = picked ? (nCat===1 ? CONT[G.find(g=>g.subs.some(s=>state.picked.has(g.ci+":"+s.si))).ci] : `${nCat} categorie`) : "Tutte le categorie";
     const tm = tr.time==="q60"?{perQ:60} : tr.time==="q85"?{perQ:85} : tr.time==="tot"?{limit:n*85} : {};
-    startSession(Object.assign({kind:"studio", title:`${label}${tr.which==="new"?" · mai fatte":tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end"}, tm));
+    startSession(Object.assign({kind:"studio", title:`${label}${tr.which==="new"?" · mai fatte":tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end", meta:sessionMeta(picked?pickedKeys():null, tr.which, "bar")}, tm));
   };
+}
+function pickedKeys(){ return [...state.picked]; }
+function sessionMeta(keys, w, src){
+  // cosa ha scelto l'utente: categorie/sottocategorie selezionate (null = tutte), tipo di domande usato davvero e impostazioni della barra
+  const tr=state.train, sel=keys&&keys.length?keys.map(k=>k.split(":").map(Number)):null;
+  return {w:w||"all", tm:tr.time, fb:tr.fb?1:0, selC:sel?[...new Set(sel.map(x=>x[0]))]:null, selS:sel?[...new Set(sel.map(x=>x[1]))]:null, src:src||"bar"};
 }
 function readIds(ids,label){ state.browse.ids=ids.slice(); state.browse.label=label; state.browse.page=0; state.browse.q=""; state.browse.back="materia"; go("sfoglia"); }
 function openGroupDialog(ids,label){
@@ -1167,17 +1357,17 @@ function bindChartHover(){
 function renderStats(){
   const m=ONLY, ids=BY_MAT[m], s=gstats(ids);
   const sess=S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[m]).includes(m));
-  const answers=sess.reduce((a,h)=>a+h.n,0), okAns=sess.reduce((a,h)=>a+h.ok,0), secs=sess.reduce((a,h)=>a+h.sec,0);
+  const answers=sess.reduce((a,h)=>a+sessCounts(h).answered,0), okAns=sess.reduce((a,h)=>a+h.ok,0), secs=sess.reduce((a,h)=>a+h.sec,0);
   const days=new Set(sess.map(h=>dayKey(h.t)));
   const last=sess.slice(-30);
-  const perf=last.map(h=>({x:new Date(h.t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:Math.round(h.ok/h.n*100), tip:`<b>${esc(h.title)}</b><br>${dmy(h.t)} ${hm(h.t)}<br>${h.ok}/${h.n} giuste · <b>${Math.round(h.ok/h.n*100)}%</b><br>${Math.round(h.sec/h.n)} s a domanda`}));
+  const perf=last.map(h=>({x:new Date(h.t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:(c=>c.answered?Math.round(c.ok/c.answered*100):0)(sessCounts(h)), tip:(c=>`<b>${esc(h.title)}</b><br>${dmy(h.t)} ${hm(h.t)}<br>${c.ok}/${c.answered} giuste · <b>${c.answered?Math.round(c.ok/c.answered*100):0}%</b><br>${Math.round(h.sec/h.n)} s a domanda`)(sessCounts(h))}));
   const speed=last.map(h=>({x:new Date(h.t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:Math.round(h.sec/h.n), tip:`<b>${esc(h.title)}</b><br>${dmy(h.t)} ${hm(h.t)}<br><b>${Math.round(h.sec/h.n)} s</b> a domanda · totale ${mmss(h.sec)}`}));
   const dayRows=[]; for(let i=13;i>=0;i--){ const d=new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate()-i); const k=dayKey(d); const hs=sess.filter(h=>dayKey(h.t)===k);
-    dayRows.push({lab:d.toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), full:d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"}), ok:hs.reduce((a,h)=>a+h.ok,0), ko:hs.reduce((a,h)=>a+h.n-h.ok,0)}); }
+    dayRows.push({lab:d.toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), full:d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"}), ok:hs.reduce((a,h)=>a+h.ok,0), ko:hs.reduce((a,h)=>a+sessCounts(h).answered-h.ok,0)}); }
   const cats=groupsOf(m).map(g=>{ let att=0,cor=0,seen=0; g.ids.forEach(n=>{ const r=S.m[m][n]; if(r){ seen++; att+=r[0]; cor+=r[1]; } }); return {ci:g.ci, tot:g.ids.length, seen, att, acc:att?Math.round(cor/att*100):null}; })
     .sort((a,b)=>(a.acc===null)-(b.acc===null) || (a.acc??0)-(b.acc??0));
   const worst=ids.map(n=>{ const r=S.m[m][n]; return r?{n, wrong:r[0]-r[1], seen:r[0], last:r[2]}:null; }).filter(x=>x&&x.wrong>0).sort((a,b)=>b.wrong-a.wrong || a.last-b.last).slice(0,20);
-  $("#view").innerHTML = `${head("insights","Statistiche")}
+  $("#view").innerHTML = `<div class="stats-head">${head("insights","Statistiche")}<button class="btn btn-filled" id="xls">${icon("download")} Scarica Excel</button></div>
   <div class="stat-cards" style="margin-bottom:20px">
     <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("visibility")}</span><span class="stat-card__label">Domande fatte</span><span class="stat-card__value">${s.seen}<span class="of">/${s.tot}</span></span></div>
     <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Risposte giuste</span><span class="stat-card__value">${answers?Math.round(okAns/answers*100):0}<span class="of">%</span></span><span class="stat-card__sub">${okAns} su ${answers} risposte</span></div>
@@ -1196,14 +1386,170 @@ function renderStats(){
     <section class="paper card"><div class="cardhead"><h6>Sbagliate più spesso</h6>${worst.length?`<button class="btn btn-filled btn-sm" id="train-worst">${icon("play_arrow")} Allenati su queste</button>`:""}</div>
       ${worst.length?`<ol class="worst">${worst.map(w=>{ const q=Q[w.n-1]; return `<li><details><summary><span class="worst__n">${w.wrong}×</span><span class="worst__q">${esc(q[4])}</span><span class="worst__st ${w.last?"ok":"ko"}">${w.last?"ultima giusta":"ancora sbagliata"}</span></summary><div class="worst__a">${icon("check")}<span>${esc(q[5])}</span></div><div class="worst__meta">${esc(CONT[q[1]])} · sbagliata ${w.wrong} volte su ${w.seen}</div></details></li>`; }).join("")}</ol>`
       :`<div class="alert">${icon("info_outline")}<span>Nessuna domanda sbagliata finora. Quando sbagli, qui trovi quelle che ti fregano di più.</span></div>`}</section>
-  </div>`;
+  </div>
+  <section class="paper card" id="test-fatti"><div class="cardhead"><h6>Test fatti (${sessList().length})</h6></div>${testsListHTML()}</section>`;
   const draw=()=>{ document.querySelectorAll(".chart-slot").forEach(sl=>{ const W=sl.clientWidth, k=sl.dataset.chart;
       sl.innerHTML = k==="perf" ? svgLine(perf,{yMax:100,unit:"%",ref:80,refLabel:"soglia 80",color:"#2E7D32",label:"Percentuale di risposte giuste per allenamento"},W)
         : k==="speed" ? svgLine(speed,{yMax:Math.max(120,Math.ceil(Math.max(0,...speed.map(p=>p.y))/60)*60),unit:" s",ref:goal60()/60,refLabel:`obiettivo ${Math.round(goal60()/6)/10} s`,color:"#1976D2",label:"Secondi medi per domanda"},W)
         : svgDays(dayRows,W); }); bindChartHover(); };
   draw();
+  $("#xls").onclick=e=>exportReport(e.currentTarget);
+  bindTestRows();
   clearTimeout(window.__statsRz); window.onresize=()=>{ clearTimeout(window.__statsRz); window.__statsRz=setTimeout(()=>{ if(state.view==="stats") draw(); },150); };
-  const tw=$("#train-worst"); if(tw) tw.onclick=()=>startSession({kind:"studio", title:"Sbagliate più spesso", ids:shuffle(worst.map(w=>w.n)), fb:"now"});
+  const tw=$("#train-worst"); if(tw) tw.onclick=()=>startSession({kind:"studio", title:"Sbagliate più spesso", ids:shuffle(worst.map(w=>w.n)), fb:"now", w:"worst", src:"worst"});
+}
+
+/* ================= TEST FATTI ================= */
+const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso"};
+const WHICH_TXT={all:"tutte", new:"mai fatte", err:"sbagliate", worst:"sbagliate più spesso", redo:"da rivedere"};
+const TIME_TXT={free:"cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"tempo totale d'esame"};
+function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0).slice().sort((a,b)=>b.t-a.t); }
+function sessCounts(h){
+  const q=h.q||[]; const c=v=>q.filter(x=>x[1]===v).length;
+  return q.length ? {ok:c(1), err:c(-1), nls:c(-2), nd:c(0), answered:q.length-c(0)} : {ok:h.ok, err:null, nls:null, nd:null, answered:h.n};
+}
+function selText(h){
+  if(h.selC===null) return "Tutte le categorie";
+  if(Array.isArray(h.selC) && h.selC.length) return h.selC.map(i=>CONT[i]).filter(Boolean).join(" · ");
+  if(Array.isArray(h.cats) && h.cats.length) return h.cats.map(i=>CONT[i]).filter(Boolean).join(" · ");
+  return "";
+}
+function testRow(h, num){
+  const st=h.start||(h.t-h.sec*1000), c=sessCounts(h), p=c.answered?Math.round(c.ok/c.answered*100):0, goal=h.goal||goalFor(h.n);
+  return `<button class="test-row" data-test="${esc(skey(h))}">
+    <span class="test-row__n">#${num}</span>
+    <span class="test-row__when"><b>${dmy(st)}</b><span>${hm(st)}–${hm(h.t)} · ${mmss(h.sec)}</span></span>
+    <span class="test-row__what"><span class="test-row__title"><b>${esc(h.title.replace(/ \(interrotto\)$/,""))}</b>${h.cut?'<i class="tag-cut">interrotto</i>':""}</span><span>${esc(selText(h))}</span></span>
+    <span class="test-row__score ${p>=80?"ok":p>=60?"mid":"ko"}"><b>${c.ok}/${c.answered}</b><span>${p}%</span></span>
+    <span class="test-row__goal ${h.sec<=goal?"ok":"ko"}">${icon(h.sec<=goal?"flag":"schedule")}${h.sec<=goal?"in obiettivo":"+"+mmss(h.sec-goal)}</span>
+    <span class="test-row__go">${icon("chevron_right")}</span></button>`;
+}
+function dayTotals(hs){
+  let n=0, ok=0, ans=0, sec=0, inGoal=0;
+  hs.forEach(h=>{ const c=sessCounts(h); n+=h.n; ok+=c.ok; ans+=c.answered; sec+=h.sec; if(h.sec<=(h.goal||goalFor(h.n))) inGoal++; });
+  return {tests:hs.length, n, ok, ans, sec, inGoal, pct:ans?Math.round(ok/ans*100):0};
+}
+const hmin = s => { s=Math.round(s); const h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60; return h?`${h} h ${pad2(m)} min`:m?`${m} min ${pad2(x)} s`:`${x} s`; };
+function testsListHTML(){
+  const list=sessList();
+  if(!list.length) return `<div class="alert">${icon("info_outline")}<span>Ancora nessun test. Appena ne fai uno compare qui, con orario, durata, sezioni scelte e ogni risposta.</span></div>`;
+  const days=new Map(); list.forEach((h,i)=>{ const k=dayKey(h.start||(h.t-h.sec*1000)); if(!days.has(k)) days.set(k,[]); days.get(k).push({h,num:list.length-i}); });
+  return [...days.entries()].map(([k,items])=>{ const d=new Date(k+"T12:00:00"), tot=dayTotals(items.map(x=>x.h));
+    return `<div class="day-block"><div class="day-head"><span class="day-head__date">${icon("event")}<b>${(s=>s.charAt(0).toUpperCase()+s.slice(1))(d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"}))}</b></span>
+      <span class="day-head__stats"><span><b>${tot.tests}</b> ${tot.tests===1?"test":"test"}</span><span><b>${tot.n}</b> domande</span><span class="${tot.pct>=80?"ok":tot.pct>=60?"mid":"ko"}"><b>${tot.pct}%</b> giuste</span><span><b>${hmin(tot.sec)}</b> di studio</span><span><b>${tot.inGoal}/${tot.tests}</b> in obiettivo</span></span></div>
+      <div class="test-list">${items.map(x=>testRow(x.h, x.num)).join("")}</div></div>`; }).join("");
+}
+function bindTestRows(){ document.querySelectorAll("[data-test]").forEach(b=>b.onclick=()=>{ state.testKey=b.dataset.test; state.testBack=state.view; go("test"); }); }
+function renderTests(){
+  const list=sessList();
+  const all=dayTotals(list), nDays=new Set(list.map(h=>dayKey(h.start||(h.t-h.sec*1000)))).size;
+  $("#view").innerHTML = `<div class="stats-head">${head("history",`Test fatti (${list.length})`)}<button class="btn btn-filled" id="xls">${icon("download")} Scarica Excel</button></div>
+  <div class="stat-cards" style="margin-bottom:16px">
+    <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("assignment")}</span><span class="stat-card__label">Test fatti</span><span class="stat-card__value">${all.tests}</span><span class="stat-card__sub">in ${nDays} ${nDays===1?"giorno":"giorni"}</span></div>
+    <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Risposte giuste</span><span class="stat-card__value">${all.pct}<span class="of">%</span></span><span class="stat-card__sub">${all.ok} su ${all.ans} risposte</span></div>
+    <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("timer")}</span><span class="stat-card__label">Tempo di studio</span><span class="stat-card__value" style="font-size:24px">${hmin(all.sec)}</span><span class="stat-card__sub">${all.n} domande affrontate</span></div>
+    <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("flag")}</span><span class="stat-card__label">In obiettivo di tempo</span><span class="stat-card__value">${all.inGoal}<span class="of">/${all.tests}</span></span></div>
+  </div>
+  <p class="hint" style="margin:-6px 0 14px">Tutti i test raggruppati per giorno, dal più recente, con i totali di ogni giornata. Tocca un test per rivedere ogni domanda, l'esito e la risposta giusta.</p>
+  ${testsListHTML()}`;
+  bindTestRows(); $("#xls").onclick=e=>exportReport(e.currentTarget);
+}
+function renderTestDetail(){
+  const h=S.h.find(x=>skey(x)===state.testKey);
+  if(!h){ state.view="tests"; return render(); }
+  const st=h.start||(h.t-h.sec*1000), c=sessCounts(h), goal=h.goal||goalFor(h.n), list=sessList(), num=list.length-list.indexOf(h);
+  const E={"1":["Giusta","badge-esatta"],"-1":["Sbagliata","badge-errata"],"-2":["Non la sapevo","badge-errata"],"0":["Non data","badge-nondata"]};
+  const rows=(h.q||[]).map(([n,e,s],i)=>{ const q=Q[n-1]; if(!q) return ""; const [lab,cls]=E[String(e)];
+    return `<div class="tq"><div class="tq-head"><span class="tq-n">${i+1}</span><span class="tq-cat">${esc(CONT[q[1]])} › ${esc(SUB[q[2]]||"")}</span><span class="badge-esito ${cls}">${lab}</span>${s!=null?`<span class="tq-sec">${s} s</span>`:""}</div>
+      <div class="tq-q">${esc(q[4])}</div><div class="tq-a">${icon("check")}<span>${esc(q[5])}</span></div></div>`; }).join("");
+  const wrongIds=(h.q||[]).filter(x=>x[1]!==1).map(x=>x[0]);
+  $("#view").innerHTML = `<button class="backlink" id="t-back">${icon("arrow_back")} Test fatti</button>
+  ${head("assignment",`Test #${num} · ${dmy(st)} alle ${hm(st)}`)}
+  <section class="paper sess">
+    <h3 class="riepilogo-title">${icon("insights")} ${esc(h.title.replace(/ \(interrotto\)$/,""))}${h.cut?' <i class="tag-cut">interrotto</i>':""}</h3>
+    <div class="stat-cards">
+      <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("visibility")}</span><span class="stat-card__label">Domande</span><span class="stat-card__value">${h.n}</span></div>
+      <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Giuste</span><span class="stat-card__value">${c.ok}</span></div>
+      <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("cancel")}</span><span class="stat-card__label">Sbagliate</span><span class="stat-card__value">${c.err==null?h.n-h.ok:c.err+c.nls}</span>${c.nls?`<span class="stat-card__sub">di cui ${c.nls} "non la sapevo"</span>`:""}</div>
+      <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("help_outline")}</span><span class="stat-card__label">Non date</span><span class="stat-card__value">${c.nd==null?"–":c.nd}</span></div>
+    </div>
+    <div class="tempo-row">${icon("timer")}<span>Inizio <b>${hm(st)}</b> · fine <b>${hm(h.t)}</b></span><span class="sep">·</span><span>durata <b>${mmss(h.sec)}</b></span><span class="sep">·</span><span>media <b>${h.n?Math.round(h.sec/h.n):0} s</b> a domanda</span><span class="sep">·</span><span>obiettivo max <b>${mmss(goal)}</b></span>${h.sec<=goal?`<span class="goal-ok">${icon("check_circle")} dentro l'obiettivo</span>`:`<span class="goal-ko">${icon("schedule")} oltre di ${mmss(h.sec-goal)}</span>`}</div>
+    <div class="tmeta">
+      <div><span>Sezioni scelte</span><b>${esc(selText(h)||"—")}</b></div>
+      ${h.src?`<div><span>Avviato da</span><b>${esc(SRC_L[h.src]||"")}</b></div>`:""}
+      ${h.w?`<div><span>Domande</span><b>${esc(WHICH_TXT[h.w]||"")}</b></div>`:""}
+      ${h.tm?`<div><span>Tempo</span><b>${esc(TIME_TXT[h.tm]||"")}</b></div>`:""}
+      ${h.fb!=null?`<div><span>Correzione</span><b>${h.fb?"subito":"alla fine"}</b></div>`:""}
+    </div>
+    ${wrongIds.length?`<div><button class="btn btn-filled" id="t-redo">${icon("replay")} Rifai le ${wrongIds.length} non giuste</button></div>`:""}
+    ${rows?`<h3 class="riepilogo-title" style="margin-top:6px">${icon("list")} Domanda per domanda</h3><div class="tq-list">${rows}</div>`:`<div class="alert">${icon("info_outline")}<span>Per i test fatti prima dell'11 ottobre 2026 alle 17 è salvato solo il risultato complessivo, non il dettaglio di ogni domanda.</span></div>`}
+  </section>`;
+  $("#t-back").onclick=()=>go(state.testBack==="stats"?"stats":"tests");
+  const r=$("#t-redo"); if(r) r.onclick=()=>startSession({kind:"studio", title:"Rifai le non giuste", ids:shuffle(wrongIds.slice()), fb:"now", w:"redo", src:"redo"});
+}
+
+/* ================= ESPORTAZIONE EXCEL ================= */
+function loadXLSX(){
+  if(window.XLSX) return Promise.resolve(window.XLSX);
+  return new Promise((res,rej)=>{ const s=document.createElement("script"); s.src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"; s.onload=()=>res(window.XLSX); s.onerror=()=>rej(new Error("libreria non caricata")); document.head.appendChild(s); });
+}
+const WHICH_L={all:"Tutte", new:"Mai fatte", err:"Sbagliate"};
+const TIME_L={free:"Cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"Totale come all'esame"};
+const ESITO_L={"1":"Giusta","-1":"Sbagliata","-2":"Non la sapevo","0":"Non data"};
+function sheet(XLSX, rows, widths){ const ws=XLSX.utils.aoa_to_sheet(rows); ws["!cols"]=widths.map(w=>({wch:w})); ws["!autofilter"]={ref:XLSX.utils.encode_range({s:{r:0,c:0},e:{r:Math.max(0,rows.length-1),c:widths.length-1}})}; return ws; }
+async function exportReport(btn){
+  // prima si scaricano i progressi degli altri dispositivi, poi si genera il file
+  if(btn){ btn.disabled=true; btn.dataset.old=btn.innerHTML; btn.innerHTML=icon("sync")+" Aggiorno i dati…"; }
+  try{ await syncNow(6000); } finally { if(btn){ btn.disabled=false; btn.innerHTML=btn.dataset.old; } }
+  return exportExcel(btn);
+}
+async function exportExcel(btn){
+  if(IN_CLAUDE){ dialog({title:"Scarica Excel", body:"Da qui dentro Claude non si possono scaricare file. Apri la web app <b>popi99999.github.io/palestra-ocf</b> e premi lì Scarica Excel.", actions:[{label:"Ok",primary:true}]}); return; }
+  const old=btn&&btn.innerHTML; if(btn){ btn.disabled=true; btn.innerHTML=icon("hourglass_top")+" Preparo il file…"; }
+  try{
+    const XLSX=await loadXLSX(), m=ONLY, ids=BY_MAT[m], G=groupsOf(m), s=gstats(ids);
+    const catNo=new Map(G.map((g,i)=>[g.ci,i+1]));
+    const sess=S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[m]).includes(m)).slice().sort((a,b)=>a.t-b.t);
+    const d=t=>new Date(t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit",year:"numeric"}), hh=t=>new Date(t).toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+    const names=(arr,L)=>arr&&arr.length?arr.map(i=>L[i]).join("; "):"";
+    const answers=sess.reduce((a,h)=>a+h.n,0), okAns=sess.reduce((a,h)=>a+h.ok,0), secs=sess.reduce((a,h)=>a+h.sec,0);
+    const days=new Set(sess.map(h=>dayKey(h.t)));
+    // 1. Riepilogo
+    const riep=[["Voce","Valore"],
+      ["Esportato il", `${d(Date.now())} ${hh(Date.now())}`],["Materia", MAT[m].name],["Account", store.code?store.code.slice(0,4):"—"],
+      ["Domande totali", s.tot],["Domande fatte (almeno una volta)", s.seen],["Giuste (ultima risposta)", s.ok],["Sbagliate (ultima risposta)", s.wr],["Da fare", s.tot-s.seen],
+      ["Allenamenti", sess.length],["Giorni di studio", days.size],["Risposte date in totale", answers],["Risposte giuste in totale", okAns],["% risposte giuste", answers?Math.round(okAns/answers*1000)/10:0],
+      ["Tempo totale di studio (min)", Math.round(secs/6)/10],["Media secondi per domanda", answers?Math.round(secs/answers*10)/10:0],["Obiettivo (secondi ogni 60 domande)", goal60()],["Obiettivo (secondi per domanda)", Math.round(goal60()/60*10)/10]];
+    // 2. Allenamenti
+    const allen=[["N.","Data","Ora inizio","Ora fine","Durata (mm:ss)","Durata (s)","Allenamento","Domande","Giuste","Sbagliate","Non la sapevo","Non date","% giuste","Secondi per domanda","Obiettivo max (mm:ss)","Dentro l'obiettivo","Quali domande","Modalità tempo","Correzione subito","Categorie scelte","Sottocategorie scelte","Categorie svolte","Sottocategorie svolte"]];
+    sess.forEach((h,i)=>{ const st=h.start||(h.t-h.sec*1000), q=h.q||[], cnt=v=>q.filter(x=>x[1]===v).length, goal=h.goal||goalFor(h.n);
+      allen.push([i+1, d(st), hh(st), hh(h.t), mmss(h.sec), h.sec, h.title, h.n, h.ok, q.length?cnt(-1):h.n-h.ok, q.length?cnt(-2):"", q.length?cnt(0):"", Math.round(h.ok/h.n*1000)/10, Math.round(h.sec/h.n*10)/10, mmss(goal), h.sec<=goal?"Sì":"No",
+        WHICH_L[h.w]||"", TIME_L[h.tm]||"", h.fb==null?"":(h.fb?"Sì":"No"), h.selC===null?"Tutte":names(h.selC,CONT), h.selS===null?"Tutte":names(h.selS,SUB), names(h.cats,CONT), names(h.subs,SUB)]); });
+    // 3. Categorie
+    const cats=[["N.","Categoria","Domande","Fatte","Giuste (ultima)","Sbagliate (ultima)","Da fare","Risposte date","% giuste sulle risposte","Liv. preparazione (/100)","Copertura (/100)","Allenamenti in cui compare"]];
+    G.forEach((g,i)=>{ const st=gstats(g.ids); let att=0,cor=0; g.ids.forEach(n=>{ const r=S.m[m][n]; if(r){ att+=r[0]; cor+=r[1]; } });
+      cats.push([i+1, CONT[g.ci], st.tot, st.seen, st.ok, st.wr, st.tot-st.seen, att, att?Math.round(cor/att*1000)/10:"", Math.round(st.ok/st.tot*100), Math.round(st.seen/st.tot*100), sess.filter(h=>(h.cats||[]).includes(g.ci)).length]); });
+    // 4. Sottocategorie
+    const subs=[["Categoria","Sottocategoria","Domande","Fatte","Giuste (ultima)","Sbagliate (ultima)","Da fare","% giuste sulle risposte"]];
+    G.forEach(g=>g.subs.forEach(su=>{ const st=gstats(su.ids); let att=0,cor=0; su.ids.forEach(n=>{ const r=S.m[m][n]; if(r){ att+=r[0]; cor+=r[1]; } });
+      subs.push([`${pad2(catNo.get(g.ci))} ${CONT[g.ci]}`, SUB[su.si]||"", st.tot, st.seen, st.ok, st.wr, st.tot-st.seen, att?Math.round(cor/att*1000)/10:""]); }));
+    // 5. Domande (tutte le 400)
+    const dom=[["N. nella materia","Categoria","Sottocategoria","Livello (punti)","Pratica","Domanda","Risposta corretta","Volte viste","Giuste","Sbagliate","Ultima risposta","Stato"]];
+    G.forEach(g=>g.ids.forEach(n=>{ const q=Q[n-1], r=S.m[m][n];
+      dom.push([ids.indexOf(n)+1, `${pad2(catNo.get(g.ci))} ${CONT[g.ci]}`, SUB[q[2]]||"", q[3], q[9]?"Sì":"No", q[4], q[5], r?r[0]:0, r?r[1]:0, r?r[0]-r[1]:0, r?(r[2]?"Giusta":"Sbagliata"):"", !r?"Da fare":r[2]?"Giusta":"Da ripassare"]); }));
+    // 6. Dettaglio risposte
+    const det=[["Data","Ora fine allenamento","Allenamento","N. nella materia","Categoria","Sottocategoria","Domanda","Esito","Secondi sulla domanda"]];
+    sess.forEach(h=>(h.q||[]).forEach(([n,e,sec])=>{ const q=Q[n-1]; det.push([d(h.t), hh(h.t), h.title, ids.indexOf(n)+1, CONT[q[1]], SUB[q[2]]||"", q[4], ESITO_L[String(e)]||"", sec==null?"":sec]); }));
+    const wb=XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, sheet(XLSX,riep,[38,40]), "Riepilogo");
+    XLSX.utils.book_append_sheet(wb, sheet(XLSX,allen,[5,11,10,10,10,9,40,9,8,9,13,9,9,12,14,12,13,22,12,45,45,45,45]), "Allenamenti");
+    XLSX.utils.book_append_sheet(wb, sheet(XLSX,cats,[5,58,9,8,10,11,8,11,14,14,12,14]), "Categorie");
+    XLSX.utils.book_append_sheet(wb, sheet(XLSX,subs,[50,50,9,8,10,11,8,14]), "Sottocategorie");
+    XLSX.utils.book_append_sheet(wb, sheet(XLSX,dom,[8,45,40,9,8,80,60,9,8,9,12,12]), "Domande");
+    XLSX.utils.book_append_sheet(wb, sheet(XLSX,det,[11,10,40,8,45,40,80,14,10]), "Dettaglio risposte");
+    XLSX.writeFile(wb, `Palestra-OCF-statistiche-${dayKey(Date.now())}.xlsx`);
+  }catch(e){ dialog({title:"File non creato", body:"Non sono riuscito a preparare il file Excel. Controlla la connessione e riprova.", actions:[{label:"Ok",primary:true}]}); }
+  finally{ if(btn){ btn.disabled=false; btn.innerHTML=old; } }
 }
 
 /* ================= MIGLIORA ================= */
@@ -1283,10 +1629,11 @@ function buildSim(){
 
 /* ================= motore sessione ================= */
 let timerId=null;
+function defaultMeta(cfg){ return {w:cfg.w||"all", tm:cfg.limit?"tot":cfg.perQ===60?"q60":cfg.perQ===85?"q85":"free", fb:cfg.fb==="now"?1:0, selC:null, selS:null, src:cfg.src||null}; }
 function startSession(cfg){
   if(!cfg.ids.length) return;
-  state.T={goal:goalFor(cfg.ids.length), kind:cfg.kind, title:cfg.title, items:cfg.ids.map(n=>({n, order:shuffle([0,1,2,3]), pick:null, locked:false, timeout:false})), i:0, fb:cfg.fb, limit:cfg.limit||null, perQ:cfg.perQ||null, t0:Date.now(), qStart:Date.now(), done:false};
-  state.view="session"; closeDrawerMobile(); render(); window.scrollTo(0,0);
+  state.T={id:sid(), meta:Object.assign(defaultMeta(cfg), cfg.meta||{}), goal:goalFor(cfg.ids.length), kind:cfg.kind, title:cfg.title, items:cfg.ids.map(n=>({n, order:shuffle([0,1,2,3]), pick:null, locked:false, timeout:false})), i:0, fb:cfg.fb, limit:cfg.limit||null, perQ:cfg.perQ||null, t0:Date.now(), qStart:Date.now(), done:false};
+  state.view="session"; closeDrawerMobile(); render(); window.scrollTo(0,0); saveLive();
 }
 function elapsed(){ return (Date.now()-state.T.t0)/1000; }
 function setTimer(txt, low){ const el=$("#timer-v"); if(el){ el.textContent=txt; el.parentNode.classList.toggle("low",!!low); } }
@@ -1295,7 +1642,7 @@ function tick(){
   const gc=$("#goal-chip"); if(gc && T.goal){ const used=elapsed(), over=used>T.goal; gc.classList.toggle("over",over);
     $("#goal-v").textContent = over ? `obiettivo superato +${mmss(used-T.goal)}` : `${mmss(used)} / max ${mmss(T.goal)}`; }
   if(T.limit){ const left=T.limit-elapsed(); setTimer(mmss(left), left<300); if(left<=0) finish(); return; }
-  if(T.perQ){ const it=T.items[T.i]; if(it.locked){ setTimer("00:00", true); return; } const left=T.perQ-(Date.now()-T.qStart)/1000; setTimer(mmss(left), left<15); if(left<=0){ it.locked=true; it.timeout=it.pick===null; renderSession(); } return; }
+  if(T.perQ){ const it=T.items[T.i]; if(it.locked){ setTimer("00:00", true); return; } const left=T.perQ-(Date.now()-T.qStart)/1000; setTimer(mmss(left), left<15); if(left<=0){ it.locked=true; it.timeout=it.pick===null; if(it.spent==null) it.spent=T.perQ; renderSession(); saveLive(); } return; }
   setTimer(mmss(elapsed()));
 }
 function renderSession(){
@@ -1350,19 +1697,19 @@ function renderSession(){
 function dontKnow(){
   const T=state.T, it=T.items[T.i];
   if(T.kind==="sim" || it.locked || (it.pick!==null && (T.fb==="now"||it.pick===-2))) return;
-  it.pick=-2; it.locked=true; renderSession();
+  it.pick=-2; it.locked=true; renderSession(); saveLive();
 }
 function choose(orig){
   const T=state.T, it=T.items[T.i];
   if(it.locked || (T.fb==="now" && it.pick!==null)) return;
-  it.pick=orig; renderSession();
+  it.pick=orig; renderSession(); saveLive();
 }
 function advance(){
   const T=state.T, it=T.items[T.i];
   if(T.kind==="sim"){ if(T.i<T.items.length-1){ T.i++; renderSession(); } return; }
   if(T.kind==="migliora" && it.pick===null && !it.locked) return;
-  it.locked=true;
-  if(T.i<T.items.length-1){ T.i++; T.qStart=Date.now(); renderSession(); window.scrollTo(0,0); } else finish();
+  it.locked=true; if(it.spent==null) it.spent=Math.round((Date.now()-T.qStart)/1000);
+  if(T.i<T.items.length-1){ T.i++; T.qStart=Date.now(); renderSession(); window.scrollTo(0,0); saveLive(); } else finish();
 }
 function askEnd(){
   const T=state.T, nDone=T.items.filter(x=>x.pick!==null).length;
@@ -1371,21 +1718,31 @@ function askEnd(){
 }
 function askLeave(v){
   const T=state.T;
-  if(T.kind==="sim") dialog({title:"Simulazione in corso", body:"Stai per abbandonare la simulazione. La simulazione corrente sarà conclusa senza alcuna valutazione. Si desidera procedere?", actions:[{label:"Torna alla prova"},{label:"Esci",primary:true,run:()=>{ T.done=true; clearInterval(timerId); S.h.push({t:Date.now(),k:"sim",title:T.title,n:60,ok:0,sec:Math.round(elapsed()),nc:true}); lsWrite(); pushAll([]); state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0); }}]});
+  if(T.kind==="sim") dialog({title:"Simulazione in corso", body:"Stai per abbandonare la simulazione. La simulazione corrente sarà conclusa senza alcuna valutazione. Si desidera procedere?", actions:[{label:"Torna alla prova"},{label:"Esci",primary:true,run:()=>{ T.done=true; clearInterval(timerId); S.h.push({id:T.id,t:Date.now(),k:"sim",title:T.title,n:60,ok:0,sec:Math.round(elapsed()),nc:true}); lsSet(LIVE_KEY,null); lsWrite(); pushAll(); state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0); }}]});
   else dialog({title:"Sessione in corso", body:"Stai per lasciare la sessione. Le risposte date finora vengono salvate. Si desidera procedere?", actions:[{label:"Continua la sessione"},{label:"Esci",primary:true,run:()=>{ finish(true); state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0); }}]});
 }
 function examPoints(items){ return items.reduce((a,x)=>a+(x.pick===0?Q[x.n-1][3]:0),0); }
+function buildEntry(T, counted, tEnd){
+  // un test con il dettaglio di ogni domanda: esito e secondi (senza contare pause e domanda lasciata a metà)
+  const ok=counted.filter(x=>x.pick===0).length, hasSpent=counted.some(x=>x.spent!=null);
+  const sec = T.kind==="sim" ? Math.round((tEnd-T.t0)/1000) : hasSpent ? counted.reduce((a,x)=>a+(x.spent||0),0) : Math.round((tEnd-T.t0)/1000);
+  const e={id:T.id, t:tEnd, k:T.kind, title:T.title, n:counted.length, ok, sec, ms:[...new Set(counted.map(x=>Q[x.n-1][0]))],
+    start:T.t0, goal:goalFor(counted.length), g60:goal60(), cats:[...new Set(counted.map(x=>Q[x.n-1][1]))], subs:[...new Set(counted.map(x=>Q[x.n-1][2]))],
+    q:counted.map(x=>[x.n, x.pick===0?1:x.pick===-2?-2:x.pick===null?0:-1, x.spent==null?null:x.spent])};
+  Object.assign(e, T.meta||{});
+  if(T.kind==="sim" && T.items && T.items[0] && T.items[0].order){ e.pts=examPoints(T.items); e.det=T.items.map(x=>[x.n, x.pick===null?-1:x.pick, x.order.join("")]); }
+  return e;
+}
 function finish(silent){
   const T=state.T; if(T.done) return; T.done=true; clearInterval(timerId);
+  const cur=T.items[T.i];
+  if(T.kind!=="sim" && cur && cur.spent==null && (cur.pick!==null || cur.locked)) cur.spent=Math.round((Date.now()-T.qStart)/1000);
   const counted = T.kind==="sim" ? T.items : T.items.filter((x,k)=>k<T.i || x.pick!==null || x.locked);
-  counted.filter(x=>x.pick!==null).forEach(x=>record(x.n, x.pick===0));
   T.counted = counted;
-  const ok=counted.filter(x=>x.pick===0).length, sec=Math.round(elapsed()); T.sec=sec;
-  const ms=[...new Set(counted.map(x=>Q[x.n-1][0]))];
-  const entry={t:Date.now(), k:T.kind, title:T.title, n:counted.length, ok, sec, ms};
-  if(T.kind==="sim"){ entry.pts=examPoints(T.items); entry.det=T.items.map(x=>[x.n, x.pick===null?-1:x.pick, x.order.join("")]); }
-  if(counted.length) S.h.push(entry);
-  lsWrite(); pushAll(ms);
+  const entry=cleanSession(buildEntry(T, counted, Date.now()));
+  T.sec = entry ? entry.sec : 0;
+  if(counted.length && entry){ S.h.push(entry); derive(); }
+  lsSet(LIVE_KEY, null); lsWrite(); pushAll();
   if(!silent){ state.sel=0; state.view="riepilogo"; render(); window.scrollTo(0,0); }
 }
 function openSaved(h){
@@ -1428,7 +1785,7 @@ function renderRiepilogo(){
     <details class="paper expander"><summary>Tabella di sintesi ${icon("expand_more")}</summary><div class="tablewrap"><table class="mud"><thead><tr><th>Materia</th><th class="num">Quesiti</th><th class="num">Esatte</th><th class="num">Errate</th><th class="num">Non date</th>${isSim?'<th class="num">Punti</th>':""}</tr></thead><tbody>${perMat}</tbody></table></div></details>
   </section>`;
   document.querySelectorAll("[data-sel]").forEach(b=>b.onclick=()=>{ state.sel=+b.dataset.sel; renderRiepilogo(); });
-  const r=$("#redo"); if(r) r.onclick=()=>startSession({kind:"studio", title:"Rifai i quesiti da rivedere", ids:shuffle(wrongIds.slice()), fb:"now"});
+  const r=$("#redo"); if(r) r.onclick=()=>startSession({kind:"studio", title:"Rifai i quesiti da rivedere", ids:shuffle(wrongIds.slice()), fb:"now", w:"redo", src:"redo"});
   $("#again").onclick=()=>go("materia");
 }
 function riepQuesito(x,k){
@@ -1502,9 +1859,10 @@ document.addEventListener("keydown",e=>{
   if(T.kind==="sim"){ if(e.key==="ArrowRight"&&T.i<T.items.length-1){T.i++;renderSession();} else if(e.key==="ArrowLeft"&&T.i>0){T.i--;renderSession();} return; }
   if(e.key==="Enter"){ e.preventDefault(); advance(); }
 });
-window.addEventListener("beforeunload",()=>lsWrite());
+window.addEventListener("beforeunload",()=>{ lsWrite(); saveLive(); });
+window.addEventListener("pagehide",()=>{ lsWrite(); saveLive(); });
 
-{ const l=lsRead(); if(l && l.m) S=l; } // progressi del dispositivo subito, prima della sincronizzazione
+{ const l=lsRead(); if(l) setLocal(l); } // progressi del dispositivo subito, prima della sincronizzazione
 render();
 initStore();
 })();
