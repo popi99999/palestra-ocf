@@ -1,7 +1,6 @@
 <title>Palestra OCF</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- solo per le icone Material: il testo usa il font di sistema come il workspace -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <style>
 /* Layout: app shell come il workspace di allenamento — app bar verde fissa 64px, drawer 280px a sinistra, contenuto a destra.
@@ -442,6 +441,38 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .worst__a .mi{font-size:18px}
 .worst__meta{font-size:12px;color:var(--ocf-ink-muted);margin:0 12px 10px}
 @media (max-width:599.98px){ .worst summary{grid-template-columns:32px minmax(0,1fr)} .worst__st{grid-column:2;justify-self:start} }
+/* ---------- categorie in stile Studia per materia ---------- */
+.ocf-studia-filters{display:flex;align-items:center;gap:14px;margin:0 0 14px;flex-wrap:wrap}
+.ocf-studia-filters__label{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ocf-ink-soft)}
+.toggle{display:inline-flex;border:1px solid var(--ocf-brand-green);border-radius:4px;overflow:hidden;flex-wrap:wrap}
+.toggle button{border:0;border-right:1px solid var(--ocf-brand-green);background:#fff;color:var(--ocf-brand-green);font-family:var(--font);font-size:14px;font-weight:500;letter-spacing:.4px;text-transform:uppercase;padding:6px 12px;min-height:37px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.toggle button:last-child{border-right:0}
+.toggle button:hover{background:var(--ocf-brand-green-soft)}
+.toggle .mi{font-size:18px}
+@media (max-width:599.98px){ .toggle button{padding:6px 8px;font-size:12px} .toggle .mi{display:none} }
+.studia-materia-row.cat-row{grid-template-columns:22px 56px minmax(0,1.3fr) minmax(200px,1.1fr) minmax(190px,1fr) auto}
+.studia-materia-row.cat-row.is-sel{border-color:#A5D6A7}
+.cat-check{accent-color:var(--ocf-brand-green);width:18px;height:18px;margin:0;cursor:pointer}
+.cat-subs{grid-column:1/-1;margin:4px -24px -20px;border-top:1px solid var(--ocf-line)}
+.cat-subs .grp-sub{padding-left:100px}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--ocf-brand-green);cursor:pointer;display:inline-flex;align-items:center;gap:2px}
+.linkbtn b{color:var(--ocf-brand-green-dark)}
+.linkbtn .mi{font-size:16px}
+@media (max-width:1199.98px){ .studia-materia-row.cat-row{grid-template-columns:22px 56px minmax(0,1.5fr) minmax(170px,1fr) minmax(160px,.8fr) auto;gap:18px} }
+@media (max-width:999.98px){
+  .studia-materia-row.cat-row{grid-template-columns:22px 56px 1fr;grid-template-areas:"check badge main" "breakdown breakdown breakdown" "levels levels actions" "subs subs subs"}
+  .studia-materia-row.cat-row .cat-check{grid-area:check}
+  .studia-materia-row.cat-row .studia-materia-row__levels{grid-area:levels}
+  .cat-subs{grid-area:subs;margin:4px -24px -20px}
+}
+@media (max-width:767.98px){
+  .studia-materia-row.cat-row{grid-template-columns:22px 48px minmax(0,1fr);grid-template-areas:"check badge main" "breakdown breakdown breakdown" "levels levels levels" "actions actions actions" "subs subs subs";padding:16px 16px}
+  .studia-materia-row.cat-row .studia-badge{width:48px;height:48px;font-size:18px}
+  .studia-materia-row.cat-row .studia-materia-row__actions{flex-direction:row}
+  .studia-materia-row.cat-row .studia-materia-row__cta{width:auto;flex:1}
+  .cat-subs{margin:4px -16px -16px}
+  .cat-subs .grp-sub{padding-left:28px}
+}
 /* ---------- sincronizzazione ---------- */
 .syncbox{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:8px;padding:12px 14px}
 .syncbox code{font-family:"Roboto Mono",ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;letter-spacing:.06em;color:var(--ocf-brand-green-dark);flex:1;min-width:0;word-break:break-all}
@@ -929,40 +960,67 @@ function selectionIds(G){
 }
 function renderMateria(){
   const m=state.matSel=ONLY, G=groupsOf(m), keyOf=(g,s)=>g.ci+":"+s.si;
-  const nSub=G.reduce((a,g)=>a+g.subs.length,0), tot=BY_MAT[m].length;
-  const rows=G.map(g=>{
-    const open=state.open.has(g.ci), nSel=g.subs.filter(s=>state.picked.has(keyOf(g,s))).length, all=nSel===g.subs.length;
-    const subs = open ? g.subs.map(s=>`<div class="grp-sub"><input type="checkbox" data-pick="${keyOf(g,s)}" ${state.picked.has(keyOf(g,s))?"checked":""} aria-label="Seleziona ${esc(SUB[s.si])}">
+  const nSub=G.reduce((a,g)=>a+g.subs.length,0), all=gstats(BY_MAT[m]);
+  const rows=G.map((g,i)=>{
+    const open=state.open.has(g.ci), nSel=g.subs.filter(s=>state.picked.has(keyOf(g,s))).length, full=nSel===g.subs.length;
+    const st=gstats(g.ids), prep=Math.round(st.ok/st.tot*100), cop=Math.round(st.seen/st.tot*100), w=v=>(v/st.tot*100).toFixed(2)+"%";
+    const subs = open ? `<div class="cat-subs">${g.subs.map(s=>`<div class="grp-sub"><input type="checkbox" data-pick="${keyOf(g,s)}" ${state.picked.has(keyOf(g,s))?"checked":""} aria-label="Seleziona ${esc(SUB[s.si])}">
         <div><div class="grp-subtitle">${esc(SUB[s.si]||"Senza sottocategoria")}</div><div class="grp-meta"><b>${s.ids.length}</b> domande</div></div>
         ${statBlock(s.ids)}
-        <div class="grp-acts"><button class="btn btn-outlined btn-sm" data-leggi="${keyOf(g,s)}">${icon("menu_book")} Leggi</button></div></div>`).join("") : "";
-    return `<article class="grp ${nSel?"has-sel":""}" data-open="${open?1:0}">
-      <div class="grp-head"><input type="checkbox" data-pickall="${g.ci}" ${all?"checked":""} ${nSel&&!all?'data-partial="1"':""} aria-label="Seleziona ${esc(CONT[g.ci])}">
-        <button class="expbtn" data-exp="${g.ci}" aria-expanded="${open}" aria-label="Mostra le sottocategorie">${icon("expand_more")}</button>
-        <div><h3 class="grp-title" data-exp="${g.ci}">${esc(CONT[g.ci])}</h3><div class="grp-meta"><span class="cnt">${g.ids.length}</span> domande · ${g.subs.length} ${g.subs.length===1?"sottocategoria":"sottocategorie"}${nSel&&!all?` · <span style="color:var(--ocf-brand-green-dark)">${nSel} selezionate</span>`:""}</div></div>
-        ${statBlock(g.ids)}
-        <div class="grp-acts"><button class="btn btn-outlined btn-sm" data-leggi="${g.ci}">${icon("menu_book")} Leggi</button></div>
-      </div>${subs}</article>`;
+        <div class="grp-acts"><button class="btn btn-outlined btn-sm" data-leggi="${keyOf(g,s)}">${icon("menu_book")} Leggi</button><button class="btn btn-filled btn-sm" data-solo="${keyOf(g,s)}">${icon("play_arrow")} Allenati</button></div></div>`).join("")}</div>` : "";
+    return `<article class="studia-materia-row cat-row ${nSel?"is-sel":""}">${nSel?'<span class="studia-status-stripe"></span>':""}
+      <input type="checkbox" class="cat-check" data-pickall="${g.ci}" ${full?"checked":""} ${nSel&&!full?'data-partial="1"':""} aria-label="Seleziona ${esc(CONT[g.ci])}">
+      <div class="studia-materia-row__badge"><span class="studia-badge ${st.seen?"studia-badge--attiva":"studia-badge--inattiva"}">${pad2(i+1)}</span></div>
+      <div class="studia-materia-row__main"><div class="studia-materia-row__meta"><span><b>${g.ids.length}</b> domande</span><span>·</span><button class="linkbtn" data-exp="${g.ci}" aria-expanded="${open}"><b>${g.subs.length}</b> ${g.subs.length===1?"sottocategoria":"sottocategorie"} ${icon(open?"expand_less":"expand_more")}</button></div><h3 class="studia-materia-row__title" title="${esc(CONT[g.ci])}">${esc(CONT[g.ci])}</h3></div>
+      <div class="studia-materia-row__breakdown"><div class="studia-materia-row__breakdown-label">${st.seen?`<b>${st.seen}</b> domande fatte su ${st.tot}`:"Nessuna risposta"}</div>
+        <div class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${w(st.ok)}"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${w(st.wr)}"></span></div>
+        ${st.seen?`<div class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${st.ok} giuste</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${st.wr} sbagliate</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${st.tot-st.seen} da fare</span></div>`:`<div class="studia-breakdown-empty">Nessuna risposta ancora registrata</div>`}</div>
+      <div class="studia-materia-row__levels">
+        <div class="studia-level-meter-row"><div class="studia-level-meter__header"><span>Liv. preparazione</span><span class="studia-level-meter__value"><b>${prep}</b><span class="studia-level-meter__value-max">/100</span></span></div><div class="studia-level-meter"><div class="studia-level-meter__fill" style="width:${prep}%"></div></div></div>
+        <div class="studia-level-meter-row"><div class="studia-level-meter__header"><span>Copertura domande</span><span class="studia-level-meter__value"><b>${cop}</b><span class="studia-level-meter__value-max">/100</span></span></div><div class="studia-level-meter"><div class="studia-level-meter__fill" style="width:${cop}%"></div></div></div>
+      </div>
+      <div class="studia-materia-row__actions"><button class="btn btn-filled studia-materia-row__cta" data-solo="${g.ci}">${icon("school")} Allenati</button><button class="btn btn-outlined studia-materia-row__cta" data-leggi="${g.ci}">${icon("menu_book")} Leggi</button></div>
+      ${subs}
+    </article>`;
   }).join("");
   $("#view").innerHTML = `
-  <button class="backlink" id="back">${icon("arrow_back")} Home</button>
-  ${head("category","Categorie e allenamento")}
-  <div class="cat-sum"><span class="cat-sum__big">${tot}</span><span>domande totali in <b>${G.length}</b> categorie e <b>${nSub}</b> sottocategorie. Spunta quelle su cui allenarti (nessuna spunta = tutte), scegli quante domande e premi <b>Inizia</b>.</span></div>
-  <div class="grp-tools"><button class="btn btn-text btn-sm" id="sel-all">${icon("done_all")} Seleziona tutte</button><button class="btn btn-text btn-sm" id="sel-none">${icon("remove_done")} Deseleziona</button><button class="btn btn-text btn-sm" id="exp-all">${icon("unfold_more")} Apri sottocategorie</button><button class="btn btn-text btn-sm" id="col-all">${icon("unfold_less")} Chiudi</button></div>
-  <div class="grp-list">${rows}</div>
+  ${head("school","Categorie e allenamento")}
+  <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
+    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Diritto privato e commerciale</div>
+      <h2 class="ocf-landing-hero__title">Allenati sulle <b>categorie</b> che vuoi.</h2>
+      <p class="ocf-landing-hero__subtitle" style="margin-bottom:0">Spunta una o più categorie (nessuna spunta = tutte), scegli quante domande nella barra in basso e premi Inizia. Oppure premi Allenati su una sola categoria.</p></div>
+    <div class="ocf-landing-hero__right">
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.tot}</div><div class="ocf-landing-hero__stat-label">Domande</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${G.length}</div><div class="ocf-landing-hero__stat-label">Categorie</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.seen}<span class="ocf-landing-hero__stat-unit">/${all.tot}</span></div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.wr}</div><div class="ocf-landing-hero__stat-label">Sbagliate</div></div>
+    </div></div></section>
+  <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">Selezione</span>
+    <span class="toggle"><button id="sel-all">${icon("done_all")} Tutte</button><button id="sel-none">${icon("remove_done")} Nessuna</button><button id="exp-all">${icon("unfold_more")} Apri</button><button id="col-all">${icon("unfold_less")} Chiudi</button></span>
+    <span class="ocf-studia-filters__label" style="margin-left:auto">${nSub} sottocategorie</span></div>
+  <div class="studia-materia-list">${rows}</div>
   <div class="trainbar" id="trainbar"></div>`;
   document.querySelectorAll('[data-partial="1"]').forEach(c=>c.indeterminate=true);
   const find=key=>{ const [ci,si]=String(key).split(":").map(Number); const g=G.find(x=>x.ci===ci); if(si===undefined||isNaN(si)) return {ids:g.ids, label:CONT[ci]}; const s=g.subs.find(x=>x.si===si); return {ids:s.ids, label:`${CONT[ci]} › ${SUB[si]||"Senza sottocategoria"}`}; };
-  $("#back").onclick=()=>go("home");
   document.querySelectorAll("[data-exp]").forEach(b=>b.onclick=()=>{ const ci=+b.dataset.exp; state.open.has(ci)?state.open.delete(ci):state.open.add(ci); renderMateria(); });
   document.querySelectorAll("[data-pick]").forEach(c=>c.onchange=()=>{ c.checked?state.picked.add(c.dataset.pick):state.picked.delete(c.dataset.pick); renderMateria(); });
   document.querySelectorAll("[data-pickall]").forEach(c=>c.onchange=()=>{ const g=G.find(x=>x.ci===+c.dataset.pickall); g.subs.forEach(s=>c.checked?state.picked.add(keyOf(g,s)):state.picked.delete(keyOf(g,s))); renderMateria(); });
   document.querySelectorAll("[data-leggi]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.leggi); readIds(f.ids,f.label); });
+  document.querySelectorAll("[data-solo]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.solo); startTraining(f.ids, f.label); });
   $("#sel-all").onclick=()=>{ G.forEach(g=>g.subs.forEach(s=>state.picked.add(keyOf(g,s)))); renderMateria(); };
   $("#sel-none").onclick=()=>{ state.picked.clear(); renderMateria(); };
   $("#exp-all").onclick=()=>{ G.forEach(g=>state.open.add(g.ci)); renderMateria(); };
   $("#col-all").onclick=()=>{ state.open.clear(); renderMateria(); };
   renderTrainbar(G);
+}
+function startTraining(base, label){
+  // allena con le impostazioni della barra (quali, quante, tempo, correzione)
+  const tr=state.train;
+  const fresh=base.filter(n=>!S.m[ONLY][n]), wrong=base.filter(n=>{ const r=S.m[ONLY][n]; return r&&!r[2]; });
+  const pool = tr.which==="new"&&fresh.length?fresh : tr.which==="err"&&wrong.length?wrong : base;
+  const n=Math.max(1,Math.min(pool.length, tr.n||25));
+  const tm = tr.time==="q60"?{perQ:60} : tr.time==="q85"?{perQ:85} : tr.time==="tot"?{limit:n*85} : {};
+  startSession(Object.assign({kind:"studio", title:`${label}${pool===fresh&&tr.which==="new"?" · mai fatte":pool===wrong&&tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end"}, tm));
 }
 function renderTrainbar(G){
   const tr=state.train, base=selectionIds(G), picked=pickedIds(G).length>0;
