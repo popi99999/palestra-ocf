@@ -9,4 +9,6 @@ data=json.dumps({'c':C,'s':S,'q':rows},ensure_ascii=False,separators=(',',':')).
 t=open('palestra_template.html').read()
 open('palestra_ocf.html','w').write(t.replace('/*__DATA__*/',data))
 open('preview.html','w').write('<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>'+t.replace('/*__DATA__*/',data)+'</body></html>')
+# versione per GitHub Pages: documento completo, esclusa dai motori di ricerca
+open('index.html','w').write('<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"></head><body>'+t.replace('/*__DATA__*/',data)+'</body></html>')
 print('built')
