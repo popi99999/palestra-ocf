@@ -349,6 +349,11 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   .grp-sub .grp-stat,.grp-sub .grp-acts{grid-column:2}
   .grp-sub .grp-acts{justify-content:flex-start}
 }
+/* ---------- sincronizzazione ---------- */
+.syncbox{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:8px;padding:12px 14px}
+.syncbox code{font-family:"Roboto Mono",ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;letter-spacing:.06em;color:var(--ocf-brand-green-dark);flex:1;min-width:0;word-break:break-all}
+.appbar .status{cursor:pointer;background:transparent;border:0;color:inherit;text-align:left;font:inherit;height:100%}
+.appbar .status:hover{background:rgba(255,255,255,.08)}
 /* ---------- sfoglia ---------- */
 .browse-item{padding:14px 0;border-bottom:1px solid var(--ocf-line);display:flex;flex-direction:column;gap:6px}
 .browse-item:last-child{border-bottom:0}
@@ -406,8 +411,9 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   <h6>Palestra OCF — Workspace candidato</h6>
   <div class="acts">
     <button class="iconbtn" id="hdr-browse" title="Sfoglia i quesiti" aria-label="Sfoglia i quesiti"><span class="mi">menu_book</span></button>
+    <button class="iconbtn" id="hdr-sync" title="Sincronizza i dispositivi" aria-label="Sincronizza i dispositivi"><span class="mi">cloud_sync</span></button>
     <span class="sep"></span>
-    <div class="status"><span>Progressi:</span><b id="sync">in caricamento…</b></div>
+    <button class="status" id="hdr-status"><span>Progressi:</span><b id="sync">in caricamento…</b></button>
   </div>
 </header>
 <nav class="drawer nav" id="drawer" aria-label="Menu principale">
@@ -422,6 +428,8 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
     <a href="#" data-nav="report-sim">Simulazioni — andamento</a>
   </div>
   <a href="#" data-nav="sfoglia"><span class="mi">menu_book</span>Sfoglia i quesiti</a>
+  <hr>
+  <button class="navlink" id="nav-sync"><span class="mi">cloud_sync</span>Sincronizza i dispositivi</button>
 </nav>
 <div class="scrim" id="scrim" hidden></div>
 <main><div class="page" id="view"></div></main>
@@ -463,18 +471,80 @@ const hm = t => new Date(t).toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2
 const icon = n => `<span class="mi" aria-hidden="true">${n}</span>`;
 const pad2 = n => String(n).padStart(2,"0");
 
-/* ================= progressi: account (db) con riserva nel browser ================= */
-const LS_KEY = "palestra-ocf-v1";
+/* ================= progressi: sincronizzati online con il codice personale ================= */
+// Web app (GitHub Pages): i progressi vanno nel database online, legati a un codice segreto generato sul primo dispositivo.
+// Dentro Claude (artifact) la rete esterna è bloccata: lì si usa lo spazio dati dell'artifact.
+const LS_KEY = "palestra-ocf-v1", CODE_KEY = "palestra-ocf-code", SYNC_AT_KEY = "palestra-ocf-sync-at";
+const CLOUD = {url:"https://owxiwgfufhqxwygysgzu.supabase.co", key:"sb_publishable_scf7sDpikMUHXqGRkoQBcA_8eoxz-yt"};
+const IN_CLAUDE = !!(window.claude && window.claude.use);
 let S = {m:{1:{},2:{},3:{},4:{},5:{}}, h:[]}; // m[mat][n] = [viste, giuste, ultimaGiusta]
-const store = {db:null, uid:null};
-function lsRead(){ try{ const v=localStorage.getItem(LS_KEY); return v?JSON.parse(v):null; }catch(e){ return null; } }
-function lsWrite(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(S)); }catch(e){} }
-function setSync(t){ $("#sync").textContent=t; }
-function hasData(s){ return s && (s.h.length || [1,2,3,4,5].some(k=>Object.keys(s.m[k]||{}).length)); }
+const store = {db:null, uid:null, code:null, online:false, lastSync:null};
+const lsGet = k => { try{ return localStorage.getItem(k); }catch(e){ return null; } };
+const lsSet = (k,v) => { try{ v===null?localStorage.removeItem(k):localStorage.setItem(k,v); }catch(e){} };
+function lsRead(){ try{ const v=lsGet(LS_KEY); return v?JSON.parse(v):null; }catch(e){ return null; } }
+function lsWrite(){ lsSet(LS_KEY, JSON.stringify(S)); }
+function setSync(t){ const el=$("#sync"); if(el) el.textContent=t; }
+function hasData(s){ return s && ((s.h||[]).length || [1,2,3,4,5].some(k=>Object.keys((s.m||{})[k]||{}).length)); }
+function blank(){ return {m:{1:{},2:{},3:{},4:{},5:{}}, h:[]}; }
+// unisce i progressi di due dispositivi: per ogni quesito vince chi l'ha visto più volte; lo storico si somma
+function merge(a,b){
+  const out=blank();
+  for(const k of [1,2,3,4,5]){ const A=(a.m||{})[k]||{}, B=(b.m||{})[k]||{};
+    for(const n of new Set([...Object.keys(A),...Object.keys(B)])){ const x=A[n], y=B[n]; out.m[k][n] = !x?y : !y?x : (y[0]>x[0]?y:x); } }
+  const seen=new Map(); for(const h of [...(a.h||[]),...(b.h||[])]){ const key=h.t+"|"+h.k; const prev=seen.get(key); if(!prev || (h.det && !prev.det)) seen.set(key,h); }
+  out.h=[...seen.values()].sort((x,y)=>x.t-y.t).slice(-800);
+  return out;
+}
+const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+function newCode(){
+  const abc="ABCDEFGHJKLMNPQRSTUVWXYZ23456789", v=new Uint8Array(20); crypto.getRandomValues(v);
+  return [...v].map(x=>abc[x%32]).join("").match(/.{4}/g).join("-");
+}
+const normCode = c => String(c||"").toUpperCase().replace(/[^A-Z0-9]/g,"").match(/.{1,4}/g)?.join("-") || "";
+async function rpc(fn, body){
+  const r = await fetch(`${CLOUD.url}/rest/v1/rpc/${fn}`, {method:"POST", headers:{"apikey":CLOUD.key,"Content-Type":"application/json"}, body:JSON.stringify(body)});
+  if(!r.ok) throw new Error("rete "+r.status);
+  return r.json();
+}
+function stamp(){ store.lastSync=Date.now(); lsSet(SYNC_AT_KEY,String(store.lastSync)); }
+function syncLabel(){ return store.online ? "salvati online · sincronizzati" : "salvati sul dispositivo · in attesa di rete"; }
+async function cloudPull(){
+  // scarica, unisce con il dispositivo e rimanda online se qui c'era qualcosa di nuovo
+  if(IN_CLAUDE || !store.code) return false;
+  try{
+    const remote = await rpc("load_progress", {p_code:store.code}) || blank();
+    const merged = merge(S, remote), changedHere = !same(merged, S), needPush = !same(merged, merge(remote, blank()));
+    S = merged; lsWrite();
+    if(needPush) await rpc("save_progress", {p_code:store.code, p_data:S});
+    store.online=true; stamp(); setSync(syncLabel());
+    return changedHere;
+  }catch(e){ store.online=false; setSync(syncLabel()); return false; }
+}
+let pushTimer=null, pushing=Promise.resolve();
+function cloudPush(){
+  if(IN_CLAUDE || !store.code) return;
+  clearTimeout(pushTimer);
+  pushTimer=setTimeout(()=>{ pushing = pushing.then(async()=>{
+    try{ const remote = await rpc("load_progress", {p_code:store.code}) || blank(); S = merge(S, remote); lsWrite(); await rpc("save_progress", {p_code:store.code, p_data:S}); store.online=true; stamp(); }
+    catch(e){ store.online=false; }
+    setSync(syncLabel());
+  }); }, 800);
+}
 async function initStore(){
   const local=lsRead(); if(local && local.m) S=local;
+  store.lastSync=+lsGet(SYNC_AT_KEY)||null;
+  if(!IN_CLAUDE){
+    store.code = lsGet(CODE_KEY);
+    if(!store.code){ store.code=newCode(); lsSet(CODE_KEY, store.code); }
+    setSync("sincronizzazione…");
+    const changed = await cloudPull();
+    if(changed && state.view!=="session") render();
+    document.addEventListener("visibilitychange", async()=>{ if(document.visibilityState==="visible"){ const ch=await cloudPull(); if(ch && state.view!=="session") render(); } });
+    window.addEventListener("online", ()=>cloudPull());
+    if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js").catch(()=>{});
+    return;
+  }
   setSync("salvati in questo browser");
-  if(!(window.claude && window.claude.use)) return;
   try{
     const [db,user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
     if(!db || !user) return;
@@ -482,16 +552,17 @@ async function initStore(){
     store.db=db; store.uid=uid;
     const col = db.collection("data/users/"+uid);
     const snaps = await Promise.all(["m1","m2","m3","m4","m5","hist"].map(k=>col.doc(k).get()));
-    const remote = {m:{1:{},2:{},3:{},4:{},5:{}}, h:[]};
+    const remote = blank();
     snaps.slice(0,5).forEach((s,i)=>{ if(s.exists) remote.m[i+1]=JSON.parse(JSON.stringify(s.data().q||{})); });
     if(snaps[5].exists) remote.h=JSON.parse(JSON.stringify(snaps[5].data().h||[]));
-    if(hasData(remote)){ S=remote; lsWrite(); } else if(hasData(S)){ await pushAll([1,2,3,4,5]); }
+    if(hasData(remote)){ S=merge(S,remote); lsWrite(); } else if(hasData(S)){ await pushAll([1,2,3,4,5]); }
     setSync("salvati sul tuo account");
     if(state.view!=="session") render();
   }catch(e){ setSync("salvati in questo browser"); }
 }
 let saving = Promise.resolve();
 function pushAll(mats){
+  cloudPush();
   if(!store.db) return Promise.resolve();
   const col = store.db.collection("data/users/"+store.uid);
   saving = saving.then(async()=>{
@@ -502,6 +573,25 @@ function pushAll(mats){
     catch(e){ setSync("non salvati online: restano in questo browser"); }
   });
   return saving;
+}
+/* ---------- finestra "Sincronizza i dispositivi" ---------- */
+function openSyncDialog(){
+  if(IN_CLAUDE){ dialog({title:"Salvataggio", body:"Qui dentro Claude i progressi si salvano sul tuo account Claude. Per averli uguali su telefono e computer usa la web app: <b>popi99999.github.io/palestra-ocf</b>.", actions:[{label:"Chiudi",primary:true}]}); return; }
+  const when = store.lastSync ? `${dmy(store.lastSync)} alle ${hm(store.lastSync)}` : "mai";
+  dialog({title:"Sincronizza i dispositivi", body:`
+    <p style="margin:0 0 10px">I progressi si salvano online con questo <b>codice personale</b>. Inseriscilo una volta sugli altri dispositivi (telefono, computer) e restano tutti allineati.</p>
+    <div class="syncbox"><code id="sync-code">${esc(store.code)}</code><button class="btn btn-outlined btn-sm" id="sync-copy">${icon("content_copy")} Copia</button></div>
+    <p class="hint">Stato: ${esc(syncLabel())} · ultima sincronizzazione: ${when}. Tienilo per te: chi ha il codice vede i tuoi progressi.</p>
+    <div class="field" style="margin-top:18px"><label for="sync-in">Hai già un codice su un altro dispositivo?</label><input id="sync-in" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><span class="hint">I progressi di questo dispositivo vengono uniti a quelli del codice inserito, niente va perso.</span></div>`,
+    actions:[{label:"Chiudi"},{label:"Usa questo codice",primary:true}]});
+  $("#sync-copy").onclick=()=>{ const c=store.code; navigator.clipboard?.writeText(c).then(()=>{ $("#sync-copy").innerHTML=icon("check")+" Copiato"; }).catch(()=>{ const r=document.createRange(); r.selectNodeContents($("#sync-code")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }); };
+  $("#dlg .btn-filled").onclick=async()=>{
+    const c=normCode($("#sync-in").value);
+    if(c.replace(/-/g,"").length<20){ $("#sync-in").style.borderColor="#C62828"; $("#sync-in").nextElementSibling.textContent="Il codice ha 20 caratteri, del tipo ABCD-EFGH-JKLM-NPQR-STUV."; return; }
+    store.code=c; lsSet(CODE_KEY,c); closeDialog(); setSync("sincronizzazione…");
+    await cloudPull(); render();
+    dialog({title:"Dispositivo collegato", body: store.online?"Fatto: questo dispositivo ora usa il tuo codice e i progressi sono uniti.":"Codice salvato. Appena c'è connessione i progressi vengono sincronizzati.", actions:[{label:"Ok",primary:true}]});
+  };
 }
 function record(n, ok){ const m=Q[n-1][0]; const r=S.m[m][n]||[0,0,0]; r[0]++; if(ok) r[1]++; r[2]=ok?1:0; S.m[m][n]=r; }
 function matStats(m){
@@ -531,6 +621,7 @@ function go(v){
   state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0);
 }
 document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",e=>{ e.preventDefault(); if(a.dataset.nav==="sfoglia"){ state.browse.ids=null; state.browse.label=""; } go(a.dataset.nav); }));
+$("#hdr-sync").onclick=openSyncDialog; $("#hdr-status").onclick=openSyncDialog; $("#nav-sync").onclick=()=>{ closeDrawerMobile(); openSyncDialog(); };
 $("#hdr-browse").onclick=()=>{ state.browse.ids=null; state.browse.label=""; go("sfoglia"); };
 $("#grp-report").onclick=()=>{ const b=$("#grp-report"), open=b.getAttribute("aria-expanded")!=="true"; b.setAttribute("aria-expanded",open); $("#sub-report").hidden=!open; };
 const mq = window.matchMedia("(max-width:959.98px)");

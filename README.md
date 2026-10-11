@@ -7,7 +7,9 @@ Allenamento personale per la prova valutativa OCF: 5.000 quesiti ufficiali (banc
 - `build.py` — inietta i quesiti e genera `palestra_ocf.html` (e `preview.html` per aprirla in locale)
 - `palestra_ocf.html` — pagina pronta, pubblicata come Artifact Claude privato
 
-Repo privato: contiene materiale riservato (area riservata OCF, piano Mediolanum). Non renderlo pubblico.
+Web app: https://popi99999.github.io/palestra-ocf/ (installabile: `manifest.webmanifest`, `sw.js`, `icons/`).
+
+Sincronizzazione: i progressi stanno in Supabase (progetto `palestra-ocf`, tabella `progress`), legati all'hash SHA-256 di un codice personale generato sul primo dispositivo. La tabella non è accessibile direttamente: si passa solo dalle funzioni `load_progress(code)` e `save_progress(code, data)`. Su ogni dispositivo si inserisce lo stesso codice da "Sincronizza i dispositivi".
 
 ```
 python3 build.py

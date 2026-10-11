@@ -10,5 +10,10 @@ t=open('palestra_template.html').read()
 open('palestra_ocf.html','w').write(t.replace('/*__DATA__*/',data))
 open('preview.html','w').write('<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body>'+t.replace('/*__DATA__*/',data)+'</body></html>')
 # versione per GitHub Pages: documento completo, esclusa dai motori di ricerca
-open('index.html','w').write('<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"></head><body>'+t.replace('/*__DATA__*/',data)+'</body></html>')
+PWA_HEAD=('<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
+  '<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#2E7D32">'
+  '<link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">'
+  '<link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes">'
+  '<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Palestra OCF">')
+open('index.html','w').write('<!doctype html><html lang="it"><head>'+PWA_HEAD+'</head><body>'+t.replace('/*__DATA__*/',data)+'</body></html>')
 print('built')
