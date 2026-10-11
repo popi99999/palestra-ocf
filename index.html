@@ -414,6 +414,11 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .tempo-row .mi{color:var(--ocf-brand-green-dark);font-size:20px}
 .tempo-row .sep{opacity:.5}
 .tempo-row .muted{color:var(--ocf-ink-muted)}
+/* ---------- non la so ---------- */
+.btn-nonloso{background:#FFF4E5;color:#B7560B;border:1px solid #F5C08A;padding:5px 15px}
+.btn-nonloso:hover{background:#FFE8CC}
+.alert-nonloso{border-color:#F5C08A;color:#7A3E06;background:#FFF8EE}
+.alert-nonloso b{color:#C62828}
 /* ---------- sincronizzazione ---------- */
 .syncbox{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:8px;padding:12px 14px}
 .syncbox code{font-family:"Roboto Mono",ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;letter-spacing:.06em;color:var(--ocf-brand-green-dark);flex:1;min-width:0;word-break:break-all}
@@ -1085,7 +1090,7 @@ function renderSession(){
   const T=state.T, it=T.items[T.i], q=Q[it.n-1], N=T.items.length;
   const nDone=T.items.filter(x=>x.pick!==null).length;
   const isSim=T.kind==="sim", isMig=T.kind==="migliora";
-  const reveal = T.fb==="now" && it.pick!==null;
+  const reveal = it.pick!==null && (T.fb==="now" || it.pick===-2); // "non la so" mostra sempre la risposta giusta
   const pageIcon=isSim?"quiz":isMig?"trending_up":"school", pageTitle=isSim?"Mettiti alla prova":isMig?"Migliora la tua preparazione":"Allenamento";
   const alts = it.order.map((orig,pos)=>{
     let cls="quesito-alt-row", tag="";
@@ -1106,10 +1111,11 @@ function renderSession(){
     chips=`<span class="chip chip-outline-green">Quesito ${T.i+1} / ${N}</span><span class="chip chip-dark">Materia: ${esc(MAT[q[0]].name)}</span><span class="chip chip-grey right">${icon("speed")} Livello ${q[3]}</span><span class="chip timer-chip timer-big" title="${T.limit?"Tempo rimasto":T.perQ?"Tempo per questa domanda":"Tempo trascorso"}">${icon(T.limit||T.perQ?"hourglass_bottom":"timer")}<span class="timer-lbl">${T.limit?"Restano":T.perQ?"Domanda":"Tempo"}</span><span id="timer-v"></span></span>`;
     const canNext = isMig ? (it.pick!==null||it.locked) : true;
     bar=`<button class="btn btn-outlined" id="clear" ${it.pick===null||reveal||it.locked?"disabled":""}>Annulla risposta</button>
+      <button class="btn btn-nonloso" id="nonloso" ${reveal||it.locked?"disabled":""}>${icon("help_outline")} Non la so</button>
       <span class="push"><button class="btn btn-outlined" id="end">Termina</button><button class="btn btn-filled" id="next" ${canNext?"":"disabled"}>${last?"Concludi sessione":"Prossimo quesito"}</button></span>`;
   }
   const posInMat=BY_MAT[q[0]].indexOf(it.n)+1;
-  const note = it.timeout?`<div class="alert" style="border-color:var(--nondata);color:var(--nondata)">${icon("timer_off")}<span>Tempo scaduto: il quesito resta senza risposta. Prosegui con il prossimo o termina la sessione.</span></div>`:"";
+  const note = it.pick===-2?`<div class="alert alert-nonloso">${icon("lightbulb")}<span>Segnata come <b>sbagliata</b>: la risposta giusta è quella in verde. Fissa le parole chiave e vai avanti, la ritrovi in "Ripassa le sbagliate".</span></div>` : it.timeout?`<div class="alert" style="border-color:var(--nondata);color:var(--nondata)">${icon("timer_off")}<span>Tempo scaduto: il quesito resta senza risposta. Prosegui con il prossimo o termina la sessione.</span></div>`:"";
   $("#view").innerHTML = `${head(pageIcon,pageTitle)}
   <section class="paper sess">
     <div class="sess-chips">${chips}</div>
@@ -1118,15 +1124,21 @@ function renderSession(){
     <div class="quesito-alt-list">${alts}</div>
     ${note}
     <div class="sess-bar">${bar}</div>
-    ${isSim?"":`<p class="hint">${esc(T.title)} · ${esc(CONT[q[1]])} · quesito ${posInMat} della materia. Tastiera: A–D o 1–4 per rispondere, Invio per proseguire.</p>`}
+    ${isSim?"":`<p class="hint">${esc(T.title)} · ${esc(CONT[q[1]])} · quesito ${posInMat} della materia. Tastiera: A–D o 1–4 per rispondere, N per "Non la so", Invio per proseguire.</p>`}
   </section>`;
   tick();
   document.querySelectorAll(".quesito-alt-row--interactive").forEach(b=>b.onclick=()=>choose(+b.dataset.o));
   document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{ T.i=+b.dataset.go; renderSession(); });
   const c=$("#clear"); if(c) c.onclick=()=>{ it.pick=null; renderSession(); };
+  const nl=$("#nonloso"); if(nl) nl.onclick=()=>dontKnow();
   const p=$("#prev"); if(p) p.onclick=()=>{ if(T.i>0){ T.i--; renderSession(); } };
   const nx=$("#next"); if(nx) nx.onclick=()=>advance();
   $("#end").onclick=askEnd;
+}
+function dontKnow(){
+  const T=state.T, it=T.items[T.i];
+  if(T.kind==="sim" || it.locked || (it.pick!==null && (T.fb==="now"||it.pick===-2))) return;
+  it.pick=-2; it.locked=true; renderSession();
 }
 function choose(orig){
   const T=state.T, it=T.items[T.i];
@@ -1207,7 +1219,7 @@ function renderRiepilogo(){
 }
 function riepQuesito(x,k){
   const q=Q[x.n-1];
-  const b = x.pick===0?'<span class="badge-esito badge-esatta">Esatta</span>':x.pick===null?'<span class="badge-esito badge-nondata">Non data</span>':'<span class="badge-esito badge-errata">Errata</span>';
+  const b = x.pick===0?'<span class="badge-esito badge-esatta">Esatta</span>':x.pick===-2?'<span class="badge-esito badge-errata">Non la sapevo</span>':x.pick===null?'<span class="badge-esito badge-nondata">Non data</span>':'<span class="badge-esito badge-errata">Errata</span>';
   const alts = x.order.map((orig,pos)=>{ let cls="quesito-alt-row", tag=""; if(orig===0){cls+=" quesito-alt-row--corretta"; tag="(corretta)";} else if(x.pick===orig){cls+=" quesito-alt-row--data"; tag="(tua risposta)";}
     return `<div class="${cls}"><span class="quesito-alt-row__letter">${L[pos]}</span><span class="quesito-alt-row__body">${esc(q[5+orig])}</span>${tag?`<span class="quesito-alt-row__tag">${tag}</span>`:""}</div>`; }).join("");
   return `<div class="rq"><div class="rq-head"><span>Quesito ${k+1} — ${esc(MAT[q[0]].name)} · Livello ${q[3]}</span>${b}</div>
@@ -1272,6 +1284,7 @@ document.addEventListener("keydown",e=>{
   const T=state.T, it=T.items[T.i], k=e.key.toUpperCase();
   let pos=L.indexOf(k); if(pos<0 && ["1","2","3","4"].includes(k)) pos=+k-1;
   if(pos>=0){ e.preventDefault(); choose(it.order[pos]); return; }
+  if(k==="N" || k==="?"){ e.preventDefault(); dontKnow(); return; }
   if(T.kind==="sim"){ if(e.key==="ArrowRight"&&T.i<T.items.length-1){T.i++;renderSession();} else if(e.key==="ArrowLeft"&&T.i>0){T.i--;renderSession();} return; }
   if(e.key==="Enter"){ e.preventDefault(); advance(); }
 });
