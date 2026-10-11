@@ -1,0 +1,960 @@
+<title>Palestra OCF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+/* Layout: app shell come il workspace di allenamento — app bar verde fissa 64px, drawer 280px a sinistra, contenuto a destra.
+   Aspetto chiaro fisso per scelta (riproduce la schermata d'esame). */
+:root{
+  color-scheme:light;
+  --ocf-brand-green:#2E7D32; --ocf-brand-green-dark:#1B5E20; --ocf-brand-green-soft:#E8F5E9;
+  --ocf-ink:#1F2937; --ocf-ink-soft:#4B5563; --ocf-ink-muted:#6B7280; --ocf-line:#E5E7EA; --ocf-red:#C62828;
+  --mud-text:#212121; --mud-nav:#424242; --mud-bg:#FAFAFA; --white:#FFFFFF;
+  --sim-blue:#1976D2; --sim-purple:#4A148C; --sim-lilac:#B39DDB; --orange:#B7560B; --orange-soft:#FFF4E5;
+  --blue-soft:#E3F2FD; --blue-ink:#0D47A1; --red-soft:#FFEBEE; --chip-dark:#424242; --chip-grey:#E0E0E0; --nondata:#E65100;
+  --font:Roboto, Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--mud-bg)}
+body{margin:0;font-family:var(--font);font-size:14px;color:var(--mud-text);letter-spacing:.01071em;line-height:1.43}
+button{font-family:var(--font)}
+.mi{font-family:"Material Icons";font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;font-feature-settings:"liga"}
+:focus-visible{outline:3px solid var(--ocf-brand-green);outline-offset:2px}
+
+/* ---------- app bar ---------- */
+.appbar{position:fixed;top:0;left:0;right:0;height:calc(64px + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);background:var(--ocf-brand-green);color:var(--white);display:flex;align-items:center;z-index:30;
+  box-shadow:0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12)}
+.iconbtn{width:48px;height:48px;border-radius:50%;border:0;background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer}
+.iconbtn:hover{background:rgba(255,255,255,.08)}
+.appbar .menu{margin-left:12px}
+.brandmark{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center;margin-left:8px;flex-shrink:0}
+.appbar h6{margin:0 0 0 12px;font-size:20px;font-weight:500;letter-spacing:.0075em;line-height:1.6;flex:1;min-width:0}
+.appbar .acts{display:flex;align-items:center;height:100%}
+.appbar .sep{width:1px;align-self:stretch;background:rgba(255,255,255,.25)}
+.appbar .status{padding:0 16px;font-size:14px;line-height:1.35;max-width:300px}
+.appbar .status b{display:block;font-weight:700;font-size:13px}
+/* ---------- drawer ---------- */
+.drawer{position:fixed;top:calc(64px + env(safe-area-inset-top,0px));bottom:0;left:0;width:280px;background:var(--white);overflow-y:auto;z-index:20;transition:transform .2s}
+.nav a,.nav button.navlink{display:flex;align-items:center;gap:16px;width:100%;min-height:40px;padding:8px 16px;color:var(--mud-nav);text-decoration:none;font-size:14px;font-weight:400;background:transparent;border:0;cursor:pointer;text-align:left;line-height:1.15}
+.nav a:hover,.nav button.navlink:hover{background:rgba(66,66,66,.04)}
+.nav a.active{color:var(--ocf-brand-green);font-weight:500;background:rgba(66,66,66,.06)}
+.nav a .mi,.nav button.navlink .mi{color:var(--mud-nav);flex-shrink:0;font-size:24px}
+.nav a.active .mi{color:var(--ocf-brand-green)}
+.nav .two{min-height:44px}
+.nav hr{border:0;border-top:1px solid rgba(0,0,0,.12);margin:8px 0}
+.nav .group .chev{margin-left:auto;transition:transform .2s}
+.nav .group[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.nav .sub a{padding-left:56px}
+.scrim{position:fixed;inset:0;background:rgba(33,33,33,.4);z-index:19}
+/* ---------- main ---------- */
+main{margin-left:280px;padding:calc(64px + env(safe-area-inset-top,0px)) 16px 40px;min-height:100vh}
+.page{max-width:1200px;margin:0 auto;padding-top:16px}
+.pagehead{display:flex;align-items:center;gap:12px;margin:0 0 16px}
+.pagehead .mi{color:var(--ocf-brand-green)}
+.pagehead h1{margin:0;font-size:24px;font-weight:400;line-height:1.334}
+.drawer-closed .drawer{transform:translateX(-100%)}
+.drawer-closed main{margin-left:0}
+@media (max-width:959.98px){
+  main{margin-left:0}
+  .drawer{transform:translateX(-100%);box-shadow:0 8px 10px -5px rgba(0,0,0,.2),0 16px 24px 2px rgba(0,0,0,.14)}
+  .drawer-open .drawer{transform:none}
+  .appbar .status{display:none}
+}
+@media (max-width:599.98px){ .appbar h6{font-size:17px} .brandmark{display:none} }
+
+/* ---------- mud basics ---------- */
+.paper{background:var(--white);border-radius:4px;box-shadow:0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:36.5px;padding:6px 16px;border-radius:4px;font-size:14px;font-weight:500;letter-spacing:.02857em;text-transform:uppercase;cursor:pointer;border:0;line-height:1.75;text-decoration:none;white-space:nowrap}
+.btn .mi{font-size:20px}
+.btn-filled{background:var(--ocf-brand-green);color:var(--white);box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}
+.btn-filled:hover{background:#1f6b24}
+.btn-outlined{background:var(--white);color:var(--mud-text);border:1px solid rgba(0,0,0,.87);padding:5px 15px}
+.btn-outlined:hover{background:rgba(0,0,0,.04)}
+.btn-text{background:transparent;color:var(--mud-text)}
+.btn-text:hover{background:rgba(0,0,0,.04)}
+.btn-red{background:#D32F2F;color:var(--white);box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}
+.btn:disabled{opacity:.38;cursor:default;box-shadow:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:16px;font-size:14px;white-space:nowrap}
+.chip-outline-green{border:1px solid var(--ocf-brand-green);color:var(--ocf-brand-green)}
+.chip-outline{border:1px solid rgba(0,0,0,.87);color:var(--mud-text)}
+.chip-dark{background:var(--chip-dark);color:var(--white);white-space:normal;height:auto;min-height:32px;padding:4px 12px}
+.chip-grey{background:var(--chip-grey);color:var(--mud-text)}
+.chip .mi{font-size:18px}
+.alert{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--sim-blue);color:var(--blue-ink);border-radius:4px;padding:10px 16px;font-size:14px}
+.alert .mi{color:inherit;font-size:22px}
+
+/* ---------- landing (hero + pilastri + step) ---------- */
+.ocf-landing-hero{background:linear-gradient(135deg,var(--ocf-brand-green) 0%,var(--ocf-brand-green-dark) 100%);color:#fff;border-radius:16px;box-shadow:0 12px 32px -14px rgba(46,125,50,.55);padding:32px 36px;margin-bottom:28px;position:relative;overflow:hidden}
+.ocf-landing-hero::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 70%);pointer-events:none}
+.ocf-landing-hero__inner{display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;position:relative;z-index:1}
+.ocf-landing-hero__left{min-width:0;flex:1 1 360px;max-width:620px}
+.ocf-landing-hero__eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.9;margin-bottom:12px}
+.ocf-landing-hero__title{font-size:32px;font-weight:500;line-height:1.2;margin:0 0 14px;color:#fff}
+.ocf-landing-hero__title b{font-weight:700}
+.ocf-landing-hero__subtitle{font-size:15px;line-height:1.55;margin:0 0 22px;opacity:.94;max-width:540px}
+.ocf-landing-hero__cta{background:#fff;color:var(--ocf-brand-green-dark);font-weight:600;letter-spacing:.3px;padding:10px 28px;border-radius:8px;box-shadow:0 4px 12px -4px rgba(0,0,0,.25);transition:transform 120ms,box-shadow 120ms}
+.ocf-landing-hero__cta:hover{transform:translateY(-1px);box-shadow:0 8px 18px -6px rgba(0,0,0,.3)}
+.ocf-landing-hero__right{display:flex;gap:32px;row-gap:20px;align-items:flex-end;flex-wrap:wrap}
+.ocf-landing-hero__stat{text-align:right;min-width:88px}
+.ocf-landing-hero__stat-value{font-size:38px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1;margin-bottom:6px}
+.ocf-landing-hero__stat-unit{font-size:20px;font-weight:500;opacity:.85;margin-left:2px}
+.ocf-landing-hero__stat-label{font-size:11px;letter-spacing:.8px;text-transform:uppercase;opacity:.88}
+.ocf-landing-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}
+.ocf-landing-pillar{background:#fff;border:1px solid var(--ocf-line);border-radius:12px;padding:22px 22px 20px;transition:transform 160ms,box-shadow 160ms,border-color 160ms;position:relative;overflow:hidden;text-align:left;font:inherit;color:inherit}
+.ocf-landing-pillar::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ocf-brand-green);opacity:0;transition:opacity 160ms}
+.ocf-landing-pillar:hover{transform:translateY(-2px);box-shadow:0 10px 22px -12px rgba(0,0,0,.15);border-color:var(--ocf-brand-green-soft)}
+.ocf-landing-pillar:hover::before{opacity:1}
+.ocf-landing-pillar__icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.ocf-landing-pillar__icon .mi{font-size:30px}
+.ocf-landing-pillar__icon--primary{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark)}
+.ocf-landing-pillar__icon--accent{background:var(--orange-soft);color:var(--orange)}
+.ocf-landing-pillar__icon--soft{background:var(--blue-soft);color:var(--blue-ink)}
+.ocf-landing-pillar__title{font-size:16px;font-weight:600;margin:0 0 8px;color:var(--ocf-ink)}
+.ocf-landing-pillar__text{margin:0;font-size:14px;line-height:1.5;color:var(--ocf-ink-soft)}
+.ocf-home-pillar{cursor:pointer;display:flex;flex-direction:column}
+.ocf-home-pillar__action{margin-top:auto;padding-top:14px;display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;color:var(--ocf-brand-green);transition:gap 160ms,color 160ms}
+.ocf-home-pillar__action .mi{font-size:18px}
+.ocf-home-pillar:hover .ocf-home-pillar__action{color:var(--ocf-brand-green-dark);gap:8px}
+.ocf-landing-steps{background:#fff;border:1px solid var(--ocf-line);border-radius:12px;padding:24px 28px 26px;margin-bottom:24px}
+.ocf-landing-steps__title{font-size:16px;font-weight:600;margin:0 0 18px;color:var(--ocf-ink);letter-spacing:.2px}
+.ocf-landing-steps__list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ocf-landing-step{display:flex;align-items:flex-start;gap:14px}
+.ocf-landing-step__num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ocf-landing-step__heading{font-size:14px;font-weight:600;color:var(--ocf-ink);margin-bottom:4px}
+.ocf-landing-step__text{font-size:13px;line-height:1.5;color:var(--ocf-ink-soft)}
+.ocf-landing-cta-strip{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 28px;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:12px;flex-wrap:wrap;margin-bottom:24px}
+.ocf-landing-cta-strip__text{font-size:15px;font-weight:500;color:var(--ocf-brand-green-dark);flex:1 1 280px}
+/* ---------- home: card grafici ---------- */
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;align-items:start}
+.card{padding:16px}
+.cardhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.cardhead h6{margin:0;font-size:20px;font-weight:400;line-height:1.6;color:var(--mud-text)}
+.cardhead .tools{display:flex;gap:4px;color:#616161}
+.cardhead .tools .mi{font-size:20px;padding:6px}
+.barrow{display:grid;grid-template-columns:minmax(0,1fr) 46px;gap:10px;align-items:center;margin-bottom:12px}
+.barrow .lbl{font-size:13px;color:var(--ocf-ink-soft);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barrow .track{height:8px;border-radius:999px;background:var(--ocf-line);overflow:hidden}
+.barrow .fill{height:100%;background:var(--ocf-brand-green)}
+.barrow .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;color:var(--ocf-ink)}
+.chart svg{width:100%;height:auto;display:block}
+.chart text{font-family:var(--font);font-size:11px;fill:#616161}
+/* ---------- prove effettuate ---------- */
+.dashboard-prove{padding:16px}
+.dashboard-prove__header{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px;flex-wrap:wrap}
+.dashboard-prove__title{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:600;color:var(--ocf-ink);margin:0 0 4px}
+.dashboard-prove__title .mi{color:var(--ocf-brand-green-dark)}
+.dashboard-prove__subtitle{margin:0;font-size:13px;color:var(--ocf-ink-soft)}
+.dashboard-prove__count{display:flex;flex-direction:column;align-items:flex-end;line-height:1}
+.dashboard-prove__count-value{font-size:30px;font-weight:700;color:var(--ocf-brand-green-dark);font-variant-numeric:tabular-nums}
+.dashboard-prove__count-label{font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--ocf-ink-muted);margin-top:5px}
+.dashboard-prove__list{display:flex;flex-direction:column;gap:10px}
+.prova-card{display:grid;grid-template-columns:56px minmax(0,1fr) auto auto;align-items:center;gap:18px;padding:14px 18px;border:1px solid var(--ocf-line);border-radius:10px;background:#fff;text-align:left;width:100%;font:inherit;color:inherit;cursor:pointer;transition:transform 140ms,box-shadow 140ms,border-color 140ms}
+.prova-card:hover{transform:translateY(-1px);box-shadow:0 8px 20px -10px rgba(0,0,0,.18)}
+.prova-card:disabled{cursor:default}
+.prova-card__num{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.prova-card--superata .prova-card__num{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark)}
+.prova-card--non-superata .prova-card__num{background:var(--red-soft);color:var(--ocf-red)}
+.prova-card__num-hash{font-size:13px;font-weight:500;margin-right:1px;opacity:.7}
+.prova-card__body{min-width:0}
+.prova-card__label{font-size:14px;font-weight:600;color:var(--ocf-ink);margin-bottom:4px}
+.prova-card__date{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ocf-ink-soft);font-variant-numeric:tabular-nums}
+.prova-card__date .mi{color:var(--ocf-ink-muted);font-size:16px}
+.prova-card__date-sep{opacity:.5}
+.prova-card__score{display:flex;align-items:baseline;gap:4px;font-variant-numeric:tabular-nums}
+.prova-card__score-value{font-size:24px;font-weight:700;line-height:1}
+.prova-card--superata .prova-card__score-value{color:var(--ocf-brand-green-dark)}
+.prova-card--non-superata .prova-card__score-value{color:var(--ocf-red)}
+.prova-card--nc .prova-card__score-value{color:var(--ocf-ink)}
+.prova-card__score-max{font-size:12px;color:var(--ocf-ink-muted);font-weight:500}
+.prova-card__badge{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap}
+.prova-card__badge .mi{font-size:14px}
+.prova-card--superata .prova-card__badge{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark)}
+.prova-card--non-superata .prova-card__badge{background:var(--red-soft);color:var(--ocf-red)}
+.prova-card--nc .prova-card__num{background:#F4F4F2;color:var(--ocf-ink)}
+.prova-card--nc .prova-card__badge{color:var(--ocf-ink)}
+/* ---------- studia per materia ---------- */
+.studia-materia-list{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+.studia-materia-row{position:relative;display:grid;grid-template-columns:56px minmax(0,1.3fr) minmax(220px,1.1fr) minmax(220px,1fr) auto;gap:26px;align-items:center;padding:20px 24px;background:#fff;border:1px solid var(--ocf-line);border-radius:12px;transition:box-shadow 150ms;overflow:hidden}
+.studia-materia-row:hover{box-shadow:0 4px 14px -6px rgba(0,0,0,.12)}
+.studia-status-stripe{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ocf-brand-green)}
+.studia-badge{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.studia-badge--attiva{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green)}
+.studia-badge--inattiva{background:#F4F4F2;color:var(--ocf-ink-muted)}
+.studia-materia-row__main{min-width:0}
+.studia-materia-row__meta{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:12px;color:var(--ocf-ink-soft);font-variant-numeric:tabular-nums;margin-bottom:6px}
+.studia-materia-row__meta b{color:var(--ocf-ink);font-weight:600}
+.studia-materia-row__title{margin:0;font-size:16px;font-weight:500;line-height:1.35;color:var(--ocf-ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.studia-materia-row__breakdown{min-width:0}
+.studia-materia-row__breakdown-label{font-size:11px;letter-spacing:.3px;text-transform:uppercase;color:var(--ocf-ink-soft);margin-bottom:6px}
+.studia-materia-row__breakdown-label b{color:var(--ocf-ink);font-weight:600;font-variant-numeric:tabular-nums}
+.studia-breakdown{height:8px;border-radius:999px;overflow:hidden;background:var(--ocf-line);display:flex}
+.studia-breakdown__seg{height:100%}
+.studia-breakdown__seg--esatte{background:var(--ocf-brand-green)}
+.studia-breakdown__seg--errate{background:var(--ocf-red)}
+.studia-breakdown-legend{display:flex;gap:12px;margin-top:8px;font-size:12px;color:var(--ocf-ink-soft);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+.studia-breakdown-legend__item{display:inline-flex;align-items:center;gap:6px}
+.studia-breakdown-legend__dot{width:8px;height:8px;border-radius:999px;display:inline-block}
+.studia-breakdown-legend__dot--esatte{background:var(--ocf-brand-green)}
+.studia-breakdown-legend__dot--errate{background:var(--ocf-red)}
+.studia-breakdown-legend__dot--nondate{background:var(--ocf-ink-muted);opacity:.55}
+.studia-breakdown-empty{margin-top:8px;font-size:12px;font-style:italic;color:var(--ocf-ink-muted)}
+.studia-materia-row__levels{display:flex;flex-direction:column;gap:9px;min-width:0}
+.studia-level-meter__header{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;color:var(--ocf-ink-soft);margin-bottom:5px}
+.studia-level-meter__value{font-size:12px;font-variant-numeric:tabular-nums;flex-shrink:0}
+.studia-level-meter__value b{color:var(--ocf-ink);font-weight:600}
+.studia-level-meter__value-max{color:var(--ocf-ink-muted);font-weight:400}
+.studia-level-meter{height:5px;border-radius:999px;overflow:hidden;background:var(--ocf-line)}
+.studia-level-meter__fill{height:100%;background:var(--ocf-brand-green);transition:width 200ms}
+.studia-materia-row__actions{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.studia-materia-row__cta{min-width:124px;letter-spacing:.4px;font-size:13px;padding:11px 22px;border-radius:6px}
+/* ---------- sessione (studio / esercitazione / simulazione) ---------- */
+.sess{padding:16px;display:flex;flex-direction:column;gap:12px}
+.sess-chips{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sess-chips .right{margin-left:auto}
+.pulsantiera-sim,.pulsantiera-quesiti{display:flex;flex-wrap:wrap;gap:4px}
+.psim-q,.pul-q{min-width:34px;height:32px;padding:0 6px;border-radius:4px;font-weight:600;cursor:pointer;transition:background .1s,transform .05s;border:2px solid transparent;font-size:.85rem;font-family:var(--font)}
+.psim-q:hover{background:var(--sim-lilac)!important;color:#fff}
+.psim-nonrisposto{background:var(--sim-blue);color:#fff;border-color:var(--sim-blue)}
+.psim-risposto{background:var(--sim-purple);color:#fff;border-color:var(--sim-purple)}
+.psim-corrente{background:#fff;color:var(--ocf-brand-green);border-color:var(--sim-lilac)!important;box-shadow:0 0 0 1px var(--sim-lilac)}
+.pul-q{color:#fff}
+.pul-esatta{background:#2e7d32;border-color:#2e7d32}
+.pul-errata{background:#c62828;border-color:#c62828}
+.pul-nondata{background:var(--sim-blue);border-color:var(--sim-blue)}
+.pul-corrente{box-shadow:0 0 0 2px var(--sim-lilac)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.psim-leg,.pul-leg{display:inline-block;width:14px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,.1)}
+.quesito-box{position:relative;border:1px solid var(--ocf-line);border-radius:8px;padding:22px 22px 18px;margin:18px 0 10px;background:#fff;box-shadow:0 1px 3px -1px rgba(46,125,50,.06)}
+.quesito-box::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:8px 0 0 8px;background:var(--ocf-brand-green)}
+.quesito-box__label{position:absolute;top:-10px;left:14px;background:#fff;padding:2px 8px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ocf-brand-green-dark)}
+.quesito-box__testo{font-size:17px;font-style:italic;line-height:1.6;color:var(--ocf-ink)}
+.quesito-alt-list{display:flex;flex-direction:column;gap:8px}
+.quesito-alt-row{display:flex;align-items:flex-start;gap:14px;padding:12px 16px;border-radius:6px;border:1px solid var(--ocf-line);background:#fff;font-size:15px;line-height:1.55;color:var(--ocf-ink);width:100%;text-align:left;font-family:var(--font)}
+.quesito-alt-row__letter{flex-shrink:0;font-weight:700;color:var(--ocf-ink);min-width:18px;font-size:15px}
+.quesito-alt-row__body{flex:1 1 auto;min-width:0}
+.quesito-alt-row__tag{flex-shrink:0;font-size:12px;font-style:italic;color:var(--ocf-ink-muted);margin-left:8px;white-space:nowrap}
+.quesito-alt-row--interactive{cursor:pointer;user-select:none;transition:background 120ms,border-color 120ms,box-shadow 120ms}
+.quesito-alt-row--interactive:hover{background:var(--ocf-brand-green-soft);border-color:#A5D6A7}
+.quesito-alt-row--selected{background:var(--ocf-brand-green-soft);border-color:var(--ocf-brand-green);box-shadow:inset 0 0 0 1px var(--ocf-brand-green)}
+.quesito-alt-row--selected .quesito-alt-row__letter{color:var(--ocf-brand-green-dark)}
+.quesito-alt-row--corretta{background:var(--ocf-brand-green);border-color:var(--ocf-brand-green);color:#fff}
+.quesito-alt-row--corretta .quesito-alt-row__letter,.quesito-alt-row--corretta .quesito-alt-row__tag{color:#fff}
+.quesito-alt-row--data{background:#F44336;border-color:#F44336;color:#fff}
+.quesito-alt-row--data .quesito-alt-row__letter,.quesito-alt-row--data .quesito-alt-row__tag{color:#fff}
+.sess-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px}
+.sess-bar .push{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.navtext{background:transparent;border:0;font-family:var(--font);font-size:14px;font-weight:500;letter-spacing:.02857em;text-transform:uppercase;color:var(--mud-text);display:inline-flex;align-items:center;gap:2px;padding:6px 8px;cursor:pointer;border-radius:4px}
+.navtext:hover{background:rgba(0,0,0,.04)}
+.navtext:disabled{color:rgba(0,0,0,.38);cursor:default;background:transparent}
+.navtext .mi{font-size:20px}
+.timer-chip{font-variant-numeric:tabular-nums}
+.timer-chip.low{background:#FDECEA;color:var(--ocf-red)}
+/* ---------- riepilogo ---------- */
+.riepilogo-title{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:600;color:var(--ocf-ink);margin:0 0 4px}
+.riepilogo-title .mi{color:var(--ocf-brand-green-dark)}
+.stat-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat-card{display:flex;flex-direction:column;gap:6px;padding:16px 18px 18px;border:1px solid var(--ocf-line);border-radius:12px;background:#fff;transition:transform 140ms,box-shadow 140ms}
+.stat-card:hover{transform:translateY(-1px);box-shadow:0 8px 20px -12px rgba(0,0,0,.12)}
+.stat-card__icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.stat-card__icon .mi{font-size:22px}
+.stat-card__label{font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--ocf-ink-soft);font-weight:600}
+.stat-card__value{font-size:30px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;color:var(--ocf-ink)}
+.stat-card--visualizzati .stat-card__icon{background:var(--blue-soft);color:var(--blue-ink)}
+.stat-card--esatte .stat-card__icon{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark)}
+.stat-card--esatte .stat-card__value{color:var(--ocf-brand-green-dark)}
+.stat-card--errate .stat-card__icon{background:var(--red-soft);color:var(--ocf-red)}
+.stat-card--errate .stat-card__value{color:var(--ocf-red)}
+.stat-card--non-date .stat-card__icon{background:var(--orange-soft);color:var(--orange)}
+.stat-card--non-date .stat-card__value{color:var(--orange)}
+.punteggio-hero{display:flex;align-items:center;gap:22px;padding:22px 28px;border-radius:14px;margin-top:2px;color:#fff;background:linear-gradient(135deg,var(--ocf-brand-green) 0%,var(--ocf-brand-green-dark) 100%);box-shadow:0 10px 24px -14px rgba(46,125,50,.5);flex-wrap:wrap}
+.punteggio-hero--non-superato{background:linear-gradient(135deg,#C62828 0%,#8B1A1A 100%);box-shadow:0 10px 24px -14px rgba(198,40,40,.5)}
+.punteggio-hero__icon{width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.18);flex-shrink:0}
+.punteggio-hero__icon .mi{font-size:32px;color:#fff}
+.punteggio-hero__body{flex:1 1 200px;min-width:0}
+.punteggio-hero__label{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;opacity:.92;margin-bottom:6px}
+.punteggio-hero__value{font-size:38px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.punteggio-hero__value-max{font-size:18px;font-weight:500;opacity:.85;margin-left:2px}
+.punteggio-hero__badge{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;background:rgba(255,255,255,.22);font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap}
+.punteggio-hero__badge .mi{font-size:16px;color:#fff}
+.rq{border:1px solid rgba(0,0,0,.42);border-radius:4px;padding:12px 12px 14px;display:flex;flex-direction:column}
+.rq-head{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px;flex-wrap:wrap}
+.rq .quesito-box{margin:14px 0 12px}
+.badge-esito{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:12px;font-size:12px;color:#fff}
+.badge-esatta{background:var(--ocf-brand-green)} .badge-errata{background:var(--ocf-red)} .badge-nondata{background:var(--nondata)}
+.expander{border-radius:4px;margin-top:4px}
+.expander summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:12px 24px;cursor:pointer;font-size:16px}
+.expander summary::-webkit-details-marker{display:none}
+.expander[open] summary .mi{transform:rotate(180deg)}
+.tablewrap{overflow-x:auto}
+table.mud{width:100%;border-collapse:collapse;font-size:14px}
+table.mud th{font-weight:500;text-align:left;padding:12px 16px;border-bottom:1px solid #E0E0E0;color:var(--mud-text)}
+table.mud td{padding:12px 16px;border-bottom:1px solid #E0E0E0}
+table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-nums}
+/* ---------- dialog ---------- */
+.dialog-scrim{position:fixed;inset:0;background:rgba(33,33,33,.5);z-index:50;display:grid;place-items:center;padding:16px}
+.dialog{background:#fff;border-radius:4px;box-shadow:0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12);width:min(600px,100%);max-height:90vh;overflow:auto}
+.dialog h2{margin:0;padding:16px 24px 0;font-size:14px;font-weight:400;color:var(--mud-text)}
+.dialog .body{padding:16px 24px;font-size:16px;line-height:1.5}
+.dialog .actions{display:flex;justify-content:flex-end;gap:8px;padding:8px;flex-wrap:wrap}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field>label{font-size:12px;color:var(--ocf-ink-soft);font-weight:500;letter-spacing:.4px;text-transform:uppercase}
+.field select,.field input{font-family:var(--font);font-size:15px;padding:9px 10px;border:1px solid rgba(0,0,0,.42);border-radius:4px;background:#fff;color:var(--mud-text);max-width:100%}
+.radio-row{display:flex;flex-direction:column;gap:6px}
+.radio-row label{display:flex;gap:8px;align-items:center;font-size:15px}
+.radio-row input{accent-color:var(--ocf-brand-green);width:18px;height:18px;flex-shrink:0}
+.check{display:flex;gap:8px;align-items:center;font-size:15px}
+.check input{accent-color:var(--ocf-brand-green);width:18px;height:18px}
+.hint{font-size:13px;color:var(--ocf-ink-soft);margin:4px 0 0}
+/* ---------- sfoglia ---------- */
+.browse-item{padding:14px 0;border-bottom:1px solid var(--ocf-line);display:flex;flex-direction:column;gap:6px}
+.browse-item:last-child{border-bottom:0}
+.browse-item .meta{font-size:12px;color:var(--ocf-ink-muted)}
+.browse-item .q{font-style:italic;font-size:15px;color:var(--ocf-ink)}
+.browse-item .a{display:flex;gap:10px;align-items:flex-start;background:var(--ocf-brand-green);color:#fff;border-radius:6px;padding:8px 12px;font-size:14px}
+.browse-item .a .mi{font-size:18px}
+.pager{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+/* ---------- responsive ---------- */
+@media (max-width:1199.98px){ .studia-materia-row{grid-template-columns:56px minmax(0,1.5fr) minmax(180px,1fr) minmax(180px,.8fr) auto;gap:18px} }
+@media (max-width:999.98px){
+  .studia-materia-row{grid-template-columns:56px 1fr;grid-template-areas:"badge main" "breakdown breakdown" "levels actions";row-gap:16px;column-gap:18px}
+  .studia-materia-row__badge{grid-area:badge}.studia-materia-row__main{grid-area:main}.studia-materia-row__breakdown{grid-area:breakdown}
+  .studia-materia-row__levels{grid-area:levels;flex-direction:row;gap:18px}.studia-materia-row__levels>*{flex:1 1 0;min-width:0}
+  .studia-materia-row__actions{grid-area:actions;justify-content:flex-end}
+  .home-grid{grid-template-columns:1fr}
+}
+@media (max-width:899.98px){
+  .ocf-landing-hero{padding:26px 24px}
+  .ocf-landing-hero__inner{flex-direction:column;align-items:flex-start}
+  .ocf-landing-hero__left{flex:0 0 auto;max-width:100%}
+  .ocf-landing-hero__title{font-size:26px}
+  .ocf-landing-hero__right{width:100%;justify-content:flex-start;gap:24px}
+  .ocf-landing-hero__stat{text-align:left}
+  .ocf-landing-pillars{grid-template-columns:1fr}
+  .ocf-landing-steps__list{grid-template-columns:1fr;gap:16px}
+  .stat-cards{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:767.98px){
+  .studia-materia-row{grid-template-columns:1fr;grid-template-areas:"badge" "main" "breakdown" "levels" "actions";padding:18px 20px}
+  .studia-materia-row__levels{flex-direction:column;gap:9px}
+  .studia-materia-row__cta{width:100%;min-width:0}
+}
+@media (max-width:699.98px){
+  .prova-card{grid-template-columns:48px minmax(0,1fr) auto;grid-template-areas:"num body score" "badge badge badge";row-gap:12px;column-gap:14px;padding:14px 16px}
+  .prova-card__num{grid-area:num;width:48px;height:48px;font-size:18px;border-radius:10px}
+  .prova-card__body{grid-area:body}.prova-card__score{grid-area:score;justify-self:end}.prova-card__badge{grid-area:badge;justify-self:start}
+}
+@media (max-width:599.98px){
+  .ocf-landing-hero{padding:22px 20px}.ocf-landing-hero__title{font-size:22px}.ocf-landing-hero__stat-value{font-size:30px}
+  .ocf-landing-cta-strip{padding:18px 20px}
+  .quesito-box{padding:20px 16px 14px}.quesito-box__testo{font-size:16px}
+  .quesito-alt-row{padding:10px 12px;gap:10px}
+  .stat-card{padding:14px 14px 16px}.stat-card__value{font-size:26px}
+  .punteggio-hero{padding:20px 22px;gap:16px}.punteggio-hero__value{font-size:30px}
+  .sess-chips .right{margin-left:0}
+  .sess-bar .push{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="appbar">
+  <button class="iconbtn menu" id="menu" aria-label="Apri o chiudi il menu"><span class="mi">menu</span></button>
+  <span class="brandmark" aria-hidden="true"><span class="mi">fitness_center</span></span>
+  <h6>Palestra OCF — Workspace candidato</h6>
+  <div class="acts">
+    <button class="iconbtn" id="hdr-browse" title="Sfoglia i quesiti" aria-label="Sfoglia i quesiti"><span class="mi">menu_book</span></button>
+    <span class="sep"></span>
+    <div class="status"><span>Progressi:</span><b id="sync">in caricamento…</b></div>
+  </div>
+</header>
+<nav class="drawer nav" id="drawer" aria-label="Menu principale">
+  <a href="#" data-nav="home"><span class="mi">home</span>Home workspace</a>
+  <a href="#" data-nav="studia"><span class="mi">school</span>Studia per materia</a>
+  <a href="#" data-nav="migliora" class="two"><span class="mi">trending_up</span>Migliora la tua preparazione (Esercitazioni)</a>
+  <a href="#" data-nav="prova" class="two"><span class="mi">quiz</span>Mettiti alla prova (Simulazione Prova d'esame)</a>
+  <hr>
+  <button class="navlink group" id="grp-report" aria-expanded="false"><span class="mi">bar_chart</span>Report<span class="mi chev">arrow_drop_down</span></button>
+  <div class="sub" id="sub-report" hidden>
+    <a href="#" data-nav="report-materie">Esercitazioni — analitico</a>
+    <a href="#" data-nav="report-sim">Simulazioni — andamento</a>
+  </div>
+  <a href="#" data-nav="sfoglia"><span class="mi">menu_book</span>Sfoglia i quesiti</a>
+</nav>
+<div class="scrim" id="scrim" hidden></div>
+<main><div class="page" id="view"></div></main>
+<div id="dlg"></div>
+
+<script id="ocf-data" type="application/json">/*__DATA__*/</script>
+<script>
+(function(){
+"use strict";
+const RAW = JSON.parse(document.getElementById('ocf-data').textContent);
+const CONT = RAW.c, SUB = RAW.s;
+// q: [materia, contenutoIdx, subIdx, livello(=punti), domanda, A(corretta), B, C, D, pratico(0/1)]
+const Q = RAW.q;
+const MAT = {
+  1:{name:"Diritto del mercato finanziario e degli intermediari e disciplina dei consulenti finanziari", short:"Mercato finanziario", sim:24, test:100},
+  2:{name:"Matematica finanziaria, mercati e strumenti, pianificazione, finanza comportamentale e investimenti ESG", short:"Matematica finanziaria", sim:19, test:100},
+  3:{name:"Nozioni di diritto tributario riguardanti il mercato finanziario", short:"Tributario", sim:6, test:25},
+  4:{name:"Nozioni di diritto previdenziale e assicurativo", short:"Previdenziale e assicurativo", sim:6, test:25},
+  5:{name:"Nozioni di diritto privato e di diritto commerciale", short:"Privato e commerciale", sim:5, test:25}
+};
+// prova OCF: 28 teoriche da 2 punti, 12 pratiche da 2 punti, 20 teoriche da 1 punto; per materia [pratiche, teoriche 2pt, teoriche 1pt]
+const EXAM_MIX = {1:[5,11,8], 2:[4,9,6], 3:[1,3,2], 4:[1,3,2], 5:[1,2,2]};
+const BY_MAT = {1:[],2:[],3:[],4:[],5:[]};
+Q.forEach((q,i)=>BY_MAT[q[0]].push(i+1));
+const PLAN = [ // piano Mediolanum, Fase 1 (presentazione Start Up 9/10/2026)
+  {m:5, from:"2026-10-10", to:"2026-10-14", what:"studio 10–13 ottobre, giornata test 14 ottobre"},
+  {m:4, from:"2026-10-15", to:"2026-10-20", what:"studio 15–19 ottobre, giornata test 20 ottobre"},
+  {m:1, from:"2026-10-21", to:"2026-11-05", what:"studio 21 ottobre–4 novembre, giornata test 5 novembre"},
+  {m:2, from:"2026-11-06", to:"2026-11-19", what:"studio 7–18 novembre, giornata test 19 novembre"},
+  {m:3, from:"2026-11-20", to:"2026-11-25", what:"studio 21–24 novembre, giornata test 25 novembre"}
+];
+const L = ["A","B","C","D"];
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+const mmss = s => { s=Math.max(0,Math.floor(s)); return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0"); };
+const dmy = t => new Date(t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit",year:"numeric"});
+const hm = t => new Date(t).toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2-digit"});
+const icon = n => `<span class="mi" aria-hidden="true">${n}</span>`;
+const pad2 = n => String(n).padStart(2,"0");
+
+/* ================= progressi: account (db) con riserva nel browser ================= */
+const LS_KEY = "palestra-ocf-v1";
+let S = {m:{1:{},2:{},3:{},4:{},5:{}}, h:[]}; // m[mat][n] = [viste, giuste, ultimaGiusta]
+const store = {db:null, uid:null};
+function lsRead(){ try{ const v=localStorage.getItem(LS_KEY); return v?JSON.parse(v):null; }catch(e){ return null; } }
+function lsWrite(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(S)); }catch(e){} }
+function setSync(t){ $("#sync").textContent=t; }
+function hasData(s){ return s && (s.h.length || [1,2,3,4,5].some(k=>Object.keys(s.m[k]||{}).length)); }
+async function initStore(){
+  const local=lsRead(); if(local && local.m) S=local;
+  setSync("salvati in questo browser");
+  if(!(window.claude && window.claude.use)) return;
+  try{
+    const [db,user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    if(!db || !user) return;
+    const uid = await user.id(); if(!uid) return;
+    store.db=db; store.uid=uid;
+    const col = db.collection("data/users/"+uid);
+    const snaps = await Promise.all(["m1","m2","m3","m4","m5","hist"].map(k=>col.doc(k).get()));
+    const remote = {m:{1:{},2:{},3:{},4:{},5:{}}, h:[]};
+    snaps.slice(0,5).forEach((s,i)=>{ if(s.exists) remote.m[i+1]=JSON.parse(JSON.stringify(s.data().q||{})); });
+    if(snaps[5].exists) remote.h=JSON.parse(JSON.stringify(snaps[5].data().h||[]));
+    if(hasData(remote)){ S=remote; lsWrite(); } else if(hasData(S)){ await pushAll([1,2,3,4,5]); }
+    setSync("salvati sul tuo account");
+    if(state.view!=="session") render();
+  }catch(e){ setSync("salvati in questo browser"); }
+}
+let saving = Promise.resolve();
+function pushAll(mats){
+  if(!store.db) return Promise.resolve();
+  const col = store.db.collection("data/users/"+store.uid);
+  saving = saving.then(async()=>{
+    // il documento ha un limite di 256 KB: il dettaglio quesito per quesito resta solo per le ultime 30 simulazioni
+    const sl=S.h.slice(-400), withDet=sl.map((h,i)=>h.det?i:-1).filter(i=>i>=0), keep=new Set(withDet.slice(-30));
+    const hist=sl.map((h,i)=>{ if(!h.det||keep.has(i)) return h; const {det,...rest}=h; return rest; });
+    try{ for(const k of mats){ await col.doc("m"+k).set({q:S.m[k]}); } await col.doc("hist").set({h:hist}); setSync("salvati sul tuo account"); }
+    catch(e){ setSync("non salvati online: restano in questo browser"); }
+  });
+  return saving;
+}
+function record(n, ok){ const m=Q[n-1][0]; const r=S.m[m][n]||[0,0,0]; r[0]++; if(ok) r[1]++; r[2]=ok?1:0; S.m[m][n]=r; }
+function matStats(m){
+  let seen=0, okNow=0, wrongNow=0, att=0, cor=0;
+  for(const n of BY_MAT[m]){ const r=S.m[m][n]; if(!r) continue; seen++; att+=r[0]; cor+=r[1]; if(r[2]) okNow++; else wrongNow++; }
+  const sessions = S.h.filter(h=>h.k!=="sim" && (h.ms||[]).includes(m)).length;
+  return {tot:BY_MAT[m].length, seen, okNow, wrongNow, att, cor, acc:att?cor/att:null, sessions};
+}
+function errorsOf(m){ return BY_MAT[m].filter(n=>{ const r=S.m[m][n]; return r && !r[2]; }); }
+const sims = () => S.h.filter(h=>h.k==="sim");
+const simsDone = () => sims().filter(h=>!h.nc);
+const simScore = h => h.pts!=null ? h.pts : Math.round(h.ok/h.n*100);
+
+/* ================= stato e navigazione ================= */
+const state = {view:"home", T:null, sel:0, browse:{mat:5,q:"",page:0}};
+function navKey(){
+  if(state.view==="session"||state.view==="riepilogo"){ const k=state.T&&state.T.kind; return k==="sim"?"prova":k==="migliora"?"migliora":"studia"; }
+  return state.view;
+}
+function setNavActive(){
+  document.querySelectorAll("[data-nav]").forEach(a=>a.classList.toggle("active", a.dataset.nav===navKey()));
+  if(state.view.startsWith("report")){ $("#grp-report").setAttribute("aria-expanded","true"); $("#sub-report").hidden=false; }
+}
+function go(v){
+  if(state.T && !state.T.done && state.view==="session"){ return askLeave(v); }
+  state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0);
+}
+document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",e=>{ e.preventDefault(); go(a.dataset.nav); }));
+$("#hdr-browse").onclick=()=>go("sfoglia");
+$("#grp-report").onclick=()=>{ const b=$("#grp-report"), open=b.getAttribute("aria-expanded")!=="true"; b.setAttribute("aria-expanded",open); $("#sub-report").hidden=!open; };
+const mq = window.matchMedia("(max-width:959.98px)");
+$("#menu").onclick=()=>{ if(mq.matches){ document.body.classList.toggle("drawer-open"); $("#scrim").hidden=!document.body.classList.contains("drawer-open"); } else document.body.classList.toggle("drawer-closed"); };
+$("#scrim").onclick=closeDrawerMobile;
+function closeDrawerMobile(){ document.body.classList.remove("drawer-open"); $("#scrim").hidden=true; }
+
+function render(){
+  clearInterval(timerId);
+  const v=state.view;
+  if(v==="home") renderHome();
+  else if(v==="studia") renderStudia();
+  else if(v==="migliora") renderMigliora();
+  else if(v==="prova") renderProva();
+  else if(v==="session") renderSession();
+  else if(v==="riepilogo") renderRiepilogo();
+  else if(v==="report-materie") renderReportMaterie();
+  else if(v==="report-sim") renderReportSim();
+  else if(v==="sfoglia") renderSfoglia();
+  setNavActive();
+  if(v==="session"){ timerId=setInterval(tick,250); tick(); }
+}
+const head = (ic,t) => `<div class="pagehead">${icon(ic)}<h1>${t}</h1></div>`;
+
+/* ================= dialog ================= */
+function dialog({title, body, actions}){
+  $("#dlg").innerHTML = `<div class="dialog-scrim"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-t"><h2 id="dlg-t">${title}</h2><div class="body">${body}</div><div class="actions">${actions.map((a,i)=>`<button class="btn ${a.primary?"btn-filled":"btn-text"}" data-a="${i}">${a.label}</button>`).join("")}</div></div></div>`;
+  actions.forEach((a,i)=>$(`[data-a="${i}"]`).onclick=()=>{ closeDialog(); a.run&&a.run(); });
+  const p=$("#dlg .btn-filled"); if(p) p.focus();
+}
+function closeDialog(){ $("#dlg").innerHTML=""; }
+function dialogOpen(){ return !!$("#dlg").innerHTML; }
+
+/* ================= HOME ================= */
+function todayPlan(){
+  const d=new Date().toISOString().slice(0,10);
+  const p=PLAN.find(x=>d>=x.from && d<=x.to);
+  if(p) return {m:p.m, txt:`Piano Mediolanum: oggi tocca la Materia ${p.m} – ${MAT[p.m].short} (${p.what}).`};
+  if(d<PLAN[0].from) return {m:5, txt:"Il piano Mediolanum parte con la Materia 5 – Privato e commerciale il 10 ottobre."};
+  return {m:null, txt:"Fase 1 conclusa: ora contano le simulazioni complete. Obiettivo: più di 450, media sopra 94, meno di 10 minuti."};
+}
+function renderHome(){
+  const tot=[1,2,3,4,5].reduce((a,m)=>a+matStats(m).seen,0);
+  const started=[1,2,3,4,5].filter(m=>matStats(m).seen>0).length;
+  const tp=todayPlan();
+  $("#view").innerHTML = `
+  ${head("home","Benvenuto nel workspace")}
+  <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
+    <div class="ocf-landing-hero__left">
+      <div class="ocf-landing-hero__eyebrow">Palestra OCF</div>
+      <h2 class="ocf-landing-hero__title">Il tuo percorso verso <b>l'esame</b>, in un'unica dashboard.</h2>
+      <p class="ocf-landing-hero__subtitle">Studia per materia, rafforza le tue competenze con sessioni adattive e mettiti alla prova in una simulazione fedele alla prova ufficiale.</p>
+      <button class="btn ocf-landing-hero__cta" id="go-progress">${icon("insights")} Vai ai progressi</button>
+    </div>
+    <div class="ocf-landing-hero__right">
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${tot}</div><div class="ocf-landing-hero__stat-label">Quesiti svolti</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${started}<span class="ocf-landing-hero__stat-unit">/5</span></div><div class="ocf-landing-hero__stat-label">Materie</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${simsDone().length}</div><div class="ocf-landing-hero__stat-label">Simulazioni</div></div>
+    </div></div></section>
+  <div class="ocf-landing-cta-strip"><span class="ocf-landing-cta-strip__text">${esc(tp.txt)}</span>
+    ${tp.m?`<button class="btn btn-filled" id="plan-go">${icon("school")} Studia la Materia ${tp.m}</button>`:`<button class="btn btn-filled" data-goto="prova">${icon("quiz")} Mettiti alla prova</button>`}</div>
+  <div class="ocf-landing-pillars">
+    <button class="ocf-landing-pillar ocf-home-pillar" data-goto="studia"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--soft">${icon("school")}</div><h3 class="ocf-landing-pillar__title">Studia per materia</h3><p class="ocf-landing-pillar__text">Riprendi i contenuti di ogni materia con il riepilogo delle tue statistiche e sessioni di studio in ordine, a campione o sugli errori.</p><span class="ocf-home-pillar__action">Apri ${icon("arrow_forward")}</span></button>
+    <button class="ocf-landing-pillar ocf-home-pillar" data-goto="migliora"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--primary">${icon("trending_up")}</div><h3 class="ocf-landing-pillar__title">Migliora la preparazione</h3><p class="ocf-landing-pillar__text">Una sessione adattiva di 20 quesiti, costruita sui tuoi punti deboli. Sessanta secondi a quesito per allenare ritmo e concentrazione.</p><span class="ocf-home-pillar__action">Apri ${icon("arrow_forward")}</span></button>
+    <button class="ocf-landing-pillar ocf-home-pillar" data-goto="prova"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--accent">${icon("quiz")}</div><h3 class="ocf-landing-pillar__title">Mettiti alla prova</h3><p class="ocf-landing-pillar__text">La simulazione fedele all'esame OCF: stesso numero di quesiti, stesso cronometro, stessa soglia di superamento. Misura davvero a che punto sei.</p><span class="ocf-home-pillar__action">Apri ${icon("arrow_forward")}</span></button>
+  </div>
+  <div class="home-grid" id="progress">
+    <div class="paper card"><div class="cardhead"><h6>Esercitazioni per materia</h6><span class="tools">${icon("image")}${icon("table_chart")}</span></div>${matBars()}</div>
+    <div class="paper card"><div class="cardhead"><h6>Andamento simulazioni</h6><span class="tools">${icon("image")}${icon("table_chart")}</span></div><div class="chart">${simChart()}</div></div>
+  </div>
+  ${proveList()}`;
+  $("#go-progress").onclick=()=>$("#progress").scrollIntoView({behavior:"smooth"});
+  bindGoto();
+  const pg=$("#plan-go"); if(pg) pg.onclick=()=>openStudyDialog(tp.m, "seq");
+  bindProve();
+}
+function matBars(){
+  const any=[1,2,3,4,5].some(m=>matStats(m).att>0);
+  if(!any) return `<div class="alert">${icon("info_outline")}<span>Non hai ancora completato esercitazioni. Avvia Studia per materia o Migliora la tua preparazione.</span></div>`;
+  return [5,4,1,2,3].map(m=>{ const s=matStats(m); const p=s.acc===null?0:Math.round(s.acc*100);
+    return `<div class="barrow"><div><div class="lbl">${m} – ${esc(MAT[m].short)}</div><div class="track"><div class="fill" style="width:${p}%"></div></div></div><div class="val">${s.acc===null?"–":p+"%"}</div></div>`; }).join("")
+    + `<p class="hint">Percentuale di risposte esatte sul totale delle risposte date.</p>`;
+}
+function simChart(){
+  const all=simsDone(), pts=all.slice(-20).map(simScore);
+  const W=440,H=300,l=36,r=16,t=14,b=34, iw=W-l-r, ih=H-t-b;
+  const y=v=>t+ih-(v/100)*ih;
+  const n=Math.max(1,pts.length);
+  const x=i=> n===1? l+iw/2 : l+(i/(n-1))*iw;
+  let g="";
+  for(let v=0; v<=100; v+=20) g+=`<line x1="${l}" x2="${W-r}" y1="${y(v)}" y2="${y(v)}" stroke="${v===0?"#9E9E9E":"#E0E0E0"}" stroke-width="1"/><text x="${l-8}" y="${y(v)+4}" text-anchor="end">${v}</text>`;
+  g+=`<line x1="${l}" x2="${W-r}" y1="${y(80)}" y2="${y(80)}" stroke="#C62828" stroke-dasharray="4 4" stroke-width="1"/><text x="${W-r}" y="${y(80)-6}" text-anchor="end" style="fill:#C62828">soglia 80</text>`;
+  if(pts.length){
+    g+=`<polyline fill="none" stroke="#2E7D32" stroke-width="2" points="${pts.map((v,i)=>x(i)+","+y(v)).join(" ")}"/>`;
+    g+=pts.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="${i===pts.length-1?5:3.5}" fill="${v>=80?"#2E7D32":"#C62828"}"/>`).join("");
+    const step=Math.ceil(pts.length/8);
+    g+=pts.map((v,i)=> (i%step===0||i===pts.length-1)?`<text x="${x(i)}" y="${H-12}" text-anchor="middle">#${all.length-pts.length+i+1}</text>`:"").join("");
+  } else g+=`<text x="${l+iw/2}" y="${t+ih/2}" text-anchor="middle">Nessuna simulazione completata</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Punteggi delle ultime simulazioni">${g}</svg>`;
+}
+function proveList(limit){
+  const list=sims().map((h,i)=>({h,i})).reverse().slice(0,limit||10);
+  const rows = list.map(({h,i})=>{ const nc=!!h.nc, sc=nc?null:simScore(h), pass=!nc&&sc>=80;
+    const cls = nc?"prova-card--nc":pass?"prova-card--superata":"prova-card--non-superata";
+    return `<button class="prova-card ${cls}" data-prova="${i}" ${nc?"disabled":""}><span class="prova-card__num"><span class="prova-card__num-hash">#</span>${i+1}</span>
+      <span class="prova-card__body"><span class="prova-card__label" style="display:block">${nc?"Simulazione non completata":"Simulazione completata"}</span><span class="prova-card__date">${icon("event")}${dmy(h.t)}<span class="prova-card__date-sep">·</span>${hm(h.t)}${nc?"":`<span class="prova-card__date-sep">·</span>${mmss(h.sec)}`}</span></span>
+      <span class="prova-card__score"><span class="prova-card__score-value">${nc?"—":sc}</span>${nc?"":`<span class="prova-card__score-max">/100</span>`}</span>
+      <span class="prova-card__badge">${nc?icon("remove_circle_outline")+"Non completata":pass?icon("check_circle")+"Superata":icon("cancel")+"Non superata"}</span></button>`; }).join("");
+  return `<section class="paper dashboard-prove"><div class="dashboard-prove__header"><div><h3 class="dashboard-prove__title">${icon("history")} Prove effettuate</h3><p class="dashboard-prove__subtitle">Clicca una prova per rivederne il riepilogo completo.</p></div>
+    <div class="dashboard-prove__count"><span class="dashboard-prove__count-value">${sims().length}</span><span class="dashboard-prove__count-label">${sims().length===1?"Prova":"Prove"}</span></div></div>
+    ${rows?`<div class="dashboard-prove__list">${rows}</div>`:`<div class="alert">${icon("info_outline")}<span>Non hai ancora fatto simulazioni. Avviale da Mettiti alla prova.</span></div>`}</section>`;
+}
+function bindProve(){ document.querySelectorAll("[data-prova]").forEach(b=>b.onclick=()=>{ const h=sims()[+b.dataset.prova]; if(h && h.det) openSaved(h); else dialog({title:"Riepilogo non disponibile", body:"Per questa prova è stato salvato solo il punteggio.", actions:[{label:"Chiudi",primary:true}]}); }); }
+function bindGoto(){ document.querySelectorAll("[data-goto]").forEach(b=>b.onclick=()=>go(b.dataset.goto)); }
+
+/* ================= STUDIA PER MATERIA ================= */
+function renderStudia(){
+  const ms=[1,2,3,4,5].map(matStats);
+  const sessions=S.h.filter(h=>h.k!=="sim").length, risposte=ms.reduce((a,s)=>a+s.att,0), cor=ms.reduce((a,s)=>a+s.cor,0);
+  const started=ms.filter(s=>s.seen).length;
+  $("#view").innerHTML = `
+  ${head("school","Studia per materia")}
+  <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
+    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Studia per materia</div>
+      <h2 class="ocf-landing-hero__title">Costruisci la tua <b>preparazione</b>, materia per materia.</h2>
+      <p class="ocf-landing-hero__subtitle">Esplora le materie con statistiche che si aggiornano dopo ogni sessione. Le materie sono numerate come nel piano Mediolanum.</p></div>
+    <div class="ocf-landing-hero__right">
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${sessions}</div><div class="ocf-landing-hero__stat-label">Sessioni</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${risposte}</div><div class="ocf-landing-hero__stat-label">Risposte</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${risposte?Math.round(cor/risposte*100):0}<span class="ocf-landing-hero__stat-unit">%</span></div><div class="ocf-landing-hero__stat-label">Accuratezza</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${started}<span class="ocf-landing-hero__stat-unit">/5</span></div><div class="ocf-landing-hero__stat-label">Materie iniziate</div></div>
+    </div></div></section>
+  <div class="studia-materia-list">${[5,4,1,2,3].map(m=>studiaRow(m, ms[m-1])).join("")}</div>`;
+  document.querySelectorAll("[data-studia]").forEach(b=>b.onclick=()=>openStudyDialog(+b.dataset.studia));
+  document.querySelectorAll("[data-errori]").forEach(b=>b.onclick=()=>startSession(buildErrori(+b.dataset.errori)));
+}
+function studiaRow(m,s){
+  const nonViste=s.tot-s.seen, attiva=s.seen>0;
+  const prep=Math.round(s.okNow/s.tot*100), cop=Math.round(s.seen/s.tot*100);
+  const pct=v=>(v/s.tot*100).toFixed(2)+"%";
+  return `<article class="studia-materia-row">${attiva?'<span class="studia-status-stripe"></span>':""}
+    <div class="studia-materia-row__badge"><span class="studia-badge ${attiva?"studia-badge--attiva":"studia-badge--inattiva"}">${pad2(m)}</span></div>
+    <div class="studia-materia-row__main"><div class="studia-materia-row__meta"><span><b>${s.sessions}</b> sessioni studio</span></div><h3 class="studia-materia-row__title" title="${esc(MAT[m].name)}">${esc(MAT[m].name)}</h3></div>
+    <div class="studia-materia-row__breakdown"><div class="studia-materia-row__breakdown-label">${s.seen?`<b>${s.seen}</b> quesiti visti su ${s.tot}`:"Nessuna risposta"}</div>
+      <div class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${pct(s.okNow)}"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${pct(s.wrongNow)}"></span></div>
+      ${s.seen?`<div class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${s.okNow} esatte</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${s.wrongNow} errate</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${nonViste} da vedere</span></div>`:`<div class="studia-breakdown-empty">Nessuna risposta ancora registrata</div>`}</div>
+    <div class="studia-materia-row__levels">
+      <div class="studia-level-meter-row"><div class="studia-level-meter__header"><span>Liv. preparazione</span><span class="studia-level-meter__value"><b>${prep}</b><span class="studia-level-meter__value-max">/100</span></span></div><div class="studia-level-meter"><div class="studia-level-meter__fill" style="width:${prep}%"></div></div></div>
+      <div class="studia-level-meter-row"><div class="studia-level-meter__header"><span>Copertura quesiti</span><span class="studia-level-meter__value"><b>${cop}</b><span class="studia-level-meter__value-max">/100</span></span></div><div class="studia-level-meter"><div class="studia-level-meter__fill" style="width:${cop}%"></div></div></div>
+    </div>
+    <div class="studia-materia-row__actions"><button class="btn btn-filled studia-materia-row__cta" data-studia="${m}">${icon("school")} Studia</button>
+      ${s.wrongNow?`<button class="btn btn-outlined studia-materia-row__cta" data-errori="${m}">${icon("replay")} Errori (${s.wrongNow})</button>`:""}</div>
+  </article>`;
+}
+function openStudyDialog(m, preset){
+  const firstNew = BY_MAT[m].findIndex(n=>!S.m[m][n]);
+  const from = firstNew<0?1:firstNew+1;
+  const conts=[...new Set(BY_MAT[m].map(n=>Q[n-1][1]))];
+  const nErr=errorsOf(m).length;
+  dialog({title:`Nuova sessione di studio · Materia ${m} – ${esc(MAT[m].short)}`, body:`
+    <div class="field"><label>Tipo di sessione</label><div class="radio-row">
+      <label><input type="radio" name="tipo" value="seq" ${preset!=="rand"?"checked":""}> In ordine, a blocchi (come il piano Mediolanum)</label>
+      <label><input type="radio" name="tipo" value="rand" ${preset==="rand"?"checked":""}> A campione (test da ${MAT[m].test} come sul DB Excel)</label>
+      ${nErr?`<label><input type="radio" name="tipo" value="err"> Solo gli errori (${nErr})</label>`:""}</div></div>
+    <div class="field" id="f-from"><label for="d-from">Dal quesito n.</label><input id="d-from" type="number" min="1" max="${BY_MAT[m].length}" value="${from}"><span class="hint">Numerazione interna alla materia, da 1 a ${BY_MAT[m].length}. Il primo non ancora visto è il n. ${from}.</span></div>
+    <div class="field" id="f-cont"><label for="d-cont">Argomento</label><select id="d-cont"><option value="">Tutti gli argomenti</option>${conts.map(ci=>`<option value="${ci}">${esc(CONT[ci])}</option>`).join("")}</select></div>
+    <div class="field" id="f-n"><label for="d-n">Numero di quesiti</label><input id="d-n" type="number" min="5" max="200" step="5" value="${preset==="rand"?MAT[m].test:50}"></div>
+    <label class="check"><input type="checkbox" id="d-fb" checked> Mostra subito se la risposta è esatta</label>`,
+    actions:[{label:"Annulla"},{label:"Avvia sessione",primary:true}]});
+  const sync=()=>{ const t=document.querySelector('input[name=tipo]:checked').value; $("#f-from").hidden=t!=="seq"; $("#f-cont").hidden=t!=="rand"; $("#f-n").hidden=t==="err"; };
+  document.querySelectorAll('input[name=tipo]').forEach(r=>r.onchange=()=>{ sync(); if(r.value==="rand") $("#d-n").value=MAT[m].test; if(r.value==="seq") $("#d-n").value=50; });
+  sync();
+  $("#dlg .btn-filled").onclick=()=>{
+    const t=document.querySelector('input[name=tipo]:checked').value, n=Math.max(1,Math.min(200,+$("#d-n").value||25)), fb=$("#d-fb").checked?"now":"end";
+    let cfg;
+    if(t==="seq"){ const a=Math.max(1,Math.min(BY_MAT[m].length,+$("#d-from").value||1))-1; const ids=BY_MAT[m].slice(a,a+n); cfg={kind:"studio",title:`Studio in ordine · quesiti ${a+1}–${a+ids.length}`,ids,fb}; }
+    else if(t==="rand"){ let pool=BY_MAT[m]; const c=$("#d-cont").value; if(c!=="") pool=pool.filter(x=>String(Q[x-1][1])===c); cfg={kind:"studio",title:"Sessione a campione"+(c!==""?" · "+CONT[+c]:""),ids:shuffle(pool.slice()).slice(0,n),fb}; }
+    else cfg=Object.assign(buildErrori(m),{fb});
+    closeDialog(); startSession(cfg);
+  };
+}
+function buildErrori(m){ return {kind:"studio", title:"Ripasso errori", ids:shuffle(errorsOf(m)).slice(0,200), fb:"now"}; }
+
+/* ================= MIGLIORA ================= */
+function renderMigliora(){
+  $("#view").innerHTML = `
+  ${head("trending_up","Migliora la tua preparazione")}
+  <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
+    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Esercitazione adattiva</div>
+      <h2 class="ocf-landing-hero__title">Allenati dove <b>conta davvero</b>.</h2>
+      <p class="ocf-landing-hero__subtitle">Un'unica sessione mirata sulle materie in cui hai mostrato più difficoltà. Niente tempo perso: solo i quesiti che fanno la differenza.</p>
+      <button class="btn ocf-landing-hero__cta" id="start-mig">${icon("play_arrow")} Avvia esercitazione</button></div>
+    <div class="ocf-landing-hero__right">
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">20</div><div class="ocf-landing-hero__stat-label">Quesiti</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">60<span class="ocf-landing-hero__stat-unit">s</span></div><div class="ocf-landing-hero__stat-label">Per quesito</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">100<span class="ocf-landing-hero__stat-unit">%</span></div><div class="ocf-landing-hero__stat-label">Personalizzata</div></div>
+    </div></div></section>
+  <div class="ocf-landing-pillars">
+    <div class="ocf-landing-pillar"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--primary">${icon("psychology")}</div><h3 class="ocf-landing-pillar__title">Algoritmo adattivo</h3><p class="ocf-landing-pillar__text">Pesa le tue risposte precedenti: prima gli errori, poi i quesiti mai visti delle materie con l'accuratezza più bassa.</p></div>
+    <div class="ocf-landing-pillar"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--accent">${icon("timer")}</div><h3 class="ocf-landing-pillar__title">Ritmo da prova reale</h3><p class="ocf-landing-pillar__text">Sessanta secondi a quesito mettono in allenamento concentrazione, gestione del tempo e prontezza decisionale.</p></div>
+    <div class="ocf-landing-pillar"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--soft">${icon("insights")}</div><h3 class="ocf-landing-pillar__title">Crescita misurabile</h3><p class="ocf-landing-pillar__text">Ogni sessione alimenta lo storico e affina la prossima esercitazione, creando un percorso di miglioramento continuo.</p></div>
+  </div>
+  <section class="ocf-landing-steps"><h3 class="ocf-landing-steps__title">Come si svolge la sessione</h3><ol class="ocf-landing-steps__list">
+    <li class="ocf-landing-step"><span class="ocf-landing-step__num">1</span><div><div class="ocf-landing-step__heading">Selezione mirata</div><div class="ocf-landing-step__text">L'algoritmo costruisce una rosa di 20 quesiti basata sui tuoi punti deboli.</div></div></li>
+    <li class="ocf-landing-step"><span class="ocf-landing-step__num">2</span><div><div class="ocf-landing-step__heading">Risposta entro 60 secondi</div><div class="ocf-landing-step__text">Allo scadere puoi proseguire o terminare. Niente ritorni indietro: ogni scelta conta.</div></div></li>
+    <li class="ocf-landing-step"><span class="ocf-landing-step__num">3</span><div><div class="ocf-landing-step__heading">Riepilogo</div><div class="ocf-landing-step__text">A fine sessione vedi il dettaglio completo, quesito per quesito.</div></div></li>
+  </ol></section>`;
+  $("#start-mig").onclick=()=>startSession(buildMigliora());
+}
+function buildMigliora(){
+  const picks=new Set();
+  shuffle([1,2,3,4,5].flatMap(errorsOf)).slice(0,12).forEach(n=>picks.add(n));
+  const weight=m=>{ const s=matStats(m); return (s.acc===null?0.5:1-s.acc)+0.2; };
+  const mats=[1,2,3,4,5]; let guard=0;
+  while(picks.size<20 && guard++<500){
+    const tw=mats.reduce((a,m)=>a+weight(m)*MAT[m].sim,0); let r=Math.random()*tw, m=1;
+    for(const k of mats){ r-=weight(k)*MAT[k].sim; if(r<=0){ m=k; break; } }
+    const pool=BY_MAT[m].filter(n=>!S.m[m][n] && !picks.has(n)), src=pool.length?pool:BY_MAT[m];
+    picks.add(src[Math.floor(Math.random()*src.length)]);
+  }
+  return {kind:"migliora", title:"Esercitazione adattiva", ids:shuffle([...picks]), fb:"end", perQ:60};
+}
+
+/* ================= METTITI ALLA PROVA ================= */
+function renderProva(){
+  $("#view").innerHTML = `
+  ${head("quiz","Mettiti alla prova")}
+  <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
+    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Prova simulata</div>
+      <h2 class="ocf-landing-hero__title">Affronta l'<b>esame reale</b>, in anteprima.</h2>
+      <p class="ocf-landing-hero__subtitle">Una simulazione fedele alla prova ufficiale: stesso numero di quesiti, stesso cronometro, stessa soglia di superamento. Misura davvero a che punto sei.</p>
+      <button class="btn ocf-landing-hero__cta" id="start-sim">${icon("play_arrow")} Avvia simulazione</button></div>
+    <div class="ocf-landing-hero__right">
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">60</div><div class="ocf-landing-hero__stat-label">Quesiti</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">85<span class="ocf-landing-hero__stat-unit">min</span></div><div class="ocf-landing-hero__stat-label">Durata</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">80<span class="ocf-landing-hero__stat-unit">/100</span></div><div class="ocf-landing-hero__stat-label">Soglia</div></div>
+    </div></div></section>
+  <div class="ocf-landing-pillars">
+    <div class="ocf-landing-pillar"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--primary">${icon("verified")}</div><h3 class="ocf-landing-pillar__title">Formato fedele</h3><p class="ocf-landing-pillar__text">Stesso numero di quesiti, stessa durata e stessa soglia della prova ufficiale: 28 teorici e 12 pratici da 2 punti, 20 teorici da 1 punto.</p></div>
+    <div class="ocf-landing-pillar"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--accent">${icon("call_split")}</div><h3 class="ocf-landing-pillar__title">Navigazione libera</h3><p class="ocf-landing-pillar__text">Salta tra i quesiti con la pulsantiera numerata, modifica le risposte in qualsiasi momento e gestisci il tempo come preferisci.</p></div>
+    <div class="ocf-landing-pillar"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--soft">${icon("workspace_premium")}</div><h3 class="ocf-landing-pillar__title">Esito + report</h3><p class="ocf-landing-pillar__text">Al termine: punteggio su base 100, esito rispetto alla soglia e riepilogo per materia. Tutte le prove restano nello storico.</p></div>
+  </div>
+  <section class="ocf-landing-steps"><h3 class="ocf-landing-steps__title">Come si svolge la prova</h3><ol class="ocf-landing-steps__list">
+    <li class="ocf-landing-step"><span class="ocf-landing-step__num">1</span><div><div class="ocf-landing-step__heading">Avvio + cronometro</div><div class="ocf-landing-step__text">Parte il cronometro globale di 85 minuti. Allo scadere la prova viene consegnata.</div></div></li>
+    <li class="ocf-landing-step"><span class="ocf-landing-step__num">2</span><div><div class="ocf-landing-step__heading">Rispondi e naviga</div><div class="ocf-landing-step__text">Pulsantiera colorata: viola = risposto, blu = da rispondere, bordo chiaro = quesito corrente.</div></div></li>
+    <li class="ocf-landing-step"><span class="ocf-landing-step__num">3</span><div><div class="ocf-landing-step__heading">Esito + analisi</div><div class="ocf-landing-step__text">Visualizzi punteggio, riepilogo per materia e ogni quesito con la risposta corretta.</div></div></li>
+  </ol></section>
+  ${proveList(5)}`;
+  $("#start-sim").onclick=()=>startSession(buildSim());
+  bindProve();
+}
+function buildSim(){
+  let ids=[];
+  for(const m of [1,2,3,4,5]){ const [pr,t2,t1]=EXAM_MIX[m], pool=BY_MAT[m];
+    ids=ids.concat(shuffle(pool.filter(n=>Q[n-1][9]===1)).slice(0,pr), shuffle(pool.filter(n=>Q[n-1][9]!==1&&Q[n-1][3]===2)).slice(0,t2), shuffle(pool.filter(n=>Q[n-1][3]===1)).slice(0,t1)); }
+  return {kind:"sim", title:"Simulazione prova d'esame", ids:shuffle(ids), fb:"end", limit:85*60};
+}
+
+/* ================= motore sessione ================= */
+let timerId=null;
+function startSession(cfg){
+  if(!cfg.ids.length) return;
+  state.T={kind:cfg.kind, title:cfg.title, items:cfg.ids.map(n=>({n, order:shuffle([0,1,2,3]), pick:null, locked:false, timeout:false})), i:0, fb:cfg.fb, limit:cfg.limit||null, perQ:cfg.perQ||null, t0:Date.now(), qStart:Date.now(), done:false};
+  state.view="session"; closeDrawerMobile(); render(); window.scrollTo(0,0);
+}
+function elapsed(){ return (Date.now()-state.T.t0)/1000; }
+function setTimer(txt, low){ const el=$("#timer-v"); if(el){ el.textContent=txt; el.parentNode.classList.toggle("low",!!low); } }
+function tick(){
+  const T=state.T; if(!T||T.done||state.view!=="session") return clearInterval(timerId);
+  if(T.limit){ const left=T.limit-elapsed(); setTimer(mmss(left), left<300); if(left<=0) finish(); return; }
+  if(T.perQ){ const it=T.items[T.i]; if(it.locked){ setTimer("00:00", true); return; } const left=T.perQ-(Date.now()-T.qStart)/1000; setTimer(mmss(left), left<15); if(left<=0){ it.locked=true; it.timeout=it.pick===null; renderSession(); } return; }
+  setTimer(mmss(elapsed()));
+}
+function renderSession(){
+  const T=state.T, it=T.items[T.i], q=Q[it.n-1], N=T.items.length;
+  const nDone=T.items.filter(x=>x.pick!==null).length;
+  const isSim=T.kind==="sim", isMig=T.kind==="migliora";
+  const reveal = T.fb==="now" && it.pick!==null;
+  const pageIcon=isSim?"quiz":isMig?"trending_up":"school", pageTitle=isSim?"Mettiti alla prova":isMig?"Migliora la tua preparazione":"Studia per materia";
+  const alts = it.order.map((orig,pos)=>{
+    let cls="quesito-alt-row", tag="";
+    if(reveal){ if(orig===0){cls+=" quesito-alt-row--corretta"; tag="(corretta)";} else if(it.pick===orig){cls+=" quesito-alt-row--data"; tag="(tua risposta)";} }
+    else if(it.locked){ if(it.pick===orig) cls+=" quesito-alt-row--selected"; }
+    else { cls+=" quesito-alt-row--interactive"; if(it.pick===orig) cls+=" quesito-alt-row--selected"; }
+    return `<button class="${cls}" data-o="${orig}" ${reveal||it.locked?"disabled":""}><span class="quesito-alt-row__letter">${L[pos]}</span><span class="quesito-alt-row__body">${esc(q[5+orig])}</span>${tag?`<span class="quesito-alt-row__tag">${tag}</span>`:""}</button>`; }).join("");
+  const last=T.i===N-1;
+  let chips, bar, extra="";
+  if(isSim){
+    chips=`<span class="chip chip-outline-green">Quesito ${T.i+1} / ${N}</span><span class="chip chip-outline">${icon("check_circle")} Risposte confermate: ${nDone} / ${N}</span><span class="chip chip-grey right timer-chip">${icon("timer")}<span id="timer-v"></span></span>`;
+    extra=`<div class="pulsantiera-sim">${T.items.map((x,k)=>`<button class="psim-q ${k===T.i?"psim-corrente":x.pick!==null?"psim-risposto":"psim-nonrisposto"}" data-go="${k}" aria-label="Quesito ${k+1}">${k+1}</button>`).join("")}</div>
+      <div class="legend"><span><i class="psim-leg" style="background:#4a148c"></i>Risposta data</span><span><i class="psim-leg" style="background:#1976D2"></i>Senza risposta</span><span><i class="psim-leg" style="background:#fff;border:2px solid #b39ddb"></i>Domanda corrente</span></div>`;
+    bar=`<button class="btn btn-outlined" id="clear" ${it.pick===null?"disabled":""}>Annulla risposta</button>
+      <button class="navtext" id="prev" ${T.i===0?"disabled":""}>${icon("chevron_left")}Indietro</button><button class="navtext" id="next" ${last?"disabled":""}>Avanti${icon("chevron_right")}</button>
+      <span class="push"><button class="btn btn-red" id="end">Termina</button></span>`;
+  } else {
+    chips=`<span class="chip chip-outline-green">Quesito ${T.i+1} / ${N}</span><span class="chip chip-dark">Materia: ${esc(MAT[q[0]].name)}</span><span class="chip chip-grey right">${icon("speed")} Livello ${q[3]}</span><span class="chip chip-grey timer-chip">${icon(isMig?"timer":"schedule")}<span id="timer-v"></span></span>`;
+    const canNext = isMig ? (it.pick!==null||it.locked) : true;
+    bar=`<button class="btn btn-outlined" id="clear" ${it.pick===null||reveal||it.locked?"disabled":""}>Annulla risposta</button>
+      <span class="push"><button class="btn btn-outlined" id="end">Termina</button><button class="btn btn-filled" id="next" ${canNext?"":"disabled"}>${last?"Concludi sessione":"Prossimo quesito"}</button></span>`;
+  }
+  const posInMat=BY_MAT[q[0]].indexOf(it.n)+1;
+  const note = it.timeout?`<div class="alert" style="border-color:var(--nondata);color:var(--nondata)">${icon("timer_off")}<span>Tempo scaduto: il quesito resta senza risposta. Prosegui con il prossimo o termina la sessione.</span></div>`:"";
+  $("#view").innerHTML = `${head(pageIcon,pageTitle)}
+  <section class="paper sess">
+    <div class="sess-chips">${chips}</div>
+    ${extra}
+    <div class="quesito-box"><span class="quesito-box__label">Domanda</span><div class="quesito-box__testo">${esc(q[4])}</div></div>
+    <div class="quesito-alt-list">${alts}</div>
+    ${note}
+    <div class="sess-bar">${bar}</div>
+    ${isSim?"":`<p class="hint">${esc(T.title)} · ${esc(CONT[q[1]])} · quesito ${posInMat} della materia. Tastiera: A–D o 1–4 per rispondere, Invio per proseguire.</p>`}
+  </section>`;
+  tick();
+  document.querySelectorAll(".quesito-alt-row--interactive").forEach(b=>b.onclick=()=>choose(+b.dataset.o));
+  document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{ T.i=+b.dataset.go; renderSession(); });
+  const c=$("#clear"); if(c) c.onclick=()=>{ it.pick=null; renderSession(); };
+  const p=$("#prev"); if(p) p.onclick=()=>{ if(T.i>0){ T.i--; renderSession(); } };
+  const nx=$("#next"); if(nx) nx.onclick=()=>advance();
+  $("#end").onclick=askEnd;
+}
+function choose(orig){
+  const T=state.T, it=T.items[T.i];
+  if(it.locked || (T.fb==="now" && it.pick!==null)) return;
+  it.pick=orig; renderSession();
+}
+function advance(){
+  const T=state.T, it=T.items[T.i];
+  if(T.kind==="sim"){ if(T.i<T.items.length-1){ T.i++; renderSession(); } return; }
+  if(T.kind==="migliora" && it.pick===null && !it.locked) return;
+  it.locked=true;
+  if(T.i<T.items.length-1){ T.i++; T.qStart=Date.now(); renderSession(); window.scrollTo(0,0); } else finish();
+}
+function askEnd(){
+  const T=state.T, nDone=T.items.filter(x=>x.pick!==null).length;
+  if(T.kind==="sim") dialog({title:"Termina simulazione", body:`Vuoi davvero terminare la simulazione? Hai risposto a ${nDone} quesiti su ${T.items.length}.${nDone<T.items.length?" I quesiti senza risposta valgono 0 punti.":""}`, actions:[{label:"Torna alla prova"},{label:"Termina",primary:true,run:()=>finish()}]});
+  else dialog({title:T.kind==="migliora"?"Termina esercitazione":"Termina sessione di studio", body:"Vuoi davvero terminare la sessione di studio? Vedrai subito il riepilogo dei quesiti affrontati finora.", actions:[{label:"Continua la sessione"},{label:"Conferma uscita",primary:true,run:()=>finish()}]});
+}
+function askLeave(v){
+  const T=state.T;
+  if(T.kind==="sim") dialog({title:"Simulazione in corso", body:"Stai per abbandonare la simulazione. La simulazione corrente sarà conclusa senza alcuna valutazione. Si desidera procedere?", actions:[{label:"Torna alla prova"},{label:"Esci",primary:true,run:()=>{ T.done=true; clearInterval(timerId); S.h.push({t:Date.now(),k:"sim",title:T.title,n:60,ok:0,sec:Math.round(elapsed()),nc:true}); lsWrite(); pushAll([]); state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0); }}]});
+  else dialog({title:"Sessione in corso", body:"Stai per lasciare la sessione. Le risposte date finora vengono salvate. Si desidera procedere?", actions:[{label:"Continua la sessione"},{label:"Esci",primary:true,run:()=>{ finish(true); state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0); }}]});
+}
+function examPoints(items){ return items.reduce((a,x)=>a+(x.pick===0?Q[x.n-1][3]:0),0); }
+function finish(silent){
+  const T=state.T; if(T.done) return; T.done=true; clearInterval(timerId);
+  const counted = T.kind==="sim" ? T.items : T.items.filter((x,k)=>k<T.i || x.pick!==null || x.locked);
+  counted.filter(x=>x.pick!==null).forEach(x=>record(x.n, x.pick===0));
+  T.counted = counted;
+  const ok=counted.filter(x=>x.pick===0).length, sec=Math.round(elapsed());
+  const ms=[...new Set(counted.map(x=>Q[x.n-1][0]))];
+  const entry={t:Date.now(), k:T.kind, title:T.title, n:counted.length, ok, sec, ms};
+  if(T.kind==="sim"){ entry.pts=examPoints(T.items); entry.det=T.items.map(x=>[x.n, x.pick===null?-1:x.pick, x.order.join("")]); }
+  if(counted.length) S.h.push(entry);
+  lsWrite(); pushAll(ms);
+  if(!silent){ state.sel=0; state.view="riepilogo"; render(); window.scrollTo(0,0); }
+}
+function openSaved(h){
+  const items=h.det.map(([n,p,o])=>({n, pick:p<0?null:p, order:o.split("").map(Number)}));
+  state.T={kind:"sim", title:h.title, items, counted:items, done:true};
+  state.sel=0; state.view="riepilogo"; render(); window.scrollTo(0,0);
+}
+
+/* ================= riepilogo ================= */
+function renderRiepilogo(){
+  const T=state.T, items=T.counted||T.items, isSim=T.kind==="sim";
+  if(!items.length){ state.view = isSim?"prova":T.kind==="migliora"?"migliora":"studia"; return render(); }
+  const ok=items.filter(x=>x.pick===0).length, err=items.filter(x=>x.pick!==null&&x.pick!==0).length, nd=items.filter(x=>x.pick===null).length;
+  const pts=isSim?examPoints(items):null, pass=isSim&&pts>=80;
+  const pageIcon=isSim?"quiz":T.kind==="migliora"?"trending_up":"school", pageTitle=isSim?"Mettiti alla prova":T.kind==="migliora"?"Migliora la tua preparazione":"Studia per materia";
+  const sel=Math.min(state.sel, items.length-1), x=items[sel];
+  const perMat=[1,2,3,4,5].map(m=>{ const xs=items.filter(y=>Q[y.n-1][0]===m); if(!xs.length) return ""; const o=xs.filter(y=>y.pick===0); return `<tr><td>${m} – ${esc(MAT[m].name)}</td><td class="num">${xs.length}</td><td class="num">${o.length}</td><td class="num">${xs.filter(y=>y.pick!==null&&y.pick!==0).length}</td><td class="num">${xs.filter(y=>y.pick===null).length}</td>${isSim?`<td class="num">${o.reduce((a,y)=>a+Q[y.n-1][3],0)}/${xs.reduce((a,y)=>a+Q[y.n-1][3],0)}</td>`:""}</tr>`; }).join("");
+  const wrongIds=items.filter(y=>y.pick!==0).map(y=>y.n);
+  $("#view").innerHTML = `${head(pageIcon,pageTitle)}
+  <section class="paper sess">
+    <h3 class="riepilogo-title">${icon("insights")} Riepilogo ${isSim?"simulazione":"sessione"}</h3>
+    <div class="stat-cards">
+      <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("visibility")}</span><span class="stat-card__label">Visualizzati</span><span class="stat-card__value">${items.length}</span></div>
+      <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Esatte</span><span class="stat-card__value">${ok}</span></div>
+      <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("cancel")}</span><span class="stat-card__label">Errate</span><span class="stat-card__value">${err}</span></div>
+      <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("help_outline")}</span><span class="stat-card__label">Non date</span><span class="stat-card__value">${nd}</span></div>
+    </div>
+    ${isSim?`<div class="punteggio-hero ${pass?"":"punteggio-hero--non-superato"}"><span class="punteggio-hero__icon">${icon(pass?"emoji_events":"report")}</span><div class="punteggio-hero__body"><div class="punteggio-hero__label">Punteggio totale</div><div class="punteggio-hero__value">${pts}<span class="punteggio-hero__value-max">/100</span></div></div><span class="punteggio-hero__badge">${icon(pass?"check_circle":"cancel")} ${pass?"Prova superata":"Prova non superata"}</span></div>`:""}
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      ${wrongIds.length?`<button class="btn btn-filled" id="redo">${icon("replay")} Rifai le ${wrongIds.length} da rivedere</button>`:""}
+      <button class="btn btn-outlined" id="again">Nuova sessione</button>
+    </div>
+    <div style="font-size:16px;margin-top:6px">Naviga tra i quesiti</div>
+    <div class="pulsantiera-quesiti">${items.map((y,k)=>`<button class="pul-q ${y.pick===0?"pul-esatta":y.pick===null?"pul-nondata":"pul-errata"} ${k===sel?"pul-corrente":""}" data-sel="${k}" aria-label="Quesito ${k+1}">${k+1}</button>`).join("")}</div>
+    <div class="legend"><span><i class="pul-leg" style="background:#2e7d32"></i>Risposta esatta</span><span><i class="pul-leg" style="background:#c62828"></i>Risposta errata</span><span><i class="pul-leg" style="background:#1976D2"></i>Non risposta</span></div>
+    ${riepQuesito(x, sel)}
+    <details class="paper expander"><summary>Tabella di sintesi ${icon("expand_more")}</summary><div class="tablewrap"><table class="mud"><thead><tr><th>Materia</th><th class="num">Quesiti</th><th class="num">Esatte</th><th class="num">Errate</th><th class="num">Non date</th>${isSim?'<th class="num">Punti</th>':""}</tr></thead><tbody>${perMat}</tbody></table></div></details>
+  </section>`;
+  document.querySelectorAll("[data-sel]").forEach(b=>b.onclick=()=>{ state.sel=+b.dataset.sel; renderRiepilogo(); });
+  const r=$("#redo"); if(r) r.onclick=()=>startSession({kind:"studio", title:"Rifai i quesiti da rivedere", ids:shuffle(wrongIds.slice()), fb:"now"});
+  $("#again").onclick=()=>go(isSim?"prova":T.kind==="migliora"?"migliora":"studia");
+}
+function riepQuesito(x,k){
+  const q=Q[x.n-1];
+  const b = x.pick===0?'<span class="badge-esito badge-esatta">Esatta</span>':x.pick===null?'<span class="badge-esito badge-nondata">Non data</span>':'<span class="badge-esito badge-errata">Errata</span>';
+  const alts = x.order.map((orig,pos)=>{ let cls="quesito-alt-row", tag=""; if(orig===0){cls+=" quesito-alt-row--corretta"; tag="(corretta)";} else if(x.pick===orig){cls+=" quesito-alt-row--data"; tag="(tua risposta)";}
+    return `<div class="${cls}"><span class="quesito-alt-row__letter">${L[pos]}</span><span class="quesito-alt-row__body">${esc(q[5+orig])}</span>${tag?`<span class="quesito-alt-row__tag">${tag}</span>`:""}</div>`; }).join("");
+  return `<div class="rq"><div class="rq-head"><span>Quesito ${k+1} — ${esc(MAT[q[0]].name)} · Livello ${q[3]}</span>${b}</div>
+    <div class="quesito-box"><span class="quesito-box__label">Domanda</span><div class="quesito-box__testo">${esc(q[4])}</div></div><div class="quesito-alt-list">${alts}</div>
+    <p class="hint">${esc(CONT[q[1]])} · ${esc(SUB[q[2]])} · n. ${BY_MAT[q[0]].indexOf(x.n)+1} della materia</p></div>`;
+}
+
+/* ================= report ================= */
+function renderReportMaterie(){
+  const rows=[5,4,1,2,3].map(m=>{
+    const conts=[...new Set(BY_MAT[m].map(n=>Q[n-1][1]))];
+    const crow=conts.map(ci=>{ const ids=BY_MAT[m].filter(n=>Q[n-1][1]===ci); let seen=0,att=0,cor=0,wr=0; ids.forEach(n=>{const r=S.m[m][n]; if(r){seen++;att+=r[0];cor+=r[1]; if(!r[2]) wr++;}}); return {ci,tot:ids.length,seen,acc:att?Math.round(cor/att*100):null,wr}; });
+    return `<tr><th colspan="5" style="background:#F5F5F5">Materia ${m} – ${esc(MAT[m].name)}</th></tr>`+crow.map(c=>`<tr><td>${esc(CONT[c.ci])}</td><td class="num">${c.tot}</td><td class="num">${c.seen}</td><td class="num">${c.acc===null?"–":c.acc+"%"}</td><td class="num">${c.wr||"–"}</td></tr>`).join("");
+  }).join("");
+  $("#view").innerHTML = `${head("bar_chart","Esercitazioni — analitico")}
+  <section class="paper card"><div class="tablewrap"><table class="mud"><thead><tr><th>Argomento</th><th class="num">Quesiti</th><th class="num">Visti</th><th class="num">Esatte</th><th class="num">Da ripassare</th></tr></thead><tbody>${rows}</tbody></table></div></section>`;
+}
+function renderReportSim(){
+  const d=simsDone(), last=d.slice(-20);
+  const avg=last.length?(last.reduce((a,h)=>a+simScore(h),0)/last.length):null, t=last.length?last.reduce((a,h)=>a+h.sec,0)/last.length:null;
+  $("#view").innerHTML = `${head("bar_chart","Simulazioni — andamento")}
+  <div class="stat-cards" style="margin-bottom:24px">
+    <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("quiz")}</span><span class="stat-card__label">Simulazioni complete · obiettivo 450</span><span class="stat-card__value">${d.length}</span></div>
+    <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("functions")}</span><span class="stat-card__label">Media ultime 20 · obiettivo 94</span><span class="stat-card__value">${avg===null?"–":avg.toFixed(1)}</span></div>
+    <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("timer")}</span><span class="stat-card__label">Tempo medio · obiettivo 10:00</span><span class="stat-card__value">${t===null?"–":mmss(t)}</span></div>
+    <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Superate</span><span class="stat-card__value">${d.filter(h=>simScore(h)>=80).length}</span></div>
+  </div>
+  <div class="paper card" style="margin-bottom:24px"><div class="cardhead"><h6>Andamento simulazioni</h6></div><div class="chart">${simChart()}</div><p class="hint">Obiettivi dalla presentazione Mediolanum: probabilità di successo oltre il 95% con più di 450 simulazioni, media sopra 94 e tempo medio sotto 10 minuti.</p></div>
+  ${proveList(50)}`;
+  bindProve();
+}
+
+/* ================= sfoglia ================= */
+function renderSfoglia(){
+  const B=state.browse, PAGE=25, term=B.q.trim().toLowerCase();
+  let ids=BY_MAT[B.mat]; if(term) ids=ids.filter(n=>{ const q=Q[n-1]; return q[4].toLowerCase().includes(term)||q[5].toLowerCase().includes(term); });
+  const pages=Math.max(1,Math.ceil(ids.length/PAGE)); B.page=Math.min(B.page,pages-1);
+  const slice=ids.slice(B.page*PAGE,B.page*PAGE+PAGE);
+  $("#view").innerHTML = `${head("menu_book","Sfoglia i quesiti")}
+  <section class="paper card">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end">
+      <div class="field" style="margin:0"><label for="b-mat">Materia</label><select id="b-mat">${[5,4,1,2,3].map(m=>`<option value="${m}" ${m===B.mat?"selected":""}>${m} – ${esc(MAT[m].short)}</option>`).join("")}</select></div>
+      <div class="field" style="margin:0;flex:1;min-width:200px"><label for="b-q">Cerca nel testo</label><input id="b-q" type="search" value="${esc(B.q)}" placeholder="es. usufrutto, art. 2364, duration"></div>
+    </div>
+    <p class="hint">${ids.length} quesiti${term?" trovati":""}. La risposta corretta è evidenziata in verde.</p>
+    <div>${slice.map(n=>{ const q=Q[n-1]; return `<div class="browse-item"><div class="meta">n. ${BY_MAT[q[0]].indexOf(n)+1} · ${esc(CONT[q[1]])} · ${esc(SUB[q[2]])} · Livello ${q[3]}${q[9]?" · pratico":""}</div><div class="q">${esc(q[4])}</div><div class="a">${icon("check")}<span>${esc(q[5])}</span></div></div>`; }).join("")||'<p class="hint">Nessun quesito contiene queste parole.</p>'}</div>
+    <div class="pager"><button class="btn btn-outlined" id="pp" ${B.page===0?"disabled":""}>${icon("chevron_left")} Precedenti</button><span>Pagina ${B.page+1} di ${pages}</span><button class="btn btn-outlined" id="np" ${B.page>=pages-1?"disabled":""}>Successivi ${icon("chevron_right")}</button></div>
+  </section>`;
+  $("#b-mat").onchange=e=>{ B.mat=+e.target.value; B.page=0; renderSfoglia(); };
+  let tm; $("#b-q").oninput=e=>{ clearTimeout(tm); tm=setTimeout(()=>{ B.q=e.target.value; B.page=0; renderSfoglia(); const el=$("#b-q"); el.focus(); el.setSelectionRange(el.value.length,el.value.length); },250); };
+  $("#pp").onclick=()=>{ B.page--; renderSfoglia(); window.scrollTo(0,0); };
+  $("#np").onclick=()=>{ B.page++; renderSfoglia(); window.scrollTo(0,0); };
+}
+
+/* ================= tastiera ================= */
+document.addEventListener("keydown",e=>{
+  if(state.view!=="session"||!state.T||state.T.done||dialogOpen()) return;
+  if(["INPUT","SELECT","TEXTAREA"].includes(e.target.tagName)) return;
+  const T=state.T, it=T.items[T.i], k=e.key.toUpperCase();
+  let pos=L.indexOf(k); if(pos<0 && ["1","2","3","4"].includes(k)) pos=+k-1;
+  if(pos>=0){ e.preventDefault(); choose(it.order[pos]); return; }
+  if(T.kind==="sim"){ if(e.key==="ArrowRight"&&T.i<T.items.length-1){T.i++;renderSession();} else if(e.key==="ArrowLeft"&&T.i>0){T.i--;renderSession();} return; }
+  if(e.key==="Enter"){ e.preventDefault(); advance(); }
+});
+window.addEventListener("beforeunload",()=>lsWrite());
+
+render();
+initStore();
+})();
+</script>
