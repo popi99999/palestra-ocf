@@ -308,6 +308,47 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .check{display:flex;gap:8px;align-items:center;font-size:15px}
 .check input{accent-color:var(--ocf-brand-green);width:18px;height:18px}
 .hint{font-size:13px;color:var(--ocf-ink-soft);margin:4px 0 0}
+/* ---------- argomenti e sottogruppi ---------- */
+.backlink{display:inline-flex;align-items:center;gap:4px;color:var(--ocf-brand-green);font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.4px;background:none;border:0;cursor:pointer;padding:4px 0;margin-bottom:8px}
+.backlink .mi{font-size:20px}
+.selbar{position:sticky;top:calc(64px + env(safe-area-inset-top,0px));z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 18px;margin:0 0 14px;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:12px}
+.selbar__text{font-size:15px;font-weight:500;color:var(--ocf-brand-green-dark)}
+.selbar__acts{display:flex;gap:8px;flex-wrap:wrap}
+.grp-tools{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.grp-list{display:flex;flex-direction:column;gap:10px}
+.grp{background:#fff;border:1px solid var(--ocf-line);border-radius:12px;overflow:hidden;position:relative}
+.grp.has-sel::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ocf-brand-green)}
+.grp-head,.grp-sub{display:grid;align-items:center;gap:14px}
+.grp-head{grid-template-columns:24px 36px minmax(0,1fr) minmax(170px,240px) auto;padding:14px 18px}
+.grp-sub{grid-template-columns:24px minmax(0,1fr) minmax(150px,220px) auto;padding:10px 18px 10px 72px;border-top:1px solid var(--ocf-line);background:#FCFCFB}
+.grp input[type=checkbox]{accent-color:var(--ocf-brand-green);width:18px;height:18px;margin:0;cursor:pointer}
+.expbtn{width:36px;height:36px;border-radius:50%;border:0;background:transparent;color:var(--ocf-ink-soft);display:grid;place-items:center;cursor:pointer}
+.expbtn:hover{background:rgba(0,0,0,.05)}
+.expbtn .mi{transition:transform .2s}
+.grp[data-open="1"] .expbtn .mi{transform:rotate(180deg)}
+.grp-title{margin:0;font-size:16px;font-weight:500;color:var(--ocf-ink);line-height:1.35;cursor:pointer}
+.grp-subtitle{font-size:14px;color:var(--ocf-ink);line-height:1.35}
+.grp-meta{font-size:12px;color:var(--ocf-ink-soft);margin-top:3px;font-variant-numeric:tabular-nums}
+.grp-meta b{color:var(--ocf-ink);font-weight:600}
+.grp-stat .studia-breakdown{height:6px}
+.grp-stat__row{display:flex;justify-content:space-between;font-size:11px;color:var(--ocf-ink-soft);margin-bottom:5px;font-variant-numeric:tabular-nums;gap:8px}
+.grp-stat__row b{color:var(--ocf-ink);font-weight:600}
+.grp-acts{display:flex;gap:6px;justify-content:flex-end}
+.btn-sm{min-height:30px;padding:3px 10px;font-size:13px}
+.btn-sm .mi{font-size:18px}
+.btn-outlined.btn-sm{padding:2px 9px}
+.filterchip{display:inline-flex;align-items:center;gap:6px;background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);border-radius:16px;padding:4px 6px 4px 12px;font-size:13px;font-weight:500;max-width:100%}
+.filterchip span.t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.filterchip button{border:0;background:transparent;color:inherit;cursor:pointer;display:grid;place-items:center;padding:0}
+.filterchip .mi{font-size:18px}
+@media (max-width:767.98px){
+  .grp-head{grid-template-columns:24px 36px minmax(0,1fr);row-gap:10px;padding:14px 14px}
+  .grp-head .grp-stat,.grp-head .grp-acts{grid-column:3}
+  .grp-head .grp-acts{justify-content:flex-start}
+  .grp-sub{grid-template-columns:24px minmax(0,1fr);row-gap:8px;padding:10px 14px 10px 28px}
+  .grp-sub .grp-stat,.grp-sub .grp-acts{grid-column:2}
+  .grp-sub .grp-acts{justify-content:flex-start}
+}
 /* ---------- sfoglia ---------- */
 .browse-item{padding:14px 0;border-bottom:1px solid var(--ocf-line);display:flex;flex-direction:column;gap:6px}
 .browse-item:last-child{border-bottom:0}
@@ -475,9 +516,10 @@ const simsDone = () => sims().filter(h=>!h.nc);
 const simScore = h => h.pts!=null ? h.pts : Math.round(h.ok/h.n*100);
 
 /* ================= stato e navigazione ================= */
-const state = {view:"home", T:null, sel:0, browse:{mat:5,q:"",page:0}};
+const state = {view:"home", T:null, sel:0, browse:{mat:5,q:"",page:0,ids:null,label:""}, matSel:5, open:new Set(), picked:new Set()};
 function navKey(){
   if(state.view==="session"||state.view==="riepilogo"){ const k=state.T&&state.T.kind; return k==="sim"?"prova":k==="migliora"?"migliora":"studia"; }
+  if(state.view==="materia") return "studia";
   return state.view;
 }
 function setNavActive(){
@@ -488,8 +530,8 @@ function go(v){
   if(state.T && !state.T.done && state.view==="session"){ return askLeave(v); }
   state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0);
 }
-document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",e=>{ e.preventDefault(); go(a.dataset.nav); }));
-$("#hdr-browse").onclick=()=>go("sfoglia");
+document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",e=>{ e.preventDefault(); if(a.dataset.nav==="sfoglia"){ state.browse.ids=null; state.browse.label=""; } go(a.dataset.nav); }));
+$("#hdr-browse").onclick=()=>{ state.browse.ids=null; state.browse.label=""; go("sfoglia"); };
 $("#grp-report").onclick=()=>{ const b=$("#grp-report"), open=b.getAttribute("aria-expanded")!=="true"; b.setAttribute("aria-expanded",open); $("#sub-report").hidden=!open; };
 const mq = window.matchMedia("(max-width:959.98px)");
 $("#menu").onclick=()=>{ if(mq.matches){ document.body.classList.toggle("drawer-open"); $("#scrim").hidden=!document.body.classList.contains("drawer-open"); } else document.body.classList.toggle("drawer-closed"); };
@@ -501,6 +543,7 @@ function render(){
   const v=state.view;
   if(v==="home") renderHome();
   else if(v==="studia") renderStudia();
+  else if(v==="materia") renderMateria();
   else if(v==="migliora") renderMigliora();
   else if(v==="prova") renderProva();
   else if(v==="session") renderSession();
@@ -549,7 +592,7 @@ function renderHome(){
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${simsDone().length}</div><div class="ocf-landing-hero__stat-label">Simulazioni</div></div>
     </div></div></section>
   <div class="ocf-landing-cta-strip"><span class="ocf-landing-cta-strip__text">${esc(tp.txt)}</span>
-    ${tp.m?`<button class="btn btn-filled" id="plan-go">${icon("school")} Studia la Materia ${tp.m}</button>`:`<button class="btn btn-filled" data-goto="prova">${icon("quiz")} Mettiti alla prova</button>`}</div>
+    ${tp.m?`<span style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-outlined" id="plan-arg">${icon("account_tree")} Argomenti</button><button class="btn btn-filled" id="plan-go">${icon("school")} Studia la Materia ${tp.m}</button></span>`:`<button class="btn btn-filled" data-goto="prova">${icon("quiz")} Mettiti alla prova</button>`}</div>
   <div class="ocf-landing-pillars">
     <button class="ocf-landing-pillar ocf-home-pillar" data-goto="studia"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--soft">${icon("school")}</div><h3 class="ocf-landing-pillar__title">Studia per materia</h3><p class="ocf-landing-pillar__text">Riprendi i contenuti di ogni materia con il riepilogo delle tue statistiche e sessioni di studio in ordine, a campione o sugli errori.</p><span class="ocf-home-pillar__action">Apri ${icon("arrow_forward")}</span></button>
     <button class="ocf-landing-pillar ocf-home-pillar" data-goto="migliora"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--primary">${icon("trending_up")}</div><h3 class="ocf-landing-pillar__title">Migliora la preparazione</h3><p class="ocf-landing-pillar__text">Una sessione adattiva di 20 quesiti, costruita sui tuoi punti deboli. Sessanta secondi a quesito per allenare ritmo e concentrazione.</p><span class="ocf-home-pillar__action">Apri ${icon("arrow_forward")}</span></button>
@@ -563,6 +606,7 @@ function renderHome(){
   $("#go-progress").onclick=()=>$("#progress").scrollIntoView({behavior:"smooth"});
   bindGoto();
   const pg=$("#plan-go"); if(pg) pg.onclick=()=>openStudyDialog(tp.m, "seq");
+  const pa=$("#plan-arg"); if(pa) pa.onclick=()=>openMateria(tp.m);
   bindProve();
 }
 function matBars(){
@@ -624,6 +668,7 @@ function renderStudia(){
   <div class="studia-materia-list">${[5,4,1,2,3].map(m=>studiaRow(m, ms[m-1])).join("")}</div>`;
   document.querySelectorAll("[data-studia]").forEach(b=>b.onclick=()=>openStudyDialog(+b.dataset.studia));
   document.querySelectorAll("[data-errori]").forEach(b=>b.onclick=()=>startSession(buildErrori(+b.dataset.errori)));
+  document.querySelectorAll("[data-argomenti]").forEach(b=>b.onclick=()=>openMateria(+b.dataset.argomenti));
 }
 function studiaRow(m,s){
   const nonViste=s.tot-s.seen, attiva=s.seen>0;
@@ -631,7 +676,7 @@ function studiaRow(m,s){
   const pct=v=>(v/s.tot*100).toFixed(2)+"%";
   return `<article class="studia-materia-row">${attiva?'<span class="studia-status-stripe"></span>':""}
     <div class="studia-materia-row__badge"><span class="studia-badge ${attiva?"studia-badge--attiva":"studia-badge--inattiva"}">${pad2(m)}</span></div>
-    <div class="studia-materia-row__main"><div class="studia-materia-row__meta"><span><b>${s.sessions}</b> sessioni studio</span></div><h3 class="studia-materia-row__title" title="${esc(MAT[m].name)}">${esc(MAT[m].name)}</h3></div>
+    <div class="studia-materia-row__main"><div class="studia-materia-row__meta"><span><b>${s.sessions}</b> sessioni studio</span></div><h3 class="studia-materia-row__title" title="${esc(MAT[m].name)}" data-argomenti="${m}" style="cursor:pointer">${esc(MAT[m].name)}</h3></div>
     <div class="studia-materia-row__breakdown"><div class="studia-materia-row__breakdown-label">${s.seen?`<b>${s.seen}</b> quesiti visti su ${s.tot}`:"Nessuna risposta"}</div>
       <div class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${pct(s.okNow)}"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${pct(s.wrongNow)}"></span></div>
       ${s.seen?`<div class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${s.okNow} esatte</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${s.wrongNow} errate</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${nonViste} da vedere</span></div>`:`<div class="studia-breakdown-empty">Nessuna risposta ancora registrata</div>`}</div>
@@ -640,6 +685,7 @@ function studiaRow(m,s){
       <div class="studia-level-meter-row"><div class="studia-level-meter__header"><span>Copertura quesiti</span><span class="studia-level-meter__value"><b>${cop}</b><span class="studia-level-meter__value-max">/100</span></span></div><div class="studia-level-meter"><div class="studia-level-meter__fill" style="width:${cop}%"></div></div></div>
     </div>
     <div class="studia-materia-row__actions"><button class="btn btn-filled studia-materia-row__cta" data-studia="${m}">${icon("school")} Studia</button>
+      <button class="btn btn-outlined studia-materia-row__cta" data-argomenti="${m}">${icon("account_tree")} Argomenti</button>
       ${s.wrongNow?`<button class="btn btn-outlined studia-materia-row__cta" data-errori="${m}">${icon("replay")} Errori (${s.wrongNow})</button>`:""}</div>
   </article>`;
 }
@@ -671,6 +717,101 @@ function openStudyDialog(m, preset){
   };
 }
 function buildErrori(m){ return {kind:"studio", title:"Ripasso errori", ids:shuffle(errorsOf(m)).slice(0,200), fb:"now"}; }
+
+/* ================= ARGOMENTI E SOTTOGRUPPI ================= */
+function groupsOf(m){
+  // argomenti (contenuti OCF) e sottogruppi (sub-contenuti) nell'ordine della banca dati
+  const conts=new Map();
+  for(const n of BY_MAT[m]){ const q=Q[n-1]; if(!conts.has(q[1])) conts.set(q[1],{ci:q[1],ids:[],subs:new Map()}); const c=conts.get(q[1]); c.ids.push(n); if(!c.subs.has(q[2])) c.subs.set(q[2],{si:q[2],ids:[]}); c.subs.get(q[2]).ids.push(n); }
+  return [...conts.values()].map(c=>({ci:c.ci, ids:c.ids, subs:[...c.subs.values()]}));
+}
+function gstats(ids){
+  let seen=0,ok=0,wr=0,att=0,cor=0;
+  for(const n of ids){ const r=S.m[Q[n-1][0]][n]; if(!r) continue; seen++; att+=r[0]; cor+=r[1]; if(r[2]) ok++; else wr++; }
+  return {tot:ids.length, seen, ok, wr, acc:att?Math.round(cor/att*100):null};
+}
+function statBlock(ids){
+  const s=gstats(ids), w=v=>(v/s.tot*100).toFixed(2)+"%";
+  return `<div class="grp-stat"><div class="grp-stat__row"><span><b>${s.seen}</b>/${s.tot} visti</span><span>${s.acc===null?"":`<b>${s.acc}%</b> esatte`}${s.wr?` · <span style="color:var(--ocf-red)">${s.wr} da ripassare</span>`:""}</span></div>
+    <div class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${w(s.ok)}"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${w(s.wr)}"></span></div></div>`;
+}
+function openMateria(m){ if(state.matSel!==m){ state.open=new Set(); state.picked=new Set(); } state.matSel=m; go("materia"); }
+function pickedIds(G){
+  const out=[];
+  for(const g of G) for(const s of g.subs) if(state.picked.has(g.ci+":"+s.si)) out.push(...s.ids);
+  return out;
+}
+function renderMateria(){
+  const m=state.matSel, G=groupsOf(m), ms=matStats(m), sel=pickedIds(G);
+  const keyOf=(g,s)=>g.ci+":"+s.si;
+  const rows=G.map(g=>{
+    const open=state.open.has(g.ci), nSel=g.subs.filter(s=>state.picked.has(keyOf(g,s))).length, all=nSel===g.subs.length;
+    const subs = open ? g.subs.map(s=>`<div class="grp-sub"><input type="checkbox" data-pick="${keyOf(g,s)}" ${state.picked.has(keyOf(g,s))?"checked":""} aria-label="Seleziona ${esc(SUB[s.si])}">
+        <div><div class="grp-subtitle">${esc(SUB[s.si]||"Senza sottogruppo")}</div><div class="grp-meta"><b>${s.ids.length}</b> quesiti</div></div>
+        ${statBlock(s.ids)}
+        <div class="grp-acts"><button class="btn btn-outlined btn-sm" data-leggi="${keyOf(g,s)}">${icon("menu_book")} Leggi</button><button class="btn btn-filled btn-sm" data-test="${keyOf(g,s)}">${icon("play_arrow")} Test</button></div></div>`).join("") : "";
+    return `<article class="grp ${nSel?"has-sel":""}" data-open="${open?1:0}">
+      <div class="grp-head"><input type="checkbox" data-pickall="${g.ci}" ${all?"checked":""} aria-label="Seleziona tutto ${esc(CONT[g.ci])}">
+        <button class="expbtn" data-exp="${g.ci}" aria-expanded="${open}" aria-label="Mostra i sottogruppi">${icon("expand_more")}</button>
+        <div><h3 class="grp-title" data-exp="${g.ci}">${esc(CONT[g.ci])}</h3><div class="grp-meta"><b>${g.ids.length}</b> quesiti · <b>${g.subs.length}</b> ${g.subs.length===1?"sottogruppo":"sottogruppi"}${nSel?` · <span style="color:var(--ocf-brand-green-dark)">${nSel} selezionati</span>`:""}</div></div>
+        ${statBlock(g.ids)}
+        <div class="grp-acts"><button class="btn btn-outlined btn-sm" data-leggi="${g.ci}">${icon("menu_book")} Leggi</button><button class="btn btn-filled btn-sm" data-test="${g.ci}">${icon("play_arrow")} Test</button></div>
+      </div>${subs}</article>`;
+  }).join("");
+  $("#view").innerHTML = `
+  <button class="backlink" id="back">${icon("arrow_back")} Studia per materia</button>
+  ${head("account_tree",`Materia ${m} – ${esc(MAT[m].short)}`)}
+  <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
+    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Argomenti e sottogruppi</div>
+      <h2 class="ocf-landing-hero__title" style="font-size:24px">${esc(MAT[m].name)}</h2>
+      <p class="ocf-landing-hero__subtitle" style="margin-bottom:0">Apri un argomento per vedere i sottogruppi. Leggi i quesiti con la risposta corretta o fai un test solo su quella parte; spunta più sottogruppi per un test unico.</p></div>
+    <div class="ocf-landing-hero__right">
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${G.length}</div><div class="ocf-landing-hero__stat-label">Argomenti</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${G.reduce((a,g)=>a+g.subs.length,0)}</div><div class="ocf-landing-hero__stat-label">Sottogruppi</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${ms.seen}<span class="ocf-landing-hero__stat-unit">/${ms.tot}</span></div><div class="ocf-landing-hero__stat-label">Quesiti visti</div></div>
+    </div></div></section>
+  ${sel.length?`<div class="selbar"><span class="selbar__text">${state.picked.size} sottogruppi selezionati · ${sel.length} quesiti</span><span class="selbar__acts"><button class="btn btn-text btn-sm" id="sel-clear">Deseleziona</button><button class="btn btn-outlined btn-sm" id="sel-read">${icon("menu_book")} Leggi</button><button class="btn btn-filled btn-sm" id="sel-test">${icon("play_arrow")} Test sui selezionati</button></span></div>`:""}
+  <div class="grp-tools"><button class="btn btn-text btn-sm" id="exp-all">${icon("unfold_more")} Apri tutti</button><button class="btn btn-text btn-sm" id="col-all">${icon("unfold_less")} Chiudi tutti</button></div>
+  <div class="grp-list">${rows}</div>`;
+  const find=key=>{ const [ci,si]=String(key).split(":").map(Number); const g=G.find(x=>x.ci===ci); if(si===undefined||isNaN(si)) return {ids:g.ids, label:CONT[ci]}; const s=g.subs.find(x=>x.si===si); return {ids:s.ids, label:`${CONT[ci]} › ${SUB[si]||"Senza sottogruppo"}`}; };
+  $("#back").onclick=()=>go("studia");
+  document.querySelectorAll("[data-exp]").forEach(b=>b.onclick=()=>{ const ci=+b.dataset.exp; state.open.has(ci)?state.open.delete(ci):state.open.add(ci); renderMateria(); });
+  document.querySelectorAll("[data-pick]").forEach(c=>c.onchange=()=>{ c.checked?state.picked.add(c.dataset.pick):state.picked.delete(c.dataset.pick); renderMateria(); });
+  document.querySelectorAll("[data-pickall]").forEach(c=>c.onchange=()=>{ const g=G.find(x=>x.ci===+c.dataset.pickall); g.subs.forEach(s=>c.checked?state.picked.add(keyOf(g,s)):state.picked.delete(keyOf(g,s))); if(c.checked) state.open.add(g.ci); renderMateria(); });
+  document.querySelectorAll("[data-leggi]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.leggi); readIds(f.ids,f.label); });
+  document.querySelectorAll("[data-test]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.test); openGroupDialog(f.ids,f.label); });
+  $("#exp-all").onclick=()=>{ G.forEach(g=>state.open.add(g.ci)); renderMateria(); };
+  $("#col-all").onclick=()=>{ state.open.clear(); renderMateria(); };
+  if(sel.length){
+    const lbl=`${state.picked.size} sottogruppi selezionati`;
+    $("#sel-clear").onclick=()=>{ state.picked.clear(); renderMateria(); };
+    $("#sel-read").onclick=()=>readIds(sel,lbl);
+    $("#sel-test").onclick=()=>openGroupDialog(sel,lbl);
+  }
+}
+function readIds(ids,label){ state.browse.ids=ids.slice(); state.browse.label=label; state.browse.page=0; state.browse.q=""; state.browse.back="materia"; go("sfoglia"); }
+function openGroupDialog(ids,label){
+  const s=gstats(ids), err=ids.filter(n=>{ const r=S.m[Q[n-1][0]][n]; return r&&!r[2]; }), nuovi=ids.filter(n=>!S.m[Q[n-1][0]][n]);
+  dialog({title:`Test · ${esc(label)}`, body:`
+    <div class="field"><label>Quali quesiti</label><div class="radio-row">
+      <label><input type="radio" name="gq" value="all" checked> Tutti (${ids.length})</label>
+      ${nuovi.length&&nuovi.length<ids.length?`<label><input type="radio" name="gq" value="new"> Solo mai visti (${nuovi.length})</label>`:""}
+      ${err.length?`<label><input type="radio" name="gq" value="err"> Solo da ripassare (${err.length})</label>`:""}</div></div>
+    <div class="field"><label>Ordine</label><div class="radio-row">
+      <label><input type="radio" name="go" value="rand" checked> Casuale</label>
+      <label><input type="radio" name="go" value="seq"> Come nella banca dati</label></div></div>
+    <div class="field"><label for="g-n">Numero di quesiti</label><input id="g-n" type="number" min="1" max="${ids.length}" value="${Math.min(ids.length, ids.length>60?25:ids.length)}"><span class="hint">Questa parte: ${s.seen} visti su ${s.tot}${s.acc===null?"":`, ${s.acc}% di risposte esatte`}.</span></div>
+    <label class="check"><input type="checkbox" id="g-fb" checked> Mostra subito se la risposta è esatta</label>`,
+    actions:[{label:"Annulla"},{label:"Avvia test",primary:true}]});
+  $("#dlg .btn-filled").onclick=()=>{
+    const which=document.querySelector('input[name=gq]:checked').value, ord=document.querySelector('input[name=go]:checked').value;
+    let pool = which==="new"?nuovi:which==="err"?err:ids;
+    pool = ord==="rand" ? shuffle(pool.slice()) : pool.slice();
+    const n=Math.max(1,Math.min(pool.length,+$("#g-n").value||pool.length));
+    const fb=$("#g-fb").checked?"now":"end";
+    closeDialog(); startSession({kind:"studio", title:`Test · ${label}`, ids:pool.slice(0,n), fb});
+  };
+}
 
 /* ================= MIGLIORA ================= */
 function renderMigliora(){
@@ -854,7 +995,7 @@ function openSaved(h){
 /* ================= riepilogo ================= */
 function renderRiepilogo(){
   const T=state.T, items=T.counted||T.items, isSim=T.kind==="sim";
-  if(!items.length){ state.view = isSim?"prova":T.kind==="migliora"?"migliora":"studia"; return render(); }
+  if(!items.length){ state.view = isSim?"prova":T.kind==="migliora"?"migliora":(T.title.startsWith("Test · ")?"materia":"studia"); return render(); }
   const ok=items.filter(x=>x.pick===0).length, err=items.filter(x=>x.pick!==null&&x.pick!==0).length, nd=items.filter(x=>x.pick===null).length;
   const pts=isSim?examPoints(items):null, pass=isSim&&pts>=80;
   const pageIcon=isSim?"quiz":T.kind==="migliora"?"trending_up":"school", pageTitle=isSim?"Mettiti alla prova":T.kind==="migliora"?"Migliora la tua preparazione":"Studia per materia";
@@ -883,7 +1024,7 @@ function renderRiepilogo(){
   </section>`;
   document.querySelectorAll("[data-sel]").forEach(b=>b.onclick=()=>{ state.sel=+b.dataset.sel; renderRiepilogo(); });
   const r=$("#redo"); if(r) r.onclick=()=>startSession({kind:"studio", title:"Rifai i quesiti da rivedere", ids:shuffle(wrongIds.slice()), fb:"now"});
-  $("#again").onclick=()=>go(isSim?"prova":T.kind==="migliora"?"migliora":"studia");
+  $("#again").onclick=()=>go(isSim?"prova":T.kind==="migliora"?"migliora":(T.title.startsWith("Test · ")?"materia":"studia"));
 }
 function riepQuesito(x,k){
   const q=Q[x.n-1];
@@ -923,13 +1064,14 @@ function renderReportSim(){
 /* ================= sfoglia ================= */
 function renderSfoglia(){
   const B=state.browse, PAGE=25, term=B.q.trim().toLowerCase();
-  let ids=BY_MAT[B.mat]; if(term) ids=ids.filter(n=>{ const q=Q[n-1]; return q[4].toLowerCase().includes(term)||q[5].toLowerCase().includes(term); });
+  let ids=B.ids||BY_MAT[B.mat]; if(term) ids=ids.filter(n=>{ const q=Q[n-1]; return q[4].toLowerCase().includes(term)||q[5].toLowerCase().includes(term); });
   const pages=Math.max(1,Math.ceil(ids.length/PAGE)); B.page=Math.min(B.page,pages-1);
   const slice=ids.slice(B.page*PAGE,B.page*PAGE+PAGE);
-  $("#view").innerHTML = `${head("menu_book","Sfoglia i quesiti")}
+  $("#view").innerHTML = `${B.ids?`<button class="backlink" id="b-back">${icon("arrow_back")} Argomenti</button>`:""}${head("menu_book","Sfoglia i quesiti")}
   <section class="paper card">
+    ${B.ids?`<div style="margin-bottom:12px"><span class="filterchip"><span class="t">${esc(B.label)}</span><button id="b-clear" aria-label="Togli il filtro">${icon("close")}</button></span></div>`:""}
     <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end">
-      <div class="field" style="margin:0"><label for="b-mat">Materia</label><select id="b-mat">${[5,4,1,2,3].map(m=>`<option value="${m}" ${m===B.mat?"selected":""}>${m} – ${esc(MAT[m].short)}</option>`).join("")}</select></div>
+      <div class="field" style="margin:0" ${B.ids?"hidden":""}><label for="b-mat">Materia</label><select id="b-mat">${[5,4,1,2,3].map(m=>`<option value="${m}" ${m===B.mat?"selected":""}>${m} – ${esc(MAT[m].short)}</option>`).join("")}</select></div>
       <div class="field" style="margin:0;flex:1;min-width:200px"><label for="b-q">Cerca nel testo</label><input id="b-q" type="search" value="${esc(B.q)}" placeholder="es. usufrutto, art. 2364, duration"></div>
     </div>
     <p class="hint">${ids.length} quesiti${term?" trovati":""}. La risposta corretta è evidenziata in verde.</p>
@@ -937,6 +1079,8 @@ function renderSfoglia(){
     <div class="pager"><button class="btn btn-outlined" id="pp" ${B.page===0?"disabled":""}>${icon("chevron_left")} Precedenti</button><span>Pagina ${B.page+1} di ${pages}</span><button class="btn btn-outlined" id="np" ${B.page>=pages-1?"disabled":""}>Successivi ${icon("chevron_right")}</button></div>
   </section>`;
   $("#b-mat").onchange=e=>{ B.mat=+e.target.value; B.page=0; renderSfoglia(); };
+  const bb=$("#b-back"); if(bb) bb.onclick=()=>go("materia");
+  const bc=$("#b-clear"); if(bc) bc.onclick=()=>{ B.ids=null; B.label=""; B.page=0; renderSfoglia(); };
   let tm; $("#b-q").oninput=e=>{ clearTimeout(tm); tm=setTimeout(()=>{ B.q=e.target.value; B.page=0; renderSfoglia(); const el=$("#b-q"); el.focus(); el.setSelectionRange(el.value.length,el.value.length); },250); };
   $("#pp").onclick=()=>{ B.page--; renderSfoglia(); window.scrollTo(0,0); };
   $("#np").onclick=()=>{ B.page++; renderSfoglia(); window.scrollTo(0,0); };
