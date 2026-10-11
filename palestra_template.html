@@ -419,6 +419,29 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .btn-nonloso:hover{background:#FFE8CC}
 .alert-nonloso{border-color:#F5C08A;color:#7A3E06;background:#FFF8EE}
 .alert-nonloso b{color:#C62828}
+/* ---------- statistiche ---------- */
+.stat-card__value .of{font-size:16px;font-weight:500;color:var(--ocf-ink-muted);margin-left:2px}
+.stat-card__sub{font-size:12px;color:var(--ocf-ink-soft)}
+.chart-hover{position:relative}
+.chart-slot{width:100%;min-width:0}
+.chart-slot svg{width:100%;height:auto;display:block}
+.chart-slot text{font-family:var(--font);font-size:11px;fill:#616161}
+.chart-hover .tip{position:absolute;pointer-events:none;background:#263238;color:#fff;font-size:12px;line-height:1.45;padding:8px 10px;border-radius:6px;box-shadow:0 6px 16px -6px rgba(0,0,0,.35);max-width:240px;z-index:2}
+.chart-hover .tip b{color:#fff}
+.barrow__sub{font-size:11px;color:var(--ocf-ink-muted);margin-top:3px}
+.worst{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.worst details{border:1px solid var(--ocf-line);border-radius:8px;background:#fff}
+.worst summary{list-style:none;display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 12px;cursor:pointer}
+.worst summary::-webkit-details-marker{display:none}
+.worst__n{font-weight:700;color:var(--ocf-red);font-variant-numeric:tabular-nums}
+.worst__q{font-size:14px;color:var(--ocf-ink);font-style:italic;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.worst__st{font-size:11px;font-weight:600;border-radius:10px;padding:2px 8px;white-space:nowrap}
+.worst__st.ok{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark)}
+.worst__st.ko{background:var(--red-soft);color:var(--ocf-red)}
+.worst__a{display:flex;gap:8px;align-items:flex-start;margin:0 12px 8px;background:var(--ocf-brand-green);color:#fff;border-radius:6px;padding:8px 10px;font-size:14px}
+.worst__a .mi{font-size:18px}
+.worst__meta{font-size:12px;color:var(--ocf-ink-muted);margin:0 12px 10px}
+@media (max-width:599.98px){ .worst summary{grid-template-columns:32px minmax(0,1fr)} .worst__st{grid-column:2;justify-self:start} }
 /* ---------- sincronizzazione ---------- */
 .syncbox{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:8px;padding:12px 14px}
 .syncbox code{font-family:"Roboto Mono",ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;letter-spacing:.06em;color:var(--ocf-brand-green-dark);flex:1;min-width:0;word-break:break-all}
@@ -489,6 +512,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 <nav class="drawer nav" id="drawer" aria-label="Menu principale">
   <a href="#" data-nav="home"><span class="mi">home</span>Home</a>
   <a href="#" data-nav="materia"><span class="mi">category</span>Categorie e allenamento</a>
+  <a href="#" data-nav="stats"><span class="mi">insights</span>Statistiche</a>
   <a href="#" data-nav="sfoglia"><span class="mi">menu_book</span>Sfoglia le domande</a>
   <hr>
   <button class="navlink" id="nav-sync"><span class="mi">cloud_sync</span>Sincronizza i dispositivi</button>
@@ -703,6 +727,7 @@ function render(){
   else if(v==="report-materie") renderReportMaterie();
   else if(v==="report-sim") renderReportSim();
   else if(v==="sfoglia") renderSfoglia();
+  else if(v==="stats") renderStats();
   setNavActive();
   if(v==="session"){ timerId=setInterval(tick,250); tick(); }
 }
@@ -752,6 +777,7 @@ function renderHome(){
   <div class="quick">
     <button class="btn btn-filled" id="q-new" ${daFare?"":"disabled"}>${icon("fiber_new")} Domande mai fatte (${daFare})</button>
     <button class="btn btn-outlined" id="q-err" ${err?"":"disabled"}>${icon("replay")} Ripassa le sbagliate (${err})</button>
+    <button class="btn btn-outlined" data-goto="stats">${icon("insights")} Statistiche</button>
     <button class="btn btn-outlined" data-goto="sfoglia">${icon("menu_book")} Sfoglia con le risposte</button>
   </div>
   <section class="paper dashboard-prove"><div class="dashboard-prove__header"><div><h3 class="dashboard-prove__title">${icon("history")} Ultimi allenamenti</h3><p class="dashboard-prove__subtitle">Punteggio di ogni sessione, dalla più recente.</p></div></div>
@@ -994,6 +1020,99 @@ function openGroupDialog(ids,label){
     const fb=$("#g-fb").checked?"now":"end";
     closeDialog(); startSession({kind:"studio", title:`Test · ${label}`, ids:pool.slice(0,n), fb});
   };
+}
+
+/* ================= STATISTICHE ================= */
+const dayKey = t => { const d=new Date(t); return d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate()); };
+function svgLine(points, {yMax, unit, ref, refLabel, color, label}, W){
+  // un grafico, un asse: punti [{x:etichetta, y:valore, tip:html}]; disegnato alla larghezza reale del contenitore
+  W=Math.max(280,W||640); const H=W<480?200:240,l=40,r=16,t=16,b=30, iw=W-l-r, ih=H-t-b, n=points.length;
+  const y=v=>t+ih-(Math.min(v,yMax)/yMax)*ih, x=i=> n<=1? l+iw/2 : l+(i/(n-1))*iw;
+  const step = yMax<=100 ? 20 : yMax<=120 ? 30 : 60;
+  let g="";
+  for(let v=0; v<=yMax; v+=step) g+=`<line x1="${l}" x2="${W-r}" y1="${y(v)}" y2="${y(v)}" stroke="${v===0?"#BDBDBD":"#EEEEEE"}"/><text x="${l-8}" y="${y(v)+4}" text-anchor="end">${v}${unit}</text>`;
+  if(ref!=null) g+=`<line x1="${l}" x2="${W-r}" y1="${y(ref)}" y2="${y(ref)}" stroke="#9E9E9E" stroke-dasharray="4 4"/><text x="${W-r}" y="${y(ref)-6}" text-anchor="end">${refLabel}</text>`;
+  if(n){
+    if(n>1) g+=`<path d="M${x(0)},${y(0)} ${points.map((p,i)=>`L${x(i)},${y(p.y)}`).join(" ")} L${x(n-1)},${y(0)} Z" fill="${color}" fill-opacity=".08"/>`;
+    g+=`<polyline fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" points="${points.map((p,i)=>x(i)+","+y(p.y)).join(" ")}"/>`;
+    g+=points.map((p,i)=>`<circle cx="${x(i)}" cy="${y(p.y)}" r="${i===n-1?5:3.5}" fill="${color}" stroke="#fff" stroke-width="2"/>`).join("");
+    const lab=Math.max(1,Math.ceil(n/Math.max(3,Math.floor(W/90))));
+    g+=points.map((p,i)=>(i%lab===0||i===n-1)?`<text x="${x(i)}" y="${H-10}" text-anchor="middle">${esc(p.x)}</text>`:"").join("");
+    const hw = n>1 ? iw/(n-1) : iw;
+    g+=points.map((p,i)=>`<rect class="hit" x="${x(i)-hw/2}" y="${t}" width="${hw}" height="${ih}" fill="transparent" data-tip="${esc(p.tip)}" data-cx="${x(i)}" data-cy="${y(p.y)}"/>`).join("");
+  } else g+=`<text x="${l+iw/2}" y="${t+ih/2}" text-anchor="middle">Ancora nessun dato: fai un allenamento</text>`;
+  return `<div class="chart chart-hover"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}">${g}<line class="xhair" x1="0" x2="0" y1="${t}" y2="${t+ih}" stroke="#757575" stroke-width="1" visibility="hidden"/></svg><div class="tip" hidden></div></div>`;
+}
+function svgDays(days, W){
+  // barre impilate per giorno: giuste (verde) + sbagliate (rosso), con 2px di stacco
+  W=Math.max(280,W||640); const H=220,l=36,r=12,t=14,b=30, iw=W-l-r, ih=H-t-b, n=days.length;
+  const max=Math.max(10,...days.map(d=>d.ok+d.ko)), nice=Math.ceil(max/20)*20, y=v=>ih*(v/nice);
+  const bw=Math.min(28, iw/n-6);
+  let g=""; for(let v=0; v<=nice; v+=nice/4) g+=`<line x1="${l}" x2="${W-r}" y1="${t+ih-y(v)}" y2="${t+ih-y(v)}" stroke="${v===0?"#BDBDBD":"#EEEEEE"}"/><text x="${l-6}" y="${t+ih-y(v)+4}" text-anchor="end">${Math.round(v)}</text>`;
+  days.forEach((d,i)=>{ const cx=l+(i+.5)*(iw/n), x0=cx-bw/2, hOk=y(d.ok), hKo=y(d.ko);
+    if(d.ok) g+=`<rect x="${x0}" y="${t+ih-hOk}" width="${bw}" height="${hOk}" rx="3" fill="#2E7D32"/>`;
+    if(d.ko) g+=`<rect x="${x0}" y="${t+ih-hOk-hKo-(d.ok?2:0)}" width="${bw}" height="${hKo}" rx="3" fill="#C62828"/>`;
+    if(i%(W<520?3:1)===0||i===n-1) g+=`<text x="${cx}" y="${H-10}" text-anchor="middle">${esc(d.lab)}</text>`;
+    g+=`<rect class="hit" x="${cx-iw/n/2}" y="${t}" width="${iw/n}" height="${ih}" fill="transparent" data-tip="${esc(`<b>${d.full}</b><br>${d.ok+d.ko} domande · ${d.ok} giuste · ${d.ko} sbagliate`)}" data-cx="${cx}" data-cy="${t+ih-hOk-hKo}"/>`; });
+  return `<div class="chart chart-hover"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Domande al giorno, ultimi 14 giorni">${g}</svg><div class="tip" hidden></div></div>`;
+}
+function bindChartHover(){
+  document.querySelectorAll(".chart-hover").forEach(box=>{
+    const svg=box.querySelector("svg"), tip=box.querySelector(".tip"), xh=svg.querySelector(".xhair");
+    svg.querySelectorAll(".hit").forEach(h=>{
+      h.addEventListener("mouseenter",()=>show(h)); h.addEventListener("click",()=>show(h));
+    });
+    svg.addEventListener("mouseleave",()=>{ tip.hidden=true; if(xh) xh.setAttribute("visibility","hidden"); });
+    function show(h){
+      const vb=svg.viewBox.baseVal, rect=svg.getBoundingClientRect(), sx=rect.width/vb.width, sy=rect.height/vb.height;
+      const cx=+h.dataset.cx, cy=+h.dataset.cy;
+      if(xh){ xh.setAttribute("x1",cx); xh.setAttribute("x2",cx); xh.setAttribute("visibility","visible"); }
+      tip.innerHTML=h.dataset.tip; tip.hidden=false;
+      const left=Math.min(Math.max(cx*sx-tip.offsetWidth/2,0), rect.width-tip.offsetWidth);
+      tip.style.left=left+"px"; tip.style.top=Math.max(0,cy*sy-tip.offsetHeight-12)+"px";
+    }
+  });
+}
+function renderStats(){
+  const m=ONLY, ids=BY_MAT[m], s=gstats(ids);
+  const sess=S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[m]).includes(m));
+  const answers=sess.reduce((a,h)=>a+h.n,0), okAns=sess.reduce((a,h)=>a+h.ok,0), secs=sess.reduce((a,h)=>a+h.sec,0);
+  const days=new Set(sess.map(h=>dayKey(h.t)));
+  const last=sess.slice(-30);
+  const perf=last.map(h=>({x:new Date(h.t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:Math.round(h.ok/h.n*100), tip:`<b>${esc(h.title)}</b><br>${dmy(h.t)} ${hm(h.t)}<br>${h.ok}/${h.n} giuste · <b>${Math.round(h.ok/h.n*100)}%</b><br>${Math.round(h.sec/h.n)} s a domanda`}));
+  const speed=last.map(h=>({x:new Date(h.t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:Math.round(h.sec/h.n), tip:`<b>${esc(h.title)}</b><br>${dmy(h.t)} ${hm(h.t)}<br><b>${Math.round(h.sec/h.n)} s</b> a domanda · totale ${mmss(h.sec)}`}));
+  const dayRows=[]; for(let i=13;i>=0;i--){ const d=new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate()-i); const k=dayKey(d); const hs=sess.filter(h=>dayKey(h.t)===k);
+    dayRows.push({lab:d.toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), full:d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"}), ok:hs.reduce((a,h)=>a+h.ok,0), ko:hs.reduce((a,h)=>a+h.n-h.ok,0)}); }
+  const cats=groupsOf(m).map(g=>{ let att=0,cor=0,seen=0; g.ids.forEach(n=>{ const r=S.m[m][n]; if(r){ seen++; att+=r[0]; cor+=r[1]; } }); return {ci:g.ci, tot:g.ids.length, seen, att, acc:att?Math.round(cor/att*100):null}; })
+    .sort((a,b)=>(a.acc===null)-(b.acc===null) || (a.acc??0)-(b.acc??0));
+  const worst=ids.map(n=>{ const r=S.m[m][n]; return r?{n, wrong:r[0]-r[1], seen:r[0], last:r[2]}:null; }).filter(x=>x&&x.wrong>0).sort((a,b)=>b.wrong-a.wrong || a.last-b.last).slice(0,20);
+  $("#view").innerHTML = `${head("insights","Statistiche")}
+  <div class="stat-cards" style="margin-bottom:20px">
+    <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("visibility")}</span><span class="stat-card__label">Domande fatte</span><span class="stat-card__value">${s.seen}<span class="of">/${s.tot}</span></span></div>
+    <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Risposte giuste</span><span class="stat-card__value">${answers?Math.round(okAns/answers*100):0}<span class="of">%</span></span><span class="stat-card__sub">${okAns} su ${answers} risposte</span></div>
+    <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("timer")}</span><span class="stat-card__label">Tempo a domanda</span><span class="stat-card__value">${answers?Math.round(secs/answers):0}<span class="of"> s</span></span><span class="stat-card__sub">all'esame 85 s · totale ${mmss(secs)}</span></div>
+    <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("event_available")}</span><span class="stat-card__label">Giorni di studio</span><span class="stat-card__value">${days.size}</span><span class="stat-card__sub">${sess.length} allenamenti</span></div>
+  </div>
+  <div class="home-grid">
+    <section class="paper card"><div class="cardhead"><h6>Rendimento nel tempo</h6></div><p class="hint" style="margin:-8px 0 8px">% di risposte giuste in ogni allenamento (ultimi 30). La linea tratteggiata è la soglia d'esame 80.</p><div class="chart-slot" data-chart="perf"></div></section>
+    <section class="paper card"><div class="cardhead"><h6>Tempo per domanda</h6></div><p class="hint" style="margin:-8px 0 8px">Secondi medi a domanda in ogni allenamento. All'esame ne hai 85.</p><div class="chart-slot" data-chart="speed"></div></section>
+  </div>
+  <section class="paper card" style="margin-bottom:24px"><div class="cardhead"><h6>Domande al giorno</h6><span class="legend"><span><i class="pul-leg" style="background:#2E7D32"></i>Giuste</span><span><i class="pul-leg" style="background:#C62828"></i>Sbagliate</span></span></div><div class="chart-slot" data-chart="days"></div></section>
+  <div class="home-grid">
+    <section class="paper card"><div class="cardhead"><h6>Categorie: dalla più debole</h6></div>
+      ${cats.map(c=>`<div class="barrow"><div><div class="lbl" title="${esc(CONT[c.ci])}">${esc(CONT[c.ci])}</div><div class="track"><div class="fill" style="width:${c.acc??0}%;background:${c.acc===null?"#BDBDBD":c.acc>=80?"#2E7D32":c.acc>=60?"#B7560B":"#C62828"}"></div></div><div class="barrow__sub">${c.seen}/${c.tot} fatte</div></div><div class="val">${c.acc===null?"–":c.acc+"%"}</div></div>`).join("")}
+      <p class="hint">Verde da 80% in su, arancio 60–79%, rosso sotto 60%.</p></section>
+    <section class="paper card"><div class="cardhead"><h6>Sbagliate più spesso</h6>${worst.length?`<button class="btn btn-filled btn-sm" id="train-worst">${icon("play_arrow")} Allenati su queste</button>`:""}</div>
+      ${worst.length?`<ol class="worst">${worst.map(w=>{ const q=Q[w.n-1]; return `<li><details><summary><span class="worst__n">${w.wrong}×</span><span class="worst__q">${esc(q[4])}</span><span class="worst__st ${w.last?"ok":"ko"}">${w.last?"ultima giusta":"ancora sbagliata"}</span></summary><div class="worst__a">${icon("check")}<span>${esc(q[5])}</span></div><div class="worst__meta">${esc(CONT[q[1]])} · sbagliata ${w.wrong} volte su ${w.seen}</div></details></li>`; }).join("")}</ol>`
+      :`<div class="alert">${icon("info_outline")}<span>Nessuna domanda sbagliata finora. Quando sbagli, qui trovi quelle che ti fregano di più.</span></div>`}</section>
+  </div>`;
+  const draw=()=>{ document.querySelectorAll(".chart-slot").forEach(sl=>{ const W=sl.clientWidth, k=sl.dataset.chart;
+      sl.innerHTML = k==="perf" ? svgLine(perf,{yMax:100,unit:"%",ref:80,refLabel:"soglia 80",color:"#2E7D32",label:"Percentuale di risposte giuste per allenamento"},W)
+        : k==="speed" ? svgLine(speed,{yMax:Math.max(120,Math.ceil(Math.max(0,...speed.map(p=>p.y))/60)*60),unit:" s",ref:85,refLabel:"esame 85 s",color:"#1976D2",label:"Secondi medi per domanda"},W)
+        : svgDays(dayRows,W); }); bindChartHover(); };
+  draw();
+  clearTimeout(window.__statsRz); window.onresize=()=>{ clearTimeout(window.__statsRz); window.__statsRz=setTimeout(()=>{ if(state.view==="stats") draw(); },150); };
+  const tw=$("#train-worst"); if(tw) tw.onclick=()=>startSession({kind:"studio", title:"Sbagliate più spesso", ids:shuffle(worst.map(w=>w.n)), fb:"now"});
 }
 
 /* ================= MIGLIORA ================= */
