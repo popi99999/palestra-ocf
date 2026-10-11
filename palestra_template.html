@@ -400,7 +400,13 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   .tb-field select{font-size:14px;padding:6px}
   .tb-num button{width:30px;height:34px}
   .tb-num input{width:46px;font-size:15px}
-  .trainbar .check{font-size:14px}
+  .trainbar .check{font-size:14px;grid-column:1/-1}
+  .trainbar__info{flex-wrap:wrap;gap:0 8px}
+  .trainbar__goal{flex-basis:100%;font-size:12px}
+  .trainbar__opts{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}
+  .trainbar .tb-field{flex-direction:column;align-items:stretch;gap:2px;font-size:10px}
+  .trainbar .tb-field select{width:100%;font-size:13px;padding:5px}
+  .trainbar .tb-num{align-self:flex-start}
   .trainbar__go{width:100%;min-height:42px}
 }
 /* ---------- cronometro ---------- */
@@ -413,6 +419,15 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .tempo-row .mi{color:var(--ocf-brand-green-dark);font-size:20px}
 .tempo-row .sep{opacity:.5}
 .tempo-row .muted{color:var(--ocf-ink-muted)}
+/* ---------- obiettivo di tempo ---------- */
+.goal-chip{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);font-weight:600;height:34px;font-variant-numeric:tabular-nums}
+.goal-chip.over{background:#FFEBEE;color:#C62828}
+.trainbar__goal{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--ocf-brand-green-dark);margin-top:2px}
+.trainbar__goal .mi{font-size:16px}
+.goal-ok,.goal-ko{display:inline-flex;align-items:center;gap:4px;font-weight:600;border-radius:12px;padding:2px 10px}
+.goal-ok{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark)}
+.goal-ko{background:#FFEBEE;color:#C62828}
+.goal-ok .mi,.goal-ko .mi{font-size:16px}
 /* ---------- non la so ---------- */
 .btn-nonloso{background:#FFF4E5;color:#B7560B;border:1px solid #F5C08A;padding:5px 15px}
 .btn-nonloso:hover{background:#FFE8CC}
@@ -732,6 +747,9 @@ const simsDone = () => sims().filter(h=>!h.nc);
 const simScore = h => h.pts!=null ? h.pts : Math.round(h.ok/h.n*100);
 
 /* ================= stato e navigazione ================= */
+const GOAL_KEY = "palestra-ocf-goal60";
+const goal60 = () => { const v=+lsGet(GOAL_KEY); return v>0 ? v : 180; };  // obiettivo di Brando: prova da 60 in 3 minuti
+const goalFor = n => Math.max(1, Math.round(goal60()*n/60));
 const ONLY = 5; // l'app per ora lavora solo su Nozioni di diritto privato e di diritto commerciale
 const state = {view:"home", T:null, sel:0, browse:{mat:ONLY,q:"",page:0,ids:null,label:""}, matSel:ONLY, open:new Set(), picked:new Set(), train:{n:25, which:"all", fb:true, time:"free"}};
 function navKey(){
@@ -1043,7 +1061,7 @@ function renderTrainbar(G){
   const pool = tr.which==="new"?fresh : tr.which==="err"?wrong : base;
   const n=Math.max(1,Math.min(pool.length, tr.n||25));
   $("#trainbar").innerHTML = `
-    <div class="trainbar__info"><span class="trainbar__what">${picked?`${nCat} ${nCat===1?"categoria selezionata":"categorie selezionate"}`:"Tutte le categorie"}</span><span class="trainbar__count"><b>${pool.length}</b> domande disponibili</span></div>
+    <div class="trainbar__info"><span class="trainbar__what">${picked?`${nCat} ${nCat===1?"categoria selezionata":"categorie selezionate"}`:"Tutte le categorie"}</span><span class="trainbar__count"><b>${pool.length}</b> domande disponibili</span><span class="trainbar__goal">${icon("flag")} Obiettivo: max <b>${mmss(goalFor(n))}</b> per ${n} domande</span></div>
     <div class="trainbar__opts">
       <label class="tb-field"><span>Quali</span><select id="tb-which"><option value="all" ${tr.which==="all"?"selected":""}>Tutte (${base.length})</option><option value="new" ${tr.which==="new"?"selected":""} ${fresh.length?"":"disabled"}>Mai fatte (${fresh.length})</option><option value="err" ${tr.which==="err"?"selected":""} ${wrong.length?"":"disabled"}>Sbagliate (${wrong.length})</option></select></label>
       <label class="tb-field"><span>Quante</span><span class="tb-num"><button type="button" id="tb-minus" aria-label="Meno">${icon("remove")}</button><input id="tb-n" type="number" min="1" max="${pool.length}" value="${n}" inputmode="numeric"><button type="button" id="tb-plus" aria-label="Più">${icon("add")}</button></span></label>
@@ -1053,6 +1071,7 @@ function renderTrainbar(G){
         <option value="q60" ${tr.time==="q60"?"selected":""}>60 s a domanda</option>
         <option value="q85" ${tr.time==="q85"?"selected":""}>85 s a domanda (ritmo esame)</option>
         <option value="tot" ${tr.time==="tot"?"selected":""}>Totale come all'esame (${mmss(n*85)})</option></select></label>
+      <label class="tb-field"><span>Obiettivo</span><select id="tb-goal">${[120,180,240,300,360,480,600,900].map(v=>`<option value="${v}" ${v===goal60()?"selected":""}>${v/60} min ogni 60 domande</option>`).join("")}</select></label>
       <label class="check"><input type="checkbox" id="tb-fb" ${tr.fb?"checked":""}> Correzione subito</label>
     </div>
     <button class="btn btn-filled trainbar__go" id="tb-go">${icon("play_arrow")} Inizia ${n} domande</button>`;
@@ -1063,6 +1082,7 @@ function renderTrainbar(G){
   document.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>setN(+b.dataset.n));
   $("#tb-fb").onchange=e=>{ tr.fb=e.target.checked; };
   $("#tb-time").onchange=e=>{ tr.time=e.target.value; };
+  $("#tb-goal").onchange=e=>{ lsSet(GOAL_KEY, e.target.value); renderTrainbar(G); };
   $("#tb-go").onclick=()=>{
     const label = picked ? (nCat===1 ? CONT[G.find(g=>g.subs.some(s=>state.picked.has(g.ci+":"+s.si))).ci] : `${nCat} categorie`) : "Tutte le categorie";
     const tm = tr.time==="q60"?{perQ:60} : tr.time==="q85"?{perQ:85} : tr.time==="tot"?{limit:n*85} : {};
@@ -1161,12 +1181,12 @@ function renderStats(){
   <div class="stat-cards" style="margin-bottom:20px">
     <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("visibility")}</span><span class="stat-card__label">Domande fatte</span><span class="stat-card__value">${s.seen}<span class="of">/${s.tot}</span></span></div>
     <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Risposte giuste</span><span class="stat-card__value">${answers?Math.round(okAns/answers*100):0}<span class="of">%</span></span><span class="stat-card__sub">${okAns} su ${answers} risposte</span></div>
-    <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("timer")}</span><span class="stat-card__label">Tempo a domanda</span><span class="stat-card__value">${answers?Math.round(secs/answers):0}<span class="of"> s</span></span><span class="stat-card__sub">all'esame 85 s · totale ${mmss(secs)}</span></div>
+    <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("timer")}</span><span class="stat-card__label">Tempo a domanda</span><span class="stat-card__value">${answers?Math.round(secs/answers):0}<span class="of"> s</span></span><span class="stat-card__sub">obiettivo ${Math.round(goal60()/6)/10} s · totale ${mmss(secs)}</span></div>
     <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("event_available")}</span><span class="stat-card__label">Giorni di studio</span><span class="stat-card__value">${days.size}</span><span class="stat-card__sub">${sess.length} allenamenti</span></div>
   </div>
   <div class="home-grid">
     <section class="paper card"><div class="cardhead"><h6>Rendimento nel tempo</h6></div><p class="hint" style="margin:-8px 0 8px">% di risposte giuste in ogni allenamento (ultimi 30). La linea tratteggiata è la soglia d'esame 80.</p><div class="chart-slot" data-chart="perf"></div></section>
-    <section class="paper card"><div class="cardhead"><h6>Tempo per domanda</h6></div><p class="hint" style="margin:-8px 0 8px">Secondi medi a domanda in ogni allenamento. All'esame ne hai 85.</p><div class="chart-slot" data-chart="speed"></div></section>
+    <section class="paper card"><div class="cardhead"><h6>Tempo per domanda</h6></div><p class="hint" style="margin:-8px 0 8px">Secondi medi a domanda in ogni allenamento. La linea tratteggiata è il tuo obiettivo (all'esame ne avresti 85).</p><div class="chart-slot" data-chart="speed"></div></section>
   </div>
   <section class="paper card" style="margin-bottom:24px"><div class="cardhead"><h6>Domande al giorno</h6><span class="legend"><span><i class="pul-leg" style="background:#2E7D32"></i>Giuste</span><span><i class="pul-leg" style="background:#C62828"></i>Sbagliate</span></span></div><div class="chart-slot" data-chart="days"></div></section>
   <div class="home-grid">
@@ -1179,7 +1199,7 @@ function renderStats(){
   </div>`;
   const draw=()=>{ document.querySelectorAll(".chart-slot").forEach(sl=>{ const W=sl.clientWidth, k=sl.dataset.chart;
       sl.innerHTML = k==="perf" ? svgLine(perf,{yMax:100,unit:"%",ref:80,refLabel:"soglia 80",color:"#2E7D32",label:"Percentuale di risposte giuste per allenamento"},W)
-        : k==="speed" ? svgLine(speed,{yMax:Math.max(120,Math.ceil(Math.max(0,...speed.map(p=>p.y))/60)*60),unit:" s",ref:85,refLabel:"esame 85 s",color:"#1976D2",label:"Secondi medi per domanda"},W)
+        : k==="speed" ? svgLine(speed,{yMax:Math.max(120,Math.ceil(Math.max(0,...speed.map(p=>p.y))/60)*60),unit:" s",ref:goal60()/60,refLabel:`obiettivo ${Math.round(goal60()/6)/10} s`,color:"#1976D2",label:"Secondi medi per domanda"},W)
         : svgDays(dayRows,W); }); bindChartHover(); };
   draw();
   clearTimeout(window.__statsRz); window.onresize=()=>{ clearTimeout(window.__statsRz); window.__statsRz=setTimeout(()=>{ if(state.view==="stats") draw(); },150); };
@@ -1265,13 +1285,15 @@ function buildSim(){
 let timerId=null;
 function startSession(cfg){
   if(!cfg.ids.length) return;
-  state.T={kind:cfg.kind, title:cfg.title, items:cfg.ids.map(n=>({n, order:shuffle([0,1,2,3]), pick:null, locked:false, timeout:false})), i:0, fb:cfg.fb, limit:cfg.limit||null, perQ:cfg.perQ||null, t0:Date.now(), qStart:Date.now(), done:false};
+  state.T={goal:goalFor(cfg.ids.length), kind:cfg.kind, title:cfg.title, items:cfg.ids.map(n=>({n, order:shuffle([0,1,2,3]), pick:null, locked:false, timeout:false})), i:0, fb:cfg.fb, limit:cfg.limit||null, perQ:cfg.perQ||null, t0:Date.now(), qStart:Date.now(), done:false};
   state.view="session"; closeDrawerMobile(); render(); window.scrollTo(0,0);
 }
 function elapsed(){ return (Date.now()-state.T.t0)/1000; }
 function setTimer(txt, low){ const el=$("#timer-v"); if(el){ el.textContent=txt; el.parentNode.classList.toggle("low",!!low); } }
 function tick(){
   const T=state.T; if(!T||T.done||state.view!=="session") return clearInterval(timerId);
+  const gc=$("#goal-chip"); if(gc && T.goal){ const used=elapsed(), over=used>T.goal; gc.classList.toggle("over",over);
+    $("#goal-v").textContent = over ? `obiettivo superato +${mmss(used-T.goal)}` : `${mmss(used)} / max ${mmss(T.goal)}`; }
   if(T.limit){ const left=T.limit-elapsed(); setTimer(mmss(left), left<300); if(left<=0) finish(); return; }
   if(T.perQ){ const it=T.items[T.i]; if(it.locked){ setTimer("00:00", true); return; } const left=T.perQ-(Date.now()-T.qStart)/1000; setTimer(mmss(left), left<15); if(left<=0){ it.locked=true; it.timeout=it.pick===null; renderSession(); } return; }
   setTimer(mmss(elapsed()));
@@ -1298,7 +1320,7 @@ function renderSession(){
       <button class="navtext" id="prev" ${T.i===0?"disabled":""}>${icon("chevron_left")}Indietro</button><button class="navtext" id="next" ${last?"disabled":""}>Avanti${icon("chevron_right")}</button>
       <span class="push"><button class="btn btn-red" id="end">Termina</button></span>`;
   } else {
-    chips=`<span class="chip chip-outline-green">Quesito ${T.i+1} / ${N}</span><span class="chip chip-dark">Materia: ${esc(MAT[q[0]].name)}</span><span class="chip chip-grey right">${icon("speed")} Livello ${q[3]}</span><span class="chip timer-chip timer-big" title="${T.limit?"Tempo rimasto":T.perQ?"Tempo per questa domanda":"Tempo trascorso"}">${icon(T.limit||T.perQ?"hourglass_bottom":"timer")}<span class="timer-lbl">${T.limit?"Restano":T.perQ?"Domanda":"Tempo"}</span><span id="timer-v"></span></span>`;
+    chips=`<span class="chip chip-outline-green">Quesito ${T.i+1} / ${N}</span><span class="chip chip-dark">Materia: ${esc(MAT[q[0]].name)}</span><span class="chip chip-grey right">${icon("speed")} Livello ${q[3]}</span><span class="chip timer-chip timer-big" title="${T.limit?"Tempo rimasto":T.perQ?"Tempo per questa domanda":"Tempo trascorso"}">${icon(T.limit||T.perQ?"hourglass_bottom":"timer")}<span class="timer-lbl">${T.limit?"Restano":T.perQ?"Domanda":"Tempo"}</span><span id="timer-v"></span></span><span class="chip goal-chip" id="goal-chip" title="Tempo massimo per stare nell'obiettivo (${mmss(goal60())} ogni 60 domande)">${icon("flag")}<span id="goal-v">max ${mmss(T.goal)}</span></span>`;
     const canNext = isMig ? (it.pick!==null||it.locked) : true;
     bar=`<button class="btn btn-outlined" id="clear" ${it.pick===null||reveal||it.locked?"disabled":""}>Annulla risposta</button>
       <button class="btn btn-nonloso" id="nonloso" ${reveal||it.locked?"disabled":""}>${icon("help_outline")} Non la so</button>
@@ -1391,7 +1413,9 @@ function renderRiepilogo(){
       <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("cancel")}</span><span class="stat-card__label">Errate</span><span class="stat-card__value">${err}</span></div>
       <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("help_outline")}</span><span class="stat-card__label">Non date</span><span class="stat-card__value">${nd}</span></div>
     </div>
-    ${T.sec!=null?`<div class="tempo-row">${icon("timer")}<span>Tempo totale <b>${mmss(T.sec)}</b></span><span class="sep">·</span><span>media <b>${items.length?Math.round(T.sec/items.length):0} s</b> a domanda</span><span class="sep">·</span><span class="muted">all'esame la media è 85 s</span></div>`:""}
+    ${T.sec!=null?`<div class="tempo-row">${icon("timer")}<span>Tempo totale <b>${mmss(T.sec)}</b></span><span class="sep">·</span><span>media <b>${items.length?Math.round(T.sec/items.length):0} s</b> a domanda</span><span class="sep">·</span><span>massimo per l'obiettivo <b>${mmss(goalFor(items.length))}</b></span>
+      ${T.sec<=goalFor(items.length)?`<span class="goal-ok">${icon("check_circle")} dentro l'obiettivo (−${mmss(goalFor(items.length)-T.sec)})</span>`:`<span class="goal-ko">${icon("schedule")} oltre di ${mmss(T.sec-goalFor(items.length))}</span>`}
+      <span class="muted" style="flex-basis:100%">Obiettivo: ${mmss(goal60())} ogni 60 domande = ${Math.round(goal60()/60*10)/10} s a domanda.</span></div>`:""}
     ${isSim?`<div class="punteggio-hero ${pass?"":"punteggio-hero--non-superato"}"><span class="punteggio-hero__icon">${icon(pass?"emoji_events":"report")}</span><div class="punteggio-hero__body"><div class="punteggio-hero__label">Punteggio totale</div><div class="punteggio-hero__value">${pts}<span class="punteggio-hero__value-max">/100</span></div></div><span class="punteggio-hero__badge">${icon(pass?"check_circle":"cancel")} ${pass?"Prova superata":"Prova non superata"}</span></div>`:""}
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       ${wrongIds.length?`<button class="btn btn-filled" id="redo">${icon("replay")} Rifai le ${wrongIds.length} da rivedere</button>`:""}
