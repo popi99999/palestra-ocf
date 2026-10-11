@@ -442,6 +442,14 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .worst__meta{font-size:12px;color:var(--ocf-ink-muted);margin:0 12px 10px}
 @media (max-width:599.98px){ .worst summary{grid-template-columns:32px minmax(0,1fr)} .worst__st{grid-column:2;justify-self:start} }
 /* ---------- categorie in stile Studia per materia ---------- */
+.cat-count{width:76px;height:64px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#F4F4F2;color:var(--ocf-ink);line-height:1}
+.cat-count b{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.cat-count small{font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;margin-top:4px;color:var(--ocf-ink-soft)}
+.cat-count.is-on{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark)}
+.cat-count.is-on small{color:var(--ocf-brand-green)}
+.sub-name{display:flex;align-items:center;gap:12px;min-width:0}
+.sub-count{flex-shrink:0;display:inline-flex;align-items:baseline;gap:4px;background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:500;white-space:nowrap}
+.sub-count b{font-size:18px;font-weight:700;font-variant-numeric:tabular-nums}
 .ocf-studia-filters{display:flex;align-items:center;gap:14px;margin:0 0 14px;flex-wrap:wrap}
 .ocf-studia-filters__label{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ocf-ink-soft)}
 .toggle{display:inline-flex;border:1px solid var(--ocf-brand-green);border-radius:4px;overflow:hidden;flex-wrap:wrap}
@@ -450,24 +458,25 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .toggle button:hover{background:var(--ocf-brand-green-soft)}
 .toggle .mi{font-size:18px}
 @media (max-width:599.98px){ .toggle button{padding:6px 8px;font-size:12px} .toggle .mi{display:none} }
-.studia-materia-row.cat-row{grid-template-columns:22px 56px minmax(0,1.3fr) minmax(200px,1.1fr) minmax(190px,1fr) auto}
+.studia-materia-row.cat-row{grid-template-columns:22px 76px minmax(0,1.3fr) minmax(200px,1.1fr) minmax(190px,1fr) auto}
 .studia-materia-row.cat-row.is-sel{border-color:#A5D6A7}
 .cat-check{accent-color:var(--ocf-brand-green);width:18px;height:18px;margin:0;cursor:pointer}
 .cat-subs{grid-column:1/-1;margin:4px -24px -20px;border-top:1px solid var(--ocf-line)}
-.cat-subs .grp-sub{padding-left:100px}
+.cat-subs .grp-sub{padding-left:120px}
 .linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--ocf-brand-green);cursor:pointer;display:inline-flex;align-items:center;gap:2px}
 .linkbtn b{color:var(--ocf-brand-green-dark)}
 .linkbtn .mi{font-size:16px}
-@media (max-width:1199.98px){ .studia-materia-row.cat-row{grid-template-columns:22px 56px minmax(0,1.5fr) minmax(170px,1fr) minmax(160px,.8fr) auto;gap:18px} }
+@media (max-width:1199.98px){ .studia-materia-row.cat-row{grid-template-columns:22px 76px minmax(0,1.5fr) minmax(170px,1fr) minmax(160px,.8fr) auto;gap:18px} }
 @media (max-width:999.98px){
-  .studia-materia-row.cat-row{grid-template-columns:22px 56px 1fr;grid-template-areas:"check badge main" "breakdown breakdown breakdown" "levels levels actions" "subs subs subs"}
+  .studia-materia-row.cat-row{grid-template-columns:22px 76px 1fr;grid-template-areas:"check badge main" "breakdown breakdown breakdown" "levels levels actions" "subs subs subs"}
   .studia-materia-row.cat-row .cat-check{grid-area:check}
   .studia-materia-row.cat-row .studia-materia-row__levels{grid-area:levels}
   .cat-subs{grid-area:subs;margin:4px -24px -20px}
 }
 @media (max-width:767.98px){
-  .studia-materia-row.cat-row{grid-template-columns:22px 48px minmax(0,1fr);grid-template-areas:"check badge main" "breakdown breakdown breakdown" "levels levels levels" "actions actions actions" "subs subs subs";padding:16px 16px}
-  .studia-materia-row.cat-row .studia-badge{width:48px;height:48px;font-size:18px}
+  .studia-materia-row.cat-row{grid-template-columns:22px 68px minmax(0,1fr);grid-template-areas:"check badge main" "breakdown breakdown breakdown" "levels levels levels" "actions actions actions" "subs subs subs";padding:16px 16px}
+  .studia-materia-row.cat-row .cat-count{width:68px;height:58px}
+  .studia-materia-row.cat-row .cat-count b{font-size:24px}
   .studia-materia-row.cat-row .studia-materia-row__actions{flex-direction:row}
   .studia-materia-row.cat-row .studia-materia-row__cta{width:auto;flex:1}
   .cat-subs{margin:4px -16px -16px}
@@ -969,13 +978,13 @@ function renderMateria(){
     const open=state.open.has(g.ci), nSel=g.subs.filter(s=>state.picked.has(keyOf(g,s))).length, full=nSel===g.subs.length;
     const st=gstats(g.ids), prep=Math.round(st.ok/st.tot*100), cop=Math.round(st.seen/st.tot*100), w=v=>(v/st.tot*100).toFixed(2)+"%";
     const subs = open ? `<div class="cat-subs">${g.subs.map(s=>`<div class="grp-sub"><input type="checkbox" data-pick="${keyOf(g,s)}" ${state.picked.has(keyOf(g,s))?"checked":""} aria-label="Seleziona ${esc(SUB[s.si])}">
-        <div><div class="grp-subtitle">${esc(SUB[s.si]||"Senza sottocategoria")}</div><div class="grp-meta"><b>${s.ids.length}</b> domande</div></div>
+        <div class="sub-name"><span class="sub-count"><b>${s.ids.length}</b> domande</span><span class="grp-subtitle">${esc(SUB[s.si]||"Senza sottocategoria")}</span></div>
         ${statBlock(s.ids)}
         <div class="grp-acts"><button class="btn btn-outlined btn-sm" data-leggi="${keyOf(g,s)}">${icon("menu_book")} Leggi</button><button class="btn btn-filled btn-sm" data-solo="${keyOf(g,s)}">${icon("play_arrow")} Allenati</button></div></div>`).join("")}</div>` : "";
     return `<article class="studia-materia-row cat-row ${nSel?"is-sel":""}">${nSel?'<span class="studia-status-stripe"></span>':""}
       <input type="checkbox" class="cat-check" data-pickall="${g.ci}" ${full?"checked":""} ${nSel&&!full?'data-partial="1"':""} aria-label="Seleziona ${esc(CONT[g.ci])}">
-      <div class="studia-materia-row__badge"><span class="studia-badge ${st.seen?"studia-badge--attiva":"studia-badge--inattiva"}">${pad2(i+1)}</span></div>
-      <div class="studia-materia-row__main"><div class="studia-materia-row__meta"><span><b>${g.ids.length}</b> domande</span><span>·</span><button class="linkbtn" data-exp="${g.ci}" aria-expanded="${open}"><b>${g.subs.length}</b> ${g.subs.length===1?"sottocategoria":"sottocategorie"} ${icon(open?"expand_less":"expand_more")}</button></div><h3 class="studia-materia-row__title" title="${esc(CONT[g.ci])}">${esc(CONT[g.ci])}</h3></div>
+      <div class="studia-materia-row__badge"><span class="cat-count ${st.seen?"is-on":""}"><b>${g.ids.length}</b><small>domande</small></span></div>
+      <div class="studia-materia-row__main"><div class="studia-materia-row__meta"><span>Categoria <b>${pad2(i+1)}</b></span><span>·</span><button class="linkbtn" data-exp="${g.ci}" aria-expanded="${open}"><b>${g.subs.length}</b> ${g.subs.length===1?"sottocategoria":"sottocategorie"} ${icon(open?"expand_less":"expand_more")}</button></div><h3 class="studia-materia-row__title" title="${esc(CONT[g.ci])}">${esc(CONT[g.ci])}</h3></div>
       <div class="studia-materia-row__breakdown"><div class="studia-materia-row__breakdown-label">${st.seen?`<b>${st.seen}</b> domande fatte su ${st.tot}`:"Nessuna risposta"}</div>
         <div class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${w(st.ok)}"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${w(st.wr)}"></span></div>
         ${st.seen?`<div class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${st.ok} giuste</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${st.wr} sbagliate</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${st.tot-st.seen} da fare</span></div>`:`<div class="studia-breakdown-empty">Nessuna risposta ancora registrata</div>`}</div>
