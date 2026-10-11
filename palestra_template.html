@@ -854,6 +854,22 @@ function recoverLive(){
   const e=cleanSession(Object.assign(buildEntry(T, counted, int(L.saved,1,9e15)||Date.now()), {cut:true}));
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
+// --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
+const APP_VERSION="/*__VERSION__*/";
+async function checkUpdate(){
+  if(IN_CLAUDE || location.protocol!=="https:") return;
+  try{
+    const r=await fetch("version.txt?t="+Date.now(), {cache:"no-store"}); if(!r.ok) return;
+    const v=(await r.text()).trim();
+    // mai durante un test o sul riepilogo appena finito: si aspetta il prossimo controllo
+    if(/^[0-9-]+$/.test(v) && v!==APP_VERSION && state.view!=="session" && state.view!=="riepilogo" && !(state.T && !state.T.done)){
+      // un solo tentativo per versione (niente ricariche a ripetizione se la rete serve ancora la copia vecchia)
+      let tried=null; try{ tried=sessionStorage.getItem("palestra-ocf-upd"); sessionStorage.setItem("palestra-ocf-upd", v); }catch(e){}
+      if(tried===v) return;
+      lsWrite(); location.replace(location.pathname+"?v="+v);
+    }
+  }catch(e){}
+}
 // --- avvio
 async function initStore(){
   store.lastSync=+lsGet(SYNC_AT_KEY)||null;
@@ -866,12 +882,12 @@ async function initStore(){
     document.addEventListener("visibilitychange", ()=>{
       const T=state.T;
       if(document.visibilityState==="hidden"){ if(T && !T.done){ T.hiddenAt=Date.now(); saveLive(); } lsWrite(); if(store.code) sync(); }
-      else { if(T && !T.done && T.hiddenAt){ const d=Date.now()-T.hiddenAt; T.t0+=d; T.qStart+=d; T.hiddenAt=null; } queueSync(0); }
+      else { if(T && !T.done && T.hiddenAt){ const d=Date.now()-T.hiddenAt; T.t0+=d; T.qStart+=d; T.hiddenAt=null; } queueSync(0); checkUpdate(); }
     });
-    window.addEventListener("focus", ()=>queueSync(300));
-    window.addEventListener("pageshow", ()=>queueSync(0));
+    window.addEventListener("focus", ()=>{ queueSync(300); checkUpdate(); });
+    window.addEventListener("pageshow", ()=>{ queueSync(0); checkUpdate(); });
     window.addEventListener("online", ()=>queueSync(0));
-    setInterval(()=>{ if(document.visibilityState==="visible" && state.view!=="session") queueSync(0); }, 60000);
+    setInterval(()=>{ if(document.visibilityState==="visible" && state.view!=="session"){ queueSync(0); checkUpdate(); } }, 60000);
     if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js").catch(()=>{});
     return;
   }

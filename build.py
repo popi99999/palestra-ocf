@@ -7,6 +7,11 @@ def idx(v,L,D):
 rows=[[x['materia'],idx(x['contenuto'].replace('_ ',': ').replace('_',':'),C,ci),idx(x['sub'] or '',S,si),x['livello'],x['domanda'],x['A'],x['B'],x['C'],x['D'],1 if x.get('pratico') else 0] for x in q]
 data=json.dumps({'c':C,'s':S,'q':rows},ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 t=open('palestra_template.html').read()
+# versione: la pagina la confronta con version.txt e si ricarica da sola quando ne esce una nuova
+import time
+VER=time.strftime('%Y%m%d-%H%M%S')
+t=t.replace('/*__VERSION__*/', VER)
+open('version.txt','w').write(VER+'\n')
 # report Excel (ExcelJS + grafici): modulo separato, incollato nello stesso <script>
 t=t.replace('/*__EXCEL__*/', open('parts/excel.js').read())
 assert '/*__EXCEL__*/' not in t
