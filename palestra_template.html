@@ -349,6 +349,61 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   .grp-sub .grp-stat,.grp-sub .grp-acts{grid-column:2}
   .grp-sub .grp-acts{justify-content:flex-start}
 }
+/* ---------- home materia unica ---------- */
+.totali-card{display:grid;grid-template-columns:64px minmax(0,1fr) minmax(220px,320px) 32px;gap:22px;align-items:center;width:100%;text-align:left;font:inherit;color:inherit;background:#fff;border:1px solid var(--ocf-line);border-radius:12px;padding:22px 24px;margin:0 0 16px;cursor:pointer;transition:transform 140ms,box-shadow 140ms,border-color 140ms;position:relative;overflow:hidden}
+.totali-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ocf-brand-green)}
+.totali-card:hover{transform:translateY(-1px);box-shadow:0 10px 22px -12px rgba(0,0,0,.18);border-color:#C8E6C9}
+.totali-card__icon{width:64px;height:64px;border-radius:14px;background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);display:grid;place-items:center}
+.totali-card__icon .mi{font-size:34px}
+.totali-card__body{display:flex;flex-direction:column;gap:2px;min-width:0}
+.totali-card__label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ocf-ink-soft)}
+.totali-card__value{font-size:44px;font-weight:700;line-height:1.05;color:var(--ocf-brand-green-dark);font-variant-numeric:tabular-nums}
+.totali-card__meta{font-size:13px;color:var(--ocf-ink-soft)}
+.totali-card__bar{display:flex;flex-direction:column;gap:2px;min-width:0}
+.totali-card__go{color:var(--ocf-brand-green)}
+.totali-card__go .mi{font-size:32px}
+.quick{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 24px}
+.cat-sum{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--ocf-line);border-radius:12px;padding:16px 20px;margin:0 0 14px;font-size:15px;color:var(--ocf-ink-soft);line-height:1.5}
+.cat-sum b{color:var(--ocf-ink)}
+.cat-sum__big{font-size:40px;font-weight:700;color:var(--ocf-brand-green-dark);line-height:1;font-variant-numeric:tabular-nums}
+.grp-meta .cnt{display:inline-block;background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);font-weight:700;border-radius:10px;padding:0 8px;font-size:13px;line-height:20px}
+/* barra allenamento */
+.page:has(.trainbar){padding-bottom:8px}
+.trainbar{position:sticky;bottom:0;z-index:6;margin:16px -16px 0;background:#fff;border-top:1px solid var(--ocf-line);box-shadow:0 -8px 20px -12px rgba(0,0,0,.18);padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:14px 20px;flex-wrap:wrap}
+.trainbar__info{display:flex;flex-direction:column;min-width:150px}
+.trainbar__what{font-weight:600;color:var(--ocf-ink);font-size:15px}
+.trainbar__count{font-size:13px;color:var(--ocf-ink-soft)}
+.trainbar__count b{color:var(--ocf-brand-green-dark);font-size:15px}
+.trainbar__opts{display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;flex:1;min-width:0}
+.tb-field{display:flex;align-items:center;gap:8px;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--ocf-ink-soft);font-weight:500}
+.tb-field select{font-family:var(--font);font-size:15px;padding:7px 8px;border:1px solid rgba(0,0,0,.42);border-radius:4px;background:#fff;color:var(--mud-text);text-transform:none;letter-spacing:0}
+.tb-num{display:inline-flex;align-items:center;border:1px solid rgba(0,0,0,.42);border-radius:4px;overflow:hidden}
+.tb-num button{border:0;background:#F5F5F5;width:34px;height:36px;display:grid;place-items:center;cursor:pointer;color:var(--mud-text)}
+.tb-num .mi{font-size:20px}
+.tb-num input{width:64px;border:0;text-align:center;font-family:var(--font);font-size:16px;font-weight:600;padding:6px 0;color:var(--mud-text);-moz-appearance:textfield}
+.tb-num input::-webkit-inner-spin-button{-webkit-appearance:none}
+.tb-presets{display:flex;gap:6px;flex-wrap:wrap}
+.chip-btn{border:1px solid var(--ocf-brand-green);background:#fff;color:var(--ocf-brand-green);border-radius:16px;height:30px;padding:0 12px;font-family:var(--font);font-size:13px;font-weight:500;cursor:pointer}
+.chip-btn.on{background:var(--ocf-brand-green);color:#fff}
+.trainbar__go{min-height:44px;padding:8px 22px;font-size:15px}
+@media (max-width:767.98px){
+  .totali-card{grid-template-columns:56px minmax(0,1fr) 28px;gap:14px;padding:18px 16px}
+  .totali-card__icon{width:56px;height:56px}
+  .totali-card__bar{grid-column:1/-1;grid-row:2}
+  .totali-card__go{grid-row:1;grid-column:3}
+  .totali-card__value{font-size:38px}
+  .cat-sum{flex-direction:column;align-items:flex-start;gap:6px}
+  .trainbar{flex-direction:column;align-items:stretch;gap:8px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px))}
+  .trainbar__info{flex-direction:row;justify-content:space-between;align-items:baseline;min-width:0}
+  .trainbar__opts{gap:8px 12px}
+  .tb-presets{display:none}
+  .tb-field{font-size:11px;gap:6px}
+  .tb-field select{font-size:14px;padding:6px}
+  .tb-num button{width:30px;height:34px}
+  .tb-num input{width:46px;font-size:15px}
+  .trainbar .check{font-size:14px}
+  .trainbar__go{width:100%;min-height:42px}
+}
 /* ---------- sincronizzazione ---------- */
 .syncbox{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:8px;padding:12px 14px}
 .syncbox code{font-family:"Roboto Mono",ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;letter-spacing:.06em;color:var(--ocf-brand-green-dark);flex:1;min-width:0;word-break:break-all}
@@ -417,17 +472,9 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   </div>
 </header>
 <nav class="drawer nav" id="drawer" aria-label="Menu principale">
-  <a href="#" data-nav="home"><span class="mi">home</span>Home workspace</a>
-  <a href="#" data-nav="studia"><span class="mi">school</span>Studia per materia</a>
-  <a href="#" data-nav="migliora" class="two"><span class="mi">trending_up</span>Migliora la tua preparazione (Esercitazioni)</a>
-  <a href="#" data-nav="prova" class="two"><span class="mi">quiz</span>Mettiti alla prova (Simulazione Prova d'esame)</a>
-  <hr>
-  <button class="navlink group" id="grp-report" aria-expanded="false"><span class="mi">bar_chart</span>Report<span class="mi chev">arrow_drop_down</span></button>
-  <div class="sub" id="sub-report" hidden>
-    <a href="#" data-nav="report-materie">Esercitazioni — analitico</a>
-    <a href="#" data-nav="report-sim">Simulazioni — andamento</a>
-  </div>
-  <a href="#" data-nav="sfoglia"><span class="mi">menu_book</span>Sfoglia i quesiti</a>
+  <a href="#" data-nav="home"><span class="mi">home</span>Home</a>
+  <a href="#" data-nav="materia"><span class="mi">category</span>Categorie e allenamento</a>
+  <a href="#" data-nav="sfoglia"><span class="mi">menu_book</span>Sfoglia le domande</a>
   <hr>
   <button class="navlink" id="nav-sync"><span class="mi">cloud_sync</span>Sincronizza i dispositivi</button>
 </nav>
@@ -537,8 +584,8 @@ async function initStore(){
     store.code = lsGet(CODE_KEY);
     if(!store.code){ store.code=newCode(); lsSet(CODE_KEY, store.code); }
     setSync("sincronizzazione…");
-    const changed = await cloudPull();
-    if(changed && state.view!=="session") render();
+    await cloudPull();
+    if(state.view!=="session") render();
     document.addEventListener("visibilitychange", async()=>{ if(document.visibilityState==="visible"){ const ch=await cloudPull(); if(ch && state.view!=="session") render(); } });
     window.addEventListener("online", ()=>cloudPull());
     if("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("sw.js").catch(()=>{});
@@ -606,24 +653,23 @@ const simsDone = () => sims().filter(h=>!h.nc);
 const simScore = h => h.pts!=null ? h.pts : Math.round(h.ok/h.n*100);
 
 /* ================= stato e navigazione ================= */
-const state = {view:"home", T:null, sel:0, browse:{mat:5,q:"",page:0,ids:null,label:""}, matSel:5, open:new Set(), picked:new Set()};
+const ONLY = 5; // l'app per ora lavora solo su Nozioni di diritto privato e di diritto commerciale
+const state = {view:"home", T:null, sel:0, browse:{mat:ONLY,q:"",page:0,ids:null,label:""}, matSel:ONLY, open:new Set(), picked:new Set(), train:{n:25, which:"all", fb:true}};
 function navKey(){
-  if(state.view==="session"||state.view==="riepilogo"){ const k=state.T&&state.T.kind; return k==="sim"?"prova":k==="migliora"?"migliora":"studia"; }
-  if(state.view==="materia") return "studia";
+  if(state.view==="session"||state.view==="riepilogo") return "materia";
   return state.view;
 }
 function setNavActive(){
   document.querySelectorAll("[data-nav]").forEach(a=>a.classList.toggle("active", a.dataset.nav===navKey()));
-  if(state.view.startsWith("report")){ $("#grp-report").setAttribute("aria-expanded","true"); $("#sub-report").hidden=false; }
 }
 function go(v){
   if(state.T && !state.T.done && state.view==="session"){ return askLeave(v); }
+  if(v==="studia"||v==="prova"||v==="migliora"||v.startsWith("report")) v = v==="studia"?"materia":"home"; // per ora solo Materia 5
   state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0);
 }
 document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",e=>{ e.preventDefault(); if(a.dataset.nav==="sfoglia"){ state.browse.ids=null; state.browse.label=""; } go(a.dataset.nav); }));
 $("#hdr-sync").onclick=openSyncDialog; $("#hdr-status").onclick=openSyncDialog; $("#nav-sync").onclick=()=>{ closeDrawerMobile(); openSyncDialog(); };
 $("#hdr-browse").onclick=()=>{ state.browse.ids=null; state.browse.label=""; go("sfoglia"); };
-$("#grp-report").onclick=()=>{ const b=$("#grp-report"), open=b.getAttribute("aria-expanded")!=="true"; b.setAttribute("aria-expanded",open); $("#sub-report").hidden=!open; };
 const mq = window.matchMedia("(max-width:959.98px)");
 $("#menu").onclick=()=>{ if(mq.matches){ document.body.classList.toggle("drawer-open"); $("#scrim").hidden=!document.body.classList.contains("drawer-open"); } else document.body.classList.toggle("drawer-closed"); };
 $("#scrim").onclick=closeDrawerMobile;
@@ -665,40 +711,44 @@ function todayPlan(){
   return {m:null, txt:"Fase 1 conclusa: ora contano le simulazioni complete. Obiettivo: più di 450, media sopra 94, meno di 10 minuti."};
 }
 function renderHome(){
-  const tot=[1,2,3,4,5].reduce((a,m)=>a+matStats(m).seen,0);
-  const started=[1,2,3,4,5].filter(m=>matStats(m).seen>0).length;
-  const tp=todayPlan();
+  const m=ONLY, ids=BY_MAT[m], s=gstats(ids), G=groupsOf(m), nSub=G.reduce((a,g)=>a+g.subs.length,0);
+  const daFare=s.tot-s.seen, err=errorsOf(m).length;
+  const recent=S.h.filter(h=>h.k!=="sim" && (h.ms||[]).includes(m)).slice(-6).reverse();
   $("#view").innerHTML = `
-  ${head("home","Benvenuto nel workspace")}
+  ${head("home","Diritto privato e commerciale")}
   <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
-    <div class="ocf-landing-hero__left">
-      <div class="ocf-landing-hero__eyebrow">Palestra OCF</div>
-      <h2 class="ocf-landing-hero__title">Il tuo percorso verso <b>l'esame</b>, in un'unica dashboard.</h2>
-      <p class="ocf-landing-hero__subtitle">Studia per materia, rafforza le tue competenze con sessioni adattive e mettiti alla prova in una simulazione fedele alla prova ufficiale.</p>
-      <button class="btn ocf-landing-hero__cta" id="go-progress">${icon("insights")} Vai ai progressi</button>
-    </div>
+    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia 5 · prova valutativa OCF</div>
+      <h2 class="ocf-landing-hero__title">Nozioni di diritto privato e di <b>diritto commerciale</b></h2>
+      <p class="ocf-landing-hero__subtitle">Tutte le ${s.tot} domande ufficiali divise in ${G.length} categorie. Scegli le categorie, quante domande fare e allenati.</p>
+      <button class="btn ocf-landing-hero__cta" data-goto="materia">${icon("play_arrow")} Allenati</button></div>
     <div class="ocf-landing-hero__right">
-      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${tot}</div><div class="ocf-landing-hero__stat-label">Quesiti svolti</div></div>
-      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${started}<span class="ocf-landing-hero__stat-unit">/5</span></div><div class="ocf-landing-hero__stat-label">Materie</div></div>
-      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${simsDone().length}</div><div class="ocf-landing-hero__stat-label">Simulazioni</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.seen}</div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.ok}</div><div class="ocf-landing-hero__stat-label">Giuste</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.wr}</div><div class="ocf-landing-hero__stat-label">Sbagliate</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${daFare}</div><div class="ocf-landing-hero__stat-label">Da fare</div></div>
     </div></div></section>
-  <div class="ocf-landing-cta-strip"><span class="ocf-landing-cta-strip__text">${esc(tp.txt)}</span>
-    ${tp.m?`<span style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-outlined" id="plan-arg">${icon("account_tree")} Argomenti</button><button class="btn btn-filled" id="plan-go">${icon("school")} Studia la Materia ${tp.m}</button></span>`:`<button class="btn btn-filled" data-goto="prova">${icon("quiz")} Mettiti alla prova</button>`}</div>
-  <div class="ocf-landing-pillars">
-    <button class="ocf-landing-pillar ocf-home-pillar" data-goto="studia"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--soft">${icon("school")}</div><h3 class="ocf-landing-pillar__title">Studia per materia</h3><p class="ocf-landing-pillar__text">Riprendi i contenuti di ogni materia con il riepilogo delle tue statistiche e sessioni di studio in ordine, a campione o sugli errori.</p><span class="ocf-home-pillar__action">Apri ${icon("arrow_forward")}</span></button>
-    <button class="ocf-landing-pillar ocf-home-pillar" data-goto="migliora"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--primary">${icon("trending_up")}</div><h3 class="ocf-landing-pillar__title">Migliora la preparazione</h3><p class="ocf-landing-pillar__text">Una sessione adattiva di 20 quesiti, costruita sui tuoi punti deboli. Sessanta secondi a quesito per allenare ritmo e concentrazione.</p><span class="ocf-home-pillar__action">Apri ${icon("arrow_forward")}</span></button>
-    <button class="ocf-landing-pillar ocf-home-pillar" data-goto="prova"><div class="ocf-landing-pillar__icon ocf-landing-pillar__icon--accent">${icon("quiz")}</div><h3 class="ocf-landing-pillar__title">Mettiti alla prova</h3><p class="ocf-landing-pillar__text">La simulazione fedele all'esame OCF: stesso numero di quesiti, stesso cronometro, stessa soglia di superamento. Misura davvero a che punto sei.</p><span class="ocf-home-pillar__action">Apri ${icon("arrow_forward")}</span></button>
+  <button class="totali-card" data-goto="materia">
+    <span class="totali-card__icon">${icon("quiz")}</span>
+    <span class="totali-card__body"><span class="totali-card__label">Domande totali</span><span class="totali-card__value">${s.tot}</span><span class="totali-card__meta">${G.length} categorie · ${nSub} sottocategorie · tocca per vederle</span></span>
+    <span class="totali-card__bar"><span class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${s.ok/s.tot*100}%"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${s.wr/s.tot*100}%"></span></span>
+      <span class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${s.ok} giuste</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${s.wr} sbagliate</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${daFare} da fare</span></span></span>
+    <span class="totali-card__go">${icon("chevron_right")}</span>
+  </button>
+  <div class="quick">
+    <button class="btn btn-filled" id="q-new" ${daFare?"":"disabled"}>${icon("fiber_new")} Domande mai fatte (${daFare})</button>
+    <button class="btn btn-outlined" id="q-err" ${err?"":"disabled"}>${icon("replay")} Ripassa le sbagliate (${err})</button>
+    <button class="btn btn-outlined" data-goto="sfoglia">${icon("menu_book")} Sfoglia con le risposte</button>
   </div>
-  <div class="home-grid" id="progress">
-    <div class="paper card"><div class="cardhead"><h6>Esercitazioni per materia</h6><span class="tools">${icon("image")}${icon("table_chart")}</span></div>${matBars()}</div>
-    <div class="paper card"><div class="cardhead"><h6>Andamento simulazioni</h6><span class="tools">${icon("image")}${icon("table_chart")}</span></div><div class="chart">${simChart()}</div></div>
-  </div>
-  ${proveList()}`;
-  $("#go-progress").onclick=()=>$("#progress").scrollIntoView({behavior:"smooth"});
+  <section class="paper dashboard-prove"><div class="dashboard-prove__header"><div><h3 class="dashboard-prove__title">${icon("history")} Ultimi allenamenti</h3><p class="dashboard-prove__subtitle">Punteggio di ogni sessione, dalla più recente.</p></div></div>
+    ${recent.length?`<div class="dashboard-prove__list">${recent.map(h=>{ const p=h.n?Math.round(h.ok/h.n*100):0, good=p>=80;
+      return `<div class="prova-card ${good?"prova-card--superata":"prova-card--non-superata"}" style="cursor:default"><span class="prova-card__num">${p}<span class="prova-card__num-hash">%</span></span>
+        <span class="prova-card__body"><span class="prova-card__label" style="display:block">${esc(h.title)}</span><span class="prova-card__date">${icon("event")}${dmy(h.t)}<span class="prova-card__date-sep">·</span>${hm(h.t)}<span class="prova-card__date-sep">·</span>${mmss(h.sec)}</span></span>
+        <span class="prova-card__score"><span class="prova-card__score-value">${h.ok}</span><span class="prova-card__score-max">/${h.n}</span></span><span></span></div>`; }).join("")}</div>`
+      :`<div class="alert">${icon("info_outline")}<span>Ancora nessun allenamento. Tocca "Domande totali" e scegli le categorie.</span></div>`}
+  </section>`;
   bindGoto();
-  const pg=$("#plan-go"); if(pg) pg.onclick=()=>openStudyDialog(tp.m, "seq");
-  const pa=$("#plan-arg"); if(pa) pa.onclick=()=>openMateria(tp.m);
-  bindProve();
+  const qn=$("#q-new"); qn.onclick=()=>startSession({kind:"studio", title:"Domande mai fatte", ids:BY_MAT[m].filter(n=>!S.m[m][n]).slice(0,25), fb:"now"});
+  const qe=$("#q-err"); qe.onclick=()=>startSession({kind:"studio", title:"Ripasso sbagliate", ids:shuffle(errorsOf(m)).slice(0,50), fb:"now"});
 }
 function matBars(){
   const any=[1,2,3,4,5].some(m=>matStats(m).att>0);
@@ -832,53 +882,73 @@ function pickedIds(G){
   for(const g of G) for(const s of g.subs) if(state.picked.has(g.ci+":"+s.si)) out.push(...s.ids);
   return out;
 }
+function selectionIds(G){
+  const ids=pickedIds(G);
+  return ids.length ? ids : G.flatMap(g=>g.ids);
+}
 function renderMateria(){
-  const m=state.matSel, G=groupsOf(m), ms=matStats(m), sel=pickedIds(G);
-  const keyOf=(g,s)=>g.ci+":"+s.si;
+  const m=state.matSel=ONLY, G=groupsOf(m), keyOf=(g,s)=>g.ci+":"+s.si;
+  const nSub=G.reduce((a,g)=>a+g.subs.length,0), tot=BY_MAT[m].length;
   const rows=G.map(g=>{
     const open=state.open.has(g.ci), nSel=g.subs.filter(s=>state.picked.has(keyOf(g,s))).length, all=nSel===g.subs.length;
     const subs = open ? g.subs.map(s=>`<div class="grp-sub"><input type="checkbox" data-pick="${keyOf(g,s)}" ${state.picked.has(keyOf(g,s))?"checked":""} aria-label="Seleziona ${esc(SUB[s.si])}">
-        <div><div class="grp-subtitle">${esc(SUB[s.si]||"Senza sottogruppo")}</div><div class="grp-meta"><b>${s.ids.length}</b> quesiti</div></div>
+        <div><div class="grp-subtitle">${esc(SUB[s.si]||"Senza sottocategoria")}</div><div class="grp-meta"><b>${s.ids.length}</b> domande</div></div>
         ${statBlock(s.ids)}
-        <div class="grp-acts"><button class="btn btn-outlined btn-sm" data-leggi="${keyOf(g,s)}">${icon("menu_book")} Leggi</button><button class="btn btn-filled btn-sm" data-test="${keyOf(g,s)}">${icon("play_arrow")} Test</button></div></div>`).join("") : "";
+        <div class="grp-acts"><button class="btn btn-outlined btn-sm" data-leggi="${keyOf(g,s)}">${icon("menu_book")} Leggi</button></div></div>`).join("") : "";
     return `<article class="grp ${nSel?"has-sel":""}" data-open="${open?1:0}">
-      <div class="grp-head"><input type="checkbox" data-pickall="${g.ci}" ${all?"checked":""} aria-label="Seleziona tutto ${esc(CONT[g.ci])}">
-        <button class="expbtn" data-exp="${g.ci}" aria-expanded="${open}" aria-label="Mostra i sottogruppi">${icon("expand_more")}</button>
-        <div><h3 class="grp-title" data-exp="${g.ci}">${esc(CONT[g.ci])}</h3><div class="grp-meta"><b>${g.ids.length}</b> quesiti · <b>${g.subs.length}</b> ${g.subs.length===1?"sottogruppo":"sottogruppi"}${nSel?` · <span style="color:var(--ocf-brand-green-dark)">${nSel} selezionati</span>`:""}</div></div>
+      <div class="grp-head"><input type="checkbox" data-pickall="${g.ci}" ${all?"checked":""} ${nSel&&!all?'data-partial="1"':""} aria-label="Seleziona ${esc(CONT[g.ci])}">
+        <button class="expbtn" data-exp="${g.ci}" aria-expanded="${open}" aria-label="Mostra le sottocategorie">${icon("expand_more")}</button>
+        <div><h3 class="grp-title" data-exp="${g.ci}">${esc(CONT[g.ci])}</h3><div class="grp-meta"><span class="cnt">${g.ids.length}</span> domande · ${g.subs.length} ${g.subs.length===1?"sottocategoria":"sottocategorie"}${nSel&&!all?` · <span style="color:var(--ocf-brand-green-dark)">${nSel} selezionate</span>`:""}</div></div>
         ${statBlock(g.ids)}
-        <div class="grp-acts"><button class="btn btn-outlined btn-sm" data-leggi="${g.ci}">${icon("menu_book")} Leggi</button><button class="btn btn-filled btn-sm" data-test="${g.ci}">${icon("play_arrow")} Test</button></div>
+        <div class="grp-acts"><button class="btn btn-outlined btn-sm" data-leggi="${g.ci}">${icon("menu_book")} Leggi</button></div>
       </div>${subs}</article>`;
   }).join("");
   $("#view").innerHTML = `
-  <button class="backlink" id="back">${icon("arrow_back")} Studia per materia</button>
-  ${head("account_tree",`Materia ${m} – ${esc(MAT[m].short)}`)}
-  <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
-    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Argomenti e sottogruppi</div>
-      <h2 class="ocf-landing-hero__title" style="font-size:24px">${esc(MAT[m].name)}</h2>
-      <p class="ocf-landing-hero__subtitle" style="margin-bottom:0">Apri un argomento per vedere i sottogruppi. Leggi i quesiti con la risposta corretta o fai un test solo su quella parte; spunta più sottogruppi per un test unico.</p></div>
-    <div class="ocf-landing-hero__right">
-      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${G.length}</div><div class="ocf-landing-hero__stat-label">Argomenti</div></div>
-      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${G.reduce((a,g)=>a+g.subs.length,0)}</div><div class="ocf-landing-hero__stat-label">Sottogruppi</div></div>
-      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${ms.seen}<span class="ocf-landing-hero__stat-unit">/${ms.tot}</span></div><div class="ocf-landing-hero__stat-label">Quesiti visti</div></div>
-    </div></div></section>
-  ${sel.length?`<div class="selbar"><span class="selbar__text">${state.picked.size} sottogruppi selezionati · ${sel.length} quesiti</span><span class="selbar__acts"><button class="btn btn-text btn-sm" id="sel-clear">Deseleziona</button><button class="btn btn-outlined btn-sm" id="sel-read">${icon("menu_book")} Leggi</button><button class="btn btn-filled btn-sm" id="sel-test">${icon("play_arrow")} Test sui selezionati</button></span></div>`:""}
-  <div class="grp-tools"><button class="btn btn-text btn-sm" id="exp-all">${icon("unfold_more")} Apri tutti</button><button class="btn btn-text btn-sm" id="col-all">${icon("unfold_less")} Chiudi tutti</button></div>
-  <div class="grp-list">${rows}</div>`;
-  const find=key=>{ const [ci,si]=String(key).split(":").map(Number); const g=G.find(x=>x.ci===ci); if(si===undefined||isNaN(si)) return {ids:g.ids, label:CONT[ci]}; const s=g.subs.find(x=>x.si===si); return {ids:s.ids, label:`${CONT[ci]} › ${SUB[si]||"Senza sottogruppo"}`}; };
-  $("#back").onclick=()=>go("studia");
+  <button class="backlink" id="back">${icon("arrow_back")} Home</button>
+  ${head("category","Categorie e allenamento")}
+  <div class="cat-sum"><span class="cat-sum__big">${tot}</span><span>domande totali in <b>${G.length}</b> categorie e <b>${nSub}</b> sottocategorie. Spunta quelle su cui allenarti (nessuna spunta = tutte), scegli quante domande e premi <b>Inizia</b>.</span></div>
+  <div class="grp-tools"><button class="btn btn-text btn-sm" id="sel-all">${icon("done_all")} Seleziona tutte</button><button class="btn btn-text btn-sm" id="sel-none">${icon("remove_done")} Deseleziona</button><button class="btn btn-text btn-sm" id="exp-all">${icon("unfold_more")} Apri sottocategorie</button><button class="btn btn-text btn-sm" id="col-all">${icon("unfold_less")} Chiudi</button></div>
+  <div class="grp-list">${rows}</div>
+  <div class="trainbar" id="trainbar"></div>`;
+  document.querySelectorAll('[data-partial="1"]').forEach(c=>c.indeterminate=true);
+  const find=key=>{ const [ci,si]=String(key).split(":").map(Number); const g=G.find(x=>x.ci===ci); if(si===undefined||isNaN(si)) return {ids:g.ids, label:CONT[ci]}; const s=g.subs.find(x=>x.si===si); return {ids:s.ids, label:`${CONT[ci]} › ${SUB[si]||"Senza sottocategoria"}`}; };
+  $("#back").onclick=()=>go("home");
   document.querySelectorAll("[data-exp]").forEach(b=>b.onclick=()=>{ const ci=+b.dataset.exp; state.open.has(ci)?state.open.delete(ci):state.open.add(ci); renderMateria(); });
   document.querySelectorAll("[data-pick]").forEach(c=>c.onchange=()=>{ c.checked?state.picked.add(c.dataset.pick):state.picked.delete(c.dataset.pick); renderMateria(); });
-  document.querySelectorAll("[data-pickall]").forEach(c=>c.onchange=()=>{ const g=G.find(x=>x.ci===+c.dataset.pickall); g.subs.forEach(s=>c.checked?state.picked.add(keyOf(g,s)):state.picked.delete(keyOf(g,s))); if(c.checked) state.open.add(g.ci); renderMateria(); });
+  document.querySelectorAll("[data-pickall]").forEach(c=>c.onchange=()=>{ const g=G.find(x=>x.ci===+c.dataset.pickall); g.subs.forEach(s=>c.checked?state.picked.add(keyOf(g,s)):state.picked.delete(keyOf(g,s))); renderMateria(); });
   document.querySelectorAll("[data-leggi]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.leggi); readIds(f.ids,f.label); });
-  document.querySelectorAll("[data-test]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.test); openGroupDialog(f.ids,f.label); });
+  $("#sel-all").onclick=()=>{ G.forEach(g=>g.subs.forEach(s=>state.picked.add(keyOf(g,s)))); renderMateria(); };
+  $("#sel-none").onclick=()=>{ state.picked.clear(); renderMateria(); };
   $("#exp-all").onclick=()=>{ G.forEach(g=>state.open.add(g.ci)); renderMateria(); };
   $("#col-all").onclick=()=>{ state.open.clear(); renderMateria(); };
-  if(sel.length){
-    const lbl=`${state.picked.size} sottogruppi selezionati`;
-    $("#sel-clear").onclick=()=>{ state.picked.clear(); renderMateria(); };
-    $("#sel-read").onclick=()=>readIds(sel,lbl);
-    $("#sel-test").onclick=()=>openGroupDialog(sel,lbl);
-  }
+  renderTrainbar(G);
+}
+function renderTrainbar(G){
+  const tr=state.train, base=selectionIds(G), picked=pickedIds(G).length>0;
+  const nCat=G.filter(g=>g.subs.some(s=>state.picked.has(g.ci+":"+s.si))).length;
+  const fresh=base.filter(n=>!S.m[ONLY][n]), wrong=base.filter(n=>{ const r=S.m[ONLY][n]; return r&&!r[2]; });
+  if(tr.which==="new"&&!fresh.length) tr.which="all"; if(tr.which==="err"&&!wrong.length) tr.which="all";
+  const pool = tr.which==="new"?fresh : tr.which==="err"?wrong : base;
+  const n=Math.max(1,Math.min(pool.length, tr.n||25));
+  $("#trainbar").innerHTML = `
+    <div class="trainbar__info"><span class="trainbar__what">${picked?`${nCat} ${nCat===1?"categoria selezionata":"categorie selezionate"}`:"Tutte le categorie"}</span><span class="trainbar__count"><b>${pool.length}</b> domande disponibili</span></div>
+    <div class="trainbar__opts">
+      <label class="tb-field"><span>Quali</span><select id="tb-which"><option value="all" ${tr.which==="all"?"selected":""}>Tutte (${base.length})</option><option value="new" ${tr.which==="new"?"selected":""} ${fresh.length?"":"disabled"}>Mai fatte (${fresh.length})</option><option value="err" ${tr.which==="err"?"selected":""} ${wrong.length?"":"disabled"}>Sbagliate (${wrong.length})</option></select></label>
+      <label class="tb-field"><span>Quante</span><span class="tb-num"><button type="button" id="tb-minus" aria-label="Meno">${icon("remove")}</button><input id="tb-n" type="number" min="1" max="${pool.length}" value="${n}" inputmode="numeric"><button type="button" id="tb-plus" aria-label="Più">${icon("add")}</button></span></label>
+      <span class="tb-presets">${[10,25,50,100].filter(v=>v<pool.length).map(v=>`<button type="button" class="chip-btn ${v===n?"on":""}" data-n="${v}">${v}</button>`).join("")}<button type="button" class="chip-btn ${n===pool.length?"on":""}" data-n="${pool.length}">Tutte</button></span>
+      <label class="check"><input type="checkbox" id="tb-fb" ${tr.fb?"checked":""}> Correzione subito</label>
+    </div>
+    <button class="btn btn-filled trainbar__go" id="tb-go">${icon("play_arrow")} Inizia ${n} domande</button>`;
+  const setN=v=>{ tr.n=Math.max(1,Math.min(pool.length,v)); renderTrainbar(G); };
+  $("#tb-which").onchange=e=>{ tr.which=e.target.value; renderTrainbar(G); };
+  $("#tb-n").onchange=e=>setN(+e.target.value||1);
+  $("#tb-minus").onclick=()=>setN(n-(n>25?5:1)); $("#tb-plus").onclick=()=>setN(n+(n>=25?5:1));
+  document.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>setN(+b.dataset.n));
+  $("#tb-fb").onchange=e=>{ tr.fb=e.target.checked; };
+  $("#tb-go").onclick=()=>{
+    const label = picked ? (nCat===1 ? CONT[G.find(g=>g.subs.some(s=>state.picked.has(g.ci+":"+s.si))).ci] : `${nCat} categorie`) : "Tutte le categorie";
+    startSession({kind:"studio", title:`${label}${tr.which==="new"?" · mai fatte":tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end"});
+  };
 }
 function readIds(ids,label){ state.browse.ids=ids.slice(); state.browse.label=label; state.browse.page=0; state.browse.q=""; state.browse.back="materia"; go("sfoglia"); }
 function openGroupDialog(ids,label){
@@ -999,7 +1069,7 @@ function renderSession(){
   const nDone=T.items.filter(x=>x.pick!==null).length;
   const isSim=T.kind==="sim", isMig=T.kind==="migliora";
   const reveal = T.fb==="now" && it.pick!==null;
-  const pageIcon=isSim?"quiz":isMig?"trending_up":"school", pageTitle=isSim?"Mettiti alla prova":isMig?"Migliora la tua preparazione":"Studia per materia";
+  const pageIcon=isSim?"quiz":isMig?"trending_up":"school", pageTitle=isSim?"Mettiti alla prova":isMig?"Migliora la tua preparazione":"Allenamento";
   const alts = it.order.map((orig,pos)=>{
     let cls="quesito-alt-row", tag="";
     if(reveal){ if(orig===0){cls+=" quesito-alt-row--corretta"; tag="(corretta)";} else if(it.pick===orig){cls+=" quesito-alt-row--data"; tag="(tua risposta)";} }
@@ -1086,10 +1156,10 @@ function openSaved(h){
 /* ================= riepilogo ================= */
 function renderRiepilogo(){
   const T=state.T, items=T.counted||T.items, isSim=T.kind==="sim";
-  if(!items.length){ state.view = isSim?"prova":T.kind==="migliora"?"migliora":(T.title.startsWith("Test · ")?"materia":"studia"); return render(); }
+  if(!items.length){ state.view = "materia"; return render(); }
   const ok=items.filter(x=>x.pick===0).length, err=items.filter(x=>x.pick!==null&&x.pick!==0).length, nd=items.filter(x=>x.pick===null).length;
   const pts=isSim?examPoints(items):null, pass=isSim&&pts>=80;
-  const pageIcon=isSim?"quiz":T.kind==="migliora"?"trending_up":"school", pageTitle=isSim?"Mettiti alla prova":T.kind==="migliora"?"Migliora la tua preparazione":"Studia per materia";
+  const pageIcon=isSim?"quiz":T.kind==="migliora"?"trending_up":"school", pageTitle=isSim?"Mettiti alla prova":T.kind==="migliora"?"Migliora la tua preparazione":"Allenamento";
   const sel=Math.min(state.sel, items.length-1), x=items[sel];
   const perMat=[1,2,3,4,5].map(m=>{ const xs=items.filter(y=>Q[y.n-1][0]===m); if(!xs.length) return ""; const o=xs.filter(y=>y.pick===0); return `<tr><td>${m} – ${esc(MAT[m].name)}</td><td class="num">${xs.length}</td><td class="num">${o.length}</td><td class="num">${xs.filter(y=>y.pick!==null&&y.pick!==0).length}</td><td class="num">${xs.filter(y=>y.pick===null).length}</td>${isSim?`<td class="num">${o.reduce((a,y)=>a+Q[y.n-1][3],0)}/${xs.reduce((a,y)=>a+Q[y.n-1][3],0)}</td>`:""}</tr>`; }).join("");
   const wrongIds=items.filter(y=>y.pick!==0).map(y=>y.n);
@@ -1105,7 +1175,7 @@ function renderRiepilogo(){
     ${isSim?`<div class="punteggio-hero ${pass?"":"punteggio-hero--non-superato"}"><span class="punteggio-hero__icon">${icon(pass?"emoji_events":"report")}</span><div class="punteggio-hero__body"><div class="punteggio-hero__label">Punteggio totale</div><div class="punteggio-hero__value">${pts}<span class="punteggio-hero__value-max">/100</span></div></div><span class="punteggio-hero__badge">${icon(pass?"check_circle":"cancel")} ${pass?"Prova superata":"Prova non superata"}</span></div>`:""}
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       ${wrongIds.length?`<button class="btn btn-filled" id="redo">${icon("replay")} Rifai le ${wrongIds.length} da rivedere</button>`:""}
-      <button class="btn btn-outlined" id="again">Nuova sessione</button>
+      <button class="btn btn-outlined" id="again">Nuovo allenamento</button>
     </div>
     <div style="font-size:16px;margin-top:6px">Naviga tra i quesiti</div>
     <div class="pulsantiera-quesiti">${items.map((y,k)=>`<button class="pul-q ${y.pick===0?"pul-esatta":y.pick===null?"pul-nondata":"pul-errata"} ${k===sel?"pul-corrente":""}" data-sel="${k}" aria-label="Quesito ${k+1}">${k+1}</button>`).join("")}</div>
@@ -1115,7 +1185,7 @@ function renderRiepilogo(){
   </section>`;
   document.querySelectorAll("[data-sel]").forEach(b=>b.onclick=()=>{ state.sel=+b.dataset.sel; renderRiepilogo(); });
   const r=$("#redo"); if(r) r.onclick=()=>startSession({kind:"studio", title:"Rifai i quesiti da rivedere", ids:shuffle(wrongIds.slice()), fb:"now"});
-  $("#again").onclick=()=>go(isSim?"prova":T.kind==="migliora"?"migliora":(T.title.startsWith("Test · ")?"materia":"studia"));
+  $("#again").onclick=()=>go("materia");
 }
 function riepQuesito(x,k){
   const q=Q[x.n-1];
@@ -1158,11 +1228,11 @@ function renderSfoglia(){
   let ids=B.ids||BY_MAT[B.mat]; if(term) ids=ids.filter(n=>{ const q=Q[n-1]; return q[4].toLowerCase().includes(term)||q[5].toLowerCase().includes(term); });
   const pages=Math.max(1,Math.ceil(ids.length/PAGE)); B.page=Math.min(B.page,pages-1);
   const slice=ids.slice(B.page*PAGE,B.page*PAGE+PAGE);
-  $("#view").innerHTML = `${B.ids?`<button class="backlink" id="b-back">${icon("arrow_back")} Argomenti</button>`:""}${head("menu_book","Sfoglia i quesiti")}
+  $("#view").innerHTML = `${B.ids?`<button class="backlink" id="b-back">${icon("arrow_back")} Categorie</button>`:""}${head("menu_book","Sfoglia le domande")}
   <section class="paper card">
     ${B.ids?`<div style="margin-bottom:12px"><span class="filterchip"><span class="t">${esc(B.label)}</span><button id="b-clear" aria-label="Togli il filtro">${icon("close")}</button></span></div>`:""}
     <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end">
-      <div class="field" style="margin:0" ${B.ids?"hidden":""}><label for="b-mat">Materia</label><select id="b-mat">${[5,4,1,2,3].map(m=>`<option value="${m}" ${m===B.mat?"selected":""}>${m} – ${esc(MAT[m].short)}</option>`).join("")}</select></div>
+      <div class="field" style="margin:0" hidden><label for="b-mat">Materia</label><select id="b-mat">${[5,4,1,2,3].map(m=>`<option value="${m}" ${m===B.mat?"selected":""}>${m} – ${esc(MAT[m].short)}</option>`).join("")}</select></div>
       <div class="field" style="margin:0;flex:1;min-width:200px"><label for="b-q">Cerca nel testo</label><input id="b-q" type="search" value="${esc(B.q)}" placeholder="es. usufrutto, art. 2364, duration"></div>
     </div>
     <p class="hint">${ids.length} quesiti${term?" trovati":""}. La risposta corretta è evidenziata in verde.</p>
@@ -1189,6 +1259,7 @@ document.addEventListener("keydown",e=>{
 });
 window.addEventListener("beforeunload",()=>lsWrite());
 
+{ const l=lsRead(); if(l && l.m) S=l; } // progressi del dispositivo subito, prima della sincronizzazione
 render();
 initStore();
 })();
