@@ -404,6 +404,16 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   .trainbar .check{font-size:14px}
   .trainbar__go{width:100%;min-height:42px}
 }
+/* ---------- cronometro ---------- */
+.timer-big{background:#263238;color:#fff;font-weight:600;font-size:16px;height:34px;padding:0 14px;font-variant-numeric:tabular-nums;letter-spacing:.3px}
+.timer-big .mi{font-size:20px}
+.timer-big .timer-lbl{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.6px;opacity:.75}
+.timer-big.low{background:#C62828;color:#fff}
+.tempo-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:14px;color:var(--ocf-ink-soft);background:#F5F5F5;border-radius:8px;padding:10px 14px}
+.tempo-row b{color:var(--ocf-ink);font-variant-numeric:tabular-nums}
+.tempo-row .mi{color:var(--ocf-brand-green-dark);font-size:20px}
+.tempo-row .sep{opacity:.5}
+.tempo-row .muted{color:var(--ocf-ink-muted)}
 /* ---------- sincronizzazione ---------- */
 .syncbox{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:8px;padding:12px 14px}
 .syncbox code{font-family:"Roboto Mono",ui-monospace,Menlo,monospace;font-size:18px;font-weight:600;letter-spacing:.06em;color:var(--ocf-brand-green-dark);flex:1;min-width:0;word-break:break-all}
@@ -654,7 +664,7 @@ const simScore = h => h.pts!=null ? h.pts : Math.round(h.ok/h.n*100);
 
 /* ================= stato e navigazione ================= */
 const ONLY = 5; // l'app per ora lavora solo su Nozioni di diritto privato e di diritto commerciale
-const state = {view:"home", T:null, sel:0, browse:{mat:ONLY,q:"",page:0,ids:null,label:""}, matSel:ONLY, open:new Set(), picked:new Set(), train:{n:25, which:"all", fb:true}};
+const state = {view:"home", T:null, sel:0, browse:{mat:ONLY,q:"",page:0,ids:null,label:""}, matSel:ONLY, open:new Set(), picked:new Set(), train:{n:25, which:"all", fb:true, time:"free"}};
 function navKey(){
   if(state.view==="session"||state.view==="riepilogo") return "materia";
   return state.view;
@@ -936,6 +946,11 @@ function renderTrainbar(G){
       <label class="tb-field"><span>Quali</span><select id="tb-which"><option value="all" ${tr.which==="all"?"selected":""}>Tutte (${base.length})</option><option value="new" ${tr.which==="new"?"selected":""} ${fresh.length?"":"disabled"}>Mai fatte (${fresh.length})</option><option value="err" ${tr.which==="err"?"selected":""} ${wrong.length?"":"disabled"}>Sbagliate (${wrong.length})</option></select></label>
       <label class="tb-field"><span>Quante</span><span class="tb-num"><button type="button" id="tb-minus" aria-label="Meno">${icon("remove")}</button><input id="tb-n" type="number" min="1" max="${pool.length}" value="${n}" inputmode="numeric"><button type="button" id="tb-plus" aria-label="Più">${icon("add")}</button></span></label>
       <span class="tb-presets">${[10,25,50,100].filter(v=>v<pool.length).map(v=>`<button type="button" class="chip-btn ${v===n?"on":""}" data-n="${v}">${v}</button>`).join("")}<button type="button" class="chip-btn ${n===pool.length?"on":""}" data-n="${pool.length}">Tutte</button></span>
+      <label class="tb-field"><span>Tempo</span><select id="tb-time">
+        <option value="free" ${tr.time==="free"?"selected":""}>Cronometro libero</option>
+        <option value="q60" ${tr.time==="q60"?"selected":""}>60 s a domanda</option>
+        <option value="q85" ${tr.time==="q85"?"selected":""}>85 s a domanda (ritmo esame)</option>
+        <option value="tot" ${tr.time==="tot"?"selected":""}>Totale come all'esame (${mmss(n*85)})</option></select></label>
       <label class="check"><input type="checkbox" id="tb-fb" ${tr.fb?"checked":""}> Correzione subito</label>
     </div>
     <button class="btn btn-filled trainbar__go" id="tb-go">${icon("play_arrow")} Inizia ${n} domande</button>`;
@@ -945,9 +960,11 @@ function renderTrainbar(G){
   $("#tb-minus").onclick=()=>setN(n-(n>25?5:1)); $("#tb-plus").onclick=()=>setN(n+(n>=25?5:1));
   document.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>setN(+b.dataset.n));
   $("#tb-fb").onchange=e=>{ tr.fb=e.target.checked; };
+  $("#tb-time").onchange=e=>{ tr.time=e.target.value; };
   $("#tb-go").onclick=()=>{
     const label = picked ? (nCat===1 ? CONT[G.find(g=>g.subs.some(s=>state.picked.has(g.ci+":"+s.si))).ci] : `${nCat} categorie`) : "Tutte le categorie";
-    startSession({kind:"studio", title:`${label}${tr.which==="new"?" · mai fatte":tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end"});
+    const tm = tr.time==="q60"?{perQ:60} : tr.time==="q85"?{perQ:85} : tr.time==="tot"?{limit:n*85} : {};
+    startSession(Object.assign({kind:"studio", title:`${label}${tr.which==="new"?" · mai fatte":tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end"}, tm));
   };
 }
 function readIds(ids,label){ state.browse.ids=ids.slice(); state.browse.label=label; state.browse.page=0; state.browse.q=""; state.browse.back="materia"; go("sfoglia"); }
@@ -1086,7 +1103,7 @@ function renderSession(){
       <button class="navtext" id="prev" ${T.i===0?"disabled":""}>${icon("chevron_left")}Indietro</button><button class="navtext" id="next" ${last?"disabled":""}>Avanti${icon("chevron_right")}</button>
       <span class="push"><button class="btn btn-red" id="end">Termina</button></span>`;
   } else {
-    chips=`<span class="chip chip-outline-green">Quesito ${T.i+1} / ${N}</span><span class="chip chip-dark">Materia: ${esc(MAT[q[0]].name)}</span><span class="chip chip-grey right">${icon("speed")} Livello ${q[3]}</span><span class="chip chip-grey timer-chip">${icon(isMig?"timer":"schedule")}<span id="timer-v"></span></span>`;
+    chips=`<span class="chip chip-outline-green">Quesito ${T.i+1} / ${N}</span><span class="chip chip-dark">Materia: ${esc(MAT[q[0]].name)}</span><span class="chip chip-grey right">${icon("speed")} Livello ${q[3]}</span><span class="chip timer-chip timer-big" title="${T.limit?"Tempo rimasto":T.perQ?"Tempo per questa domanda":"Tempo trascorso"}">${icon(T.limit||T.perQ?"hourglass_bottom":"timer")}<span class="timer-lbl">${T.limit?"Restano":T.perQ?"Domanda":"Tempo"}</span><span id="timer-v"></span></span>`;
     const canNext = isMig ? (it.pick!==null||it.locked) : true;
     bar=`<button class="btn btn-outlined" id="clear" ${it.pick===null||reveal||it.locked?"disabled":""}>Annulla risposta</button>
       <span class="push"><button class="btn btn-outlined" id="end">Termina</button><button class="btn btn-filled" id="next" ${canNext?"":"disabled"}>${last?"Concludi sessione":"Prossimo quesito"}</button></span>`;
@@ -1139,7 +1156,7 @@ function finish(silent){
   const counted = T.kind==="sim" ? T.items : T.items.filter((x,k)=>k<T.i || x.pick!==null || x.locked);
   counted.filter(x=>x.pick!==null).forEach(x=>record(x.n, x.pick===0));
   T.counted = counted;
-  const ok=counted.filter(x=>x.pick===0).length, sec=Math.round(elapsed());
+  const ok=counted.filter(x=>x.pick===0).length, sec=Math.round(elapsed()); T.sec=sec;
   const ms=[...new Set(counted.map(x=>Q[x.n-1][0]))];
   const entry={t:Date.now(), k:T.kind, title:T.title, n:counted.length, ok, sec, ms};
   if(T.kind==="sim"){ entry.pts=examPoints(T.items); entry.det=T.items.map(x=>[x.n, x.pick===null?-1:x.pick, x.order.join("")]); }
@@ -1172,6 +1189,7 @@ function renderRiepilogo(){
       <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("cancel")}</span><span class="stat-card__label">Errate</span><span class="stat-card__value">${err}</span></div>
       <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("help_outline")}</span><span class="stat-card__label">Non date</span><span class="stat-card__value">${nd}</span></div>
     </div>
+    ${T.sec!=null?`<div class="tempo-row">${icon("timer")}<span>Tempo totale <b>${mmss(T.sec)}</b></span><span class="sep">·</span><span>media <b>${items.length?Math.round(T.sec/items.length):0} s</b> a domanda</span><span class="sep">·</span><span class="muted">all'esame la media è 85 s</span></div>`:""}
     ${isSim?`<div class="punteggio-hero ${pass?"":"punteggio-hero--non-superato"}"><span class="punteggio-hero__icon">${icon(pass?"emoji_events":"report")}</span><div class="punteggio-hero__body"><div class="punteggio-hero__label">Punteggio totale</div><div class="punteggio-hero__value">${pts}<span class="punteggio-hero__value-max">/100</span></div></div><span class="punteggio-hero__badge">${icon(pass?"check_circle":"cancel")} ${pass?"Prova superata":"Prova non superata"}</span></div>`:""}
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       ${wrongIds.length?`<button class="btn btn-filled" id="redo">${icon("replay")} Rifai le ${wrongIds.length} da rivedere</button>`:""}
