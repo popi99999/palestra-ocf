@@ -123,7 +123,7 @@ function rxCollect(){
   const pos=new Map(ids.map((n,i)=>[n,i+1])), catNo=new Map(G.map((g,i)=>[g.ci,i+1]));
 
   // test della materia, come nell'app: niente simulazioni (le sessioni vecchie senza ms valgono per la materia), in ordine di inizio
-  const sess=H.filter(h=>rxValidSession(h) && h.k!=="sim" && (!Array.isArray(h.ms) || !h.ms.length || h.ms.includes(m)))
+  const sess=H.filter(h=>rxValidSession(h) && h.k!=="sim" && (Array.isArray(h.ms) && h.ms.length ? h.ms : [5]).includes(m))
     .slice().sort((a,b)=>rxStart(a)-rxStart(b) || rxNum(a.t)-rxNum(b.t));
   const tests=sess.map((h,i)=>{
     const c=rxCounts(h), st=rxStart(h), sec=Math.max(0, rxNum(h.sec)), goal=rxGoal(h);

@@ -111,6 +111,7 @@ main{overflow-x:clip}
 main{margin-left:280px;padding:calc(64px + env(safe-area-inset-top,0px)) 16px 40px;min-height:100vh}
 .page{max-width:1200px;margin:0 auto;padding-top:16px}
 .pagehead{display:flex;align-items:center;gap:12px;margin:0 0 16px}
+.pagehead h1,.browse-item .q,.browse-item .a span{min-width:0;overflow-wrap:anywhere}
 .pagehead .mi{color:var(--ocf-brand-green)}
 .pagehead h1{margin:0;font-size:24px;font-weight:400;line-height:1.334}
 .drawer-closed .drawer{transform:translateX(-100%)}
@@ -386,7 +387,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .expbtn .mi{transition:transform .2s}
 .grp[data-open="1"] .expbtn .mi{transform:rotate(180deg)}
 .grp-title{margin:0;font-size:16px;font-weight:500;color:var(--ocf-ink);line-height:1.35;cursor:pointer}
-.grp-subtitle{font-size:14px;color:var(--ocf-ink);line-height:1.35}
+.grp-subtitle{font-size:14px;color:var(--ocf-ink);line-height:1.35;overflow-wrap:anywhere;min-width:0}
 .grp-meta{font-size:12px;color:var(--ocf-ink-soft);margin-top:3px;font-variant-numeric:tabular-nums}
 .grp-meta b{color:var(--ocf-ink);font-weight:600}
 .grp-stat .studia-breakdown{height:6px}
@@ -525,8 +526,8 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 #print{display:none}
 @media print{
   html,body{background:#fff!important}
-  body>*:not(#print){display:none!important}
-  #print{display:block!important;color:#000;font:11pt/1.35 Helvetica,Arial,sans-serif}
+  body.printing>*:not(#print){display:none!important}
+  body.printing #print{display:block!important;color:#000;font:11pt/1.35 Helvetica,Arial,sans-serif}
   .pr h1{font-size:16pt;margin:0 0 4px} .pr h2{font-size:12.5pt;margin:16px 0 8px;text-align:center}
   .pr-head{border-bottom:2px solid #2E7D32;padding-bottom:8px} .pr-head div{margin:2px 0}
   .pr-box{border:1px solid #000;padding:6px 8px;margin:0 0 8px;break-inside:avoid}
@@ -536,12 +537,13 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   .pr-break{break-before:page} .pr-foot{font-size:9pt;color:#555;margin-top:12px}
 }
 .tq-alts{display:flex;flex-direction:column;gap:4px}
-.tq-alt{display:grid;grid-template-columns:14px 18px minmax(0,1fr) auto;gap:6px;align-items:baseline;font-size:14px;padding:4px 8px;border-radius:6px;color:var(--ocf-ink)}
+.tq-alt{display:grid;grid-template-columns:14px 18px minmax(0,1fr);gap:6px;align-items:baseline;font-size:14px;padding:4px 8px;border-radius:6px;color:var(--ocf-ink)}
 .tq-alt.good{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark)}
 .tq-alt.bad{background:#FFEBEE;color:#C62828}
-.tq-alt i{font-size:11px;font-style:normal;font-weight:600;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
+.tq-alt i{grid-column:3;font-size:11px;font-style:normal;font-weight:600;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
 .tq-v{font-weight:700}
 .tq-lv{font-size:12px;color:var(--ocf-ink-muted);white-space:nowrap}
+.zoom-big .tq-cat{order:9;flex:1 1 100%} /* col testo grande la categoria va su una riga sua */
 .tq-a{display:flex;gap:8px;align-items:flex-start;background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);border-radius:6px;padding:6px 10px;font-size:14px}
 .tq-a .mi{font-size:18px}
 @media (max-width:767.98px){
@@ -574,6 +576,14 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 /* ---------- statistiche ---------- */
 .stats-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
 .stats-head .pagehead{margin:0}
+.stats-head .mat-tabs{flex:1 1 100%;margin:0}
+.mat-tabs{display:flex;gap:8px;overflow-x:auto;margin:0 0 14px;padding-bottom:2px;scrollbar-width:thin}
+.mat-tab{flex:1 1 0;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:8px;align-items:center;text-align:left;min-width:118px;padding:8px 12px;border:1px solid var(--ocf-line);border-radius:10px;background:#fff;font:inherit;color:var(--ocf-ink);cursor:pointer}
+.mat-tab b{grid-row:1/3;font-size:18px;color:var(--ocf-brand-green)}
+.mat-tab span{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.mat-tab small{font-size:11.5px;color:var(--ocf-ink-muted);font-variant-numeric:tabular-nums}
+.mat-tab.on{background:var(--ocf-brand-green);border-color:var(--ocf-brand-green);color:#fff}
+.mat-tab.on b,.mat-tab.on small{color:#fff}
 .stat-card__value .of{font-size:16px;font-weight:500;color:var(--ocf-ink-muted);margin-left:2px}
 .stat-card__sub{font-size:12px;color:var(--ocf-ink-soft)}
 .chart-hover{position:relative}
@@ -834,7 +844,7 @@ function cleanNotes(x){
 const skey = h => h.id || (h.t+"|"+h.k);
 function canon(x){ if(Array.isArray(x)) return "["+x.map(canon).join(",")+"]"; if(x && typeof x==="object") return "{"+Object.keys(x).sort().map(k=>JSON.stringify(k)+":"+canon(x[k])).join(",")+"}"; return JSON.stringify(x===undefined?null:x); }
 function better(x,y){ for(let i=0;i<3;i++){ const a=x[i]||0, b=y[i]||0; if(a!==b) return a>b?x:y; } return x; }
-function richer(x,y){ const w=s=>[s.q?1:0,(s.q||[]).length,s.cut?0:1,s.det?1:0,Object.keys(s).length]; const a=w(x),b=w(y); for(let i=0;i<a.length;i++) if(a[i]!==b[i]) return a[i]>b[i]?x:y; return canon(x)>=canon(y)?x:y; }
+function richer(x,y){ const w=s=>[s.q?1:0,(s.q||[]).length,(s.q||[]).filter(i=>i.length>3).length,s.cut?0:1,s.det?1:0,Object.keys(s).length]; const a=w(x),b=w(y); for(let i=0;i<a.length;i++) if(a[i]!==b[i]) return a[i]>b[i]?x:y; return canon(x)>=canon(y)?x:y; }
 function merge(a,b){
   const base=blankBase();
   for(const k of [1,2,3,4,5]){ const A=a.base[k]||{}, B=b.base[k]||{};
@@ -917,7 +927,8 @@ async function doSync(){
   return canon(persisted())!==before;
 }
 let syncTimer=null;
-function queueSync(delay){ clearTimeout(syncTimer); syncTimer=setTimeout(async()=>{ const ch=await sync(); if(ch && state.view!=="session") render(); }, delay||0); }
+const typingNote=()=>!!(document.activeElement && document.activeElement.classList && document.activeElement.classList.contains("an-note"));
+function queueSync(delay){ clearTimeout(syncTimer); syncTimer=setTimeout(async()=>{ const ch=await sync(); if(ch && state.view!=="session" && !typingNote()) render(); }, delay||0); }
 async function syncNow(ms){ if(IN_CLAUDE || !store.code) return; await Promise.race([sync(), new Promise(r=>setTimeout(r, ms||6000))]); }
 // --- test in corso: salvato a ogni risposta, così non si perde se l'app viene chiusa
 function saveLive(){
@@ -982,7 +993,7 @@ async function initStore(){
   window.addEventListener("storage", e=>{
     // un'altra scheda ha salvato: si uniscono i suoi progressi a quelli di questa
     if(e.key!==LS_KEY || !e.newValue) return;
-    try{ const mine=clean(persisted()), m=merge(mine, clean(JSON.parse(e.newValue))); if(canon(m)!==canon(mine)){ setLocal(m); if(state.view!=="session" && !dialogOpen()) render(); } }catch(_){}
+    try{ const mine=clean(persisted()), m=merge(mine, clean(JSON.parse(e.newValue))); if(canon(m)!==canon(mine)){ setLocal(m); if(state.view!=="session" && !dialogOpen() && !typingNote()) render(); } }catch(_){}
   });
   { const n=S.h.length; await recoverLiveSafe(); if(S.h.length>n && state.view!=="session" && !dialogOpen()) render(); }
   if(!IN_CLAUDE){
@@ -1089,7 +1100,9 @@ const simScore = h => h.pts!=null ? h.pts : Math.round(h.ok/h.n*100);
 const GOAL_KEY = "palestra-ocf-goal60";
 const goal60 = () => { const v=+lsGet(GOAL_KEY); return v>0 ? v : 180; };  // obiettivo di Brando: prova da 60 in 3 minuti
 const goalFor = n => Math.max(1, Math.round(goal60()*n/60));
-const ONLY = 5; // l'app per ora lavora solo su Nozioni di diritto privato e di diritto commerciale
+// materia su cui si sta lavorando (tutte le 5000 domande, divise per materia); si ricorda la scelta
+const MAT_KEY="palestra-ocf-mat", MAT_ORDER=[5,4,1,2,3]; // ordine del piano Mediolanum
+let ONLY = (m=>[1,2,3,4,5].includes(m)?m:5)(+lsGet(MAT_KEY));
 const state = {view:"home", T:null, sel:0, browse:{mat:ONLY,q:"",page:0,ids:null,label:""}, matSel:ONLY, open:new Set(), picked:new Set(), train:{n:25, which:"all", fb:true, time:"free", ord:"rand"}};
 function navKey(){
   if(state.view==="session"||state.view==="riepilogo") return "materia";
@@ -1138,9 +1151,26 @@ function render(){
   else if(v==="analisi") renderAnalisi();
   else if(v==="test") renderTestDetail();
   setNavActive();
+  showActiveMat();
+  document.body.classList.remove("printing"); // cambiando pagina la stampa torna quella normale
   if(v==="session"){ timerId=setInterval(tick,250); tick(); }
 }
-const head = (ic,t) => `<div class="pagehead">${icon(ic)}<h1>${t}</h1></div>`;
+function showActiveMat(){ const on=$(".mat-tab.on"); if(!on) return; const c=on.parentNode; c.scrollLeft=Math.max(0, on.offsetLeft-c.offsetLeft-(c.clientWidth-on.offsetWidth)/2); } // la materia scelta sempre in vista
+const MAT_VIEWS=["home","materia","stats","tests","sfoglia","analisi"];
+function matTabs(){
+  // sezioni: una scheda per materia con domande fatte / totali
+  return `<nav class="mat-tabs" aria-label="Materia">${MAT_ORDER.map(m=>{ const st=gstats(BY_MAT[m]);
+    return `<button class="mat-tab ${m===ONLY?"on":""}" data-mat="${m}" ${m===ONLY?'aria-current="page"':""}><b>M${m}</b><span>${esc(MAT[m].short)}</span><small>${st.seen}/${st.tot}</small></button>`; }).join("")}</nav>`;
+}
+function setMateria(m){
+  if(!MAT[m] || m===ONLY) return;
+  ONLY=m; lsSet(MAT_KEY, String(m));
+  state.open.clear(); state.picked.clear(); state.matSel=m;
+  Object.assign(state.browse, {mat:m, ids:null, label:"", page:0});
+  render(); window.scrollTo(0,0);
+}
+document.addEventListener("click", e=>{ const b=e.target.closest && e.target.closest("[data-mat]"); if(b) setMateria(+b.dataset.mat); });
+const head = (ic,t) => `${MAT_VIEWS.includes(state.view)?matTabs():""}<div class="pagehead">${icon(ic)}<h1>${t}</h1></div>`;
 
 /* ================= dialog ================= */
 function dialog({title, body, actions}){
@@ -1166,10 +1196,10 @@ function renderHome(){
   const daFare=s.tot-s.seen, err=errorsOf(m).length;
   const recent=S.h.filter(h=>h.k!=="sim" && (h.ms||[]).includes(m)).slice(-6).reverse();
   $("#view").innerHTML = `
-  ${head("home","Diritto privato e commerciale")}
+  ${head("home",esc(MAT[m].short))}
   <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
-    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia 5 · prova valutativa OCF</div>
-      <h2 class="ocf-landing-hero__title">Nozioni di diritto privato e di <b>diritto commerciale</b></h2>
+    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia ${m} · prova valutativa OCF</div>
+      <h2 class="ocf-landing-hero__title">${esc(MAT[m].name)}</h2>
       <p class="ocf-landing-hero__subtitle">Tutte le ${s.tot} domande ufficiali divise in ${G.length} categorie. Scegli le categorie, quante domande fare e allenati.</p>
       <button class="btn ocf-landing-hero__cta" data-goto="materia">${icon("play_arrow")} Allenati</button></div>
     <div class="ocf-landing-hero__right">
@@ -1372,7 +1402,7 @@ function renderMateria(){
   $("#view").innerHTML = `
   ${head("school","Categorie e allenamento")}
   <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
-    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Diritto privato e commerciale</div>
+    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia ${ONLY} · ${esc(MAT[ONLY].short)}</div>
       <h2 class="ocf-landing-hero__title">Allenati sulle <b>categorie</b> che vuoi.</h2>
       <p class="ocf-landing-hero__subtitle" style="margin-bottom:0">Spunta una o più categorie (nessuna spunta = tutte), scegli quante domande nella barra in basso e premi Inizia. Oppure premi Allenati su una sola categoria.</p></div>
     <div class="ocf-landing-hero__right">
@@ -1544,7 +1574,7 @@ function bindChartHover(){
 }
 function renderStats(){
   const m=ONLY, ids=BY_MAT[m], s=gstats(ids);
-  const sess=S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[m]).includes(m));
+  const sess=S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[5]).includes(m));
   const answers=sess.reduce((a,h)=>a+sessCounts(h).answered,0), okAns=sess.reduce((a,h)=>a+h.ok,0), secs=sess.reduce((a,h)=>a+h.sec,0);
   const st=h=>h.start||(h.t-h.sec*1000), nQ=sess.reduce((a,h)=>a+h.n,0);
   const days=new Set(sess.map(h=>dayKey(st(h))));
@@ -1593,7 +1623,7 @@ function renderStats(){
 const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso"};
 const WHICH_TXT={all:"tutte", new:"mai fatte", err:"sbagliate", worst:"sbagliate più spesso", redo:"da rivedere"};
 const TIME_TXT={free:"cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"tempo totale d'esame"};
-function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[ONLY]).includes(ONLY)).slice().sort((a,b)=>b.t-a.t); }
+function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[5]).includes(ONLY)).slice().sort((a,b)=>b.t-a.t); }
 function sessCounts(h){
   const q=h.q||[]; const c=v=>q.filter(x=>x[1]===v).length;
   return q.length ? {ok:c(1), err:c(-1), nls:c(-2), nd:c(0), answered:q.length-c(0)} : {ok:h.ok, err:null, nls:null, nd:null, answered:h.n};
@@ -1709,7 +1739,15 @@ function renderAnalisi(){
   <div class="an-wrap"><table class="an"><thead><tr><th></th><th>Contenuto</th><th>Quesiti</th><th>Errori</th><th>Errori 2</th><th>%</th><th>% 2</th><th>Rifai</th><th>Note</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   document.querySelectorAll("[data-anerr]").forEach(b=>b.onclick=()=>{ const k=b.dataset.anerr, ids=groups[k]||[]; if(ids.length) startSession({kind:"studio", title:`Errori · ${k}`, ids:shuffle(ids.slice()), fb:"now", w:"err", src:"redo"}); });
   const fit=t=>{ t.style.height="auto"; t.style.height=t.scrollHeight+"px"; };
-  document.querySelectorAll(".an-note").forEach(t=>{ fit(t); let tm; t.oninput=()=>{ fit(t); clearTimeout(tm); tm=setTimeout(()=>{ if(!S.n) S.n={}; S.n[t.dataset.note]=[Date.now(), t.value.slice(0,4000)]; lsWrite(); pushAll(); },700); }; });
+  document.querySelectorAll(".an-note").forEach(t=>{ fit(t); let tm;
+    const save=()=>{ clearTimeout(tm); const k=t.dataset.note, v=t.value.slice(0,4000), cur=(S.n||{})[k]; if(cur ? cur[1]===v : !v) return; if(!S.n) S.n={}; S.n[k]=[Date.now(), v]; lsWrite(); pushAll(); };
+    t.oninput=()=>{ fit(t); clearTimeout(tm); tm=setTimeout(save,700); }; t.onblur=save; });
+}
+function printNow(){
+  document.body.classList.add("printing");
+  const done=()=>{ document.body.classList.remove("printing"); $("#print").innerHTML=""; window.removeEventListener("afterprint", done); };
+  window.addEventListener("afterprint", done);
+  window.print();
 }
 /* ================= STAMPA ESTRATTO (come il foglio "Stampa" del DB) ================= */
 function printList(ids, title){
@@ -1718,7 +1756,7 @@ function printList(ids, title){
       return `<div class="pr-box pr-q"><div class="pr-row"><span>n. ${BY_MAT[q[0]].indexOf(n)+1}</span><span>Livello: ${q[3]}</span>${r&&r[0]>r[1]?`<span class="ko">sbagliata ${r[0]-r[1]} ${r[0]-r[1]===1?"volta":"volte"} su ${r[0]}</span>`:""}</div>
         <div class="pr-cat">${esc(CONT[q[1]])} › ${esc(SUB[q[2]]||"")}</div><div class="pr-text">${esc(q[4])}</div><div class="pr-alt good">${esc(q[5])} ✓</div></div>`; }).join("")}
     <p class="pr-foot">✓ = risposta corretta · Palestra OCF</p></div>`;
-  window.print();
+  printNow();
 }
 /* ================= REPORT DEL TEST (stampa / PDF) ================= */
 function printReport(h){
@@ -1726,9 +1764,9 @@ function printReport(h){
   const cats=new Map(); q.forEach(([n,e])=>{ const ci=Q[n-1][1]; const r=cats.get(ci)||{n:0,ok:0,ko:0,nd:0}; r.n++; if(e===1) r.ok++; else if(e===0) r.nd++; else r.ko++; cats.set(ci,r); });
   const E={"1":"Corretta","-1":"Errata","-2":"Non la sapevo","0":"Non data"};
   $("#print").innerHTML=`<div class="pr">
-    <div class="pr-head"><h1>Test del ${dmy(st)}</h1><div>${esc(h.title||"")}${h.cut?" (interrotto)":""}</div>
+    <div class="pr-head"><h1>Test del ${dmy(st)}</h1><div>${esc(String(h.title||"").replace(/ \(interrotto\)$/,""))}${h.cut?" (interrotto)":""}</div>
       <div>Punteggio: <b>${c.ok}/${h.n}</b> · Inizio: ${d.toLocaleTimeString("it-IT")} · Fine: ${new Date(h.t).toLocaleTimeString("it-IT")} · Durata: ${mmss(h.sec)}</div>
-      <div>Risposte — esatte: <b>${c.ok}</b> · errate: <b>${c.err==null?h.n-h.ok:c.err+c.nls}</b>${c.nls?` (di cui «non la so»: ${c.nls})`:""} · non date: <b>${c.nd==null?0:c.nd}</b></div></div>
+      <div>Risposte — esatte: <b>${c.ok}</b> · errate: <b>${c.err==null?h.n-h.ok:c.err+c.nls}</b>${c.nls?` (di cui «non la so»: ${c.nls})`:""} · non date: <b>${c.nd==null?"—":c.nd}</b></div></div>
     <h2>Riepilogo risultati per categoria</h2>
     ${q.length?[...cats].map(([ci,r])=>`<div class="pr-box"><div>Categoria: <b>${esc(CONT[ci])}</b></div><div class="pr-row"><span>Totale domande: ${r.n}</span><span>Corrette: ${r.ok}</span><span>Errate: ${r.ko}</span><span>Non date: ${r.nd}</span></div></div>`).join(""):`<p>Per questo test è salvato solo il risultato complessivo.</p>`}
     ${q.length?`<h2 class="pr-break">Dettaglio domande</h2>`+q.map(([n,e,s,pick,ord],i)=>{ const qq=Q[n-1], order=ord?[...ord].map(Number):[0,1,2,3];
@@ -1736,7 +1774,7 @@ function printReport(h){
         <div class="pr-cat">${esc(CONT[qq[1]])} › ${esc(SUB[qq[2]]||"")}</div><div class="pr-text">${esc(qq[4])}</div>
         ${order.map((o,k)=>`<div class="pr-alt ${o===0?"good":""}"><span class="pr-v">${ord&&o===pick?"V":""}</span>${"ABCD"[k]}: ${esc(qq[5+o])}${o===0?" ✓":""}</div>`).join("")}</div>`; }).join(""):""}
     <p class="pr-foot">V = la tua risposta · ✓ = risposta corretta · Palestra OCF</p></div>`;
-  window.print();
+  printNow();
 }
 /* ================= ESPORTAZIONE EXCEL ================= */
 let exporting=false;
