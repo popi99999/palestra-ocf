@@ -41,6 +41,32 @@ main{overflow-x:clip}
   .zoom-big .grp-sub{grid-template-columns:22px minmax(0,1fr)}
   .zoom-big .sub-name{flex-wrap:wrap}
 }
+@media (min-width:768px){
+  /* testo ingrandito su Mac e tablet: le righe a colonne fisse passano al formato compatto, come sul telefono */
+  .zoom-big .studia-materia-row.cat-row{grid-template-columns:22px 76px minmax(0,1fr);grid-template-areas:"check badge main" "breakdown breakdown breakdown" "levels levels levels" "actions actions actions" "subs subs subs";gap:14px 18px}
+  .zoom-big .studia-materia-row.cat-row .cat-check{grid-area:check}
+  .zoom-big .studia-materia-row.cat-row .studia-materia-row__badge{grid-area:badge}
+  .zoom-big .studia-materia-row.cat-row .studia-materia-row__main{grid-area:main}
+  .zoom-big .studia-materia-row.cat-row .studia-materia-row__breakdown{grid-area:breakdown}
+  .zoom-big .studia-materia-row.cat-row .studia-materia-row__levels{grid-area:levels;flex-direction:row;gap:18px}
+  .zoom-big .studia-materia-row.cat-row .studia-materia-row__levels>*{flex:1 1 0;min-width:0}
+  .zoom-big .studia-materia-row.cat-row .studia-materia-row__actions{grid-area:actions;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
+  .zoom-big .studia-materia-row.cat-row .cat-subs{grid-area:subs}
+  .zoom-big .cat-subs .grp-sub{padding-left:28px}
+  .zoom-big .grp-sub{grid-template-columns:24px minmax(0,1fr);row-gap:8px}
+  .zoom-big .grp-sub .grp-stat,.zoom-big .grp-sub .grp-acts{grid-column:2}
+  .zoom-big .grp-sub .grp-acts{justify-content:flex-start}
+  .zoom-big .test-row{grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"n when score" "n what what" "n goal goal";row-gap:6px;column-gap:10px}
+  .zoom-big .test-row__n{grid-area:n;align-self:start}
+  .zoom-big .test-row__when{grid-area:when}
+  .zoom-big .test-row__what{grid-area:what}
+  .zoom-big .test-row__score{grid-area:score}
+  .zoom-big .test-row__goal{grid-area:goal}
+  .zoom-big .test-row__go{display:none}
+  .zoom-big .totali-card{grid-template-columns:56px minmax(0,1fr) 28px;gap:14px}
+  .zoom-big .totali-card__bar{grid-column:1/-1;grid-row:2}
+  .zoom-big .totali-card__go{grid-row:1;grid-column:3}
+}
 .linkbtn{white-space:normal;flex-wrap:wrap;text-align:left}
 .cardhead{flex-wrap:wrap}
 .page .btn{white-space:normal;max-width:100%;text-align:center}
@@ -160,7 +186,7 @@ main{margin-left:280px;padding:calc(64px + env(safe-area-inset-top,0px)) 16px 40
 .ocf-landing-cta-strip{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 28px;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:12px;flex-wrap:wrap;margin-bottom:24px}
 .ocf-landing-cta-strip__text{font-size:15px;font-weight:500;color:var(--ocf-brand-green-dark);flex:1 1 280px}
 /* ---------- home: card grafici ---------- */
-.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;align-items:start}
+.home-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;margin-bottom:24px;align-items:start}
 .card{padding:16px}
 .cardhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
 .cardhead h6{margin:0;font-size:20px;font-weight:400;line-height:1.6;color:var(--mud-text)}
@@ -366,7 +392,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .grp-stat .studia-breakdown{height:6px}
 .grp-stat__row{display:flex;justify-content:space-between;font-size:11px;color:var(--ocf-ink-soft);margin-bottom:5px;font-variant-numeric:tabular-nums;gap:8px}
 .grp-stat__row b{color:var(--ocf-ink);font-weight:600}
-.grp-acts{display:flex;gap:6px;justify-content:flex-end}
+.grp-acts{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
 .btn-sm{min-height:30px;padding:3px 10px;font-size:13px}
 .btn-sm .mi{font-size:18px}
 .btn-outlined.btn-sm{padding:2px 9px}
@@ -472,7 +498,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .test-row__title{display:flex;align-items:center;gap:6px;min-width:0}
 .test-row__title b{min-width:0}
 .tag-cut{flex-shrink:0;font-style:normal;display:inline-block;font-size:11px;font-weight:600;background:#FFF4E5;color:#B7560B;border-radius:8px;padding:0 6px;margin-left:4px;vertical-align:middle}
-.tmeta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 16px;background:#FAFAFA;border:1px solid var(--ocf-line);border-radius:8px;padding:12px 14px}
+.tmeta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:8px 16px;background:#FAFAFA;border:1px solid var(--ocf-line);border-radius:8px;padding:12px 14px}
 .tmeta div{display:flex;flex-direction:column;gap:2px;min-width:0}
 .tmeta span{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--ocf-ink-muted);font-weight:600}
 .tmeta b{font-size:14px;color:var(--ocf-ink);font-weight:500}
@@ -535,6 +561,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .worst__st.ko{background:var(--red-soft);color:var(--ocf-red)}
 .worst__a{display:flex;gap:8px;align-items:flex-start;margin:0 12px 8px;background:var(--ocf-brand-green);color:#fff;border-radius:6px;padding:8px 10px;font-size:14px}
 .worst__a .mi{font-size:18px}
+.worst__a span:not(.mi){min-width:0;overflow-wrap:anywhere}
 .worst__meta{font-size:12px;color:var(--ocf-ink-muted);margin:0 12px 10px}
 @media (max-width:599.98px){ .worst summary{grid-template-columns:32px minmax(0,1fr)} .worst__st{grid-column:2;justify-self:start} }
 /* ---------- categorie in stile Studia per materia ---------- */
@@ -598,7 +625,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   .studia-materia-row__badge{grid-area:badge}.studia-materia-row__main{grid-area:main}.studia-materia-row__breakdown{grid-area:breakdown}
   .studia-materia-row__levels{grid-area:levels;flex-direction:row;gap:18px}.studia-materia-row__levels>*{flex:1 1 0;min-width:0}
   .studia-materia-row__actions{grid-area:actions;justify-content:flex-end}
-  .home-grid{grid-template-columns:1fr}
+  .home-grid{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:899.98px){
   .ocf-landing-hero{padding:26px 24px}
@@ -855,7 +882,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261011-215106";
+const APP_VERSION="20261012-094508";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -2640,7 +2667,7 @@ function renderSfoglia(){
     ${B.ids?`<div style="margin-bottom:12px"><span class="filterchip"><span class="t">${esc(B.label)}</span><button id="b-clear" aria-label="Togli il filtro">${icon("close")}</button></span></div>`:""}
     <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end">
       <div class="field" style="margin:0" hidden><label for="b-mat">Materia</label><select id="b-mat">${[5,4,1,2,3].map(m=>`<option value="${m}" ${m===B.mat?"selected":""}>${m} – ${esc(MAT[m].short)}</option>`).join("")}</select></div>
-      <div class="field" style="margin:0;flex:1;min-width:200px"><label for="b-q">Cerca nel testo</label><input id="b-q" type="search" value="${esc(B.q)}" placeholder="es. usufrutto, art. 2364, duration"></div>
+      <div class="field" style="margin:0;flex:1;min-width:min(200px,100%)"><label for="b-q">Cerca nel testo</label><input id="b-q" type="search" value="${esc(B.q)}" placeholder="es. usufrutto, art. 2364, duration"></div>
     </div>
     <p class="hint">${ids.length} quesiti${term?" trovati":""}. La risposta corretta è evidenziata in verde.</p>
     <div>${slice.map(n=>{ const q=Q[n-1]; return `<div class="browse-item"><div class="meta">n. ${BY_MAT[q[0]].indexOf(n)+1} · ${esc(CONT[q[1]])} · ${esc(SUB[q[2]])} · Livello ${q[3]}${q[9]?" · pratico":""}</div><div class="q">${esc(q[4])}</div><div class="a">${icon("check")}<span>${esc(q[5])}</span></div></div>`; }).join("")||'<p class="hint">Nessun quesito contiene queste parole.</p>'}</div>
