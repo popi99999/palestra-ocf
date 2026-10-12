@@ -509,6 +509,39 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .tq-cat{flex:1;min-width:0}
 .tq-sec{font-variant-numeric:tabular-nums;color:var(--ocf-ink-muted)}
 .tq-q{font-style:italic;font-size:15px;color:var(--ocf-ink)}
+.t-actions{display:flex;gap:10px;flex-wrap:wrap}
+.b-tools{display:flex;gap:10px 16px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:12px}
+.an-wrap{overflow-x:auto;background:#fff;border:1px solid var(--ocf-line);border-radius:10px}
+.an{width:100%;border-collapse:collapse;font-size:13.5px}
+.an th{position:sticky;top:0;background:var(--ocf-brand-green);color:#fff;font-weight:600;text-align:right;padding:8px 10px;white-space:nowrap}
+.an th:nth-child(2),.an th:last-child{text-align:left}
+.an td{padding:6px 10px;border-top:1px solid var(--ocf-line);text-align:right;vertical-align:top;font-variant-numeric:tabular-nums}
+.an td.an-lab{text-align:left;min-width:180px} .an td.an-n{color:var(--ocf-ink-muted);width:24px}
+.an tr.an-cat td{background:#F3F8F3;font-weight:600}
+.an tr.an-sub td.an-lab{padding-left:26px;font-weight:400;color:var(--ocf-ink-soft)}
+.an td.an-ko{color:var(--ocf-red);font-weight:700}
+.an td.an-notecell{text-align:left;min-width:220px}
+.an-note{width:100%;min-height:30px;resize:vertical;border:1px solid var(--ocf-line);border-radius:6px;padding:5px 7px;font:inherit;font-size:13px;background:#fff;overflow:hidden}
+#print{display:none}
+@media print{
+  html,body{background:#fff!important}
+  body>*:not(#print){display:none!important}
+  #print{display:block!important;color:#000;font:11pt/1.35 Helvetica,Arial,sans-serif}
+  .pr h1{font-size:16pt;margin:0 0 4px} .pr h2{font-size:12.5pt;margin:16px 0 8px;text-align:center}
+  .pr-head{border-bottom:2px solid #2E7D32;padding-bottom:8px} .pr-head div{margin:2px 0}
+  .pr-box{border:1px solid #000;padding:6px 8px;margin:0 0 8px;break-inside:avoid}
+  .pr-row{display:flex;gap:18px;flex-wrap:wrap} .pr-row .ok{color:#2E7D32;font-weight:700} .pr-row .ko{color:#C62828;font-weight:700}
+  .pr-cat{font-size:9.5pt;color:#444;margin-top:2px} .pr-text{font-weight:700;margin:4px 0}
+  .pr-alt{padding-left:16px;position:relative} .pr-alt.good{font-weight:600} .pr-v{position:absolute;left:0;font-weight:700}
+  .pr-break{break-before:page} .pr-foot{font-size:9pt;color:#555;margin-top:12px}
+}
+.tq-alts{display:flex;flex-direction:column;gap:4px}
+.tq-alt{display:grid;grid-template-columns:14px 18px minmax(0,1fr) auto;gap:6px;align-items:baseline;font-size:14px;padding:4px 8px;border-radius:6px;color:var(--ocf-ink)}
+.tq-alt.good{background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark)}
+.tq-alt.bad{background:#FFEBEE;color:#C62828}
+.tq-alt i{font-size:11px;font-style:normal;font-weight:600;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
+.tq-v{font-weight:700}
+.tq-lv{font-size:12px;color:var(--ocf-ink-muted);white-space:nowrap}
 .tq-a{display:flex;gap:8px;align-items:flex-start;background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);border-radius:6px;padding:6px 10px;font-size:14px}
 .tq-a .mi{font-size:18px}
 @media (max-width:767.98px){
@@ -677,6 +710,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   <a href="#" data-nav="home"><span class="mi">home</span>Home</a>
   <a href="#" data-nav="materia"><span class="mi">category</span>Categorie e allenamento</a>
   <a href="#" data-nav="stats"><span class="mi">insights</span>Statistiche</a>
+  <a href="#" data-nav="analisi"><span class="mi">fact_check</span>Analisi errori</a>
   <a href="#" data-nav="tests"><span class="mi">history</span>Test fatti</a>
   <a href="#" data-nav="sfoglia"><span class="mi">menu_book</span>Sfoglia le domande</a>
   <hr>
@@ -686,6 +720,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 <div class="scrim" id="scrim" hidden></div>
 <main><div class="page" id="view"></div></main>
 <div id="dlg"></div>
+<div id="print" aria-hidden="true"></div>
 
 <script id="ocf-data" type="application/json">/*__DATA__*/</script>
 <script>
@@ -737,7 +772,7 @@ let S = {v:2, base:blankBase(), h:[], m:blankBase()};
 const store = {db:null, uid:null, code:null, online:false, lastSync:null, ver:0, err:null};
 const lsGet = k => { try{ return localStorage.getItem(k); }catch(e){ return null; } };
 const lsSet = (k,v) => { try{ v===null?localStorage.removeItem(k):localStorage.setItem(k,v); }catch(e){} };
-const persisted = () => ({v:2, base:S.base, h:S.h});
+const persisted = () => Object.assign({v:2, base:S.base, h:S.h}, S.n && Object.keys(S.n).length ? {n:S.n} : {});
 function setSync(t){ const el=$("#sync"); if(el) el.textContent=t; }
 function hasData(s){ return s && ((s.h||[]).length || [1,2,3,4,5].some(k=>Object.keys((s.base||{})[k]||{}).length)); }
 function sid(){ const a=new Uint8Array(8); crypto.getRandomValues(a); return [...a].map(x=>x.toString(16).padStart(2,"0")).join(""); }
@@ -759,10 +794,15 @@ function cleanSession(h){
   if(["all","new","err","worst","redo"].includes(h.w)) o.w=h.w;
   if(["free","q60","q85","tot"].includes(h.tm)) o.tm=h.tm;
   if(["bar","cat","group","home-new","home-err","redo","worst"].includes(h.src)) o.src=h.src;
+  if(["rand","err","less","orig"].includes(h.ord)) o.ord=h.ord;
   if(h.fb===0 || h.fb===1) o.fb=h.fb;
   if(h.nc===true) o.nc=true;
   if(h.cut===true) o.cut=true;
-  if(Array.isArray(h.q)) o.q=h.q.filter(x=>Array.isArray(x)).map(x=>[qn(x[0]), [1,-1,-2,0].includes(+x[1])?+x[1]:0, x[2]==null?null:int(x[2],0,86400)]).filter(x=>x[0]).slice(0,5000);
+  if(Array.isArray(h.q)) o.q=h.q.filter(x=>Array.isArray(x)).map(x=>{ const it=[qn(x[0]), [1,-1,-2,0].includes(+x[1])?+x[1]:0, x[2]==null?null:int(x[2],0,86400)];
+    // facoltativi: alternativa scelta (0 = la giusta) e ordine mostrato, es. "2031"
+    const ord=typeof x[4]==="string" && /^[0-3]{4}$/.test(x[4]) && new Set(x[4]).size===4 ? x[4] : null;
+    if(ord){ it.push([0,1,2,3].includes(x[3])?x[3]:null, ord); }
+    return it; }).filter(x=>x[0]).slice(0,5000);
   if(Array.isArray(h.det)) o.det=h.det.filter(x=>Array.isArray(x)).map(x=>[qn(x[0]), int(x[1],-2,3), String(x[2]||"").replace(/[^0-3]/g,"").slice(0,4)]).filter(x=>x[0] && x[2].length===4).slice(0,100);
   return o;
 }
@@ -779,7 +819,16 @@ function clean(raw){
   const legacy = raw.v!==2;
   const h=(Array.isArray(raw.h)?raw.h:[]).map(cleanSession).filter(Boolean);
   if(legacy) h.forEach(x=>{ delete x.q; }); // nel formato precedente quelle risposte sono già contate in m
-  return {v:2, base:cleanBase(legacy?raw.m:raw.base), h};
+  const out={v:2, base:cleanBase(legacy?raw.m:raw.base), h}, n=cleanNotes(raw.n);
+  if(Object.keys(n).length) out.n=n;
+  return out;
+}
+function cleanNotes(x){
+  // note dell'Analisi errori: chiave = nome dell'argomento, valore = [ora della modifica, testo]
+  const o={}; if(!x || typeof x!=="object" || Array.isArray(x)) return o;
+  for(const k of Object.keys(x).slice(0,500)){ const v=x[k]; if(!Array.isArray(v) || typeof k!=="string" || k.length>300) continue;
+    const t=int(v[0],0,9e15); if(!t || t>Date.now()+864e5) continue; o[k]=[t, String(v[1]==null?"":v[1]).slice(0,4000)]; }
+  return o;
 }
 // --- unione deterministica: stesso risultato qualunque sia l'ordine dei dispositivi
 const skey = h => h.id || (h.t+"|"+h.k);
@@ -792,7 +841,10 @@ function merge(a,b){
     for(const n of new Set([...Object.keys(A),...Object.keys(B)])) base[k][n] = !A[n]?B[n] : !B[n]?A[n] : better(A[n],B[n]); }
   const map=new Map(); for(const h of [...a.h, ...b.h]){ const key=skey(h), p=map.get(key); map.set(key, p?richer(p,h):h); }
   const h=[...map.values()].sort((x,y)=>(x.t-y.t) || (skey(x)<skey(y)?-1:1));
-  return {v:2, base, h};
+  const out={v:2, base, h}, A=a.n||{}, B=b.n||{}, n={};
+  for(const k of new Set([...Object.keys(A),...Object.keys(B)])){ const x=A[k], y=B[k]; n[k] = !x?y : !y?x : x[0]!==y[0] ? (x[0]>y[0]?x:y) : (canon(x)>=canon(y)?x:y); }
+  if(Object.keys(n).length) out.n=n;
+  return out;
 }
 function derive(){
   const m=JSON.parse(JSON.stringify(S.base));
@@ -800,7 +852,7 @@ function derive(){
     const r=m[qq[0]][n]||[0,0,0]; r[0]++; if(e===1) r[1]++; r[2]=e===1?1:0; m[qq[0]][n]=r; }
   S.m=m;
 }
-function setLocal(st){ S={v:2, base:st.base, h:st.h, m:null}; derive(); }
+function setLocal(st){ S={v:2, base:st.base, h:st.h, n:st.n||{}, m:null}; derive(); }
 function lsRead(){ try{ const v=lsGet(LS_KEY); if(v) return clean(JSON.parse(v)); const o=lsGet(LS_OLD); if(o) return clean(JSON.parse(o)); }catch(e){} return null; }
 function lsWrite(){
   // un'altra scheda o finestra può aver salvato dopo di noi: si unisce prima di scrivere, così nessun test si perde
@@ -872,13 +924,13 @@ function saveLive(){
   const T=state.T;
   if(!T || T.done || !T.t0){ lsSet(LIVE_KEY, null); return; }
   lsSet(LIVE_KEY, JSON.stringify({id:T.id, kind:T.kind, title:T.title, meta:T.meta, fb:T.fb, t0:T.t0, started:T.started||T.t0, i:T.i, saved:Date.now(),
-    items:T.items.map(x=>[x.n, x.pick, x.locked?1:0, x.spent==null?null:x.spent])}));
+    items:T.items.map(x=>[x.n, x.pick, x.locked?1:0, x.spent==null?null:x.spent, x.order?x.order.join(""):null])}));
 }
 function recoverLive(){
   let L=null; try{ L=JSON.parse(lsGet(LIVE_KEY)||"null"); }catch(e){}
   lsSet(LIVE_KEY, null);
   if(!L || !Array.isArray(L.items) || L.kind==="sim") return; // una simulazione interrotta non si valuta, come all'esame
-  const items=L.items.map(([n,p,lk,sp])=>({n:qn(n), pick:[0,1,2,3,-2].includes(p)?p:null, locked:!!lk, spent:sp==null?null:int(sp,0,86400)})).filter(x=>x.n);
+  const items=L.items.map(([n,p,lk,sp,od])=>({n:qn(n), pick:[0,1,2,3,-2].includes(p)?p:null, locked:!!lk, spent:sp==null?null:int(sp,0,86400), order:typeof od==="string"&&/^[0-3]{4}$/.test(od)&&new Set(od).size===4?[...od].map(Number):null})).filter(x=>x.n);
   const counted=items.filter((x,k)=>k<L.i || x.pick!==null || x.locked);
   if(!counted.some(x=>x.pick!==null)) return;
   const T={id:typeof L.id==="string"?L.id:sid(), kind:L.kind||"studio", title:String(L.title||"Allenamento")+" (interrotto)", meta:L.meta||{}, t0:int(L.t0,1,9e15)||Date.now(), started:int(L.started,1,9e15)||null};
@@ -1038,7 +1090,7 @@ const GOAL_KEY = "palestra-ocf-goal60";
 const goal60 = () => { const v=+lsGet(GOAL_KEY); return v>0 ? v : 180; };  // obiettivo di Brando: prova da 60 in 3 minuti
 const goalFor = n => Math.max(1, Math.round(goal60()*n/60));
 const ONLY = 5; // l'app per ora lavora solo su Nozioni di diritto privato e di diritto commerciale
-const state = {view:"home", T:null, sel:0, browse:{mat:ONLY,q:"",page:0,ids:null,label:""}, matSel:ONLY, open:new Set(), picked:new Set(), train:{n:25, which:"all", fb:true, time:"free"}};
+const state = {view:"home", T:null, sel:0, browse:{mat:ONLY,q:"",page:0,ids:null,label:""}, matSel:ONLY, open:new Set(), picked:new Set(), train:{n:25, which:"all", fb:true, time:"free", ord:"rand"}};
 function navKey(){
   if(state.view==="session"||state.view==="riepilogo") return "materia";
   if(state.view==="test") return "tests";
@@ -1083,6 +1135,7 @@ function render(){
   else if(v==="sfoglia") renderSfoglia();
   else if(v==="stats") renderStats();
   else if(v==="tests") renderTests();
+  else if(v==="analisi") renderAnalisi();
   else if(v==="test") renderTestDetail();
   setNavActive();
   if(v==="session"){ timerId=setInterval(tick,250); tick(); }
@@ -1354,7 +1407,7 @@ function startTraining(base, label, src){
   const n=Math.max(1,Math.min(pool.length, tr.n||25));
   const tm = tr.time==="q60"?{perQ:60} : tr.time==="q85"?{perQ:85} : tr.time==="tot"?{limit:n*85} : {};
   const keys = base.length ? [...new Set(base.map(x=>Q[x-1][1]+":"+Q[x-1][2]))] : null;
-  startSession(Object.assign({kind:"studio", title:`${label}${pool===fresh&&tr.which==="new"?" · mai fatte":pool===wrong&&tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end", meta:sessionMeta(keys, pool===fresh&&tr.which==="new"?"new":pool===wrong&&tr.which==="err"?"err":"all", src||"cat")}, tm));
+  startSession(Object.assign({kind:"studio", title:`${label}${pool===fresh&&tr.which==="new"?" · mai fatte":pool===wrong&&tr.which==="err"?" · sbagliate":""}`, ids:orderIds(pool, tr.ord).slice(0,n), fb:tr.fb?"now":"end", meta:sessionMeta(keys, pool===fresh&&tr.which==="new"?"new":pool===wrong&&tr.which==="err"?"err":"all", src||"cat")}, tm));
 }
 function renderTrainbar(G){
   const tr=state.train, base=selectionIds(G), picked=pickedIds(G).length>0;
@@ -1369,6 +1422,7 @@ function renderTrainbar(G){
       <label class="tb-field"><span>Quali</span><select id="tb-which"><option value="all" ${tr.which==="all"?"selected":""}>Tutte (${base.length})</option><option value="new" ${tr.which==="new"?"selected":""} ${fresh.length?"":"disabled"}>Mai fatte (${fresh.length})</option><option value="err" ${tr.which==="err"?"selected":""} ${wrong.length?"":"disabled"}>Sbagliate (${wrong.length})</option></select></label>
       <label class="tb-field"><span>Quante</span><span class="tb-num"><button type="button" id="tb-minus" aria-label="Meno">${icon("remove")}</button><input id="tb-n" type="number" min="1" max="${pool.length}" value="${n}" inputmode="numeric"><button type="button" id="tb-plus" aria-label="Più">${icon("add")}</button></span></label>
       <span class="tb-presets">${[10,25,50,100].filter(v=>v<pool.length).map(v=>`<button type="button" class="chip-btn ${v===n?"on":""}" data-n="${v}">${v}</button>`).join("")}<button type="button" class="chip-btn ${n===pool.length?"on":""}" data-n="${pool.length}">Tutte</button></span>
+      <label class="tb-field"><span>Ordine</span><select id="tb-ord">${Object.entries(ORD_TXT).map(([k,v])=>`<option value="${k}" ${(tr.ord||"rand")===k?"selected":""}>${v}</option>`).join("")}</select></label>
       <label class="tb-field"><span>Tempo</span><select id="tb-time">
         <option value="free" ${tr.time==="free"?"selected":""}>Cronometro libero</option>
         <option value="q60" ${tr.time==="q60"?"selected":""}>60 s a domanda</option>
@@ -1387,19 +1441,29 @@ function renderTrainbar(G){
   document.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>setN(+b.dataset.n));
   $("#tb-fb").onchange=e=>{ tr.fb=e.target.checked; };
   $("#tb-time").onchange=e=>{ tr.time=e.target.value; };
+  $("#tb-ord").onchange=e=>{ tr.ord=e.target.value; };
   $("#tb-goal").onchange=e=>{ lsSet(GOAL_KEY, e.target.value); renderTrainbar(G); };
   $("#tb-go").onclick=()=>{
     const n=liveN();
     const label = picked ? (nCat===1 ? CONT[G.find(g=>g.subs.some(s=>state.picked.has(g.ci+":"+s.si))).ci] : `${nCat} categorie`) : "Tutte le categorie";
     const tm = tr.time==="q60"?{perQ:60} : tr.time==="q85"?{perQ:85} : tr.time==="tot"?{limit:n*85} : {};
-    startSession(Object.assign({kind:"studio", title:`${label}${tr.which==="new"?" · mai fatte":tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end", meta:sessionMeta(picked?pickedKeys():null, tr.which, "bar")}, tm));
+    startSession(Object.assign({kind:"studio", title:`${label}${tr.which==="new"?" · mai fatte":tr.which==="err"?" · sbagliate":""}`, ids:orderIds(pool, tr.ord).slice(0,n), fb:tr.fb?"now":"end", meta:sessionMeta(picked?pickedKeys():null, tr.which, "bar")}, tm));
   };
 }
 function pickedKeys(){ return [...state.picked]; }
+const ORD_TXT={rand:"Casuale", err:"Prima gli errori", less:"Prima le meno proposte", orig:"Ordine originale"};
+function orderIds(pool, ord){
+  // come la configurazione del DB Mediolanum: casuale, prima gli errori, prima i quesiti meno proposti, ordine originale (numero del quesito)
+  const r=n=>S.m[Q[n-1][0]][n], mix=shuffle(pool.slice());
+  if(ord==="orig") return pool.slice().sort((a,b)=>a-b);
+  if(ord==="less") return mix.sort((a,b)=>((r(a)||[0])[0])-((r(b)||[0])[0]));
+  if(ord==="err") return mix.sort((a,b)=>{ const x=r(a), y=r(b), wx=x?x[0]-x[1]:0, wy=y?y[0]-y[1]:0, lx=x&&!x[2]?1:0, ly=y&&!y[2]?1:0; return (wy-wx) || (ly-lx); });
+  return mix;
+}
 function sessionMeta(keys, w, src){
   // cosa ha scelto l'utente: categorie/sottocategorie selezionate (null = tutte), tipo di domande usato davvero e impostazioni della barra
   const tr=state.train, sel=keys&&keys.length?keys.map(k=>k.split(":").map(Number)):null;
-  return {w:w||"all", tm:tr.time, fb:tr.fb?1:0, selC:sel?[...new Set(sel.map(x=>x[0]))]:null, selS:sel?[...new Set(sel.map(x=>x[1]))]:null, src:src||"bar"};
+  return {w:w||"all", tm:tr.time, fb:tr.fb?1:0, selC:sel?[...new Set(sel.map(x=>x[0]))]:null, selS:sel?[...new Set(sel.map(x=>x[1]))]:null, src:src||"bar", ord:tr.ord||"rand"};
 }
 function readIds(ids,label){ state.browse.ids=ids.slice(); state.browse.label=label; state.browse.page=0; state.browse.q=""; state.browse.back="materia"; go("sfoglia"); }
 function openGroupDialog(ids,label){
@@ -1585,9 +1649,12 @@ function renderTestDetail(){
   if(!h){ state.view="tests"; return render(); }
   const st=h.start||(h.t-h.sec*1000), c=sessCounts(h), goal=h.goal||goalFor(h.n), list=sessList(), num=list.length-list.indexOf(h);
   const E={"1":["Giusta","badge-esatta"],"-1":["Sbagliata","badge-errata"],"-2":["Non la sapevo","badge-errata"],"0":["Non data","badge-nondata"]};
-  const rows=(h.q||[]).map(([n,e,s],i)=>{ const q=Q[n-1]; if(!q) return ""; const [lab,cls]=E[String(e)];
-    return `<div class="tq"><div class="tq-head"><span class="tq-n">${i+1}</span><span class="tq-cat">${esc(CONT[q[1]])} › ${esc(SUB[q[2]]||"")}</span><span class="badge-esito ${cls}">${lab}</span>${s!=null?`<span class="tq-sec">${s} s</span>`:""}</div>
-      <div class="tq-q">${esc(q[4])}</div><div class="tq-a">${icon("check")}<span>${esc(q[5])}</span></div></div>`; }).join("");
+  const rows=(h.q||[]).map(([n,e,s,pick,ord],i)=>{ const q=Q[n-1]; if(!q) return ""; const [lab,cls]=E[String(e)];
+    const alts = ord ? `<div class="tq-alts">${[...ord].map((o,k)=>{ o=+o; const mine=o===pick, good=o===0;
+        return `<div class="tq-alt ${good?"good":mine?"bad":""}"><span class="tq-v">${mine?"V":""}</span><b>${"ABCD"[k]}</b><span>${esc(q[5+o])}</span>${good?`<i>corretta</i>`:mine?`<i>tua risposta</i>`:""}</div>`; }).join("")}</div>`
+      : `<div class="tq-a">${icon("check")}<span>${esc(q[5])}</span></div>`;
+    return `<div class="tq"><div class="tq-head"><span class="tq-n">${i+1}</span><span class="tq-cat">${esc(CONT[q[1]])} › ${esc(SUB[q[2]]||"")}</span><span class="tq-lv">Livello ${q[3]}</span><span class="badge-esito ${cls}">${lab}</span>${s!=null?`<span class="tq-sec">${s} s</span>`:""}</div>
+      <div class="tq-q">${esc(q[4])}</div>${alts}</div>`; }).join("");
   const wrongIds=(h.q||[]).filter(x=>x[1]!==1).map(x=>x[0]);
   $("#view").innerHTML = `<button class="backlink" id="t-back">${icon("arrow_back")} Test fatti</button>
   ${head("assignment",`Test #${num} · ${dmy(st)} alle ${hm(st)}`)}
@@ -1604,16 +1671,73 @@ function renderTestDetail(){
       <div><span>Sezioni scelte</span><b>${esc(selText(h)||"—")}</b></div>
       ${h.src?`<div><span>Avviato da</span><b>${esc(SRC_L[h.src]||"")}</b></div>`:""}
       ${h.w?`<div><span>Domande</span><b>${esc(WHICH_TXT[h.w]||"")}</b></div>`:""}
+      ${h.ord?`<div><span>Ordine</span><b>${esc(ORD_TXT[h.ord]||"")}</b></div>`:""}
       ${h.tm?`<div><span>Tempo</span><b>${esc(TIME_TXT[h.tm]||"")}</b></div>`:""}
       ${h.fb!=null?`<div><span>Correzione</span><b>${h.fb?"subito":"alla fine"}</b></div>`:""}
     </div>
-    ${wrongIds.length?`<div><button class="btn btn-filled" id="t-redo">${icon("replay")} Rifai le ${wrongIds.length} non giuste</button></div>`:""}
+    <div class="t-actions">${wrongIds.length?`<button class="btn btn-filled" id="t-redo">${icon("replay")} Rifai le ${wrongIds.length} non giuste</button>`:""}<button class="btn btn-outlined" id="t-print">${icon("print")} Report PDF</button></div>
     ${rows?`<h3 class="riepilogo-title" style="margin-top:6px">${icon("list")} Domanda per domanda</h3><div class="tq-list">${rows}</div>`:`<div class="alert">${icon("info_outline")}<span>Per i test fatti prima dell'11 ottobre 2026 alle 17 è salvato solo il risultato complessivo, non il dettaglio di ogni domanda.</span></div>`}
   </section>`;
   $("#t-back").onclick=()=>go(state.testBack==="stats"?"stats":"tests");
+  $("#t-print").onclick=()=>printReport(h);
   const r=$("#t-redo"); if(r) r.onclick=()=>startSession({kind:"studio", title:"Rifai le non giuste", ids:shuffle(wrongIds.slice()), fb:"now", w:"redo", src:"redo"});
 }
 
+/* ================= ANALISI ERRORI (come il foglio "Analisi" del DB Mediolanum) ================= */
+function errStats(ids){
+  // Errori = domande sbagliate almeno una volta · Errori 2 = sbagliate di nuovo (2 o più volte) · Da ripassare = ultima risposta sbagliata
+  let e1=0,e2=0,last=0,seen=0; const wrongIds=[];
+  for(const n of ids){ const r=S.m[Q[n-1][0]][n]; if(!r) continue; seen++; const w=r[0]-r[1]; if(w>=1){ e1++; wrongIds.push(n); } if(w>=2) e2++; if(!r[2]) last++; }
+  return {tot:ids.length, seen, e1, e2, last, wrongIds};
+}
+function renderAnalisi(){
+  const G=groupsOf(ONLY), all=errStats(BY_MAT[ONLY]), N=S.n||{};
+  const pct=(a,b)=>b?Math.round(a/b*100)+"%":"–";
+  const note=(key)=>{ const v=N[key]; return `<textarea class="an-note" data-note="${esc(key)}" rows="1" placeholder="Note…">${esc(v?v[1]:"")}</textarea>`; };
+  const row=(lab,key,st,cls,num)=>`<tr class="${cls}"><td class="an-n">${num||""}</td><td class="an-lab">${esc(lab)}</td><td>${st.tot}</td><td class="${st.e1?"an-ko":""}">${st.e1}</td><td class="${st.e2?"an-ko":""}">${st.e2}</td><td>${pct(st.e1,st.tot)}</td><td>${pct(st.e2,st.tot)}</td><td>${st.e1?`<button class="btn btn-text btn-sm" data-anerr="${esc(key)}">${icon("replay")} ${st.e1}</button>`:""}</td><td class="an-notecell">${note(key)}</td></tr>`;
+  const groups={}; let rows="";
+  G.forEach((g,i)=>{ const k=CONT[g.ci]; const st=errStats(g.ids); groups[k]=st.wrongIds; rows+=row(k,k,st,"an-cat",i+1);
+    g.subs.forEach(su=>{ const sk=k+" › "+(SUB[su.si]||"—"), ss=errStats(su.ids); groups[sk]=ss.wrongIds; rows+=row(SUB[su.si]||"—",sk,ss,"an-sub"); }); });
+  $("#view").innerHTML = `${head("fact_check","Analisi errori")}
+  <p class="hint" style="margin:-6px 0 14px">Come il foglio «Analisi» del DB Mediolanum, per ogni argomento della materia. <b>Errori</b>: domande sbagliate almeno una volta (anche con «Non la so»). <b>Errori 2</b>: domande sbagliate di nuovo, due o più volte. Le percentuali sono sul numero di quesiti dell'argomento. Le <b>Note</b> si salvano da sole e si vedono su tutti i dispositivi.</p>
+  <div class="stat-cards" style="margin-bottom:16px">
+    <div class="stat-card"><span class="stat-card__label">Quesiti</span><span class="stat-card__value">${all.tot}</span><span class="stat-card__sub">${G.length} argomenti · ${G.reduce((a,g)=>a+g.subs.length,0)} sottoargomenti</span></div>
+    <div class="stat-card stat-card--errate"><span class="stat-card__label">Errori</span><span class="stat-card__value">${all.e1}</span><span class="stat-card__sub">${pct(all.e1,all.tot)} dei quesiti</span></div>
+    <div class="stat-card stat-card--errate"><span class="stat-card__label">Errori 2</span><span class="stat-card__value">${all.e2}</span><span class="stat-card__sub">${pct(all.e2,all.tot)} dei quesiti</span></div>
+    <div class="stat-card"><span class="stat-card__label">Da ripassare</span><span class="stat-card__value">${all.last}</span><span class="stat-card__sub">ultima risposta sbagliata</span></div>
+  </div>
+  <div class="an-wrap"><table class="an"><thead><tr><th></th><th>Contenuto</th><th>Quesiti</th><th>Errori</th><th>Errori 2</th><th>%</th><th>% 2</th><th>Rifai</th><th>Note</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  document.querySelectorAll("[data-anerr]").forEach(b=>b.onclick=()=>{ const k=b.dataset.anerr, ids=groups[k]||[]; if(ids.length) startSession({kind:"studio", title:`Errori · ${k}`, ids:shuffle(ids.slice()), fb:"now", w:"err", src:"redo"}); });
+  const fit=t=>{ t.style.height="auto"; t.style.height=t.scrollHeight+"px"; };
+  document.querySelectorAll(".an-note").forEach(t=>{ fit(t); let tm; t.oninput=()=>{ fit(t); clearTimeout(tm); tm=setTimeout(()=>{ if(!S.n) S.n={}; S.n[t.dataset.note]=[Date.now(), t.value.slice(0,4000)]; lsWrite(); pushAll(); },700); }; });
+}
+/* ================= STAMPA ESTRATTO (come il foglio "Stampa" del DB) ================= */
+function printList(ids, title){
+  $("#print").innerHTML=`<div class="pr"><div class="pr-head"><h1>Estratto domande OCF</h1><div>${esc(title)} · ${ids.length} quesiti · ${dmy(Date.now())}</div></div>
+    ${ids.map(n=>{ const q=Q[n-1], r=S.m[q[0]][n];
+      return `<div class="pr-box pr-q"><div class="pr-row"><span>n. ${BY_MAT[q[0]].indexOf(n)+1}</span><span>Livello: ${q[3]}</span>${r&&r[0]>r[1]?`<span class="ko">sbagliata ${r[0]-r[1]} ${r[0]-r[1]===1?"volta":"volte"} su ${r[0]}</span>`:""}</div>
+        <div class="pr-cat">${esc(CONT[q[1]])} › ${esc(SUB[q[2]]||"")}</div><div class="pr-text">${esc(q[4])}</div><div class="pr-alt good">${esc(q[5])} ✓</div></div>`; }).join("")}
+    <p class="pr-foot">✓ = risposta corretta · Palestra OCF</p></div>`;
+  window.print();
+}
+/* ================= REPORT DEL TEST (stampa / PDF) ================= */
+function printReport(h){
+  const st=h.start||(h.t-h.sec*1000), c=sessCounts(h), q=h.q||[], d=new Date(st);
+  const cats=new Map(); q.forEach(([n,e])=>{ const ci=Q[n-1][1]; const r=cats.get(ci)||{n:0,ok:0,ko:0,nd:0}; r.n++; if(e===1) r.ok++; else if(e===0) r.nd++; else r.ko++; cats.set(ci,r); });
+  const E={"1":"Corretta","-1":"Errata","-2":"Non la sapevo","0":"Non data"};
+  $("#print").innerHTML=`<div class="pr">
+    <div class="pr-head"><h1>Test del ${dmy(st)}</h1><div>${esc(h.title||"")}${h.cut?" (interrotto)":""}</div>
+      <div>Punteggio: <b>${c.ok}/${h.n}</b> · Inizio: ${d.toLocaleTimeString("it-IT")} · Fine: ${new Date(h.t).toLocaleTimeString("it-IT")} · Durata: ${mmss(h.sec)}</div>
+      <div>Risposte — esatte: <b>${c.ok}</b> · errate: <b>${c.err==null?h.n-h.ok:c.err+c.nls}</b>${c.nls?` (di cui «non la so»: ${c.nls})`:""} · non date: <b>${c.nd==null?0:c.nd}</b></div></div>
+    <h2>Riepilogo risultati per categoria</h2>
+    ${q.length?[...cats].map(([ci,r])=>`<div class="pr-box"><div>Categoria: <b>${esc(CONT[ci])}</b></div><div class="pr-row"><span>Totale domande: ${r.n}</span><span>Corrette: ${r.ok}</span><span>Errate: ${r.ko}</span><span>Non date: ${r.nd}</span></div></div>`).join(""):`<p>Per questo test è salvato solo il risultato complessivo.</p>`}
+    ${q.length?`<h2 class="pr-break">Dettaglio domande</h2>`+q.map(([n,e,s,pick,ord],i)=>{ const qq=Q[n-1], order=ord?[...ord].map(Number):[0,1,2,3];
+      return `<div class="pr-box pr-q"><div class="pr-row"><span>Domanda numero: ${i+1}</span><span>Livello: ${qq[3]}</span><span class="${e===1?"ok":"ko"}">${E[String(e)]}</span></div>
+        <div class="pr-cat">${esc(CONT[qq[1]])} › ${esc(SUB[qq[2]]||"")}</div><div class="pr-text">${esc(qq[4])}</div>
+        ${order.map((o,k)=>`<div class="pr-alt ${o===0?"good":""}"><span class="pr-v">${ord&&o===pick?"V":""}</span>${"ABCD"[k]}: ${esc(qq[5+o])}${o===0?" ✓":""}</div>`).join("")}</div>`; }).join(""):""}
+    <p class="pr-foot">V = la tua risposta · ✓ = risposta corretta · Palestra OCF</p></div>`;
+  window.print();
+}
 /* ================= ESPORTAZIONE EXCEL ================= */
 let exporting=false;
 async function exportReport(btn){
@@ -1807,7 +1931,7 @@ function buildEntry(T, counted, tEnd){
   const sec = T.kind==="sim" ? Math.round((tEnd-T.t0)/1000) : hasSpent ? counted.reduce((a,x)=>a+(x.spent||0),0) : Math.round((tEnd-T.t0)/1000);
   const e={id:T.id, t:tEnd, k:T.kind, title:T.title, n:counted.length, ok, sec, ms:[...new Set(counted.map(x=>Q[x.n-1][0]))],
     start:T.started||T.t0, goal:goalFor(counted.length), g60:goal60(), cats:[...new Set(counted.map(x=>Q[x.n-1][1]))], subs:[...new Set(counted.map(x=>Q[x.n-1][2]))],
-    q:counted.map(x=>[x.n, x.pick===0?1:x.pick===-2?-2:x.pick===null?0:-1, x.spent==null?null:x.spent])};
+    q:counted.map(x=>{ const it=[x.n, x.pick===0?1:x.pick===-2?-2:x.pick===null?0:-1, x.spent==null?null:x.spent]; if(x.order){ it.push([0,1,2,3].includes(x.pick)?x.pick:null, x.order.join("")); } return it; })};
   Object.assign(e, T.meta||{});
   if(T.kind==="sim" && T.items && T.items[0] && T.items[0].order){ e.pts=examPoints(T.items); e.det=T.items.map(x=>[x.n, x.pick===null?-1:x.pick, x.order.join("")]); }
   return e;
@@ -1907,6 +2031,7 @@ function renderSfoglia(){
   const norm=x=>String(x).toLowerCase().replace(/[’‘`´]/g,"'");
   const B=state.browse, PAGE=25, term=norm(B.q.trim());
   let ids=B.ids||BY_MAT[B.mat]; if(term) ids=ids.filter(n=>{ const q=Q[n-1]; return norm(q[4]).includes(term)||norm(q[5]).includes(term); });
+  if(B.err) ids=ids.filter(n=>{ const r=S.m[Q[n-1][0]][n]; return r && r[0]>r[1]; }); // come «Dettaglio Filtro» del DB: solo le sbagliate
   const pages=Math.max(1,Math.ceil(ids.length/PAGE)); B.page=Math.min(B.page,pages-1);
   const slice=ids.slice(B.page*PAGE,B.page*PAGE+PAGE);
   $("#view").innerHTML = `${B.ids?`<button class="backlink" id="b-back">${icon("arrow_back")} Categorie</button>`:""}${head("menu_book","Sfoglia le domande")}
@@ -1916,7 +2041,9 @@ function renderSfoglia(){
       <div class="field" style="margin:0" hidden><label for="b-mat">Materia</label><select id="b-mat">${[5,4,1,2,3].map(m=>`<option value="${m}" ${m===B.mat?"selected":""}>${m} – ${esc(MAT[m].short)}</option>`).join("")}</select></div>
       <div class="field" style="margin:0;flex:1;min-width:min(200px,100%)"><label for="b-q">Cerca nel testo</label><input id="b-q" type="search" value="${esc(B.q)}" placeholder="es. usufrutto, art. 2364, duration"></div>
     </div>
-    <p class="hint">${ids.length} quesiti${term?" trovati":""}. La risposta corretta è evidenziata in verde.</p>
+    <div class="b-tools"><label class="check"><input type="checkbox" id="b-err" ${B.err?"checked":""}> Solo le domande sbagliate almeno una volta</label>
+      <button class="btn btn-outlined btn-sm" id="b-print" ${ids.length?"":"disabled"}>${icon("print")} Stampa questi ${ids.length}</button></div>
+    <p class="hint">${ids.length} quesiti${term||B.err?" trovati":""}. La risposta corretta è evidenziata in verde.</p>
     <div>${slice.map(n=>{ const q=Q[n-1]; return `<div class="browse-item"><div class="meta">n. ${BY_MAT[q[0]].indexOf(n)+1} · ${esc(CONT[q[1]])} · ${esc(SUB[q[2]])} · Livello ${q[3]}${q[9]?" · pratico":""}</div><div class="q">${esc(q[4])}</div><div class="a">${icon("check")}<span>${esc(q[5])}</span></div></div>`; }).join("")||'<p class="hint">Nessun quesito contiene queste parole.</p>'}</div>
     <div class="pager"><button class="btn btn-outlined" id="pp" ${B.page===0?"disabled":""}>${icon("chevron_left")} Precedenti</button><span>Pagina ${B.page+1} di ${pages}</span><button class="btn btn-outlined" id="np" ${B.page>=pages-1?"disabled":""}>Successivi ${icon("chevron_right")}</button></div>
   </section>`;
@@ -1924,6 +2051,8 @@ function renderSfoglia(){
   const bb=$("#b-back"); if(bb) bb.onclick=()=>go("materia");
   const bc=$("#b-clear"); if(bc) bc.onclick=()=>{ B.ids=null; B.label=""; B.page=0; renderSfoglia(); };
   let tm; $("#b-q").oninput=e=>{ clearTimeout(tm); tm=setTimeout(()=>{ if(state.view!=="sfoglia") return; B.q=e.target.value; B.page=0; renderSfoglia(); const el=$("#b-q"); el.focus(); el.setSelectionRange(el.value.length,el.value.length); },250); };
+  $("#b-err").onchange=e=>{ B.err=e.target.checked; B.page=0; renderSfoglia(); };
+  $("#b-print").onclick=()=>printList(ids, B.label || (B.err ? "Domande sbagliate" : "Domande") + (term ? ` · ricerca «${B.q.trim()}»` : ""));
   $("#pp").onclick=()=>{ B.page--; renderSfoglia(); window.scrollTo(0,0); };
   $("#np").onclick=()=>{ B.page++; renderSfoglia(); window.scrollTo(0,0); };
 }

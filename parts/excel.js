@@ -647,13 +647,14 @@ function rxSheetDetail(wb, D){
   const cols=[
     {h:"Data", w:11, fmt:"dd/mm/yyyy", al:"center"}, {h:"Ora inizio test", w:10, fmt:"hh:mm:ss", al:"center"}, {h:"Ora fine test", w:10, fmt:"hh:mm:ss", al:"center"},
     {h:"Test (N.)", w:7, al:"center"}, {h:"N. nella materia", w:9, al:"center"}, {h:"Categoria", w:30, wrap:true}, {h:"Sottocategoria", w:24, wrap:true},
-    {h:"Domanda", w:66, wrap:true}, {h:"Esito", w:14, al:"center", paint:(c,v)=>rxPaint(c, tone[v]||"grey", true)}, {h:"Secondi", w:8, fmt:"0"}
+    {h:"Domanda", w:66, wrap:true}, {h:"Esito", w:14, al:"center", paint:(c,v)=>rxPaint(c, tone[v]||"grey", true)}, {h:"Tua risposta", w:42, wrap:true}, {h:"Risposta corretta", w:42, wrap:true}, {h:"Secondi", w:8, fmt:"0"}
   ];
   const rows=[];
   D.tests.slice().reverse().forEach(t=>{
     const d=rxXDate(t.start), a=rxXDateTime(t.start), b=rxXDateTime(t.end);
     t.qm.forEach(it=>{ const n=+it[0], q=Q[n-1], s=it[2]!=null && Number.isFinite(+it[2]) ? +it[2] : null;
-      rows.push([d, a, b, t.no, D.pos.get(n), CONT[q[1]], SUB[q[2]]||"", q[4], RX_ESITO[String(+it[1])]||"Non data", s]); });
+      const pk=[0,1,2,3].includes(it[3])?it[3]:null;
+      rows.push([d, a, b, t.no, D.pos.get(n), CONT[q[1]], SUB[q[2]]||"", q[4], RX_ESITO[String(+it[1])]||"Non data", pk!=null?q[5+pk]:(+it[1]===1?q[5]:null), q[5], s]); });
   });
   return rxTable(wb, "Dettaglio risposte", cols, rows, {tab:"FF9E9E9E", emptyText:"Ancora nessun test con il dettaglio delle risposte."});
 }
@@ -709,6 +710,7 @@ function rxSheetGuide(wb, D){
     ["Pratica", "Sì per i quesiti pratici."],
     ["Stato", "Da fare = mai fatta; Giusta = ultima risposta giusta; Da ripassare = ultima risposta sbagliata."],
     [S0+"Dettaglio risposte", "Una riga per ogni domanda della Materia "+D.m+" di ogni test con dettaglio, dal test più recente. Test (N.) rimanda al foglio «Test fatti»."],
+    ["Tua risposta", "L'alternativa che hai scelto (registrata dal 12 ottobre 2026); vuota se non hai risposto o hai premuto «Non la so»."],
     ["Secondi", "Tempo passato su quella domanda; vuoto se non registrato."],
     [S0+"Grafici (foglio Report)", "Ogni grafico ha un solo asse; se mancano i dati mostra «Ancora nessun dato»."],
     ["Risposte giuste per test", "% di giuste sulle risposte date in ogni test con dettaglio (ultimi 40); punti verdi da 80% in su, rossi sotto. Tratteggio: soglia 80%."],
