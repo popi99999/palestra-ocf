@@ -34,7 +34,7 @@ main{overflow-x:clip}
   .zoom-big .test-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"when score" "what what" "goal goal"}
   .zoom-big .test-row__n{display:none}
   .zoom-big .prova-card{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"body score" "badge badge"}
-  .zoom-big .prova-card__num{display:none}
+  .zoom-big .prova-card[data-prova] .prova-card__num{display:none}
   .zoom-big .day-head__stats{font-size:12px}
   .zoom-big .studia-materia-row.cat-row{grid-template-columns:22px minmax(0,1fr);grid-template-areas:"check badge" "main main" "breakdown breakdown" "levels levels" "actions actions" "subs subs"}
   .zoom-big .cat-row .studia-materia-row__actions{flex-direction:column}
@@ -42,30 +42,30 @@ main{overflow-x:clip}
   .zoom-big .sub-name{flex-wrap:wrap}
 }
 @media (min-width:768px){
-  /* testo ingrandito su Mac e tablet: le righe a colonne fisse passano al formato compatto, come sul telefono */
-  .zoom-big .studia-materia-row.cat-row{grid-template-columns:22px 76px minmax(0,1fr);grid-template-areas:"check badge main" "breakdown breakdown breakdown" "levels levels levels" "actions actions actions" "subs subs subs";gap:14px 18px}
-  .zoom-big .studia-materia-row.cat-row .cat-check{grid-area:check}
-  .zoom-big .studia-materia-row.cat-row .studia-materia-row__badge{grid-area:badge}
-  .zoom-big .studia-materia-row.cat-row .studia-materia-row__main{grid-area:main}
-  .zoom-big .studia-materia-row.cat-row .studia-materia-row__breakdown{grid-area:breakdown}
-  .zoom-big .studia-materia-row.cat-row .studia-materia-row__levels{grid-area:levels;flex-direction:row;gap:18px}
-  .zoom-big .studia-materia-row.cat-row .studia-materia-row__levels>*{flex:1 1 0;min-width:0}
-  .zoom-big .studia-materia-row.cat-row .studia-materia-row__actions{grid-area:actions;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
-  .zoom-big .studia-materia-row.cat-row .cat-subs{grid-area:subs}
-  .zoom-big .cat-subs .grp-sub{padding-left:28px}
-  .zoom-big .grp-sub{grid-template-columns:24px minmax(0,1fr);row-gap:8px}
-  .zoom-big .grp-sub .grp-stat,.zoom-big .grp-sub .grp-acts{grid-column:2}
-  .zoom-big .grp-sub .grp-acts{justify-content:flex-start}
-  .zoom-big .test-row{grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"n when score" "n what what" "n goal goal";row-gap:6px;column-gap:10px}
-  .zoom-big .test-row__n{grid-area:n;align-self:start}
-  .zoom-big .test-row__when{grid-area:when}
-  .zoom-big .test-row__what{grid-area:what}
-  .zoom-big .test-row__score{grid-area:score}
-  .zoom-big .test-row__goal{grid-area:goal}
-  .zoom-big .test-row__go{display:none}
-  .zoom-big .totali-card{grid-template-columns:56px minmax(0,1fr) 28px;gap:14px}
-  .zoom-big .totali-card__bar{grid-column:1/-1;grid-row:2}
-  .zoom-big .totali-card__go{grid-row:1;grid-column:3}
+  /* poco spazio vero (finestra stretta, menu laterale, testo ingrandito): le righe a colonne fisse passano al formato compatto */
+  .narrow .studia-materia-row.cat-row{grid-template-columns:22px 76px minmax(0,1fr);grid-template-areas:"check badge main" "breakdown breakdown breakdown" "levels levels levels" "actions actions actions" "subs subs subs";gap:14px 18px}
+  .narrow .studia-materia-row.cat-row .cat-check{grid-area:check}
+  .narrow .studia-materia-row.cat-row .studia-materia-row__badge{grid-area:badge}
+  .narrow .studia-materia-row.cat-row .studia-materia-row__main{grid-area:main}
+  .narrow .studia-materia-row.cat-row .studia-materia-row__breakdown{grid-area:breakdown}
+  .narrow .studia-materia-row.cat-row .studia-materia-row__levels{grid-area:levels;flex-direction:row;gap:18px}
+  .narrow .studia-materia-row.cat-row .studia-materia-row__levels>*{flex:1 1 0;min-width:0}
+  .narrow .studia-materia-row.cat-row .studia-materia-row__actions{grid-area:actions;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
+  .narrow .studia-materia-row.cat-row .cat-subs{grid-area:subs}
+  .narrow .cat-subs .grp-sub{padding-left:28px}
+  .narrow .grp-sub{grid-template-columns:24px minmax(0,1fr);row-gap:8px}
+  .narrow .grp-sub .grp-stat,.narrow .grp-sub .grp-acts{grid-column:2}
+  .narrow .grp-sub .grp-acts{justify-content:flex-start}
+  .narrow .test-row{grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"n when score" "n what what" "n goal goal";row-gap:6px;column-gap:10px}
+  .narrow .test-row__n{grid-area:n;align-self:start}
+  .narrow .test-row__when{grid-area:when}
+  .narrow .test-row__what{grid-area:what}
+  .narrow .test-row__score{grid-area:score}
+  .narrow .test-row__goal{grid-area:goal}
+  .narrow .test-row__go{display:none}
+  .narrow .totali-card{grid-template-columns:56px minmax(0,1fr) 28px;gap:14px}
+  .narrow .totali-card__bar{grid-column:1/-1;grid-row:2}
+  .narrow .totali-card__go{grid-row:1;grid-column:3}
 }
 .linkbtn{white-space:normal;flex-wrap:wrap;text-align:left}
 .cardhead{flex-wrap:wrap}
@@ -186,7 +186,7 @@ main{margin-left:280px;padding:calc(64px + env(safe-area-inset-top,0px)) 16px 40
 .ocf-landing-cta-strip{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 28px;background:var(--ocf-brand-green-soft);border:1px solid #C8E6C9;border-radius:12px;flex-wrap:wrap;margin-bottom:24px}
 .ocf-landing-cta-strip__text{font-size:15px;font-weight:500;color:var(--ocf-brand-green-dark);flex:1 1 280px}
 /* ---------- home: card grafici ---------- */
-.home-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;margin-bottom:24px;align-items:start}
+.home-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));gap:24px;margin-bottom:24px;align-items:start}
 .card{padding:16px}
 .cardhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
 .cardhead h6{margin:0;font-size:20px;font-weight:400;line-height:1.6;color:var(--mud-text)}
@@ -314,7 +314,7 @@ main{margin-left:280px;padding:calc(64px + env(safe-area-inset-top,0px)) 16px 40
 /* ---------- riepilogo ---------- */
 .riepilogo-title{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:600;color:var(--ocf-ink);margin:0 0 4px}
 .riepilogo-title .mi{color:var(--ocf-brand-green-dark)}
-.stat-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:12px}
 .stat-card{display:flex;flex-direction:column;gap:6px;padding:16px 18px 18px;border:1px solid var(--ocf-line);border-radius:12px;background:#fff;transition:transform 140ms,box-shadow 140ms}
 .stat-card:hover{transform:translateY(-1px);box-shadow:0 8px 20px -12px rgba(0,0,0,.12)}
 .stat-card__icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
@@ -353,8 +353,8 @@ table.mud th{font-weight:500;text-align:left;padding:12px 16px;border-bottom:1px
 table.mud td{padding:12px 16px;border-bottom:1px solid #E0E0E0}
 table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-nums}
 /* ---------- dialog ---------- */
-.dialog-scrim{position:fixed;inset:0;background:rgba(33,33,33,.5);z-index:50;display:grid;place-items:center;padding:16px}
-.dialog{background:#fff;border-radius:4px;box-shadow:0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12);width:min(600px,100%);max-height:90vh;overflow:auto}
+.dialog-scrim{position:fixed;inset:0;background:rgba(33,33,33,.5);z-index:50;display:flex;padding:16px;overflow:auto}
+.dialog{background:#fff;border-radius:4px;box-shadow:0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12);width:min(600px,100%);max-height:calc(90vh / var(--zoom,1));overflow:auto;margin:auto}
 .dialog h2{margin:0;padding:16px 24px 0;font-size:14px;font-weight:400;color:var(--mud-text)}
 .dialog .body{padding:16px 24px;font-size:16px;line-height:1.5}
 .dialog .actions{display:flex;justify-content:flex-end;gap:8px;padding:8px;flex-wrap:wrap}
@@ -785,7 +785,7 @@ function clean(raw){
 const skey = h => h.id || (h.t+"|"+h.k);
 function canon(x){ if(Array.isArray(x)) return "["+x.map(canon).join(",")+"]"; if(x && typeof x==="object") return "{"+Object.keys(x).sort().map(k=>JSON.stringify(k)+":"+canon(x[k])).join(",")+"}"; return JSON.stringify(x===undefined?null:x); }
 function better(x,y){ for(let i=0;i<3;i++){ const a=x[i]||0, b=y[i]||0; if(a!==b) return a>b?x:y; } return x; }
-function richer(x,y){ const w=s=>(s.q?4:0)+(s.det?2:0)+Object.keys(s).length/100; if(w(x)!==w(y)) return w(x)>w(y)?x:y; return canon(x)>=canon(y)?x:y; }
+function richer(x,y){ const w=s=>[s.q?1:0,(s.q||[]).length,s.cut?0:1,s.det?1:0,Object.keys(s).length]; const a=w(x),b=w(y); for(let i=0;i<a.length;i++) if(a[i]!==b[i]) return a[i]>b[i]?x:y; return canon(x)>=canon(y)?x:y; }
 function merge(a,b){
   const base=blankBase();
   for(const k of [1,2,3,4,5]){ const A=a.base[k]||{}, B=b.base[k]||{};
@@ -802,7 +802,11 @@ function derive(){
 }
 function setLocal(st){ S={v:2, base:st.base, h:st.h, m:null}; derive(); }
 function lsRead(){ try{ const v=lsGet(LS_KEY); if(v) return clean(JSON.parse(v)); const o=lsGet(LS_OLD); if(o) return clean(JSON.parse(o)); }catch(e){} return null; }
-function lsWrite(){ lsSet(LS_KEY, JSON.stringify(persisted())); }
+function lsWrite(){
+  // un'altra scheda o finestra può aver salvato dopo di noi: si unisce prima di scrivere, così nessun test si perde
+  try{ const v=lsGet(LS_KEY); if(v){ const mine=clean(persisted()), m=merge(mine, clean(JSON.parse(v))); if(canon(m)!==canon(mine)) setLocal(m); } }catch(e){}
+  lsSet(LS_KEY, JSON.stringify(persisted()));
+}
 function newCode(){
   const abc="ABCDEFGHJKLMNPQRSTUVWXYZ23456789", v=new Uint8Array(20); crypto.getRandomValues(v);
   return [...v].map(x=>abc[x%32]).join("").match(/.{4}/g).join("-");
@@ -882,14 +886,14 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261012-094508";
+const APP_VERSION="20261012-103501";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
     const r=await fetch("version.txt?t="+Date.now(), {cache:"no-store"}); if(!r.ok) return;
     const v=(await r.text()).trim();
     // mai durante un test o sul riepilogo appena finito: si aspetta il prossimo controllo
-    if(/^[0-9-]+$/.test(v) && v!==APP_VERSION && state.view!=="session" && state.view!=="riepilogo" && !(state.T && !state.T.done)){
+    if(/^[0-9-]+$/.test(v) && v!==APP_VERSION && state.view!=="session" && state.view!=="riepilogo" && !(state.T && !state.T.done) && !dialogOpen() && !exporting && !(typeof rxBusy!=="undefined" && rxBusy)){
       // un solo tentativo per versione (niente ricariche a ripetizione se la rete serve ancora la copia vecchia)
       let tried=null; try{ tried=sessionStorage.getItem("palestra-ocf-upd"); sessionStorage.setItem("palestra-ocf-upd", v); }catch(e){}
       if(tried===v) return;
@@ -897,20 +901,43 @@ async function checkUpdate(){
     }
   }catch(e){}
 }
+// --- finestre aperte insieme (stesso browser): una risponde se il test in sospeso è il suo, così non lo si chiude a metà
+const bc = ("BroadcastChannel" in window) ? new BroadcastChannel("palestra-ocf") : null;
+if(bc) bc.addEventListener("message", e=>{ const m=e.data||{}; if(m.t==="ping" && state.T && !state.T.done && state.T.id===m.id) bc.postMessage({t:"pong", id:m.id}); });
+function liveElsewhere(id){
+  return new Promise(res=>{
+    if(!bc || typeof id!=="string") return res(false);
+    const on=e=>{ if(e.data && e.data.t==="pong" && e.data.id===id){ done(); res(true); } };
+    const done=()=>{ bc.removeEventListener("message", on); clearTimeout(tm); };
+    const tm=setTimeout(()=>{ done(); res(false); }, 500);
+    bc.addEventListener("message", on); bc.postMessage({t:"ping", id});
+  });
+}
+async function recoverLiveSafe(){
+  let L=null; try{ L=JSON.parse(lsGet(LIVE_KEY)||"null"); }catch(e){}
+  if(!L) return;
+  if(await liveElsewhere(L.id)) return; // è il test di un'altra finestra ancora aperta: lo salverà lei
+  recoverLive();
+}
 // --- avvio
 async function initStore(){
   store.lastSync=+lsGet(SYNC_AT_KEY)||null;
-  recoverLive();
+  document.addEventListener("visibilitychange", ()=>{
+    const T=state.T;
+    if(document.visibilityState==="hidden"){ if(T && !T.done){ T.hiddenAt=Date.now(); saveLive(); } lsWrite(); if(!IN_CLAUDE && store.code) sync(); }
+    else { if(T && !T.done && T.hiddenAt){ const d=Date.now()-T.hiddenAt; T.t0+=d; T.qStart+=d; T.hiddenAt=null; } if(!IN_CLAUDE){ queueSync(0); checkUpdate(); } }
+  });
+  window.addEventListener("storage", e=>{
+    // un'altra scheda ha salvato: si uniscono i suoi progressi a quelli di questa
+    if(e.key!==LS_KEY || !e.newValue) return;
+    try{ const mine=clean(persisted()), m=merge(mine, clean(JSON.parse(e.newValue))); if(canon(m)!==canon(mine)){ setLocal(m); if(state.view!=="session" && !dialogOpen()) render(); } }catch(_){}
+  });
+  { const n=S.h.length; await recoverLiveSafe(); if(S.h.length>n && state.view!=="session" && !dialogOpen()) render(); }
   if(!IN_CLAUDE){
     const saved=lsGet(CODE_KEY), c=normCode(saved);
     store.code = CODE_RE.test(c) ? c : null;   // un codice salvato non valido (versioni vecchie) va ricollegato
     if(!store.code){ setSync(syncLabel()); openLinkDialog(saved?"Il codice salvato su questo dispositivo non è valido. Inserisci quello del tuo account: i progressi di qui verranno uniti.":""); }
     else { setSync("sincronizzazione…"); await sync(); if(state.view!=="session") render(); }
-    document.addEventListener("visibilitychange", ()=>{
-      const T=state.T;
-      if(document.visibilityState==="hidden"){ if(T && !T.done){ T.hiddenAt=Date.now(); saveLive(); } lsWrite(); if(store.code) sync(); }
-      else { if(T && !T.done && T.hiddenAt){ const d=Date.now()-T.hiddenAt; T.t0+=d; T.qStart+=d; T.hiddenAt=null; } queueSync(0); checkUpdate(); }
-    });
     window.addEventListener("focus", ()=>{ queueSync(300); checkUpdate(); });
     window.addEventListener("pageshow", ()=>{ queueSync(0); checkUpdate(); });
     window.addEventListener("online", ()=>queueSync(0));
@@ -984,9 +1011,9 @@ function openSyncDialog(){
     <div class="syncbox"><code id="sync-code">${esc(store.code)}</code><button class="btn btn-outlined btn-sm" id="sync-copy">${icon("content_copy")} Copia</button></div>
     <p class="hint">Stato: ${esc(syncLabel())} · domande fatte su questo account: <b>${gstats(BY_MAT[ONLY]).seen}</b> · test fatti: <b>${S.h.length}</b> · ultima sincronizzazione: ${when}. Tienilo per te: chi ha il codice vede i tuoi progressi.</p>
     <div class="field" style="margin-top:18px"><label for="sync-in">Vuoi usare un altro account?</label><input id="sync-in" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><span class="hint" id="sync-hint">I progressi di questo dispositivo vengono uniti a quelli del codice inserito, niente va perso.</span></div>`,
-    actions:[{label:"Sincronizza ora"},{label:"Usa questo codice",primary:true}]});
+    actions:[{label:"Chiudi"},{label:"Sincronizza ora"},{label:"Usa questo codice",primary:true}]});
   $("#sync-copy").onclick=()=>{ const c=store.code; navigator.clipboard?.writeText(c).then(()=>{ $("#sync-copy").innerHTML=icon("check")+" Copiato"; }).catch(()=>{ const r=document.createRange(); r.selectNodeContents($("#sync-code")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }); };
-  $("#dlg .btn-text").onclick=async e=>{ e.currentTarget.disabled=true; e.currentTarget.textContent="Sincronizzo…"; await sync(); closeDialog(); if(state.view!=="session") render(); openSyncDialog(); };
+  $('#dlg [data-a="1"]').onclick=async e=>{ e.currentTarget.disabled=true; e.currentTarget.textContent="Sincronizzo…"; await sync(); closeDialog(); if(state.view!=="session") render(); openSyncDialog(); };
   $("#dlg .btn-filled").onclick=async e=>{
     const b=e.currentTarget; b.disabled=true; b.textContent="Collego…";
     const r=await linkCode($("#sync-in").value, false);
@@ -1029,12 +1056,15 @@ document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",e=
 $("#hdr-sync").onclick=openSyncDialog; $("#hdr-status").onclick=openSyncDialog; $("#nav-sync").onclick=()=>{ closeDrawerMobile(); openSyncDialog(); };
 // dimensione del testo: dal 100% al 200%, ricordata sul dispositivo
 const ZOOM_KEY="palestra-ocf-zoom", ZOOMS=[1,1.15,1.3,1.5,1.75,2];
-function applyZoom(z){ z=ZOOMS.includes(z)?z:1; document.documentElement.style.setProperty("--zoom", z); document.documentElement.classList.toggle("zoom-big", z>=1.3); document.documentElement.style.setProperty("--tbz", (Math.min(z,1.15)/z).toFixed(3)); /* la barra in basso resta compatta */ lsSet(ZOOM_KEY, String(z)); const p=Math.round(z*100)+"%"; ["#z-val","#nz-val"].forEach(s=>{ const el=$(s); if(el) el.textContent=p; }); if(state.view==="stats") render(); }
+function updNarrow(){ const m=document.querySelector("main"); if(!m) return; const z=+getComputedStyle(document.documentElement).getPropertyValue("--zoom")||1; document.documentElement.classList.toggle("narrow", m.clientWidth/z < 1050); }
+window.addEventListener("resize", updNarrow);
+function applyZoom(z){ z=ZOOMS.includes(z)?z:1; document.documentElement.style.setProperty("--zoom", z); document.documentElement.classList.toggle("zoom-big", z>=1.3); document.documentElement.style.setProperty("--tbz", (Math.min(z,1.15)/z).toFixed(3)); /* la barra in basso resta compatta */ lsSet(ZOOM_KEY, String(z)); updNarrow(); const p=Math.round(z*100)+"%"; ["#z-val","#nz-val"].forEach(s=>{ const el=$(s); if(el) el.textContent=p; }); if(state.view==="stats") render(); }
 function stepZoom(d){ const cur=+getComputedStyle(document.documentElement).getPropertyValue("--zoom")||1; const i=Math.max(0,Math.min(ZOOMS.length-1, ZOOMS.indexOf(ZOOMS.reduce((a,b)=>Math.abs(b-cur)<Math.abs(a-cur)?b:a))+d)); applyZoom(ZOOMS[i]); }
 ["#z-plus","#nz-plus"].forEach(s=>$(s).onclick=()=>stepZoom(1)); ["#z-minus","#nz-minus"].forEach(s=>$(s).onclick=()=>stepZoom(-1));
 $("#hdr-browse").onclick=()=>{ state.browse.ids=null; state.browse.label=""; go("sfoglia"); };
 const mq = window.matchMedia("(max-width:959.98px)");
-$("#menu").onclick=()=>{ if(mq.matches){ document.body.classList.toggle("drawer-open"); $("#scrim").hidden=!document.body.classList.contains("drawer-open"); } else document.body.classList.toggle("drawer-closed"); };
+$("#menu").onclick=()=>{ if(mq.matches){ document.body.classList.toggle("drawer-open"); $("#scrim").hidden=!document.body.classList.contains("drawer-open"); } else document.body.classList.toggle("drawer-closed"); updNarrow(); setTimeout(updNarrow, 350); };
+{ const onMq=e=>{ if(!e.matches) closeDrawerMobile(); updNarrow(); }; if(mq.addEventListener) mq.addEventListener("change", onMq); else if(mq.addListener) mq.addListener(onMq); } // Safari vecchi: solo addListener
 $("#scrim").onclick=closeDrawerMobile;
 function closeDrawerMobile(){ document.body.classList.remove("drawer-open"); $("#scrim").hidden=true; }
 
@@ -1063,8 +1093,10 @@ const head = (ic,t) => `<div class="pagehead">${icon(ic)}<h1>${t}</h1></div>`;
 function dialog({title, body, actions}){
   $("#dlg").innerHTML = `<div class="dialog-scrim"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-t"><h2 id="dlg-t">${title}</h2><div class="body">${body}</div><div class="actions">${actions.map((a,i)=>`<button class="btn ${a.primary?"btn-filled":"btn-text"}" data-a="${i}">${a.label}</button>`).join("")}</div></div></div>`;
   actions.forEach((a,i)=>$(`[data-a="${i}"]`).onclick=()=>{ closeDialog(); a.run&&a.run(); });
+  $("#dlg .dialog-scrim").onclick=e=>{ if(e.target===e.currentTarget) closeDialog(); };
   const p=$("#dlg .btn-filled"); if(p) p.focus();
 }
+document.addEventListener("keydown",e=>{ if(e.key==="Escape" && dialogOpen()) closeDialog(); });
 function closeDialog(){ $("#dlg").innerHTML=""; }
 function dialogOpen(){ return !!$("#dlg").innerHTML; }
 
@@ -1307,14 +1339,14 @@ function renderMateria(){
   document.querySelectorAll("[data-pick]").forEach(c=>c.onchange=()=>{ c.checked?state.picked.add(c.dataset.pick):state.picked.delete(c.dataset.pick); renderMateria(); });
   document.querySelectorAll("[data-pickall]").forEach(c=>c.onchange=()=>{ const g=G.find(x=>x.ci===+c.dataset.pickall); g.subs.forEach(s=>c.checked?state.picked.add(keyOf(g,s)):state.picked.delete(keyOf(g,s))); renderMateria(); });
   document.querySelectorAll("[data-leggi]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.leggi); readIds(f.ids,f.label); });
-  document.querySelectorAll("[data-solo]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.solo); startTraining(f.ids, f.label); });
+  document.querySelectorAll("[data-solo]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.solo); startTraining(f.ids, f.label, String(b.dataset.solo).includes(":")?"group":"cat"); });
   $("#sel-all").onclick=()=>{ G.forEach(g=>g.subs.forEach(s=>state.picked.add(keyOf(g,s)))); renderMateria(); };
   $("#sel-none").onclick=()=>{ state.picked.clear(); renderMateria(); };
   $("#exp-all").onclick=()=>{ G.forEach(g=>state.open.add(g.ci)); renderMateria(); };
   $("#col-all").onclick=()=>{ state.open.clear(); renderMateria(); };
   renderTrainbar(G);
 }
-function startTraining(base, label){
+function startTraining(base, label, src){
   // allena con le impostazioni della barra (quali, quante, tempo, correzione)
   const tr=state.train;
   const fresh=base.filter(n=>!S.m[ONLY][n]), wrong=base.filter(n=>{ const r=S.m[ONLY][n]; return r&&!r[2]; });
@@ -1322,7 +1354,7 @@ function startTraining(base, label){
   const n=Math.max(1,Math.min(pool.length, tr.n||25));
   const tm = tr.time==="q60"?{perQ:60} : tr.time==="q85"?{perQ:85} : tr.time==="tot"?{limit:n*85} : {};
   const keys = base.length ? [...new Set(base.map(x=>Q[x-1][1]+":"+Q[x-1][2]))] : null;
-  startSession(Object.assign({kind:"studio", title:`${label}${pool===fresh&&tr.which==="new"?" · mai fatte":pool===wrong&&tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end", meta:sessionMeta(keys, pool===fresh&&tr.which==="new"?"new":pool===wrong&&tr.which==="err"?"err":"all", "cat")}, tm));
+  startSession(Object.assign({kind:"studio", title:`${label}${pool===fresh&&tr.which==="new"?" · mai fatte":pool===wrong&&tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end", meta:sessionMeta(keys, pool===fresh&&tr.which==="new"?"new":pool===wrong&&tr.which==="err"?"err":"all", src||"cat")}, tm));
 }
 function renderTrainbar(G){
   const tr=state.train, base=selectionIds(G), picked=pickedIds(G).length>0;
@@ -1346,15 +1378,18 @@ function renderTrainbar(G){
       <label class="check"><input type="checkbox" id="tb-fb" ${tr.fb?"checked":""}> Correzione subito</label>
     </div>
     <button class="btn btn-filled trainbar__go" id="tb-go">${icon("play_arrow")} Inizia ${n} domande</button>`;
-  const setN=v=>{ tr.n=Math.max(1,Math.min(pool.length,v)); renderTrainbar(G); };
+  const setN=v=>{ tr.n=Math.max(1,Math.round(v)||1); renderTrainbar(G); };
+  const liveN=()=>Math.max(1,Math.min(pool.length,Math.round(+$("#tb-n").value)||1));
   $("#tb-which").onchange=e=>{ tr.which=e.target.value; renderTrainbar(G); };
-  $("#tb-n").onchange=e=>setN(+e.target.value||1);
-  $("#tb-minus").onclick=()=>setN(n-(n>25?5:1)); $("#tb-plus").onclick=()=>setN(n+(n>=25?5:1));
+  // il campo si aggiorna sul posto: ridisegnare la barra qui farebbe perdere il tocco su "Inizia"
+  $("#tb-n").onchange=e=>{ const v=liveN(); tr.n=v; e.target.value=v; $("#tb-go").innerHTML=`${icon("play_arrow")} Inizia ${v} domande`; const gl=$(".trainbar__goal"); if(gl) gl.innerHTML=`${icon("flag")} Obiettivo: max <b>${mmss(goalFor(v))}</b> per ${v} domande`; };
+  $("#tb-minus").onclick=()=>setN(n>25?Math.max(25,n-5):n-1); $("#tb-plus").onclick=()=>{ if(n<pool.length) setN(Math.min(pool.length, n+(n>=25?5:1))); };
   document.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>setN(+b.dataset.n));
   $("#tb-fb").onchange=e=>{ tr.fb=e.target.checked; };
   $("#tb-time").onchange=e=>{ tr.time=e.target.value; };
   $("#tb-goal").onchange=e=>{ lsSet(GOAL_KEY, e.target.value); renderTrainbar(G); };
   $("#tb-go").onclick=()=>{
+    const n=liveN();
     const label = picked ? (nCat===1 ? CONT[G.find(g=>g.subs.some(s=>state.picked.has(g.ci+":"+s.si))).ci] : `${nCat} categorie`) : "Tutte le categorie";
     const tm = tr.time==="q60"?{perQ:60} : tr.time==="q85"?{perQ:85} : tr.time==="tot"?{limit:n*85} : {};
     startSession(Object.assign({kind:"studio", title:`${label}${tr.which==="new"?" · mai fatte":tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:tr.fb?"now":"end", meta:sessionMeta(picked?pickedKeys():null, tr.which, "bar")}, tm));
@@ -1406,7 +1441,7 @@ function svgLine(points, {yMax, step:st, unit, ref, refLabel, color, label}, W){
     g+=`<polyline fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" points="${points.map((p,i)=>x(i)+","+y(p.y)).join(" ")}"/>`;
     g+=points.map((p,i)=>`<circle cx="${x(i)}" cy="${y(p.y)}" r="${i===n-1?5:3.5}" fill="${color}" stroke="#fff" stroke-width="2"/>`).join("");
     const lab=Math.max(1,Math.ceil(n/Math.max(3,Math.floor(W/90))));
-    g+=points.map((p,i)=>(i%lab===0||i===n-1)?`<text x="${x(i)}" y="${H-10}" text-anchor="middle">${esc(p.x)}</text>`:"").join("");
+    g+=points.map((p,i)=>((n-1-i)%lab===0)?`<text x="${x(i)}" y="${H-10}" text-anchor="middle">${esc(p.x)}</text>`:"").join("");
     const hw = n>1 ? iw/(n-1) : iw;
     g+=points.map((p,i)=>`<rect class="hit" x="${x(i)-hw/2}" y="${t}" width="${hw}" height="${ih}" fill="transparent" data-tip="${esc(p.tip)}" data-cx="${x(i)}" data-cy="${y(p.y)}"/>`).join("");
   } else g+=`<text x="${l+iw/2}" y="${t+ih/2}" text-anchor="middle">Ancora nessun dato: fai un allenamento</text>`;
@@ -1421,7 +1456,7 @@ function svgDays(days, W){
   days.forEach((d,i)=>{ const cx=l+(i+.5)*(iw/n), x0=cx-bw/2, hOk=y(d.ok), hKo=y(d.ko);
     if(d.ok) g+=`<rect x="${x0}" y="${t+ih-hOk}" width="${bw}" height="${hOk}" rx="3" fill="#2E7D32"/>`;
     if(d.ko) g+=`<rect x="${x0}" y="${t+ih-hOk-hKo-(d.ok?2:0)}" width="${bw}" height="${hKo}" rx="3" fill="#C62828"/>`;
-    if(i%(W<520?3:1)===0||i===n-1) g+=`<text x="${cx}" y="${H-10}" text-anchor="middle">${esc(d.lab)}</text>`;
+    if((n-1-i)%(W<520?3:1)===0) g+=`<text x="${cx}" y="${H-10}" text-anchor="middle">${esc(d.lab)}</text>`;
     g+=`<rect class="hit" x="${cx-iw/n/2}" y="${t}" width="${iw/n}" height="${ih}" fill="transparent" data-tip="${esc(`<b>${d.full}</b><br>${d.ok+d.ko} domande · ${d.ok} giuste · ${d.ko} sbagliate`)}" data-cx="${cx}" data-cy="${t+ih-hOk-hKo}"/>`; });
   return `<div class="chart chart-hover"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Domande al giorno, ultimi 14 giorni">${g}</svg><div class="tip" hidden></div></div>`;
 }
@@ -1433,7 +1468,8 @@ function bindChartHover(){
     });
     svg.addEventListener("mouseleave",()=>{ tip.hidden=true; if(xh) xh.setAttribute("visibility","hidden"); });
     function show(h){
-      const vb=svg.viewBox.baseVal, rect=svg.getBoundingClientRect(), sx=rect.width/vb.width, sy=rect.height/vb.height;
+      // misure locali (non ingrandite): la pagina è ingrandita con zoom e tip.style.left verrebbe moltiplicato di nuovo
+      const vb=svg.viewBox.baseVal, r0=svg.getBoundingClientRect(), k=r0.width/(svg.clientWidth||box.clientWidth||r0.width)||1, rect={width:r0.width/k, height:r0.height/k}, sx=rect.width/vb.width, sy=rect.height/vb.height;
       const cx=+h.dataset.cx, cy=+h.dataset.cy;
       if(xh){ xh.setAttribute("x1",cx); xh.setAttribute("x2",cx); xh.setAttribute("visibility","visible"); }
       tip.innerHTML=h.dataset.tip; tip.hidden=false;
@@ -1446,12 +1482,13 @@ function renderStats(){
   const m=ONLY, ids=BY_MAT[m], s=gstats(ids);
   const sess=S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[m]).includes(m));
   const answers=sess.reduce((a,h)=>a+sessCounts(h).answered,0), okAns=sess.reduce((a,h)=>a+h.ok,0), secs=sess.reduce((a,h)=>a+h.sec,0);
-  const days=new Set(sess.map(h=>dayKey(h.t)));
+  const st=h=>h.start||(h.t-h.sec*1000), nQ=sess.reduce((a,h)=>a+h.n,0);
+  const days=new Set(sess.map(h=>dayKey(st(h))));
   const last=sess.slice(-30);
   const perf=last.map(h=>({x:new Date(h.t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:(c=>c.answered?Math.round(c.ok/c.answered*100):0)(sessCounts(h)), tip:(c=>`<b>${esc(h.title)}</b><br>${dmy(h.t)} ${hm(h.t)}<br>${c.ok}/${c.answered} giuste · <b>${c.answered?Math.round(c.ok/c.answered*100):0}%</b><br>${Math.round(h.sec/h.n)} s a domanda`)(sessCounts(h))}));
   const speed=last.map(h=>({x:new Date(h.t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:Math.round(h.sec/h.n*10)/10, tip:`<b>${esc(h.title)}</b><br>${dmy(h.t)} ${hm(h.t)}<br><b>${(Math.round(h.sec/h.n*10)/10).toLocaleString("it-IT")} s</b> a domanda · totale ${mmss(h.sec)}`}));
   const speedSc=niceScale(Math.max(goal60()/60*2, ...speed.map(p=>p.y))*1.1);
-  const dayRows=[]; for(let i=13;i>=0;i--){ const d=new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate()-i); const k=dayKey(d); const hs=sess.filter(h=>dayKey(h.t)===k);
+  const dayRows=[]; for(let i=13;i>=0;i--){ const d=new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate()-i); const k=dayKey(d); const hs=sess.filter(h=>dayKey(st(h))===k);
     dayRows.push({lab:d.toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), full:d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"}), ok:hs.reduce((a,h)=>a+h.ok,0), ko:hs.reduce((a,h)=>a+sessCounts(h).answered-h.ok,0)}); }
   const cats=groupsOf(m).map(g=>{ let att=0,cor=0,seen=0; g.ids.forEach(n=>{ const r=S.m[m][n]; if(r){ seen++; att+=r[0]; cor+=r[1]; } }); return {ci:g.ci, tot:g.ids.length, seen, att, acc:att?Math.round(cor/att*100):null}; })
     .sort((a,b)=>(a.acc===null)-(b.acc===null) || (a.acc??0)-(b.acc??0));
@@ -1460,7 +1497,7 @@ function renderStats(){
   <div class="stat-cards" style="margin-bottom:20px">
     <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("visibility")}</span><span class="stat-card__label">Domande fatte</span><span class="stat-card__value">${s.seen}<span class="of">/${s.tot}</span></span></div>
     <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Risposte giuste</span><span class="stat-card__value">${answers?Math.round(okAns/answers*100):0}<span class="of">%</span></span><span class="stat-card__sub">${okAns} su ${answers} risposte</span></div>
-    <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("timer")}</span><span class="stat-card__label">Tempo a domanda</span><span class="stat-card__value">${answers?Math.round(secs/answers):0}<span class="of"> s</span></span><span class="stat-card__sub">obiettivo ${Math.round(goal60()/6)/10} s · totale ${mmss(secs)}</span></div>
+    <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("timer")}</span><span class="stat-card__label">Tempo a domanda</span><span class="stat-card__value">${nQ?Math.round(secs/nQ):0}<span class="of"> s</span></span><span class="stat-card__sub">obiettivo ${Math.round(goal60()/6)/10} s · totale ${mmss(secs)}</span></div>
     <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("event_available")}</span><span class="stat-card__label">Giorni di studio</span><span class="stat-card__value">${days.size}</span><span class="stat-card__sub">${sess.length} allenamenti</span></div>
   </div>
   <div class="home-grid">
@@ -1492,7 +1529,7 @@ function renderStats(){
 const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso"};
 const WHICH_TXT={all:"tutte", new:"mai fatte", err:"sbagliate", worst:"sbagliate più spesso", redo:"da rivedere"};
 const TIME_TXT={free:"cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"tempo totale d'esame"};
-function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0).slice().sort((a,b)=>b.t-a.t); }
+function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[ONLY]).includes(ONLY)).slice().sort((a,b)=>b.t-a.t); }
 function sessCounts(h){
   const q=h.q||[]; const c=v=>q.filter(x=>x[1]===v).length;
   return q.length ? {ok:c(1), err:c(-1), nls:c(-2), nd:c(0), answered:q.length-c(0)} : {ok:h.ok, err:null, nls:null, nd:null, answered:h.n};
@@ -1578,8 +1615,13 @@ function renderTestDetail(){
 }
 
 /* ================= ESPORTAZIONE EXCEL ================= */
+let exporting=false;
 async function exportReport(btn){
   // prima si scaricano i progressi degli altri dispositivi, poi si genera il file
+  if(exporting) return; exporting=true;
+  try{ await exportReport1(btn); } finally { exporting=false; }
+}
+async function exportReport1(btn){
   if(btn){ btn.disabled=true; btn.dataset.old=btn.innerHTML; btn.innerHTML=icon("sync")+" Aggiorno i dati…"; }
   try{ await syncNow(6000); } catch(e){} finally { if(btn){ btn.disabled=false; btn.innerHTML=btn.dataset.old; } }
   return exportExcel(btn);
@@ -1607,6 +1649,7 @@ const RX_TINT = {green:"FFE8F5E9", red:"FFFFEBEE", blue:"FFE3F2FD", orange:"FFFF
 const RX_FONT = '"Helvetica Neue", Helvetica, Arial, sans-serif';
 const RX_CHART_W = 590; // larghezza di un grafico nel foglio Report (px); due grafici affiancati
 let rxLibPromise = null;
+let rxBusy = false; // report in preparazione: l'aggiornamento automatico aspetta
 
 /* ---------- sessioni: lettura robusta (anche quelle vecchie senza dettagli) ---------- */
 function rxNum(v){ v=+v; return Number.isFinite(v) ? v : 0; }
@@ -1798,7 +1841,9 @@ function rxInsights(D){
     out.push(`Ultimo test con dettaglio (n. ${t.no}, ${dmy(t.start)}): ${t.okq} ${rxPl(t.okq,"giusta","giuste")} su ${t.ans} ${rxPl(t.ans,"risposta data","risposte date")}, ${rxIlPct(t.pct)}.`);
   }
   const rated=D.cats.filter(c=>c.att>=5 && c.acc!=null).sort((a,b)=>a.acc-b.acc || b.att-a.att);
-  if(rated.length>=2){
+  if(rated.length>=2 && Math.round(rated[0].acc*100)===Math.round(rated[rated.length-1].acc*100)){
+    out.push(`Le ${rated.length} categorie con almeno 5 risposte date sono tutte ${rxIlPct(rated[0].acc).replace(/^il /,"al ").replace(/^lo /,"allo ").replace(/^l'/,"all'")} di risposte giuste: nessuna più debole delle altre.`);
+  } else if(rated.length>=2){
     const w=rated[0], s=rated[rated.length-1];
     out.push(`Categoria più debole: «${w.name}», con ${rxIlPct(w.acc)} di risposte giuste su ${w.att} date.`);
     out.push(`Categoria più forte: «${s.name}», con ${rxIlPct(s.acc)} su ${s.att} risposte date.`);
@@ -1811,7 +1856,7 @@ function rxInsights(D){
     if(T.dk){
       const top=D.cats.filter(c=>c.dk>0).sort((a,b)=>b.dk-a.dk)[0];
       out.push(`Hai risposto «Non la so» ${T.dk} ${T.dk===1?"volta":"volte"} su ${T.ans} risposte date (${rxPctS(T.dk/T.ans)})${top?`, più spesso in «${top.name}» (${top.dk})`:""}.`);
-    } else out.push(T.detailTests===1 ? "Non hai usato «Non la so» nell'unico test con dettaglio." : `Non hai mai usato «Non la so» nei ${T.detailTests} test con dettaglio.`);
+    } else out.push(T.detailTests===1 ? "Non hai usato «Non la so» nell'unico test con dettaglio." : `Non hai mai usato «Non la so» ${String(T.detailTests)[0]==="8"||T.detailTests===11?"negli":"nei"} ${T.detailTests} test con dettaglio.`);
   }
   const top3=D.errors.slice(0,3);
   if(top3.length) out.push(`${top3.length===1?"La domanda sbagliata più spesso":"Le "+top3.length+" domande sbagliate più spesso"}: ${top3.map(e=>`n. ${e.pos} «${rxShort(e.text,60)}» (${e.wrong} su ${e.r.seen})`).join("; ")}.`);
@@ -2364,6 +2409,7 @@ async function exportExcel(btn){
   }
   const old=btn ? btn.innerHTML : null;
   if(btn){ btn.disabled=true; btn.innerHTML=icon("hourglass_top")+" Preparo il report…"; }
+  rxBusy=true;
   try{
     let lib;
     try{ lib=await rxLoadExcelJS(); }
@@ -2380,6 +2426,7 @@ async function exportExcel(btn){
     console.error("exportExcel", e);
     dialog({title:"Report non creato", body:`Qualcosa è andato storto mentre preparavo il file Excel. Riprova; se succede ancora, riferisci questo messaggio: <code>${rxEsc(e && e.message || e)}</code>`, actions:[{label:"Ok", primary:true}]});
   }finally{
+    rxBusy=false;
     if(btn){ btn.disabled=false; btn.innerHTML=old; }
   }
 }
@@ -2462,9 +2509,10 @@ function buildSim(){
 
 /* ================= motore sessione ================= */
 let timerId=null;
-function defaultMeta(cfg){ return {w:cfg.w||"all", tm:cfg.limit?"tot":cfg.perQ===60?"q60":cfg.perQ===85?"q85":"free", fb:cfg.fb==="now"?1:0, selC:null, selS:null, src:cfg.src||null}; }
+function defaultMeta(cfg){ const own=cfg.src==="redo"||cfg.src==="worst"; return {w:cfg.w||"all", tm:cfg.limit?"tot":cfg.perQ===60?"q60":cfg.perQ===85?"q85":"free", fb:cfg.fb==="now"?1:0, selC:own?[...new Set(cfg.ids.map(n=>Q[n-1][1]))]:null, selS:own?[...new Set(cfg.ids.map(n=>Q[n-1][2]))]:null, src:cfg.src||null}; }
 function startSession(cfg){
   if(!cfg.ids.length) return;
+  recoverLive(); // un test interrotto rimasto in sospeso si salva prima di cominciarne un altro
   state.T={id:sid(), meta:Object.assign(defaultMeta(cfg), cfg.meta||{}), goal:goalFor(cfg.ids.length), kind:cfg.kind, title:cfg.title, items:cfg.ids.map(n=>({n, order:shuffle([0,1,2,3]), pick:null, locked:false, timeout:false})), i:0, fb:cfg.fb, limit:cfg.limit||null, perQ:cfg.perQ||null, t0:Date.now(), started:Date.now(), qStart:Date.now(), done:false};
   state.view="session"; closeDrawerMobile(); render(); window.scrollTo(0,0); saveLive();
 }
@@ -2472,6 +2520,8 @@ function elapsed(){ return (Date.now()-state.T.t0)/1000; }
 function setTimer(txt, low){ const el=$("#timer-v"); if(el){ el.textContent=txt; el.parentNode.classList.toggle("low",!!low); } }
 function tick(){
   const T=state.T; if(!T||T.done||state.view!=="session") return clearInterval(timerId);
+  if(T.hiddenAt) return; // app in pausa (nascosta): il tempo non corre
+  if(!T.liveAt || Date.now()-T.liveAt>10000){ T.liveAt=Date.now(); saveLive(); }
   const gc=$("#goal-chip"); if(gc && T.goal){ const used=elapsed(), over=used>T.goal; gc.classList.toggle("over",over);
     $("#goal-v").textContent = over ? `obiettivo superato +${mmss(used-T.goal)}` : `${mmss(used)} / max ${mmss(T.goal)}`; }
   if(T.limit){ const left=T.limit-elapsed(); setTimer(mmss(left), left<300); if(left<=0) finish(); return; }
@@ -2658,8 +2708,9 @@ function renderReportSim(){
 
 /* ================= sfoglia ================= */
 function renderSfoglia(){
-  const B=state.browse, PAGE=25, term=B.q.trim().toLowerCase();
-  let ids=B.ids||BY_MAT[B.mat]; if(term) ids=ids.filter(n=>{ const q=Q[n-1]; return q[4].toLowerCase().includes(term)||q[5].toLowerCase().includes(term); });
+  const norm=x=>String(x).toLowerCase().replace(/[’‘`´]/g,"'");
+  const B=state.browse, PAGE=25, term=norm(B.q.trim());
+  let ids=B.ids||BY_MAT[B.mat]; if(term) ids=ids.filter(n=>{ const q=Q[n-1]; return norm(q[4]).includes(term)||norm(q[5]).includes(term); });
   const pages=Math.max(1,Math.ceil(ids.length/PAGE)); B.page=Math.min(B.page,pages-1);
   const slice=ids.slice(B.page*PAGE,B.page*PAGE+PAGE);
   $("#view").innerHTML = `${B.ids?`<button class="backlink" id="b-back">${icon("arrow_back")} Categorie</button>`:""}${head("menu_book","Sfoglia le domande")}
@@ -2676,7 +2727,7 @@ function renderSfoglia(){
   $("#b-mat").onchange=e=>{ B.mat=+e.target.value; B.page=0; renderSfoglia(); };
   const bb=$("#b-back"); if(bb) bb.onclick=()=>go("materia");
   const bc=$("#b-clear"); if(bc) bc.onclick=()=>{ B.ids=null; B.label=""; B.page=0; renderSfoglia(); };
-  let tm; $("#b-q").oninput=e=>{ clearTimeout(tm); tm=setTimeout(()=>{ B.q=e.target.value; B.page=0; renderSfoglia(); const el=$("#b-q"); el.focus(); el.setSelectionRange(el.value.length,el.value.length); },250); };
+  let tm; $("#b-q").oninput=e=>{ clearTimeout(tm); tm=setTimeout(()=>{ if(state.view!=="sfoglia") return; B.q=e.target.value; B.page=0; renderSfoglia(); const el=$("#b-q"); el.focus(); el.setSelectionRange(el.value.length,el.value.length); },250); };
   $("#pp").onclick=()=>{ B.page--; renderSfoglia(); window.scrollTo(0,0); };
   $("#np").onclick=()=>{ B.page++; renderSfoglia(); window.scrollTo(0,0); };
 }
@@ -2685,6 +2736,7 @@ function renderSfoglia(){
 document.addEventListener("keydown",e=>{
   if(state.view!=="session"||!state.T||state.T.done||dialogOpen()) return;
   if(["INPUT","SELECT","TEXTAREA"].includes(e.target.tagName)) return;
+  if(e.metaKey||e.ctrlKey||e.altKey) return; // Cmd+C, Ctrl+A… restano copia/seleziona
   const T=state.T, it=T.items[T.i], k=e.key.toUpperCase();
   let pos=L.indexOf(k); if(pos<0 && ["1","2","3","4"].includes(k)) pos=+k-1;
   if(pos>=0){ e.preventDefault(); choose(it.order[pos]); return; }

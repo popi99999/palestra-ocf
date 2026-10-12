@@ -1,5 +1,5 @@
 // Palestra OCF — service worker: l'app si apre anche senza rete; la pagina si aggiorna appena c'è connessione.
-const CACHE = "palestra-ocf-v18";
+const CACHE = "palestra-ocf-v19";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
@@ -7,9 +7,10 @@ self.addEventListener("fetch", e => {
   const req = e.request, url = new URL(req.url);
   if (req.method !== "GET" || url.hostname.endsWith("supabase.co") || url.pathname.endsWith("/version.txt")) return; // progressi e numero di versione sempre dalla rete
   if (req.mode === "navigate" || url.pathname.endsWith("/index.html")) {
-    // pagina: prima la rete (versione aggiornata), altrimenti la copia salvata
-    e.respondWith(fetch(req).then(r => { const c = r.clone(); caches.open(CACHE).then(k => k.put("./index.html", c)); return r; })
-      .catch(() => caches.match("./index.html")));
+    // pagina: prima la rete (versione aggiornata), altrimenti la copia salvata; si salva solo la pagina dell'app arrivata bene (niente 404/errori)
+    const APP = new URL("./", self.location.href).pathname, isApp = url.pathname === APP || url.pathname === APP + "index.html";
+    e.respondWith(fetch(req).then(r => { if (r.ok && isApp) { const c = r.clone(); caches.open(CACHE).then(k => k.put("./index.html", c)); } return r; })
+      .catch(() => caches.match(isApp ? "./index.html" : req).then(h => h || caches.match("./index.html"))));
     return;
   }
   // font, icone e altre risorse: copia salvata se c'è, poi aggiornamento in background

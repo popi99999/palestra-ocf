@@ -21,6 +21,7 @@ const RX_TINT = {green:"FFE8F5E9", red:"FFFFEBEE", blue:"FFE3F2FD", orange:"FFFF
 const RX_FONT = '"Helvetica Neue", Helvetica, Arial, sans-serif';
 const RX_CHART_W = 590; // larghezza di un grafico nel foglio Report (px); due grafici affiancati
 let rxLibPromise = null;
+let rxBusy = false; // report in preparazione: l'aggiornamento automatico aspetta
 
 /* ---------- sessioni: lettura robusta (anche quelle vecchie senza dettagli) ---------- */
 function rxNum(v){ v=+v; return Number.isFinite(v) ? v : 0; }
@@ -212,7 +213,9 @@ function rxInsights(D){
     out.push(`Ultimo test con dettaglio (n. ${t.no}, ${dmy(t.start)}): ${t.okq} ${rxPl(t.okq,"giusta","giuste")} su ${t.ans} ${rxPl(t.ans,"risposta data","risposte date")}, ${rxIlPct(t.pct)}.`);
   }
   const rated=D.cats.filter(c=>c.att>=5 && c.acc!=null).sort((a,b)=>a.acc-b.acc || b.att-a.att);
-  if(rated.length>=2){
+  if(rated.length>=2 && Math.round(rated[0].acc*100)===Math.round(rated[rated.length-1].acc*100)){
+    out.push(`Le ${rated.length} categorie con almeno 5 risposte date sono tutte ${rxIlPct(rated[0].acc).replace(/^il /,"al ").replace(/^lo /,"allo ").replace(/^l'/,"all'")} di risposte giuste: nessuna più debole delle altre.`);
+  } else if(rated.length>=2){
     const w=rated[0], s=rated[rated.length-1];
     out.push(`Categoria più debole: «${w.name}», con ${rxIlPct(w.acc)} di risposte giuste su ${w.att} date.`);
     out.push(`Categoria più forte: «${s.name}», con ${rxIlPct(s.acc)} su ${s.att} risposte date.`);
@@ -225,7 +228,7 @@ function rxInsights(D){
     if(T.dk){
       const top=D.cats.filter(c=>c.dk>0).sort((a,b)=>b.dk-a.dk)[0];
       out.push(`Hai risposto «Non la so» ${T.dk} ${T.dk===1?"volta":"volte"} su ${T.ans} risposte date (${rxPctS(T.dk/T.ans)})${top?`, più spesso in «${top.name}» (${top.dk})`:""}.`);
-    } else out.push(T.detailTests===1 ? "Non hai usato «Non la so» nell'unico test con dettaglio." : `Non hai mai usato «Non la so» nei ${T.detailTests} test con dettaglio.`);
+    } else out.push(T.detailTests===1 ? "Non hai usato «Non la so» nell'unico test con dettaglio." : `Non hai mai usato «Non la so» ${String(T.detailTests)[0]==="8"||T.detailTests===11?"negli":"nei"} ${T.detailTests} test con dettaglio.`);
   }
   const top3=D.errors.slice(0,3);
   if(top3.length) out.push(`${top3.length===1?"La domanda sbagliata più spesso":"Le "+top3.length+" domande sbagliate più spesso"}: ${top3.map(e=>`n. ${e.pos} «${rxShort(e.text,60)}» (${e.wrong} su ${e.r.seen})`).join("; ")}.`);
@@ -778,6 +781,7 @@ async function exportExcel(btn){
   }
   const old=btn ? btn.innerHTML : null;
   if(btn){ btn.disabled=true; btn.innerHTML=icon("hourglass_top")+" Preparo il report…"; }
+  rxBusy=true;
   try{
     let lib;
     try{ lib=await rxLoadExcelJS(); }
@@ -794,6 +798,7 @@ async function exportExcel(btn){
     console.error("exportExcel", e);
     dialog({title:"Report non creato", body:`Qualcosa è andato storto mentre preparavo il file Excel. Riprova; se succede ancora, riferisci questo messaggio: <code>${rxEsc(e && e.message || e)}</code>`, actions:[{label:"Ok", primary:true}]});
   }finally{
+    rxBusy=false;
     if(btn){ btn.disabled=false; btn.innerHTML=old; }
   }
 }
