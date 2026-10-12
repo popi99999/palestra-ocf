@@ -14,6 +14,7 @@ import AppKit
 let SUPA = "https://owxiwgfufhqxwygysgzu.supabase.co/rest/v1/rpc/load_progress2"
 let KEY = "sb_publishable_scf7sDpikMUHXqGRkoQBcA_8eoxz-yt"
 let DIR = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Library/Application Support/PalestraPonte")
+let MAPPA = DIR.appendingPathComponent("mappa.json") // quesito del sito -> riga del foglio Database (in Materia 2 la numerazione del DB è diversa)
 let CONFIG = DIR.appendingPathComponent("config.json"), LEDGER = DIR.appendingPathComponent("registrati.json"), STATUS = DIR.appendingPathComponent("stato.json"), LOG = DIR.appendingPathComponent("ponte.log")
 
 func log(_ s: String) {
@@ -121,7 +122,12 @@ func saveWorkbook(_ wb: String) {
   let (_, e) = runAS("with timeout of 120 seconds\n tell application \"Microsoft Excel\" to save workbook \"\(esc(wb))\"\nend timeout")
   if let e = e { log("salvataggio non riuscito: \(e)") }
 }
-func notify(_ s: String) { _ = runAS("display notification \"\(esc(s))\" with title \"Palestra → DB Mediolanum\"") }
+func notify(_ s: String) {
+  // tramite osascript: le notifiche di un programma in background senza finestra a volte il Mac non le mostra
+  let p = Process(); p.executableURL = URL(fileURLWithPath: "/usr/bin/osascript")
+  p.arguments = ["-e", "display notification \"\(esc(s))\" with title \"Palestra → DB Mediolanum\" sound name \"Glass\""]
+  try? p.run(); p.waitUntilExit()
+}
 
 // --- un giro
 func cycle() {
@@ -145,13 +151,18 @@ func cycle() {
     var items: [(n: Int, ok: Bool)] = []
     for it in q { guard it.count >= 2, let n = (it[0] as? NSNumber)?.intValue, let e = (it[1] as? NSNumber)?.intValue, n >= 1, n <= 5000, e != 0 else { continue }; items.append((n, e == 1)) }
     if items.isEmpty { done.insert(skey(h)); continue }
-    let rows = Array(Set(items.map { $0.n + 1 })).sorted()
+    let mappa = readJSON(MAPPA)
+    let rowOf: (Int) -> Int? = { n in mappa.isEmpty ? n + 1 : (mappa[String(n)] as? NSNumber)?.intValue }
+    let skipped = items.filter { rowOf($0.n) == nil }.map { $0.n }
+    if !skipped.isEmpty { log("quesiti senza corrispondenza sicura nel DB, saltati: \(skipped)") }
+    items = items.filter { rowOf($0.n) != nil }
+    let rows = Array(Set(items.map { rowOf($0.n)! })).sorted()
     guard let cur = readRows(wb, rows) else { status["state"] = "errore di lettura del DB"; return }
     var acc: [Int: (g: Double, t: Double)] = [:]
     var bad = false
     for it in items {
-      let row = it.n + 1
-      guard let c = cur[row], c.0 == it.n else { log("riga \(row) non corrisponde al quesito \(it.n): salto il test"); bad = true; break }
+      let row = rowOf(it.n)!
+      guard let c = cur[row], c.0 == row - 1 else { log("riga \(row) del DB non è quella attesa per il quesito \(it.n): salto il test"); bad = true; break }
       let prev = acc[row] ?? (g: c.1, t: c.3)
       acc[row] = (g: prev.g + (it.ok ? 0 : 1), t: prev.t + 1)
     }
