@@ -445,6 +445,9 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .tb-presets{display:flex;gap:6px;flex-wrap:wrap}
 .chip-btn{border:1px solid var(--ocf-brand-green);background:#fff;color:var(--ocf-brand-green);border-radius:16px;height:30px;padding:0 12px;font-family:var(--font);font-size:13px;font-weight:500;cursor:pointer}
 .chip-btn.on{background:var(--ocf-brand-green);color:#fff}
+.tb-field .tb-goal{display:flex;align-items:center;gap:8px;flex-wrap:wrap;text-transform:none;letter-spacing:normal;font-weight:400}
+.tb-goal input{width:60px;height:32px;border:1px solid var(--ocf-line);border-radius:6px;padding:0 8px;font:inherit;font-size:14px;text-align:center;background:#fff}
+.tb-goal small{font-size:12px;color:var(--ocf-ink-muted);text-transform:none;letter-spacing:normal}
 .trainbar__go{min-height:44px;padding:8px 22px;font-size:15px}
 @media (max-width:767.98px){
   .totali-card{grid-template-columns:56px minmax(0,1fr) 28px;gap:14px;padding:18px 16px}
@@ -1458,7 +1461,7 @@ function renderTrainbar(G){
         <option value="q60" ${tr.time==="q60"?"selected":""}>60 s a domanda</option>
         <option value="q85" ${tr.time==="q85"?"selected":""}>85 s a domanda (ritmo esame)</option>
         <option value="tot" ${tr.time==="tot"?"selected":""}>Totale come all'esame (${mmss(n*85)})</option></select></label>
-      <label class="tb-field"><span>Obiettivo</span><select id="tb-goal">${[120,180,240,300,360,480,600,900].map(v=>`<option value="${v}" ${v===goal60()?"selected":""}>${v/60} min ogni 60 domande</option>`).join("")}</select></label>
+      <label class="tb-field"><span>Obiettivo</span><span class="tb-goal"><input id="tb-goal" type="text" inputmode="decimal" autocomplete="off" value="${(goal60()/60).toLocaleString("it-IT",{maximumFractionDigits:1})}" aria-label="Minuti ogni 60 domande"><small>min ogni 60 domande · <b id="tb-goal-q">${(goal60()/60).toLocaleString("it-IT",{maximumFractionDigits:1})} s</b> a domanda</small></span></label>
       <label class="check"><input type="checkbox" id="tb-fb" ${tr.fb?"checked":""}> Correzione subito</label>
     </div>
     <button class="btn btn-filled trainbar__go" id="tb-go">${icon("play_arrow")} Inizia ${n} domande</button>`;
@@ -1472,7 +1475,9 @@ function renderTrainbar(G){
   $("#tb-fb").onchange=e=>{ tr.fb=e.target.checked; };
   $("#tb-time").onchange=e=>{ tr.time=e.target.value; };
   $("#tb-ord").onchange=e=>{ tr.ord=e.target.value; };
-  $("#tb-goal").onchange=e=>{ lsSet(GOAL_KEY, e.target.value); renderTrainbar(G); };
+  // obiettivo libero: qualsiasi tempo, anche mezzi minuti (es. 2,5 = 2 min e 30 s ogni 60 domande); aggiornato sul posto, senza ridisegnare
+  $("#tb-goal").onchange=e=>{ let v=parseFloat(String(e.target.value).replace(",",".")); if(!(v>0)) v=goal60()/60; v=Math.min(180,Math.max(0.5,Math.round(v*2)/2)); e.target.value=v.toLocaleString("it-IT",{maximumFractionDigits:1}); lsSet(GOAL_KEY, String(Math.round(v*60)));
+    const nn=liveN(); $("#tb-goal-q").textContent=(v).toLocaleString("it-IT",{maximumFractionDigits:1})+" s"; const gl=$(".trainbar__goal"); if(gl) gl.innerHTML=`${icon("flag")} Obiettivo: max <b>${mmss(goalFor(nn))}</b> per ${nn} domande`; };
   $("#tb-go").onclick=()=>{
     const n=liveN();
     const label = picked ? (nCat===1 ? CONT[G.find(g=>g.subs.some(s=>state.picked.has(g.ci+":"+s.si))).ci] : `${nCat} categorie`) : "Tutte le categorie";
