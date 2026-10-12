@@ -1,5 +1,2 @@
 .DS_Store
 .fablize/
-bridge/dbctl
-bridge/ponte/build/
-preview.html
