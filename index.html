@@ -581,6 +581,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .stats-head .pagehead{margin:0}
 .stats-head .mat-tabs{flex:1 1 100%;margin:0}
 .pdf-blocks{margin:0 0 16px}
+.pdf-go{margin:0 0 14px}
 .pdf-block{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid var(--ocf-line)}
 .pdf-block__info{display:flex;flex-direction:column;min-width:0}
 .pdf-block__info small{color:var(--ocf-ink-muted);font-variant-numeric:tabular-nums}
@@ -957,7 +958,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261015-171025";
+const APP_VERSION="20261015-174000";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1440,6 +1441,7 @@ function renderMateria(){
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.seen}<span class="ocf-landing-hero__stat-unit">/${all.tot}</span></div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.wr}</div><div class="ocf-landing-hero__stat-label">Sbagliate</div></div>
     </div></div></section>
+  ${(PDF_BLOCKS[ONLY]||[]).map((b,i)=>`<button class="btn btn-filled pdf-go" data-pdfb="${i}" data-pdfo="pdf">${icon("play_arrow")} Allenati sulle prime ${b.ids.length} domande del PDF</button>`).join("")}
   <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">Selezione</span>
     <span class="toggle"><button id="sel-all">${icon("done_all")} Tutte</button><button id="sel-none">${icon("remove_done")} Nessuna</button><button id="exp-all">${icon("unfold_more")} Apri</button><button id="col-all">${icon("unfold_less")} Chiudi</button></span>
     <span class="ocf-studia-filters__label" style="margin-left:auto">${nSub} sottocategorie</span></div>
@@ -1452,6 +1454,7 @@ function renderMateria(){
   document.querySelectorAll("[data-pickall]").forEach(c=>c.onchange=()=>{ const g=G.find(x=>x.ci===+c.dataset.pickall); g.subs.forEach(s=>c.checked?state.picked.add(keyOf(g,s)):state.picked.delete(keyOf(g,s))); renderMateria(); });
   document.querySelectorAll("[data-leggi]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.leggi); readIds(f.ids,f.label); });
   document.querySelectorAll("[data-solo]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.solo); startTraining(f.ids, f.label, String(b.dataset.solo).includes(":")?"group":"cat"); });
+  bindPdfBlocks(ONLY);
   $("#sel-all").onclick=()=>{ G.forEach(g=>g.subs.forEach(s=>state.picked.add(keyOf(g,s)))); renderMateria(); };
   $("#sel-none").onclick=()=>{ state.picked.clear(); renderMateria(); };
   $("#exp-all").onclick=()=>{ G.forEach(g=>state.open.add(g.ci)); renderMateria(); };
