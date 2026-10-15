@@ -23,6 +23,18 @@ button{font-family:var(--font)}
 :focus-visible{outline:3px solid var(--ocf-brand-green);outline-offset:2px}
 
 .page,.dialog{zoom:var(--zoom,1)}
+/* test a schermo pieno: solo domanda e risposte */
+.focus-ctl{display:none}
+body.focus .appbar,body.focus .drawer,body.focus .scrim,body.focus .pagehead,body.focus .mat-tabs,body.focus .sess-chips,body.focus .sess .hint,body.focus #clear,body.focus #end{display:none!important}
+body.focus main{margin-left:0;padding:calc(64px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+body.focus .page{max-width:1000px;padding-top:0}
+body.focus .paper.sess{box-shadow:none;border:0;background:transparent;padding:0}
+body.focus .quesito-box__testo{font-size:21px;line-height:1.55}
+body.focus .quesito-alt-row{font-size:18px;padding:14px 18px}
+body.focus .focus-ctl{display:flex;position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));z-index:30;align-items:center;gap:4px;background:#fff;border:1px solid var(--ocf-line);border-radius:999px;padding:4px;box-shadow:0 4px 14px -6px rgba(0,0,0,.2)}
+.focus-ctl button{min-width:44px;height:40px;border:0;background:transparent;border-radius:999px;font:inherit;font-size:16px;font-weight:600;color:var(--ocf-ink);cursor:pointer;display:grid;place-items:center}
+.focus-ctl b{font-size:12px;font-weight:600;color:var(--ocf-ink-muted);min-width:38px;text-align:center;font-variant-numeric:tabular-nums}
+.focus-ctl #f-exit{border-left:1px solid var(--ocf-line);border-radius:0 999px 999px 0}
 main{overflow-x:clip}
 .trainbar{zoom:var(--tbz,1)}
 .studia-materia-row__meta{flex-wrap:wrap}
@@ -743,6 +755,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   <button class="navlink" id="nav-sync"><span class="mi">cloud_sync</span>Sincronizza i dispositivi</button>
 </nav>
 <div class="scrim" id="scrim" hidden></div>
+<div class="focus-ctl" id="focus-ctl" role="group" aria-label="Testo e uscita"><button id="f-minus" aria-label="Testo più piccolo">A−</button><b id="fz-val">100%</b><button id="f-plus" aria-label="Testo più grande">A+</button><button id="f-exit" aria-label="Esci dal test"><span class="mi">close</span></button></div>
 <main><div class="page" id="view"></div></main>
 <div id="dlg"></div>
 <div id="print" aria-hidden="true"></div>
@@ -969,7 +982,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261015-221455";
+const APP_VERSION="20261015-224412";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1163,9 +1176,10 @@ $("#hdr-sync").onclick=openSyncDialog; $("#hdr-status").onclick=openSyncDialog; 
 const ZOOM_KEY="palestra-ocf-zoom", ZOOMS=[1,1.15,1.3,1.5,1.75,2];
 function updNarrow(){ const m=document.querySelector("main"); if(!m) return; const z=+getComputedStyle(document.documentElement).getPropertyValue("--zoom")||1; document.documentElement.classList.toggle("narrow", m.clientWidth/z < 1050); }
 window.addEventListener("resize", updNarrow);
-function applyZoom(z){ z=ZOOMS.includes(z)?z:1; document.documentElement.style.setProperty("--zoom", z); document.documentElement.classList.toggle("zoom-big", z>=1.3); document.documentElement.style.setProperty("--tbz", (Math.min(z,1.15)/z).toFixed(3)); /* la barra in basso resta compatta */ lsSet(ZOOM_KEY, String(z)); updNarrow(); const p=Math.round(z*100)+"%"; ["#z-val","#nz-val"].forEach(s=>{ const el=$(s); if(el) el.textContent=p; }); if(state.view==="stats") render(); }
+function applyZoom(z){ z=ZOOMS.includes(z)?z:1; document.documentElement.style.setProperty("--zoom", z); document.documentElement.classList.toggle("zoom-big", z>=1.3); document.documentElement.style.setProperty("--tbz", (Math.min(z,1.15)/z).toFixed(3)); /* la barra in basso resta compatta */ lsSet(ZOOM_KEY, String(z)); updNarrow(); const p=Math.round(z*100)+"%"; ["#z-val","#nz-val","#fz-val"].forEach(s=>{ const el=$(s); if(el) el.textContent=p; }); if(state.view==="stats") render(); }
 function stepZoom(d){ const cur=+getComputedStyle(document.documentElement).getPropertyValue("--zoom")||1; const i=Math.max(0,Math.min(ZOOMS.length-1, ZOOMS.indexOf(ZOOMS.reduce((a,b)=>Math.abs(b-cur)<Math.abs(a-cur)?b:a))+d)); applyZoom(ZOOMS[i]); }
-["#z-plus","#nz-plus"].forEach(s=>$(s).onclick=()=>stepZoom(1)); ["#z-minus","#nz-minus"].forEach(s=>$(s).onclick=()=>stepZoom(-1));
+["#z-plus","#nz-plus","#f-plus"].forEach(s=>$(s).onclick=()=>stepZoom(1)); ["#z-minus","#nz-minus","#f-minus"].forEach(s=>$(s).onclick=()=>stepZoom(-1));
+$("#f-exit").onclick=()=>{ if(state.view==="session" && state.T && !state.T.done) askEnd(); };
 $("#hdr-browse").onclick=()=>{ state.browse.ids=null; state.browse.label=""; go("sfoglia"); };
 const mq = window.matchMedia("(max-width:959.98px)");
 $("#menu").onclick=()=>{ if(mq.matches){ document.body.classList.toggle("drawer-open"); $("#scrim").hidden=!document.body.classList.contains("drawer-open"); } else document.body.classList.toggle("drawer-closed"); updNarrow(); setTimeout(updNarrow, 350); };
@@ -1193,6 +1207,7 @@ function render(){
   setNavActive();
   showActiveMat();
   document.body.classList.remove("printing"); // cambiando pagina la stampa torna quella normale
+  document.body.classList.toggle("focus", v==="session" && !!state.T && state.T.kind!=="sim");
   if(v==="session"){ timerId=setInterval(tick,250); tick(); }
 }
 function showActiveMat(){ const on=$(".mat-tab.on"); if(!on) return; const c=on.parentNode; c.scrollLeft=Math.max(0, on.offsetLeft-c.offsetLeft-(c.clientWidth-on.offsetWidth)/2); } // la materia scelta sempre in vista
