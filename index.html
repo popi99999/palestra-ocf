@@ -525,6 +525,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .an tr.an-sub td.an-lab{padding-left:26px;font-weight:400;color:var(--ocf-ink-soft)}
 .an td.an-ko{color:var(--ocf-red);font-weight:700}
 .an td.an-notecell{text-align:left;min-width:220px}
+@media (pointer:coarse){ input,select,textarea,.an-note{font-size:16px !important} }
 .an-note{width:100%;min-height:30px;resize:vertical;border:1px solid var(--ocf-line);border-radius:6px;padding:5px 7px;font:inherit;font-size:13px;background:#fff;overflow:hidden}
 #print{display:none}
 @media print{
@@ -936,7 +937,10 @@ async function doSync(){
   return canon(persisted())!==before;
 }
 let syncTimer=null;
-const typingNote=()=>!!(document.activeElement && document.activeElement.classList && document.activeElement.classList.contains("an-note"));
+const typingNote=()=>{ const a=document.activeElement; return !!(a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) && a.closest && a.closest("#view")); };
+let renderLater=false; // un ridisegno rimandato perché si stava scrivendo
+function safeRender(){ if(state.view==="session") return; if(typingNote() || dialogOpen()){ renderLater=true; return; } render(); }
+document.addEventListener("focusout", ()=>{ if(renderLater) setTimeout(()=>{ if(renderLater && !typingNote()){ renderLater=false; if(state.view!=="session" && !dialogOpen()) render(); } }, 250); });
 function queueSync(delay){ clearTimeout(syncTimer); syncTimer=setTimeout(async()=>{ const ch=await sync(); if(ch && state.view!=="session" && !typingNote()) render(); }, delay||0); }
 async function syncNow(ms){ if(IN_CLAUDE || !store.code) return; await Promise.race([sync(), new Promise(r=>setTimeout(r, ms||6000))]); }
 // --- test in corso: salvato a ogni risposta, così non si perde se l'app viene chiusa
@@ -960,14 +964,14 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261015-181844";
+const APP_VERSION="20261015-182052";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
     const r=await fetch("version.txt?t="+Date.now(), {cache:"no-store"}); if(!r.ok) return;
     const v=(await r.text()).trim();
     // mai durante un test o sul riepilogo appena finito: si aspetta il prossimo controllo
-    if(/^[0-9-]+$/.test(v) && v!==APP_VERSION && state.view!=="session" && state.view!=="riepilogo" && !(state.T && !state.T.done) && !dialogOpen() && !exporting && !(typeof rxBusy!=="undefined" && rxBusy)){
+    if(/^[0-9-]+$/.test(v) && v!==APP_VERSION && state.view!=="session" && state.view!=="riepilogo" && !(state.T && !state.T.done) && !dialogOpen() && !typingNote() && !exporting && !(typeof rxBusy!=="undefined" && rxBusy)){
       // un solo tentativo per versione (niente ricariche a ripetizione se la rete serve ancora la copia vecchia)
       let tried=null; try{ tried=sessionStorage.getItem("palestra-ocf-upd"); sessionStorage.setItem("palestra-ocf-upd", v); }catch(e){}
       if(tried===v) return;
@@ -1017,7 +1021,7 @@ async function initStore(){
   store.lastSync=+lsGet(SYNC_AT_KEY)||null;
   document.addEventListener("visibilitychange", ()=>{
     const T=state.T;
-    if(document.visibilityState==="hidden"){ if(T && !T.done){ T.hiddenAt=Date.now(); saveLive(); } lsWrite(); if(!IN_CLAUDE && store.code) sync(); }
+    if(document.visibilityState==="hidden"){ const a=document.activeElement; if(a && a.classList && a.classList.contains("an-note")) a.dispatchEvent(new Event("blur")); if(T && !T.done){ T.hiddenAt=Date.now(); saveLive(); } lsWrite(); if(!IN_CLAUDE && store.code) sync(); }
     else { if(T && !T.done && T.hiddenAt){ const d=Date.now()-T.hiddenAt; T.t0+=d; T.qStart+=d; T.hiddenAt=null; } if(!IN_CLAUDE){ queueSync(0); checkUpdate(); } }
   });
   window.addEventListener("storage", e=>{
@@ -1030,7 +1034,7 @@ async function initStore(){
     const saved=lsGet(CODE_KEY), c=normCode(saved);
     store.code = CODE_RE.test(c) ? c : null;   // un codice salvato non valido (versioni vecchie) va ricollegato
     if(!store.code){ setSync(syncLabel()); openLinkDialog(saved?"Il codice salvato su questo dispositivo non è valido. Inserisci quello del tuo account: i progressi di qui verranno uniti.":""); }
-    else { setSync("sincronizzazione…"); await sync(); if(state.view!=="session") render(); }
+    else { setSync("sincronizzazione…"); await sync(); safeRender(); }
     window.addEventListener("focus", ()=>{ queueSync(300); checkUpdate(); });
     window.addEventListener("pageshow", ()=>{ queueSync(0); checkUpdate(); });
     window.addEventListener("online", ()=>queueSync(0));
@@ -1070,7 +1074,7 @@ async function linkCode(raw, create){
   try{ remote=await remoteLoad(c); }catch(e){ return {ok:false, msg:"Non riesco a raggiungere il server. Controlla la connessione e riprova."}; }
   if(!remote && !create) return {ok:false, msg:"Nessun account con questo codice. Controlla di averlo scritto esattamente come sull'altro dispositivo."};
   store.code=c; lsSet(CODE_KEY, c); setSync("sincronizzazione…");
-  await sync(); if(state.view!=="session") render();
+  await sync(); safeRender();
   return {ok:true};
 }
 function openLinkDialog(note){
