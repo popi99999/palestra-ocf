@@ -812,7 +812,7 @@ function cleanSession(h){
   for(const f of ["selC","selS"]) if(h[f]===null) o[f]=null; else if(Array.isArray(h[f])) o[f]=intArr(h[f]);
   if(["all","new","err","worst","redo"].includes(h.w)) o.w=h.w;
   if(["free","q60","q85","tot"].includes(h.tm)) o.tm=h.tm;
-  if(["bar","cat","group","home-new","home-err","redo","worst"].includes(h.src)) o.src=h.src;
+  if(["bar","cat","group","home-new","home-err","redo","worst","pdf"].includes(h.src)) o.src=h.src;
   if(["rand","err","less","orig"].includes(h.ord)) o.ord=h.ord;
   if(h.fb===0 || h.fb===1) o.fb=h.fb;
   if(h.nc===true) o.nc=true;
@@ -943,7 +943,9 @@ async function syncNow(ms){ if(IN_CLAUDE || !store.code) return; await Promise.r
 function saveLive(){
   const T=state.T;
   if(!T || T.done || !T.t0){ lsSet(LIVE_KEY, null); return; }
-  lsSet(LIVE_KEY, JSON.stringify({id:T.id, kind:T.kind, title:T.title, meta:T.meta, fb:T.fb, t0:T.t0, started:T.started||T.t0, i:T.i, saved:Date.now(),
+  const now=Date.now(), at=T.hiddenAt||now; // tempo trascorso senza contare le pause (app nascosta)
+  lsSet(LIVE_KEY, JSON.stringify({id:T.id, kind:T.kind, title:T.title, meta:T.meta, fb:T.fb, t0:T.t0, started:T.started||T.t0, i:T.i, saved:now,
+    el:Math.max(0,at-T.t0), qel:Math.max(0,at-T.qStart), limit:T.limit||null, perQ:T.perQ||null, goal:T.goal||null, timeUp:!!T.timeUp,
     items:T.items.map(x=>[x.n, x.pick, x.locked?1:0, x.spent==null?null:x.spent, x.order?x.order.join(""):null])}));
 }
 function recoverLive(){
@@ -985,10 +987,29 @@ function liveElsewhere(id){
     bc.addEventListener("message", on); bc.postMessage({t:"ping", id});
   });
 }
+function resumeLive(L){
+  // riapre il test esattamente dov'era: stesse domande, ordine, risposte, tempo e correzione
+  const items=L.items.map(([n,p,lk,sp,od])=>({n:qn(n), pick:[0,1,2,3,-2].includes(p)?p:null, locked:!!lk, spent:sp==null?null:int(sp,0,86400), timeout:false,
+    order:typeof od==="string"&&/^[0-3]{4}$/.test(od)&&new Set(od).size===4?[...od].map(Number):shuffle([0,1,2,3])})).filter(x=>x.n);
+  if(!items.length) return false;
+  // int() porta null al minimo (null -> 1): qui un valore assente deve restare assente
+  const num=(v,lo,hi)=>v==null||v===""?null:int(v,lo,hi);
+  const now=Date.now(), el=num(L.el,0,864e5), qel=num(L.qel,0,864e5);
+  const i=Math.min(Math.max(0,num(L.i,0,5000)||0), items.length-1);
+  state.T={id:typeof L.id==="string"?L.id:sid(), meta:L.meta||{}, goal:num(L.goal,1,9e6)||goalFor(items.length), kind:L.kind||"studio", title:String(L.title||"Allenamento"),
+    items, i, fb:L.fb==="now"?"now":"end", limit:num(L.limit,1,864e3), perQ:num(L.perQ,1,3600),
+    t0:now-(el!=null?el:Math.max(0,(num(L.saved,1,9e15)||now)-(num(L.t0,1,9e15)||now))), started:num(L.started,1,9e15), qStart:now-(qel||0), done:false};
+  state.view="session"; render(); window.scrollTo(0,0); saveLive();
+  return true;
+}
 async function recoverLiveSafe(){
   let L=null; try{ L=JSON.parse(lsGet(LIVE_KEY)||"null"); }catch(e){}
   if(!L) return;
   if(await liveElsewhere(L.id)) return; // è il test di un'altra finestra ancora aperta: lo salverà lei
+  // su iPad Safari ricarica da solo le pagine rimaste in background: il test si riprende invece di chiuderlo
+  if(L.kind!=="sim" && Array.isArray(L.items) && L.items.length && state.view!=="session" && !(state.T && !state.T.done)){
+    try{ if(resumeLive(L)) return; }catch(e){}
+  }
   recoverLive();
 }
 // --- avvio
@@ -1069,8 +1090,8 @@ function openLinkDialog(note){
     busy(true); const r=await linkCode(inp.value, false); busy(false);
     if(!r.ok){ inp.style.borderColor="#C62828"; hint.style.color="#C62828"; hint.textContent=r.msg; return; }
     closeDialog();
-    const s=gstats(BY_MAT[ONLY]);
-    dialog({title:"Dispositivo collegato", body: store.online?`Fatto: questo dispositivo usa l'account <b>${esc(store.code.slice(0,4))}</b>. Domande fatte su questo account: <b>${s.seen}</b>.`:"Codice salvato: appena c'è connessione i progressi vengono sincronizzati.", actions:[{label:"Ok",primary:true}]});
+    const seenAll=[1,2,3,4,5].reduce((a,mm)=>a+gstats(BY_MAT[mm]).seen,0);
+    dialog({title:"Dispositivo collegato", body: store.online?`Fatto: questo dispositivo usa l'account <b>${esc(store.code.slice(0,4))}</b>. Domande fatte su questo account (tutte le materie): <b>${seenAll}</b>.`:"Codice salvato: appena c'è connessione i progressi vengono sincronizzati.", actions:[{label:"Ok",primary:true}]});
   };
 }
 /* ---------- finestra "Sincronizza i dispositivi" ---------- */
@@ -1081,7 +1102,7 @@ function openSyncDialog(){
   dialog({title:"Sincronizza i dispositivi", body:`
     <p style="margin:0 0 10px">I progressi si salvano online con questo <b>codice personale</b>. Inseriscilo una volta sugli altri dispositivi (telefono, computer) e restano tutti allineati.</p>
     <div class="syncbox"><code id="sync-code">${esc(store.code)}</code><button class="btn btn-outlined btn-sm" id="sync-copy">${icon("content_copy")} Copia</button></div>
-    <p class="hint">Stato: ${esc(syncLabel())} · domande fatte su questo account: <b>${gstats(BY_MAT[ONLY]).seen}</b> · test fatti: <b>${S.h.length}</b> · ultima sincronizzazione: ${when}. Tienilo per te: chi ha il codice vede i tuoi progressi.</p>
+    <p class="hint">Stato: ${esc(syncLabel())} · domande fatte su questo account (tutte le materie): <b>${[1,2,3,4,5].reduce((a,mm)=>a+gstats(BY_MAT[mm]).seen,0)}</b> · test fatti (tutte le materie): <b>${S.h.filter(h=>!h.nc).length}</b> · ultima sincronizzazione: ${when}. Tienilo per te: chi ha il codice vede i tuoi progressi.</p>
     <div class="field" style="margin-top:18px"><label for="sync-in">Vuoi usare un altro account?</label><input id="sync-in" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><span class="hint" id="sync-hint">I progressi di questo dispositivo vengono uniti a quelli del codice inserito, niente va perso.</span></div>`,
     actions:[{label:"Chiudi"},{label:"Sincronizza ora"},{label:"Usa questo codice",primary:true}]});
   $("#sync-copy").onclick=()=>{ const c=store.code; navigator.clipboard?.writeText(c).then(()=>{ $("#sync-copy").innerHTML=icon("check")+" Copiato"; }).catch(()=>{ const r=document.createRange(); r.selectNodeContents($("#sync-code")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }); };
@@ -1200,6 +1221,7 @@ function todayPlan(){
   if(d<PLAN[0].from) return {m:5, txt:"Il piano Mediolanum parte con la Materia 5 – Privato e commerciale il 10 ottobre."};
   return {m:null, txt:"Fase 1 conclusa: ora contano le simulazioni complete. Obiettivo: più di 450, media sopra 94, meno di 10 minuti."};
 }
+function pl(n,s,p){ return n===1?s:p; } // 1 domanda, 2 domande
 // blocchi di studio presi dai PDF "per concetto" (stesso ordine delle pagine del PDF)
 const PDF_BLOCKS={4:[{title:"PDF Materia 4 · domande 1–40", ids:[4101, 4102, 4104, 4105, 4106, 4107, 4108, 4138, 4109, 4110, 4111, 4112, 4113, 4114, 4115, 4135, 4145, 4148, 4139, 4141, 4134, 4140, 4132, 4143, 4118, 4119, 4120, 4144, 4121, 4122, 4123, 4133, 4142, 4124, 4125, 4126, 4147, 4127, 4103, 4116]}]};
 function pdfBlocksHtml(m){
@@ -1207,17 +1229,21 @@ function pdfBlocksHtml(m){
   return `<section class="paper pdf-blocks"><h3 class="dashboard-prove__title">${icon("menu_book")} Allenamento sul PDF</h3>
     <p class="dashboard-prove__subtitle">Le domande nello stesso ordine del PDF «Materia ${m} - tutte per concetto».</p>
     ${B.map((b,i)=>{ const st=gstats(b.ids), wr=b.ids.filter(n=>{ const r=S.m[m][n]; return r&&!r[2]; }).length;
-      return `<div class="pdf-block"><div class="pdf-block__info"><b>${esc(b.title)}</b><small>${b.ids.length} domande · ${st.seen} fatte · ${st.ok} giuste · ${st.wr} sbagliate</small></div>
+      return `<div class="pdf-block"><div class="pdf-block__info"><b>${esc(b.title)}</b><small>${b.ids.length} domande · ${st.seen} ${pl(st.seen,"fatta","fatte")} · ${st.ok} ${pl(st.ok,"giusta","giuste")} · ${st.wr} ${pl(st.wr,"sbagliata","sbagliate")}</small></div>
         <div class="pdf-block__acts"><button class="btn btn-filled" data-pdfb="${i}" data-pdfo="pdf">${icon("format_list_numbered")} Nell'ordine del PDF</button>
         <button class="btn btn-outlined" data-pdfb="${i}" data-pdfo="rand">${icon("shuffle")} In ordine casuale</button>
         <button class="btn btn-outlined" data-pdfb="${i}" data-pdfo="err" ${wr?"":"disabled"}>${icon("replay")} Solo le sbagliate (${wr})</button></div></div>`; }).join("")}
   </section>`;
 }
-function bindPdfBlocks(m){
+function bindPdfBlocks(m, useBar){
   document.querySelectorAll("[data-pdfb]").forEach(b=>b.onclick=()=>{ const blk=PDF_BLOCKS[m][+b.dataset.pdfb], o=b.dataset.pdfo;
     const wrong=blk.ids.filter(n=>{ const r=S.m[m][n]; return r&&!r[2]; });
     const ids = o==="pdf" ? blk.ids.slice() : o==="err" ? wrong : shuffle(blk.ids.slice());
-    startSession({kind:"studio", title:blk.title+(o==="err"?" · sbagliate":""), ids, fb:"now", w:o==="err"?"err":"all", src:"pdf"}); });
+    const tr=state.train, n=ids.length;
+    // nella pagina Categorie valgono Tempo e Correzione scelti nella barra; dalla Home correzione subito e cronometro libero
+    const tm = !useBar ? {} : tr.time==="q60"?{perQ:60} : tr.time==="q85"?{perQ:85} : tr.time==="tot"?{limit:n*85} : {};
+    startSession(Object.assign({kind:"studio", title:blk.title+(o==="err"?" · sbagliate":""), ids, fb: !useBar||tr.fb?"now":"end", w:o==="err"?"err":"all", src:"pdf",
+      meta:{ord:o==="pdf"?"orig":"rand"}}, tm)); });
 }
 function renderHome(){
   const m=ONLY, ids=BY_MAT[m], s=gstats(ids), G=groupsOf(m), nSub=G.reduce((a,g)=>a+g.subs.length,0);
@@ -1240,7 +1266,7 @@ function renderHome(){
     <span class="totali-card__icon">${icon("quiz")}</span>
     <span class="totali-card__body"><span class="totali-card__label">Domande totali</span><span class="totali-card__value">${s.tot}</span><span class="totali-card__meta">${G.length} categorie · ${nSub} sottocategorie · tocca per vederle</span></span>
     <span class="totali-card__bar"><span class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${s.ok/s.tot*100}%"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${s.wr/s.tot*100}%"></span></span>
-      <span class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${s.ok} giuste</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${s.wr} sbagliate</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${daFare} da fare</span></span></span>
+      <span class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${s.ok} ${pl(s.ok,"giusta","giuste")}</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${s.wr} ${pl(s.wr,"sbagliata","sbagliate")}</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${daFare} da fare</span></span></span>
     <span class="totali-card__go">${icon("chevron_right")}</span>
   </button>
   <div class="quick">
@@ -1254,7 +1280,7 @@ function renderHome(){
   <section class="paper dashboard-prove"><div class="dashboard-prove__header"><div><h3 class="dashboard-prove__title">${icon("history")} Ultimi allenamenti</h3><p class="dashboard-prove__subtitle">Punteggio di ogni sessione, dalla più recente.</p></div></div>
     ${recent.length?`<div class="dashboard-prove__list">${recent.map(h=>{ const ans=sessCounts(h).answered, p=ans?Math.round(h.ok/ans*100):0, good=p>=80;
       return `<div class="prova-card ${good?"prova-card--superata":"prova-card--non-superata"}" style="cursor:default"><span class="prova-card__num">${p}<span class="prova-card__num-hash">%</span></span>
-        <span class="prova-card__body"><span class="prova-card__label" style="display:block">${esc(h.title)}</span><span class="prova-card__date">${icon("event")}${dmy(h.t)}<span class="prova-card__date-sep">·</span>${hm(h.t)}<span class="prova-card__date-sep">·</span>${mmss(h.sec)}</span></span>
+        <span class="prova-card__body"><span class="prova-card__label" style="display:block">${esc(h.title)}</span><span class="prova-card__date">${icon("event")}${dmy(h.start||(h.t-h.sec*1000))}<span class="prova-card__date-sep">·</span>${hm(h.start||(h.t-h.sec*1000))}<span class="prova-card__date-sep">·</span>${mmss(h.sec)}</span></span>
         <span class="prova-card__score"><span class="prova-card__score-value">${h.ok}</span><span class="prova-card__score-max">/${ans}</span></span><span></span></div>`; }).join("")}</div>`
       :`<div class="alert">${icon("info_outline")}<span>Ancora nessun allenamento. Tocca "Domande totali" e scegli le categorie.</span></div>`}
   </section>`;
@@ -1418,9 +1444,9 @@ function renderMateria(){
       <input type="checkbox" class="cat-check" data-pickall="${g.ci}" ${full?"checked":""} ${nSel&&!full?'data-partial="1"':""} aria-label="Seleziona ${esc(CONT[g.ci])}">
       <div class="studia-materia-row__badge"><span class="cat-count ${st.seen?"is-on":""}"><b>${g.ids.length}</b><small>domande</small></span></div>
       <div class="studia-materia-row__main"><div class="studia-materia-row__meta"><span>Categoria <b>${pad2(i+1)}</b></span><span>·</span><button class="linkbtn" data-exp="${g.ci}" aria-expanded="${open}"><b>${g.subs.length}</b> ${g.subs.length===1?"sottocategoria":"sottocategorie"} ${icon(open?"expand_less":"expand_more")}</button></div><h3 class="studia-materia-row__title" title="${esc(CONT[g.ci])}">${esc(CONT[g.ci])}</h3></div>
-      <div class="studia-materia-row__breakdown"><div class="studia-materia-row__breakdown-label">${st.seen?`<b>${st.seen}</b> domande fatte su ${st.tot}`:"Nessuna risposta"}</div>
+      <div class="studia-materia-row__breakdown"><div class="studia-materia-row__breakdown-label">${st.seen?`<b>${st.seen}</b> ${pl(st.seen,"domanda fatta","domande fatte")} su ${st.tot}`:"Nessuna risposta"}</div>
         <div class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${w(st.ok)}"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${w(st.wr)}"></span></div>
-        ${st.seen?`<div class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${st.ok} giuste</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${st.wr} sbagliate</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${st.tot-st.seen} da fare</span></div>`:`<div class="studia-breakdown-empty">Nessuna risposta ancora registrata</div>`}</div>
+        ${st.seen?`<div class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${st.ok} ${pl(st.ok,"giusta","giuste")}</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${st.wr} ${pl(st.wr,"sbagliata","sbagliate")}</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${st.tot-st.seen} da fare</span></div>`:`<div class="studia-breakdown-empty">Nessuna risposta ancora registrata</div>`}</div>
       <div class="studia-materia-row__levels">
         <div class="studia-level-meter-row"><div class="studia-level-meter__header"><span>Liv. preparazione</span><span class="studia-level-meter__value"><b>${prep}</b><span class="studia-level-meter__value-max">/100</span></span></div><div class="studia-level-meter"><div class="studia-level-meter__fill" style="width:${prep}%"></div></div></div>
         <div class="studia-level-meter-row"><div class="studia-level-meter__header"><span>Copertura domande</span><span class="studia-level-meter__value"><b>${cop}</b><span class="studia-level-meter__value-max">/100</span></span></div><div class="studia-level-meter"><div class="studia-level-meter__fill" style="width:${cop}%"></div></div></div>
@@ -1454,7 +1480,7 @@ function renderMateria(){
   document.querySelectorAll("[data-pickall]").forEach(c=>c.onchange=()=>{ const g=G.find(x=>x.ci===+c.dataset.pickall); g.subs.forEach(s=>c.checked?state.picked.add(keyOf(g,s)):state.picked.delete(keyOf(g,s))); renderMateria(); });
   document.querySelectorAll("[data-leggi]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.leggi); readIds(f.ids,f.label); });
   document.querySelectorAll("[data-solo]").forEach(b=>b.onclick=()=>{ const f=find(b.dataset.solo); startTraining(f.ids, f.label, String(b.dataset.solo).includes(":")?"group":"cat"); });
-  bindPdfBlocks(ONLY);
+  bindPdfBlocks(ONLY, true);
   $("#sel-all").onclick=()=>{ G.forEach(g=>g.subs.forEach(s=>state.picked.add(keyOf(g,s)))); renderMateria(); };
   $("#sel-none").onclick=()=>{ state.picked.clear(); renderMateria(); };
   $("#exp-all").onclick=()=>{ G.forEach(g=>state.open.add(g.ci)); renderMateria(); };
@@ -1479,7 +1505,7 @@ function renderTrainbar(G){
   const pool = tr.which==="new"?fresh : tr.which==="err"?wrong : base;
   const n=Math.max(1,Math.min(pool.length, tr.n||25));
   $("#trainbar").innerHTML = `
-    <div class="trainbar__info"><span class="trainbar__what">${picked?`${nCat} ${nCat===1?"categoria selezionata":"categorie selezionate"}`:"Tutte le categorie"}</span><span class="trainbar__count"><b>${pool.length}</b> domande disponibili</span><span class="trainbar__goal">${icon("flag")} Obiettivo: max <b>${mmss(goalFor(n))}</b> per ${n} domande</span></div>
+    <div class="trainbar__info"><span class="trainbar__what">${picked?`${nCat} ${nCat===1?"categoria selezionata":"categorie selezionate"}`:"Tutte le categorie"}</span><span class="trainbar__count"><b>${pool.length}</b> ${pl(pool.length,"domanda disponibile","domande disponibili")}</span><span class="trainbar__goal">${icon("flag")} Obiettivo: max <b>${mmss(goalFor(n))}</b> per ${n} ${pl(n,"domanda","domande")}</span></div>
     <div class="trainbar__opts">
       <label class="tb-field"><span>Quali</span><select id="tb-which"><option value="all" ${tr.which==="all"?"selected":""}>Tutte (${base.length})</option><option value="new" ${tr.which==="new"?"selected":""} ${fresh.length?"":"disabled"}>Mai fatte (${fresh.length})</option><option value="err" ${tr.which==="err"?"selected":""} ${wrong.length?"":"disabled"}>Sbagliate (${wrong.length})</option></select></label>
       <label class="tb-field"><span>Quante</span><span class="tb-num"><button type="button" id="tb-minus" aria-label="Meno">${icon("remove")}</button><input id="tb-n" type="number" min="1" max="${pool.length}" value="${n}" inputmode="numeric"><button type="button" id="tb-plus" aria-label="Più">${icon("add")}</button></span></label>
@@ -1493,13 +1519,18 @@ function renderTrainbar(G){
       <label class="tb-field"><span>Obiettivo</span><span class="tb-goal"><input id="tb-goal" type="text" inputmode="decimal" autocomplete="off" value="${(goal60()/60).toLocaleString("it-IT",{maximumFractionDigits:1})}" aria-label="Minuti ogni 60 domande"><small>min ogni 60 domande · <b id="tb-goal-q">${(goal60()/60).toLocaleString("it-IT",{maximumFractionDigits:1})} s</b> a domanda</small></span></label>
       <label class="check"><input type="checkbox" id="tb-fb" ${tr.fb?"checked":""}> Correzione subito</label>
     </div>
-    <button class="btn btn-filled trainbar__go" id="tb-go">${icon("play_arrow")} Inizia ${n} domande</button>`;
+    <button class="btn btn-filled trainbar__go" id="tb-go">${icon("play_arrow")} <span id="tb-go-t">Inizia ${n} ${n===1?"domanda":"domande"}</span></button>`;
   const setN=v=>{ tr.n=Math.max(1,Math.round(v)||1); renderTrainbar(G); };
   const liveN=()=>Math.max(1,Math.min(pool.length,Math.round(+$("#tb-n").value)||1));
   $("#tb-which").onchange=e=>{ tr.which=e.target.value; renderTrainbar(G); };
-  // il campo si aggiorna sul posto: ridisegnare la barra qui farebbe perdere il tocco su "Inizia"
-  $("#tb-n").onchange=e=>{ const v=liveN(); tr.n=v; e.target.value=v; $("#tb-go").innerHTML=`${icon("play_arrow")} Inizia ${v} domande`; const gl=$(".trainbar__goal"); if(gl) gl.innerHTML=`${icon("flag")} Obiettivo: max <b>${mmss(goalFor(v))}</b> per ${v} domande`; };
-  $("#tb-minus").onclick=()=>setN(n>25?Math.max(25,n-5):n-1); $("#tb-plus").onclick=()=>{ if(n<pool.length) setN(Math.min(pool.length, n+(n>=25?5:1))); };
+  // il campo si aggiorna sul posto mentre si scrive ("input"). Su "change" (che su iPad arriva proprio durante il tocco
+  // su "Inizia") non si tocca il pulsante: cambiarne il contenuto in quel momento fa perdere il tocco in Safari.
+  const showN=v=>{ const t=$("#tb-go-t"); if(t) t.textContent=`Inizia ${v} ${v===1?"domanda":"domande"}`; const gl=$(".trainbar__goal"); if(gl) gl.innerHTML=`${icon("flag")} Obiettivo: max <b>${mmss(goalFor(v))}</b> per ${v} ${v===1?"domanda":"domande"}`;
+    const ot=$('#tb-time option[value="tot"]'); if(ot) ot.textContent=`Totale come all'esame (${mmss(v*85)})`;
+    document.querySelectorAll("#trainbar [data-n]").forEach(b=>b.classList.toggle("on", +b.dataset.n===v)); };
+  $("#tb-n").oninput=()=>{ const v=liveN(); tr.n=v; showN(v); };
+  $("#tb-n").onchange=e=>{ const v=liveN(); tr.n=v; if(+e.target.value!==v) setTimeout(()=>{ e.target.value=v; showN(v); }, 400); };
+  $("#tb-minus").onclick=()=>{ const c=liveN(); setN(c>25?Math.max(25,c-5):c-1); }; $("#tb-plus").onclick=()=>{ const c=liveN(); if(c<pool.length) setN(Math.min(pool.length, c+(c>=25?5:1))); };
   document.querySelectorAll("[data-n]").forEach(b=>b.onclick=()=>setN(+b.dataset.n));
   $("#tb-fb").onchange=e=>{ tr.fb=e.target.checked; };
   $("#tb-time").onchange=e=>{ tr.time=e.target.value; };
@@ -1585,7 +1616,7 @@ function svgDays(days, W){
     if(d.ok) g+=`<rect x="${x0}" y="${t+ih-hOk}" width="${bw}" height="${hOk}" rx="3" fill="#2E7D32"/>`;
     if(d.ko) g+=`<rect x="${x0}" y="${t+ih-hOk-hKo-(d.ok?2:0)}" width="${bw}" height="${hKo}" rx="3" fill="#C62828"/>`;
     if((n-1-i)%(W<520?3:1)===0) g+=`<text x="${cx}" y="${H-10}" text-anchor="middle">${esc(d.lab)}</text>`;
-    g+=`<rect class="hit" x="${cx-iw/n/2}" y="${t}" width="${iw/n}" height="${ih}" fill="transparent" data-tip="${esc(`<b>${d.full}</b><br>${d.ok+d.ko} domande · ${d.ok} giuste · ${d.ko} sbagliate`)}" data-cx="${cx}" data-cy="${t+ih-hOk-hKo}"/>`; });
+    g+=`<rect class="hit" x="${cx-iw/n/2}" y="${t}" width="${iw/n}" height="${ih}" fill="transparent" data-tip="${esc(`<b>${d.full}</b><br>${d.ok+d.ko} ${pl(d.ok+d.ko,"domanda","domande")} · ${d.ok} ${pl(d.ok,"giusta","giuste")} · ${d.ko} ${pl(d.ko,"sbagliata","sbagliate")}`)}" data-cx="${cx}" data-cy="${t+ih-hOk-hKo}"/>`; });
   return `<div class="chart chart-hover"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Domande al giorno, ultimi 14 giorni">${g}</svg><div class="tip" hidden></div></div>`;
 }
 function bindChartHover(){
@@ -1613,8 +1644,8 @@ function renderStats(){
   const st=h=>h.start||(h.t-h.sec*1000), nQ=sess.reduce((a,h)=>a+h.n,0);
   const days=new Set(sess.map(h=>dayKey(st(h))));
   const last=sess.slice(-30);
-  const perf=last.map(h=>({x:new Date(h.t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:(c=>c.answered?Math.round(c.ok/c.answered*100):0)(sessCounts(h)), tip:(c=>`<b>${esc(h.title)}</b><br>${dmy(h.t)} ${hm(h.t)}<br>${c.ok}/${c.answered} giuste · <b>${c.answered?Math.round(c.ok/c.answered*100):0}%</b><br>${Math.round(h.sec/h.n)} s a domanda`)(sessCounts(h))}));
-  const speed=last.map(h=>({x:new Date(h.t).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:Math.round(h.sec/h.n*10)/10, tip:`<b>${esc(h.title)}</b><br>${dmy(h.t)} ${hm(h.t)}<br><b>${(Math.round(h.sec/h.n*10)/10).toLocaleString("it-IT")} s</b> a domanda · totale ${mmss(h.sec)}`}));
+  const perf=last.map(h=>({x:new Date(st(h)).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:(c=>c.answered?Math.round(c.ok/c.answered*100):0)(sessCounts(h)), tip:(c=>`<b>${esc(h.title)}</b><br>${dmy(st(h))} ${hm(st(h))}<br>${c.ok}/${c.answered} giuste · <b>${c.answered?Math.round(c.ok/c.answered*100):0}%</b><br>${Math.round(h.sec/h.n)} s a domanda`)(sessCounts(h))}));
+  const speed=last.map(h=>({x:new Date(st(h)).toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), y:Math.round(h.sec/h.n*10)/10, tip:`<b>${esc(h.title)}</b><br>${dmy(st(h))} ${hm(st(h))}<br><b>${(Math.round(h.sec/h.n*10)/10).toLocaleString("it-IT")} s</b> a domanda · totale ${mmss(h.sec)}`}));
   const speedSc=niceScale(Math.max(goal60()/60*2, ...speed.map(p=>p.y))*1.1);
   const dayRows=[]; for(let i=13;i>=0;i--){ const d=new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate()-i); const k=dayKey(d); const hs=sess.filter(h=>dayKey(st(h))===k);
     dayRows.push({lab:d.toLocaleDateString("it-IT",{day:"2-digit",month:"2-digit"}), full:d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"}), ok:hs.reduce((a,h)=>a+h.ok,0), ko:hs.reduce((a,h)=>a+sessCounts(h).answered-h.ok,0)}); }
@@ -1626,7 +1657,7 @@ function renderStats(){
     <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("visibility")}</span><span class="stat-card__label">Domande fatte</span><span class="stat-card__value">${s.seen}<span class="of">/${s.tot}</span></span></div>
     <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Risposte giuste</span><span class="stat-card__value">${answers?Math.round(okAns/answers*100):0}<span class="of">%</span></span><span class="stat-card__sub">${okAns} su ${answers} risposte</span></div>
     <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("timer")}</span><span class="stat-card__label">Tempo a domanda</span><span class="stat-card__value">${nQ?Math.round(secs/nQ):0}<span class="of"> s</span></span><span class="stat-card__sub">obiettivo ${Math.round(goal60()/6)/10} s · totale ${mmss(secs)}</span></div>
-    <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("event_available")}</span><span class="stat-card__label">Giorni di studio</span><span class="stat-card__value">${days.size}</span><span class="stat-card__sub">${sess.length} allenamenti</span></div>
+    <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("event_available")}</span><span class="stat-card__label">Giorni di studio</span><span class="stat-card__value">${days.size}</span><span class="stat-card__sub">${sess.length} ${pl(sess.length,"allenamento","allenamenti")}</span></div>
   </div>
   <div class="home-grid">
     <section class="paper card"><div class="cardhead"><h6>Rendimento nel tempo</h6></div><p class="hint" style="margin:-8px 0 8px">% di risposte giuste in ogni allenamento (ultimi 30). La linea tratteggiata è la soglia d'esame 80.</p><div class="chart-slot" data-chart="perf"></div></section>
@@ -1638,7 +1669,7 @@ function renderStats(){
       ${cats.map(c=>`<div class="barrow"><div><div class="lbl" title="${esc(CONT[c.ci])}">${esc(CONT[c.ci])}</div><div class="track"><div class="fill" style="width:${c.acc??0}%;background:${c.acc===null?"#BDBDBD":c.acc>=80?"#2E7D32":c.acc>=60?"#B7560B":"#C62828"}"></div></div><div class="barrow__sub">${c.seen}/${c.tot} fatte</div></div><div class="val">${c.acc===null?"–":c.acc+"%"}</div></div>`).join("")}
       <p class="hint">Verde da 80% in su, arancio 60–79%, rosso sotto 60%.</p></section>
     <section class="paper card"><div class="cardhead"><h6>Sbagliate più spesso</h6>${worst.length?`<button class="btn btn-filled btn-sm" id="train-worst">${icon("play_arrow")} Allenati su queste</button>`:""}</div>
-      ${worst.length?`<ol class="worst">${worst.map(w=>{ const q=Q[w.n-1]; return `<li><details><summary><span class="worst__n">${w.wrong}×</span><span class="worst__q">${esc(q[4])}</span><span class="worst__st ${w.last?"ok":"ko"}">${w.last?"ultima giusta":"ancora sbagliata"}</span></summary><div class="worst__a">${icon("check")}<span>${esc(q[5])}</span></div><div class="worst__meta">${esc(CONT[q[1]])} · sbagliata ${w.wrong} volte su ${w.seen}</div></details></li>`; }).join("")}</ol>`
+      ${worst.length?`<ol class="worst">${worst.map(w=>{ const q=Q[w.n-1]; return `<li><details><summary><span class="worst__n">${w.wrong}×</span><span class="worst__q">${esc(q[4])}</span><span class="worst__st ${w.last?"ok":"ko"}">${w.last?"ultima giusta":"ancora sbagliata"}</span></summary><div class="worst__a">${icon("check")}<span>${esc(q[5])}</span></div><div class="worst__meta">${esc(CONT[q[1]])} · sbagliata ${w.wrong} ${pl(w.wrong,"volta","volte")} su ${w.seen}</div></details></li>`; }).join("")}</ol>`
       :`<div class="alert">${icon("info_outline")}<span>Nessuna domanda sbagliata finora. Quando sbagli, qui trovi quelle che ti fregano di più.</span></div>`}</section>
   </div>
   <section class="paper card" id="test-fatti"><div class="cardhead"><h6>Test fatti (${sessList().length})</h6></div>${testsListHTML()}</section>`;
@@ -1654,7 +1685,7 @@ function renderStats(){
 }
 
 /* ================= TEST FATTI ================= */
-const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso"};
+const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF"};
 const WHICH_TXT={all:"tutte", new:"mai fatte", err:"sbagliate", worst:"sbagliate più spesso", redo:"da rivedere"};
 const TIME_TXT={free:"cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"tempo totale d'esame"};
 function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[5]).includes(ONLY)).slice().sort((a,b)=>b.t-a.t); }
@@ -1739,7 +1770,7 @@ function renderTestDetail(){
       ${h.tm?`<div><span>Tempo</span><b>${esc(TIME_TXT[h.tm]||"")}</b></div>`:""}
       ${h.fb!=null?`<div><span>Correzione</span><b>${h.fb?"subito":"alla fine"}</b></div>`:""}
     </div>
-    <div class="t-actions">${wrongIds.length?`<button class="btn btn-filled" id="t-redo">${icon("replay")} Rifai le ${wrongIds.length} non giuste</button>`:""}<button class="btn btn-outlined" id="t-print">${icon("print")} Report PDF</button></div>
+    <div class="t-actions">${wrongIds.length?`<button class="btn btn-filled" id="t-redo">${icon("replay")} ${wrongIds.length===1?"Rifai quella non giusta":`Rifai le ${wrongIds.length} non giuste`}</button>`:""}<button class="btn btn-outlined" id="t-print">${icon("print")} Report PDF</button></div>
     ${rows?`<h3 class="riepilogo-title" style="margin-top:6px">${icon("list")} Domanda per domanda</h3><div class="tq-list">${rows}</div>`:`<div class="alert">${icon("info_outline")}<span>Per i test fatti prima dell'11 ottobre 2026 alle 17 è salvato solo il risultato complessivo, non il dettaglio di ogni domanda.</span></div>`}
   </section>`;
   $("#t-back").onclick=()=>go(state.testBack==="stats"?"stats":"tests");
@@ -1799,7 +1830,7 @@ function printReport(h){
   const E={"1":"Corretta","-1":"Errata","-2":"Non la sapevo","0":"Non data"};
   $("#print").innerHTML=`<div class="pr">
     <div class="pr-head"><h1>Test del ${dmy(st)}</h1><div>${esc(String(h.title||"").replace(/ \(interrotto\)$/,""))}${h.cut?" (interrotto)":""}</div>
-      <div>Punteggio: <b>${c.ok}/${h.n}</b> · Inizio: ${d.toLocaleTimeString("it-IT")} · Fine: ${new Date(h.t).toLocaleTimeString("it-IT")} · Durata: ${mmss(h.sec)}</div>
+      <div>Punteggio: <b>${c.ok}/${c.answered}</b> ${c.answered===1?"risposta data":"risposte date"}${c.answered!==h.n?` (su ${h.n} ${h.n===1?"domanda":"domande"})`:""} · Inizio: ${d.toLocaleTimeString("it-IT")} · Fine: ${new Date(h.t).toLocaleTimeString("it-IT")} · Durata: ${mmss(h.sec)}</div>
       <div>Risposte — esatte: <b>${c.ok}</b> · errate: <b>${c.err==null?h.n-h.ok:c.err+c.nls}</b>${c.nls?` (di cui «non la so»: ${c.nls})`:""} · non date: <b>${c.nd==null?"—":c.nd}</b></div></div>
     <h2>Riepilogo risultati per categoria</h2>
     ${q.length?[...cats].map(([ci,r])=>`<div class="pr-box"><div>Categoria: <b>${esc(CONT[ci])}</b></div><div class="pr-row"><span>Totale domande: ${r.n}</span><span>Corrette: ${r.ok}</span><span>Errate: ${r.ko}</span><span>Non date: ${r.nd}</span></div></div>`).join(""):`<p>Per questo test è salvato solo il risultato complessivo.</p>`}
@@ -1901,7 +1932,7 @@ function buildSim(){
 
 /* ================= motore sessione ================= */
 let timerId=null;
-function defaultMeta(cfg){ const own=cfg.src==="redo"||cfg.src==="worst"; return {w:cfg.w||"all", tm:cfg.limit?"tot":cfg.perQ===60?"q60":cfg.perQ===85?"q85":"free", fb:cfg.fb==="now"?1:0, selC:own?[...new Set(cfg.ids.map(n=>Q[n-1][1]))]:null, selS:own?[...new Set(cfg.ids.map(n=>Q[n-1][2]))]:null, src:cfg.src||null}; }
+function defaultMeta(cfg){ const own=cfg.src==="redo"||cfg.src==="worst"||cfg.src==="pdf"; return {w:cfg.w||"all", tm:cfg.limit?"tot":cfg.perQ===60?"q60":cfg.perQ===85?"q85":"free", fb:cfg.fb==="now"?1:0, selC:own?[...new Set(cfg.ids.map(n=>Q[n-1][1]))]:null, selS:own?[...new Set(cfg.ids.map(n=>Q[n-1][2]))]:null, src:cfg.src||null}; }
 function startSession(cfg){
   if(!cfg.ids.length) return;
   recoverLive(); // un test interrotto rimasto in sospeso si salva prima di cominciarne un altro
@@ -1916,7 +1947,7 @@ function tick(){
   if(!T.liveAt || Date.now()-T.liveAt>10000){ T.liveAt=Date.now(); saveLive(); }
   const gc=$("#goal-chip"); if(gc && T.goal){ const used=elapsed(), over=used>T.goal; gc.classList.toggle("over",over);
     $("#goal-v").textContent = over ? `obiettivo superato +${mmss(used-T.goal)}` : `${mmss(used)} / max ${mmss(T.goal)}`; }
-  if(T.limit){ const left=T.limit-elapsed(); setTimer(mmss(left), left<300); if(left<=0) finish(); return; }
+  if(T.limit){ const left=T.limit-elapsed(); setTimer(mmss(left), left<300); if(left<=0){ T.timeUp=true; finish(); } return; }
   if(T.perQ){ const it=T.items[T.i]; if(it.locked){ setTimer("00:00", true); return; } const left=T.perQ-(Date.now()-T.qStart)/1000; setTimer(mmss(left), left<15); if(left<=0){ it.locked=true; it.timeout=it.pick===null; if(it.spent==null) it.spent=T.perQ; renderSession(); saveLive(); } return; }
   setTimer(mmss(elapsed()));
 }
@@ -2011,8 +2042,9 @@ function buildEntry(T, counted, tEnd){
 function finish(silent){
   const T=state.T; if(T.done) return; T.done=true; clearInterval(timerId);
   const cur=T.items[T.i];
-  if(T.kind!=="sim" && cur && cur.spent==null && (cur.pick!==null || cur.locked)) cur.spent=Math.round((Date.now()-T.qStart)/1000);
-  const counted = T.kind==="sim" ? T.items : T.items.filter((x,k)=>k<T.i || x.pick!==null || x.locked);
+  // a tempo scaduto conta anche la domanda a schermo (con il suo tempo) e quelle mai raggiunte, come all'esame
+  if(T.kind!=="sim" && cur && cur.spent==null && (cur.pick!==null || cur.locked || T.timeUp)) cur.spent=Math.max(0,Math.round((Date.now()-T.qStart)/1000));
+  const counted = T.kind==="sim" || T.timeUp ? T.items : T.items.filter((x,k)=>k<T.i || x.pick!==null || x.locked);
   T.counted = counted;
   const entry=cleanSession(buildEntry(T, counted, Date.now()));
   T.sec = entry ? entry.sec : 0;
@@ -2045,12 +2077,13 @@ function renderRiepilogo(){
       <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("cancel")}</span><span class="stat-card__label">Errate</span><span class="stat-card__value">${err}</span></div>
       <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("help_outline")}</span><span class="stat-card__label">Non date</span><span class="stat-card__value">${nd}</span></div>
     </div>
+    ${T.timeUp?`<div class="alert">${icon("timer_off")}<span><b>Tempo scaduto.</b> Le domande a cui non hai risposto sono contate come non date, come all'esame.</span></div>`:""}
     ${T.sec!=null?`<div class="tempo-row">${icon("timer")}<span>Tempo totale <b>${mmss(T.sec)}</b></span><span class="sep">·</span><span>media <b>${items.length?Math.round(T.sec/items.length):0} s</b> a domanda</span><span class="sep">·</span><span>massimo per l'obiettivo <b>${mmss(goalFor(items.length))}</b></span>
       ${T.sec<=goalFor(items.length)?`<span class="goal-ok">${icon("check_circle")} dentro l'obiettivo (−${mmss(goalFor(items.length)-T.sec)})</span>`:`<span class="goal-ko">${icon("schedule")} oltre di ${mmss(T.sec-goalFor(items.length))}</span>`}
       <span class="muted" style="flex-basis:100%">Obiettivo: ${mmss(goal60())} ogni 60 domande = ${Math.round(goal60()/60*10)/10} s a domanda.</span></div>`:""}
     ${isSim?`<div class="punteggio-hero ${pass?"":"punteggio-hero--non-superato"}"><span class="punteggio-hero__icon">${icon(pass?"emoji_events":"report")}</span><div class="punteggio-hero__body"><div class="punteggio-hero__label">Punteggio totale</div><div class="punteggio-hero__value">${pts}<span class="punteggio-hero__value-max">/100</span></div></div><span class="punteggio-hero__badge">${icon(pass?"check_circle":"cancel")} ${pass?"Prova superata":"Prova non superata"}</span></div>`:""}
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      ${wrongIds.length?`<button class="btn btn-filled" id="redo">${icon("replay")} Rifai le ${wrongIds.length} da rivedere</button>`:""}
+      ${wrongIds.length?`<button class="btn btn-filled" id="redo">${icon("replay")} ${wrongIds.length===1?"Rifai quella da rivedere":`Rifai le ${wrongIds.length} da rivedere`}</button>`:""}
       <button class="btn btn-outlined" id="again">Nuovo allenamento</button>
     </div>
     <div style="font-size:16px;margin-top:6px">Naviga tra i quesiti</div>
@@ -2114,8 +2147,8 @@ function renderSfoglia(){
       <div class="field" style="margin:0;flex:1;min-width:min(200px,100%)"><label for="b-q">Cerca nel testo</label><input id="b-q" type="search" value="${esc(B.q)}" placeholder="es. usufrutto, art. 2364, duration"></div>
     </div>
     <div class="b-tools"><label class="check"><input type="checkbox" id="b-err" ${B.err?"checked":""}> Solo le domande sbagliate almeno una volta</label>
-      <button class="btn btn-outlined btn-sm" id="b-print" ${ids.length?"":"disabled"}>${icon("print")} Stampa questi ${ids.length}</button></div>
-    <p class="hint">${ids.length} quesiti${term||B.err?" trovati":""}. La risposta corretta è evidenziata in verde.</p>
+      <button class="btn btn-outlined btn-sm" id="b-print" ${ids.length?"":"disabled"}>${icon("print")} ${ids.length===1?"Stampa questo":`Stampa questi ${ids.length}`}</button></div>
+    <p class="hint">${ids.length} ${ids.length===1?"quesito":"quesiti"}${term||B.err?(ids.length===1?" trovato":" trovati"):""}. La risposta corretta è evidenziata in verde.</p>
     <div>${slice.map(n=>{ const q=Q[n-1]; return `<div class="browse-item"><div class="meta">n. ${BY_MAT[q[0]].indexOf(n)+1} · ${esc(CONT[q[1]])} · ${esc(SUB[q[2]])} · Livello ${q[3]}${q[9]?" · pratico":""}</div><div class="q">${esc(q[4])}</div><div class="a">${icon("check")}<span>${esc(q[5])}</span></div></div>`; }).join("")||'<p class="hint">Nessun quesito contiene queste parole.</p>'}</div>
     <div class="pager"><button class="btn btn-outlined" id="pp" ${B.page===0?"disabled":""}>${icon("chevron_left")} Precedenti</button><span>Pagina ${B.page+1} di ${pages}</span><button class="btn btn-outlined" id="np" ${B.page>=pages-1?"disabled":""}>Successivi ${icon("chevron_right")}</button></div>
   </section>`;
