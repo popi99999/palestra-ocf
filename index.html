@@ -23,6 +23,11 @@ button{font-family:var(--font)}
 .page,.dialog{zoom:var(--zoom,1)}
 /* test a schermo pieno: solo domanda e risposte */
 .focus-ctl{display:none}
+.focus-chain{display:none}
+body.focus .focus-chain:not(:empty){display:flex;position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:max(12px,env(safe-area-inset-left,0px));z-index:30;align-items:center;gap:14px;background:#fff;border:1px solid var(--ocf-line);border-radius:999px;padding:9px 16px;box-shadow:0 4px 14px -6px rgba(0,0,0,.2);font-size:16px;font-weight:600;color:var(--ocf-ink)}
+.focus-chain .fc-now,.focus-chain .fc-rec{display:inline-flex;align-items:center;gap:6px}
+.focus-chain .fc-now .mi{font-size:20px;color:var(--ocf-brand-green)}
+.focus-chain .fc-rec{color:#8a6d00}.focus-chain .fc-rec .mi{font-size:20px;color:#c9a227}
 body.focus .appbar,body.focus .drawer,body.focus .scrim,body.focus .pagehead,body.focus .mat-tabs,body.focus .sess-chips,body.focus .sess .hint,body.focus #clear,body.focus #end{display:none!important}
 body.focus main{margin-left:0;padding:calc(64px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
 body.focus .page{max-width:1000px;padding-top:0}
@@ -753,6 +758,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
   <button class="navlink" id="nav-sync"><span class="mi">cloud_sync</span>Sincronizza i dispositivi</button>
 </nav>
 <div class="scrim" id="scrim" hidden></div>
+<div class="focus-chain" id="focus-chain" aria-live="polite"></div>
 <div class="focus-ctl" id="focus-ctl" role="group" aria-label="Testo e uscita"><button id="f-minus" aria-label="Testo più piccolo">A−</button><b id="fz-val">100%</b><button id="f-plus" aria-label="Testo più grande">A+</button><button id="f-exit" aria-label="Esci dal test"><span class="mi">close</span></button></div>
 <main><div class="page" id="view"></div></main>
 <div id="dlg"></div>
@@ -985,7 +991,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261016-092134";
+const APP_VERSION="20261016-094547";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -2845,12 +2851,14 @@ function renderSession(){
   }
   const posInMat=BY_MAT[q[0]].indexOf(it.n)+1;
   const broken = T.chain && T.chainBroken!=null, answered = it.pick!==null || it.locked;
+  if(!T.chain){ const fc=$("#focus-chain"); if(fc) fc.innerHTML=""; }
   const chainKo = broken && T.i===T.chainBroken;               // la domanda sbagliata che ha interrotto la catena
   const bonusDone = broken && T.i>=T.bonusEnd && answered;     // ultima del bonus fatta: si riparte
   if(T.chain){
     const streak = broken ? T.chainBroken : T.i + (it.pick===0?1:0);
     const lab = broken && T.i>T.chainBroken ? `${icon("redeem")} Bonus ${T.i-T.chainBroken} / ${T.bonusEnd-T.chainBroken}` : `${icon("link")} Di fila: ${streak}`;
     chips=chips.replace(`Quesito ${T.i+1} / ${N}`, lab)+`<span class="chip chip-outline">Record: ${Math.max(chainBest(T.chain.m), streak)}</span>`;
+    const fc=$("#focus-chain"); if(fc) fc.innerHTML=`<span class="fc-now">${lab}</span><span class="fc-rec">${icon("emoji_events")} Record <b>${Math.max(chainBest(T.chain.m), streak)}</b></span>`;
     if(bonusDone) bar=bar.replace(/<button class="btn btn-filled" id="next"[^>]*>[^<]*<\/button>/, `<button class="btn btn-filled" id="next">${icon("replay")} Ricomincia da zero</button>`);
   }
   const note = it.pick===-2?`<div class="alert alert-nonloso">${icon("lightbulb")}<span>Segnata come <b>sbagliata</b>: la risposta giusta è quella in verde. Fissa le parole chiave e vai avanti, la ritrovi in "Ripassa le sbagliate".</span></div>` : it.timeout?`<div class="alert" style="border-color:var(--nondata);color:var(--nondata)">${icon("timer_off")}<span>Tempo scaduto: il quesito resta senza risposta. Prosegui con il prossimo o termina la sessione.</span></div>`:"";
