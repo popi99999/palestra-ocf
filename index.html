@@ -598,6 +598,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .stats-head .pagehead{margin:0}
 .stats-head .mat-tabs{flex:1 1 100%;margin:0}
 .pdf-blocks{margin:0 0 16px;padding:20px 24px}
+.chain-home{margin:0 0 16px;padding:20px 24px}
 .chain-go{margin:0 0 12px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
 .chain-go{flex-direction:column;align-items:stretch}
 .chain-go__head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
@@ -999,7 +1000,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261016-095249";
+const APP_VERSION="20261016-095351";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1371,6 +1372,7 @@ function renderHome(){
     <button class="btn btn-outlined" id="q-xls">${icon("download")} Scarica Excel</button>
     <button class="btn btn-outlined" data-goto="sfoglia">${icon("menu_book")} Sfoglia con le risposte</button>
   </div>
+  <section class="paper chain-home">${chainButton(m)}</section>
   ${pdfBlocksHtml(m)}
   <section class="paper dashboard-prove"><div class="dashboard-prove__header"><div><h3 class="dashboard-prove__title">${icon("history")} Ultimi allenamenti</h3><p class="dashboard-prove__subtitle">Punteggio di ogni sessione, dalla più recente.</p></div></div>
     ${recent.length?`<div class="dashboard-prove__list">${recent.map(h=>{ const ans=sessCounts(h).answered, p=ans?Math.round(h.ok/ans*100):0, good=p>=80;
