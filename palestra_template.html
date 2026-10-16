@@ -607,6 +607,14 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .stats-head .mat-tabs{flex:1 1 100%;margin:0}
 .pdf-blocks{margin:0 0 16px;padding:20px 24px}
 .chain-home{margin:0 0 16px;padding:20px 24px}
+.bt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:8px;margin:0 0 16px}
+.bt{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:68px;padding:6px 4px 8px;border:1px solid var(--ocf-line);border-radius:10px;background:#fff;font:inherit;color:var(--ocf-ink);cursor:pointer}
+.bt__n{font-size:20px;font-weight:700;line-height:1}
+.bt__c{font-size:11px;color:var(--ocf-ink-muted);font-variant-numeric:tabular-nums}
+.bt__bar{position:absolute;left:6px;right:6px;bottom:5px;height:4px;border-radius:2px;background:#eee;display:flex;overflow:hidden}
+.bt__bar i{display:block;height:100%;background:var(--ocf-brand-green)}.bt__bar i.ko{background:#c62828}
+.bt__ok{position:absolute;top:3px;right:4px;color:var(--ocf-brand-green)}.bt__ok .mi{font-size:16px}
+.bt--done{border-color:var(--ocf-brand-green);background:#f1f8f1}
 .blk-cats{color:var(--ocf-ink-muted);font-size:13px;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .blk-done{display:inline-flex;align-items:center;gap:4px;color:var(--ocf-brand-green);font-weight:600}.blk-done .mi{font-size:16px}
 .chain-go{margin:0 0 12px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
@@ -1543,29 +1551,20 @@ function renderMateria(){
   const m=state.matSel=ONLY, G=groupsOf(m), B=chainBlocks(m), done=blocksDone(m), all=gstats(BY_MAT[m]);
   if(!state.pickedB || state.pickedB.m!==m){ state.pickedB=new Set(); state.pickedB.m=m; }
   state.picked.clear(); // le vecchie selezioni per categoria non valgono più
+  // quadratini piccoli: numero, fatte su 25, barra giuste/sbagliate, ✓ se la catena del blocco è completata
   const rows=B.map((ids,i)=>{
-    const st=gstats(ids), prep=Math.round(st.ok/st.tot*100), cop=Math.round(st.seen/st.tot*100), w=v=>(v/st.tot*100).toFixed(2)+"%", sel=state.pickedB.has(i);
-    const cats=[...new Set(ids.map(n=>CONT[Q[n-1][1]]))];
-    return `<article class="studia-materia-row cat-row blk-row ${sel?"is-sel":""}">${sel?'<span class="studia-status-stripe"></span>':""}
-      <input type="checkbox" class="cat-check" data-pickb="${i}" ${sel?"checked":""} aria-label="Seleziona il blocco ${i+1}">
-      <div class="studia-materia-row__badge"><span class="cat-count ${st.seen?"is-on":""}"><b>${ids.length}</b><small>domande</small></span></div>
-      <div class="studia-materia-row__main"><div class="studia-materia-row__meta"><span>Blocco <b>${pad2(i+1)}</b></span>${done.has(i)?`<span>·</span><span class="blk-done">${icon("check_circle")} Catena completata</span>`:""}</div><h3 class="studia-materia-row__title">Blocco ${i+1}</h3><div class="blk-cats" title="${esc(cats.join(" · "))}">${esc(cats.slice(0,3).join(" · "))}${cats.length>3?` · +${cats.length-3}`:""}</div></div>
-      <div class="studia-materia-row__breakdown"><div class="studia-materia-row__breakdown-label">${st.seen?`<b>${st.seen}</b> ${pl(st.seen,"domanda fatta","domande fatte")} su ${st.tot}`:"Nessuna risposta"}</div>
-        <div class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${w(st.ok)}"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${w(st.wr)}"></span></div>
-        ${st.seen?`<div class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${st.ok} ${pl(st.ok,"giusta","giuste")}</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${st.wr} ${pl(st.wr,"sbagliata","sbagliate")}</span></div>`:""}</div>
-      <div class="studia-materia-row__levels">
-        <div class="studia-level-meter-row"><div class="studia-level-meter__header"><span>Liv. preparazione</span><span class="studia-level-meter__value"><b>${prep}</b><span class="studia-level-meter__value-max">/100</span></span></div><div class="studia-level-meter"><div class="studia-level-meter__fill" style="width:${prep}%"></div></div></div>
-        <div class="studia-level-meter-row"><div class="studia-level-meter__header"><span>Copertura domande</span><span class="studia-level-meter__value"><b>${cop}</b><span class="studia-level-meter__value-max">/100</span></span></div><div class="studia-level-meter"><div class="studia-level-meter__fill" style="width:${cop}%"></div></div></div>
-      </div>
-      <div class="studia-materia-row__actions"><button class="btn btn-filled studia-materia-row__cta" data-bsolo="${i}">${icon("school")} Allenati</button><button class="btn btn-outlined studia-materia-row__cta" data-chain="${m}" data-blk="${i}">${icon("link")} Catena</button><button class="btn btn-outlined studia-materia-row__cta" data-bleggi="${i}">${icon("menu_book")} Leggi</button></div>
-    </article>`;
+    const st=gstats(ids), w=v=>(v/st.tot*100).toFixed(1)+"%";
+    return `<button class="bt ${done.has(i)?"bt--done":""} ${st.seen?"bt--on":""}" data-bt="${i}" aria-label="Blocco ${i+1}: ${st.seen} fatte su ${st.tot}, ${st.ok} giuste, ${st.wr} sbagliate${done.has(i)?", catena completata":""}">
+      <span class="bt__n">${i+1}</span>${done.has(i)?`<span class="bt__ok">${icon("check_circle")}</span>`:""}
+      <span class="bt__c">${st.seen}/${st.tot}</span>
+      <span class="bt__bar"><i style="width:${w(st.ok)}"></i><i class="ko" style="width:${w(st.wr)}"></i></span></button>`;
   }).join("");
   $("#view").innerHTML = `
   ${head("school","Allenamento a blocchi")}
   <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
     <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia ${ONLY} · ${esc(MAT[ONLY].short)}</div>
       <h2 class="ocf-landing-hero__title">Allenati a <b>blocchi da 25</b>.</h2>
-      <p class="ocf-landing-hero__subtitle" style="margin-bottom:0">Tutte le ${all.tot} domande divise in ${B.length} blocchi fissi (sempre le stesse domande nello stesso ordine). Premi <b>Allenati</b> o <b>Catena</b> su un blocco, oppure spunta più blocchi e premi Inizia nella barra in basso.</p></div>
+      <p class="ocf-landing-hero__subtitle" style="margin-bottom:0">Tutte le ${all.tot} domande divise in ${B.length} blocchi fissi (sempre le stesse domande nello stesso ordine). Tocca un blocco per <b>allenarti</b>, fare la <b>Catena</b> o <b>leggerlo</b>.</p></div>
     <div class="ocf-landing-hero__right">
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.tot}</div><div class="ocf-landing-hero__stat-label">Domande</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${B.length}</div><div class="ocf-landing-hero__stat-label">Blocchi</div></div>
@@ -1573,17 +1572,15 @@ function renderMateria(){
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${done.size}<span class="ocf-landing-hero__stat-unit">/${B.length}</span></div><div class="ocf-landing-hero__stat-label">Catene completate</div></div>
     </div></div></section>
   ${(PDF_BLOCKS[ONLY]||[]).map((b,i)=>`<div class="pdf-go"><button class="btn btn-filled" data-pdfb="${i}" data-pdfo="pdf">${icon("play_arrow")} Allenati sulle ${esc(b.short||b.title)} (${b.ids.length} domande)</button><small>Nell'ordine del PDF, con Quali, Quante, Tempo e Correzione scelti nella barra in basso.</small></div>`).join("")}
-  <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">Selezione</span>
-    <span class="toggle"><button id="sel-all">${icon("done_all")} Tutti</button><button id="sel-none">${icon("remove_done")} Nessuno</button></span>
-    <span class="ocf-studia-filters__label" style="margin-left:auto">${B.length} blocchi</span></div>
-  <div class="studia-materia-list">${rows}</div>
+  <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">${B.length} blocchi da 25 · tocca un blocco</span></div>
+  <div class="bt-grid">${rows}</div>
   <div class="trainbar" id="trainbar"></div>`;
-  document.querySelectorAll("[data-pickb]").forEach(c=>c.onchange=()=>{ const i=+c.dataset.pickb; c.checked?state.pickedB.add(i):state.pickedB.delete(i); renderMateria(); });
-  document.querySelectorAll("[data-bleggi]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.bleggi; readIds(B[i], `Blocco ${i+1}`); });
-  document.querySelectorAll("[data-bsolo]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.bsolo; startTraining(B[i], `Blocco ${i+1}`, "blk"); });
+  state.pickedB.clear();
+  document.querySelectorAll("[data-bt]").forEach(el=>el.onclick=()=>{ const i=+el.dataset.bt, ids=B[i], st=gstats(ids);
+    const cats=[...new Set(ids.map(n=>CONT[Q[n-1][1]]))];
+    dialog({title:`Blocco ${i+1}`, body:`<p style="margin:0 0 6px"><b>${st.seen}</b> fatte su ${st.tot} · <b>${st.ok}</b> ${pl(st.ok,"giusta","giuste")} · <b>${st.wr}</b> ${pl(st.wr,"sbagliata","sbagliate")}${done.has(i)?" · catena completata ✓":""}</p><p class="hint" style="margin:0">${esc(cats.join(" · "))}</p>`,
+      actions:[{label:"Leggi",run:()=>readIds(ids, `Blocco ${i+1}`)},{label:"Catena",run:()=>startChain(m,i)},{label:"Allenati",primary:true,run:()=>startTraining(ids, `Blocco ${i+1}`, "blk")}]}); });
   bindPdfBlocks(ONLY, true); bindChain();
-  $("#sel-all").onclick=()=>{ B.forEach((_,i)=>state.pickedB.add(i)); renderMateria(); };
-  $("#sel-none").onclick=()=>{ state.pickedB.clear(); renderMateria(); };
   renderTrainbar(G);
 }
 function startTraining(base, label, src){
