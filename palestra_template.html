@@ -599,7 +599,14 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .stats-head .mat-tabs{flex:1 1 100%;margin:0}
 .pdf-blocks{margin:0 0 16px;padding:20px 24px}
 .chain-go{margin:0 0 12px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.chain-go{flex-direction:column;align-items:stretch}
+.chain-go__head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
 .chain-go small{color:var(--ocf-ink-muted)}
+.chain-blocks{display:flex;flex-wrap:wrap;gap:6px}
+.chain-blocks .cb{min-width:44px;height:40px;border-radius:8px;border:1px solid var(--ocf-line);background:#fff;font:inherit;font-weight:600;color:var(--ocf-ink);cursor:pointer;display:grid;place-items:center}
+.chain-blocks .cb--done{background:var(--ocf-brand-green);border-color:var(--ocf-brand-green);color:#fff}
+.chain-blocks .cb--next{border:2px solid var(--ocf-brand-green);color:var(--ocf-brand-green)}
+.focus-chain .fc-blk{color:var(--ocf-ink-muted)}
 .alert-chain{border-color:#c62828;color:#8e1b14;background:#fdecea}
 .pdf-go{margin:0 0 14px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
 .pdf-go small{color:var(--ocf-ink-muted)}
@@ -843,6 +850,7 @@ function cleanSession(h){
   if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena"].includes(h.src)) o.src=h.src;
   if(["rand","err","less","orig"].includes(h.ord)) o.ord=h.ord;
   if(h.fb===0 || h.fb===1) o.fb=h.fb;
+  { const b=int(h.blk,1,1000); if(h.blk!=null && b) o.blk=b; if(h.bok===1) o.bok=1; }
   if(h.nc===true) o.nc=true;
   if(h.cut===true) o.cut=true;
   if(Array.isArray(h.q)) o.q=h.q.filter(x=>Array.isArray(x)).map(x=>{ const it=[qn(x[0]), [1,-1,-2,0].includes(+x[1])?+x[1]:0, x[2]==null?null:int(x[2],0,86400)];
@@ -976,7 +984,7 @@ function saveLive(){
   if(!T || T.done || !T.t0){ lsSet(LIVE_KEY, null); return; }
   const now=Date.now(), at=T.hiddenAt||now; // tempo trascorso senza contare le pause (app nascosta)
   lsSet(LIVE_KEY, JSON.stringify({id:T.id, kind:T.kind, title:T.title, meta:T.meta, fb:T.fb, t0:T.t0, started:T.started||T.t0, i:T.i, saved:now,
-    el:Math.max(0,at-T.t0), qel:Math.max(0,at-T.qStart), limit:T.limit||null, perQ:T.perQ||null, goal:T.goal||null, timeUp:!!T.timeUp, chain:T.chain?{m:T.chain.m, br:T.chainBroken!=null?T.chainBroken:null, be:T.bonusEnd!=null?T.bonusEnd:null}:null,
+    el:Math.max(0,at-T.t0), qel:Math.max(0,at-T.qStart), limit:T.limit||null, perQ:T.perQ||null, goal:T.goal||null, timeUp:!!T.timeUp, chain:T.chain?{m:T.chain.m, b:T.chain.b||0, br:T.chainBroken!=null?T.chainBroken:null, be:T.bonusEnd!=null?T.bonusEnd:null}:null,
     items:T.items.map(x=>[x.n, x.pick, x.locked?1:0, x.spent==null?null:x.spent, x.order?x.order.join(""):null])}));
 }
 function recoverLive(){
@@ -1030,7 +1038,7 @@ function resumeLive(L){
   state.T={id:typeof L.id==="string"?L.id:sid(), meta:L.meta||{}, goal:num(L.goal,1,9e6)||goalFor(items.length), kind:L.kind||"studio", title:String(L.title||"Allenamento"),
     items, i, fb:L.fb==="now"?"now":"end", limit:num(L.limit,1,864e3), perQ:num(L.perQ,1,3600),
     t0:now-(el!=null?el:Math.max(0,(num(L.saved,1,9e15)||now)-(num(L.t0,1,9e15)||now))), started:num(L.started,1,9e15), qStart:now-(qel||0), done:false,
-    chain: L.chain && [1,2,3,4,5].includes(L.chain.m) ? {m:L.chain.m, ids:items.map(x=>x.n)} : null};
+    chain: L.chain && [1,2,3,4,5].includes(L.chain.m) ? {m:L.chain.m, ids:items.map(x=>x.n), b:num(L.chain.b,0,1000)||0} : null};
   if(state.T.chain && L.chain.br!=null){ state.T.chainBroken=num(L.chain.br,0,5000); state.T.bonusEnd=num(L.chain.be,0,5000); }
   state.view="session"; render(); window.scrollTo(0,0); saveLive();
   return true;
@@ -1261,26 +1269,50 @@ function pl(n,s,p){ return n===1?s:p; } // 1 domanda, 2 domande
 // CATENA: domande in ordine casuale da tutta la materia (nessuna sezione); se è giusta si va avanti, se è sbagliata si riparte dall'inizio
 const CHAIN_KEY="palestra-ocf-catena-";
 function chainBest(m){ return +lsGet(CHAIN_KEY+m)||0; }
-function startChain(m, ids){
-  const seq = ids || shuffle(BY_MAT[m].slice());
-  startSession({kind:"studio", title:`Catena · Materia ${m}`, ids:seq, fb:"now", w:"all", src:"catena", chain:{m, ids:seq}});
+// CATENA A BLOCCHI: la materia è divisa in blocchi da 25, sempre le stesse domande nello stesso ordine
+// (ordine casuale ma fisso, uguale su tutti i dispositivi). Si completa un blocco con 25 giuste di fila.
+const BLOCK=25;
+function seededShuffle(a, seed){ let t=seed>>>0; const r=()=>{ t+=0x6D2B79F5; let x=t; x=Math.imul(x^x>>>15, x|1); x^=x+Math.imul(x^x>>>7, x|61); return ((x^x>>>14)>>>0)/4294967296; };
+  for(let i=a.length-1;i>0;i--){ const j=Math.floor(r()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+const _blocks={};
+function chainBlocks(m){ if(!_blocks[m]){ const seq=seededShuffle(BY_MAT[m].slice(), 4242+m), out=[]; for(let i=0;i<seq.length;i+=BLOCK) out.push(seq.slice(i,i+BLOCK)); _blocks[m]=out; } return _blocks[m]; }
+// blocchi completati: dallo storico (così valgono su tutti i dispositivi sincronizzati)
+function blocksDone(m){ const d=new Set(); S.h.forEach(h=>{ if(h.src==="catena" && h.bok===1 && h.blk && (h.ms||[]).includes(m)) d.add(h.blk-1); }); return d; }
+function nextBlock(m){ const B=chainBlocks(m), d=blocksDone(m); for(let i=0;i<B.length;i++) if(!d.has(i)) return i; return 0; }
+function startChain(m, b){
+  const B=chainBlocks(m); if(b==null) b=nextBlock(m); b=Math.max(0,Math.min(B.length-1,b));
+  const ids=B[b];
+  startSession({kind:"studio", title:`Catena · Materia ${m} · Blocco ${b+1}`, ids, fb:"now", w:"all", src:"catena", chain:{m, ids, b}, meta:{blk:b+1}});
 }
-const CHAIN_BONUS=5; // dopo un errore: altre 5 domande per vedere le risposte, poi si riparte
+const CHAIN_BONUS=5; // dopo un errore: altre 5 domande per vedere le risposte, poi si riparte dall'inizio del blocco
 function chainBreak(T){ if(T.chainBroken==null){ T.chainBroken=T.i; T.bonusEnd=Math.min(T.items.length-1, T.i+CHAIN_BONUS); } }
 function restartChain(){
   const T=state.T, C=T.chain, streak=T.chainBroken!=null?T.chainBroken:T.i; // prima dell'errore erano tutte giuste
-  T.title=`Catena · Materia ${C.m} · ${streak} di fila`;
+  T.title=`Catena · Materia ${C.m} · Blocco ${(C.b||0)+1} · ${streak} di fila`;
   finish(true); // si salva il tentativo (conta nelle statistiche)
-  startChain(C.m, C.ids); // stessa sequenza, dall'inizio
+  startChain(C.m, C.b||0); // stesso blocco, dall'inizio
+}
+function completeBlock(){
+  const T=state.T, C=T.chain, m=C.m, b=C.b||0, B=chainBlocks(m);
+  T.title=`Catena · Materia ${m} · Blocco ${b+1} completato`; T.meta=Object.assign({}, T.meta, {blk:b+1, bok:1});
+  finish(true);
+  const d=blocksDone(m), nx=nextBlock(m), all=d.size>=B.length;
+  state.view="home"; render();
+  dialog({title:`Blocco ${b+1} completato!`, body: all ? `Hai completato <b>tutti i ${B.length} blocchi</b> della Materia ${m}. Grande!` : `25 giuste di fila. Blocchi completati: <b>${d.size} / ${B.length}</b>.`,
+    actions: all ? [{label:"Ok",primary:true}] : [{label:"Più tardi"},{label:`Vai al blocco ${nx+1}`,primary:true,run:()=>startChain(m,nx)}]});
 }
 function chainButton(m, big){
-  const best=chainBest(m);
-  return `<div class="chain-go ${big?"chain-go--big":""}"><button class="btn btn-filled" data-chain="${m}">${icon("link")} Catena: rispondi di fila</button><small>Domande a caso da tutta la Materia ${m}. Giusta: avanti. Sbagliata: si riparte dall'inizio.${best?` Record: <b>${best}</b> di fila.`:""}</small></div>`;
+  const B=chainBlocks(m), d=blocksDone(m), nx=nextBlock(m);
+  return `<div class="chain-go ${big?"chain-go--big":""}">
+    <div class="chain-go__head"><button class="btn btn-filled" data-chain="${m}" data-blk="${nx}">${icon("link")} Catena: blocco ${nx+1}</button>
+    <small>Blocchi da 25 domande. Fai le 25 giuste di fila per completare il blocco: se sbagli, 5 domande bonus e poi si riparte dall'inizio del blocco. Completati: <b>${d.size} / ${B.length}</b>.</small></div>
+    <div class="chain-blocks">${B.map((_,i)=>`<button class="cb ${d.has(i)?"cb--done":""} ${i===nx?"cb--next":""}" data-chain="${m}" data-blk="${i}" aria-label="Blocco ${i+1}${d.has(i)?" completato":""}">${d.has(i)?icon("check"):i+1}</button>`).join("")}</div>
+  </div>`;
 }
 // risposta sbagliata nella catena: si vede la giusta per qualche secondo, poi si riparte da zero da soli
 function chainAutoRestart(){ const T=state.T, at=T.i, id=T.id;
   setTimeout(()=>{ const U=state.T; if(U && U.id===id && !U.done && U.i===at && U.chain && state.view==="session" && !dialogOpen()) restartChain(); }, 3500); }
-function bindChain(){ document.querySelectorAll("[data-chain]").forEach(b=>b.onclick=()=>startChain(+b.dataset.chain)); }
+function bindChain(){ document.querySelectorAll("[data-chain]").forEach(b=>b.onclick=()=>startChain(+b.dataset.chain, b.dataset.blk!=null?+b.dataset.blk:null)); }
 // blocchi di studio presi dai PDF "per concetto" (stesso ordine delle pagine del PDF)
 const PDF_BLOCKS={4:[{title:"PDF Materia 4 · pagine 1–40", short:"prime 40 pagine del PDF", ids:[4101, 4102, 4104, 4105, 4106, 4107, 4108, 4138, 4109, 4110, 4111, 4112, 4113, 4114, 4115, 4135, 4145, 4148, 4139, 4141, 4134, 4140, 4132, 4143, 4118, 4119, 4120, 4144, 4121, 4122, 4123, 4133, 4142, 4124, 4125, 4126, 4147, 4127, 4103, 4116, 4117, 4136, 4137, 4128, 4130, 4131, 4146, 4129, 4176, 4178, 4164, 4165, 4166, 4168, 4169, 4167, 4161, 4159, 4163, 4170, 4171, 4173, 4174, 4175, 4172, 4151, 4153, 4154, 4156, 4158, 4344, 4149, 4150, 4152, 4155, 4157, 4160, 4162, 4177, 4186, 4201, 4202, 4188, 4189, 4179, 4180, 4181, 4182, 4183, 4184, 4185, 4187, 4190, 4191, 4192, 4194, 4195, 4196, 4197, 4198, 4199, 4200, 4203, 4193, 4204, 4205, 4210, 4220, 4223, 4221, 4213, 4224, 4207, 4208, 4209, 4211, 4212, 4214, 4215, 4216, 4217, 4218, 4219, 4222, 4206, 4244, 4234, 4236, 4237, 4241, 4243, 4242, 4226, 4227, 4228, 4231, 4229, 4230]}]};
 function pdfBlocksHtml(m){
@@ -1318,7 +1350,7 @@ function renderHome(){
     <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia ${m} · prova valutativa OCF</div>
       <h2 class="ocf-landing-hero__title">${esc(MAT[m].name)}</h2>
       <p class="ocf-landing-hero__subtitle">Tutte le ${s.tot} domande ufficiali divise in ${G.length} categorie. Scegli le categorie, quante domande fare e allenati.</p>
-      <button class="btn ocf-landing-hero__cta" data-goto="materia">${icon("play_arrow")} Allenati</button><button class="btn ocf-landing-hero__cta" data-chain="${m}" style="margin-left:8px">${icon("link")} Catena</button></div>
+      <button class="btn ocf-landing-hero__cta" data-goto="materia">${icon("play_arrow")} Allenati</button><button class="btn ocf-landing-hero__cta" data-chain="${m}" data-blk="${nextBlock(m)}" style="margin-left:8px">${icon("link")} Catena · blocco ${nextBlock(m)+1}</button></div>
     <div class="ocf-landing-hero__right">
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.seen}</div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.ok}</div><div class="ocf-landing-hero__stat-label">Giuste</div></div>
@@ -2050,10 +2082,11 @@ function renderSession(){
   const bonusDone = broken && T.i>=T.bonusEnd && answered;     // ultima del bonus fatta: si riparte
   if(T.chain){
     const streak = broken ? T.chainBroken : T.i + (it.pick===0?1:0);
-    const lab = broken && T.i>T.chainBroken ? `${icon("redeem")} Bonus ${T.i-T.chainBroken} / ${T.bonusEnd-T.chainBroken}` : `${icon("link")} Di fila: ${streak}`;
-    chips=chips.replace(`Quesito ${T.i+1} / ${N}`, lab)+`<span class="chip chip-outline">Record: ${Math.max(chainBest(T.chain.m), streak)}</span>`;
-    const fc=$("#focus-chain"); if(fc) fc.innerHTML=`<span class="fc-now">${lab}</span><span class="fc-rec">${icon("emoji_events")} Record <b>${Math.max(chainBest(T.chain.m), streak)}</b></span>`;
-    if(bonusDone) bar=bar.replace(/<button class="btn btn-filled" id="next"[^>]*>[^<]*<\/button>/, `<button class="btn btn-filled" id="next">${icon("replay")} Ricomincia da zero</button>`);
+    const lab = broken && T.i>T.chainBroken ? `${icon("redeem")} Bonus ${T.i-T.chainBroken} / ${T.bonusEnd-T.chainBroken}` : `${icon("link")} Di fila: ${streak} / ${N}`;
+    const Bn=chainBlocks(T.chain.m).length, dn=blocksDone(T.chain.m).size, bl=`Blocco ${(T.chain.b||0)+1}`;
+    chips=chips.replace(`Quesito ${T.i+1} / ${N}`, `${bl} · ${lab}`)+`<span class="chip chip-outline">Completati: ${dn} / ${Bn}</span>`;
+    const fc=$("#focus-chain"); if(fc) fc.innerHTML=`<span class="fc-blk">${bl}</span><span class="fc-now">${lab}</span><span class="fc-rec">${icon("emoji_events")} Completati <b>${dn} / ${Bn}</b></span>`;
+    if(bonusDone) bar=bar.replace(/<button class="btn btn-filled" id="next"[^>]*>[^<]*<\/button>/, `<button class="btn btn-filled" id="next">${icon("replay")} Ricomincia il blocco</button>`);
   }
   const note = it.pick===-2?`<div class="alert alert-nonloso">${icon("lightbulb")}<span>Segnata come <b>sbagliata</b>: la risposta giusta è quella in verde. Fissa le parole chiave e vai avanti, la ritrovi in "Ripassa le sbagliate".</span></div>` : it.timeout?`<div class="alert" style="border-color:var(--nondata);color:var(--nondata)">${icon("timer_off")}<span>Tempo scaduto: il quesito resta senza risposta. Prosegui con il prossimo o termina la sessione.</span></div>`:"";
   $("#view").innerHTML = `${head(pageIcon,pageTitle)}
@@ -2063,8 +2096,8 @@ function renderSession(){
     <div class="quesito-box"><span class="quesito-box__label">Domanda</span><div class="quesito-box__testo">${esc(q[4])}</div></div>
     <div class="quesito-alt-list">${alts}</div>
     ${note}
-    ${chainKo && !bonusDone?`<div class="alert alert-chain">${icon("link_off")}<span><b>Catena interrotta a ${T.chainBroken} di fila.</b> La risposta giusta è quella in verde. Ora hai <b>${T.bonusEnd-T.chainBroken} domande bonus</b> per guardare le risposte, poi si riparte da zero.</span></div>`:""}
-    ${bonusDone?`<div class="alert alert-chain">${icon("replay")}<span><b>Bonus finito.</b> Tra pochi secondi la catena riparte da zero (oppure tocca Ricomincia).</span></div>`:""}
+    ${chainKo && !bonusDone?`<div class="alert alert-chain">${icon("link_off")}<span><b>Catena interrotta a ${T.chainBroken} di fila.</b> La risposta giusta è quella in verde. Ora hai <b>${T.bonusEnd-T.chainBroken} domande bonus</b> per guardare le risposte, poi si riparte dall'inizio del blocco.</span></div>`:""}
+    ${bonusDone?`<div class="alert alert-chain">${icon("replay")}<span><b>Bonus finito.</b> Tra pochi secondi si riparte dall'inizio del blocco (oppure tocca Ricomincia).</span></div>`:""}
     <div class="sess-bar">${bar}</div>
     ${isSim?"":`<p class="hint">${esc(T.title)} · ${esc(CONT[q[1]])} · quesito ${posInMat} della materia. Tastiera: A–D o 1–4 per rispondere, N per "Non la so", Invio per proseguire.</p>`}
   </section>`;
@@ -2093,7 +2126,8 @@ function choose(orig){
 }
 function advance(){
   const T=state.T, it=T.items[T.i];
-  if(T.chain && T.chainBroken!=null && T.i>=T.bonusEnd){ restartChain(); return; } // finito il bonus: si riparte da zero
+  if(T.chain && T.chainBroken!=null && T.i>=T.bonusEnd){ restartChain(); return; } // finito il bonus: si riparte dall'inizio del blocco
+  if(T.chain && T.chainBroken==null && T.i===T.items.length-1 && it.pick===0){ it.locked=true; if(it.spent==null) it.spent=Math.round((Date.now()-T.qStart)/1000); completeBlock(); return; }
   if(T.kind==="sim"){ if(T.i<T.items.length-1){ T.i++; renderSession(); } return; }
   if(T.kind==="migliora" && it.pick===null && !it.locked) return;
   it.locked=true; if(it.spent==null) it.spent=Math.round((Date.now()-T.qStart)/1000);
