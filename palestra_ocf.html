@@ -1018,7 +1018,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261016-180614";
+const APP_VERSION="20261017-145451";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1308,7 +1308,8 @@ function startChain(m, b){
   startSession({kind:"studio", title:`Catena · Materia ${m} · Blocco ${b+1}`, ids, fb:"now", w:"all", src:"catena", chain:{m, ids, b}, meta:{blk:b+1}});
 }
 const CHAIN_BONUS=0; // niente domande bonus: dopo un errore si riparte dall'inizio del blocco // dopo un errore: altre 5 domande per vedere le risposte, poi si riparte dall'inizio del blocco
-function chainBreak(T){ if(T.chainBroken==null){ T.chainBroken=T.i; T.bonusEnd=Math.min(T.items.length-1, T.i+CHAIN_BONUS); } }
+// dopo un errore si può andare avanti liberamente fino alla fine del blocco (o ricominciare quando si vuole)
+function chainBreak(T){ if(T.chainBroken==null){ T.chainBroken=T.i; T.bonusEnd=T.items.length-1; } }
 function restartChain(){
   const T=state.T, C=T.chain, streak=T.chainBroken!=null?T.chainBroken:T.i; // prima dell'errore erano tutte giuste
   T.title=`Catena · Materia ${C.m} · Blocco ${(C.b||0)+1} · ${streak} di fila`;
@@ -1328,7 +1329,7 @@ function chainButton(m, big){
   const B=chainBlocks(m), d=blocksDone(m), nx=nextBlock(m);
   return `<div class="chain-go ${big?"chain-go--big":""}">
     <div class="chain-go__head"><button class="btn btn-filled" data-chain="${m}" data-blk="${nx}">${icon("link")} Catena: blocco ${nx+1}</button>
-    <small>Blocchi da 25 domande. Fai le 25 giuste di fila per completare il blocco: se sbagli, vedi la risposta giusta e si riparte dall'inizio del blocco. Completati: <b>${d.size} / ${B.length}</b>.</small></div>
+    <small>Blocchi da 25 domande. Fai le 25 giuste di fila per completare il blocco. Se sbagli puoi andare avanti a vedere le altre risposte o ricominciare il blocco. Completati: <b>${d.size} / ${B.length}</b>.</small></div>
     <div class="chain-blocks">${B.map((_,i)=>`<button class="cb ${d.has(i)?"cb--done":""} ${i===nx?"cb--next":""}" data-chain="${m}" data-blk="${i}" aria-label="Blocco ${i+1}${d.has(i)?" completato":""}">${d.has(i)?icon("check"):i+1}</button>`).join("")}</div>
   </div>`;
 }
@@ -2897,11 +2898,12 @@ function renderSession(){
   const bonusDone = broken && T.i>=T.bonusEnd && answered;     // ultima del bonus fatta: si riparte
   if(T.chain){
     const streak = broken ? T.chainBroken : T.i + (it.pick===0?1:0);
-    const lab = broken && T.i>T.chainBroken ? `${icon("redeem")} Bonus ${T.i-T.chainBroken} / ${T.bonusEnd-T.chainBroken}` : `${icon("link")} Di fila: ${streak} / ${N}`;
+    const lab = broken && T.i>T.chainBroken ? `${icon("link_off")} Interrotta a ${T.chainBroken} · domanda ${T.i+1} / ${N}` : `${icon("link")} Di fila: ${streak} / ${N}`;
     const Bn=chainBlocks(T.chain.m).length, dn=blocksDone(T.chain.m).size, bl=`Blocco ${(T.chain.b||0)+1}`;
     chips=chips.replace(`Quesito ${T.i+1} / ${N}`, `${bl} · ${lab}`)+`<span class="chip chip-outline">Completati: ${dn} / ${Bn}</span>`;
     const fc=$("#focus-chain"); if(fc) fc.innerHTML=`<span class="fc-blk">${bl}</span><span class="fc-now">${lab}</span><span class="fc-rec">${icon("emoji_events")} Completati <b>${dn} / ${Bn}</b></span>`;
     if(bonusDone) bar=bar.replace(/<button class="btn btn-filled" id="next"[^>]*>[^<]*<\/button>/, `<button class="btn btn-filled" id="next">${icon("replay")} Ricomincia il blocco</button>`);
+    else if(broken) bar=bar.replace(/<button class="btn btn-filled" id="next"[^>]*>[^<]*<\/button>/, `<button class="btn btn-outlined" id="chain-restart">${icon("replay")} Ricomincia il blocco</button><button class="btn btn-filled" id="next">Vai avanti ${icon("chevron_right")}</button>`);
   }
   const note = it.pick===-2?`<div class="alert alert-nonloso">${icon("lightbulb")}<span>Segnata come <b>sbagliata</b>: la risposta giusta è quella in verde. Fissa le parole chiave e vai avanti, la ritrovi in "Ripassa le sbagliate".</span></div>` : it.timeout?`<div class="alert" style="border-color:var(--nondata);color:var(--nondata)">${icon("timer_off")}<span>Tempo scaduto: il quesito resta senza risposta. Prosegui con il prossimo o termina la sessione.</span></div>`:"";
   $("#view").innerHTML = `${head(pageIcon,pageTitle)}
@@ -2911,8 +2913,8 @@ function renderSession(){
     <div class="quesito-box"><span class="quesito-box__label">Domanda</span><div class="quesito-box__testo">${esc(q[4])}</div></div>
     <div class="quesito-alt-list">${alts}</div>
     ${note}
-    ${chainKo && !bonusDone?`<div class="alert alert-chain">${icon("link_off")}<span><b>Catena interrotta a ${T.chainBroken} di fila.</b> La risposta giusta è quella in verde. Ora hai <b>${T.bonusEnd-T.chainBroken} domande bonus</b> per guardare le risposte, poi si riparte dall'inizio del blocco.</span></div>`:""}
-    ${bonusDone?`<div class="alert alert-chain">${icon(T.bonusEnd>T.chainBroken?"replay":"link_off")}<span><b>${T.bonusEnd>T.chainBroken?"Bonus finito.":`Catena interrotta a ${T.chainBroken} di fila.`}</b> ${T.bonusEnd>T.chainBroken?"":"La risposta giusta è quella in verde. "}Tra pochi secondi si riparte dall'inizio del blocco (oppure tocca Ricomincia).</span></div>`:""}
+    ${chainKo && !bonusDone?`<div class="alert alert-chain">${icon("link_off")}<span><b>Catena interrotta a ${T.chainBroken} di fila.</b> La risposta giusta è quella in verde. Puoi <b>andare avanti</b> quanto vuoi per vedere le altre risposte, oppure <b>ricominciare il blocco</b>.</span></div>`:""}
+    ${bonusDone?`<div class="alert alert-chain">${icon("replay")}<span><b>${T.i===T.chainBroken?`Catena interrotta a ${T.chainBroken} di fila.`:"Fine del blocco."}</b> Tra pochi secondi si riparte dall'inizio del blocco (oppure tocca Ricomincia).</span></div>`:""}
     <div class="sess-bar">${bar}</div>
     ${isSim?"":`<p class="hint">${esc(T.title)} · ${esc(CONT[q[1]])} · quesito ${posInMat} della materia. Tastiera: A–D o 1–4 per rispondere, N per "Non la so", Invio per proseguire.</p>`}
   </section>`;
@@ -2923,6 +2925,7 @@ function renderSession(){
   const nl=$("#nonloso"); if(nl) nl.onclick=()=>dontKnow();
   const p=$("#prev"); if(p) p.onclick=()=>{ if(T.i>0){ T.i--; renderSession(); } };
   const nx=$("#next"); if(nx) nx.onclick=()=>advance();
+  const cr=$("#chain-restart"); if(cr) cr.onclick=()=>restartChain();
   $("#end").onclick=askEnd;
 }
 function dontKnow(){
