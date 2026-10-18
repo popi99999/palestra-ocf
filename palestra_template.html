@@ -344,6 +344,8 @@ main{margin-left:280px;padding:calc(64px + env(safe-area-inset-top,0px)) 16px 40
 .stat-card--errate .stat-card__value{color:var(--ocf-red)}
 .stat-card--non-date .stat-card__icon{background:var(--orange-soft);color:var(--orange)}
 .stat-card--non-date .stat-card__value{color:var(--orange)}
+.stat-card--perc .stat-card__icon{background:var(--orange-soft);color:var(--orange)}
+.stat-card--perc .stat-card__value{color:var(--orange)}
 .punteggio-hero{display:flex;align-items:center;gap:22px;padding:22px 28px;border-radius:14px;margin-top:2px;color:#fff;background:linear-gradient(135deg,var(--ocf-brand-green) 0%,var(--ocf-brand-green-dark) 100%);box-shadow:0 10px 24px -14px rgba(46,125,50,.5);flex-wrap:wrap}
 .punteggio-hero--non-superato{background:linear-gradient(135deg,#C62828 0%,#8B1A1A 100%);box-shadow:0 10px 24px -14px rgba(198,40,40,.5)}
 .punteggio-hero__icon{width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.18);flex-shrink:0}
@@ -1865,7 +1867,7 @@ function renderTestDetail(){
       <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("visibility")}</span><span class="stat-card__label">Domande</span><span class="stat-card__value">${h.n}</span></div>
       <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Giuste</span><span class="stat-card__value">${c.ok}</span></div>
       <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("cancel")}</span><span class="stat-card__label">Sbagliate</span><span class="stat-card__value">${c.err==null?h.n-h.ok:c.err+c.nls}</span>${c.nls?`<span class="stat-card__sub">di cui ${c.nls} "non la sapevo"</span>`:""}</div>
-      <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("help_outline")}</span><span class="stat-card__label">Non date</span><span class="stat-card__value">${c.nd==null?"–":c.nd}</span></div>
+      <div class="stat-card stat-card--perc"><span class="stat-card__icon">${icon("verified")}</span><span class="stat-card__label">Percentuale</span><span class="stat-card__value">${h.n?Math.round(c.ok/h.n*100):0}<span class="of">%</span></span><span class="stat-card__sub">${c.ok} su ${h.n} giuste${c.nd?` · ${c.nd} non date`:""}</span></div>
     </div>
     <div class="tempo-row">${icon("timer")}<span>Inizio <b>${hm(st)}</b> · fine <b>${hm(h.t)}</b></span><span class="sep">·</span><span>durata <b>${mmss(h.sec)}</b></span><span class="sep">·</span><span>media <b>${h.n?Math.round(h.sec/h.n):0} s</b> a domanda</span><span class="sep">·</span><span>obiettivo max <b>${mmss(goal)}</b></span>${h.sec<=goal?`<span class="goal-ok">${icon("check_circle")} dentro l'obiettivo</span>`:`<span class="goal-ko">${icon("schedule")} oltre di ${mmss(h.sec-goal)}</span>`}</div>
     <div class="tmeta">
@@ -2203,7 +2205,7 @@ function renderRiepilogo(){
       <div class="stat-card stat-card--visualizzati"><span class="stat-card__icon">${icon("visibility")}</span><span class="stat-card__label">Visualizzati</span><span class="stat-card__value">${items.length}</span></div>
       <div class="stat-card stat-card--esatte"><span class="stat-card__icon">${icon("check_circle")}</span><span class="stat-card__label">Esatte</span><span class="stat-card__value">${ok}</span></div>
       <div class="stat-card stat-card--errate"><span class="stat-card__icon">${icon("cancel")}</span><span class="stat-card__label">Errate</span><span class="stat-card__value">${err}</span></div>
-      <div class="stat-card stat-card--non-date"><span class="stat-card__icon">${icon("help_outline")}</span><span class="stat-card__label">Non date</span><span class="stat-card__value">${nd}</span></div>
+      <div class="stat-card stat-card--perc"><span class="stat-card__icon">${icon("verified")}</span><span class="stat-card__label">Percentuale</span><span class="stat-card__value">${items.length?Math.round(ok/items.length*100):0}<span class="of">%</span></span><span class="stat-card__sub">${ok} su ${items.length} giuste${nd?` · ${nd} non date`:""}</span></div>
     </div>
     ${T.timeUp?`<div class="alert">${icon("timer_off")}<span><b>Tempo scaduto.</b> Le domande a cui non hai risposto sono contate come non date, come all'esame.</span></div>`:""}
     ${T.sec!=null?`<div class="tempo-row">${icon("timer")}<span>Tempo totale <b>${mmss(T.sec)}</b></span><span class="sep">·</span><span>media <b>${items.length?Math.round(T.sec/items.length):0} s</b> a domanda</span><span class="sep">·</span><span>massimo per l'obiettivo <b>${mmss(goalFor(items.length))}</b></span>
