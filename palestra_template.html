@@ -20,7 +20,7 @@ button{font-family:var(--font)}
 .mi{font-family:"Material Icons";font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;font-feature-settings:"liga"}
 :focus-visible{outline:3px solid var(--ocf-brand-green);outline-offset:2px}
 
-.page,.dialog{zoom:var(--zoom,1)}
+.page{zoom:var(--zoom,1)}.dialog{zoom:var(--dz,1)}
 /* test a schermo pieno: solo domanda e risposte */
 .focus-ctl{display:none}
 .focus-chain{display:none}
@@ -32,8 +32,12 @@ body.focus .appbar,body.focus .drawer,body.focus .scrim,body.focus .pagehead,bod
 body.focus main{margin-left:0;padding:calc(64px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
 body.focus .page{max-width:1000px;padding-top:0}
 body.focus .paper.sess{box-shadow:none;border:0;background:transparent;padding:0}
-body.focus .quesito-box__testo{font-size:21px;line-height:1.55}
-body.focus .quesito-alt-row{font-size:18px;padding:14px 18px}
+/* nel test a schermo intero A+ ingrandisce davvero le lettere (font-size), non la pagina: riquadri e pulsanti restano normali */
+body.focus .page{zoom:1!important}
+body.focus .quesito-box__testo{font-size:calc(21px * var(--zoom,1));line-height:1.5}
+body.focus .quesito-alt-row{font-size:calc(18px * var(--zoom,1));line-height:1.45;padding:14px 18px}
+body.focus .quesito-alt-row__letter{font-size:1em}
+body.focus .quesito-alt-row__tag{font-size:max(12px,.6em)}
 body.focus .focus-ctl{display:flex;position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));z-index:30;align-items:center;gap:4px;background:#fff;border:1px solid var(--ocf-line);border-radius:999px;padding:4px;box-shadow:0 4px 14px -6px rgba(0,0,0,.2)}
 .focus-ctl button{min-width:44px;height:40px;border:0;background:transparent;border-radius:999px;font:inherit;font-size:16px;font-weight:600;color:var(--ocf-ink);cursor:pointer;display:grid;place-items:center}
 .focus-ctl b{font-size:12px;font-weight:600;color:var(--ocf-ink-muted);min-width:38px;text-align:center;font-variant-numeric:tabular-nums}
@@ -372,7 +376,7 @@ table.mud td{padding:12px 16px;border-bottom:1px solid #E0E0E0}
 table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-nums}
 /* ---------- dialog ---------- */
 .dialog-scrim{position:fixed;inset:0;background:rgba(33,33,33,.5);z-index:50;display:flex;padding:16px;overflow:auto}
-.dialog{background:#fff;border-radius:4px;box-shadow:0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12);width:min(600px,100%);max-height:calc(90vh / var(--zoom,1));overflow:auto;margin:auto}
+.dialog{background:#fff;border-radius:4px;box-shadow:0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12);width:min(600px,100%);max-height:calc(90vh / var(--dz,1));overflow:auto;margin:auto}
 .dialog h2{margin:0;padding:16px 24px 0;font-size:14px;font-weight:400;color:var(--mud-text)}
 .dialog .body{padding:16px 24px;font-size:16px;line-height:1.5}
 .dialog .actions{display:flex;justify-content:flex-end;gap:8px;padding:8px;flex-wrap:wrap}
@@ -1216,7 +1220,7 @@ const ZOOM_KEY="palestra-ocf-zoom", ZOOMS=[1,1.15,1.3,1.5,1.75,2,2.25,2.5,2.75,3
 function updNarrow(){ const m=document.querySelector("main"); if(!m) return; const z=+getComputedStyle(document.documentElement).getPropertyValue("--zoom")||1; document.documentElement.classList.toggle("narrow", m.clientWidth/z < 1050); }
 window.addEventListener("resize", updNarrow);
 function curZoom(){ return +getComputedStyle(document.documentElement).getPropertyValue("--zoom")||1; }
-function applyZoom(z){ z=ZOOMS.includes(z)?z:1; document.documentElement.style.setProperty("--zoom", z); document.querySelectorAll(".page,.dialog").forEach(el=>el.style.zoom=String(z)); document.documentElement.classList.toggle("zoom-big", z>=1.3); document.documentElement.style.setProperty("--tbz", (Math.min(z,1.15)/z).toFixed(3)); /* la barra in basso resta compatta */ lsSet(ZOOM_KEY, String(z)); updNarrow(); const p=Math.round(z*100)+"%"; ["#z-val","#nz-val","#fz-val"].forEach(s=>{ const el=$(s); if(el) el.textContent=p; }); if(state.view==="stats") render(); }
+function applyZoom(z){ z=ZOOMS.includes(z)?z:1; document.documentElement.style.setProperty("--zoom", z); const dz=Math.min(z,1.5); document.documentElement.style.setProperty("--dz", dz); document.querySelectorAll(".page").forEach(el=>el.style.zoom=String(z)); document.querySelectorAll(".dialog").forEach(el=>el.style.zoom=String(dz)); /* le finestre si ingrandiscono al massimo del 150%, se no non ci stanno nello schermo */ document.documentElement.classList.toggle("zoom-big", z>=1.3); document.documentElement.style.setProperty("--tbz", (Math.min(z,1.15)/z).toFixed(3)); /* la barra in basso resta compatta */ lsSet(ZOOM_KEY, String(z)); updNarrow(); const p=Math.round(z*100)+"%"; ["#z-val","#nz-val","#fz-val"].forEach(s=>{ const el=$(s); if(el) el.textContent=p; }); if(state.view==="stats") render(); }
 function stepZoom(d){ const cur=+getComputedStyle(document.documentElement).getPropertyValue("--zoom")||1; const i=Math.max(0,Math.min(ZOOMS.length-1, ZOOMS.indexOf(ZOOMS.reduce((a,b)=>Math.abs(b-cur)<Math.abs(a-cur)?b:a))+d)); applyZoom(ZOOMS[i]); }
 ["#z-plus","#nz-plus","#f-plus"].forEach(s=>$(s).onclick=()=>stepZoom(1)); ["#z-minus","#nz-minus","#f-minus"].forEach(s=>$(s).onclick=()=>stepZoom(-1));
 $("#f-exit").onclick=()=>{ if(state.view==="session" && state.T && !state.T.done) askEnd(); };
@@ -1269,7 +1273,7 @@ const head = (ic,t) => `${MAT_VIEWS.includes(state.view)?matTabs():""}<div class
 
 /* ================= dialog ================= */
 function dialog({title, body, actions}){
-  $("#dlg").innerHTML = `<div class="dialog-scrim"><div class="dialog" style="zoom:${curZoom()}" role="dialog" aria-modal="true" aria-labelledby="dlg-t"><h2 id="dlg-t">${title}</h2><div class="body">${body}</div><div class="actions">${actions.map((a,i)=>`<button class="btn ${a.primary?"btn-filled":"btn-text"}" data-a="${i}">${a.label}</button>`).join("")}</div></div></div>`;
+  $("#dlg").innerHTML = `<div class="dialog-scrim"><div class="dialog" style="zoom:${Math.min(curZoom(),1.5)}" role="dialog" aria-modal="true" aria-labelledby="dlg-t"><h2 id="dlg-t">${title}</h2><div class="body">${body}</div><div class="actions">${actions.map((a,i)=>`<button class="btn ${a.primary?"btn-filled":"btn-text"}" data-a="${i}">${a.label}</button>`).join("")}</div></div></div>`;
   actions.forEach((a,i)=>$(`[data-a="${i}"]`).onclick=()=>{ closeDialog(); a.run&&a.run(); });
   $("#dlg .dialog-scrim").onclick=e=>{ if(e.target===e.currentTarget) closeDialog(); };
   const p=$("#dlg .btn-filled"); if(p) p.focus();
