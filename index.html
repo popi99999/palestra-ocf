@@ -1020,7 +1020,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261018-103918";
+const APP_VERSION="20261020-085858";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1212,7 +1212,7 @@ function go(v){
 document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",e=>{ e.preventDefault(); if(a.dataset.nav==="sfoglia"){ state.browse.ids=null; state.browse.label=""; } go(a.dataset.nav); }));
 $("#hdr-sync").onclick=openSyncDialog; $("#hdr-status").onclick=openSyncDialog; $("#nav-sync").onclick=()=>{ closeDrawerMobile(); openSyncDialog(); };
 // dimensione del testo: dal 100% al 200%, ricordata sul dispositivo
-const ZOOM_KEY="palestra-ocf-zoom", ZOOMS=[1,1.15,1.3,1.5,1.75,2];
+const ZOOM_KEY="palestra-ocf-zoom", ZOOMS=[1,1.15,1.3,1.5,1.75,2,2.25,2.5,2.75,3];
 function updNarrow(){ const m=document.querySelector("main"); if(!m) return; const z=+getComputedStyle(document.documentElement).getPropertyValue("--zoom")||1; document.documentElement.classList.toggle("narrow", m.clientWidth/z < 1050); }
 window.addEventListener("resize", updNarrow);
 function curZoom(){ return +getComputedStyle(document.documentElement).getPropertyValue("--zoom")||1; }
