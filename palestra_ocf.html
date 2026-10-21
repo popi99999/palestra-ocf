@@ -1024,7 +1024,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261020-090658";
+const APP_VERSION="20261021-090321";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1302,9 +1302,13 @@ function seededShuffle(a, seed){ let t=seed>>>0; const r=()=>{ t+=0x6D2B79F5; le
 // Materia 4: la sequenza della prima Catena (record 34 di fila, 16/10) resta all'inizio, nello stesso ordine:
 // blocco 1 = le sue prime 25, blocco 2 = dalla 26 alla 40 (+ altre domande); poi tutte le altre
 const CHAIN_PREFIX={4:[4176,4196,4124,4410,4347,4165,4481,4101,4245,4227,4425,4381,4276,4395,4435,4441,4392,4208,4234,4337,4411,4520,4309,4212,4117,4211,4323,4426,4404,4140,4589,4362,4479,4290,4126,4329,4573,4461,4402,4195]};
+// Materia 1: i 20 blocchi da 100 del PDF "OCF_Materia_1_risposte_uguali_blocchi_100" (stesse domande, stesso ordine)
+const CUSTOM_BLOCKS={1:[[344,1117,36,35,461,289,910,459,415,418,353,524,1818,74,84,1836,441,464,358,386,332,476,68,385,395,473,474,475,1051,1794,1785,1784,1184,1182,1425,1429,387,391,846,1187,1547,1935,80,1127,1159,560,1430,847,112,65,66,67,114,1426,1427,71,466,115,76,78,75,107,726,498,552,551,308,393,902,1639,1868,692,728,1840,1860,34,44,128,131,134,229,272,539,540,1078,1559,1567,1848,1876,22,1183,1181,1363,1359,1360,954,958,1167,1173,1169],[1168,1178,1179,82,280,334,361,463,1323,1335,1314,1315,1304,1326,1319,1325,1316,1340,377,465,1331,1332,1041,373,369,374,375,368,371,94,95,108,127,163,218,221,300,370,372,381,394,709,875,980,1042,1063,1082,1089,1158,1164,1361,1749,1751,1977,1979,529,1459,33,1029,412,43,226,227,236,296,298,477,548,614,1405,1470,336,877,1250,234,232,231,233,311,312,310,815,1407,1402,1439,141,153,584,740,744,117,1614,120,148,156,237,305,1133,1151,1160],[1161,1816,1855,99,119,977,72,83,125,158,1068,617,732,309,1226,118,1336,591,1834,1452,390,1031,1227,1228,1220,28,32,528,713,809,1318,1872,487,488,662,1592,1221,1223,739,741,1132,1589,1593,1828,140,152,1846,1880,526,651,706,1406,1415,1300,688,862,279,1296,1298,1235,760,1999,1294,1301,1302,708,530,1155,1123,1215,1217,1797,1796,224,268,278,284,307,316,335,446,789,1050,1077,1216,1295,1350,1356,1463,1467,1607,1786,1792,1827,1842,1865,1870,1871,869,870],[38,39,842,840,844,845,839,843,837,838,841,934,534,868,871,867,854,855,790,857,829,830,834,835,637,832,860,864,863,865,831,858,859,861,866,785,836,1532,1863,27,30,19,18,29,45,833,1535,652,711,547,707,745,545,546,267,270,538,554,701,729,915,702,357,354,947,355,896,913,885,544,1171,1172,537,932,848,1779,1774,1291,1232,1242,1138,1140,1143,1142,1612,1647,1624,1523,1805,1799,1803,1806,1810,1808,1812,246,254,257,256,259],[1263,1266,1262,1261,181,177,281,1337,674,675,1062,1499,4,1,492,420,1444,577,1410,1423,1409,750,215,214,193,197,184,185,1275,1281,1282,1267,1244,302,295,1538,1545,1571,1572,642,645,653,643,640,1727,1726,1565,1564,1776,1773,1136,1687,1152,1141,1145,1948,1949,1626,1627,1807,1800,290,1650,1651,287,291,681,1541,1985,1986,1500,1497,933,911,364,366,350,776,1353,1355,774,775,1364,1365,1366,1367,133,157,1507,129,136,1253,1604,684,671,442,730,731,566,689],[754,850,856,852,851,1930,1746,1731,1734,1730,190,1690,1689,180,176,1372,1345,1770,612,605,606,607,604,1688,1686,574,1443,1645,1630,1580,1552,1578,962,961,960,1039,1352,1348,1347,1344,220,219,13,14,3,1916,1922,1351,1354,169,189,1243,1231,1230,1737,1735,1483,695,897,1858,1521,1741,1743,269,1307,1278,484,970,638,1897,575,493,183,173,172,174,182,275,273,271,2,1957,784,1637,216,1623,1804,1809,1956,1137,1501,397,260,1175,1174,1135,636,1269,1277,1276],[1280,1273,1272,1475,1264,1974,1412,1411,1634,1642,1757,611,1728,1681,1732,1649,973,93,16,1777,1508,1598,736,622,188,648,804,827,792,793,1968,1633,1522,443,1462,563,299,194,192,1317,258,341,1139,1023,527,531,535,1061,1566,649,1603,1563,1556,644,1573,1590,346,342,343,247,1997,1677,762,1270,1373,1346,1740,582,1454,1450,1451,1752,1198,301,208,685,1093,235,996,1236,805,1861,1867,959,1798,1652,31,213,1146,1144,217,1199,1448,576,255,1413,135,198,191,1983],[1991,1045,1760,1939,1583,1569,623,1388,664,979,978,700,753,1001,1617,823,743,752,1775,1506,1491,1625,1455,1972,1620,1866,414,1003,1004,1047,618,821,1665,1632,1744,1049,956,1832,826,1271,1933,1839,801,797,798,796,819,791,734,422,1878,161,1707,1419,351,150,244,249,1456,1060,170,993,1371,1374,738,749,73,666,668,349,1882,608,451,581,550,1891,677,266,1163,416,352,1609,1608,1685,1581,1594,769,123,303,304,1768,362,199,438,806,925,725,777,587,179],[1875,1811,62,1885,1162,565,1005,40,663,1268,277,1471,455,324,323,321,329,380,154,121,429,396,1887,983,955,331,139,482,110,1900,1901,1898,1899,1907,1906,1026,1020,1016,1040,1037,1027,1013,333,490,489,1536,1534,1176,159,1554,1551,1886,1057,507,661,1401,1048,1083,965,1064,1084,1090,1096,1224,1225,1214,1218,1212,1213,1980,1418,1756,330,1557,144,151,389,1015,428,682,1915,564,1434,1428,1602,1447,1584,1963,1965,1879,1874,1873,1877,1936,1938,703,957,1028,1921,1920],[1902,1903,1904,1910,1909,1908,1022,1577,1588,1381,678,676,1597,670,556,1424,1888,588,533,1931,704,1992,988,986,963,1035,1464,1404,1549,1550,1568,1561,1046,1894,1555,1414,516,519,1917,594,598,1893,1892,1398,1400,1009,1010,1034,1883,1036,984,1913,679,1905,672,1599,673,1537,1582,1587,1586,665,1596,669,1431,1433,1432,561,1033,1043,1014,1017,1919,1540,1815,578,580,1453,1449,572,579,1343,1006,1925,1945,987,1912,1436,1437,1440,1435,462,467,468,469,558,559,326,948,431],[87,999,113,69,501,499,773,764,951,982,49,47,404,403,51,55,1124,1156,919,891,938,892,879,914,881,918,1125,1157,263,262,264,265,1194,1196,1192,470,471,1889,472,480,1128,1134,659,1591,906,908,1951,1953,1390,1395,1375,1988,1380,1394,1392,522,710,1937,1857,1850,1862,1830,1826,1813,1422,751,712,724,716,1396,1399,513,1683,1376,1701,1657,1377,1653,1661,523,1719,1724,1717,1709,1721,1664,1676,1668,1667,1531,1533,1526,1528,1529,1259,1260,143,142,149,1543],[1544,1570,1575,1558,647,571,567,200,201,1669,1670,1673,1680,1684,1672,1678,1703,1697,242,241,239,240,1643,210,1490,1487,1505,1524,1279,1246,1247,1248,1255,1370,1358,1362,1324,23,1322,1334,1333,1330,1297,1327,1329,1308,223,1204,1209,1210,1203,294,292,293,285,282,1190,1202,1193,1195,1197,261,1200,10,5,627,515,1186,1185,1180,1177,1310,1305,1789,1787,1790,625,626,1763,1748,1073,1085,319,449,772,771,569,1995,765,630,694,698,697,204,202,1303,1309,1311,1339,1474],[1087,61,1018,274,1397,1457,518,1706,1662,1663,1720,1713,1712,1718,1699,1708,1702,990,481,989,1211,660,1595,1469,520,1097,1984,1091,297,1416,1408,1357,225,230,1287,1285,1289,1153,1154,940,935,1485,1488,12,15,1109,1107,338,340,727,715,1379,1710,1715,306,1306,1328,1338,1342,929,920,924,927,937,426,427,433,383,417,893,888,903,917,1205,1208,1206,1207,315,1219,317,448,318,693,696,1982,1054,1114,1108,650,536,926,882,1150,1149,814,820,812,631,770,1496],[1838,6,17,8,283,944,945,1000,1059,103,900,506,109,79,382,1975,1441,1970,1621,1950,1955,1954,1640,1638,912,1990,1987,454,1989,445,453,949,413,583,1417,409,102,1601,1943,658,761,437,81,365,434,89,122,124,1238,101,1102,1110,1113,1103,1615,916,1696,1725,1722,1714,1723,1733,209,1738,1606,1854,1852,1853,1864,616,621,1619,1801,1739,1611,795,1616,1781,1783,1782,1780,1646,1284,1283,1106,1320,735,1245,1233,737,1671,1622,1618,1519,1704,972,975,974,1742,1076],[1754,1767,1769,1771,1766,1755,1765,1648,1636,1745,1012,1032,1914,288,1890,1468,165,1274,1385,1251,517,1393,890,1391,1383,1386,1576,1477,1966,1971,1527,1530,360,985,634,1747,1631,7,21,138,1008,655,359,1446,514,1486,1119,1613,1716,1711,178,1655,1659,1240,1241,1666,1764,59,58,1793,992,1007,994,901,1130,525,969,1460,654,758,1998,757,763,755,1994,2000,1644,1237,1635,1641,1759,1824,1821,166,768,722,717,721,718,339,348,1148,998,1258,187,1265,167,168,1188,251],[171,1829,1823,1847,1814,1928,378,384,376,1254,1069,363,405,48,502,883,904,392,542,1079,968,889,1368,656,1579,1442,589,1791,91,52,54,56,1116,1104,325,500,930,599,596,595,943,907,155,1843,1844,613,1795,939,435,436,137,1553,1476,1257,646,1585,1562,1201,1191,1321,205,1341,1387,778,781,786,1421,1438,458,60,748,175,222,803,276,196,1092,1753,600,46,494,495,337,104,367,146,145,147,779,1923,1750,1762,1761,1967,1969,1976,597,1480,1947,1489],[723,733,802,1772,1479,432,629,628,603,111,132,100,1420,252,886,683,1833,573,1478,570,1349,457,408,203,1700,1698,1656,1682,511,747,1466,541,532,1222,1030,1473,880,97,898,1996,633,1094,756,635,601,813,822,807,824,687,1942,921,928,905,63,85,88,77,116,70,1056,557,1896,1881,1911,639,521,686,746,592,553,632,1105,780,787,964,1679,1788,1825,1778,966,1819,759,766,767,1147,1981,1993,245,1070,1472,1293,1299,1369,1129,1131,585,590,1115,1098],[1111,1520,430,825,657,479,478,345,1517,895,941,931,942,923,92,421,1288,1292,238,1705,1515,1495,1494,1820,388,1835,90,742,243,248,783,1492,400,399,1849,1831,1924,641,130,909,602,1675,1736,1100,1170,1118,1165,1120,1122,1121,1382,810,1574,1189,1845,1509,1600,1817,356,314,705,1239,57,899,624,1610,610,1941,1692,1101,1099,811,849,50,922,1126,407,1465,1822,1856,41,25,26,1859,379,1286,1481,1918,1510,1512,447,452,444,425,250,1691,1256,568,953,1605],[1044,1166,946,884,423,1629,1628,997,450,1112,586,286,1002,719,1011,440,619,1313,1869,424,887,894,950,1851,1964,1503,1252,1312,1389,1493,1484,96,1038,1539,1071,1088,1067,1378,593,1025,1694,1525,1403,98,105,1944,64,1072,1895,1546,327,508,543,86,981,971,1458,1052,1660,1516,1518,1837,328,874,714,1074,402,401,1658,406,37,503,164,609,1973,398,1952,549,1940,1445,562,808,1960,486,1019,460,782,720,1511,510,991,1841,1934,24,253,680,667,620,1802,1961],[1482,347,995,1021,853,1095,1514,690,207,1560,1542,1461,1290,555,816,1513,1249,876,794,1502,411,1053,195,505,1504,1693,828,504,512,1654,126,53,1066,212,42,9,1962,228,1932,976,873,491,1384,699,186,206,1946,1884,439,162,872,799,1075,322,1729,936,1978,952,497,410,1024,1548,20,1695,1926,967,1959,1958,509,788,1086,817,800,483,1234,496,1055,419,456,1758,1065,211,313,1058,1498,160,1929,1229,106,1081,818,485,691,615,1080,11,1674,320,1927,878]]};
 const _blocks={};
-function chainBlocks(m){ if(!_blocks[m]){ const pre=(CHAIN_PREFIX[m]||[]).filter(n=>Q[n-1]&&Q[n-1][0]===m), inPre=new Set(pre);
+function chainBlocks(m){ if(!_blocks[m] && CUSTOM_BLOCKS[m]) _blocks[m]=CUSTOM_BLOCKS[m].map(b=>b.filter(n=>Q[n-1]&&Q[n-1][0]===m)).filter(b=>b.length);
+  if(!_blocks[m]){ const pre=(CHAIN_PREFIX[m]||[]).filter(n=>Q[n-1]&&Q[n-1][0]===m), inPre=new Set(pre);
     const seq=pre.concat(seededShuffle(BY_MAT[m].filter(n=>!inPre.has(n)), 4242+m)), out=[]; for(let i=0;i<seq.length;i+=BLOCK) out.push(seq.slice(i,i+BLOCK)); _blocks[m]=out; } return _blocks[m]; }
+function blkSize(m){ const B=chainBlocks(m); return B.length?B[0].length:BLOCK; }
 // blocchi completati: dallo storico (così valgono su tutti i dispositivi sincronizzati)
 function blocksDone(m){ const d=new Set(); S.h.forEach(h=>{ if(h.src==="catena" && h.bok===1 && h.blk && (h.ms||[]).includes(m)) d.add(h.blk-1); }); return d; }
 function nextBlock(m){ const B=chainBlocks(m), d=blocksDone(m); for(let i=0;i<B.length;i++) if(!d.has(i)) return i; return 0; }
@@ -1328,14 +1332,14 @@ function completeBlock(){
   finish(true);
   const d=blocksDone(m), nx=nextBlock(m), all=d.size>=B.length;
   state.view="home"; render();
-  dialog({title:`Blocco ${b+1} completato!`, body: all ? `Hai completato <b>tutti i ${B.length} blocchi</b> della Materia ${m}. Grande!` : `25 giuste di fila. Blocchi completati: <b>${d.size} / ${B.length}</b>.`,
+  dialog({title:`Blocco ${b+1} completato!`, body: all ? `Hai completato <b>tutti i ${B.length} blocchi</b> della Materia ${m}. Grande!` : `${blkSize(m)} giuste di fila. Blocchi completati: <b>${d.size} / ${B.length}</b>.`,
     actions: all ? [{label:"Ok",primary:true}] : [{label:"Più tardi"},{label:`Vai al blocco ${nx+1}`,primary:true,run:()=>startChain(m,nx)}]});
 }
 function chainButton(m, big){
   const B=chainBlocks(m), d=blocksDone(m), nx=nextBlock(m);
   return `<div class="chain-go ${big?"chain-go--big":""}">
     <div class="chain-go__head"><button class="btn btn-filled" data-chain="${m}" data-blk="${nx}">${icon("link")} Catena: blocco ${nx+1}</button>
-    <small>Blocchi da 25 domande. Fai le 25 giuste di fila per completare il blocco. Se sbagli puoi andare avanti a vedere le altre risposte o ricominciare il blocco. Completati: <b>${d.size} / ${B.length}</b>.</small></div>
+    <small>Blocchi da ${blkSize(m)} domande. Fai le ${blkSize(m)} giuste di fila per completare il blocco. Se sbagli puoi andare avanti a vedere le altre risposte o ricominciare il blocco. Completati: <b>${d.size} / ${B.length}</b>.</small></div>
     <div class="chain-blocks">${B.map((_,i)=>`<button class="cb ${d.has(i)?"cb--done":""} ${i===nx?"cb--next":""}" data-chain="${m}" data-blk="${i}" aria-label="Blocco ${i+1}${d.has(i)?" completato":""}">${d.has(i)?icon("check"):i+1}</button>`).join("")}</div>
   </div>`;
 }
@@ -1379,7 +1383,7 @@ function renderHome(){
   <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
     <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia ${m} · prova valutativa OCF</div>
       <h2 class="ocf-landing-hero__title">${esc(MAT[m].name)}</h2>
-      <p class="ocf-landing-hero__subtitle">Tutte le ${s.tot} domande ufficiali divise in ${chainBlocks(m).length} blocchi da 25. Scegli un blocco e allenati, oppure fai la Catena.</p>
+      <p class="ocf-landing-hero__subtitle">Tutte le ${s.tot} domande ufficiali divise in ${chainBlocks(m).length} blocchi da ${blkSize(m)}. Scegli un blocco e allenati, oppure fai la Catena.</p>
       <button class="btn ocf-landing-hero__cta" data-goto="materia">${icon("play_arrow")} Allenati</button><button class="btn ocf-landing-hero__cta" data-chain="${m}" data-blk="${nextBlock(m)}" style="margin-left:8px">${icon("link")} Catena · blocco ${nextBlock(m)+1}</button></div>
     <div class="ocf-landing-hero__right">
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.seen}</div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
@@ -1389,7 +1393,7 @@ function renderHome(){
     </div></div></section>
   <button class="totali-card" data-goto="materia">
     <span class="totali-card__icon">${icon("quiz")}</span>
-    <span class="totali-card__body"><span class="totali-card__label">Domande totali</span><span class="totali-card__value">${s.tot}</span><span class="totali-card__meta">${chainBlocks(m).length} blocchi da 25 · tocca per vederli</span></span>
+    <span class="totali-card__body"><span class="totali-card__label">Domande totali</span><span class="totali-card__value">${s.tot}</span><span class="totali-card__meta">${chainBlocks(m).length} blocchi da ${blkSize(m)} · tocca per vederli</span></span>
     <span class="totali-card__bar"><span class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${s.ok/s.tot*100}%"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${s.wr/s.tot*100}%"></span></span>
       <span class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${s.ok} ${pl(s.ok,"giusta","giuste")}</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${s.wr} ${pl(s.wr,"sbagliata","sbagliate")}</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${daFare} da fare</span></span></span>
     <span class="totali-card__go">${icon("chevron_right")}</span>
@@ -1558,7 +1562,7 @@ function selectionIds(G){
   return ids.length ? ids : G.flatMap(g=>g.ids);
 }
 function renderMateria(){
-  // ALLENAMENTO A BLOCCHI DA 25: tutte le domande della materia divise in blocchi fissi (stessi della Catena)
+  // ALLENAMENTO A BLOCCHI (25, o quelli del PDF per la Materia 1): tutte le domande della materia divise in blocchi fissi (stessi della Catena)
   const m=state.matSel=ONLY, G=groupsOf(m), B=chainBlocks(m), done=blocksDone(m), all=gstats(BY_MAT[m]);
   if(!state.pickedB || state.pickedB.m!==m){ state.pickedB=new Set(); state.pickedB.m=m; }
   state.picked.clear(); // le vecchie selezioni per categoria non valgono più
@@ -1574,7 +1578,7 @@ function renderMateria(){
   ${head("school","Allenamento a blocchi")}
   <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
     <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia ${ONLY} · ${esc(MAT[ONLY].short)}</div>
-      <h2 class="ocf-landing-hero__title">Allenati a <b>blocchi da 25</b>.</h2>
+      <h2 class="ocf-landing-hero__title">Allenati a <b>blocchi da ${blkSize(m)}</b>.</h2>
       <p class="ocf-landing-hero__subtitle" style="margin-bottom:0">Tutte le ${all.tot} domande divise in ${B.length} blocchi fissi (sempre le stesse domande nello stesso ordine). Tocca un blocco per <b>allenarti</b>, fare la <b>Catena</b> o <b>leggerlo</b>.</p></div>
     <div class="ocf-landing-hero__right">
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.tot}</div><div class="ocf-landing-hero__stat-label">Domande</div></div>
@@ -1583,7 +1587,7 @@ function renderMateria(){
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${done.size}<span class="ocf-landing-hero__stat-unit">/${B.length}</span></div><div class="ocf-landing-hero__stat-label">Catene completate</div></div>
     </div></div></section>
   ${(PDF_BLOCKS[ONLY]||[]).map((b,i)=>`<div class="pdf-go"><button class="btn btn-filled" data-pdfb="${i}" data-pdfo="pdf">${icon("play_arrow")} Allenati sulle ${esc(b.short||b.title)} (${b.ids.length} domande)</button><small>Nell'ordine del PDF, con Quali, Quante, Tempo e Correzione scelti nella barra in basso.</small></div>`).join("")}
-  <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">${B.length} blocchi da 25 · tocca un blocco</span></div>
+  <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">${B.length} blocchi da ${blkSize(m)} · tocca un blocco</span></div>
   <div class="bt-grid">${rows}</div>
   <div class="trainbar" id="trainbar"></div>`;
   state.pickedB.clear();
@@ -1797,7 +1801,7 @@ function renderStats(){
 }
 
 /* ================= TEST FATTI ================= */
-const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco da 25"};
+const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco"};
 const WHICH_TXT={all:"tutte", new:"mai fatte", err:"sbagliate", worst:"sbagliate più spesso", redo:"da rivedere"};
 const TIME_TXT={free:"cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"tempo totale d'esame"};
 function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[5]).includes(ONLY)).slice().sort((a,b)=>b.t-a.t); }
@@ -1979,7 +1983,7 @@ async function exportReport1(btn){
 const RX_EXCELJS_URL = "https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js";
 const RX_WHICH = {all:"Tutte", new:"Mai fatte", err:"Sbagliate", worst:"Sbagliate più spesso", redo:"Rifai sbagliate"};
 const RX_TIME = {free:"Cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"Totale come all'esame"};
-const RX_SRC = {bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco da 25"};
+const RX_SRC = {bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco"};
 const RX_ESITO = {"1":"Giusta", "-1":"Errata", "-2":"Non la sapevo", "0":"Non data"};
 const RX_HEX = {green:"#2E7D32", red:"#C62828", blue:"#1976D2", grey:"#9E9E9E", orange:"#EF6C00", text:"#212121", muted:"#616161", grid:"#ECECEC", axis:"#BDBDBD"};
 const RX_ARGB = {green:"FF2E7D32", greenDark:"FF1B5E20", greenLine:"FFA5D6A7", red:"FFC62828", blue:"FF1976D2", orange:"FFE65100", grey:"FF757575",

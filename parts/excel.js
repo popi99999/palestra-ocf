@@ -12,7 +12,7 @@
 const RX_EXCELJS_URL = "https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js";
 const RX_WHICH = {all:"Tutte", new:"Mai fatte", err:"Sbagliate", worst:"Sbagliate più spesso", redo:"Rifai sbagliate"};
 const RX_TIME = {free:"Cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"Totale come all'esame"};
-const RX_SRC = {bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco da 25"};
+const RX_SRC = {bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco"};
 const RX_ESITO = {"1":"Giusta", "-1":"Errata", "-2":"Non la sapevo", "0":"Non data"};
 const RX_HEX = {green:"#2E7D32", red:"#C62828", blue:"#1976D2", grey:"#9E9E9E", orange:"#EF6C00", text:"#212121", muted:"#616161", grid:"#ECECEC", axis:"#BDBDBD"};
 const RX_ARGB = {green:"FF2E7D32", greenDark:"FF1B5E20", greenLine:"FFA5D6A7", red:"FFC62828", blue:"FF1976D2", orange:"FFE65100", grey:"FF757575",
