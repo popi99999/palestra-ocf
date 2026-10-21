@@ -872,7 +872,7 @@ function cleanSession(h){
   for(const f of ["selC","selS"]) if(h[f]===null) o[f]=null; else if(Array.isArray(h[f])) o[f]=intArr(h[f]);
   if(["all","new","err","worst","redo"].includes(h.w)) o.w=h.w;
   if(["free","q60","q85","tot"].includes(h.tm)) o.tm=h.tm;
-  if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena","blk"].includes(h.src)) o.src=h.src;
+  if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena","blk","day"].includes(h.src)) o.src=h.src;
   if(["rand","err","less","orig"].includes(h.ord)) o.ord=h.ord;
   if(h.fb===0 || h.fb===1) o.fb=h.fb;
   { const b=int(h.blk,1,1000); if(h.blk!=null && b) o.blk=b; if(h.bok===1) o.bok=1; }
@@ -1586,6 +1586,7 @@ function renderMateria(){
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.seen}<span class="ocf-landing-hero__stat-unit">/${all.tot}</span></div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${done.size}<span class="ocf-landing-hero__stat-unit">/${B.length}</span></div><div class="ocf-landing-hero__stat-label">Catene completate</div></div>
     </div></div></section>
+  ${(()=>{ const days=studyDays(m).slice(0,2); return days.length?`<div class="pdf-go">${days.map(d=>`<button class="btn btn-filled" data-day="${d.k}">${icon("replay")} Ripassa le ${d.ids.length} ${pl(d.ids.length,"domanda","domande")} ${dayLabel(d.k)}</button>`).join(" ")}<small>Tutte le domande di questa materia fatte quel giorno, in ordine casuale. La correzione segue l'impostazione della barra in basso.</small></div>`:""; })()}
   ${(PDF_BLOCKS[ONLY]||[]).map((b,i)=>`<div class="pdf-go"><button class="btn btn-filled" data-pdfb="${i}" data-pdfo="pdf">${icon("play_arrow")} Allenati sulle ${esc(b.short||b.title)} (${b.ids.length} domande)</button><small>Nell'ordine del PDF, con Quali, Quante, Tempo e Correzione scelti nella barra in basso.</small></div>`).join("")}
   <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">${B.length} blocchi da ${blkSize(m)} · tocca un blocco</span></div>
   <div class="bt-grid">${rows}</div>
@@ -1595,9 +1596,16 @@ function renderMateria(){
     const cats=[...new Set(ids.map(n=>CONT[Q[n-1][1]]))];
     dialog({title:`Blocco ${i+1}`, body:`<p style="margin:0 0 6px"><b>${st.seen}</b> fatte su ${st.tot} · <b>${st.ok}</b> ${pl(st.ok,"giusta","giuste")} · <b>${st.wr}</b> ${pl(st.wr,"sbagliata","sbagliate")}${done.has(i)?" · catena completata ✓":""}</p><p class="hint" style="margin:0">${esc(cats.join(" · "))}</p>`,
       actions:[{label:"Leggi",run:()=>readIds(ids, `Blocco ${i+1}`)},{label:"Catena",run:()=>startChain(m,i)},{label:"Allenati",primary:true,run:()=>startTraining(ids, `Blocco ${i+1}`, "blk")}]}); });
+  document.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>startDay(m,b.dataset.day));
   bindPdfBlocks(ONLY, true); bindChain();
   renderTrainbar(G);
 }
+// RIPASSO DEL GIORNO: le domande della materia fatte in un certo giorno (dallo storico, quindi uguali su tutti i dispositivi)
+function studyDays(m){ const by=new Map(); S.h.forEach(h=>{ const k=dayKey(h.start||(h.t-(h.sec||0)*1000)); (h.q||[]).forEach(x=>{ const n=x[0]; if(Q[n-1] && Q[n-1][0]===m){ if(!by.has(k)) by.set(k,new Set()); by.get(k).add(n); } }); });
+  return [...by.entries()].sort((a,b)=>a[0]<b[0]?1:-1).map(([k,ids])=>({k, ids:[...ids]})); }
+function dayLabel(k){ const y=new Date(); y.setDate(y.getDate()-1); const [,M,D]=k.split("-"); return k===dayKey(Date.now())?"di oggi":k===dayKey(y.getTime())?`di ieri (${D}/${M})`:`del ${D}/${M}`; }
+function startDay(m,k){ const d=studyDays(m).find(x=>x.k===k); if(!d) return; const tr=state.train||{};
+  startSession({kind:"studio", title:`Ripasso delle domande ${dayLabel(k)} · Materia ${m}`, ids:shuffle(d.ids.slice()), fb:tr.fb?"now":"end", w:"all", src:"day"}); }
 function startTraining(base, label, src){
   // allena con le impostazioni della barra (quali, quante, tempo, correzione)
   const tr=state.train;
@@ -1801,7 +1809,7 @@ function renderStats(){
 }
 
 /* ================= TEST FATTI ================= */
-const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco"};
+const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco", day:"Ripasso del giorno"};
 const WHICH_TXT={all:"tutte", new:"mai fatte", err:"sbagliate", worst:"sbagliate più spesso", redo:"da rivedere"};
 const TIME_TXT={free:"cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"tempo totale d'esame"};
 function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[5]).includes(ONLY)).slice().sort((a,b)=>b.t-a.t); }
