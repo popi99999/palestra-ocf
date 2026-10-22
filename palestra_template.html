@@ -1606,7 +1606,7 @@ function studyDays(m){ const first=new Map(), sm=S.m[m]||{};
   S.h.forEach(h=>{ const st=h.start||(h.t-(h.sec||0)*1000); (h.q||[]).forEach(x=>{ const n=x[0]; if(Q[n-1] && Q[n-1][0]===m && (!first.has(n) || st<first.get(n))) first.set(n,st); }); });
   const by=new Map(); first.forEach((st,n)=>{ const k=dayKey(st); if(!by.has(k)) by.set(k,[]); by.get(k).push(n); });
   return [...by.entries()].sort((a,b)=>a[0]<b[0]?1:-1).map(([k,ids])=>({k, ids, wrong:ids.filter(n=>{ const r=sm[n]; return r && !r[2]; })})); }
-function dayLabel(k){ const y=new Date(); y.setDate(y.getDate()-1); const [,M,D]=k.split("-"); return k===dayKey(Date.now())?"di oggi":k===dayKey(y.getTime())?`di ieri (${D}/${M})`:`del ${D}/${M}`; }
+function dayLabel(k){ const today=dayKey(Date.now()), [,M,D]=k.split("-"); return k===today?"di oggi":k===prevDayKey(today)?`di ieri (${D}/${M})`:`del ${D}/${M}`; }
 function openDay(m,k){ const d=studyDays(m).find(x=>x.k===k); if(!d) return; const N=d.ids.length, W=d.wrong.length;
   const acts=[{label:"Annulla"}];
   if(W && W<N) acts.push({label:`Solo le sbagliate (${W})`, run:()=>startDay(m,k,d.wrong,"sbagliate")});
@@ -1718,7 +1718,10 @@ function openGroupDialog(ids,label){
 }
 
 /* ================= STATISTICHE ================= */
-const dayKey = t => { const d=new Date(t); return d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate()); };
+// giorno secondo l'ora italiana vera (Europe/Rome), qualunque sia il fuso del dispositivo; mezzanotte italiana = cambio giorno
+const _romeFmt = (()=>{ try{ return new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Rome",year:"numeric",month:"2-digit",day:"2-digit"}); }catch(e){ return null; } })();
+const dayKey = t => { const d=new Date(t); if(_romeFmt){ const p={}; _romeFmt.formatToParts(d).forEach(x=>p[x.type]=x.value); if(p.year&&p.month&&p.day) return p.year+"-"+p.month+"-"+p.day; } return d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate()); };
+const prevDayKey = k => { const [Y,M,D]=k.split("-").map(Number), u=new Date(Date.UTC(Y,M-1,D-1)); return u.getUTCFullYear()+"-"+pad2(u.getUTCMonth()+1)+"-"+pad2(u.getUTCDate()); };
 function niceScale(maxV){ const raw=Math.max(1,maxV)/5, p=Math.pow(10,Math.floor(Math.log10(raw))), f=raw/p, step=Math.max(1,Math.round((f<=1?1:f<=2?2:f<=5?5:10)*p)); return {step, top:Math.ceil(Math.max(1,maxV)/step)*step}; }
 function svgLine(points, {yMax, step:st, unit, ref, refLabel, color, label}, W){
   // un grafico, un asse: punti [{x:etichetta, y:valore, tip:html}]; disegnato alla larghezza reale del contenitore
