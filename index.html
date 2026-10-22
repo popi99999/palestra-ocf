@@ -1024,7 +1024,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261021-213945";
+const APP_VERSION="20261022-100438";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1586,7 +1586,7 @@ function renderMateria(){
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.seen}<span class="ocf-landing-hero__stat-unit">/${all.tot}</span></div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${done.size}<span class="ocf-landing-hero__stat-unit">/${B.length}</span></div><div class="ocf-landing-hero__stat-label">Catene completate</div></div>
     </div></div></section>
-  ${(()=>{ const days=studyDays(m).slice(0,2); return days.length?`<div class="pdf-go">${days.map(d=>`<button class="btn btn-filled" data-day="${d.k}">${icon("replay")} Ripassa le ${d.ids.length} ${pl(d.ids.length,"domanda","domande")} ${dayLabel(d.k)}</button>`).join(" ")}<small>Tutte le domande di questa materia fatte quel giorno, in ordine casuale. La correzione segue l'impostazione della barra in basso.</small></div>`:""; })()}
+  ${(()=>{ const days=studyDays(m).slice(0,2); return days.length?`<div class="pdf-go">${days.map(d=>`<button class="btn btn-filled" data-day="${d.k}">${icon("replay")} Ripassa le ${d.ids.length} ${pl(d.ids.length,"domanda nuova","domande nuove")} ${dayLabel(d.k)}</button>`).join(" ")}<small>Le domande che hai fatto per la prima volta quel giorno (i ripassi non contano). Premi per scegliere: tutte, solo le sbagliate o una parte. La correzione segue l'impostazione della barra in basso.</small></div>`:""; })()}
   ${(PDF_BLOCKS[ONLY]||[]).map((b,i)=>`<div class="pdf-go"><button class="btn btn-filled" data-pdfb="${i}" data-pdfo="pdf">${icon("play_arrow")} Allenati sulle ${esc(b.short||b.title)} (${b.ids.length} domande)</button><small>Nell'ordine del PDF, con Quali, Quante, Tempo e Correzione scelti nella barra in basso.</small></div>`).join("")}
   <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">${B.length} blocchi da ${blkSize(m)} · tocca un blocco</span></div>
   <div class="bt-grid">${rows}</div>
@@ -1596,16 +1596,25 @@ function renderMateria(){
     const cats=[...new Set(ids.map(n=>CONT[Q[n-1][1]]))];
     dialog({title:`Blocco ${i+1}`, body:`<p style="margin:0 0 6px"><b>${st.seen}</b> fatte su ${st.tot} · <b>${st.ok}</b> ${pl(st.ok,"giusta","giuste")} · <b>${st.wr}</b> ${pl(st.wr,"sbagliata","sbagliate")}${done.has(i)?" · catena completata ✓":""}</p><p class="hint" style="margin:0">${esc(cats.join(" · "))}</p>`,
       actions:[{label:"Leggi",run:()=>readIds(ids, `Blocco ${i+1}`)},{label:"Catena",run:()=>startChain(m,i)},{label:"Allenati",primary:true,run:()=>startTraining(ids, `Blocco ${i+1}`, "blk")}]}); });
-  document.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>startDay(m,b.dataset.day));
+  document.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>openDay(m,b.dataset.day));
   bindPdfBlocks(ONLY, true); bindChain();
   renderTrainbar(G);
 }
 // RIPASSO DEL GIORNO: le domande della materia fatte in un certo giorno (dallo storico, quindi uguali su tutti i dispositivi)
-function studyDays(m){ const by=new Map(); S.h.forEach(h=>{ const k=dayKey(h.start||(h.t-(h.sec||0)*1000)); (h.q||[]).forEach(x=>{ const n=x[0]; if(Q[n-1] && Q[n-1][0]===m){ if(!by.has(k)) by.set(k,new Set()); by.get(k).add(n); } }); });
-  return [...by.entries()].sort((a,b)=>a[0]<b[0]?1:-1).map(([k,ids])=>({k, ids:[...ids]})); }
+// "nuove" di un giorno = domande viste per la PRIMA volta quel giorno (un ripasso non le fa diventare di oggi)
+function studyDays(m){ const first=new Map(), sm=S.m[m]||{};
+  S.h.forEach(h=>{ const st=h.start||(h.t-(h.sec||0)*1000); (h.q||[]).forEach(x=>{ const n=x[0]; if(Q[n-1] && Q[n-1][0]===m && (!first.has(n) || st<first.get(n))) first.set(n,st); }); });
+  const by=new Map(); first.forEach((st,n)=>{ const k=dayKey(st); if(!by.has(k)) by.set(k,[]); by.get(k).push(n); });
+  return [...by.entries()].sort((a,b)=>a[0]<b[0]?1:-1).map(([k,ids])=>({k, ids, wrong:ids.filter(n=>{ const r=sm[n]; return r && !r[2]; })})); }
 function dayLabel(k){ const y=new Date(); y.setDate(y.getDate()-1); const [,M,D]=k.split("-"); return k===dayKey(Date.now())?"di oggi":k===dayKey(y.getTime())?`di ieri (${D}/${M})`:`del ${D}/${M}`; }
-function startDay(m,k){ const d=studyDays(m).find(x=>x.k===k); if(!d) return; const tr=state.train||{};
-  startSession({kind:"studio", title:`Ripasso delle domande ${dayLabel(k)} · Materia ${m}`, ids:shuffle(d.ids.slice()), fb:tr.fb?"now":"end", w:"all", src:"day"}); }
+function openDay(m,k){ const d=studyDays(m).find(x=>x.k===k); if(!d) return; const N=d.ids.length, W=d.wrong.length;
+  const acts=[{label:"Annulla"}];
+  if(W && W<N) acts.push({label:`Solo le sbagliate (${W})`, run:()=>startDay(m,k,d.wrong,"sbagliate")});
+  [25,50].filter(x=>x<N).forEach(x=>acts.push({label:`${x} a caso`, run:()=>startDay(m,k,shuffle(d.ids.slice()).slice(0,x),`${x} a caso`)}));
+  acts.push({label:`Tutte (${N})`, primary:true, run:()=>startDay(m,k,d.ids,"tutte")});
+  dialog({title:`Domande nuove ${dayLabel(k)}`, body:`<p style="margin:0">${k===dayKey(Date.now())?"Oggi":`Il ${k.split("-")[2]}/${k.split("-")[1]}`} hai fatto per la prima volta <b>${N}</b> ${pl(N,"domanda","domande")} di Materia ${m}${W?`, di cui <b>${W}</b> ${pl(W,"sbagliata","sbagliate")} l'ultima volta`:""}. Quali vuoi ripassare? Le domande escono in ordine casuale.</p>`, actions:acts}); }
+function startDay(m,k,ids,what){ const tr=state.train||{};
+  startSession({kind:"studio", title:`Ripasso domande nuove ${dayLabel(k)} · ${what} · Materia ${m}`, ids:shuffle(ids.slice()), fb:tr.fb?"now":"end", w:"all", src:"day"}); }
 function startTraining(base, label, src){
   // allena con le impostazioni della barra (quali, quante, tempo, correzione)
   const tr=state.train;
