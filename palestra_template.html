@@ -1588,7 +1588,7 @@ function renderMateria(){
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.seen}<span class="ocf-landing-hero__stat-unit">/${all.tot}</span></div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${done.size}<span class="ocf-landing-hero__stat-unit">/${B.length}</span></div><div class="ocf-landing-hero__stat-label">Catene completate</div></div>
     </div></div></section>
-  ${(()=>{ const days=visibleDays(m), nh=studyDays(m).length-days.length; return days.length||nh?`<div class="pdf-go">${days.map((d,i)=>`<span class="day-b"><button class="btn ${i<2?"btn-filled":"btn-outlined"}" data-day="${d.k}">${icon("replay")} Ripassa le ${d.ids.length} ${pl(d.ids.length,"domanda nuova","domande nuove")} ${dayLabel(d.k)}</button><button class="day-x" data-dayx="${d.k}" aria-label="Togli il giorno ${dayShort(d.k)}" title="Togli questo giorno">${icon("close")}</button></span>`).join(" ")}${nh?`<button class="btn btn-text btn-sm" id="day-show">Rimetti i giorni tolti (${nh})</button>`:""}<small>Un pulsante per ogni giorno di studio: le domande che hai fatto per la prima volta quel giorno (i ripassi non contano). Premi per scegliere i giorni (anche più insieme), quali, quante e in che ordine. La ✕ toglie un giorno dalla lista.</small></div>`:""; })()}
+  ${(()=>{ const days=visibleDays(m), nh=studyDays(m).length-days.length; return days.length||nh?`<div class="pdf-go">${days.map((d,i)=>`<span class="day-b"><button class="btn ${i<2?"btn-filled":"btn-outlined"}" data-day="${d.k}">${icon("replay")} Ripassa le ${d.ids.length} ${pl(d.ids.length,"domanda","domande")} ${dayLabel(d.k)}</button><button class="day-x" data-dayx="${d.k}" aria-label="Togli il giorno ${dayShort(d.k)}" title="Togli questo giorno">${icon("close")}</button></span>`).join(" ")}${nh?`<button class="btn btn-text btn-sm" id="day-show">Rimetti i giorni tolti (${nh})</button>`:""}<small>Un pulsante per ogni giorno: ogni domanda sta nell'ultimo giorno in cui l'hai fatta (se la rifai oggi passa a oggi). I ripassi fatti da questi pulsanti non spostano le domande. Premi per scegliere i giorni (anche più insieme), quali, quante e in che ordine. La ✕ toglie un giorno dalla lista.</small></div>`:""; })()}
   ${(PDF_BLOCKS[ONLY]||[]).map((b,i)=>`<div class="pdf-go"><button class="btn btn-filled" data-pdfb="${i}" data-pdfo="pdf">${icon("play_arrow")} Allenati sulle ${esc(b.short||b.title)} (${b.ids.length} domande)</button><small>Nell'ordine del PDF, con Quali, Quante, Tempo e Correzione scelti nella barra in basso.</small></div>`).join("")}
   <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">${B.length} blocchi da ${blkSize(m)} · tocca un blocco</span></div>
   <div class="bt-grid">${rows}</div>
@@ -1604,11 +1604,12 @@ function renderMateria(){
   bindPdfBlocks(ONLY, true); bindChain();
   renderTrainbar(G);
 }
-// RIPASSO DEL GIORNO: le domande della materia fatte in un certo giorno (dallo storico, quindi uguali su tutti i dispositivi)
-// "nuove" di un giorno = domande viste per la PRIMA volta quel giorno (un ripasso non le fa diventare di oggi)
-function studyDays(m){ const first=new Map(), sm=S.m[m]||{};
-  S.h.forEach(h=>{ const st=h.start||(h.t-(h.sec||0)*1000); (h.q||[]).forEach(x=>{ const n=x[0]; if(Q[n-1] && Q[n-1][0]===m && (!first.has(n) || st<first.get(n))) first.set(n,st); }); });
-  const by=new Map(); first.forEach((st,n)=>{ const k=dayKey(st); if(!by.has(k)) by.set(k,[]); by.get(k).push(n); });
+// RIPASSO DEL GIORNO: le domande della materia divise per giorno (dallo storico, quindi uguali su tutti i dispositivi)
+// ogni domanda sta nell'ULTIMO giorno in cui l'hai fatta: se la rifai oggi passa a oggi e sparisce dal giorno vecchio.
+// i ripassi fatti da questi pulsanti (src "day") non spostano le domande
+function studyDays(m){ const last=new Map(), sm=S.m[m]||{};
+  S.h.forEach(h=>{ if(h.src==="day") return; const st=h.start||(h.t-(h.sec||0)*1000); (h.q||[]).forEach(x=>{ const n=x[0]; if(Q[n-1] && Q[n-1][0]===m && (!last.has(n) || st>last.get(n))) last.set(n,st); }); });
+  const by=new Map(); last.forEach((st,n)=>{ const k=dayKey(st); if(!by.has(k)) by.set(k,[]); by.get(k).push(n); });
   return [...by.entries()].sort((a,b)=>a[0]<b[0]?1:-1).map(([k,ids])=>({k, ids, wrong:ids.filter(n=>{ const r=sm[n]; return r && !r[2]; })})); }
 function dayLabel(k){ const today=dayKey(Date.now()), [,M,D]=k.split("-"); return k===today?"di oggi":k===prevDayKey(today)?`di ieri (${D}/${M})`:`del ${D}/${M}`; }
 // giorni tolti dalla lista (per dispositivo): "materia:giorno"
@@ -1619,9 +1620,9 @@ function visibleDays(m){ const h=hiddenDays(); return studyDays(m).filter(d=>!h.
 function dayShort(k){ const [,M,D]=k.split("-"); return k===dayKey(Date.now())?"oggi":`${D}/${M}`; }
 function openDay(m,k){ const days=visibleDays(m); if(!days.some(x=>x.k===k)) return; const tr=state.train||{};
   // scegli i giorni (anche più d'uno insieme), quali, quante e in che ordine
-  dialog({title:`Ripasso domande nuove`, body:`
+  dialog({title:`Ripasso del giorno`, body:`
     <div class="field"><label>Giorni</label><div class="radio-row">
-      ${days.map(d=>`<label><input type="checkbox" name="dd" value="${d.k}" ${d.k===k?"checked":""}> ${d.k===dayKey(Date.now())?"Oggi":`Il ${dayShort(d.k)}`}: ${d.ids.length} ${pl(d.ids.length,"domanda nuova","domande nuove")}${d.wrong.length?`, ${d.wrong.length} ${pl(d.wrong.length,"sbagliata","sbagliate")}`:""}</label>`).join("")}</div></div>
+      ${days.map(d=>`<label><input type="checkbox" name="dd" value="${d.k}" ${d.k===k?"checked":""}> ${d.k===dayKey(Date.now())?"Oggi":`Il ${dayShort(d.k)}`}: ${d.ids.length} ${pl(d.ids.length,"domanda","domande")}${d.wrong.length?`, ${d.wrong.length} ${pl(d.wrong.length,"sbagliata","sbagliate")}`:""}</label>`).join("")}</div></div>
     <div class="field"><label>Quali</label><div class="radio-row">
       <label><input type="radio" name="dq" value="all" checked> <span id="d-all"></span></label>
       <label><input type="radio" name="dq" value="err"> <span id="d-err"></span></label></div></div>
@@ -1651,7 +1652,7 @@ function openDay(m,k){ const days=visibleDays(m); if(!days.some(x=>x.k===k)) ret
 }
 function startDay(m,ks,ids,what,ord,fb){
   const lab=ks.length===1?dayLabel(ks[0]):ks.slice().sort().map(dayShort).join(" + ");
-  startSession({kind:"studio", title:`Ripasso domande nuove ${lab} · ${what} · Materia ${m}`, ids, fb:fb?"now":"end", w:"all", src:"day", meta:{ord:ord||"rand"}}); }
+  startSession({kind:"studio", title:`Ripasso domande ${lab} · ${what} · Materia ${m}`, ids, fb:fb?"now":"end", w:"all", src:"day", meta:{ord:ord||"rand"}}); }
 function startTraining(base, label, src){
   // allena con le impostazioni della barra (quali, quante, tempo, correzione)
   const tr=state.train;
