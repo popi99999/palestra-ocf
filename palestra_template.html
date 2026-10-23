@@ -384,6 +384,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .field>label{font-size:12px;color:var(--ocf-ink-soft);font-weight:500;letter-spacing:.4px;text-transform:uppercase}
 .field select,.field input{font-family:var(--font);font-size:15px;padding:9px 10px;border:1px solid rgba(0,0,0,.42);border-radius:4px;background:#fff;color:var(--mud-text);max-width:100%}
 .radio-row{display:flex;flex-direction:column;gap:6px}
+.day-n{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.day-n input{width:84px}
 .radio-row label{display:flex;gap:8px;align-items:center;font-size:15px}
 .radio-row input{accent-color:var(--ocf-brand-green);width:18px;height:18px;flex-shrink:0}
 .check{display:flex;gap:8px;align-items:center;font-size:15px}
@@ -1586,7 +1587,7 @@ function renderMateria(){
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.seen}<span class="ocf-landing-hero__stat-unit">/${all.tot}</span></div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${done.size}<span class="ocf-landing-hero__stat-unit">/${B.length}</span></div><div class="ocf-landing-hero__stat-label">Catene completate</div></div>
     </div></div></section>
-  ${(()=>{ const days=studyDays(m).slice(0,2); return days.length?`<div class="pdf-go">${days.map(d=>`<button class="btn btn-filled" data-day="${d.k}">${icon("replay")} Ripassa le ${d.ids.length} ${pl(d.ids.length,"domanda nuova","domande nuove")} ${dayLabel(d.k)}</button>`).join(" ")}<small>Le domande che hai fatto per la prima volta quel giorno (i ripassi non contano). Premi per scegliere: tutte, solo le sbagliate o una parte. La correzione segue l'impostazione della barra in basso.</small></div>`:""; })()}
+  ${(()=>{ const days=studyDays(m).slice(0,2); return days.length?`<div class="pdf-go">${days.map(d=>`<button class="btn btn-filled" data-day="${d.k}">${icon("replay")} Ripassa le ${d.ids.length} ${pl(d.ids.length,"domanda nuova","domande nuove")} ${dayLabel(d.k)}</button>`).join(" ")}<small>Le domande che hai fatto per la prima volta quel giorno (i ripassi non contano). Premi per scegliere quali (tutte o solo le sbagliate), quante e in che ordine.</small></div>`:""; })()}
   ${(PDF_BLOCKS[ONLY]||[]).map((b,i)=>`<div class="pdf-go"><button class="btn btn-filled" data-pdfb="${i}" data-pdfo="pdf">${icon("play_arrow")} Allenati sulle ${esc(b.short||b.title)} (${b.ids.length} domande)</button><small>Nell'ordine del PDF, con Quali, Quante, Tempo e Correzione scelti nella barra in basso.</small></div>`).join("")}
   <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">${B.length} blocchi da ${blkSize(m)} · tocca un blocco</span></div>
   <div class="bt-grid">${rows}</div>
@@ -1607,14 +1608,33 @@ function studyDays(m){ const first=new Map(), sm=S.m[m]||{};
   const by=new Map(); first.forEach((st,n)=>{ const k=dayKey(st); if(!by.has(k)) by.set(k,[]); by.get(k).push(n); });
   return [...by.entries()].sort((a,b)=>a[0]<b[0]?1:-1).map(([k,ids])=>({k, ids, wrong:ids.filter(n=>{ const r=sm[n]; return r && !r[2]; })})); }
 function dayLabel(k){ const today=dayKey(Date.now()), [,M,D]=k.split("-"); return k===today?"di oggi":k===prevDayKey(today)?`di ieri (${D}/${M})`:`del ${D}/${M}`; }
-function openDay(m,k){ const d=studyDays(m).find(x=>x.k===k); if(!d) return; const N=d.ids.length, W=d.wrong.length;
-  const acts=[{label:"Annulla"}];
-  if(W && W<N) acts.push({label:`Solo le sbagliate (${W})`, run:()=>startDay(m,k,d.wrong,"sbagliate")});
-  [25,50].filter(x=>x<N).forEach(x=>acts.push({label:`${x} a caso`, run:()=>startDay(m,k,shuffle(d.ids.slice()).slice(0,x),`${x} a caso`)}));
-  acts.push({label:`Tutte (${N})`, primary:true, run:()=>startDay(m,k,d.ids,"tutte")});
-  dialog({title:`Domande nuove ${dayLabel(k)}`, body:`<p style="margin:0">${k===dayKey(Date.now())?"Oggi":`Il ${k.split("-")[2]}/${k.split("-")[1]}`} hai fatto per la prima volta <b>${N}</b> ${pl(N,"domanda","domande")} di Materia ${m}${W?`, di cui <b>${W}</b> ${pl(W,"sbagliata","sbagliate")} l'ultima volta`:""}. Quali vuoi ripassare? Le domande escono in ordine casuale.</p>`, actions:acts}); }
-function startDay(m,k,ids,what){ const tr=state.train||{};
-  startSession({kind:"studio", title:`Ripasso domande nuove ${dayLabel(k)} · ${what} · Materia ${m}`, ids:shuffle(ids.slice()), fb:tr.fb?"now":"end", w:"all", src:"day"}); }
+function openDay(m,k){ const d=studyDays(m).find(x=>x.k===k); if(!d) return; const N=d.ids.length, W=d.wrong.length, tr=state.train||{};
+  // scegli quali, quante e in che ordine (stessi ordini della barra: casuale, più sbagliate, meno proposte, originale)
+  dialog({title:`Domande nuove ${dayLabel(k)}`, body:`<p style="margin:0 0 12px">${k===dayKey(Date.now())?"Oggi":`Il ${k.split("-")[2]}/${k.split("-")[1]}`} hai fatto per la prima volta <b>${N}</b> ${pl(N,"domanda","domande")} di Materia ${m}${W?`, di cui <b>${W}</b> ${pl(W,"sbagliata","sbagliate")} l'ultima volta`:""}.</p>
+    <div class="field"><label>Quali</label><div class="radio-row">
+      <label><input type="radio" name="dq" value="all" checked> Tutte (${N})</label>
+      ${W?`<label><input type="radio" name="dq" value="err"> Solo le sbagliate (${W})</label>`:""}</div></div>
+    <div class="field"><label for="d-n">Quante</label><div class="day-n"><input id="d-n" type="number" min="1" max="${N}" value="${N}">
+      ${[10,25,50].map(x=>`<button type="button" class="btn btn-outlined btn-sm" data-dn="${x}">${x}</button>`).join("")}<button type="button" class="btn btn-outlined btn-sm" data-dn="max">Tutte</button></div></div>
+    <div class="field"><label>Ordine</label><div class="radio-row">
+      <label><input type="radio" name="do" value="rand" checked> Casuale</label>
+      <label><input type="radio" name="do" value="err"> Prima le più sbagliate</label>
+      <label><input type="radio" name="do" value="less"> Prima le meno proposte</label>
+      <label><input type="radio" name="do" value="orig"> Ordine originale (numero della domanda)</label></div></div>
+    <label class="check"><input type="checkbox" id="d-fb" ${tr.fb?"checked":""}> Mostra subito se la risposta è esatta</label>`,
+    actions:[{label:"Annulla"},{label:"Avvia",primary:true}]});
+  const inp=$("#d-n"), pool=()=>document.querySelector('input[name=dq]:checked').value==="err"?d.wrong:d.ids;
+  const fix=()=>{ const mx=pool().length; inp.max=mx; inp.value=Math.max(1,Math.min(mx,+inp.value||mx)); };
+  document.querySelectorAll('input[name=dq]').forEach(r=>r.onchange=()=>{ inp.value=pool().length; fix(); });
+  document.querySelectorAll('[data-dn]').forEach(bn=>bn.onclick=()=>{ inp.value=bn.dataset.dn==="max"?pool().length:bn.dataset.dn; fix(); });
+  inp.onchange=fix;
+  $("#dlg .btn-filled").onclick=()=>{ fix();
+    const err=document.querySelector('input[name=dq]:checked').value==="err", ord=document.querySelector('input[name=do]:checked').value, P=pool(), n=+inp.value;
+    const what=`${err?"sbagliate":"tutte"}${n<P.length?` · ${n}`:""}${ord!=="rand"?` · ${ORD_TXT[ord].toLowerCase()}`:""}`;
+    const fb=$("#d-fb").checked; closeDialog(); startDay(m,k,orderIds(P,ord).slice(0,n),what,ord,fb); };
+}
+function startDay(m,k,ids,what,ord,fb){
+  startSession({kind:"studio", title:`Ripasso domande nuove ${dayLabel(k)} · ${what} · Materia ${m}`, ids, fb:fb?"now":"end", w:"all", src:"day", meta:{ord:ord||"rand"}}); }
 function startTraining(base, label, src){
   // allena con le impostazioni della barra (quali, quante, tempo, correzione)
   const tr=state.train;
