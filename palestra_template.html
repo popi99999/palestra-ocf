@@ -396,6 +396,11 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 @media (max-width:700px){.qwrap.has-tags{grid-template-columns:1fr}.tagcol{flex-direction:row;flex-wrap:wrap;position:static}.tagbig{flex:1;min-height:80px;font-size:16px}.tagneed{flex-basis:100%}}
 .tagdot{width:11px;height:11px;border-radius:50%;background:var(--tc);display:inline-block;flex-shrink:0}
 .tag-go{border-color:var(--tc)!important;color:var(--tc)!important;gap:8px}
+.bt__tags{display:flex;gap:3px}.bt__tags b{font-size:10px;line-height:1;color:#fff;background:var(--tc);border-radius:4px;padding:2px 4px;font-variant-numeric:tabular-nums}
+.bt:has(.bt__tags){height:82px}
+.blk-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag-go-big{flex:1;min-width:90px;flex-direction:column;gap:2px;background:var(--tc)!important;color:#fff!important;border:0!important;padding:10px 8px!important;height:auto!important;line-height:1.2;text-transform:none}
+.tag-go-big b{font-size:20px}.tag-go-big:disabled{opacity:.25}
 .day-n{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.day-n input{width:84px}
 .radio-row label{display:flex;gap:8px;align-items:center;font-size:15px}
 .radio-row input{accent-color:var(--ocf-brand-green);width:18px;height:18px;flex-shrink:0}
@@ -1588,7 +1593,7 @@ function renderMateria(){
     const st=gstats(ids), w=v=>(v/st.tot*100).toFixed(1)+"%";
     return `<button class="bt ${done.has(i)?"bt--done":""} ${st.seen?"bt--on":""}" data-bt="${i}" aria-label="Blocco ${i+1}: ${st.seen} fatte su ${st.tot}, ${st.ok} giuste, ${st.wr} sbagliate${done.has(i)?", catena completata":""}">
       <span class="bt__n">${i+1}</span>${done.has(i)?`<span class="bt__ok">${icon("check_circle")}</span>`:""}
-      <span class="bt__c">${st.seen}/${st.tot}</span>
+      <span class="bt__c">${st.seen}/${st.tot}</span>${(()=>{ const tc=Object.keys(TAGS).map(t=>[t,tagged(m,t,ids).length]).filter(x=>x[1]); return tc.length?`<span class="bt__tags">${tc.map(([t,k])=>`<b style="--tc:${TAGS[t].c}">${k}</b>`).join("")}</span>`:""; })()}
       <span class="bt__bar"><i style="width:${w(st.ok)}"></i><i class="ko" style="width:${w(st.wr)}"></i></span></button>`;
   }).join("");
   $("#view").innerHTML = `
@@ -1612,8 +1617,10 @@ function renderMateria(){
   state.pickedB.clear();
   document.querySelectorAll("[data-bt]").forEach(el=>el.onclick=()=>{ const i=+el.dataset.bt, ids=B[i], st=gstats(ids);
     const cats=[...new Set(ids.map(n=>CONT[Q[n-1][1]]))];
-    dialog({title:`Blocco ${i+1}`, body:`<p style="margin:0 0 6px"><b>${st.seen}</b> fatte su ${st.tot} · <b>${st.ok}</b> ${pl(st.ok,"giusta","giuste")} · <b>${st.wr}</b> ${pl(st.wr,"sbagliata","sbagliate")}${done.has(i)?" · catena completata ✓":""}</p><p class="hint" style="margin:0">${esc(cats.join(" · "))}</p>`,
-      actions:[{label:"Leggi",run:()=>readIds(ids, `Blocco ${i+1}`)},{label:"Catena",run:()=>startChain(m,i)},{label:"Allenati",primary:true,run:()=>startTraining(ids, `Blocco ${i+1}`, "blk")}]}); });
+    const tc=Object.keys(TAGS).map(t=>[t,tagged(m,t,ids).length]);
+    dialog({title:`Blocco ${i+1}`, body:`${tc.some(x=>x[1])?`<div class="field"><label>I tuoi colori in questo blocco</label><div class="blk-tags">${tc.map(([t,k])=>`<button type="button" class="btn tag-go-big" data-blktag="${t}" style="--tc:${TAGS[t].c}" ${k?"":"disabled"}><b>${k}</b>${TAGS[t].t}</button>`).join("")}</div></div>`:""}<p style="margin:0 0 6px"><b>${st.seen}</b> fatte su ${st.tot} · <b>${st.ok}</b> ${pl(st.ok,"giusta","giuste")} · <b>${st.wr}</b> ${pl(st.wr,"sbagliata","sbagliate")}${done.has(i)?" · catena completata ✓":""}</p><p class="hint" style="margin:0">${esc(cats.join(" · "))}</p>`,
+      actions:[{label:"Leggi",run:()=>readIds(ids, `Blocco ${i+1}`)},{label:"Catena",run:()=>startChain(m,i)},{label:"Allenati",primary:true,run:()=>startTraining(ids, `Blocco ${i+1}`, "blk")}]});
+    document.querySelectorAll("[data-blktag]").forEach(b=>b.onclick=()=>{ closeDialog(); openTag(m, b.dataset.blktag, ids, `Blocco ${i+1}`); }); });
   document.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>openDay(m,b.dataset.day));
   document.querySelectorAll("[data-tagm]").forEach(b=>b.onclick=()=>openTag(m,b.dataset.tagm));
   const ds=$("#day-show"); if(ds) ds.onclick=()=>{ const h=hiddenDays(); [...h].filter(x=>x.startsWith(m+":")).forEach(x=>h.delete(x)); setHiddenDays(h); render(); };
@@ -1624,9 +1631,9 @@ function renderMateria(){
 const TAGS={r:{t:"Sbaglio sempre",p:"rosse",c:"#d32f2f"}, o:{t:"Attenzione",p:"arancioni",c:"#e65100"}, b:{t:"Tranquilla",p:"blu",c:"#1565c0"}};
 function tagOf(n){ const v=(S.n||{})["c:"+n]; return v && TAGS[v[1]] ? v[1] : ""; }
 function setTag(n,t){ if(!S.n) S.n={}; S.n["c:"+n]=[Date.now(), tagOf(n)===t?"":t]; lsWrite(); pushAll(); }
-function tagged(m,t){ return BY_MAT[m].filter(n=>tagOf(n)===t); }
-function openTag(m,t){ const ids=tagged(m,t), N=ids.length, tr=state.train||{}; if(!N) return;
-  dialog({title:`Domande ${TAGS[t].p} · ${TAGS[t].t}`, body:`<p style="margin:0 0 12px">Hai <b>${N}</b> ${pl(N,"domanda","domande")} di Materia ${m} con l'etichetta <b style="color:${TAGS[t].c}">${TAGS[t].t}</b>.</p>
+function tagged(m,t,scope){ return (scope||BY_MAT[m]).filter(n=>tagOf(n)===t); }
+function openTag(m,t,scope,where){ const ids=tagged(m,t,scope), N=ids.length, tr=state.train||{}; if(!N) return; where=where||`Materia ${m}`; // scope: solo le domande di un blocco
+  dialog({title:`Domande ${TAGS[t].p} · ${TAGS[t].t}`, body:`<p style="margin:0 0 12px">Hai <b>${N}</b> ${pl(N,"domanda","domande")} in ${where} con l'etichetta <b style="color:${TAGS[t].c}">${TAGS[t].t}</b>.</p>
     <div class="field"><label for="d-n">Quante</label><div class="day-n"><input id="d-n" type="number" min="1" max="${N}" value="${N}">
       ${[10,25,50].map(x=>`<button type="button" class="btn btn-outlined btn-sm" data-dn="${x}">${x}</button>`).join("")}<button type="button" class="btn btn-outlined btn-sm" data-dn="max">Tutte</button></div></div>
     <div class="field"><label>Ordine</label><div class="radio-row">
@@ -1640,7 +1647,7 @@ function openTag(m,t){ const ids=tagged(m,t), N=ids.length, tr=state.train||{}; 
   document.querySelectorAll('[data-dn]').forEach(bn=>bn.onclick=()=>{ inp.value=bn.dataset.dn==="max"?N:bn.dataset.dn; fix(); });
   inp.onchange=fix;
   $("#dlg .btn-filled").onclick=()=>{ fix(); const ord=document.querySelector('input[name=do]:checked').value, n=+inp.value, fb=$("#d-fb").checked; closeDialog();
-    startSession({kind:"studio", title:`Domande ${TAGS[t].p} (${TAGS[t].t})${n<N?` · ${n}`:""} · Materia ${m}`, ids:orderIds(ids,ord).slice(0,n), fb:fb?"now":"end", w:"all", src:"tag", meta:{ord}}); };
+    startSession({kind:"studio", title:`Domande ${TAGS[t].p} (${TAGS[t].t})${n<N?` · ${n}`:""} · ${where}${scope?` · Materia ${m}`:""}`, ids:orderIds(ids,ord).slice(0,n), fb:fb?"now":"end", w:"all", src:"tag", meta:{ord}}); };
 }
 // RIPASSO DEL GIORNO: le domande della materia fatte per la PRIMA volta in un certo giorno (dallo storico, quindi uguali su tutti i dispositivi)
 // una domanda già vista non conta più: se la rifai un altro giorno resta nel giorno in cui l'hai vista la prima volta
