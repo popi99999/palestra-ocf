@@ -384,6 +384,11 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .field>label{font-size:12px;color:var(--ocf-ink-soft);font-weight:500;letter-spacing:.4px;text-transform:uppercase}
 .field select,.field input{font-family:var(--font);font-size:15px;padding:9px 10px;border:1px solid rgba(0,0,0,.42);border-radius:4px;background:#fff;color:var(--mud-text);max-width:100%}
 .radio-row{display:flex;flex-direction:column;gap:6px}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tagbtn{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--tc);color:var(--tc);background:#fff;border-radius:999px;padding:7px 14px;font:600 15px var(--font);cursor:pointer}
+.tagdot{width:11px;height:11px;border-radius:50%;background:var(--tc);display:inline-block;flex-shrink:0}
+.tagbtn.on{background:var(--tc);color:#fff}.tagbtn.on .tagdot{background:#fff}
+.tag-go{border-color:var(--tc)!important;color:var(--tc)!important;gap:8px}
 .day-n{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.day-n input{width:84px}
 .radio-row label{display:flex;gap:8px;align-items:center;font-size:15px}
 .radio-row input{accent-color:var(--ocf-brand-green);width:18px;height:18px;flex-shrink:0}
@@ -876,7 +881,7 @@ function cleanSession(h){
   for(const f of ["selC","selS"]) if(h[f]===null) o[f]=null; else if(Array.isArray(h[f])) o[f]=intArr(h[f]);
   if(["all","new","err","worst","redo"].includes(h.w)) o.w=h.w;
   if(["free","q60","q85","tot"].includes(h.tm)) o.tm=h.tm;
-  if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena","blk","day"].includes(h.src)) o.src=h.src;
+  if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena","blk","day","tag"].includes(h.src)) o.src=h.src;
   if(["rand","err","less","orig"].includes(h.ord)) o.ord=h.ord;
   if(h.fb===0 || h.fb===1) o.fb=h.fb;
   { const b=int(h.blk,1,1000); if(h.blk!=null && b) o.blk=b; if(h.bok===1) o.bok=1; }
@@ -909,8 +914,9 @@ function clean(raw){
 }
 function cleanNotes(x){
   // note dell'Analisi errori: chiave = nome dell'argomento, valore = [ora della modifica, testo]
+  // anche le etichette colorate delle domande: chiave "c:<numero>", testo "r" | "o" | "b" | "" (tolta)
   const o={}; if(!x || typeof x!=="object" || Array.isArray(x)) return o;
-  for(const k of Object.keys(x).slice(0,500)){ const v=x[k]; if(!Array.isArray(v) || typeof k!=="string" || k.length>300) continue;
+  for(const k of Object.keys(x).slice(0,6000)){ const v=x[k]; if(!Array.isArray(v) || typeof k!=="string" || k.length>300) continue;
     const t=int(v[0],0,9e15); if(!t || t>Date.now()+864e5) continue; o[k]=[t, String(v[1]==null?"":v[1]).slice(0,4000)]; }
   return o;
 }
@@ -1028,7 +1034,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261024-101326";
+const APP_VERSION="20261024-123857";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1591,6 +1597,7 @@ function renderMateria(){
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${done.size}<span class="ocf-landing-hero__stat-unit">/${B.length}</span></div><div class="ocf-landing-hero__stat-label">Catene completate</div></div>
     </div></div></section>
   ${(()=>{ const days=visibleDays(m), nh=studyDays(m).length-days.length; return days.length||nh?`<div class="pdf-go">${days.map((d,i)=>`<button class="btn ${i<2?"btn-filled":"btn-outlined"}" data-day="${d.k}">Ripassa le ${d.ids.length} ${pl(d.ids.length,"domanda nuova","domande nuove")} ${dayLabel(d.k)}</button>`).join(" ")}${nh?`<button class="btn btn-text btn-sm" id="day-show">Rimetti i giorni tolti (${nh})</button>`:""}<small>Un pulsante per ogni giorno: contano solo le domande che quel giorno hai fatto per la prima volta (quelle già viste prima non contano). Premi per scegliere i giorni (anche più insieme), quali, quante e in che ordine.</small></div>`:""; })()}
+  ${(()=>{ const T3=Object.keys(TAGS).map(t=>[t,tagged(m,t).length]).filter(x=>x[1]); return T3.length?`<div class="pdf-go">${T3.map(([t,k])=>`<button class="btn btn-outlined tag-go" data-tagm="${t}" style="--tc:${TAGS[t].c}"><i class="tagdot"></i>Allenati sulle ${TAGS[t].p} (${k})</button>`).join(" ")}<small>Le domande a cui hai dato un colore durante il test.</small></div>`:""; })()}
   ${(PDF_BLOCKS[ONLY]||[]).map((b,i)=>`<div class="pdf-go"><button class="btn btn-filled" data-pdfb="${i}" data-pdfo="pdf">${icon("play_arrow")} Allenati sulle ${esc(b.short||b.title)} (${b.ids.length} domande)</button><small>Nell'ordine del PDF, con Quali, Quante, Tempo e Correzione scelti nella barra in basso.</small></div>`).join("")}
   <div class="ocf-studia-filters"><span class="ocf-studia-filters__label">${B.length} blocchi da ${blkSize(m)} · tocca un blocco</span></div>
   <div class="bt-grid">${rows}</div>
@@ -1601,9 +1608,32 @@ function renderMateria(){
     dialog({title:`Blocco ${i+1}`, body:`<p style="margin:0 0 6px"><b>${st.seen}</b> fatte su ${st.tot} · <b>${st.ok}</b> ${pl(st.ok,"giusta","giuste")} · <b>${st.wr}</b> ${pl(st.wr,"sbagliata","sbagliate")}${done.has(i)?" · catena completata ✓":""}</p><p class="hint" style="margin:0">${esc(cats.join(" · "))}</p>`,
       actions:[{label:"Leggi",run:()=>readIds(ids, `Blocco ${i+1}`)},{label:"Catena",run:()=>startChain(m,i)},{label:"Allenati",primary:true,run:()=>startTraining(ids, `Blocco ${i+1}`, "blk")}]}); });
   document.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>openDay(m,b.dataset.day));
+  document.querySelectorAll("[data-tagm]").forEach(b=>b.onclick=()=>openTag(m,b.dataset.tagm));
   const ds=$("#day-show"); if(ds) ds.onclick=()=>{ const h=hiddenDays(); [...h].filter(x=>x.startsWith(m+":")).forEach(x=>h.delete(x)); setHiddenDays(h); render(); };
   bindPdfBlocks(ONLY, true); bindChain();
   renderTrainbar(G);
+}
+// ETICHETTE COLORATE: come conosci una domanda, scelta da te durante il test (sincronizzate insieme alle note)
+const TAGS={r:{t:"Sbaglio sempre",p:"rosse",c:"#d32f2f"}, o:{t:"Attenzione",p:"arancioni",c:"#e65100"}, b:{t:"Tranquilla",p:"blu",c:"#1565c0"}};
+function tagOf(n){ const v=(S.n||{})["c:"+n]; return v && TAGS[v[1]] ? v[1] : ""; }
+function setTag(n,t){ if(!S.n) S.n={}; S.n["c:"+n]=[Date.now(), tagOf(n)===t?"":t]; lsWrite(); pushAll(); }
+function tagged(m,t){ return BY_MAT[m].filter(n=>tagOf(n)===t); }
+function openTag(m,t){ const ids=tagged(m,t), N=ids.length, tr=state.train||{}; if(!N) return;
+  dialog({title:`Domande ${TAGS[t].p} · ${TAGS[t].t}`, body:`<p style="margin:0 0 12px">Hai <b>${N}</b> ${pl(N,"domanda","domande")} di Materia ${m} con l'etichetta <b style="color:${TAGS[t].c}">${TAGS[t].t}</b>.</p>
+    <div class="field"><label for="d-n">Quante</label><div class="day-n"><input id="d-n" type="number" min="1" max="${N}" value="${N}">
+      ${[10,25,50].map(x=>`<button type="button" class="btn btn-outlined btn-sm" data-dn="${x}">${x}</button>`).join("")}<button type="button" class="btn btn-outlined btn-sm" data-dn="max">Tutte</button></div></div>
+    <div class="field"><label>Ordine</label><div class="radio-row">
+      <label><input type="radio" name="do" value="rand" checked> Casuale</label>
+      <label><input type="radio" name="do" value="err"> Prima le più sbagliate</label>
+      <label><input type="radio" name="do" value="less"> Prima le meno proposte</label>
+      <label><input type="radio" name="do" value="orig"> Ordine originale (numero della domanda)</label></div></div>
+    <label class="check"><input type="checkbox" id="d-fb" ${tr.fb?"checked":""}> Mostra subito se la risposta è esatta</label>`,
+    actions:[{label:"Annulla"},{label:"Avvia",primary:true}]});
+  const inp=$("#d-n"), fix=()=>{ inp.value=Math.max(1,Math.min(N,+inp.value||N)); };
+  document.querySelectorAll('[data-dn]').forEach(bn=>bn.onclick=()=>{ inp.value=bn.dataset.dn==="max"?N:bn.dataset.dn; fix(); });
+  inp.onchange=fix;
+  $("#dlg .btn-filled").onclick=()=>{ fix(); const ord=document.querySelector('input[name=do]:checked').value, n=+inp.value, fb=$("#d-fb").checked; closeDialog();
+    startSession({kind:"studio", title:`Domande ${TAGS[t].p} (${TAGS[t].t})${n<N?` · ${n}`:""} · Materia ${m}`, ids:orderIds(ids,ord).slice(0,n), fb:fb?"now":"end", w:"all", src:"tag", meta:{ord}}); };
 }
 // RIPASSO DEL GIORNO: le domande della materia fatte per la PRIMA volta in un certo giorno (dallo storico, quindi uguali su tutti i dispositivi)
 // una domanda già vista non conta più: se la rifai un altro giorno resta nel giorno in cui l'hai vista la prima volta
@@ -1859,7 +1889,7 @@ function renderStats(){
 }
 
 /* ================= TEST FATTI ================= */
-const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco", day:"Ripasso del giorno"};
+const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco", day:"Ripasso del giorno", tag:"Etichetta colorata"};
 const WHICH_TXT={all:"tutte", new:"mai fatte", err:"sbagliate", worst:"sbagliate più spesso", redo:"da rivedere"};
 const TIME_TXT={free:"cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"tempo totale d'esame"};
 function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[5]).includes(ONLY)).slice().sort((a,b)=>b.t-a.t); }
@@ -2041,7 +2071,7 @@ async function exportReport1(btn){
 const RX_EXCELJS_URL = "https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js";
 const RX_WHICH = {all:"Tutte", new:"Mai fatte", err:"Sbagliate", worst:"Sbagliate più spesso", redo:"Rifai sbagliate"};
 const RX_TIME = {free:"Cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"Totale come all'esame"};
-const RX_SRC = {bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco", day:"Ripasso del giorno"};
+const RX_SRC = {bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco", day:"Ripasso del giorno", tag:"Etichetta colorata"};
 const RX_ESITO = {"1":"Giusta", "-1":"Errata", "-2":"Non la sapevo", "0":"Non data"};
 const RX_HEX = {green:"#2E7D32", red:"#C62828", blue:"#1976D2", grey:"#9E9E9E", orange:"#EF6C00", text:"#212121", muted:"#616161", grid:"#ECECEC", axis:"#BDBDBD"};
 const RX_ARGB = {green:"FF2E7D32", greenDark:"FF1B5E20", greenLine:"FFA5D6A7", red:"FFC62828", blue:"FF1976D2", orange:"FFE65100", grey:"FF757575",
@@ -2984,6 +3014,7 @@ function renderSession(){
     ${chainKo && !bonusDone?`<div class="alert alert-chain">${icon("link_off")}<span><b>Catena interrotta a ${T.chainBroken} di fila.</b> La risposta giusta è quella in verde. Puoi <b>andare avanti</b> quanto vuoi per vedere le altre risposte, oppure <b>ricominciare il blocco</b>.</span></div>`:""}
     ${bonusDone?`<div class="alert alert-chain">${icon("replay")}<span><b>${T.i===T.chainBroken?`Catena interrotta a ${T.chainBroken} di fila.`:"Fine del blocco."}</b> Tra pochi secondi si riparte dall'inizio del blocco (oppure tocca Ricomincia).</span></div>`:""}
     <div class="sess-bar">${bar}</div>
+    ${isSim?"":`<div class="tagrow" role="group" aria-label="Come conosci questa domanda">${Object.entries(TAGS).map(([k,v])=>`<button class="tagbtn ${tagOf(it.n)===k?"on":""}" data-tag="${k}" style="--tc:${v.c}" aria-pressed="${tagOf(it.n)===k}"><i class="tagdot"></i>${v.t}</button>`).join("")}</div>`}
     ${isSim?"":`<p class="hint">${esc(T.title)} · ${esc(CONT[q[1]])} · quesito ${posInMat} della materia. Tastiera: A–D o 1–4 per rispondere, N per "Non la so", Invio per proseguire.</p>`}
   </section>`;
   tick();
@@ -2994,6 +3025,7 @@ function renderSession(){
   const p=$("#prev"); if(p) p.onclick=()=>{ if(T.i>0){ T.i--; renderSession(); } };
   const nx=$("#next"); if(nx) nx.onclick=()=>advance();
   const cr=$("#chain-restart"); if(cr) cr.onclick=()=>restartChain();
+  document.querySelectorAll("[data-tag]").forEach(b=>b.onclick=()=>{ setTag(it.n, b.dataset.tag); renderSession(); });
   $("#end").onclick=askEnd;
 }
 function dontKnow(){
