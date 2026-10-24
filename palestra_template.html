@@ -384,10 +384,17 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .field>label{font-size:12px;color:var(--ocf-ink-soft);font-weight:500;letter-spacing:.4px;text-transform:uppercase}
 .field select,.field input{font-family:var(--font);font-size:15px;padding:9px 10px;border:1px solid rgba(0,0,0,.42);border-radius:4px;background:#fff;color:var(--mud-text);max-width:100%}
 .radio-row{display:flex;flex-direction:column;gap:6px}
-.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.tagbtn{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--tc);color:var(--tc);background:#fff;border-radius:999px;padding:7px 14px;font:600 15px var(--font);cursor:pointer}
+.qwrap.has-tags{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:18px;align-items:start}
+.tagcol{display:flex;flex-direction:column;gap:12px;position:sticky;top:76px}
+.tagbig{min-height:104px;border-radius:14px;border:0;background:var(--tc);color:#fff;font:700 18px/1.2 var(--font);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;padding:10px;text-align:center;transition:opacity .2s,box-shadow .2s}
+.tagbig.dim{opacity:.22}.tagbig.on{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--tc)}
+.tagbig .last{font-size:12px;font-weight:500;background:rgba(255,255,255,.25);border-radius:999px;padding:2px 8px}
+.tagneed{display:none;font-size:13px;font-weight:600;color:#b71c1c;text-align:center}
+.tagcol.need .tagneed{display:block}.tagcol.need .tagbig{animation:tagshake .45s}
+@keyframes tagshake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+#next.wait{opacity:.45}
+@media (max-width:700px){.qwrap.has-tags{grid-template-columns:1fr}.tagcol{flex-direction:row;flex-wrap:wrap;position:static}.tagbig{flex:1;min-height:80px;font-size:16px}.tagneed{flex-basis:100%}}
 .tagdot{width:11px;height:11px;border-radius:50%;background:var(--tc);display:inline-block;flex-shrink:0}
-.tagbtn.on{background:var(--tc);color:#fff}.tagbtn.on .tagdot{background:#fff}
 .tag-go{border-color:var(--tc)!important;color:var(--tc)!important;gap:8px}
 .day-n{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.day-n input{width:84px}
 .radio-row label{display:flex;gap:8px;align-items:center;font-size:15px}
@@ -2202,13 +2209,15 @@ function renderSession(){
   <section class="paper sess">
     <div class="sess-chips">${chips}</div>
     ${extra}
+    <div class="qwrap ${isSim?"":"has-tags"}"><div class="qmain">
     <div class="quesito-box"><span class="quesito-box__label">Domanda</span><div class="quesito-box__testo">${esc(q[4])}</div></div>
-    <div class="quesito-alt-list">${alts}</div>
+    <div class="quesito-alt-list">${alts}</div></div>
+    ${isSim?"":(()=>{ const prev=tagOf(it.n); return `<div class="tagcol" id="tagcol" role="group" aria-label="Come conosci questa domanda? Scegli un colore per andare avanti">${Object.entries(TAGS).map(([k,v])=>`<button class="tagbig ${it.tg?(it.tg===k?"on":"dim"):""}" data-tag="${k}" style="--tc:${v.c}" aria-pressed="${it.tg===k}">${v.t}${!it.tg&&prev===k?`<span class="last">l'ultima volta</span>`:""}</button>`).join("")}<div class="tagneed" id="tagneed">Scegli un colore per andare avanti</div></div>`; })()}
+    </div>
     ${note}
     ${chainKo && !bonusDone?`<div class="alert alert-chain">${icon("link_off")}<span><b>Catena interrotta a ${T.chainBroken} di fila.</b> La risposta giusta è quella in verde. Puoi <b>andare avanti</b> quanto vuoi per vedere le altre risposte, oppure <b>ricominciare il blocco</b>.</span></div>`:""}
     ${bonusDone?`<div class="alert alert-chain">${icon("replay")}<span><b>${T.i===T.chainBroken?`Catena interrotta a ${T.chainBroken} di fila.`:"Fine del blocco."}</b> Tra pochi secondi si riparte dall'inizio del blocco (oppure tocca Ricomincia).</span></div>`:""}
     <div class="sess-bar">${bar}</div>
-    ${isSim?"":`<div class="tagrow" role="group" aria-label="Come conosci questa domanda">${Object.entries(TAGS).map(([k,v])=>`<button class="tagbtn ${tagOf(it.n)===k?"on":""}" data-tag="${k}" style="--tc:${v.c}" aria-pressed="${tagOf(it.n)===k}"><i class="tagdot"></i>${v.t}</button>`).join("")}</div>`}
     ${isSim?"":`<p class="hint">${esc(T.title)} · ${esc(CONT[q[1]])} · quesito ${posInMat} della materia. Tastiera: A–D o 1–4 per rispondere, N per "Non la so", Invio per proseguire.</p>`}
   </section>`;
   tick();
@@ -2219,7 +2228,9 @@ function renderSession(){
   const p=$("#prev"); if(p) p.onclick=()=>{ if(T.i>0){ T.i--; renderSession(); } };
   const nx=$("#next"); if(nx) nx.onclick=()=>advance();
   const cr=$("#chain-restart"); if(cr) cr.onclick=()=>restartChain();
-  document.querySelectorAll("[data-tag]").forEach(b=>b.onclick=()=>{ setTag(it.n, b.dataset.tag); renderSession(); });
+  document.querySelectorAll("[data-tag]").forEach(b=>b.onclick=()=>{ const k=b.dataset.tag; it.tg=k; if(tagOf(it.n)!==k) setTag(it.n,k); renderSession(); saveLive();
+    if(T.chain && T.chainBroken==null && it.pick===0) setTimeout(()=>{ const U=state.T; if(U===T && !U.done && U.items[U.i]===it && state.view==="session" && !dialogOpen()) advance(); }, 500); }); // catena: giusta + colore = si va avanti da soli
+  if(!isSim && !it.tg){ const nb=$("#next"); if(nb) nb.classList.add("wait"); }
   $("#end").onclick=askEnd;
 }
 function dontKnow(){
@@ -2232,12 +2243,13 @@ function choose(orig){
   if(it.locked || (T.fb==="now" && it.pick!==null)) return;
   it.pick=orig;
   if(T.chain && orig===0){ if(T.chainBroken==null){ const st=T.i+1; if(st>chainBest(T.chain.m)) lsSet(CHAIN_KEY+T.chain.m, String(st)); }
-    const at=T.i, id=T.id; setTimeout(()=>{ const U=state.T; if(U && U.id===id && !U.done && U.i===at && state.view==="session" && !dialogOpen()) advance(); }, 900); }
+    const at=T.i, id=T.id; setTimeout(()=>{ const U=state.T; if(U && U.id===id && !U.done && U.i===at && U.items[at].tg && state.view==="session" && !dialogOpen()) advance(); }, 900); }
   else if(T.chain){ chainBreak(T); if(T.i>=T.bonusEnd) chainAutoRestart(); } // sbagliata: parte il bonus (o, se era l'ultima del bonus, si riparte)
   renderSession(); saveLive();
 }
 function advance(){
   const T=state.T, it=T.items[T.i];
+  if(T.kind!=="sim" && !it.tg){ const c=$("#tagcol"); if(c){ c.classList.remove("need"); void c.offsetWidth; c.classList.add("need"); c.scrollIntoView({block:"nearest",behavior:"smooth"}); } return; } // prima scegli il colore
   if(T.chain && T.chainBroken!=null && T.i>=T.bonusEnd){ restartChain(); return; } // finito il bonus: si riparte dall'inizio del blocco
   if(T.chain && T.chainBroken==null && T.i===T.items.length-1 && it.pick===0){ it.locked=true; if(it.spent==null) it.spent=Math.round((Date.now()-T.qStart)/1000); completeBlock(); return; }
   if(T.kind==="sim"){ if(T.i<T.items.length-1){ T.i++; renderSession(); } return; }
