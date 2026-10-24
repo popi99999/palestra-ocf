@@ -633,6 +633,9 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .chain-blocks .cb--done{background:var(--ocf-brand-green);border-color:var(--ocf-brand-green);color:#fff}
 .chain-blocks .cb--next{border:2px solid var(--ocf-brand-green);color:var(--ocf-brand-green)}
 .focus-chain .fc-blk{color:var(--ocf-ink-muted)}
+.focus-chain .fc-pos b{font-size:1.15em}
+@media (max-width:600px){body.focus .focus-chain:has(.fc-pos){gap:8px;padding:7px 12px;font-size:14px}.focus-chain .fc-w{display:none}}
+@media (max-width:400px){body.focus .focus-chain:has(.fc-pos){top:calc(64px + env(safe-area-inset-top,0px))}body.focus:has(.focus-chain .fc-pos) main{padding-top:calc(112px + env(safe-area-inset-top,0px))}}
 .alert-chain{border-color:#c62828;color:#8e1b14;background:#fdecea}
 .pdf-go{margin:0 0 14px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
 .pdf-go small{color:var(--ocf-ink-muted)}
@@ -2152,7 +2155,7 @@ function renderSession(){
   }
   const posInMat=BY_MAT[q[0]].indexOf(it.n)+1;
   const broken = T.chain && T.chainBroken!=null, answered = it.pick!==null || it.locked;
-  if(!T.chain){ const fc=$("#focus-chain"); if(fc) fc.innerHTML=""; }
+  if(!T.chain){ const fc=$("#focus-chain"), left=N-nDone; if(fc) fc.innerHTML=`<span class="fc-pos"><span class="fc-w">Domanda </span><b>${T.i+1}</b> di ${N}</span><span class="fc-blk">${left?`<span class="fc-w">ne </span>${left===1?"manca":"mancano"} ${left}`:"finite"}</span>`; } // a schermo pieno: dove sei e quante mancano
   const chainKo = broken && T.i===T.chainBroken;               // la domanda sbagliata che ha interrotto la catena
   const bonusDone = broken && T.i>=T.bonusEnd && answered;     // ultima del bonus fatta: si riparte
   if(T.chain){
