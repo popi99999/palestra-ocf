@@ -1,0 +1,102 @@
+{
+ "1888": {
+  "q": "Chi controlla che gli intermediari siano <b>solidi</b>: rischio, patrimonio, gestione prudente.",
+  "p": "Il TUF divide i compiti in due. La <b>Banca d'Italia</b> guarda la <b>stabilità</b> (rischio, patrimonio, sana e prudente gestione). La <b>Consob</b> guarda i <b>comportamenti</b> (trasparenza e correttezza verso i clienti). Qui ci sono solo parole di stabilità.",
+  "x": {
+   "B": "la Consob si occupa di trasparenza e correttezza",
+   "C": "trappola: i compiti sono divisi, non congiunti",
+   "D": "il MEF non fa questa vigilanza"
+  },
+  "k": "rischio · patrimonio · sana e prudente → Banca d'Italia"
+ },
+ "1470": {
+  "q": "Chi <b>autorizza</b> una nuova SIM e <b>in quanto tempo</b>.",
+  "p": "La SIM presta servizi di investimento, quindi è «della <b>Consob</b>», che la autorizza. Siccome la SIM deve anche essere solida, la Consob prima <b>sente la Banca d'Italia</b>. Il tempo è <b>6 mesi</b> dalla domanda completa.",
+  "x": {
+   "B": "il MEF non autorizza gli intermediari",
+   "C": "12 mesi è il tempo sbagliato",
+   "D": "«Banca d'Italia, sentita la Consob» è lo schema delle SGR, non delle SIM"
+  },
+  "k": "SIM → Consob, sentita la Banca d'Italia, 6 mesi"
+ },
+ "1469": {
+  "q": "La Consob autorizza la SIM se il capitale arriva almeno alla cifra decisa da <b>chi</b>?",
+  "p": "Il capitale minimo è una questione di <b>solidità</b>, quindi la cifra la fissa la <b>Banca d'Italia</b>, anche se poi l'autorizzazione la firma la Consob. È una trappola classica: chi autorizza e chi fissa il capitale sono due autorità diverse.",
+  "x": {
+   "B": "la Consob non fissa il capitale",
+   "C": "il MEF non c'entra",
+   "D": "la SIM deve essere una SpA: la Srl non va bene"
+  },
+  "k": "capitale minimo → Banca d'Italia"
+ },
+ "672": {
+  "q": "Chi può <b>chiudere</b> una SIM (revoca + liquidazione coatta) quando le irregolarità sono gravissime.",
+  "p": "Chiudere un intermediario è la decisione più pesante e la prende il <b>MEF</b>, con decreto. Ma il MEF non controlla le SIM ogni giorno: per questo decide <b>su proposta</b> di chi le controlla, Banca d'Italia o Consob, ognuna per la sua parte.",
+  "x": {
+   "B": "ruoli invertiti: è il MEF che decide, su proposta",
+   "C": "non esiste un provvedimento congiunto",
+   "D": "la Banca d'Italia dirige la liquidazione, ma non la dispone"
+  },
+  "k": "revoca + liquidazione coatta → MEF, su proposta"
+ },
+ "1228": {
+  "q": "L'OCF ti cancella dall'albo e non sei d'accordo: a chi fai reclamo e entro quando.",
+  "p": "Non si fa reclamo a chi ha deciso: serve qualcuno <b>sopra</b>. Sopra l'OCF c'è la <b>Consob</b>, che lo vigila. Il termine è <b>30 giorni</b> dalla notifica.",
+  "x": {
+   "B": "non ci si lamenta con chi ha deciso",
+   "C": "stesso errore, e 60 giorni è il numero sbagliato",
+   "D": "il MEF non c'entra con l'albo"
+  },
+  "k": "reclamo contro l'OCF → Consob, 30 giorni"
+ },
+ "822": {
+  "q": "Una SIM sospetta un riciclaggio: <b>a chi</b> lo segnala e <b>quando</b>.",
+  "p": "Le segnalazioni di operazioni sospette vanno sempre alla <b>UIF</b> (Unità di informazione finanziaria, l'ufficio antiriciclaggio). E si fanno <b>prima</b> di eseguire l'operazione, senza ritardo: dopo, i soldi sono già spariti.",
+  "x": {
+   "B": "la UIF sta presso la Banca d'Italia, ma la segnalazione va alla UIF",
+   "C": "destinatario sbagliato, e «dopo» è sempre sbagliato",
+   "D": "destinatario sbagliato, e «dopo» è sempre sbagliato"
+  },
+  "k": "sospetto riciclaggio → UIF, prima dell'operazione"
+ },
+ "1028": {
+  "q": "Sui mercati <b>all'ingrosso</b> di titoli di Stato, chi interviene d'urgenza per l'<b>efficienza complessiva</b> del mercato.",
+  "p": "Di regola i mercati sono della Consob. Ma i mercati <b>all'ingrosso di titoli di Stato</b> (dove banche e grandi operatori scambiano BTP in grandi quantità) li vigila la <b>Banca d'Italia</b>, perché toccano il debito pubblico. Le parole «all'ingrosso» ed «efficienza complessiva» portano lì.",
+  "x": {
+   "B": "il CICR non vigila sui mercati",
+   "C": "trappola: la Consob è la risposta per l'urgenza su <i>trasparenza e tutela degli investitori</i> nei mercati normali",
+   "D": "il MEF non interviene qui"
+  },
+  "k": "ingrosso · efficienza complessiva → Banca d'Italia"
+ },
+ "1250": {
+  "q": "Firmo fuori sede un contratto di collocamento o di gestione: per quanti giorni il contratto resta <b>sospeso</b>?",
+  "p": "Fuori sede il cliente può essere colto di sorpresa. Per questo il contratto non produce effetti per <b>7 giorni dalla firma</b>: in quel periodo il cliente può ripensarci e recedere senza spese e senza dare motivi.",
+  "x": {
+   "B": "10 giorni: numero sbagliato",
+   "C": "15 giorni: numero sbagliato",
+   "D": "30 giorni: numero sbagliato (i «giorni lavorativi» servono solo a confondere)"
+  },
+  "k": "fuori sede → 7 giorni dalla firma"
+ },
+ "1252": {
+  "q": "Nel modulo fuori sede <b>manca</b> la frase sul diritto di recesso: cosa succede?",
+  "p": "Il cliente probabilmente non sa di poter recedere, quindi la legge obbliga a scriverlo. Se manca, il contratto è <b>nullo</b>. È una nullità che protegge il cliente, quindi la può far valere <b>solo il cliente</b>.",
+  "x": {
+   "B": "la conseguenza è sul contratto, non una multa",
+   "C": "trappola: non «chiunque», solo il cliente",
+   "D": "la conseguenza è sul contratto, non una multa"
+  },
+  "k": "manca il recesso → nullo, solo il cliente"
+ },
+ "1696": {
+  "q": "L'intermediario vende alla cliente un titolo <b>del proprio portafoglio</b> (negoziazione per conto proprio, senza consulenza): quale controllo fa?",
+  "p": "Il controllo dipende dal <b>servizio</b>. La negoziazione per conto proprio è un servizio <b>esecutivo</b>, quindi si fa l'<b>appropriatezza</b>: la cliente conosce questo tipo di strumento e ha esperienza? L'adeguatezza serve solo per consulenza e gestione di portafogli.",
+  "x": {
+   "B": "se la cliente non dà informazioni la vendita non è vietata: l'intermediario la avverte che non può valutare l'appropriatezza",
+   "C": "la soglia dei 100.000 € non esiste",
+   "D": "l'adeguatezza serve solo per consulenza e gestione"
+  },
+  "k": "servizio esecutivo → appropriatezza"
+ }
+}

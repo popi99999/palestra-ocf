@@ -5,7 +5,19 @@ def idx(v,L,D):
     if v not in D: D[v]=len(L); L.append(v)
     return D[v]
 rows=[[x['materia'],idx(x['contenuto'].replace('_ ',': ').replace('_',':'),C,ci),idx(x['sub'] or '',S,si),x['livello'],x['domanda'],x['A'],x['B'],x['C'],x['D'],1 if x.get('pratico') else 0] for x in q]
-data=json.dumps({'c':C,'s':S,'q':rows},ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
+# spiegazioni «Spiega il perché» (spiegazioni/m*.json, chiave = numero della domanda) e domande gemelle (stesso testo)
+import glob, re, collections
+SP={}
+for f in sorted(glob.glob('spiegazioni/m*.json')): SP.update(json.load(open(f,encoding='utf-8')))
+norm=lambda t: re.sub(r'[^a-z0-9]','',t.lower())
+gr=collections.defaultdict(list)
+for x in q: gr[norm(x['domanda'])].append(x)
+GEM={}
+for g in gr.values():
+    if len(g)>1:
+        for x in g: GEM[str(x['n'])]=[[o['n'],o['A'],norm(o['A'])==norm(x['A'])] for o in g if o['n']!=x['n']]
+print('spiegazioni:',len(SP),'| domande con gemella:',len(GEM))
+data=json.dumps({'c':C,'s':S,'q':rows,'sp':SP,'gem':GEM},ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 t=open('palestra_template.html').read()
 # versione: la pagina la confronta con version.txt e si ricarica da sola quando ne esce una nuova
 import time

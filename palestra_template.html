@@ -384,16 +384,28 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .field>label{font-size:12px;color:var(--ocf-ink-soft);font-weight:500;letter-spacing:.4px;text-transform:uppercase}
 .field select,.field input{font-family:var(--font);font-size:15px;padding:9px 10px;border:1px solid rgba(0,0,0,.42);border-radius:4px;background:#fff;color:var(--mud-text);max-width:100%}
 .radio-row{display:flex;flex-direction:column;gap:6px}
-.qwrap.has-tags{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:18px;align-items:start}
-.tagcol{display:flex;flex-direction:column;gap:12px;position:sticky;top:76px}
-.tagbig{min-height:104px;border-radius:14px;border:0;background:var(--tc);color:#fff;font:700 18px/1.2 var(--font);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;padding:10px;text-align:center;transition:opacity .2s,box-shadow .2s}
-.tagbig.dim{opacity:.22}.tagbig.on{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--tc)}
-.tagbig .last{font-size:12px;font-weight:500;background:rgba(255,255,255,.25);border-radius:999px;padding:2px 8px}
-.tagneed{display:none;font-size:13px;font-weight:600;color:#b71c1c;text-align:center}
-.tagcol.need .tagneed{display:block}.tagcol.need .tagbig{animation:tagshake .45s}
-@keyframes tagshake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-#next.wait{opacity:.45}
-@media (max-width:700px){.qwrap.has-tags{grid-template-columns:1fr}.tagcol{flex-direction:row;flex-wrap:wrap;position:static}.tagbig{flex:1;min-height:80px;font-size:16px}.tagneed{flex-basis:100%}}
+.tagrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px}
+.tagrow__l{font-size:12.5px;color:var(--ocf-ink-soft)}
+.tagbtn{display:inline-flex;align-items:center;gap:6px;border:1.3px solid var(--tc);color:var(--tc);background:#fff;border-radius:999px;padding:3px 10px;font:600 12.5px var(--font);cursor:pointer}
+.tagbtn.on{background:var(--tc);color:#fff}.tagbtn.on .tagdot{background:#fff}
+.spiega-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;border:0;border-radius:6px;background:#e3f2fd;color:#0d47a1;font:600 13.5px var(--font);padding:6px 12px;cursor:pointer}
+.spiega{display:none;margin-top:10px;border-left:3px solid #1976D2;background:#f7fafd;border-radius:0 6px 6px 0;padding:10px 14px;font-size:15px;line-height:1.5}.spiega.on{display:block}
+.spiega p{margin:0 0 8px}.spiega ul{margin:0 0 8px;padding-left:18px}.spiega li{margin:0 0 3px}
+.spiega .sp-h{display:block;font-size:11.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:#1565c0}
+.spiega .sp-ok{color:#2E7D32;font-weight:700}
+.sp-nota{background:#fff8e1;border-left:3px solid #f9a825;border-radius:0 6px 6px 0;padding:6px 10px;margin:0 0 8px;font-size:14px}
+.sp-nota.att{background:#fff3e0;border-left-color:#e65100}
+.sp-keybtn{border:0;background:none;padding:0;color:#8d6e00;font:600 13px var(--font);cursor:pointer}
+.sp-key{display:none;background:#fff3cd;border-radius:6px;padding:6px 10px;margin-top:6px;font-weight:600}.sp-key.on{display:block}
+.cat{border-top:1px solid rgba(0,0,0,.08)}.cat:first-child{border-top:0}
+.cat-h{display:flex;align-items:center;gap:10px;padding:10px 4px}
+.cat-h input,.cat-s input{width:18px;height:18px;accent-color:#2E7D32;flex-shrink:0}
+.cat-name{flex:1;font-weight:600;cursor:pointer}.cat-meta{font-size:12.5px;color:var(--ocf-ink-soft);white-space:nowrap}
+.cat-exp{border:0;background:none;cursor:pointer;color:var(--ocf-ink-soft);padding:2px}
+.cat-s{display:flex;align-items:center;gap:10px;padding:7px 4px 7px 30px;border-top:1px dashed rgba(0,0,0,.07);font-size:14.5px}
+.cat-s .cat-sn{flex:1;cursor:pointer}.cat-s .cat-tags b{display:inline-block;min-width:18px;text-align:center;border-radius:9px;background:var(--tc);color:#fff;font-size:11px;padding:0 5px;margin-left:3px}
+.cat-read{border:0;background:none;color:#1976D2;font:600 12.5px var(--font);cursor:pointer;padding:2px 4px}
+.cat-tools{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
 .tagdot{width:11px;height:11px;border-radius:50%;background:var(--tc);display:inline-block;flex-shrink:0}
 .tag-go{border-color:var(--tc)!important;color:var(--tc)!important;gap:8px}
 .bt__tags{display:flex;gap:3px}.bt__tags b{font-size:10px;line-height:1;color:#fff;background:var(--tc);border-radius:4px;padding:2px 4px;font-variant-numeric:tabular-nums}
@@ -802,6 +814,8 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 <nav class="drawer nav" id="drawer" aria-label="Menu principale">
   <a href="#" data-nav="home"><span class="mi">home</span>Home</a>
   <a href="#" data-nav="materia"><span class="mi">category</span>Allenamento a blocchi</a>
+  <a href="#" data-nav="categorie"><span class="mi">account_tree</span>Categorie e sottocategorie</a>
+  <a href="#" data-nav="prova"><span class="mi">quiz</span>Simulazione d'esame</a>
   <a href="#" data-nav="stats"><span class="mi">insights</span>Statistiche</a>
   <a href="#" data-nav="analisi"><span class="mi">fact_check</span>Analisi errori</a>
   <a href="#" data-nav="tests"><span class="mi">history</span>Test fatti</a>
@@ -825,6 +839,7 @@ const RAW = JSON.parse(document.getElementById('ocf-data').textContent);
 const CONT = RAW.c, SUB = RAW.s;
 // q: [materia, contenutoIdx, subIdx, livello(=punti), domanda, A(corretta), B, C, D, pratico(0/1)]
 const Q = RAW.q;
+const SP = RAW.sp || {}, GEM = RAW.gem || {};
 const MAT = {
   1:{name:"Diritto del mercato finanziario e degli intermediari e disciplina dei consulenti finanziari", short:"Mercato finanziario", sim:24, test:100},
   2:{name:"Matematica finanziaria, mercati e strumenti, pianificazione, finanza comportamentale e investimenti ESG", short:"Matematica finanziaria", sim:19, test:100},
@@ -1232,7 +1247,7 @@ function setNavActive(){
 }
 function go(v){
   if(state.T && !state.T.done && state.view==="session"){ return askLeave(v); }
-  if(v==="studia"||v==="prova"||v==="migliora"||v.startsWith("report")) v = v==="studia"?"materia":"home"; // per ora solo Materia 5
+  if(v==="studia"||v==="migliora"||v.startsWith("report")) v = v==="studia"?"categorie":"home";
   state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0);
 }
 document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",e=>{ e.preventDefault(); if(a.dataset.nav==="sfoglia"){ state.browse.ids=null; state.browse.label=""; } go(a.dataset.nav); }));
@@ -1259,6 +1274,7 @@ function render(){
   if(v==="home") renderHome();
   else if(v==="studia") renderStudia();
   else if(v==="materia") renderMateria();
+  else if(v==="categorie") renderCategorie();
   else if(v==="migliora") renderMigliora();
   else if(v==="prova") renderProva();
   else if(v==="session") renderSession();
@@ -1277,7 +1293,7 @@ function render(){
   if(v==="session"){ timerId=setInterval(tick,250); tick(); }
 }
 function showActiveMat(){ const on=$(".mat-tab.on"); if(!on) return; const c=on.parentNode; c.scrollLeft=Math.max(0, on.offsetLeft-c.offsetLeft-(c.clientWidth-on.offsetWidth)/2); } // la materia scelta sempre in vista
-const MAT_VIEWS=["home","materia","stats","tests","sfoglia","analisi"];
+const MAT_VIEWS=["home","materia","categorie","stats","tests","sfoglia","analisi"];
 function matTabs(){
   // sezioni: una scheda per materia con domande fatte / totali
   return `<nav class="mat-tabs" aria-label="Materia">${MAT_ORDER.map(m=>{ const st=gstats(BY_MAT[m]);
@@ -1732,7 +1748,7 @@ function renderTrainbar(G){
       <label class="tb-field"><span>Obiettivo</span><span class="tb-goal"><input id="tb-goal" type="text" inputmode="decimal" autocomplete="off" value="${(goal60()/60).toLocaleString("it-IT",{maximumFractionDigits:1})}" aria-label="Minuti ogni 60 domande"><small>min ogni 60 domande · <b id="tb-goal-q">${(goal60()/60).toLocaleString("it-IT",{maximumFractionDigits:1})} s</b> a domanda</small></span></label>
       <label class="check"><input type="checkbox" id="tb-fb" ${tr.fb?"checked":""}> Correzione subito</label>
     </div>
-    <button class="btn btn-filled trainbar__go" id="tb-go">${icon("play_arrow")} <span id="tb-go-t">Inizia ${n} ${n===1?"domanda":"domande"}</span></button>`;
+    ${state.view==="categorie"?`<button class="btn btn-outlined trainbar__go" id="tb-exam" title="A tempo (85 secondi a domanda) con la correzione alla fine">${icon("timer")} Esame</button>`:""}<button class="btn btn-filled trainbar__go" id="tb-go">${icon("play_arrow")} <span id="tb-go-t">Inizia ${n} ${n===1?"domanda":"domande"}</span></button>`;
   const setN=v=>{ tr.n=Math.max(1,Math.round(v)||1); renderTrainbar(G); };
   $("#trainbar").classList.toggle("tb-open", !!state.tbOpen);
   $("#tb-toggle").onclick=()=>{ state.tbOpen=!state.tbOpen; renderTrainbar(G); };
@@ -1753,6 +1769,8 @@ function renderTrainbar(G){
   // obiettivo libero: qualsiasi tempo, anche mezzi minuti (es. 2,5 = 2 min e 30 s ogni 60 domande); aggiornato sul posto, senza ridisegnare
   $("#tb-goal").onchange=e=>{ let v=parseFloat(String(e.target.value).replace(",",".")); if(!(v>0)) v=goal60()/60; v=Math.min(180,Math.max(0.5,Math.round(v*2)/2)); e.target.value=v.toLocaleString("it-IT",{maximumFractionDigits:1}); lsSet(GOAL_KEY, String(Math.round(v*60)));
     const nn=liveN(); $("#tb-goal-q").textContent=(v).toLocaleString("it-IT",{maximumFractionDigits:1})+" s"; const gl=$(".trainbar__goal"); if(gl) gl.innerHTML=`${icon("flag")} Obiettivo: max <b>${mmss(goalFor(nn))}</b> per ${nn} domande`; };
+  const tbx=$("#tb-exam"); if(tbx) tbx.onclick=()=>{ const n=liveN(); const label=picked ? (nCat===1 ? CONT[G.find(g=>g.subs.some(s=>state.picked.has(g.ci+":"+s.si))).ci] : `${nCat} categorie`) : `Materia ${ONLY}`;
+    startSession({kind:"studio", title:`Esame · ${label}${tr.which==="new"?" · mai fatte":tr.which==="err"?" · sbagliate":""}`, ids:shuffle(pool.slice()).slice(0,n), fb:"end", limit:n*85, meta:sessionMeta(picked?pickedKeys():null, tr.which, "bar")}); };
   $("#tb-go").onclick=()=>{
     const n=liveN();
     const label = blkLabel ? blkLabel : picked ? (nCat===1 ? CONT[G.find(g=>g.subs.some(s=>state.picked.has(g.ci+":"+s.si))).ci] : `${nCat} categorie`) : "Tutte le categorie";
@@ -1775,7 +1793,7 @@ function sessionMeta(keys, w, src){
   const tr=state.train, sel=keys&&keys.length?keys.map(k=>k.split(":").map(Number)):null;
   return {w:w||"all", tm:tr.time, fb:tr.fb?1:0, selC:sel?[...new Set(sel.map(x=>x[0]))]:null, selS:sel?[...new Set(sel.map(x=>x[1]))]:null, src:src||"bar", ord:tr.ord||"rand"};
 }
-function readIds(ids,label){ state.browse.ids=ids.slice(); state.browse.label=label; state.browse.page=0; state.browse.q=""; state.browse.back="materia"; go("sfoglia"); }
+function readIds(ids,label){ state.browse.ids=ids.slice(); state.browse.label=label; state.browse.page=0; state.browse.q=""; state.browse.back=state.view==="categorie"?"categorie":"materia"; go("sfoglia"); }
 function openGroupDialog(ids,label){
   const s=gstats(ids), err=ids.filter(n=>{ const r=S.m[Q[n-1][0]][n]; return r&&!r[2]; }), nuovi=ids.filter(n=>!S.m[Q[n-1][0]][n]);
   dialog({title:`Test · ${esc(label)}`, body:`
@@ -2148,6 +2166,75 @@ function buildSim(){
   return {kind:"sim", title:"Simulazione prova d'esame", ids:shuffle(ids), fb:"end", limit:85*60};
 }
 
+/* ================= SPIEGA IL PERCHÉ ================= */
+// sp: {q: cosa chiede, p: perché è giusta, x: {B|C|D: perché no}, k: parola chiave (si apre solo se la vuoi), t: particolarità}
+function spiegaHTML(n, order, open){
+  const sp=SP[n], gem=GEM[n]||[];
+  if(!sp && !gem.length) return "";
+  const let_=orig=>order ? L[order.indexOf(orig)] : null;
+  const ok=let_(0);
+  let h=`<p class="sp-ok">Risposta giusta${ok?`: ${ok}`:""} — ${esc(Q[n-1][5])}</p>`;
+  if(sp){
+    h+=`<p><span class="sp-h">Cosa ti chiede</span>${sp.q}</p><p><span class="sp-h">Perché è giusta${ok?` la ${ok}`:""}</span>${sp.p}</p>`;
+    const alt=Object.entries(sp.x||{}).map(([o,t])=>[ "ABCD".indexOf(o), t ]).filter(x=>x[0]>0);
+    if(alt.length){ alt.sort((a,b)=>order?order.indexOf(a[0])-order.indexOf(b[0]):a[0]-b[0]);
+      h+=`<p class="sp-h">Perché non le altre</p><ul>${alt.map(([o,t])=>`<li>${order?`<b>${let_(o)}</b>`:`«${esc(Q[n-1][5+o])}»`} — ${t}</li>`).join("")}</ul>`; }
+    if(sp.t) h+=`<div class="sp-nota">💡 ${sp.t}</div>`;
+  }
+  gem.forEach(([n2,a2,stessa])=>{ const p2=BY_MAT[Q[n2-1][0]].indexOf(n2)+1;
+    h+= stessa ? `<div class="sp-nota">🔁 Domanda identica alla n. ${p2} della materia: stessa risposta.</div>`
+               : `<div class="sp-nota att">⚠️ La n. ${p2} della materia ha lo <b>stesso testo</b> ma un'altra risposta giusta: «${esc(a2)}». È la scelta tra le alternative che cambia: guarda bene le opzioni.</div>`; });
+  if(sp && sp.k) h+=`<button type="button" class="sp-keybtn" data-chiave>🔑 Parola chiave</button><div class="sp-key">${sp.k}</div>`;
+  return `<button type="button" class="spiega-btn" data-spiega="${n}" aria-expanded="${!!open}">${icon("lightbulb")} Spiega il perché</button><div class="spiega ${open?"on":""}">${h}</div>`;
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-spiega]");
+  if(b){ const box=b.nextElementSibling, on=box.classList.toggle("on"); b.setAttribute("aria-expanded", on);
+    const T=state.T; if(state.view==="session" && T){ const it=T.items[T.i]; if(it && it.n===+b.dataset.spiega){ it.exp=on; saveLive(); } } return; }
+  const k=e.target.closest("[data-chiave]"); if(k) k.nextElementSibling.classList.toggle("on");
+});
+
+/* ================= CATEGORIE E SOTTOCATEGORIE (come su Atena) ================= */
+function renderCategorie(){
+  const m=state.matSel=ONLY, G=groupsOf(m), all=gstats(BY_MAT[m]);
+  if(state.pickedB) state.pickedB.clear(); // qui si sceglie per categoria, non per blocco
+  if(!state.catOpen) state.catOpen=new Set();
+  const tagChips=ids=>{ const tc=Object.keys(TAGS).map(t=>[t,tagged(m,t,ids).length]).filter(x=>x[1]); return tc.length?`<span class="cat-tags">${tc.map(([t,k])=>`<b style="--tc:${TAGS[t].c}" title="${TAGS[t].t}">${k}</b>`).join("")}</span>`:""; };
+  const meta=ids=>{ const st=gstats(ids); return `${st.tot} domande · fatte ${st.seen}${st.wr?` · <span style="color:var(--ocf-red)">${st.wr} da ripassare</span>`:""}`; };
+  const rows=G.map(g=>{ const keys=g.subs.map(s=>g.ci+":"+s.si), nOn=keys.filter(k=>state.picked.has(k)).length, open=state.catOpen.has(g.ci);
+    return `<div class="cat"><div class="cat-h"><input type="checkbox" data-catall="${g.ci}" ${nOn===keys.length?"checked":""} aria-label="Seleziona tutto l'argomento">
+      <span class="cat-name" data-catopen="${g.ci}">${esc(CONT[g.ci])}</span><span class="cat-meta">${meta(g.ids)}</span>${tagChips(g.ids)}
+      <button class="cat-exp" data-catopen="${g.ci}" aria-label="${open?"Chiudi":"Apri"} le sottocategorie">${icon(open?"expand_less":"expand_more")}</button></div>
+      ${open?g.subs.map(s=>{ const k=g.ci+":"+s.si; return `<div class="cat-s"><input type="checkbox" data-catsub="${k}" ${state.picked.has(k)?"checked":""} aria-label="Seleziona ${esc(SUB[s.si]||"sottocategoria")}">
+        <span class="cat-sn" data-catsubn="${k}">${esc(SUB[s.si]||"(senza nome)")}</span><span class="cat-meta">${meta(s.ids)}</span>${tagChips(s.ids)}<button class="cat-read" data-catread="${k}">Leggi</button></div>`; }).join(""):""}</div>`; }).join("");
+  $("#view").innerHTML = `
+  ${head("account_tree","Categorie e sottocategorie")}
+  <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
+    <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia ${m} · ${esc(MAT[m].short)}</div>
+      <h2 class="ocf-landing-hero__title">Scegli <b>categorie</b> e <b>sottocategorie</b>.</h2>
+      <p class="ocf-landing-hero__subtitle" style="margin-bottom:0">Spunta quelle che vuoi (anche più di una) e in basso scegli quali e quante domande. Con <b>Esame</b> fai una prova a tempo con la correzione alla fine. Senza spunte usi tutta la materia.</p></div>
+    <div class="ocf-landing-hero__right">
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${G.length}</div><div class="ocf-landing-hero__stat-label">Categorie</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${G.reduce((a,g)=>a+g.subs.length,0)}</div><div class="ocf-landing-hero__stat-label">Sottocategorie</div></div>
+      <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.seen}<span class="ocf-landing-hero__stat-unit">/${all.tot}</span></div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
+    </div></div></section>
+  <section class="paper card">
+    <div class="cat-tools"><button class="btn btn-outlined btn-sm" id="cat-openall">${icon("unfold_more")} Apri tutte</button><button class="btn btn-outlined btn-sm" id="cat-closeall">${icon("unfold_less")} Chiudi tutte</button><button class="btn btn-outlined btn-sm" id="cat-none" ${state.picked.size?"":"disabled"}>${icon("clear")} Togli le spunte</button></div>
+    ${rows}
+  </section>
+  <div class="trainbar" id="trainbar"></div>`;
+  const re=()=>{ const y=window.scrollY; renderCategorie(); window.scrollTo(0,y); };
+  document.querySelectorAll("[data-catopen]").forEach(el=>el.onclick=()=>{ const ci=+el.dataset.catopen; state.catOpen.has(ci)?state.catOpen.delete(ci):state.catOpen.add(ci); re(); });
+  document.querySelectorAll("[data-catall]").forEach(el=>el.onchange=()=>{ const g=G.find(x=>x.ci===+el.dataset.catall); g.subs.forEach(s=>{ const k=g.ci+":"+s.si; el.checked?state.picked.add(k):state.picked.delete(k); }); re(); });
+  document.querySelectorAll("[data-catsub]").forEach(el=>el.onchange=()=>{ const k=el.dataset.catsub; el.checked?state.picked.add(k):state.picked.delete(k); re(); });
+  document.querySelectorAll("[data-catsubn]").forEach(el=>el.onclick=()=>{ const k=el.dataset.catsubn; state.picked.has(k)?state.picked.delete(k):state.picked.add(k); re(); });
+  document.querySelectorAll("[data-catread]").forEach(el=>el.onclick=()=>{ const [ci,si]=el.dataset.catread.split(":").map(Number); const g=G.find(x=>x.ci===ci), s=g.subs.find(x=>x.si===si); readIds(s.ids, `${CONT[ci]} · ${SUB[si]}`); });
+  $("#cat-openall").onclick=()=>{ G.forEach(g=>state.catOpen.add(g.ci)); re(); };
+  $("#cat-closeall").onclick=()=>{ state.catOpen.clear(); re(); };
+  $("#cat-none").onclick=()=>{ state.picked.clear(); re(); };
+  renderTrainbar(G);
+}
+
 /* ================= motore sessione ================= */
 let timerId=null;
 function defaultMeta(cfg){ const own=cfg.src==="redo"||cfg.src==="worst"||cfg.src==="pdf"; return {w:cfg.w||"all", tm:cfg.limit?"tot":cfg.perQ===60?"q60":cfg.perQ===85?"q85":"free", fb:cfg.fb==="now"?1:0, selC:own?[...new Set(cfg.ids.map(n=>Q[n-1][1]))]:null, selS:own?[...new Set(cfg.ids.map(n=>Q[n-1][2]))]:null, src:cfg.src||null}; }
@@ -2216,11 +2303,10 @@ function renderSession(){
   <section class="paper sess">
     <div class="sess-chips">${chips}</div>
     ${extra}
-    <div class="qwrap ${isSim?"":"has-tags"}"><div class="qmain">
     <div class="quesito-box"><span class="quesito-box__label">Domanda</span><div class="quesito-box__testo">${esc(q[4])}</div></div>
-    <div class="quesito-alt-list">${alts}</div></div>
-    ${isSim?"":(()=>{ const prev=tagOf(it.n); return `<div class="tagcol" id="tagcol" role="group" aria-label="Come conosci questa domanda? Scegli un colore per andare avanti">${Object.entries(TAGS).map(([k,v])=>`<button class="tagbig ${it.tg?(it.tg===k?"on":"dim"):""}" data-tag="${k}" style="--tc:${v.c}" aria-pressed="${it.tg===k}">${v.t}${!it.tg&&prev===k?`<span class="last">l'ultima volta</span>`:""}</button>`).join("")}<div class="tagneed" id="tagneed">Scegli un colore per andare avanti</div></div>`; })()}
-    </div>
+    <div class="quesito-alt-list">${alts}</div>
+    ${!isSim && reveal ? spiegaHTML(it.n, it.order, it.exp) : ""}
+    ${isSim?"":`<div class="tagrow" role="group" aria-label="Segna questa domanda (facoltativo)"><span class="tagrow__l">Segna, se vuoi:</span>${Object.entries(TAGS).map(([k,v])=>`<button class="tagbtn ${tagOf(it.n)===k?"on":""}" data-tag="${k}" style="--tc:${v.c}" aria-pressed="${tagOf(it.n)===k}"><i class="tagdot"></i>${v.t}</button>`).join("")}</div>`}
     ${note}
     ${chainKo && !bonusDone?`<div class="alert alert-chain">${icon("link_off")}<span><b>Catena interrotta a ${T.chainBroken} di fila.</b> La risposta giusta è quella in verde. Puoi <b>andare avanti</b> quanto vuoi per vedere le altre risposte, oppure <b>ricominciare il blocco</b>.</span></div>`:""}
     ${bonusDone?`<div class="alert alert-chain">${icon("replay")}<span><b>${T.i===T.chainBroken?`Catena interrotta a ${T.chainBroken} di fila.`:"Fine del blocco."}</b> Tra pochi secondi si riparte dall'inizio del blocco (oppure tocca Ricomincia).</span></div>`:""}
@@ -2235,9 +2321,7 @@ function renderSession(){
   const p=$("#prev"); if(p) p.onclick=()=>{ if(T.i>0){ T.i--; renderSession(); } };
   const nx=$("#next"); if(nx) nx.onclick=()=>advance();
   const cr=$("#chain-restart"); if(cr) cr.onclick=()=>restartChain();
-  document.querySelectorAll("[data-tag]").forEach(b=>b.onclick=()=>{ const k=b.dataset.tag; it.tg=k; if(tagOf(it.n)!==k) setTag(it.n,k); renderSession(); saveLive();
-    if(T.chain && T.chainBroken==null && it.pick===0) setTimeout(()=>{ const U=state.T; if(U===T && !U.done && U.items[U.i]===it && state.view==="session" && !dialogOpen()) advance(); }, 500); }); // catena: giusta + colore = si va avanti da soli
-  if(!isSim && !it.tg){ const nb=$("#next"); if(nb) nb.classList.add("wait"); }
+  document.querySelectorAll("[data-tag]").forEach(b=>b.onclick=()=>{ setTag(it.n,b.dataset.tag); it.tg=tagOf(it.n); renderSession(); saveLive(); }); // colore facoltativo: si tocca per mettere, si ritocca per togliere
   $("#end").onclick=askEnd;
 }
 function dontKnow(){
@@ -2250,13 +2334,12 @@ function choose(orig){
   if(it.locked || (T.fb==="now" && it.pick!==null)) return;
   it.pick=orig;
   if(T.chain && orig===0){ if(T.chainBroken==null){ const st=T.i+1; if(st>chainBest(T.chain.m)) lsSet(CHAIN_KEY+T.chain.m, String(st)); }
-    const at=T.i, id=T.id; setTimeout(()=>{ const U=state.T; if(U && U.id===id && !U.done && U.i===at && U.items[at].tg && state.view==="session" && !dialogOpen()) advance(); }, 900); }
+    const at=T.i, id=T.id; setTimeout(()=>{ const U=state.T; if(U && U.id===id && !U.done && U.i===at && state.view==="session" && !dialogOpen() && !U.items[at].exp) advance(); }, 900); }
   else if(T.chain){ chainBreak(T); if(T.i>=T.bonusEnd) chainAutoRestart(); } // sbagliata: parte il bonus (o, se era l'ultima del bonus, si riparte)
   renderSession(); saveLive();
 }
 function advance(){
   const T=state.T, it=T.items[T.i];
-  if(T.kind!=="sim" && !it.tg){ const c=$("#tagcol"); if(c){ c.classList.remove("need"); void c.offsetWidth; c.classList.add("need"); c.scrollIntoView({block:"nearest",behavior:"smooth"}); } return; } // prima scegli il colore
   if(T.chain && T.chainBroken!=null && T.i>=T.bonusEnd){ restartChain(); return; } // finito il bonus: si riparte dall'inizio del blocco
   if(T.chain && T.chainBroken==null && T.i===T.items.length-1 && it.pick===0){ it.locked=true; if(it.spent==null) it.spent=Math.round((Date.now()-T.qStart)/1000); completeBlock(); return; }
   if(T.kind==="sim"){ if(T.i<T.items.length-1){ T.i++; renderSession(); } return; }
@@ -2349,7 +2432,7 @@ function riepQuesito(x,k){
   const alts = x.order.map((orig,pos)=>{ let cls="quesito-alt-row", tag=""; if(orig===0){cls+=" quesito-alt-row--corretta"; tag="(corretta)";} else if(x.pick===orig){cls+=" quesito-alt-row--data"; tag="(tua risposta)";}
     return `<div class="${cls}"><span class="quesito-alt-row__letter">${L[pos]}</span><span class="quesito-alt-row__body">${esc(q[5+orig])}</span>${tag?`<span class="quesito-alt-row__tag">${tag}</span>`:""}</div>`; }).join("");
   return `<div class="rq"><div class="rq-head"><span>Quesito ${k+1} — ${esc(MAT[q[0]].name)} · Livello ${q[3]}</span>${b}</div>
-    <div class="quesito-box"><span class="quesito-box__label">Domanda</span><div class="quesito-box__testo">${esc(q[4])}</div></div><div class="quesito-alt-list">${alts}</div>
+    <div class="quesito-box"><span class="quesito-box__label">Domanda</span><div class="quesito-box__testo">${esc(q[4])}</div></div><div class="quesito-alt-list">${alts}</div>${spiegaHTML(x.n, x.order, false)}
     <p class="hint">${esc(CONT[q[1]])} · ${esc(SUB[q[2]])} · n. ${BY_MAT[q[0]].indexOf(x.n)+1} della materia</p></div>`;
 }
 
@@ -2386,7 +2469,7 @@ function renderSfoglia(){
   if(B.err) ids=ids.filter(n=>{ const r=S.m[Q[n-1][0]][n]; return r && r[0]>r[1]; }); // come «Dettaglio Filtro» del DB: solo le sbagliate
   const pages=Math.max(1,Math.ceil(ids.length/PAGE)); B.page=Math.min(B.page,pages-1);
   const slice=ids.slice(B.page*PAGE,B.page*PAGE+PAGE);
-  $("#view").innerHTML = `${B.ids?`<button class="backlink" id="b-back">${icon("arrow_back")} Categorie</button>`:""}${head("menu_book","Sfoglia le domande")}
+  $("#view").innerHTML = `${B.ids?`<button class="backlink" id="b-back">${icon("arrow_back")} ${B.back==="categorie"?"Categorie":"Blocchi"}</button>`:""}${head("menu_book","Sfoglia le domande")}
   <section class="paper card">
     ${B.ids?`<div style="margin-bottom:12px"><span class="filterchip"><span class="t">${esc(B.label)}</span><button id="b-clear" aria-label="Togli il filtro">${icon("close")}</button></span></div>`:""}
     <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end">
@@ -2396,11 +2479,11 @@ function renderSfoglia(){
     <div class="b-tools"><label class="check"><input type="checkbox" id="b-err" ${B.err?"checked":""}> Solo le domande sbagliate almeno una volta</label>
       <button class="btn btn-outlined btn-sm" id="b-print" ${ids.length?"":"disabled"}>${icon("print")} ${ids.length===1?"Stampa questo":`Stampa questi ${ids.length}`}</button></div>
     <p class="hint">${ids.length} ${ids.length===1?"quesito":"quesiti"}${term||B.err?(ids.length===1?" trovato":" trovati"):""}. La risposta corretta è evidenziata in verde.</p>
-    <div>${slice.map(n=>{ const q=Q[n-1]; return `<div class="browse-item"><div class="meta">n. ${BY_MAT[q[0]].indexOf(n)+1} · ${esc(CONT[q[1]])} · ${esc(SUB[q[2]])} · Livello ${q[3]}${q[9]?" · pratico":""}</div><div class="q">${esc(q[4])}</div><div class="a">${icon("check")}<span>${esc(q[5])}</span></div></div>`; }).join("")||'<p class="hint">Nessun quesito contiene queste parole.</p>'}</div>
+    <div>${slice.map(n=>{ const q=Q[n-1]; return `<div class="browse-item"><div class="meta">n. ${BY_MAT[q[0]].indexOf(n)+1} · ${esc(CONT[q[1]])} · ${esc(SUB[q[2]])} · Livello ${q[3]}${q[9]?" · pratico":""}</div><div class="q">${esc(q[4])}</div><div class="a">${icon("check")}<span>${esc(q[5])}</span></div>${spiegaHTML(n, null, false)}</div>`; }).join("")||'<p class="hint">Nessun quesito contiene queste parole.</p>'}</div>
     <div class="pager"><button class="btn btn-outlined" id="pp" ${B.page===0?"disabled":""}>${icon("chevron_left")} Precedenti</button><span>Pagina ${B.page+1} di ${pages}</span><button class="btn btn-outlined" id="np" ${B.page>=pages-1?"disabled":""}>Successivi ${icon("chevron_right")}</button></div>
   </section>`;
   $("#b-mat").onchange=e=>{ B.mat=+e.target.value; B.page=0; renderSfoglia(); };
-  const bb=$("#b-back"); if(bb) bb.onclick=()=>go("materia");
+  const bb=$("#b-back"); if(bb) bb.onclick=()=>go(B.back||"materia");
   const bc=$("#b-clear"); if(bc) bc.onclick=()=>{ B.ids=null; B.label=""; B.page=0; renderSfoglia(); };
   let tm; $("#b-q").oninput=e=>{ clearTimeout(tm); tm=setTimeout(()=>{ if(state.view!=="sfoglia") return; B.q=e.target.value; B.page=0; renderSfoglia(); const el=$("#b-q"); el.focus(); el.setSelectionRange(el.value.length,el.value.length); },250); };
   $("#b-err").onchange=e=>{ B.err=e.target.checked; B.page=0; renderSfoglia(); };
