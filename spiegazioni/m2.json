@@ -1,0 +1,45 @@
+{
+ "2218": {
+  "q": "Secondo la teoria del <b>ciclo di vita</b> di Modigliani, in quali fasi della vita una persona <b>risparmia in negativo</b>?",
+  "p": "L'idea di Modigliani è che le persone vogliono <b>consumi stabili</b> per tutta la vita. Da giovani il reddito è basso, quindi si spende più di quanto si guadagna (ci si indebita). Durante il lavoro si risparmia. Da anziani il reddito cala e si consuma il patrimonio accumulato. Quindi il risparmio è negativo <b>sia da giovani sia da vecchi</b>.",
+  "x": {
+   "B": "incompleta: dimentica la vecchiaia, quando si consumano i risparmi accumulati",
+   "C": "incompleta: dimentica la gioventù, quando si spende più del reddito",
+   "D": "è il contrario: nella fase lavorativa il risparmio è positivo"
+  },
+  "k": "Modigliani → risparmio negativo da giovani e anziani",
+  "t": "Trappola: le due alternative con «solo» sono mezze verità; la risposta giusta comprende entrambe le fasi."
+ },
+ "3377": {
+  "q": "Nel <b>green project bond</b> (definizione ICMA), l'investitore è esposto al rischio del progetto in modo diretto o indiretto, e può rivalersi sull'emittente?",
+  "p": "Il green project bond finanzia uno o più <b>progetti green specifici</b>, e chi investe è esposto <b>direttamente</b> al rischio di quei progetti. La rivalsa sull'emittente <b>può esserci oppure no</b>: dipende da come è strutturata l'emissione.",
+  "x": {
+   "B": "l'esposizione è diretta, ma «mai» è sbagliato: la rivalsa può esserci",
+   "C": "l'esposizione è diretta, non indiretta; e «mai» è sbagliato",
+   "D": "l'esposizione è diretta, non indiretta; e «sempre» è sbagliato"
+  },
+  "k": "green project bond → rischio diretto, rivalsa possibile",
+  "t": "Due dettagli da controllare insieme: «diretta» e «può» (né «mai» né «sempre»)."
+ },
+ "3472": {
+  "q": "Quale derivato serve per un titolo <b>index linked</b> che rende di più quando <b>l'indice sale</b>?",
+  "p": "Serve uno strumento che <b>guadagna quando l'indice cresce</b>: è l'<b>opzione call</b>, che dà il diritto di comprare a un prezzo fisso, quindi vale di più se il sottostante sale. Deve essere su un <b>indice di borsa</b>, perché il titolo è legato a un indice.",
+  "x": {
+   "B": "la swaption è un'opzione su uno swap, non sulla crescita dell'indice",
+   "C": "la put guadagna quando il prezzo scende, ed è su un'azione, non su un indice",
+   "D": "la put su indice guadagna quando l'indice scende, non quando sale"
+  },
+  "k": "indice sale, rendimento sale → call su indice"
+ },
+ "3577": {
+  "q": "Un <b>junk bond</b> molto speculativo, con rischio di insolvenza molto alto: quale <b>rating S&P</b> ha?",
+  "p": "Nella scala S&P le lettere scendono con la qualità: AAA è il massimo, poi AA, A, BBB. Da BB in giù si parla di titoli <b>speculativi</b> (junk). <b>CC</b> sta molto in basso nella scala: indica un debito molto speculativo, molto vicino all'insolvenza.",
+  "x": {
+   "B": "BBB- è l'ultimo gradino dell'investment grade, non è junk",
+   "C": "AA indica qualità molto alta, l'opposto di un junk bond",
+   "D": "BBB è investment grade: qualità adeguata, non speculativa"
+  },
+  "k": "molto speculativo, insolvenza molto alta → CC",
+  "t": "Confine da ricordare: fino a BBB- è investment grade, da BB+ in giù è speculativo."
+ }
+}
