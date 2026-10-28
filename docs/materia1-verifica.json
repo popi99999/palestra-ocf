@@ -1,0 +1,26 @@
+{
+  "spiegazioni": 2000,
+  "attese": 2000,
+  "motivazioni_errate": 6000,
+  "copertura_per_argomento": {
+    "Abusi di mercato": 59,
+    "Appello al pubblico risparmio": 106,
+    "Attività dei consulenti finanziari": 84,
+    "Disciplina dell'Albo unico dei consulenti finanziari": 63,
+    "Emittenti e società con azioni quotate": 197,
+    "Gestione collettiva del risparmio": 268,
+    "La normativa antiriciclaggio": 100,
+    "Mercati degli strumenti finanziari": 298,
+    "Organismo di vigilanza e tenuta dell'albo unico dei consulenti finanziari": 53,
+    "Promozione e collocamento a distanza e offerta fuori sede": 64,
+    "Provvedimenti sanzionatori e cautelari nei confronti dei consulenti finanziari": 50,
+    "Requisiti e deontologia dei consulenti finanziari": 32,
+    "Servizi e attività di investimento": 438,
+    "Trasparenza delle condizioni contrattuali e dei rapporti con i clienti": 70,
+    "Vigilanza su mercati e intermediari": 118
+  },
+  "errori": [],
+  "segnalazioni_editoriali": [],
+  "parole_medie": 100.2,
+  "banca_sha256": "55028d1d0e2f7d4a493e79af3707c84e98c7553473f1675a56bf126a4afab756"
+}
