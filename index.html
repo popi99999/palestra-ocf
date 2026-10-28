@@ -1061,7 +1061,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261027-200543";
+const APP_VERSION="20261028-111638";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -3002,7 +3002,11 @@ document.addEventListener("click",e=>{
 
 /* ================= CATEGORIE E SOTTOCATEGORIE (come su Atena) ================= */
 function renderCategorie(){
-  const m=state.matSel=ONLY, G=groupsOf(m), all=gstats(BY_MAT[m]);
+  if(state.catDone===undefined){ try{ state.catDone=localStorage.getItem("palestra-ocf-catdone")==="1"; }catch(_){ state.catDone=false; } }
+  const m=state.matSel=ONLY, all=gstats(BY_MAT[m]);
+  // «Solo già fatte»: in ogni tema restano solo le domande già affrontate (i temi senza domande fatte spariscono)
+  const fatta=n=>!!S.m[m][n];
+  const G=groupsOf(m).map(g=>{ if(!state.catDone) return g; const subs=g.subs.map(x=>({si:x.si, ids:x.ids.filter(fatta)})).filter(x=>x.ids.length); return {ci:g.ci, ids:g.ids.filter(fatta), subs}; }).filter(g=>g.ids.length);
   if(state.pickedB) state.pickedB.clear(); // qui si sceglie per categoria, non per blocco
   if(!state.catOpen) state.catOpen=new Set();
   const tagChips=ids=>{ const tc=Object.keys(TAGS).map(t=>[t,tagged(m,t,ids).length]).filter(x=>x[1]); return tc.length?`<span class="cat-tags">${tc.map(([t,k])=>`<b style="--tc:${TAGS[t].c}" title="${TAGS[t].t}">${k}</b>`).join("")}</span>`:""; };
@@ -3017,7 +3021,7 @@ function renderCategorie(){
   ${head("account_tree","Categorie e sottocategorie")}
   <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
     <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia ${m} · ${esc(MAT[m].short)}</div>
-      <h2 class="ocf-landing-hero__title">Scegli <b>categorie</b> e <b>sottocategorie</b>.</h2>
+      <h2 class="ocf-landing-hero__title">Scegli <b>categorie</b> e <b>sottocategorie</b>.</h2>${state.catDone?`<p class="ocf-landing-hero__subtitle" style="margin:0 0 4px"><b>Filtro attivo: solo le domande che hai già fatto.</b></p>`:""}
       <p class="ocf-landing-hero__subtitle" style="margin-bottom:0">Spunta quelle che vuoi (anche più di una) e in basso scegli quali e quante domande. Con <b>Esame</b> fai una prova a tempo con la correzione alla fine. Senza spunte usi tutta la materia.</p></div>
     <div class="ocf-landing-hero__right">
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${G.length}</div><div class="ocf-landing-hero__stat-label">Categorie</div></div>
@@ -3025,10 +3029,11 @@ function renderCategorie(){
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${all.seen}<span class="ocf-landing-hero__stat-unit">/${all.tot}</span></div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
     </div></div></section>
   <section class="paper card">
-    <div class="cat-tools"><button class="btn btn-outlined btn-sm" id="cat-openall">${icon("unfold_more")} Apri tutte</button><button class="btn btn-outlined btn-sm" id="cat-closeall">${icon("unfold_less")} Chiudi tutte</button><button class="btn btn-outlined btn-sm" id="cat-none" ${state.picked.size?"":"disabled"}>${icon("clear")} Togli le spunte</button></div>
-    ${rows}
+    <div class="cat-tools"><label class="check" style="margin-right:8px"><input type="checkbox" id="cat-done" ${state.catDone?"checked":""}> <b>Solo domande già fatte</b></label><button class="btn btn-outlined btn-sm" id="cat-openall">${icon("unfold_more")} Apri tutte</button><button class="btn btn-outlined btn-sm" id="cat-closeall">${icon("unfold_less")} Chiudi tutte</button><button class="btn btn-outlined btn-sm" id="cat-none" ${state.picked.size?"":"disabled"}>${icon("clear")} Togli le spunte</button></div>
+    ${rows||`<p class="hint">Nessuna domanda già fatta in questa materia.</p>`}
   </section>
   <div class="trainbar" id="trainbar"></div>`;
+  $("#cat-done").onchange=e=>{ state.catDone=e.target.checked; state.picked.clear(); try{ localStorage.setItem("palestra-ocf-catdone", state.catDone?"1":""); }catch(_){} renderCategorie(); };
   const re=()=>{ const y=window.scrollY; renderCategorie(); window.scrollTo(0,y); };
   document.querySelectorAll("[data-catopen]").forEach(el=>el.onclick=()=>{ const ci=+el.dataset.catopen; state.catOpen.has(ci)?state.catOpen.delete(ci):state.catOpen.add(ci); re(); });
   document.querySelectorAll("[data-catall]").forEach(el=>el.onchange=()=>{ const g=G.find(x=>x.ci===+el.dataset.catall); g.subs.forEach(s=>{ const k=g.ci+":"+s.si; el.checked?state.picked.add(k):state.picked.delete(k); }); re(); });
