@@ -813,7 +813,6 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 </header>
 <nav class="drawer nav" id="drawer" aria-label="Menu principale">
   <a href="#" data-nav="home"><span class="mi">home</span>Home</a>
-  <a href="#" data-nav="materia"><span class="mi">category</span>Allenamento a blocchi</a>
   <a href="#" data-nav="categorie"><span class="mi">account_tree</span>Categorie e sottocategorie</a>
   <a href="#" data-nav="prova"><span class="mi">quiz</span>Simulazione d'esame</a>
   <a href="#" data-nav="stats"><span class="mi">insights</span>Statistiche</a>
@@ -1061,7 +1060,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261028-111638";
+const APP_VERSION="20261028-113524";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1238,7 +1237,7 @@ const MAT_KEY="palestra-ocf-mat", MAT_ORDER=[5,4,1,2,3]; // ordine del piano Med
 let ONLY = (m=>[1,2,3,4,5].includes(m)?m:5)(+lsGet(MAT_KEY));
 const state = {view:"home", T:null, sel:0, browse:{mat:ONLY,q:"",page:0,ids:null,label:""}, matSel:ONLY, open:new Set(), picked:new Set(), train:{n:25, which:"all", fb:true, time:"free", ord:"rand"}};
 function navKey(){
-  if(state.view==="session"||state.view==="riepilogo") return "materia";
+  if(state.view==="session"||state.view==="riepilogo") return "categorie";
   if(state.view==="test") return "tests";
   return state.view;
 }
@@ -1248,6 +1247,7 @@ function setNavActive(){
 function go(v){
   if(state.T && !state.T.done && state.view==="session"){ return askLeave(v); }
   if(v==="studia"||v==="migliora"||v.startsWith("report")) v = v==="studia"?"categorie":"home";
+  if(v==="materia") v="categorie"; // i blocchi da 25 non ci sono più: si lavora per argomento
   state.view=v; closeDrawerMobile(); render(); window.scrollTo(0,0);
 }
 document.querySelectorAll("[data-nav]").forEach(a=>a.addEventListener("click",e=>{ e.preventDefault(); if(a.dataset.nav==="sfoglia"){ state.browse.ids=null; state.browse.label=""; } go(a.dataset.nav); }));
@@ -1421,17 +1421,17 @@ function renderHome(){
   <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
     <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia ${m} · prova valutativa OCF</div>
       <h2 class="ocf-landing-hero__title">${esc(MAT[m].name)}</h2>
-      <p class="ocf-landing-hero__subtitle">Tutte le ${s.tot} domande ufficiali divise in ${chainBlocks(m).length} blocchi da ${blkSize(m)}. Scegli un blocco e allenati, oppure fai la Catena.</p>
-      <button class="btn ocf-landing-hero__cta" data-goto="materia">${icon("play_arrow")} Allenati</button><button class="btn ocf-landing-hero__cta" data-chain="${m}" data-blk="${nextBlock(m)}" style="margin-left:8px">${icon("link")} Catena · blocco ${nextBlock(m)+1}</button></div>
+      <p class="ocf-landing-hero__subtitle">Tutte le ${s.tot} domande ufficiali divise per argomento. Scegli i temi e allenati, oppure fai la simulazione d'esame.</p>
+      <button class="btn ocf-landing-hero__cta" data-goto="categorie">${icon("play_arrow")} Allenati per argomento</button></div>
     <div class="ocf-landing-hero__right">
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.seen}</div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.ok}</div><div class="ocf-landing-hero__stat-label">Giuste</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.wr}</div><div class="ocf-landing-hero__stat-label">Sbagliate</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${daFare}</div><div class="ocf-landing-hero__stat-label">Da fare</div></div>
     </div></div></section>
-  <button class="totali-card" data-goto="materia">
+  <button class="totali-card" data-goto="categorie">
     <span class="totali-card__icon">${icon("quiz")}</span>
-    <span class="totali-card__body"><span class="totali-card__label">Domande totali</span><span class="totali-card__value">${s.tot}</span><span class="totali-card__meta">${chainBlocks(m).length} blocchi da ${blkSize(m)} · tocca per vederli</span></span>
+    <span class="totali-card__body"><span class="totali-card__label">Domande totali</span><span class="totali-card__value">${s.tot}</span><span class="totali-card__meta">${groupsOf(m).length} argomenti · tocca per vederli</span></span>
     <span class="totali-card__bar"><span class="studia-breakdown"><span class="studia-breakdown__seg studia-breakdown__seg--esatte" style="width:${s.ok/s.tot*100}%"></span><span class="studia-breakdown__seg studia-breakdown__seg--errate" style="width:${s.wr/s.tot*100}%"></span></span>
       <span class="studia-breakdown-legend"><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--esatte"></i>${s.ok} ${pl(s.ok,"giusta","giuste")}</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--errate"></i>${s.wr} ${pl(s.wr,"sbagliata","sbagliate")}</span><span class="studia-breakdown-legend__item"><i class="studia-breakdown-legend__dot studia-breakdown-legend__dot--nondate"></i>${daFare} da fare</span></span></span>
     <span class="totali-card__go">${icon("chevron_right")}</span>
@@ -1443,8 +1443,6 @@ function renderHome(){
     <button class="btn btn-outlined" id="q-xls">${icon("download")} Scarica Excel</button>
     <button class="btn btn-outlined" data-goto="sfoglia">${icon("menu_book")} Sfoglia con le risposte</button>
   </div>
-  <section class="paper chain-home">${chainButton(m)}</section>
-  ${pdfBlocksHtml(m)}
   <section class="paper dashboard-prove"><div class="dashboard-prove__header"><div><h3 class="dashboard-prove__title">${icon("history")} Ultimi allenamenti</h3><p class="dashboard-prove__subtitle">Punteggio di ogni sessione, dalla più recente.</p></div></div>
     ${recent.length?`<div class="dashboard-prove__list">${recent.map(h=>{ const ans=sessCounts(h).answered, p=ans?Math.round(h.ok/ans*100):0, good=p>=80;
       return `<div class="prova-card ${good?"prova-card--superata":"prova-card--non-superata"}" style="cursor:default"><span class="prova-card__num">${p}<span class="prova-card__num-hash">%</span></span>
