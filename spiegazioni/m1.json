@@ -1,7 +1,7 @@
 {
   "1": {
     "q": "I valori mobiliari per cui è stata chiesta la quotazione in un mercato UE sono strumenti finanziari?",
-    "p": "La richiesta di ammissione a un mercato regolamentato dell’Unione europea è già sufficiente per includere questi valori mobiliari nella disciplina degli abusi. Non occorre attendere l’inizio effettivo degli scambi e non conta quale Stato membro ospiti il mercato.",
+    "p": "<b>La richiesta di ammissione</b> a un mercato regolamentato dell’Unione europea è già sufficiente per includere questi valori mobiliari nella disciplina degli abusi. Non occorre attendere l’inizio effettivo degli scambi e non conta quale Stato membro ospiti il mercato.",
     "x": {
       "B": "Esclude valori mobiliari che rientrano già nel campo della disciplina dalla richiesta di ammissione.",
       "C": "La qualificazione deriva dalle caratteristiche dello strumento e del mercato, senza un parere preventivo della Consob.",
@@ -191,7 +191,7 @@
   },
   "20": {
     "q": "Entro quando la Consob deve contestare l’addebito per abusi di mercato a residenti in Italia e all’estero?",
-    "p": "Nel caso descritto dalla banca dati, la contestazione avviene entro 180 giorni dall’accertamento, oppure 360 se l’interessato risiede o ha sede all’estero. Conta quindi la residenza o la sede, senza confonderla con la nazionalità del destinatario.",
+    "p": "Nel caso descritto dalla banca dati, la contestazione avviene entro <b>180 giorni</b> dall’accertamento, oppure <b>360</b> se l’interessato risiede o ha sede all’estero. Conta quindi la residenza o la sede, senza confonderla con la nazionalità del destinatario.",
     "x": {
       "B": "Un anno e due anni sostituiscono i termini indicati, che sono rispettivamente 180 e 360 giorni.",
       "C": "Inverte i termini: 180 giorni per l’Italia e 360 per la residenza o sede all’estero.",
@@ -851,7 +851,7 @@
   },
   "86": {
     "q": "A chi viene trasmesso il documento d’offerta e con quale tempestività dopo la sua predisposizione?",
-    "p": "Il documento d'offerta va inviato <b>senza indugio</b> alla <b>Consob</b>, che deve esaminarlo, e all'<b>emittente</b>, che deve conoscere l'offerta per valutarla. È ammesso anche il formato elettronico.",
+    "p": "Il documento d’offerta viene trasmesso <b>senza indugio alla Consob e all’emittente</b>, anche in formato elettronico. Sono i due destinatari indicati dalla norma: non basta confondere questo invio con la pubblicità dell’offerta, né sostituirlo con una comunicazione al Ministero o alla società di revisione.",
     "x": {
       "B": "il Ministero della Giustizia non è tra i destinatari",
       "C": "la società di revisione non è tra i destinatari previsti",
@@ -1291,7 +1291,7 @@
   },
   "130": {
     "q": "Fatto nuovo o errore nel prospetto durante l'offerta: dove e quando va segnalato?",
-    "p": "Va indicato <b>senza indebito ritardo</b> in un <b>supplemento al prospetto</b>. Il prospetto deve restare aggiornato fino alla chiusura dell'offerta, perché gli investitori decidono su quelle informazioni.",
+    "p": "Il fatto nuovo o l’errore rilevante va inserito <b>senza indebito ritardo</b> in un <b>supplemento al prospetto</b>. Serve ad aggiornare le informazioni su cui gli investitori stanno decidendo: non basta pubblicare altrove una notizia, perché è il prospetto dell’offerta a dover essere integrato.",
     "x": {
       "B": "non entro un mese nella nota di sintesi: serve un supplemento",
       "C": "non sul sito di Borsa Italiana: serve un supplemento",
@@ -1611,7 +1611,7 @@
   },
   "162": {
     "q": "Il prospetto nell’offerta di quote o azioni di OICR aperti è un documento precontrattuale?",
-    "p": "<b>Sì</b>: il prospetto serve <b>prima</b> dell'investimento, per far capire natura e rischi e permettere una scelta consapevole. Proprio perché serve a decidere prima di firmare, ha natura precontrattuale.",
+    "p": "Il prospetto ha <b>natura precontrattuale</b>: fornisce informazioni da valutare prima di investire, anziché documentare soltanto un’operazione già conclusa. Deve permettere di capire natura e rischi delle quote o azioni offerte, così che l’investitore possa effettuare una scelta consapevole.",
     "x": {
       "B": "La natura precontrattuale non nasce soltanto sopra un milione di euro: dipende dalla funzione informativa del prospetto.",
       "C": "Il prospetto precede la scelta d’investimento e ha quindi la natura precontrattuale espressamente indicata.",
@@ -1671,7 +1671,7 @@
   },
   "168": {
     "q": "Quale regola vale per i <b>consulenti finanziari abilitati all'offerta fuori sede</b>?",
-    "p": "Il cliente deve sapere subito con chi sta parlando. Per questo l'intermediario garantisce che il consulente dichiari <b>immediatamente</b> in che veste opera e <b>quale soggetto abilitato rappresenta</b>.",
+    "p": "Il consulente deve comunicare <b>immediatamente in che veste opera</b> e <b>quale intermediario rappresenta</b>, anche a un potenziale cliente. L’intermediario deve garantire questo comportamento: l’identificazione non va rinviata alla firma del contratto, perché la persona deve conoscere subito il ruolo di chi le presenta il servizio.",
     "x": {
       "B": "non può detenere denaro o strumenti né dei clienti né dei potenziali clienti",
       "C": "lavora per un solo soggetto abilitato, non fino a cinque",
@@ -1871,7 +1871,7 @@
   },
   "188": {
     "q": "Il consulente fuori sede deve rispettare anche le regole e i <b>codici di autodisciplina</b> della categoria dell'intermediario per cui lavora?",
-    "p": "Il consulente opera per conto dell'intermediario, quindi segue due livelli di regole: quelle sulla <b>propria attività</b> e quelle, anche di autodisciplina, della <b>categoria dell'intermediario</b>. Vale qualunque sia l'intermediario.",
+    "p": "Il consulente deve rispettare sia le norme sulla <b>propria attività</b> sia quelle della <b>categoria dell’intermediario</b> per cui opera, compresi i codici di autodisciplina richiamati. I due livelli si aggiungono: lavorare per una banca oppure per una SIM non elimina gli obblighi personali del consulente.",
     "x": {
       "B": "non solo se l'intermediario è una SIM: vale per tutti",
       "C": "non «esclusivamente» le sue regole: anche quelle della categoria dell'intermediario",
@@ -2151,7 +2151,7 @@
   },
   "216": {
     "q": "La società di consulenza deve informare sui <b>fattori di sostenibilità</b> usati per scegliere gli strumenti? E a chi?",
-    "p": "Chi riceve consulenza deve sapere se e come la sostenibilità entra nella scelta degli strumenti. L'informazione va data, <b>ove pertinente</b>, sia al <b>cliente</b> sia al <b>potenziale cliente</b>.",
+    "p": "L’informazione sui fattori di sostenibilità va fornita, <b>ove pertinente</b>, sia al cliente sia al potenziale cliente. Serve a comprendere come quei fattori entrano nella selezione degli strumenti: non è riservata a chi ha già firmato, né soltanto a chi sta valutando il servizio.",
     "x": {
       "B": "non solo al potenziale cliente: anche al cliente",
       "C": "L’informazione pertinente è dovuta a clienti e potenziali clienti, senza la distinzione generica proposta.",
@@ -2657,7 +2657,7 @@
   },
   "266": {
     "q": "Sul sito dell'Organismo si pubblicano anche gli <b>altri atti rilevanti</b> sugli iscritti, oltre a iscrizioni e cancellazioni? In che forma?",
-    "p": "Sul sito dell'<b>Organismo</b> vanno sia le delibere di iscrizione e cancellazione sia gli altri provvedimenti rilevanti. La forma può essere <b>per intero o per estratto</b>.",
+    "p": "Il sito dell’OCF pubblica sia iscrizioni e cancellazioni sia gli altri provvedimenti o atti rilevanti sugli iscritti. La pubblicazione può avvenire <b>per intero o per estratto</b>: la norma non impone di dividere automaticamente i documenti tra sito dell’Organismo e sito della Consob.",
     "x": {
       "B": "anche gli altri atti vanno sul sito dell'Organismo, non della Consob",
       "C": "non c'è questa divisione: tutti per intero o per estratto",
@@ -2947,7 +2947,7 @@
   },
   "295": {
     "q": "L’OCF può sospendere il procedimento d’iscrizione mentre svolge gli accertamenti necessari sul richiedente?",
-    "p": "A volte servono verifiche su chi chiede l'iscrizione. L'<b>Organismo</b> può sospendere il procedimento per il <b>tempo necessario</b> agli accertamenti, così non decide senza avere tutte le informazioni.",
+    "p": "L’<b>OCF può sospendere il procedimento</b> per il tempo necessario agli accertamenti sul richiedente. La sospensione riguarda quindi la verifica della domanda ancora in corso, non una sanzione contro un iscritto. La durata è collegata agli accertamenti necessari, senza il limite fisso semestrale proposto.",
     "x": {
       "B": "non sospende la Consob, e non c'è un limite di sei mesi",
       "C": "non solo per accertamenti del MEF: per gli accertamenti necessari in generale",
@@ -3287,7 +3287,7 @@
   },
   "329": {
     "q": "Il sistema «<b>Teleraccolta</b>» a chi serve per comunicare le modifiche del capitale sociale?",
-    "p": "Teleraccolta è il sistema telematico della <b>Consob</b> per raccogliere dati dagli emittenti. Le variazioni del capitale riguardano la trasparenza verso il mercato, che è compito della Consob.",
+    "p": "La comunicazione delle modifiche al capitale sociale attraverso Teleraccolta è destinata alla <b>Consob</b>. Il quesito riguarda il canale informativo utilizzato dall’emittente: il fatto che le azioni siano negoziate in Borsa non rende Borsa Italiana il destinatario di questa specifica comunicazione.",
     "x": {
       "B": "la Banca d'Italia non è il destinatario di Teleraccolta",
       "C": "Borsa Italiana non è il destinatario di Teleraccolta",
@@ -3437,7 +3437,7 @@
   },
   "344": {
     "q": "La strategia deve essere compatibile con il limite del riscaldamento globale a <b>quanti gradi</b>?",
-    "p": "La norma riprende l'obiettivo dell'<b>Accordo di Parigi</b>: limitare il riscaldamento globale a <b>1,5 °C</b>. L'impresa indica i piani per restare in linea con questo obiettivo.",
+    "p": "Il riferimento richiesto è <b>1,5 °C</b>, richiamato nella descrizione dei piani che rendono compatibili modello e strategia aziendali con gli obiettivi climatici. Non basta quindi una dichiarazione generica di attenzione all’ambiente: la rendicontazione deve collegare il progetto dell’impresa a quel preciso limite di riscaldamento globale.",
     "x": {
       "B": "Propone 5 °c, mentre per limite di riscaldamento richiamato nei piani aziendali il riferimento richiesto è 1,5 °C.",
       "C": "Propone 4 °c, mentre per limite di riscaldamento richiamato nei piani aziendali il riferimento richiesto è 1,5 °C.",
@@ -3447,7 +3447,7 @@
   },
   "345": {
     "q": "Cosa deve indicare la descrizione del <b>modello e della strategia</b> nella rendicontazione di sostenibilità?",
-    "p": "Non basta dichiarare una strategia di sostenibilità: bisogna dire <b>come la si mette in pratica</b>. Per questo la descrizione indica le modalità di attuazione della strategia.",
+    "p": "La rendicontazione deve descrivere <b>come si attua la strategia</b> sulle questioni di sostenibilità. Non basta indicare un obiettivo astratto: occorre spiegare come l’impresa intende tradurlo nel proprio modello e nelle scelte aziendali. Il quesito distingue questa attuazione dai riferimenti climatici alterati nelle alternative.",
     "x": {
       "B": "il limite è 1,5 °C, non 3,5 °C",
       "C": "contano i portatori di interessi dell'impresa, non dei concorrenti",
@@ -3687,7 +3687,7 @@
   },
   "369": {
     "q": "Entro quanti giorni i patti parasociali sopra soglia vanno <b>comunicati alla Consob</b>?",
-    "p": "Il mercato deve sapere presto chi si accorda per influenzare una quotata. Per questo gli adempimenti sui patti parasociali vanno fatti entro <b>cinque giorni</b> dalla stipulazione.",
+    "p": "Il patto parasociale rilevante deve essere comunicato alla Consob entro <b>cinque giorni</b> dalla stipulazione. Si tratta dell’obbligo informativo sull’accordo tra soci, non del termine per eseguirlo: dieci, quindici o venti giorni allungherebbero la scadenza oltre il limite previsto dal quesito.",
     "x": {
       "B": "Propone dieci giorni, mentre per termine di comunicazione del patto alla Consob il riferimento richiesto è cinque giorni.",
       "C": "Propone venti giorni, mentre per termine di comunicazione del patto alla Consob il riferimento richiesto è cinque giorni.",
@@ -3707,7 +3707,7 @@
   },
   "371": {
     "q": "Che obbligo hanno i patti parasociali su partecipazioni <b>sopra soglia</b>?",
-    "p": "La società interessata e chi vigila devono sapere subito dell'accordo. Per questo i patti sono <b>comunicati alla società quotata e alla Consob</b> entro <b>cinque giorni</b> dalla stipula.",
+    "p": "Il patto sopra soglia deve essere comunicato <b>alla società quotata e alla Consob</b> entro <b>cinque giorni dalla stipulazione</b>. La risposta combina destinatari e termine: inviare alla Banca d’Italia entro cinque giorni non basta, così come rivolgersi a Consob usando il diverso termine di quindici giorni.",
     "x": {
       "B": "non alla Banca d'Italia, e non entro quindici giorni",
       "C": "alla Consob si comunica entro cinque giorni; il deposito va al registro imprese",
@@ -3737,7 +3737,7 @@
   },
   "374": {
     "q": "Entro quanti giorni i patti parasociali sopra soglia si pubblicano <b>per estratto sui quotidiani</b>?",
-    "p": "La trasparenza sui patti deve essere rapida. Per questo tutti gli adempimenti, compresa la pubblicazione per estratto sulla stampa, vanno fatti entro <b>cinque giorni</b> dalla stipulazione.",
+    "p": "L’estratto del patto parasociale rilevante deve essere pubblicato sulla stampa quotidiana <b>entro cinque giorni dalla stipulazione</b>. Conta il termine previsto per rendere conoscibile il patto al mercato: dieci, quindici o venti giorni non sono scadenze alternative tra cui i partecipanti possano scegliere liberamente.",
     "x": {
       "B": "Propone dieci giorni, mentre per termine per pubblicare l’estratto del patto il riferimento richiesto è cinque giorni.",
       "C": "Propone quindici giorni, mentre per termine per pubblicare l’estratto del patto il riferimento richiesto è cinque giorni.",
@@ -3887,7 +3887,7 @@
   },
   "389": {
     "q": "Chi stabilisce <b>modalità e contenuti</b> di comunicazione, estratto e pubblicazione dei patti parasociali?",
-    "p": "I patti riguardano la trasparenza delle società quotate, che è materia della <b>Consob</b>. Per questo è la Consob a fissare i dettagli, con un proprio <b>regolamento</b>.",
+    "p": "È la <b>Consob, con regolamento</b>, a stabilire modalità e contenuti degli adempimenti sui patti parasociali rilevanti. Le società e i soggetti obbligati applicano quelle regole: non le definiscono liberamente mediante accordi individuali con l’autorità, né ricevono questa disciplina da una circolare Banca d’Italia.",
     "x": {
       "B": "Il potere regolamentare è attribuito alla Consob, non al ministero, per questi obblighi di trasparenza dei patti.",
       "C": "Non è una circolare della Banca d’Italia: modalità e contenuti sono stabiliti con regolamento Consob.",
@@ -4037,7 +4037,7 @@
   },
   "404": {
     "q": "A quali condizioni la quotata può chiedere l'<b>esclusione dalle negoziazioni</b> se viene ammessa su un altro mercato UE?",
-    "p": "Lasciare un mercato cambia la posizione dei soci, quindi decide l'<b>assemblea straordinaria</b>. Inoltre gli investitori devono avere una <b>tutela equivalente</b>, secondo i criteri della Consob.",
+    "p": "L’esclusione dal mercato italiano, con ammissione su un altro mercato regolamentato UE, richiede una delibera dell’<b>assemblea straordinaria</b> e una <b>tutela equivalente degli investitori</b> secondo i criteri Consob. Le condizioni operano insieme: non basta cambiare mercato o ottenere una semplice delibera dell’assemblea ordinaria.",
     "x": {
       "B": "non serve l'autorizzazione del Governatore della Banca d'Italia",
       "C": "serve l'assemblea straordinaria, non l'ordinaria",
@@ -4047,7 +4047,7 @@
   },
   "405": {
     "q": "Il delisting volontario è ammesso se la società ottiene <b>cosa</b>?",
-    "p": "Gli investitori non devono perdere la possibilità di negoziare con regole simili. Per questo serve l'ammissione su <b>un altro mercato regolamentato</b>, italiano o di un altro paese UE.",
+    "p": "Occorre ottenere l’ammissione su <b>un altro mercato regolamentato italiano o UE</b>, oltre alle altre condizioni indicate nella domanda. La società cambia sede di negoziazione mantenendo una tutela equivalente degli investitori: l’impegno di un singolo intermediario a trattare i titoli non equivale a quell’ammissione.",
     "x": {
       "B": "i mercati di paesi fuori dall'UE non bastano",
       "C": "un internalizzatore sistematico non è un mercato regolamentato",
@@ -4177,7 +4177,7 @@
   },
   "418": {
     "q": "Quando un promotore fa una <b>sollecitazione di deleghe</b>, a chi è rivolta la richiesta?",
-    "p": "La sollecitazione si riconosce dal <b>numero</b> di azionisti a cui si chiede la delega: <b>più di 200</b>. Non conta se sono di maggioranza o di minoranza.",
+    "p": "La richiesta di deleghe è rivolta a <b>più di 200 azionisti</b>: conta quindi il numero dei destinatari, non la loro appartenenza alla maggioranza o alla minoranza. Per esempio, 201 supera la soglia, mentre esattamente 200 non soddisfa il criterio numerico richiamato nel quesito.",
     "x": {
       "B": "non conta essere di maggioranza: conta il numero",
       "C": "non conta essere di minoranza: conta il numero",
@@ -4367,7 +4367,7 @@
   },
   "437": {
     "q": "Qualcuno chiede la <b>scheda di voto</b>: cosa deve controllare l'emittente?",
-    "p": "La scheda serve per votare, quindi può averla solo chi ha diritto di partecipare all'assemblea. L'emittente controlla proprio questo: che il richiedente sia <b>legittimato a partecipare</b>.",
+    "p": "L’emittente verifica che chi chiede la scheda sia <b>legittimato a partecipare all’assemblea</b>. Il requisito riguarda il diritto di intervenire e votare, non l’importanza economica della partecipazione: non occorre possedere l’1% del capitale né essere soci da almeno ventiquattro mesi per il controllo richiesto dal quesito.",
     "x": {
       "B": "nessuna soglia minima di capitale: basta la legittimazione",
       "C": "La legittimazione all’assemblea è sufficiente per il requisito considerato, senza un’autorizzazione individuale Consob.",
@@ -4447,7 +4447,7 @@
   },
   "445": {
     "q": "I sindaci di una quotata partecipano ad <b>assemblee e riunioni</b> degli altri organi?",
-    "p": "Per controllare la gestione i sindaci devono vedere come si decide. Per questo <b>assistono</b> alle assemblee e alle riunioni del consiglio di amministrazione e del comitato esecutivo.",
+    "p": "I sindaci <b>assistono alle assemblee e alle riunioni</b> del consiglio di amministrazione e del comitato esecutivo. La loro presenza riguarda dunque tutti e tre i contesti indicati, non soltanto alcuni. Assistere per svolgere il controllo non significa assumere al posto degli amministratori le decisioni gestionali.",
     "x": {
       "B": "falso: assistono anche al comitato esecutivo",
       "C": "falso: assistono anche al consiglio di amministrazione",
@@ -4567,7 +4567,7 @@
   },
   "457": {
     "q": "Lo statuto può <b>modificare</b> i limiti di legge al cumulo degli incarichi dei sindaci?",
-    "p": "I limiti di legge sono una tutela minima. Lo statuto può solo essere <b>più severo</b>: può ridurre il numero di incarichi ammessi e anche aggiungere altri limiti.",
+    "p": "Lo statuto può rendere i vincoli sul cumulo degli incarichi <b>più rigorosi</b>: sia riducendo i limiti legali sia aggiungendo limiti ulteriori. Sono due facoltà distinte, entrambe ammesse; le alternative sbagliano quando negano una delle due o vietano qualsiasi intervento statutario.",
     "x": {
       "B": "falso: lo statuto può sia ridurre sia aggiungere limiti",
       "C": "falso: può anche ridurre i limiti legali",
@@ -4897,7 +4897,7 @@
   },
   "490": {
     "q": "Quale autorità esercita i poteri sulla <b>disciplina degli emittenti</b> prevista dal TUF?",
-    "p": "La trasparenza del mercato dei capitali e del controllo societario è un compito tipico della <b>Consob</b>, che vigila sugli emittenti e sulle informazioni che danno al mercato.",
+    "p": "I poteri della parte del TUF dedicata agli emittenti spettano alla <b>Consob</b>, avendo riguardo all’efficienza e alla trasparenza del mercato dei capitali e del controllo societario. Il riferimento agli emittenti orienta quindi verso questa autorità, senza confonderla con le competenze prudenziali di Banca d’Italia.",
     "x": {
       "B": "MEF e Banca d'Italia non hanno questo ruolo",
       "C": "la Banca d'Italia vigila sulla stabilità, non sugli emittenti",
@@ -4917,7 +4917,7 @@
   },
   "492": {
     "q": "Gli emittenti quotati devono dare a tutti i portatori degli strumenti quotati le <b>informazioni e gli strumenti</b> per esercitare i loro diritti?",
-    "p": "Chi investe in una quotata deve poter esercitare i suoi diritti, e tutti devono essere trattati allo stesso modo. Per questo l'obbligo vale <b>sempre</b>, senza bisogno di richieste.",
+    "p": "Gli emittenti indicati devono garantire <b>strumenti e informazioni per esercitare i diritti</b> a tutti i portatori degli strumenti quotati. È un obbligo ordinario: per esempio, non devono attendere una richiesta dell’autorità prima di rendere disponibili le informazioni necessarie all’esercizio di un diritto del possessore.",
     "x": {
       "B": "non serve una richiesta della Banca d'Italia",
       "C": "non serve una richiesta della Consob",
@@ -5097,7 +5097,7 @@
   },
   "510": {
     "q": "Nell'OICR <b>aperto</b>, dove sono fissate modalità e frequenza dei <b>rimborsi</b>?",
-    "p": "Ogni fondo ha regole proprie che l'investitore accetta quando entra. Modalità e frequenza dei rimborsi sono quindi scritte nel <b>regolamento, nello statuto e nella documentazione d'offerta</b> dell'OICR.",
+    "p": "Nell’OICR aperto il partecipante può chiedere il rimborso secondo le regole del singolo organismo. Modalità e frequenza si ricavano da <b>regolamento, statuto e documentazione d’offerta</b>: la definizione non le rinvia a un unico regolamento generale emanato da Ministero o autorità di vigilanza.",
     "x": {
       "B": "non un regolamento ministeriale: decidono i documenti del fondo",
       "C": "non un regolamento Consob: decidono i documenti del fondo",
@@ -5127,7 +5127,7 @@
   },
   "513": {
     "q": "Quale servizio può svolgere una <b>SGR</b>?",
-    "p": "La SGR può offrire servizi legati alla gestione del risparmio, tra cui la <b>consulenza in materia d'investimenti</b>. Non fa invece attività bancarie né negoziazione.",
+    "p": "Tra i servizi ammessi alla SGR rientra la <b>consulenza in materia di investimenti</b>, nel rispetto dell’autorizzazione applicabile. La gestione del risparmio non coincide con l’attività bancaria: concedere mutui o mettere a disposizione cassette di sicurezza non è il servizio di investimento consentito che il quesito chiede di riconoscere.",
     "x": {
       "B": "la negoziazione per conto terzi non è tra i servizi della SGR",
       "C": "le cassette di sicurezza sono un servizio bancario",
@@ -5137,7 +5137,7 @@
   },
   "514": {
     "q": "Quale condizione serve per <b>autorizzare</b> una SGR?",
-    "p": "L'autorizzazione serve a far entrare sul mercato solo società affidabili. Per questo la Banca d'Italia, sentita la Consob, verifica che sia garantita la <b>sana e prudente gestione</b>.",
+    "p": "La Banca d’Italia, sentita la Consob, deve verificare che sia garantita la <b>sana e prudente gestione</b> della SGR. Non basta scegliere un’attività consentita: l’organizzazione e i requisiti della società devono permetterne uno svolgimento corretto. Le alternative modificano invece forma societaria, sede o autorità competente sul capitale.",
     "x": {
       "B": "deve essere una società per azioni, non accomandita né Srl",
       "C": "sede legale e direzione generale devono essere in Italia",
@@ -5167,7 +5167,7 @@
   },
   "517": {
     "q": "Quale requisito serve alla SGR per essere <b>autorizzata</b>?",
-    "p": "Il nome deve far capire subito al pubblico che tipo di società è. Per questo la denominazione deve contenere le parole «<b>Società di Gestione del Risparmio</b>».",
+    "p": "La denominazione sociale deve contenere le parole <b>Società di Gestione del Risparmio</b>. Non basta un nome genericamente riferito agli investimenti: è richiesta questa precisa indicazione. Il quesito verifica il requisito della denominazione, che si aggiunge agli altri necessari per ottenere l’autorizzazione.",
     "x": {
       "B": "deve essere una SpA, non accomandita semplice né Srl",
       "C": "sede legale e direzione generale devono essere in Italia",
@@ -5187,7 +5187,7 @@
   },
   "519": {
     "q": "Chi autorizza una SGR a ricevere e trasmettere ordini?",
-    "p": "L’autorizzazione compete alla Banca d’Italia, sentita la Consob. Ricevere e trasmettere significa inoltrare ordini ad altri intermediari: è distinto dall’eseguirli direttamente, ma richiede comunque l’autorizzazione al servizio.",
+    "p": "L’autorizzazione compete alla <b>Banca d’Italia, sentita la Consob</b>. Sono due ruoli diversi: la prima assume il provvedimento, la seconda viene consultata. Il servizio consente di ricevere l’ordine del cliente e inoltrarlo a un altro intermediario; non equivale a eseguire direttamente l’operazione per suo conto.",
     "x": {
       "B": "Inverte chi decide e chi viene consultato: il provvedimento spetta alla Banca d’Italia.",
       "C": "La Consob non decide mediante intesa con il Ministero in questa procedura.",
@@ -5207,7 +5207,7 @@
   },
   "521": {
     "q": "Albo delle SGR: quale affermazione è <b>corretta</b>?",
-    "p": "L'albo delle SGR lo tiene la <b>Banca d'Italia</b>, che autorizza le SGR. Poiché anche la Consob vigila su di esse, la Banca d'Italia le <b>comunica le iscrizioni</b>.",
+    "p": "La <b>Banca d’Italia tiene l’albo delle SGR</b> e comunica alla Consob le iscrizioni effettuate. Occorre separare la tenuta dell’albo dalla collaborazione tra autorità: ricevere la comunicazione non significa gestire quel registro. Le SGR sono inoltre iscritte nel proprio albo, distinto da quello delle SICAV.",
     "x": {
       "B": "l'albo e il suo elenco allegato li tiene la Banca d'Italia, non la Consob",
       "C": "le SGR sono iscritte nel loro albo, non in un elenco delle SICAV",
@@ -5227,7 +5227,7 @@
   },
   "523": {
     "q": "Cosa può fare una <b>SGR</b>?",
-    "p": "La SGR è specializzata nel gestire patrimoni altrui. Oltre alla gestione collettiva può quindi prestare la <b>gestione di portafogli</b>, cioè la gestione individuale.",
+    "p": "Oltre alla gestione collettiva, una SGR può prestare la <b>gestione di portafogli</b>, quando autorizzata. Qui si gestisce il patrimonio di un singolo cliente secondo un mandato individuale: è un servizio distinto dalla gestione del fondo, ma compreso tra quelli consentiti alla SGR.",
     "x": {
       "B": "falso: può sia istituire sia gestire fondi pensione",
       "C": "falso: può prestare consulenza in materia di investimenti",
@@ -5257,7 +5257,7 @@
   },
   "526": {
     "q": "Entro quanto tempo la Banca d'Italia decide sull'<b>autorizzazione</b> di una SGR?",
-    "p": "Chi chiede l'autorizzazione ha diritto a una risposta in tempi certi. La Banca d'Italia, sentita la Consob, decide entro <b>novanta giorni</b> dal ricevimento della domanda completa di documentazione.",
+    "p": "Il termine del procedimento richiamato è <b>novanta giorni</b> dal ricevimento della <b>domanda completa della documentazione richiesta</b>. Va ricordato anche l’evento da cui decorre: il quesito non collega il conteggio all’avvio dell’attività o all’iscrizione nell’albo, ma alla domanda corredata dei documenti necessari per valutarla.",
     "x": {
       "B": "sessanta giorni: termine sbagliato, sono novanta",
       "C": "centoventi giorni: termine sbagliato, sono novanta",
@@ -5277,7 +5277,7 @@
   },
   "528": {
     "q": "Entro quanti giorni e a chi la SGR comunica l’inizio dell’attività?",
-    "p": "La comunicazione va inviata alla Banca d’Italia entro trenta giorni dall’avvio. Il termine decorre dall’inizio effettivo dell’operatività, perché autorizzazione e avvio possono avvenire in date differenti.",
+    "p": "La SGR comunica l’inizio dell’operatività alla Banca d’Italia <b>entro trenta giorni dall’avvio</b>. Il conteggio parte dall’attività effettiva, non automaticamente dal rilascio dell’autorizzazione. Se la società è autorizzata oggi ma comincia a operare più avanti, il termine si collega a questo secondo momento.",
     "x": {
       "B": "Indica sia il destinatario errato, il Ministero, sia un termine di sessanta anziché trenta giorni.",
       "C": "Sbaglia destinatario e durata: occorrono Banca d’Italia e trenta giorni.",
@@ -5307,7 +5307,7 @@
   },
   "531": {
     "q": "Una SGR già autorizzata può <b>rinunciare</b> all'autorizzazione? E a chi lo dice?",
-    "p": "Nessuno è obbligato a restare sul mercato: la SGR può rinunciare. Siccome l'autorizzazione l'ha rilasciata la <b>Banca d'Italia</b>, è alla Banca d'Italia che va comunicata la rinuncia.",
+    "p": "La SGR può <b>rinunciare all’autorizzazione</b> dandone comunicazione alla <b>Banca d’Italia</b>. Il fatto che sia già autorizzata e iscritta all’albo non la obbliga a restare operativa per almeno un anno: il quesito non prevede quel periodo minimo di attesa né una comunicazione sostitutiva alla Consob.",
     "x": {
       "B": "non c'è nessun anno minimo di attesa: si può rinunciare quando si vuole",
       "C": "la Consob non ha rilasciato l'autorizzazione: va informata la Banca d'Italia",
@@ -5459,7 +5459,7 @@
   },
   "546": {
     "q": "Che capitale serve a una SGR per gestire <b>insieme OICVM e FIA</b>?",
-    "p": "La regola generale del capitale minimo vale anche per chi gestisce entrambi: almeno <b>un milione di euro</b>, <b>interamente versato</b>, così la SGR è solida fin dall'inizio.",
+    "p": "La gestione congiunta di OICVM e FIA richiede ordinariamente almeno <b>un milione di euro</b> di capitale iniziale, <b>interamente versato</b>. I due elementi sono entrambi necessari: non basta indicare un capitale promesso ma non versato. Il quesito esclude espressamente il diverso regime delle SGR sotto soglia.",
     "x": {
       "B": "cinquantamila euro è troppo poco: la regola generale è un milione",
       "C": "centomila è troppo poco, e il capitale va versato per intero",
@@ -5510,7 +5510,7 @@
   },
   "551": {
     "q": "Come si calcola il requisito patrimoniale collegato al volume delle attività gestite dalla SGR?",
-    "p": "Si considera lo 0,02% della parte che supera 250 milioni di euro, con il limite previsto di 10 milioni. Per esempio, su 300 milioni l’eccedenza è 50 milioni: applicando lo 0,02% si ottengono 10.000 euro.",
+    "p": "Si considera lo <b>0,02%</b> della parte che supera <b>250 milioni</b> di euro, con il limite previsto di 10 milioni. Per esempio, su 300 milioni l’eccedenza è 50 milioni: applicando lo 0,02% si ottengono 10.000 euro.",
     "x": {
       "B": "Sposta la soglia a 500 milioni e il limite a 50 milioni: entrambi i valori sono errati.",
       "C": "Il 2% è cento volte lo 0,02%; sono errati anche soglia e limite.",
@@ -5580,7 +5580,7 @@
   },
   "558": {
     "q": "Quando un acquisto di partecipazioni in una Sicaf si considera <b>indiretto</b>?",
-    "p": "La legge vuole sapere chi c'è davvero dietro l'acquisto. Per questo contano <b>tutti</b> i canali indiretti: società controllate, società fiduciarie e interposta persona (un prestanome).",
+    "p": "L’acquisto indiretto comprende l’uso di <b>controllate, fiduciarie o interposta persona</b>. Per valutare il controllo non ci si ferma quindi al nome del compratore immediato: si considera anche chi acquisisce attraverso questi soggetti. Le alternative sbagliano quando escludono uno dei canali espressamente compresi dalla disciplina.",
     "x": {
       "B": "Include le fiduciarie ma esclude erroneamente l’interposta persona, che è anch’essa un canale indiretto.",
       "C": "esclude le società controllate, che invece contano",
@@ -5591,7 +5591,7 @@
   },
   "559": {
     "q": "Quando una cessione di partecipazioni in una Sicav si considera <b>indiretta</b>?",
-    "p": "Vale la stessa logica dell'acquisto: bisogna vedere chi c'è davvero dietro. Contano <b>tutti</b> i canali: società controllate, società fiduciarie e interposta persona.",
+    "p": "La cessione è indiretta anche quando avviene tramite <b>controllate, fiduciarie o interposta persona</b>. Non conta quindi soltanto chi compare come cedente immediato: la disciplina considera anche questi canali intermedi. Nessuno dei tre può essere escluso dalla definizione come fanno le alternative proposte.",
     "x": {
       "B": "esclude l'interposta persona, che invece conta",
       "C": "esclude le società controllate, che invece contano",
@@ -5631,7 +5631,7 @@
   },
   "563": {
     "q": "Banca d'Italia e Consob possono chiedere alla SGR i <b>nomi dei soci</b> dal libro soci?",
-    "p": "Le autorità devono poter sapere chi possiede una SGR. Per questo possono chiedere direttamente i nomi dei soci, fissando un <b>termine</b> per la risposta, senza il permesso di nessuno.",
+    "p": "Banca d’Italia e Consob possono chiedere alla SGR i nominativi dei partecipanti risultanti dal libro soci, indicando un <b>termine per la risposta</b>. È un potere informativo previsto dalla disciplina: la richiesta non deve essere preceduta da un’autorizzazione ministeriale o da un provvedimento del giudice.",
     "x": {
       "B": "non serve l'autorizzazione del Ministro della giustizia",
       "C": "non serve un provvedimento del giudice",
@@ -5711,7 +5711,7 @@
   },
   "571": {
     "q": "Chi è già stato valutato da un'autorità e compra il 25% di una Sicav deve <b>riprovare la correttezza</b>?",
-    "p": "Non serve ripetere una verifica già fatta da un'autorità di vigilanza. Basta <b>dichiarare che nulla è cambiato</b> rispetto all'ultima valutazione di correttezza per essere esentati.",
+    "p": "Bianchi è esentato dal comprovare nuovamente la correttezza se attesta <b>l’assenza di variazioni rispetto all’ultima valutazione</b> dell’autorità competente. L’esenzione riguarda la nuova dimostrazione, non il possesso del requisito. Non deriva dal fatto che la quota sia inferiore al trenta per cento, ma dalla valutazione precedente rimasta invariata.",
     "x": {
       "B": "Il termine di quindici giorni non descrive l’esenzione basata sulla valutazione precedente rimasta invariata.",
       "C": "il 30% non è la soglia: anche il 25% è una partecipazione rilevante",
@@ -5722,7 +5722,7 @@
   },
   "572": {
     "q": "Chi fissa i requisiti di <b>onorabilità</b> di chi controlla una SGR?",
-    "p": "I requisiti personali sono regole generali, uguali per tutti: li fissa il <b>Ministro dell'economia</b> con un regolamento, dopo aver sentito Banca d'Italia e Consob.",
+    "p": "I requisiti di onorabilità dei titolari di partecipazioni di controllo sono stabiliti dal <b>Ministro dell’economia e delle finanze</b> con regolamento, sentite Banca d’Italia e Consob. Le due autorità partecipano alla consultazione: non diventano per questo titolari del potere di emanare il regolamento.",
     "x": {
       "B": "la Banca d'Italia viene sentita, non decide",
       "C": "la Consob viene sentita, non decide",
@@ -5762,7 +5762,7 @@
   },
   "576": {
     "q": "Per i requisiti di chi controlla una SGR contano anche le quote tenute tramite <b>interposta persona</b>?",
-    "p": "Sì: la legge guarda a chi controlla davvero. Per questo contano anche le partecipazioni indirette, tenute tramite <b>interposta persona</b> o <b>società fiduciarie</b>.",
+    "p": "Per valutare l’onorabilità di chi controlla la SGR si considerano anche le partecipazioni detenute <b>per interposta persona</b> o tramite <b>società fiduciarie</b>. Non conta soltanto il nome formalmente intestatario delle azioni: il requisito non viene meno se il controllo passa attraverso uno di questi canali indiretti.",
     "x": {
       "B": "l'interposta persona conta, e il criterio non sono le società collegate",
       "C": "non solo le controllate: conta anche l'interposta persona",
@@ -5792,7 +5792,7 @@
   },
   "579": {
     "q": "Chi stabilisce i requisiti degli <b>esponenti aziendali</b> di una Sicaf?",
-    "p": "I requisiti di chi guida un intermediario sono regole generali: li stabilisce il <b>Ministro dell'economia</b> con un regolamento, dopo aver sentito <b>Banca d'Italia e Consob</b>.",
+    "p": "Il <b>Ministro dell’economia e delle finanze</b> stabilisce i requisiti mediante regolamento, dopo aver sentito <b>Banca d’Italia e Consob</b>. Il quesito riguarda chi definisce la disciplina generale, non chi verifica il singolo esponente. Essere consultati nel procedimento non rende le due autorità titolari del regolamento ministeriale.",
     "x": {
       "B": "la Banca d'Italia viene sentita, non decide",
       "C": "si sentono Banca d'Italia e Consob, non il CICR",
@@ -5802,7 +5802,7 @@
   },
   "580": {
     "q": "Chi individua i <b>criteri di competenza</b> degli esponenti di una SGR?",
-    "p": "Anche i criteri di competenza, come gli altri requisiti degli esponenti, li fissa il <b>Ministro dell'economia</b> con un regolamento, sentite <b>Banca d'Italia e Consob</b>.",
+    "p": "Anche i criteri di competenza degli esponenti della SGR sono individuati dal <b>Ministro dell’economia e delle finanze</b>, sentite Banca d’Italia e Consob. La competenza va rapportata alla carica e alle caratteristiche del gestore: non è esclusa dalla presenza degli altri requisiti personali.",
     "x": {
       "B": "oltre a professionalità e onorabilità esistono anche criteri di competenza",
       "C": "la Banca d'Italia viene sentita, non decide",
@@ -5932,7 +5932,7 @@
   },
   "593": {
     "q": "Cosa serve per <b>commercializzare in Italia</b> quote di un OICVM di un altro Stato UE?",
-    "p": "L'OICVM UE ha già il <b>passaporto europeo</b>: non serve un'altra autorizzazione. L'autorità del suo Paese d'origine invia una <b>notifica alla Consob</b>, che vigila sulla commercializzazione.",
+    "p": "La commercializzazione in Italia di un OICVM UE è preceduta da una <b>notifica alla Consob</b> effettuata dall’<b>autorità dello Stato d’origine</b>. È il meccanismo europeo descritto dal quesito: non si richiede la nuova autorizzazione ministeriale proposta nelle alternative e non si invia la notifica al Ministro.",
     "x": {
       "B": "non serve alcuna autorizzazione: basta la notifica",
       "C": "non serve l'autorizzazione del Ministero: basta la notifica",
@@ -5942,7 +5942,7 @@
   },
   "594": {
     "q": "Chi disciplina le condizioni necessarie per assumere l’incarico di depositario?",
-    "p": "Le condizioni sono disciplinate dalla Banca d’Italia, sentita la Consob. Il depositario custodisce i beni e svolge verifiche a tutela dell’OICR: l’assunzione dell’incarico è quindi soggetta a requisiti specifici.",
+    "p": "Le condizioni per assumere l’incarico di depositario sono disciplinate dalla <b>Banca d’Italia, sentita la Consob</b>. Il quesito chiede chi stabilisce i requisiti generali del ruolo, distinto dalla successiva scelta del depositario da parte del gestore. La consultazione della Consob non le attribuisce la decisione finale.",
     "x": {
       "B": "La Consob è consultata, ma non è l’autorità che disciplina da sola queste condizioni.",
       "C": "Il Ministero non è il soggetto cui l’articolo attribuisce questa disciplina.",
@@ -6014,7 +6014,7 @@
   },
   "601": {
     "q": "Che cosa fa il <b>depositario</b> se la liquidità del fondo non è affidata a lui?",
-    "p": "Anche se i soldi del fondo sono tenuti da un altro soggetto, il depositario deve sapere dove vanno: per questo <b>monitora i flussi di liquidità</b>.",
+    "p": "Il depositario deve <b>monitorare i flussi di liquidità</b> anche quando il denaro dell’OICR è affidato a un altro soggetto. La custodia materiale e il monitoraggio sono compiti distinti: non detenere direttamente la liquidità non elimina la verifica dei suoi movimenti richiesta dalla norma.",
     "x": {
       "B": "controlla anche rimborsi e annullamenti delle quote",
       "C": "deve invece controllare che il corrispettivo arrivi nei termini d'uso",
@@ -6146,7 +6146,7 @@
   },
   "614": {
     "q": "La banca depositaria può <b>rinunciare</b> all'incarico?",
-    "p": "Sì, ma il fondo non può restare scoperto: serve un <b>preavviso di almeno sei mesi</b>, il tempo per trovare un nuovo depositario.",
+    "p": "Il depositario può rinunciare con un <b>preavviso di almeno sei mesi</b>, senza dover dimostrare un’impossibilità oggettiva a continuare. Il quesito riguarda la rinuncia della banca: va distinta dalla revoca decisa dalla SGR e dalla successiva efficacia della sostituzione, che richiede continuità delle funzioni.",
     "x": {
       "B": "la rinuncia è libera con preavviso: non serve un'impossibilità oggettiva",
       "C": "tre mesi non bastano: servono almeno sei mesi",
@@ -6186,7 +6186,7 @@
   },
   "618": {
     "q": "SGR e Sicav che sono OICVM possono <b>offrire</b> quote o azioni in altri Stati UE? Come?",
-    "p": "Sì, con il <b>passaporto europeo</b> non serve un'altra autorizzazione: basta inviare una <b>lettera di notifica alla Banca d'Italia</b>.",
+    "p": "L’offerta negli altri Stati UE è consentita seguendo la procedura di passaporto, che richiede una <b>lettera di notifica alla Banca d’Italia</b>. Vale per le quote offerte dalla SGR e per le azioni della SICAV. Non è quindi un’operatività riservata alla sola SGR né una richiesta indirizzata all’ESMA.",
     "x": {
       "B": "non serve un'autorizzazione della Consob: basta la notifica",
       "C": "la notifica va alla Banca d'Italia, non all'autorità europea",
@@ -6207,7 +6207,7 @@
   },
   "620": {
     "q": "I sindaci del depositario trovano <b>irregolarità</b> nella gestione: a chi riferiscono e quando?",
-    "p": "Le irregolarità nella gestione del risparmio vanno segnalate <b>senza ritardo</b> alle autorità di vigilanza, ognuna per le sue competenze: <b>Banca d'Italia</b> e <b>Consob</b>.",
+    "p": "I sindaci del depositario riferiscono <b>senza ritardo</b> sia alla Banca d’Italia sia alla Consob, ciascuna per le proprie competenze. La segnalazione riguarda le irregolarità riscontrate nell’amministrazione del gestore: non si può attendere una scadenza di tre o sei mesi prima di informare le autorità.",
     "x": {
       "B": "il Ministero dell'economia non riceve queste segnalazioni",
       "C": "non solo alla Consob, e senza ritardo, non entro tre mesi",
@@ -6308,7 +6308,7 @@
   },
   "630": {
     "q": "Cosa può prevedere lo <b>statuto della Sicaf</b> sulle azioni?",
-    "p": "Come per la Sicav, anche lo statuto della Sicaf può <b>limitare l'emissione di azioni nominative</b>: è una scelta lasciata alla singola società.",
+    "p": "Lo statuto della SICAF può prevedere <b>limiti all’emissione di azioni nominative</b>. Si tratta di una facoltà della società, non di un divieto generale di emettere quella categoria di azioni. Nelle alternative, invece, le formule che escludono vincoli di trasferibilità o frazioni di azioni negano possibilità ammesse.",
     "x": {
       "B": "lo statuto può invece porre vincoli al trasferimento delle azioni nominative",
       "C": "il limite dei «più di cinque comparti» non esiste",
@@ -6408,7 +6408,7 @@
   },
   "640": {
     "q": "Una SGR può operare in un altro Stato UE <b>senza succursali</b>?",
-    "p": "Nell'UE vale il <b>passaporto europeo</b>: la SGR autorizzata in Italia non ha bisogno di nuove autorizzazioni. Basta una <b>comunicazione preventiva</b> alla Banca d'Italia.",
+    "p": "La SGR può operare in un altro Stato UE <b>senza aprire una succursale</b>, inviando una <b>comunicazione preventiva alla Banca d’Italia</b>. L’autorizzazione italiana opera nel regime europeo previsto: l’assenza di una sede stabile non impedisce l’attività, ma non elimina il passaggio informativo prima di cominciarla.",
     "x": {
       "B": "non serve un'autorizzazione di Consob e Ministero",
       "C": "non serve un'autorizzazione: basta una comunicazione",
@@ -6438,7 +6438,7 @@
   },
   "643": {
     "q": "Una SGR italiana può operare in un altro <b>Stato UE</b>? Come?",
-    "p": "Grazie al <b>passaporto europeo</b> sì, anche senza aprire succursali: basta una <b>comunicazione preventiva</b> alla Banca d'Italia.",
+    "p": "La SGR italiana può operare in un altro Stato UE anche <b>senza aprire una succursale</b>, inviando una comunicazione preventiva alla <b>Banca d’Italia</b>. L’assenza di una sede fisica estera non esclude quindi l’operatività transfrontaliera, ma non elimina il passaggio informativo previsto prima dell’avvio.",
     "x": {
       "B": "la succursale non è obbligatoria",
       "C": "non serve un'autorizzazione del Ministro",
@@ -6448,7 +6448,7 @@
   },
   "644": {
     "q": "Una SGR può operare in un Paese <b>fuori dall'UE</b>? Come?",
-    "p": "Sì, sia con una succursale sia <b>senza succursali</b>. Ma, a differenza dell'UE, non basta una comunicazione: serve l'<b>autorizzazione</b> della Banca d'Italia.",
+    "p": "La SGR può operare in uno Stato non UE anche <b>senza aprire una succursale</b>, ma deve ottenere l’<b>autorizzazione della Banca d’Italia</b>. L’assenza di una sede stabile non elimina il controllo preventivo: non va confusa con il regime UE, dove il quesito richiama una comunicazione.",
     "x": {
       "B": "fuori UE l'autorizzazione della Banca d'Italia serve",
       "C": "la comunicazione basta solo nell'UE: fuori UE serve l'autorizzazione",
@@ -6459,7 +6459,7 @@
   },
   "645": {
     "q": "Cosa serve a una SGR per operare in un Paese <b>fuori dall'UE</b>?",
-    "p": "Fuori dall'UE non c'è il passaporto europeo. Per questo serve l'<b>autorizzazione preventiva</b> della <b>Banca d'Italia</b>.",
+    "p": "Per operare in uno Stato non UE occorre la <b>preventiva autorizzazione della Banca d’Italia</b>. La differenza rispetto al regime europeo è nel tipo di procedura: non basta una semplice comunicazione. Il Paese estero non rende l’attività vietata in assoluto, ma richiede il controllo autorizzativo previsto.",
     "x": {
       "B": "non basta comunicarlo alla Consob: serve l'autorizzazione della Banca d'Italia",
       "C": "autorizza la Banca d'Italia, non il Ministero",
@@ -6480,7 +6480,7 @@
   },
   "647": {
     "q": "Chi invia e quando la comunicazione per la prima succursale italiana del gestore UE?",
-    "p": "La invia l’autorità competente dello Stato d’origine a Banca d’Italia e Consob prima dell’insediamento. Il quesito verifica tre dettagli insieme: mittente, destinatari e anteriorità della comunicazione rispetto all’apertura.",
+    "p": "La comunicazione deve arrivare <b>prima dell’insediamento</b>, essere inviata dall’autorità competente dello Stato d’origine e raggiungere sia Banca d’Italia sia Consob. Il quesito combina tre elementi: momento, mittente e destinatari. Cambiarne anche uno rende diversa la procedura rispetto a quella prevista.",
     "x": {
       "B": "I destinatari sono Banca d’Italia e Consob, non il Ministero.",
       "C": "Il mittente è l’autorità dello Stato d’origine, non direttamente la società.",
@@ -6490,7 +6490,7 @@
   },
   "648": {
     "q": "Una società di gestione <b>UE</b> può aprire <b>succursali in Italia</b>?",
-    "p": "Grazie al passaporto europeo sì, ma solo per fare <b>ciò per cui è già autorizzata</b> secondo le regole UE. Non può allargare la sua attività oltre quella autorizzazione.",
+    "p": "Una società di gestione UE può aprire succursali in Italia per le <b>attività già autorizzate secondo le regole europee</b>. Il passaporto consente l’operatività oltre confine, senza trasformare l’impresa in un soggetto abilitato a qualsiasi servizio: il perimetro dell’autorizzazione d’origine resta il limite da rispettare.",
     "x": {
       "B": "la succursale non è obbligatoria e non esiste un numero minimo",
       "C": "solo le attività già autorizzate, non tutti i servizi del TUF",
@@ -6581,7 +6581,7 @@
   },
   "657": {
     "q": "Chi giudica il <b>bilancio di liquidazione</b> di una Sicav e dove si pubblica?",
-    "p": "Il bilancio finale deve essere controllato da un soggetto indipendente, il <b>revisore legale</b>, e reso noto ai soci sui <b>quotidiani indicati nello statuto</b>.",
+    "p": "Il bilancio di liquidazione è sottoposto al giudizio del <b>revisore legale</b> e pubblicato sui <b>quotidiani indicati nello statuto</b>. Sono due condizioni da verificare insieme: l’alternativa che nomina correttamente il revisore resta errata se sostituisce la pubblicazione prevista con il solo sito internet della SICAV.",
     "x": {
       "B": "non il consiglio di amministrazione: il revisore; e i quotidiani sono quelli dello statuto",
       "C": "non il collegio sindacale, e i dieci quotidiani sono inventati",
@@ -6592,7 +6592,7 @@
   },
   "658": {
     "q": "Chi nomina i liquidatori nella liquidazione volontaria della SICAV?",
-    "p": "La nomina spetta all’assemblea straordinaria della SICAV. Il quesito riguarda una scelta degli organi sociali nella liquidazione volontaria, distinta dalle procedure di crisi in cui intervengono provvedimenti delle autorità.",
+    "p": "Nella liquidazione volontaria della SICAV i liquidatori sono nominati dall’<b>assemblea straordinaria</b> della società. Il quesito chiede chi assume questa decisione societaria: non va confusa con gli interventi delle autorità nelle procedure di crisi, che seguono presupposti e competenze differenti.",
     "x": {
       "B": "La Consob non nomina i liquidatori nella procedura volontaria richiesta.",
       "C": "Banca d’Italia non sostituisce l’assemblea straordinaria in questa nomina volontaria.",
@@ -6682,7 +6682,7 @@
   },
   "667": {
     "q": "Si prevedono <b>gravi perdite</b> nel patrimonio di una Sicav: quale procedura si può aprire?",
-    "p": "Con perdite <b>gravi</b> si apre l'<b>amministrazione straordinaria</b>: si sostituiscono gli organi e si prova a risanare. La liquidazione coatta è riservata alle perdite di eccezionale gravità.",
+    "p": "Le gravi perdite previste possono giustificare l’<b>amministrazione straordinaria</b>, con scioglimento degli organi ordinari secondo la procedura richiamata. Il quesito distingue questa situazione dalle perdite di <b>eccezionale gravità</b>, rilevanti per la liquidazione coatta: la differenza nell’intensità della crisi orienta verso due procedure diverse.",
     "x": {
       "B": "l'amministrazione ordinaria non è una procedura di crisi",
       "C": "la revocatoria non è una procedura di gestione della crisi della Sicav",
@@ -6693,7 +6693,7 @@
   },
   "668": {
     "q": "Anche l’assemblea straordinaria della SGR può chiedere lo scioglimento degli organi?",
-    "p": "Sì, mediante istanza motivata. Il quesito verifica quale assemblea abbia questa facoltà: la straordinaria è prevista insieme agli organi amministrativi, mentre non basta una richiesta dell’assemblea ordinaria.",
+    "p": "Sì: l’<b>assemblea straordinaria</b> della SGR può presentare un’<b>istanza motivata</b> per chiedere lo scioglimento degli organi amministrativi e di controllo. Chiedere non equivale a disporre direttamente il provvedimento. La facoltà non è riservata ai soli amministratori e non richiede l’autorizzazione del commissario proposta tra le alternative.",
     "x": {
       "B": "Non è una facoltà esclusiva degli amministratori: è ammessa anche l’assemblea straordinaria.",
       "C": "Non occorre la preventiva autorizzazione del commissario urgente per presentare l’istanza motivata.",
@@ -6703,7 +6703,7 @@
   },
   "669": {
     "q": "Chi può <b>sciogliere gli organi</b> di amministrazione e controllo di una Sicaf?",
-    "p": "È l'amministrazione straordinaria, misura di stabilità: la dispone la <b>Banca d'Italia</b>, da sola o su proposta della Consob.",
+    "p": "Lo scioglimento degli organi amministrativi e di controllo della SICAF è disposto dalla <b>Banca d’Italia</b>, anche su proposta della Consob nelle sue competenze. Riguarda la sostituzione degli organi nell’amministrazione straordinaria: non equivale allo scioglimento della società o alla decisione ministeriale sulla liquidazione coatta.",
     "x": {
       "B": "non decide il Ministero con decreto: decide la Banca d'Italia",
       "C": "la Consob può solo proporre: decide la Banca d'Italia",
@@ -6774,7 +6774,7 @@
   },
   "676": {
     "q": "Chi <b>dirige</b> la liquidazione coatta di una Sicav?",
-    "p": "Il Ministro dispone la liquidazione coatta, ma a <b>dirigere</b> la procedura e a curarne tutti gli adempimenti è la <b>Banca d'Italia</b>, l'autorità della stabilità.",
+    "p": "La <b>Banca d’Italia dirige la procedura</b> di liquidazione coatta della SICAV e ne cura tutti gli adempimenti connessi. Va distinto questo ruolo da quello del Ministero, che dispone l’apertura con decreto: sapere chi decide la liquidazione non equivale a sapere chi ne segue lo svolgimento.",
     "x": {
       "B": "la Consob non dirige la procedura",
       "C": "il Ministero dispone la liquidazione, ma non la dirige",
@@ -6794,7 +6794,7 @@
   },
   "678": {
     "q": "Chi <b>dirige</b> la liquidazione coatta di una SGR e ne cura gli adempimenti?",
-    "p": "Direzione e adempimenti spettano entrambi alla <b>Banca d'Italia</b>: è l'autorità della stabilità e segue la procedura dall'inizio alla fine.",
+    "p": "La <b>Banca d’Italia dirige la liquidazione coatta</b> della SGR e cura tutti gli adempimenti connessi. Il punto è distinguere la direzione della procedura dal provvedimento che la dispone: il Ministero può avere un ruolo nell’apertura, ma non si divide la direzione tra Ministero, Consob e CICR.",
     "x": {
       "B": "la Consob non dirige la procedura",
       "C": "il CICR non c'entra: tutto spetta alla Banca d'Italia",
@@ -6955,7 +6955,7 @@
   },
   "694": {
     "q": "Cosa può prevedere lo <b>statuto della Sicav</b> sulle azioni?",
-    "p": "Le azioni della Sicav possono essere nominative o al portatore. La legge lascia allo statuto la scelta di <b>limitare l'emissione di azioni nominative</b>.",
+    "p": "Lo statuto della SICAV può prevedere <b>limiti all’emissione di azioni nominative</b>. È una facoltà specifica riferita a quella categoria di azioni: non bisogna estenderla automaticamente alle azioni al portatore. Lo statuto può inoltre prevedere particolari vincoli al trasferimento delle azioni nominative.",
     "x": {
       "B": "lo statuto può invece porre vincoli al trasferimento delle azioni nominative",
       "C": "i limiti all'emissione riguardano le azioni nominative, non quelle al portatore",
@@ -7055,7 +7055,7 @@
   },
   "704": {
     "q": "Quale autorità autorizza lo svolgimento delle funzioni di depositario?",
-    "p": "L’autorizzazione compete alla Banca d’Italia. Svolgere il ruolo di depositario richiede il provvedimento specifico: l’incarico ricevuto dal gestore non sostituisce l’abilitazione necessaria a custodire e controllare i beni dell’OICR.",
+    "p": "Per svolgere le funzioni di depositario occorre l’autorizzazione della <b>Banca d’Italia</b>. È distinta dall’incarico conferito dal gestore: essere scelti per custodire e controllare i beni di un OICR non sostituisce il provvedimento necessario a esercitare quelle funzioni. La Consob non è il soggetto autorizzante indicato qui.",
     "x": {
       "B": "Non è un’autorizzazione ministeriale con consultazione Consob: decide Banca d’Italia.",
       "C": "Il CICR non rilascia questa autorizzazione individuale al depositario.",
@@ -7115,7 +7115,7 @@
   },
   "710": {
     "q": "L’albo delle SICAF autorizzate è condiviso tra autorità oppure tenuto da una sola?",
-    "p": "È un apposito albo tenuto dalla Banca d’Italia. La collaborazione con la Consob nella vigilanza e nelle comunicazioni non lo trasforma in un albo gestito congiuntamente dalle due autorità.",
+    "p": "Le SICAF autorizzate in Italia sono iscritte in un <b>albo tenuto dalla Banca d’Italia</b>. La collaborazione della Consob nella vigilanza non comporta una tenuta congiunta del registro. Per rispondere occorre quindi riconoscere chi gestisce l’albo, senza confonderlo con le autorità coinvolte in altri procedimenti.",
     "x": {
       "B": "La tenuta non è congiunta: è attribuita alla Banca d’Italia.",
       "C": "Il Ministro non tiene l’albo delle SICAF autorizzate.",
@@ -7145,7 +7145,7 @@
   },
   "713": {
     "q": "Entro quanti giorni dall'autorizzazione i soci fondatori di Sicav e Sicaf <b>versano il capitale</b> iniziale?",
-    "p": "La regola è unica per Sicav e Sicaf: i soci fondatori versano il capitale entro <b>30 giorni</b> dall'autorizzazione, così la società parte subito con un patrimonio reale.",
+    "p": "I soci fondatori versano il capitale iniziale sottoscritto entro <b>trenta giorni dall’autorizzazione</b>, sia per la SICAV sia per la SICAF. Il momento iniziale del termine è lo stesso per entrambe: la diversa struttura dei due organismi non crea le scadenze differenziate proposte nelle alternative.",
     "x": {
       "B": "nessuna differenza tra Sicav e Sicaf: 30 giorni per entrambe",
       "C": "90 giorni per la Sicav è sbagliato: 30 giorni per entrambe",
@@ -7216,7 +7216,7 @@
   },
   "720": {
     "q": "Il patrimonio di una Sicav si può dividere in <b>comparti</b>?",
-    "p": "Sì, ma senza mescolare le categorie: i comparti devono essere <b>solo FIA</b> oppure <b>solo OICVM</b>, perché le due categorie seguono regole diverse.",
+    "p": "La SICAV può suddividere il patrimonio in comparti, ma questi devono appartenere <b>tutti alla categoria FIA</b> oppure <b>tutti alla categoria OICVM</b>. Il punto non è soltanto ammettere più linee di investimento: il quesito esclude che nella medesima società si mescolino comparti appartenenti alle due categorie.",
     "x": {
       "B": "non serve un'autorizzazione del Ministro: i comparti sono previsti dalla legge",
       "C": "i comparti sono ammessi",
@@ -7226,7 +7226,7 @@
   },
   "721": {
     "q": "Sicaf <b>multicomparto</b>: chi può aggredire il patrimonio di un singolo comparto?",
-    "p": "Ogni comparto è un patrimonio <b>separato</b>, protetto. I creditori della società in generale non possono agire su di esso, e nemmeno i creditori del depositario o del sub-depositario.",
+    "p": "Il singolo comparto ha un <b>patrimonio separato</b>: i creditori generali della società non possono aggredirlo, né possono farlo i creditori del depositario o del subdepositario. È diverso il caso delle obbligazioni contratte proprio per quel comparto, che fanno riferimento al relativo patrimonio secondo la disciplina prevista.",
     "x": {
       "B": "per i debiti di un comparto risponde solo quel comparto, non il 50%",
       "C": "i creditori del sub-depositario non possono agire sul comparto",
@@ -7256,7 +7256,7 @@
   },
   "724": {
     "q": "Come deve essere definita nello statuto la raccolta della SICAV da autorizzare?",
-    "p": "Lo statuto deve prevedere come oggetto esclusivo l’investimento collettivo del patrimonio raccolto offrendo proprie azioni. I sottoscrittori diventano azionisti della SICAV: la raccolta finanzia il patrimonio destinato all’investimento collettivo.",
+    "p": "Lo statuto deve indicare come <b>oggetto esclusivo l’investimento collettivo</b> del patrimonio raccolto mediante l’offerta delle proprie azioni. Chi sottoscrive diventa quindi azionista della SICAV; non si tratta di autorizzare una società a svolgere qualsiasi attività finanziaria o a raccogliere con qualunque strumento.",
     "x": {
       "B": "Anche la sede legale deve essere in Italia: non basta avere qui la sola direzione generale.",
       "C": "La SICAV deve essere una SpA, senza l’alternativa della Srl proposta.",
@@ -7297,7 +7297,7 @@
   },
   "728": {
     "q": "Il <b>gestore esterno</b> di una Sicav o Sicaf va in liquidazione: entro quanto va sostituito per evitare lo scioglimento?",
-    "p": "Senza gestore la società non può funzionare. L'assemblea deve sostituirlo in fretta: se entro <b>2 mesi</b> non c'è un nuovo gestore, la Sicav o Sicaf si scioglie.",
+    "p": "Se il gestore esterno è liquidato, occorre deliberarne la sostituzione entro <b>due mesi</b>, altrimenti SICAV o SICAF si scioglie. Il consiglio convoca tempestivamente i soci: il termine non diventa di tre, sei o dodici mesi per il solo fatto che la società abbia ancora patrimonio.",
     "x": {
       "B": "12 mesi è troppo: il termine è di 2 mesi",
       "C": "3 mesi è sbagliato: il termine è di 2 mesi",
@@ -7348,7 +7348,7 @@
   },
   "733": {
     "q": "La Sicaf sceglie un <b>gestore esterno</b>: quanta parte del patrimonio va affidata nello statuto?",
-    "p": "Con la gestione esterna va affidato al gestore l'<b>intero patrimonio</b> raccolto: non una parte, ma tutti i 3 milioni.",
+    "p": "La gestione esterna deve riguardare <b>l’intero patrimonio raccolto</b>: nel caso, tutti i tre milioni di euro. Non si tratta di affidare soltanto una porzione degli investimenti a un altro soggetto. Le soglie di uno, uno e mezzo o due milioni non descrivono l’affidamento integrale richiesto.",
     "x": {
       "B": "un milione non basta: va affidato tutto il patrimonio",
       "C": "non c'è un tetto di 1,5 milioni: va affidato tutto",
@@ -7460,7 +7460,7 @@
   },
   "744": {
     "q": "Una SGR compra una partecipazione in un'<b>altra SGR</b>: cosa deve fare?",
-    "p": "La vigilanza sulla stabilità delle SGR spetta alla <b>Banca d'Italia</b>, che deve conoscere le loro partecipazioni. La SGR le comunica <b>entro 10 giorni dall'acquisto</b>.",
+    "p": "La partecipazione acquistata in un’altra SGR deve essere comunicata alla <b>Banca d’Italia entro dieci giorni</b> dall’acquisto. Il quesito riguarda l’operazione già avvenuta: questa comunicazione successiva va distinta da quella preventiva prevista quando si intende acquisire una partecipazione di controllo in un altro gestore.",
     "x": {
       "B": "il Ministero dell'economia non riceve queste comunicazioni",
       "C": "Il destinatario è Banca d’Italia e il termine successivo è dieci giorni, non trenta a Consob.",
@@ -7561,7 +7561,7 @@
   },
   "754": {
     "q": "La SICAF può emettere obbligazioni se ha un capitale elevato o un’autorizzazione Consob?",
-    "p": "No: l’articolo richiamato dal quesito esclude l’emissione di obbligazioni. La possibilità di emettere gli strumenti partecipativi previsti dalla disciplina non va confusa con l’emissione di titoli di debito obbligazionari.",
+    "p": "La disciplina richiamata dal quesito esclude l’<b>emissione di obbligazioni</b> da parte della SICAF. Il divieto non viene superato aumentando il capitale oltre cinque milioni o ottenendo l’autorizzazione Consob proposta. Gli strumenti finanziari partecipativi eventualmente previsti sono una categoria diversa dai titoli di debito obbligazionari.",
     "x": {
       "B": "L’autorizzazione Consob proposta non introduce una deroga al divieto richiamato.",
       "C": "Il capitale superiore a cinque milioni non rende ammissibile l’emissione vietata.",
@@ -7632,7 +7632,7 @@
   },
   "761": {
     "q": "Nel modello tradizionale chi approva la politica di remunerazione e incentivazione?",
-    "p": "L’approvazione spetta all’assemblea dei soci. Va distinta dall’elaborazione e dal riesame da parte della supervisione strategica: contribuire a preparare la politica e approvarla formalmente sono compiti diversi.",
+    "p": "Nel sistema tradizionale l’<b>assemblea dei soci approva</b> la politica di remunerazione e incentivazione. La supervisione strategica contribuisce alla sua elaborazione e al riesame, ma preparare la politica non equivale ad approvarla. L’autorità di vigilanza non si sostituisce ai soci nell’approvazione societaria richiesta dal quesito.",
     "x": {
       "B": "L’organo di controllo non sostituisce l’assemblea nell’approvazione della politica.",
       "C": "L’organo di gestione non è quello cui spetta l’approvazione assembleare prevista.",
@@ -7672,7 +7672,7 @@
   },
   "765": {
     "q": "Gestore quotato: <b>dove</b> si istituisce il comitato remunerazioni?",
-    "p": "Il comitato remunerazioni aiuta l'organo che decide la politica sui compensi, cioè quello con funzione di <b>supervisione strategica</b>. Per questo nasce al suo interno.",
+    "p": "Il comitato remunerazioni è istituito all’interno dell’organo con funzione di <b>supervisione strategica</b>. Si tratta di individuarne la collocazione nell’organizzazione del gestore quotato: l’organo di controllo, il revisore esterno e l’assemblea hanno ruoli differenti e non sono la sede del comitato richiesto.",
     "x": {
       "B": "l'organo di controllo vigila, non ospita il comitato",
       "C": "la società di revisione è esterna agli organi della società",
@@ -7702,7 +7702,7 @@
   },
   "768": {
     "q": "Come deve essere pagato chi fa parte dell'<b>organo con funzione di controllo</b>?",
-    "p": "Chi controlla deve restare <b>indipendente</b> dai risultati della società. Un compenso variabile legato ai risultati creerebbe un conflitto, quindi la remunerazione è <b>esclusivamente fissa</b>.",
+    "p": "Il compenso dei componenti dell’organo di controllo è <b>esclusivamente fisso</b>: non è prevista una componente variabile, neppure piccola o soggetta a un tetto. È diverso dal personale delle funzioni aziendali di controllo, per il quale il quesito collegato ammette un variabile coerente con gli obiettivi della funzione.",
     "x": {
       "B": "nessuna parte variabile, nemmeno con un tetto",
       "C": "non prevalentemente: esclusivamente fissa, senza variabile",
@@ -7792,7 +7792,7 @@
   },
   "777": {
     "q": "Una Srl può essere autorizzata come SGR se rispetta tutti gli altri requisiti?",
-    "p": "No: la forma di società per azioni è un requisito necessario. La consulenza è un servizio consentito alle SGR, ma l’attività richiesta non elimina le condizioni della società: rispettare gli altri requisiti non compensa la forma giuridica errata.",
+    "p": "No: la forma di <b>società per azioni</b> è un requisito necessario. La consulenza è un servizio consentito alle SGR, ma l’attività richiesta non elimina le condizioni della società: rispettare gli altri requisiti non compensa la forma giuridica errata.",
     "x": {
       "B": "Essere una società di capitali non basta: tra quei modelli occorre precisamente la SpA.",
       "C": "La SGR può prestare anche consulenza: il problema è la forma di Srl, non il divieto del servizio.",
@@ -11364,7 +11364,7 @@
   },
   "1134": {
     "q": "A chi l’emittente può chiedere di rivedere la relazione sull’impatto ambientale dell’EuGB?",
-    "p": "Può incaricare un revisore esterno. Qui si tratta della revisione della relazione sull’impatto ambientale, che l’emittente può richiedere: è distinta dalla revisione favorevole obbligatoria della scheda prima dell’emissione.",
+    "p": "L’emittente può richiedere a un <b>revisore esterno</b> la revisione della relazione sull’impatto ambientale dell’uso dei proventi. Qui la richiesta riguarda proprio questa relazione: non va confusa con la revisione favorevole della scheda prima dell’emissione. Le autorità elencate non sostituiscono il revisore incaricato di tale esame.",
     "x": {
       "B": "Consob non sostituisce il revisore esterno incaricato della relazione sull’impatto ambientale.",
       "C": "L’Agenzia europea dell’ambiente non è il soggetto previsto per questa revisione della relazione dell’emittente.",
@@ -11954,7 +11954,7 @@
   },
   "1193": {
     "q": "Chi rilascia l’attestato che certifica la cancellazione dall’albo dei consulenti?",
-    "p": "Lo rilascia l’OCF nell’esercizio della tenuta dell’albo. L’autorità giudiziaria può adottare un provvedimento rilevante per la posizione del consulente, ma l’attestazione amministrativa della cancellazione resta distinta da quel provvedimento.",
+    "p": "L’attestato di cancellazione viene rilasciato dall’<b>OCF</b>, che vigila e tiene l’albo unico dei consulenti finanziari. Il documento certifica una situazione relativa a quell’albo: non va confuso con un provvedimento giudiziario o con gli atti di vigilanza attribuiti a Consob e Banca d’Italia.",
     "x": {
       "B": "L’autorità giudiziaria può adottare provvedimenti rilevanti ma non rilascia questi attestati amministrativi dell’albo.",
       "C": "La coppia dei vigilanti non sostituisce l’OCF nel rilascio dell’attestato di cancellazione.",
@@ -11974,7 +11974,7 @@
   },
   "1195": {
     "q": "Iscrizione e cancellazione dall’albo sono attestate dall’OCF o da autorità esterne?",
-    "p": "L’OCF rilascia entrambi gli attestati, di iscrizione e di cancellazione. Non deve chiedere un’autorizzazione Consob per ogni documento: la certificazione della posizione nell’albo è parte delle sue funzioni operative.",
+    "p": "È l’<b>OCF</b> a rilasciare gli attestati di iscrizione e di cancellazione dall’albo. La competenza riguarda entrambi i documenti e non richiede una preventiva autorizzazione Consob per ciascun rilascio: l’Organismo certifica la posizione risultante dall’albo che tiene, senza trasferire questa attività al Ministero.",
     "x": {
       "B": "Gli attestati sono una funzione propria OCF, distinta dalla vigilanza esercitata da Consob.",
       "C": "Il MEF non tiene operativamente l’albo né rilascia questi attestati di iscrizione e cancellazione.",
@@ -12595,7 +12595,7 @@
   },
   "1257": {
     "q": "Come sono trattati i consulenti stabiliti in Italia di intermediari UE ai fini delle regole di condotta?",
-    "p": "Sono equiparati a una succursale costituita in Italia. L’equiparazione è funzionale all’applicazione delle regole di condotta: non trasforma il consulente in un dipendente che opera presso una sede dell’intermediario.",
+    "p": "Questi consulenti stabiliti in Italia sono equiparati a una <b>succursale costituita in Italia</b> ai fini delle regole di condotta. L’equiparazione riguarda il trattamento normativo dell’attività svolta per l’intermediario UE: non significa che il consulente diventi un dipendente addetto all’offerta presso una sede dell’intermediario stesso.",
     "x": {
       "B": "Il riferimento è alla succursale italiana, non ai dipendenti che effettuano offerta in sede.",
       "C": "La localizzazione rilevante è l’Italia, non una succursale fuori dalla Repubblica.",
@@ -13055,7 +13055,7 @@
   },
   "1303": {
     "q": "Non identificare il cliente prima della sottoscrizione espone il consulente a quale sanzione?",
-    "p": "Può essere irrogata una sanzione pecuniaria. Il quesito chiede una sanzione applicabile, senza affermare un automatismo o il tetto particolare di10.000 euro: queste aggiunte cambiano il contenuto della risposta.",
+    "p": "La mancata identificazione del cliente prima di raccogliere la sottoscrizione <b>può comportare una sanzione pecuniaria</b>. Il punto è la conseguenza prevista per la violazione indicata: non si deve trasformare questa possibilità in un obbligo di radiazione o in una cancellazione temporanea automatica dall’albo.",
     "x": {
       "B": "Introduce un obbligo automatico e un massimo di10.000 euro non previsti dalla formulazione del caso.",
       "C": "La cancellazione temporanea non è la sanzione pecuniaria applicabile per questa omissione.",
@@ -13538,7 +13538,7 @@
   },
   "1351": {
     "q": "Superare la prova professionale può compensare una pena che impedisce gli uffici direttivi?",
-    "p": "No: l’incapacità a esercitare uffici direttivi è un impedimento all’iscrizione. Onorabilità e professionalità sono requisiti distinti: dimostrare competenza non elimina una causa legale che impedisce di ricoprire quelle funzioni.",
+    "p": "La pena che comporta <b>incapacità a esercitare uffici direttivi</b> impedisce l’iscrizione prevista dal quesito. Professionalità e onorabilità sono requisiti distinti: superare l’esame dimostra preparazione, ma non elimina l’impedimento personale. Anche un parere favorevole della Consob non sostituisce il requisito necessario per accedere all’albo.",
     "x": {
       "B": "L’accertamento della professionalità non rimuove il distinto impedimento personale.",
       "C": "Un parere favorevole Consob non deroga alla causa impeditiva prevista dalla legge.",
@@ -13588,7 +13588,7 @@
   },
   "1356": {
     "q": "Per un delitto contro la fede pubblica conta la durata della reclusione?",
-    "p": "Sì: la norma prevede una reclusione non inferiore a un anno. La risposta selezionata dal quiz, superiore a un anno, descrive quindi un caso certamente impeditivo; non va però memorizzata come formulazione esatta della soglia normativa.",
+    "p": "Sì: la norma prevede una reclusione <b>non inferiore a un anno</b>. La risposta selezionata dal quiz, superiore a un anno, descrive quindi un caso certamente impeditivo; non va però memorizzata come formulazione esatta della soglia normativa.",
     "x": {
       "B": "L’entità del danno non sostituisce il criterio della durata della reclusione previsto.",
       "C": "Non basta qualsiasi durata: la norma richiede almeno un anno per questa categoria.",
@@ -13839,7 +13839,7 @@
   },
   "1381": {
     "q": "A quale autorità la Consob comunica le iscrizioni delle SIM nell’apposito albo previsto dal Testo Unico della Finanza?",
-    "p": "La Consob tiene l’albo delle SIM e comunica le iscrizioni alla Banca d’Italia. Le due autorità svolgono funzioni di vigilanza complementari; l’iscrizione resta un atto dell’autorità che gestisce l’albo.",
+    "p": "La <b>Consob comunica le iscrizioni a Banca d’Italia</b>, mantenendo la tenuta dell’albo delle SIM. Sono ruoli diversi: la prima gestisce il registro e la seconda riceve l’informazione prevista. La comunicazione non è destinata a un’associazione di categoria, né trasferisce ad altri la competenza sull’iscrizione.",
     "x": {
       "B": "Assoreti è un’associazione di settore, distinta dall’autorità pubblica destinataria della comunicazione delle iscrizioni.",
       "C": "L’Antitrust tutela la concorrenza; la comunicazione delle iscrizioni all’albo è indirizzata alla Banca d’Italia.",
@@ -14039,7 +14039,7 @@
   },
   "1401": {
     "q": "Chi disciplina la <b>procedura di autorizzazione</b> delle SIM e i casi di <b>decadenza</b>?",
-    "p": "L'autorizzazione alle SIM la rilascia la <b>Consob</b>. È logico che sia la stessa autorità a regolare la procedura e i casi in cui l'autorizzazione decade.",
+    "p": "La <b>Consob</b> disciplina sia la procedura di autorizzazione delle SIM sia le ipotesi di decadenza. Il quesito riguarda chi stabilisce queste regole: non le divide tra Banca d’Italia e Ministero e non chiede quale autorità intervenga nelle diverse procedure di crisi dell’intermediario.",
     "x": {
       "B": "Attribuisce il ruolo al Ministero dell'economia e delle finanze, ma il MEF non regola l'autorizzazione delle SIM.",
       "C": "Attribuisce il ruolo alla Banca d'Italia, ma la Banca d'Italia viene sentita, ma non disciplina la procedura.",
@@ -14099,7 +14099,7 @@
   },
   "1407": {
     "q": "Entro quanti giorni la Consob controlla che la domanda di autorizzazione sia <b>completa</b>?",
-    "p": "Il controllo di completezza è solo una verifica formale (ci sono tutti i documenti?), quindi è rapido: <b>10 giorni</b> dal ricevimento. La decisione vera sulla domanda arriva dopo.",
+    "p": "La Consob verifica la completezza della domanda entro <b>dieci giorni dal ricevimento</b>. È un passaggio preliminare: controllare se la documentazione è completa non significa già autorizzare i servizi richiesti. Il termine va quindi distinto da quello della successiva decisione di merito sulla domanda.",
     "x": {
       "B": "Trenta giorni triplica il termine previsto: la completezza viene verificata entro dieci giorni dal ricevimento.",
       "C": "Quarantacinque giorni eccede il termine di dieci giorni previsto per questa verifica iniziale.",
@@ -14109,7 +14109,7 @@
   },
   "1408": {
     "q": "Consulenti finanziari autonomi: quale affermazione è <b>vera</b> secondo la disciplina richiamata nel quesito?",
-    "p": "Per entrare nell'albo bisogna dimostrare di essere preparati. La professionalità si accerta con <b>criteri rigorosi</b>: con l'<b>esperienza professionale</b> passata, ben documentata, oppure con <b>prove valutative</b> (un esame).",
+    "p": "La professionalità del consulente autonomo è accertata mediante <b>esperienza pregressa validamente documentata</b> valutata secondo criteri rigorosi, oppure attraverso <b>prove valutative</b>. Non basta dichiarare di avere lavorato nel settore. Il quesito distingue questo accertamento dagli altri requisiti personali e dal divieto di detenere i fondi dei clienti.",
     "x": {
       "B": "La Banca d’Italia non adotta questo regolamento: i requisiti sono fissati dal MEF, sentita Consob.",
       "C": "Il consulente autonomo deve operare senza detenere denaro o strumenti finanziari appartenenti ai clienti.",
@@ -14129,7 +14129,7 @@
   },
   "1410": {
     "q": "Una <b>SGR</b> può offrire al pubblico la <b>gestione di portafogli</b>?",
-    "p": "Sì, <b>sempre</b>. Gestire patrimoni è il mestiere della SGR, quindi il TUF le permette la gestione di portafogli verso tutto il pubblico, senza legarla ad altri servizi.",
+    "p": "La <b>gestione di portafogli</b> è un servizio che la SGR può prestare professionalmente al pubblico, quando autorizzata. La risposta del quiz esprime l’ammissibilità del servizio: non lo riserva ai soli professionali o alle controparti qualificate e non impone di abbinarlo alla trasmissione di ordini.",
     "x": {
       "B": "Può servire tutto il pubblico, non solo i professionali.",
       "C": "Non serve abbinarla alla ricezione e trasmissione ordini.",
@@ -14139,7 +14139,7 @@
   },
   "1411": {
     "q": "La SGR Alfa vuole offrire <b>consulenza</b> e <b>gestione di portafogli</b>: può farlo?",
-    "p": "Sì, <b>entrambi</b>. Sono proprio i due servizi di investimento che il TUF permette alla SGR. Negoziazione ed esecuzione di ordini restano a SIM e banche.",
+    "p": "Alfa, in quanto SGR, può prestare sia <b>consulenza in investimenti</b> sia <b>gestione di portafogli</b>, con le autorizzazioni necessarie. La prima riguarda raccomandazioni al cliente, la seconda decisioni di gestione del suo patrimonio: il TUF ammette entrambe, senza attribuire per questo alla SGR la negoziazione per conto proprio.",
     "x": {
       "B": "Può prestare anche la consulenza.",
       "C": "La negoziazione per conto proprio non è permessa alla SGR.",
@@ -14179,7 +14179,7 @@
   },
   "1415": {
     "q": "Una SIM chiede di <b>estendere</b> l'autorizzazione a nuovi servizi: entro quanto decide la Consob?",
-    "p": "La Consob deve valutare la richiesta, sentita la Banca d'Italia, ma la SIM ha diritto a una risposta in tempi certi: il termine massimo è <b>120 giorni</b>.",
+    "p": "Per l’estensione dell’autorizzazione della SIM decide la <b>Consob, sentita la Banca d’Italia</b>, entro un massimo di <b>centoventi giorni</b>. La domanda riguarda l’aggiunta di servizi o attività a quelli già autorizzati: non bisogna sostituire questo termine con quello previsto per un procedimento diverso o con una durata arbitraria.",
     "x": {
       "B": "Un anno supera il termine massimo di centoventi giorni previsto per decidere sull’estensione.",
       "C": "Sessanta giorni dimezza il termine massimo: la Consob dispone di centoventi giorni.",
@@ -14219,7 +14219,7 @@
   },
   "1419": {
     "q": "Quali informazioni identificative deve includere la domanda europea di autorizzazione di un’impresa di investimento?",
-    "p": "L’autorità deve identificare precisamente l’impresa richiedente. La domanda riporta quindi denominazione, forma giuridica e indirizzo della sede centrale: nome, struttura societaria e localizzazione sono tre dati distinti, tutti richiesti.",
+    "p": "La domanda deve indicare <b>denominazione, struttura giuridica e sede centrale</b>: tutti e tre gli elementi richiesti dal quesito. L’autorità deve identificare il soggetto che chiede l’autorizzazione. Fornire il nome non sostituisce l’indicazione della forma societaria né dell’indirizzo della sede centrale.",
     "x": {
       "B": "La sola denominazione non indica né la struttura giuridica né l’indirizzo della sede centrale richiesti.",
       "C": "Manca la struttura giuridica: indicare nome e indirizzo non completa i dati identificativi della domanda.",
@@ -14352,7 +14352,7 @@
   },
   "1432": {
     "q": "Chi può <b>sospendere il diritto di voto</b> del socio qualificato di una Sgr che mette a rischio la sana e prudente gestione?",
-    "p": "La sana e prudente gestione riguarda la <b>stabilità</b>, che è compito della <b>Banca d'Italia</b>. Per questo è lei a sospendere il voto; la Consob può solo proporlo.",
+    "p": "Può sospendere il voto la <b>Banca d’Italia, anche su proposta della Consob</b>, quando l’influenza del partecipante qualificato rischia di pregiudicare la sana e prudente gestione. La misura riguarda i diritti che consentono di incidere sulla società: proporre l’intervento non equivale ad assumere il provvedimento finale.",
     "x": {
       "B": "Attribuisce il ruolo al Ministro dell'economia e delle finanze, ma il MEF non ha questo potere.",
       "C": "Attribuisce il ruolo alla Consob, ma decide la Banca d'Italia, la Consob propone.",
@@ -14522,7 +14522,7 @@
   },
   "1449": {
     "q": "Chi stabilisce i <b>criteri di correttezza</b> che gli esponenti di una SIM devono rispettare?",
-    "p": "Requisiti e criteri degli esponenti (onorabilità, professionalità, correttezza, competenza) li fissa il <b>MEF con regolamento</b>, dopo aver sentito Banca d'Italia e Consob. Così valgono regole uguali per tutti.",
+    "p": "I criteri di correttezza degli esponenti sono stabiliti dal <b>Ministro dell’economia con regolamento</b>, sentite Banca d’Italia e Consob. Qui rilevano in particolare le condotte verso le autorità di vigilanza. Professionalità e onorabilità non esauriscono la verifica: il quesito richiama anche questo distinto profilo di idoneità personale.",
     "x": {
       "B": "Attribuisce il ruolo alla Consob, ma decide il MEF, sentite le autorità.",
       "C": "Anche i criteri di correttezza sono obbligatori.",
@@ -14563,7 +14563,7 @@
   },
   "1453": {
     "q": "Chi stabilisce i <b>criteri di competenza</b> che gli esponenti di una Sicaf devono rispettare?",
-    "p": "Requisiti e criteri degli esponenti (onorabilità, professionalità, correttezza, competenza) li fissa il <b>MEF con regolamento</b>, dopo aver sentito Banca d'Italia e Consob. Così valgono regole uguali per tutti.",
+    "p": "Per gli esponenti della SICAF i criteri di competenza sono stabiliti dal <b>Ministro dell’economia e delle finanze</b> con regolamento, sentite Banca d’Italia e Consob. La competenza deve essere coerente con le caratteristiche del soggetto abilitato: non scompare perché sono già richiesti requisiti di professionalità.",
     "x": {
       "B": "Attribuisce il ruolo alla Banca d’Italia e la Consob, ma decide il MEF, sentite Banca d'Italia e Consob.",
       "C": "Anche i criteri di competenza sono obbligatori.",
@@ -14714,7 +14714,7 @@
   },
   "1468": {
     "q": "Dove viene <b>pubblicato</b> l'albo Consob delle SIM secondo la disciplina richiamata nel quesito?",
-    "p": "La Consob pubblica l'albo nel proprio <b>Bollettino</b>, parte «Albi ed Elenchi», in formato <b>elettronico</b> sul suo sito. Così è sempre aggiornato e consultabile da tutti.",
+    "p": "L’albo è pubblicato nella parte <b>«Albi ed Elenchi» del Bollettino Consob</b>, disponibile in formato elettronico sul sito dell’autorità. Il quesito identifica insieme sede della pubblicazione e formato: non si tratta di una pubblicazione trimestrale o semestrale in Gazzetta Ufficiale, né di un albo condiviso sui due siti.",
     "x": {
       "B": "Sta nel Bollettino sul sito della sola Consob, non della Banca d'Italia.",
       "C": "L’albo è pubblicato nel Bollettino elettronico Consob, senza pubblicazione trimestrale in Gazzetta Ufficiale.",
@@ -14804,7 +14804,7 @@
   },
   "1477": {
     "q": "Nell'albo, per l'impresa di <b>paese terzo con succursale</b> in Italia, cosa si indica?",
-    "p": "Chi consulta l'albo deve sapere cosa l'impresa può fare in Italia. Per questo si indicano gli <b>estremi dell'autorizzazione</b>, i <b>servizi autorizzati</b> e le eventuali <b>limitazioni</b>.",
+    "p": "L’albo riporta gli <b>estremi dell’autorizzazione e i servizi autorizzati</b>, comprese le eventuali <b>limitazioni operative</b>. In questo modo si può capire quali attività l’impresa di Paese terzo possa svolgere in Italia. L’informazione richiesta non riguarda i soci promotori o l’elenco delle sue succursali situate all’estero.",
     "x": {
       "B": "L'albo non elenca gli Stati extra UE in cui l'impresa opera.",
       "C": "I soci promotori non sono indicati.",
@@ -14834,7 +14834,7 @@
   },
   "1480": {
     "q": "Cosa devono fare le SIM con i <b>beni affidati</b> dai clienti?",
-    "p": "Soldi e titoli affidati restano del cliente. Per questo la SIM adotta <b>misure idonee a salvaguardare i diritti</b> dei clienti su quei beni, sempre e senza soglie di importo.",
+    "p": "La SIM deve adottare misure idonee a <b>salvaguardare i diritti dei clienti</b> sui beni affidati. È un obbligo nella prestazione dei servizi, non una tutela attivata soltanto su richiesta. Il valore ridotto dei beni non consente di eliminare le misure indicate dal quesito.",
     "x": {
       "B": "Non esiste una soglia di 250.000 € per raccogliere informazioni.",
       "C": "La gestione indipendente, sana e prudente è sempre dovuta.",
@@ -15036,7 +15036,7 @@
   },
   "1500": {
     "q": "Due banche italiane, una per la negoziazione per conto proprio e una per l'esecuzione di ordini, possono operare nei <b>mercati extra-UE</b>?",
-    "p": "Sì, tutte e due, perché la norma vale per entrambi i servizi. Fuori dall'UE però serve una garanzia in più: il mercato deve essere <b>riconosciuto dalla Consob</b>.",
+    "p": "Entrambe le banche possono operare sui mercati extra UE indicati, purché siano <b>riconosciuti dalla Consob</b>. La condizione vale sia per la negoziazione di Alfa sia per l’esecuzione di ordini di Beta: il diverso servizio autorizzato non rende vietata automaticamente l’operatività oltre il confine europeo.",
     "x": {
       "B": "I 100 milioni di fondi propri sono inventati: conta il riconoscimento Consob.",
       "C": "Possono, se il mercato è riconosciuto dalla Consob.",
@@ -15447,7 +15447,7 @@
   },
   "1541": {
     "q": "La <b>succursale italiana</b> di un'impresa di investimento UE può aderire a un <b>sistema di indennizzo</b> italiano?",
-    "p": "Sì, per la sola attività svolta in Italia. L'impresa è già coperta dal sistema del suo Paese: l'adesione serve a <b>integrare</b> quella tutela, aggiungendo protezione per i clienti italiani.",
+    "p": "La succursale può aderire a un sistema riconosciuto per <b>integrare la tutela del Paese d’origine</b>, limitatamente all’attività svolta in Italia. Integrare significa aggiungere protezione a quella del sistema d’origine, non sostituirlo automaticamente. La facoltà non è riservata ai soli gestori di fondi elencati in un’alternativa.",
     "x": {
       "B": "Non serve l'autorizzazione della Banca d'Italia.",
       "C": "Possono aderire anche le succursali di imprese di investimento UE.",
@@ -15477,7 +15477,7 @@
   },
   "1544": {
     "q": "La Banca d'Italia ha ordinato a una SGR di smettere una violazione: cosa può fare <b>in caso di urgenza</b>?",
-    "p": "Se gli investitori sono a rischio, l'ordine da solo non basta: bisogna fermare l'attività. Per questo la Banca d'Italia, <b>sentita la Consob</b>, può <b>vietare nuove operazioni</b> alla SGR.",
+    "p": "Nei casi di urgenza per tutelare gli investitori, la <b>Banca d’Italia, sentita la Consob</b>, vieta nuove operazioni alla SGR. Il quesito descrive un intervento successivo all’ordine di cessare le violazioni: non una semplice proposta alla Consob né una procedura che richieda di sentire il Ministero.",
     "x": {
       "B": "L’autorità da sentire è Consob, non il Ministero; Banca d’Italia adotta le misure nelle proprie competenze.",
       "C": "Sbaglia l’autorità consultata e nega le limitazioni su singoli servizi che la disciplina consente.",
@@ -15798,7 +15798,7 @@
   },
   "1576": {
     "q": "Da cosa dipende l'autorizzazione Consob alla succursale di un'impresa <b>extra UE</b> (non banca)?",
-    "p": "L'Italia vuole imprese serie e già controllate a casa loro. Per questo i servizi che vogliono offrire qui devono essere <b>autorizzati, vigilati ed effettivamente svolti</b> nel Paese d'origine.",
+    "p": "L’impresa deve essere <b>autorizzata, vigilata ed effettivamente operativa nello Stato d’origine</b> per i servizi che vuole offrire in Italia. I tre elementi si sommano: possedere soltanto un’autorizzazione formale non soddisfa il requisito descritto se quelle attività non sono anche sottoposte a vigilanza e concretamente svolte.",
     "x": {
       "B": "L'accordo fiscale dev'essere tra l'Italia e il Paese terzo, non con l'UE.",
       "C": "Gli accordi sono tra Banca d'Italia, Consob e autorità estera: niente ESMA.",
@@ -15808,7 +15808,7 @@
   },
   "1577": {
     "q": "Chi disciplina come le <b>banche italiane</b> offrono servizi di investimento negli altri Stati UE in <b>libera prestazione</b>?",
-    "p": "Le banche sono autorizzate e vigilate dalla <b>Banca d'Italia</b>. Per questo è lei a disciplinare modalità e procedure con cui una banca italiana opera negli altri Paesi UE.",
+    "p": "Le modalità e le procedure per i servizi di investimento delle banche italiane negli altri Stati UE sono disciplinate dalla <b>Banca d’Italia</b>. Il quesito riguarda la <b>libera prestazione di servizi</b>, cioè l’operatività senza stabilimento: non è una competenza attribuita automaticamente all’autorità europea perché l’attività attraversa i confini.",
     "x": {
       "B": "Il MEF non disciplina queste procedure.",
       "C": "L'Autorità bancaria europea non detta queste procedure per le singole banche.",
@@ -16363,7 +16363,7 @@
   },
   "1632": {
     "q": "Se uno strumento ha una <b>garanzia di un terzo</b>, l'impresa deve informare sul garante e sulla garanzia?",
-    "p": "Sì. Una garanzia vale quanto chi la dà: per capire se è solida il cliente deve conoscere <b>sia la garanzia sia il garante</b>. Solo così può valutarla correttamente.",
+    "p": "L’impresa deve informare il potenziale cliente sia sulla <b>garanzia sia sul garante</b>, affinché possa valutarne correttamente la protezione. Non basta dire che lo strumento è garantito: per comprenderne la portata occorre conoscere anche il soggetto terzo che assume quell’impegno verso l’investitore.",
     "x": {
       "B": "Non dipende dal valore della garanzia.",
       "C": "Vanno date informazioni anche sul garante.",
@@ -16383,7 +16383,7 @@
   },
   "1634": {
     "q": "L'impresa deve dare ai <b>potenziali clienti</b> una descrizione della natura e dei rischi degli strumenti?",
-    "p": "Sì, a tutti i potenziali clienti e <b>in tempo utile prima</b> di prestare il servizio. L'informazione serve a decidere, quindi deve arrivare prima, non dopo.",
+    "p": "La descrizione generale della natura e dei rischi degli strumenti va fornita <b>a tutti i potenziali clienti</b>, <b>in tempo utile prima del servizio</b>. La categoria del cliente non elimina l’obbligo descritto: consegnare le informazioni quindici giorni dopo non permette di usarle per valutare preventivamente l’investimento.",
     "x": {
       "B": "Va data prima del servizio, non entro quindici giorni dopo.",
       "C": "Vale per tutti i clienti, non solo quelli al dettaglio.",
@@ -16413,7 +16413,7 @@
   },
   "1637": {
     "q": "L'impresa deve mostrare al cliente l'<b>effetto cumulativo dei costi</b> sul rendimento?",
-    "p": "Sì. I costi, sommati nel tempo, riducono il rendimento. Per far capire questo effetto l'impresa presenta l'illustrazione <b>sia prima (ex ante) sia dopo (ex post)</b> il servizio.",
+    "p": "L’impresa deve illustrare l’<b>effetto cumulativo dei costi sulla redditività</b> sia <b>ex ante sia ex post</b>. Prima mostra quanto gli oneri possono incidere sul risultato atteso; dopo rende comprensibile l’incidenza dei costi effettivamente sostenuti. L’obbligo non nasce soltanto quando il cliente lo richiede o supera una soglia percentuale.",
     "x": {
       "B": "Va presentata sia ex ante sia ex post, senza soglia del 10%.",
       "C": "La regola riguarda i clienti in generale, non solo al dettaglio.",
@@ -16493,7 +16493,7 @@
   },
   "1645": {
     "q": "Descrivendo i rischi di un'obbligazione, l'impresa deve indicare gli <b>ostacoli al disinvestimento</b>?",
-    "p": "Sì, se sono <b>pertinenti</b> per il tipo di strumento e per lo status e il livello di conoscenza del cliente. Il cliente deve sapere se potrà uscire facilmente dall'investimento.",
+    "p": "La descrizione deve indicare gli ostacoli al disinvestimento quando sono <b>pertinenti per strumento e cliente</b>, considerando status e conoscenze. Un’obbligazione può essere difficile da vendere prima della scadenza: il cliente deve poter distinguere la possibilità di acquistare dal riuscire poi a uscire dall’investimento.",
     "x": {
       "B": "«in nessun caso» è falso: vanno indicati se pertinenti.",
       "C": "Gli esempi della norma sono strumenti illiquidi o a termine fisso, non liquidi.",
@@ -16545,7 +16545,7 @@
   },
   "1650": {
     "q": "Rossi potrebbe essere <b>controparte qualificata</b>: l'impresa può trattarlo come <b>cliente al dettaglio</b> di sua iniziativa?",
-    "p": "Sì. Trattare un cliente come al dettaglio significa dargli <b>la massima tutela</b>. Aumentare la protezione non danneggia il cliente, quindi l'impresa può farlo anche <b>di sua iniziativa</b>.",
+    "p": "Delta può trattare Rossi come cliente al dettaglio <b>di propria iniziativa</b>, anche se potrebbe essere controparte qualificata. Questa scelta applica un livello di protezione più elevato: il passaggio non deve necessariamente fermarsi alla categoria professionale e non richiede che la richiesta provenga soltanto dal cliente.",
     "x": {
       "B": "Non serve la richiesta: più tutela si può dare anche d'iniziativa.",
       "C": "Anche la controparte qualificata può essere trattata come cliente al dettaglio.",
@@ -16605,7 +16605,7 @@
   },
   "1656": {
     "q": "Il cliente chiede la <b>gestione di portafoglio</b> ma non dà informazioni sulla sua situazione finanziaria: cosa fa l'intermediario?",
-    "p": "La gestione richiede la verifica di <b>adeguatezza</b>, che si fa con le informazioni del cliente. Senza informazioni non si può verificare nulla, quindi l'intermediario <b>deve astenersi</b>.",
+    "p": "La gestione richiede una valutazione di <b>adeguatezza</b> che considera anche la situazione finanziaria. Se Rossi rifiuta quei dati necessari, l’intermediario <b>deve astenersi dal servizio</b>: non può verificare se le decisioni siano sostenibili per lui. Passare alla consulenza non risolve il problema, perché richiede anch’essa l’adeguatezza.",
     "x": {
       "B": "Anche la consulenza richiede l'adeguatezza: vale lo stesso divieto.",
       "C": "L'intermediario non può incoraggiare il cliente a non dare informazioni.",
@@ -16615,7 +16615,7 @@
   },
   "1657": {
     "q": "In quali servizi si fa la valutazione di <b>adeguatezza</b> secondo la disciplina richiamata nel quesito?",
-    "p": "L'adeguatezza serve quando l'intermediario <b>consiglia o sceglie</b> al posto del cliente: quindi nella <b>consulenza</b> e nella <b>gestione di portafogli</b>. Negli altri servizi si fa l'appropriatezza.",
+    "p": "L’adeguatezza si valuta nella <b>consulenza e nella gestione di portafogli</b>, perché l’intermediario raccomanda oppure decide gli investimenti per il cliente. Deve verificarne la compatibilità con la sua situazione. Negli altri servizi opera normalmente l’appropriatezza, fatte salve le condizioni previste per la mera esecuzione.",
     "x": {
       "B": "Nell'esecuzione di ordini si fa l'appropriatezza, non l'adeguatezza.",
       "C": "È il contrario: l'adeguatezza riguarda proprio la consulenza.",
@@ -16745,7 +16745,7 @@
   },
   "1670": {
     "q": "In consulenza a una <b>cliente al dettaglio</b>, cosa deve valutare l'intermediario?",
-    "p": "Per la cliente al dettaglio non si presume nulla: l'intermediario deve verificare che sia <b>finanziariamente in grado</b> di sopportare i rischi dell'operazione consigliata, in linea con i suoi obiettivi.",
+    "p": "Per la signora Utzeri, cliente al dettaglio, l’intermediario verifica la <b>capacità finanziaria di sostenere i rischi</b> della specifica operazione consigliata, compatibilmente con i suoi obiettivi. Non può presumere che sopporti qualsiasi perdita: in consulenza questi dati servono a stabilire se la raccomandazione è adeguata a lei.",
     "x": {
       "B": "Gli obiettivi di investimento sono informazioni necessarie.",
       "C": "La consulenza si può chiedere da sola, senza la gestione.",
@@ -16756,7 +16756,7 @@
   },
   "1671": {
     "q": "Quali dati e verifiche sono necessari per valutare l’adeguatezza della consulenza o della gestione offerta al cliente?",
-    "p": "L’adeguatezza riguarda consulenza e gestione di portafogli. Richiede conoscenze ed esperienza, situazione finanziaria e obiettivi, inclusa la tolleranza al rischio: comprendere l’operazione non basta se il cliente non può sopportarne le perdite o non persegue quell’obiettivo.",
+    "p": "L’adeguatezza riguarda <b>consulenza e gestione di portafogli</b>. Richiede <b>conoscenze ed esperienza</b>, situazione finanziaria e obiettivi, inclusa la tolleranza al rischio: comprendere l’operazione non basta se il cliente non può sopportarne le perdite o non persegue quell’obiettivo.",
     "x": {
       "B": "La ricezione e trasmissione segue il regime di appropriatezza, non la verifica completa della capacità finanziaria propria dell’adeguatezza.",
       "C": "Gli obiettivi rilevanti sono quelli del cliente, non quelli dell’intermediario; l’esecuzione non equivale alla gestione di portafogli.",
@@ -16786,7 +16786,7 @@
   },
   "1674": {
     "q": "Nessun prodotto è <b>adeguato</b> per il cliente: cosa fa la SIM in consulenza o gestione?",
-    "p": "Se nulla va bene per il cliente, la SIM <b>non raccomanda</b> (consulenza) e <b>non decide di negoziare</b> (gestione). L'adeguatezza è un filtro: se non è superato, ci si ferma.",
+    "p": "Se nessuno strumento è adeguato, la SIM <b>non raccomanda né decide di negoziare</b>: la prima azione riguarda la consulenza, la seconda la gestione. Non basta scegliere il prodotto meno lontano dagli obiettivi. Capire i rischi è solo una componente della valutazione, non una ragione per ignorarne l’esito negativo.",
     "x": {
       "B": "Capire i rischi non basta se lo strumento non è adeguato.",
       "C": "Nessuna autorizzazione della Consob può superare l'inadeguatezza.",
@@ -16966,7 +16966,7 @@
   },
   "1692": {
     "q": "Il cliente decide di <b>adattare</b> le sue preferenze di sostenibilità: cosa registra il consulente?",
-    "p": "La scelta deve essere tracciabile, per dimostrare che è stata del cliente e non del consulente. Per questo si conserva traccia della decisione, <b>compresi i motivi</b>.",
+    "p": "Se il cliente decide di adattare le preferenze di sostenibilità, occorre conservare traccia della decisione <b>e dei relativi motivi</b>. La registrazione deve permettere di ricostruire cosa è cambiato e perché: annotare soltanto che le preferenze sono state modificate lascerebbe fuori una parte dell’informazione richiesta.",
     "x": {
       "B": "La durata di dieci anni non c'entra: conta registrare decisione e motivi.",
       "C": "La registrazione non ha questa limitazione.",
@@ -17046,7 +17046,7 @@
   },
   "1700": {
     "q": "Nei servizi diversi da consulenza e gestione, l'intermediario può <b>incoraggiare</b> il cliente a non dare informazioni?",
-    "p": "No. Il divieto di incoraggiare il cliente a non rispondere vale <b>anche</b> nei servizi esecutivi, dove si fa l'appropriatezza: senza informazioni il cliente perde la sua tutela.",
+    "p": "L’intermediario <b>non può incoraggiare il cliente a omettere informazioni</b> neppure nei servizi diversi da consulenza e gestione. Anche quando il controllo riguarda l’appropriatezza, le risposte su conoscenza ed esperienza servono a valutare la comprensione dei rischi: non è ammesso sollecitarne l’omissione per semplificare la procedura.",
     "x": {
       "B": "Non è permesso in nessun servizio, consulenza compresa.",
       "C": "Non è permesso nemmeno nei servizi esecutivi.",
@@ -17247,7 +17247,7 @@
   },
   "1720": {
     "q": "Il cliente <b>non dà</b> le informazioni per l'appropriatezza: cosa fa l'intermediario?",
-    "p": "Nei servizi esecutivi il cliente può scegliere di non rispondere. L'intermediario però deve <b>avvertirlo</b> che così non potrà stabilire se il servizio o lo strumento è appropriato per lui.",
+    "p": "L’intermediario <b>avverte il cliente</b> che la mancanza dei dati gli impedisce di <b>valutare l’appropriatezza</b>. Non può inventare conoscenze ed esperienza sulla base del patrimonio del cliente. Il quesito riguarda questo avviso obbligatorio, distinto dall’astensione richiesta quando mancano le informazioni necessarie all’adeguatezza di consulenza o gestione.",
     "x": {
       "B": "Senza informazioni la valutazione non si può fare.",
       "C": "Non esiste una soglia di 50.000 €.",
@@ -17278,7 +17278,7 @@
   },
   "1723": {
     "q": "Il cliente non fornisce le informazioni per l'<b>appropriatezza</b>: cosa deve fare l'intermediario?",
-    "p": "Il cliente può scegliere di non rispondere, ma deve sapere cosa comporta. Per questo l'intermediario lo <b>avverte</b> che non potrà determinare se il servizio è appropriato per lui.",
+    "p": "L’intermediario deve <b>avvertire il cliente</b> che, senza le informazioni necessarie, non può determinare se il servizio è appropriato. L’assenza dei dati non va confusa con un giudizio positivo sul servizio: il cliente deve conoscere questo limite prima di proseguire, senza un’autorizzazione specifica della Consob.",
     "x": {
       "B": "Può procedere dopo l'avvertenza: nessuna autorizzazione della Consob.",
       "C": "L'avvertenza vale per i servizi esecutivi; la gestione richiede invece l'adeguatezza.",
@@ -17721,7 +17721,7 @@
   },
   "1767": {
     "q": "Un ordine <b>aggregato</b> con quelli di altri clienti viene eseguito <b>solo in parte</b>: come si divide?",
-    "p": "Per essere imparziale, l'intermediario segue regole decise in anticipo: assegna le negoziazioni secondo la sua <b>strategia di assegnazione degli ordini</b>. Così nessun cliente viene favorito.",
+    "p": "Se l’ordine aggregato viene eseguito soltanto in parte, le negoziazioni sono ripartite secondo la <b>strategia di assegnazione degli ordini</b>. Non si decide dopo l’esecuzione di premiare il cliente con l’ordine più grande: il criterio di riparto è quello previsto dalla strategia, senza richiedere un’autorizzazione Consob.",
     "x": {
       "B": "Nessuna priorità agli ordini più grandi: si segue la strategia.",
       "C": "Non serve l'autorizzazione Consob.",
@@ -17863,7 +17863,7 @@
   },
   "1781": {
     "q": "Un cliente chiede di essere trattato come <b>controparte qualificata</b>: cosa deve fare la SIM?",
-    "p": "Come controparte qualificata il cliente <b>perde molte tutele</b>. Prima deve saperlo: per questo la SIM gli dà un <b>chiaro avviso scritto</b> delle conseguenze della richiesta.",
+    "p": "La SIM deve dare un <b>chiaro avviso scritto delle conseguenze</b> della richiesta. Essere trattati come controparte qualificata comporta un diverso livello di protezione, che il cliente deve comprendere. Il quesito chiede questo passaggio procedurale: non una comunicazione alla Consob o un’accettazione automatica della nuova classificazione.",
     "x": {
       "B": "La SIM non deve rifiutare: la richiesta è ammessa con la procedura prevista.",
       "C": "Nessuna comunicazione alla Consob è prevista.",
@@ -18006,7 +18006,7 @@
   },
   "1795": {
     "q": "Il portafoglio in gestione ha perso il 10%: <b>entro quando</b> la SIM avvisa il cliente al dettaglio?",
-    "p": "Un calo forte va comunicato subito, perché il cliente potrebbe voler agire. Per questo l'avviso va dato <b>entro la fine del giorno lavorativo</b> in cui la soglia è superata.",
+    "p": "L’avviso deve arrivare <b>entro la fine del giorno lavorativo</b> in cui è superata la soglia di perdita. Il riferimento è il deprezzamento del 10% rispetto al valore iniziale del periodo, e poi i suoi multipli: non si può attendere il successivo rendiconto ordinario.",
     "x": {
       "B": "5 giorni lavorativi: troppo tardi.",
       "C": "Settimo giorno lavorativo: troppo tardi.",
@@ -18138,7 +18138,7 @@
   },
   "1808": {
     "q": "Il personale del distributore deve saper capire anche i <b>fattori di sostenibilità</b> degli strumenti?",
-    "p": "Sì, in ogni caso. Chi offre o raccomanda un prodotto deve capirne caratteristiche e rischi, compresi i fattori di sostenibilità: altrimenti non può spiegarlo bene al cliente.",
+    "p": "Le competenze del personale devono comprendere anche i <b>fattori di sostenibilità</b> degli strumenti offerti o raccomandati. Non sono una preparazione facoltativa da attivare soltanto per alcuni mercati di riferimento: il personale deve comprendere questi aspetti insieme alle caratteristiche e ai rischi del prodotto che presenta al cliente.",
     "x": {
       "B": "Non sono facoltative: sono obbligatorie.",
       "C": "Non dipende dal mercato potenziale.",
@@ -18238,7 +18238,7 @@
   },
   "1818": {
     "q": "Apertura di credito: qual è il <b>limite</b> della <b>commissione onnicomprensiva</b>?",
-    "p": "La commissione paga la banca per tenere i soldi a disposizione del cliente. Per evitare abusi non può superare lo <b>0,5% a trimestre</b> della somma messa a disposizione.",
+    "p": "La commissione per la disponibilità del credito non può superare lo <b>0,5% per trimestre della somma disponibile</b>. Se la banca mette a disposizione diecimila euro per un trimestre, il limite è cinquanta euro. La base è l’importo accordato, distinto dalle somme effettivamente utilizzate dal cliente.",
     "x": {
       "B": "0,2%: limite sbagliato.",
       "C": "0,1%: limite sbagliato.",
@@ -18248,7 +18248,7 @@
   },
   "1819": {
     "q": "Conto corrente: per gli <b>sconfinamenti</b> oltre il fido, quali sono gli <b>unici costi</b> ammessi?",
-    "p": "Per evitare costi nascosti la legge ammette solo due oneri: una <b>commissione di istruttoria veloce</b> fissa e legata ai costi reali, e un <b>tasso di interesse</b> sulla somma sconfinata.",
+    "p": "Per lo sconfinamento il contratto può prevedere una <b>commissione di istruttoria veloce fissa</b>, commisurata ai costi, e <b>interessi sulla somma sconfinata</b>. La prima non è una percentuale liberamente applicata all’importo: il quesito la distingue dal tasso debitore e non introduce soglie di 5.000 o 10.000 euro.",
     "x": {
       "B": "Nessuna soglia di 5.000 euro per applicare gli interessi.",
       "C": "La commissione non è di 250 euro e non c'è soglia.",
@@ -18258,7 +18258,7 @@
   },
   "1820": {
     "q": "Apertura di credito con commissione onnicomprensiva <b>sopra lo 0,5%</b> a trimestre: cosa succede?",
-    "p": "La legge protegge il cliente: la <b>clausola</b> che supera il limite è <b>nulla</b>. Il contratto invece resta valido, così il cliente non perde il finanziamento.",
+    "p": "Se la commissione supera lo <b>0,5% trimestrale</b> della somma messa a disposizione, è <b>nulla la clausola</b> che prevede l’importo vietato. Non diventa nullo l’intero contratto di apertura di credito: il finanziamento resta distinto dalla pattuizione sul costo che supera il limite imposto dalla disciplina.",
     "x": {
       "B": "La clausola oltre il limite non è valida.",
       "C": "È nulla solo la clausola, non tutto il contratto.",
@@ -18279,7 +18279,7 @@
   },
   "1822": {
     "q": "Modifiche unilaterali del contratto bancario: quale affermazione è <b>corretta</b> secondo la disciplina richiamata nel quesito?",
-    "p": "Se la banca cambia le condizioni senza rispettare le regole, la modifica è <b>inefficace</b> quando è <b>sfavorevole</b> al cliente. Così la sanzione protegge il cliente senza togliergli eventuali vantaggi.",
+    "p": "Una modifica adottata senza rispettare le prescrizioni dell’articolo è <b>inefficace se sfavorevole al cliente</b>. Significa che la banca non può applicargli quel peggioramento irregolare. La regola non rende automaticamente inefficace qualsiasi cambiamento: la domanda collega la conseguenza al mancato rispetto della procedura e allo svantaggio del cliente.",
     "x": {
       "B": "Va bene anche un altro supporto durevole accettato dal cliente.",
       "C": "Il preavviso minimo è di due mesi, non uno.",
@@ -18349,7 +18349,7 @@
   },
   "1829": {
     "q": "Conto corrente: quale affermazione sugli <b>interessi</b> è vera secondo la disciplina richiamata nel quesito?",
-    "p": "Banca e cliente devono essere trattati allo stesso modo. Per questo gli interessi a debito e quelli a credito si conteggiano con la <b>stessa periodicità</b>.",
+    "p": "Gli interessi a debito e quelli a credito devono essere conteggiati con la <b>stessa periodicità</b>. Questo riguarda il calendario del conteggio, non l’uguaglianza dei tassi: il cliente può avere un tasso debitore diverso dal creditore senza che ciò contraddica la regola chiesta dal quesito.",
     "x": {
       "B": "Gli interessi a debito diventano esigibili il 1° marzo, non il 30 giugno.",
       "C": "Modalità e criteri per gli interessi li stabilisce il CICR.",
@@ -18461,7 +18461,7 @@
   },
   "1840": {
     "q": "Con quanto <b>preavviso</b> minimo la banca deve comunicare una modifica unilaterale del contratto?",
-    "p": "Il cliente deve avere il tempo di valutare la modifica e, se non gli va bene, di recedere. Per questo il preavviso minimo è di <b>due mesi</b>.",
+    "p": "La banca comunica la modifica unilaterale con almeno <b>due mesi di preavviso</b>. Il termine lascia al cliente la possibilità di valutare le nuove condizioni e di esercitare il recesso previsto dalla disciplina: non può essere ridotto a pochi giorni lavorativi o al solo mese proposto nelle alternative.",
     "x": {
       "B": "Un mese non basta: il preavviso minimo delle modifiche unilaterali è due mesi.",
       "C": "Cinque giorni feriali è inferiore al preavviso minimo richiesto di due mesi.",
@@ -18512,7 +18512,7 @@
   },
   "1845": {
     "q": "In che <b>forma</b> vanno fatti i contratti bancari secondo la disciplina richiamata nel quesito?",
-    "p": "La forma <b>scritta</b> protegge il cliente: le condizioni sono nero su bianco e lui ne riceve una copia. Se la forma scritta manca, il contratto è nullo.",
+    "p": "La regola è la <b>forma scritta</b>, con consegna di una copia al cliente: consente di verificare le condizioni effettivamente pattuite. Non è una scelta libera della banca o del cliente tra scritto e accordo verbale. Restano le specifiche eccezioni tecniche previste dalla disciplina e richiamate nella nota.",
     "x": {
       "B": "A voce non basta: serve lo scritto.",
       "C": "La banca non può scegliere la forma verbale.",
@@ -18523,7 +18523,7 @@
   },
   "1846": {
     "q": "Il cliente chiede copia dei documenti di <b>singole operazioni</b>: entro quanto tempo massimo la banca deve darglieli?",
-    "p": "Il cliente ha diritto a ricostruire i suoi rapporti con la banca. La banca deve consegnare le copie entro un congruo termine e comunque entro <b>90 giorni</b>.",
+    "p": "La banca deve fornire le copie entro un termine congruo e comunque <b>non oltre novanta giorni</b>. Novanta è il limite massimo, non un’attesa obbligatoria per ogni richiesta. Va distinto dall’arco temporale delle operazioni documentabili, che riguarda quanto indietro si può risalire.",
     "x": {
       "B": "Centoventi giorni supera il limite massimo di novanta giorni per ottenere la documentazione.",
       "C": "Un anno è troppo: la consegna deve avvenire entro un termine congruo e comunque novanta giorni.",
@@ -18747,7 +18747,7 @@
   },
   "1868": {
     "q": "Credito ai consumatori: cosa indica il <b>TAEG</b> secondo la disciplina richiamata nel quesito?",
-    "p": "Il TAEG serve a confrontare le offerte con un solo numero. Indica il <b>costo totale</b> del credito espresso in <b>percentuale annua</b> dell'importo totale del credito.",
+    "p": "Il TAEG esprime il <b>costo totale del credito</b> come <b>percentuale annua dell’importo totale del credito</b>. Riporta quindi i costi rilevanti su una stessa base annuale, utile per confrontare le offerte: non è una percentuale mensile o semestrale e non coincide con il solo tasso di interesse.",
     "x": {
       "B": "Include il costo totale, compresi i servizi accessori connessi al contratto.",
       "C": "È annuo, non mensile.",
@@ -18828,7 +18828,7 @@
   },
   "1876": {
     "q": "Contratto quadro dei <b>servizi di pagamento</b>: con quanto anticipo vanno proposte le modifiche?",
-    "p": "Il cliente deve avere il tempo di valutare la modifica e, se vuole, recedere prima che si applichi. Per questo servono almeno <b>due mesi</b> di anticipo.",
+    "p": "Le modifiche del contratto quadro vanno proposte con <b>almeno due mesi di anticipo</b> rispetto alla data prevista per applicarle. Il riferimento è quindi la decorrenza della modifica, non la data di stipula originaria. Il cliente dispone del periodo di preavviso per valutarla e decidere come comportarsi.",
     "x": {
       "B": "Quindici giorni: troppo pochi.",
       "C": "Un mese: troppo poco.",
@@ -18999,7 +18999,7 @@
   },
   "1893": {
     "q": "Chi detta le regole su come le SIM <b>depositano</b> titoli e denaro dei clienti?",
-    "p": "Il deposito dei beni dei clienti riguarda la <b>protezione del patrimonio</b> e la stabilità, quindi la regola la fa la <b>Banca d'Italia</b>, con regolamento, sentita la Consob.",
+    "p": "Le modalità di deposito e subdeposito dei beni dei clienti delle SIM sono disciplinate dalla <b>Banca d’Italia, sentita la Consob</b>, con regolamento. Il quesito distingue il soggetto che emana le regole dall’autorità consultata: la collaborazione non trasferisce il potere regolamentare alla Consob.",
     "x": {
       "B": "Non disciplina la Consob, e il MEF non va sentito.",
       "C": "Il MEF non disciplina il deposito dei beni dei clienti.",
@@ -19182,7 +19182,7 @@
   },
   "1911": {
     "q": "Sedi <b>all'ingrosso</b>: come si coordinano le autorità per non sovrapporsi e non pesare troppo sui gestori?",
-    "p": "Su queste sedi vigilano in due: <b>Banca d'Italia e Consob</b>. Per evitare doppi controlli firmano un <b>protocollo d'intesa</b> che divide i compiti e regola lo scambio di informazioni.",
+    "p": "Banca d’Italia e Consob stipulano un <b>protocollo d’intesa</b> che precisa compiti, cooperazione e scambio di informazioni sulle sedi all’ingrosso. Il coordinamento serve a evitare sovrapposizioni e ridurre gli oneri sui gestori: le due autorità mantengono le rispettive competenze, senza sostituirle con un regolamento ministeriale congiunto.",
     "x": {
       "B": "Il coordinamento è tra Banca d'Italia e Consob, non tra MEF e Banca d'Italia.",
       "C": "Le autorità coinvolte sono Banca d'Italia e Consob, con un protocollo.",
@@ -19253,7 +19253,7 @@
   },
   "1918": {
     "q": "Cosa disciplina la <b>Consob</b>, sentita la Banca d'Italia, con regolamento secondo l'art. 6 del TUF?",
-    "p": "La bussola: <b>comportamenti</b> e trasparenza verso i clienti → <b>Consob</b>; stabilità, patrimonio e organizzazione → Banca d'Italia. La <b>correttezza dei comportamenti</b> è proprio il campo della Consob.",
+    "p": "La <b>Consob disciplina la correttezza dei comportamenti</b>, sentita Banca d’Italia. Il quesito riguarda come gli intermediari devono comportarsi nella prestazione dei servizi. Le altre alternative richiamano invece patrimonio, calcolo del valore delle quote e continuità operativa: materie diverse dal dovere di condotta qui individuato.",
     "x": {
       "B": "L'adeguatezza patrimoniale è stabilità: la disciplina la Banca d'Italia.",
       "C": "Il calcolo del valore delle quote di Oicr spetta alla Banca d'Italia.",
@@ -19263,7 +19263,7 @@
   },
   "1919": {
     "q": "Chi stabilisce i criteri per trattare come <b>clienti professionali</b> i soggetti <b>pubblici</b> che lo chiedono?",
-    "p": "Si parla di enti pubblici, cioè di soldi pubblici: la scelta spetta al <b>Ministro dell'economia e delle finanze</b>, che prima sente Banca d'Italia e Consob.",
+    "p": "Per i soggetti pubblici i criteri sono stabiliti dal <b>Ministro dell’economia e delle finanze</b>, sentite Banca d’Italia e Consob. Il dettaglio decisivo è la natura pubblica del cliente: non bisogna applicare automaticamente la competenza prevista per la disciplina dei clienti professionali privati.",
     "x": {
       "B": "Non decide la Banca d'Italia: decide il Ministro.",
       "C": "Non decide la Consob: decide il Ministro.",
@@ -19355,7 +19355,7 @@
   },
   "1928": {
     "q": "I <b>sistemi di garanzia dei depositanti</b> sono privati: chi mette i soldi?",
-    "p": "Il sistema funziona come una cassa comune tra banche: le <b>banche aderenti</b> versano le risorse che servono a rimborsare i depositanti se una banca va in crisi.",
+    "p": "Le risorse dei sistemi di garanzia dei depositanti provengono dalle <b>banche aderenti</b>. È un sistema di natura privata alimentato dai partecipanti, non un fondo finanziato da Banca d’Italia o BCE. La funzione di vigilare sulle banche resta distinta dall’obbligo di fornire le risorse al sistema di garanzia.",
     "x": {
       "B": "BCE ed EBA non finanziano i sistemi di garanzia.",
       "C": "La Banca d'Italia vigila, non finanzia i sistemi di garanzia.",
@@ -19365,7 +19365,7 @@
   },
   "1929": {
     "q": "Cos'è una <b>succursale</b> di banca secondo il TUB secondo la disciplina richiamata nel quesito?",
-    "p": "La succursale è un pezzo della banca, come una filiale: <b>non ha personalità giuridica</b> propria e svolge direttamente, in tutto o in parte, l'attività della banca.",
+    "p": "La succursale è una sede della banca <b>senza personalità giuridica propria</b>, che svolge direttamente tutta o parte dell’attività bancaria. Una filiale può quindi operare con i clienti senza essere una società distinta. La definizione non è limitata alle sedi italiane di banche UE o extra UE.",
     "x": {
       "B": "Se avesse personalità giuridica sarebbe una società distinta, non una succursale.",
       "C": "Non solo banche comunitarie: vale per qualsiasi banca.",
@@ -19525,7 +19525,7 @@
   },
   "1945": {
     "q": "Chi dispone la <b>liquidazione coatta amministrativa</b> di una banca, e su proposta di chi?",
-    "p": "La Banca d'Italia vigila e conosce lo stato della banca, quindi fa la <b>proposta</b>. La decisione finale, molto grave, la prende il <b>Ministro dell'economia con decreto</b>.",
+    "p": "La liquidazione coatta della banca è disposta dal <b>Ministro dell’economia con decreto</b>, su <b>proposta della Banca d’Italia</b>. Occorre tenere separati i due ruoli: formulare la proposta non equivale a prendere la decisione finale, e il CICR non sostituisce Banca d’Italia come proponente.",
     "x": {
       "B": "Non è un provvedimento d'urgenza e la proposta non è del CICR.",
       "C": "Decide il Ministro, non la Banca d'Italia, che fa solo la proposta.",
@@ -19656,7 +19656,7 @@
   },
   "1958": {
     "q": "Impresa che produce <b>ricerca</b> sugli investimenti da diffondere ai clienti: cosa deve garantire?",
-    "p": "Chi legge la ricerca deve potersi fidare. Per questo l'impresa adotta misure che garantiscano l'<b>indipendenza degli analisti</b> i cui interessi possono scontrarsi con quelli dei destinatari.",
+    "p": "L’impresa deve adottare misure che garantiscano l’<b>indipendenza degli analisti finanziari</b> quando i loro interessi professionali possono confliggere con quelli dei destinatari della ricerca. La tutela riguarda come la ricerca viene prodotta: non si sostituisce con favori agli emittenti o con la sola nomina di esperti esterni.",
     "x": {
       "B": "Non serve un'autorizzazione dell'autorità: servono misure interne di indipendenza.",
       "C": "Non è obbligatorio un comitato di esperti esterni.",
@@ -19706,7 +19706,7 @@
   },
   "1963": {
     "q": "Il gestore vuole <b>esternalizzare</b> funzioni operative essenziali: chi deve avvisare prima?",
-    "p": "Il provvedimento è della <b>Banca d'Italia</b>, che vigila sull'organizzazione dei gestori. Deve saperlo prima per controllare che affidare funzioni a terzi non indebolisca il gestore.",
+    "p": "Il gestore informa <b>preventivamente la Banca d’Italia</b> dell’esternalizzazione di funzioni operative essenziali. Preventivamente significa prima di affidarle a terzi, non dopo il trasferimento dei compiti. L’oggetto è l’organizzazione del gestore: l’affidamento esterno non fa diventare ESMA, Ministero o Consob destinatari di questa specifica comunicazione.",
     "x": {
       "B": "L'ESMA non riceve queste comunicazioni dai singoli gestori.",
       "C": "Il MEF non vigila sull'organizzazione dei gestori.",
@@ -19867,7 +19867,7 @@
   },
   "1979": {
     "q": "Per quanto tempo l'intermediario deve <b>conservare</b> le registrazioni di servizi e operazioni?",
-    "p": "Le registrazioni servono ai controlli della Consob, che possono arrivare anche dopo anni. La regola è <b>cinque anni</b>, che la Consob può allungare <b>fino a sette</b>.",
+    "p": "Le registrazioni si conservano per <b>cinque anni</b>; se lo richiede la <b>Consob</b>, il periodo può arrivare fino a sette. La durata non coincide semplicemente con quella del rapporto: il limite triennale o l’estensione decennale su richiesta del cliente proposti dalle alternative non descrivono questa regola.",
     "x": {
       "B": "Tre anni è sbagliato e il cliente non può chiedere dieci anni.",
       "C": "Uno e tre anni: numeri sbagliati.",
@@ -19887,7 +19887,7 @@
   },
   "1981": {
     "q": "Cosa può fare l'<b>organo con funzioni di controllo</b> (es. collegio sindacale) dell'intermediario?",
-    "p": "Chi controlla deve poter vedere tutto. Per questo l'organo di controllo può <b>avvalersi di tutte le unità interne che fanno controlli</b>: sono i suoi occhi dentro l'azienda.",
+    "p": "L’organo di controllo può <b>avvalersi delle unità interne con funzioni di controllo</b> per svolgere i propri compiti. Utilizzarne le informazioni e il supporto non significa assumere la gestione dell’impresa: approvare processi o definire operativamente i flussi informativi sono attività diverse da quella di vigilanza richiesta al suo organo.",
     "x": {
       "B": "Definire i flussi informativi è compito degli organi di amministrazione, non del controllo.",
       "C": "Approvare i processi è compito degli organi di amministrazione, non del controllo.",
@@ -20030,7 +20030,7 @@
   },
   "1995": {
     "q": "Chi <b>approva</b> la creazione delle funzioni aziendali di controllo e i loro compiti?",
-    "p": "Decidere quali funzioni di controllo avere è una scelta di fondo sull'assetto dell'impresa: spetta all'<b>organo con funzione di supervisione strategica</b> (di solito il consiglio di amministrazione).",
+    "p": "L’<b>organo con funzione di supervisione strategica</b> approva la costituzione delle funzioni di controllo e ne definisce il quadro di compiti e responsabilità. È una decisione sull’assetto interno dell’intermediario, distinta dallo svolgimento quotidiano dei controlli. Non la assumono al suo posto l’assemblea o le autorità di vigilanza.",
     "x": {
       "B": "L'assemblea dei soci non approva l'assetto dei controlli interni.",
       "C": "Il MEF non entra nell'organizzazione interna dell'intermediario.",
@@ -20082,7 +20082,7 @@
   },
   "2000": {
     "q": "Quali compiti di approvazione e verifica spettano all’organo di supervisione strategica rispetto a processi e funzioni di controllo?",
-    "p": "La supervisione strategica approva i processi dei servizi e ne verifica periodicamente l’adeguatezza; controlla inoltre la coerenza dell’assetto delle funzioni di controllo. Va distinta dalla gestione, che cura attuazione, flussi informativi, comunicazione delle procedure e attribuzione operativa delle responsabilità.",
+    "p": "La <b>supervisione strategica</b> approva i processi dei servizi e ne verifica periodicamente l’adeguatezza; controlla inoltre la coerenza dell’assetto delle funzioni di controllo. Va distinta dalla gestione, che cura attuazione, flussi informativi, comunicazione delle procedure e attribuzione operativa delle responsabilità.",
     "x": {
       "B": "Comunicare tempestivamente procedure e politiche al personale è compito attuativo di gestione, distinto dall’approvazione e verifica strategica.",
       "C": "Definire i flussi informativi attuativi è compito della funzione di gestione: la supervisione strategica approva e verifica l’assetto.",
