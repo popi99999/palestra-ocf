@@ -6,6 +6,8 @@ Le lettere nella sorgente sono quelle della banca: A è la chiave corretta. L'in
 
 Il paragrafo «Perché è giusta» di ciascuna delle 2.000 spiegazioni evidenzia uno o due passaggi decisivi. La selezione riguarda il caso concreto: condizioni, negazioni, soglie complete, criteri distintivi o autorità competenti. Non vengono messi in grassetto interi paragrafi. Il controllo di copertura considera questo paragrafo, senza contare titoli, pulsanti o risposta corretta già evidenziata dall'interfaccia.
 
+La riformulazione conserva soggetti, servizi, circostanze, condizioni, numeri e riferimenti normativi utili a riconoscere il caso originale. Semplifica il linguaggio senza ridurre la domanda a un titolo generico. La motivazione riprende subito il contenuto della risposta corretta e ne sviluppa il motivo; il grassetto evidenzia le parole che la distinguono dalle alternative più vicine, per esempio «deve astenersi», «entrambi» o una condizione specifica.
+
 ## Controlli riproducibili
 
 ```sh

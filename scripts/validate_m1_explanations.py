@@ -59,7 +59,7 @@ def main():
                 parser.feed(value)
                 assert not parser.stack, f'Tag non chiusi: {name}'
                 assert '**' not in value and '<script' not in value.lower(), f'Markup inatteso: {name}'
-                maximum = 45 if name=='q' else 90 if name=='p' else 40 if name.startswith('x.') else 70
+                maximum = 95 if name=='q' else 90 if name=='p' else 40 if name.startswith('x.') else 70
                 if len(words(value)) > maximum:
                     warnings.append({'id':key,'field':name,'warning':'Testo lungo','words':len(words(value))})
                 if name.startswith('x.'):
