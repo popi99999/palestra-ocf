@@ -4,6 +4,8 @@ Ogni domanda della materia 1 dispone di una domanda riformulata in italiano semp
 
 Le lettere nella sorgente sono quelle della banca: A è la chiave corretta. L'interfaccia riassocia le motivazioni alle lettere effettivamente visualizzate dopo il mescolamento. I riferimenti alle domande gemelle devono restare un aiuto aggiuntivo: ogni spiegazione è leggibile autonomamente.
 
+Il paragrafo «Perché è giusta» di ciascuna delle 2.000 spiegazioni evidenzia uno o due passaggi decisivi. La selezione riguarda il caso concreto: condizioni, negazioni, soglie complete, criteri distintivi o autorità competenti. Non vengono messi in grassetto interi paragrafi. Il controllo di copertura considera questo paragrafo, senza contare titoli, pulsanti o risposta corretta già evidenziata dall'interfaccia.
+
 ## Controlli riproducibili
 
 ```sh

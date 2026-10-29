@@ -45,6 +45,10 @@ def main():
             assert {'q','p','x','k'} <= sp.keys(), 'Campi mancanti'
             assert sp.keys() <= {'q','p','x','k','t'}, 'Campi inattesi'
             assert set(sp['x']) == {'B','C','D'}, 'Servono tre motivazioni B/C/D'
+            emphasis = re.findall(r'<b>(.*?)</b>', sp['p'], re.S)
+            assert 1 <= len(emphasis) <= 2, 'Servono uno o due passaggi chiave in grassetto'
+            assert all(value.strip() for value in emphasis), 'Grassetto vuoto'
+            assert sum(len(words(value)) for value in emphasis) < len(words(sp['p'])), 'Non evidenziare l’intero paragrafo'
             fields = {name:sp[name] for name in ['q','p','k']}
             fields.update({f'x.{k}':v for k,v in sp['x'].items()})
             if 't' in sp:fields['t'] = sp['t']
@@ -69,6 +73,7 @@ def main():
             errors.append({'id':key,'error':str(exc)})
     report = {
         'spiegazioni':len(data),'attese':2000,
+        'spiegazioni_con_grassetto':sum(bool(re.search(r'<b>.+?</b>',value.get('p',''),re.S)) for value in data.values()),
         'motivazioni_errate':sum(len(v.get('x',{})) for v in data.values()),
         'copertura_per_argomento':dict(collections.Counter(q['contenuto'] for q in bank if str(q['n']) in data)),
         'errori':errors,'segnalazioni_editoriali':warnings,
@@ -78,7 +83,7 @@ def main():
     out = ROOT/'lavoro_m1/verifica_copertura.json'
     out.parent.mkdir(exist_ok=True)
     out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-    print(json.dumps({k:report[k] for k in ['spiegazioni','attese','motivazioni_errate','parole_medie']},ensure_ascii=False))
+    print(json.dumps({k:report[k] for k in ['spiegazioni','attese','spiegazioni_con_grassetto','motivazioni_errate','parole_medie']},ensure_ascii=False))
     print(f'Errori: {len(errors)}; segnalazioni: {len(warnings)}')
     if errors:
         print(json.dumps(errors,ensure_ascii=False,indent=2))
