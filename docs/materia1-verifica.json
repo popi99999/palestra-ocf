@@ -1,6 +1,7 @@
 {
   "spiegazioni": 2000,
   "attese": 2000,
+  "spiegazioni_con_grassetto": 2000,
   "motivazioni_errate": 6000,
   "copertura_per_argomento": {
     "Abusi di mercato": 59,
@@ -21,6 +22,6 @@
   },
   "errori": [],
   "segnalazioni_editoriali": [],
-  "parole_medie": 101.5,
+  "parole_medie": 102.1,
   "banca_sha256": "55028d1d0e2f7d4a493e79af3707c84e98c7553473f1675a56bf126a4afab756"
 }
