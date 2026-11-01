@@ -2174,6 +2174,7 @@ function spiegaHTML(n, order, open){
   let h=`<p class="sp-ok">Risposta giusta${ok?`: ${ok}`:""} — ${esc(Q[n-1][5])}</p>`;
   if(sp){
     h+=`<p><span class="sp-h">Cosa ti chiede</span>${sp.q}</p><p><span class="sp-h">Perché è giusta${ok?` la ${ok}`:""}</span>${sp.p}</p>`;
+    if(sp.e) h+=`<p><span class="sp-h">Esempio</span>${sp.e}</p>`;
     const alt=Object.entries(sp.x||{}).map(([o,t])=>[ "ABCD".indexOf(o), t ]).filter(x=>x[0]>0);
     if(alt.length){ alt.sort((a,b)=>order?order.indexOf(a[0])-order.indexOf(b[0]):a[0]-b[0]);
       h+=`<p class="sp-h">Perché non le altre</p><ul>${alt.map(([o,t])=>`<li>${order?`<b>${let_(o)}</b>`:`«${esc(Q[n-1][5+o])}»`} — ${t}</li>`).join("")}</ul>`; }
