@@ -120,444 +120,484 @@
   "r": "<b>«La prestazione ha un prezzo, l'interesse ha un cuore»</b>. Cerca l'opzione con <b>deve</b> essere valutabile + interesse <b>anche non patrimoniale</b>."
  },
  "4611": {
-  "q": "Come si definisce il contratto?",
-  "p": "È l'<b>accordo di due o più parti</b> per <b>costituire, regolare o estinguere un rapporto giuridico patrimoniale</b>. Quindi servono almeno due parti e il rapporto deve riguardare valori economici.",
-  "e": "Una compravendita tra due persone è un contratto. Lo è anche una società tra cinque soci.",
+  "q": "La domanda chiede la definizione di <b>contratto</b>: quante parti servono e che tipo di rapporto deve riguardare.",
+  "p": "Il contratto è l'<b>accordo di due o più parti</b> per <b>costituire, regolare o estinguere</b> tra loro un <b>rapporto giuridico patrimoniale</b>. Ci vogliono almeno due parti, ma non c'è un massimo. Il rapporto deve avere un contenuto economico: per questo un accordo puramente affettivo o familiare non è un contratto.",
+  "e": "Mario vende la bici a Luca: due parti, rapporto economico, è un contratto. Cinque amici costituiscono una società: cinque parti, è comunque un contratto. Due fidanzati che si promettono di vedersi ogni domenica non fanno un contratto, perché manca il contenuto patrimoniale.",
   "x": {
-   "B": "«più di due» escluderebbe i contratti tra due parti",
-   "C": "«non più di due» escluderebbe i contratti con più parti",
-   "D": "il rapporto deve essere patrimoniale"
+   "B": "«più di due» escluderebbe i contratti tra due sole parti, che sono i più comuni",
+   "C": "«non più di due» escluderebbe società e contratti con molte parti",
+   "D": "il rapporto deve essere <b>patrimoniale</b>, non il contrario"
   },
-  "k": "due o più parti, rapporto patrimoniale"
+  "k": "due o più parti, rapporto patrimoniale",
+  "r": "Memorizza la formula con i <b>tre verbi C-R-E</b>: <b>C</b>ostituire, <b>R</b>egolare, <b>E</b>stinguere. Poi controlla due dettagli: «<b>due o più</b>» e «<b>patrimoniale</b>». Solo la A li ha entrambi."
  },
  "4612": {
-  "q": "Quali sono gli elementi essenziali del contratto?",
-  "p": "Sono <b>accordo, causa, oggetto</b> e, quando la legge la richiede a pena di nullità, la <b>forma <i>ad substantiam</i></b>. Se ne manca uno, il contratto è nullo.",
-  "e": "Vendita di una casa: accordo sul trasferimento, causa (scambio casa contro prezzo), oggetto (la casa), forma scritta.",
+  "q": "La domanda chiede quali sono gli <b>elementi essenziali</b> del contratto, cioè quelli senza i quali il contratto è nullo.",
+  "p": "Gli elementi essenziali sono <b>quattro</b>: <b>accordo</b> delle parti, <b>causa</b>, <b>oggetto</b> e <b>forma</b>, quando la legge la prescrive a pena di nullità (forma <i>ad substantiam</i>). Se ne manca uno il contratto non sta in piedi. La forma <i>ad probationem</i> serve solo a provare il contratto in giudizio, quindi non è essenziale. La condizione è un elemento <b>accidentale</b>: le parti possono aggiungerla, ma non è obbligatoria.",
+  "e": "Vendita di una casa: accordo (tu vendi, io compro), causa (scambio casa contro prezzo), oggetto (l'appartamento di via Roma), forma scritta. Se il contratto è fatto solo a voce, manca un elemento essenziale ed è nullo.",
   "x": {
    "B": "la forma <i>ad probationem</i> serve solo come prova, non per la validità",
-   "C": "la condizione è un elemento eventuale, non essenziale, e manca l'oggetto",
-   "D": "manca l'accordo"
+   "C": "manca l'<b>oggetto</b> e c'è la condizione, che è un elemento accidentale",
+   "D": "manca l'<b>accordo</b>, che è il primo elemento di qualsiasi contratto"
   },
-  "k": "accordo, causa, oggetto, forma"
+  "k": "accordo, causa, oggetto, forma",
+  "r": "Sono <b>4</b>, come le 4 parole della risposta giusta: contale. Per ricordarle: <b>«A-C-O-F»</b>, Accordo, Causa, Oggetto, Forma. Diffida di ogni lista che contiene «condizione» o «<i>ad probationem</i>»."
  },
  "4613": {
-  "q": "Quali requisiti deve avere l'oggetto del contratto?",
-  "p": "Deve essere <b>lecito, possibile, determinato o determinabile</b>. Determinabile vuol dire che può essere individuato anche dopo, purché il contratto dia il criterio.",
-  "e": "«Ti vendo 100 azioni al prezzo di chiusura di venerdì»: il prezzo oggi non si conosce, ma è determinabile.",
+  "q": "La domanda chiede quali caratteristiche deve avere l'<b>oggetto</b> del contratto.",
+  "p": "L'oggetto deve essere <b>lecito</b> (non vietato dalla legge), <b>possibile</b> (realizzabile materialmente e giuridicamente) e <b>determinato o determinabile</b>. Determinabile vuol dire che non serve conoscerlo subito nei dettagli, basta che il contratto dia un criterio per individuarlo. Non serve che la cosa esista già (si possono vendere cose future) e non serve aggiungere «patrimoniale».",
+  "e": "«Ti vendo 100 azioni Alfa al prezzo di chiusura di venerdì»: oggi il prezzo non si conosce, ma è determinabile. «Ti vendo un terreno sulla Luna» è impossibile. «Ti vendo una partita di droga» è illecito.",
   "x": {
-   "B": "l'oggetto non può essere indeterminabile",
-   "C": "«determinato e» è troppo rigido: basta determinabile",
-   "D": "non deve per forza esistere già: si possono vendere cose future"
+   "B": "un oggetto <b>indeterminabile</b> rende il contratto nullo",
+   "C": "«determinato <b>e</b>» è troppo rigido: basta anche determinabile; «patrimoniale» non è un requisito dell'oggetto",
+   "D": "non deve per forza <b>esistere</b> già: il codice ammette le cose future"
   },
-  "k": "lecito, possibile, determinato o determinabile"
+  "k": "lecito, possibile, determinato o determinabile",
+  "r": "Pensa a <b>«L-P-D»</b>, Lecito, Possibile, Determinato/Determinabile, e ricorda la parolina «<b>o</b>»: determinato <b>o</b> determinabile. Le opzioni sbagliate cambiano proprio questa parolina, o aggiungono «esistente» e «patrimoniale»."
  },
  "4614": {
-  "q": "Si può inserire in un contratto la prestazione di un bene futuro?",
-  "p": "<b>Sì</b>, tranne nella <b>donazione</b> e nei casi vietati dalla legge. Si può quindi vendere qualcosa che ancora non esiste, ma non donarla.",
-  "e": "Posso vendere un appartamento ancora da costruire. Non posso invece donarlo.",
+  "q": "La domanda chiede se si può fare un contratto su un <b>bene che ancora non esiste</b> (bene futuro).",
+  "p": "<b>Sì</b>, la regola generale lo permette, con due eccezioni: la <b>donazione</b>, che può riguardare solo beni presenti del donante, e i casi in cui una legge lo vieta espressamente. Il motivo dell'eccezione: chi dona si impoverisce senza ricevere nulla, quindi la legge vuole che sappia bene cosa sta dando. Non si può regalare «a scatola chiusa» ciò che ancora non si ha.",
+  "e": "Un viticoltore può vendere oggi il vino della vendemmia del prossimo anno. Non può invece donare a un amico, con un contratto di donazione, il vino che ancora non ha prodotto.",
   "x": {
-   "B": "«sempre» è sbagliato: ci sono le eccezioni",
-   "C": "è ammesso in generale",
-   "D": "non esiste questo limite per il consumatore"
+   "B": "«sempre» è sbagliato: ci sono le eccezioni, a partire dalla donazione",
+   "C": "è ammesso in generale, non vietato",
+   "D": "il codice non prevede questo limite per il consumatore"
   },
-  "k": "bene futuro sì, tranne donazione"
+  "k": "bene futuro sì, tranne donazione",
+  "r": "<b>«Vendere il futuro sì, regalarlo no»</b>. Nelle domande sui beni futuri cerca la risposta con la parola <b>donazione</b> tra le eccezioni."
  },
  "4615": {
-  "q": "Le parti possono decidere liberamente il contenuto del contratto?",
-  "p": "Sì, ma <b>nei limiti imposti dalla legge</b>. È l'autonomia contrattuale: c'è libertà di scelta, senza andare contro le regole.",
-  "e": "Due persone possono concordare il prezzo che vogliono, ma non possono scrivere un contratto per vendere merce illegale.",
+  "q": "La domanda chiede se le parti sono libere di decidere cosa scrivere nel contratto.",
+  "p": "Sì, le parti <b>possono determinare liberamente il contenuto</b> del contratto, ma <b>nei limiti imposti dalla legge</b>. È il principio di <b>autonomia contrattuale</b>: i privati organizzano i propri interessi come vogliono, purché non violino norme imperative, ordine pubblico e buon costume. Possono anche creare contratti non previsti dal codice (atipici), se perseguono interessi meritevoli di tutela.",
+  "e": "Due persone possono decidere prezzo, tempi di consegna e penali come preferiscono. Non possono invece inserire una clausola che escluda in anticipo la responsabilità per dolo, perché la legge la vieta.",
   "x": {
-   "B": "i limiti di legge non si possono superare",
-   "C": "la legge non scrive il testo del contratto",
-   "D": "la libertà esiste"
+   "B": "i limiti di legge non si possono mai superare",
+   "C": "la legge non detta il testo del contratto: lo scrivono le parti",
+   "D": "la libertà esiste, entro i limiti di legge"
   },
-  "k": "libertà nei limiti di legge"
+  "k": "libertà nei limiti di legge",
+  "r": "<b>Libertà con il guinzaglio</b>: liberi sì, ma dentro i limiti della legge. Le altre risposte sono tutte estreme (oltre i limiti, nessuna libertà, testo imposto)."
  },
  "4616": {
-  "q": "Quali contratti sono sinallagmatici?",
-  "p": "Quelli con <b>prestazioni corrispettive</b>: ciascuna parte dà qualcosa perché l'altra dà qualcosa in cambio.",
-  "e": "Nella vendita io ti do l'auto perché tu mi paghi il prezzo.",
+  "q": "La domanda chiede cosa sono i contratti <b>sinallagmatici</b>.",
+  "p": "Sono i contratti a <b>prestazioni corrispettive</b>: ciascuna parte si obbliga <b>perché</b> anche l'altra si obbliga. Le due prestazioni sono legate tra loro come in uno scambio. È importante perché, se una parte non adempie, l'altra può rifiutarsi di adempiere o chiedere la risoluzione del contratto.",
+  "e": "Compravendita: tu mi dai l'auto, io ti do 10.000 €. Locazione: tu mi dai la casa, io ti pago l'affitto. Se non pago, puoi chiedere la risoluzione del contratto.",
   "x": {
-   "B": "non grava sul solo proponente: entrambe le parti hanno una prestazione",
-   "C": "non grava sul solo accettante: entrambe le parti hanno una prestazione",
-   "D": "questi sono i contratti reali, non i sinallagmatici"
+   "B": "se la prestazione è di una sola parte non c'è scambio, quindi non è sinallagmatico",
+   "C": "stesso errore: una sola parte obbligata non crea corrispettività",
+   "D": "descrive i contratti <b>reali</b>, che si perfezionano con la consegna (es. il deposito)"
   },
-  "k": "sinallagmatico = prestazioni corrispettive"
+  "k": "sinallagmatico = do ut des",
+  "r": "<b>Sinallagma = scambio</b>, ricordalo con il latino <i>do ut des</i>, «do perché tu dia». Se c'è una sola parte che dà, non è sinallagmatico."
  },
  "4617": {
-  "q": "Nella vendita, il prezzo può essere fissato da un terzo?",
-  "p": "<b>Sì</b>: il terzo può essere <b>nominato nel contratto oppure dopo</b>. Le due possibilità sono entrambe ammesse.",
-  "e": "Vendo un quadro e con l'acquirente decido che il prezzo lo stabilirà un perito, scelto subito o più avanti.",
+  "q": "Nella compravendita, le parti possono affidare a un <b>terzo</b> il compito di stabilire il prezzo? Quando va nominato?",
+  "p": "<b>Sì</b>, il prezzo può essere fissato da un terzo, che può essere <b>nominato nel contratto oppure in un momento successivo</b>. Il prezzo in questo caso è determinabile, quindi il contratto è valido. Le due modalità di nomina sono entrambe ammesse: la legge lascia libertà alle parti.",
+  "e": "Vendo un quadro e non ci accordiamo sul prezzo. Scriviamo nel contratto che lo stabilirà un perito d'arte. Possiamo indicarne subito il nome oppure deciderlo più avanti.",
   "x": {
-   "B": "è ammesso",
-   "C": "può essere scelto anche nel contratto",
-   "D": "può essere scelto anche dopo"
+   "B": "è ammesso dal codice",
+   "C": "il terzo può essere scelto <b>anche</b> nel contratto",
+   "D": "il terzo può essere scelto <b>anche</b> dopo"
   },
-  "k": "terzo: nel contratto o dopo"
+  "k": "terzo: nel contratto o dopo",
+  "r": "Cerca la risposta più <b>larga</b>: «nel contratto <b>o</b> posteriormente». Le opzioni C e D dicono «solo uno dei due»: quando la legge ammette entrambe le strade, vince l'opzione che le contiene tutte e due."
  },
  "4618": {
-  "q": "Quando la forma è un requisito essenziale del contratto?",
-  "p": "Quando la <b>legge la prescrive a pena di nullità</b>. Negli altri casi vale la libertà di forma.",
-  "e": "La vendita di una casa senza scritto è nulla. La vendita di un libro può essere fatta anche a voce.",
+  "q": "La domanda chiede quando la <b>forma</b> diventa un requisito essenziale del contratto.",
+  "p": "Quando <b>la legge la prescrive sotto pena di nullità</b>. In generale vale il principio di <b>libertà della forma</b>: un contratto si può fare anche a voce o con un comportamento. Solo nei casi previsti dalla legge (es. trasferimento di immobili) la forma diventa essenziale e, se manca, il contratto è nullo. La sanzione è proprio la <b>nullità</b>, non l'inefficacia.",
+  "e": "Vendita di una casa fatta a voce: nulla, perché la legge impone lo scritto. Vendita di un libro a voce: valida, perché la legge non chiede nessuna forma.",
   "x": {
-   "B": "di regola la forma è libera",
-   "C": "la sanzione è la nullità, non l'inefficacia",
-   "D": "in alcuni casi lo è"
+   "B": "di regola la forma è <b>libera</b>, non sempre essenziale",
+   "C": "la sanzione prevista è la <b>nullità</b>, non l'inefficacia",
+   "D": "in alcuni casi lo è, eccome: quando la legge la impone"
   },
-  "k": "forma essenziale = pena di nullità"
+  "k": "forma essenziale = pena di nullità",
+  "r": "Le due parole da tenere unite sono <b>forma ↔ nullità</b>. Se vedi «inefficacia» al posto di «nullità», è la trappola."
  },
  "4619": {
-  "q": "Il risparmiatore minorenne ha nascosto la sua età con un passaporto falso. Dopo il calo delle quotazioni, può chiedere l'annullamento della compravendita?",
-  "p": "<b>No</b>. Di regola il contratto del minore è annullabile, ma non se il minore ha <b>nascosto la sua età con raggiri</b>, come un documento falso. La legge non protegge chi ha ingannato la controparte. Il calo da 102,50% a 90,75% è solo una perdita d'investimento.",
-  "e": "Un ragazzo di 16 anni mostra un documento falso per sembrare maggiorenne: non può poi sciogliere il contratto invocando la minore età.",
+  "q": "Il risparmiatore romano, che è <b>minorenne</b>, ha nascosto la sua età con un <b>passaporto falso</b> e ha comprato delle obbligazioni a 102,50%. Un anno dopo valgono 90,75%. La domanda chiede se l'acquirente può chiedere l'annullamento per la sua minore età.",
+  "p": "<b>No</b>. Di regola il contratto di un minore si può annullare, perché la legge lo protegge. Ma se il minore ha <b>nascosto la sua età con raggiri</b>, come un documento falso, il contratto <b>non è annullabile</b>: la legge non protegge chi ha ingannato l'altra parte. Il calo da 102,50% a 90,75% è solo una perdita dell'investimento e non c'entra con la validità del contratto. Tutti i dati su quotazioni, città e durata servono a distrarre.",
+  "e": "Un ragazzo di 17 anni mostra un documento falso per comprare un motorino. Quando il motorino perde valore non può dire «ero minorenne, annulliamo tutto»: ha ingannato il venditore.",
   "x": {
-   "B": "il termine di 5 anni non serve: con i raggiri l'annullamento è escluso in ogni caso",
-   "C": "il termine di 3 anni non è la regola: con i raggiri l'annullamento è escluso in ogni caso",
-   "D": "il termine di 2 anni non è la regola: con i raggiri l'annullamento è escluso in ogni caso"
+   "B": "parla di un termine per l'annullamento, ma l'annullamento è escluso del tutto",
+   "C": "stesso errore: non c'è nessun termine utile, perché manca il diritto",
+   "D": "stesso errore: nessun termine, il contratto non è annullabile"
   },
-  "k": "raggiri sull'età = niente annullamento"
+  "k": "raggiri sull'età = niente annullamento",
+  "r": "<b>«Chi inganna non si salva»</b>: il minore furbo perde la sua protezione. Quando la domanda è piena di numeri e dettagli, cerca il fatto decisivo, qui il <b>passaporto falso</b>. Le tre risposte con «Sì, entro X anni» si eliminano insieme."
  },
  "4620": {
-  "q": "Che forma deve avere l'atto che costituisce una rendita perpetua?",
-  "p": "<b>Atto pubblico o scrittura privata, in ogni caso</b>. È un impegno potenzialmente senza fine, quindi serve la forma scritta, qualunque siano importo e durata.",
-  "e": "Se mi impegno a pagare per sempre 1.000 € l'anno a una persona, l'impegno a voce non basta.",
+  "q": "La domanda chiede che forma deve avere l'atto con cui si costituisce una <b>rendita perpetua</b> (l'impegno a pagare periodicamente una somma senza limite di tempo).",
+  "p": "<b>Atto pubblico o scrittura privata, in ogni caso</b>. La rendita perpetua è un impegno che può non finire mai e può passare agli eredi. Per un vincolo così pesante il codice vuole la forma scritta <b>sempre</b>, senza guardare a quanto vale la rendita o a quanto dura.",
+  "e": "Tizio si impegna a pagare a Caio e ai suoi eredi 1.000 € l'anno, per sempre, in cambio di un terreno. Questo impegno non può essere preso a voce: serve un atto scritto.",
   "x": {
-   "B": "l'importo non conta",
+   "B": "l'importo non conta: la forma scritta è richiesta comunque",
    "C": "la forma non è libera",
-   "D": "la durata non conta"
+   "D": "la durata non conta: lo scritto è richiesto in ogni caso"
   },
-  "k": "rendita perpetua = sempre scritta"
+  "k": "rendita perpetua = sempre scritta",
+  "r": "<b>«Per sempre» = per iscritto</b>: un impegno senza fine non si prende a parole. Diffida delle risposte che fanno dipendere la forma dall'importo o dalla durata."
  },
  "4621": {
-  "q": "Come si può definire la causa del contratto, soprattutto a prestazioni corrispettive?",
-  "p": "Tra le opzioni, è <b>la somma degli scopi perseguiti dalle parti</b>: cioè la ragione concreta per cui si fa il contratto, l'incontro dei rispettivi obiettivi.",
-  "e": "Nella vendita, uno vuole il prezzo e l'altro vuole il bene: la causa è lo scambio tra i due.",
+  "q": "La domanda chiede una definizione della <b>causa</b> del contratto, soprattutto nei contratti in cui ciascuna parte dà qualcosa all'altra.",
+  "p": "La causa è la <b>funzione</b> del contratto, cioè la ragione concreta per cui le parti lo concludono. Tra le opzioni, la definizione accettata è <b>la somma degli scopi perseguiti dalle parti</b>: nei contratti a prestazioni corrispettive gli interessi delle due parti si incontrano e formano uno scambio. Le altre opzioni parlano di cose che con la causa non c'entrano (la redazione, lo Stato, la distanza tra le parti).",
+  "e": "Nella vendita il venditore vuole il prezzo, il compratore vuole il bene: la causa è lo scambio tra bene e prezzo. Nella locazione è lo scambio tra godimento della casa e canone.",
   "x": {
-   "B": "la qualità della redazione non è la causa",
-   "C": "la causa unisce gli interessi, non ne misura la distanza",
-   "D": "l'interesse dello Stato non c'entra"
+   "B": "la precisione con cui è scritto il contratto non è la sua causa",
+   "C": "la causa unisce gli interessi delle parti, non ne misura la distanza",
+   "D": "l'interesse dello Stato non è la causa di un contratto tra privati"
   },
-  "k": "causa = scopi delle parti"
+  "k": "causa = scopi delle parti",
+  "r": "Causa = <b>«perché lo facciamo?»</b>. Rispondi con gli scopi delle <b>due parti</b>: è l'unica opzione che parla delle parti."
  },
  "4622": {
-  "q": "Pompeo e Sempronio fanno un contratto di associazione a voce. È valido?",
-  "p": "<b>Sì, se non riguarda il godimento di beni immobili o altri diritti reali immobiliari</b>. L'associazione può nascere anche senza formalità; lo scritto serve solo quando entrano in gioco gli immobili nei casi previsti.",
-  "e": "Due amici creano a voce un'associazione di lettura: l'accordo è valido. Se conferiscono il godimento di un immobile nei casi di legge, serve lo scritto.",
+  "q": "Pompeo e Sempronio fanno un contratto di <b>associazione</b> solo <b>a voce</b>. La domanda chiede se è valido.",
+  "p": "<b>È valido se non riguarda il godimento di beni immobili</b> o di altri diritti reali immobiliari. Il contratto associativo di regola non richiede forme particolari. Il codice chiede la forma scritta solo quando i soci conferiscono il godimento di immobili per più di nove anni o a tempo indeterminato: in quel caso il contratto tocca diritti sugli immobili e torna la regola «casa = carta».",
+  "e": "Due amici fondano a voce un'associazione di lettura: l'accordo è valido. Se invece mettono a disposizione dell'associazione un capannone per 15 anni, quel conferimento va fatto per iscritto.",
   "x": {
-   "B": "l'atto pubblico non è richiesto in generale",
-   "C": "può essere valido",
-   "D": "nessun numero minimo rende invalido questo accordo"
+   "B": "non serve un atto pubblico in generale",
+   "C": "può essere valido: dipende dall'oggetto",
+   "D": "non c'è un numero minimo di associati che rende invalido l'accordo"
   },
-  "k": "associazione a voce ok, salvo immobili"
+  "k": "associazione a voce ok, salvo immobili",
+  "r": "Di nuovo <b>«casa = carta»</b>: forma libera, a meno che non entrino in gioco gli <b>immobili</b>. La risposta giusta è l'unica che contiene un'eccezione legata agli immobili."
  },
  "4623": {
-  "q": "La prestazione di cose future può essere oggetto di contratto?",
-  "p": "<b>Sì, salvi i particolari divieti di legge</b>. Una cosa che ancora non esiste può quindi essere venduta, tranne quando la legge lo vieta.",
-  "e": "Un costruttore vende un appartamento ancora da realizzare.",
+  "q": "La domanda chiede se la prestazione di <b>cose future</b> può essere oggetto di un contratto.",
+  "p": "<b>Sì, salvi i particolari divieti della legge</b>. È la stessa regola della domanda sui beni futuri: il codice permette di contrattare su ciò che ancora non esiste, perché l'oggetto è comunque determinabile. Restano fuori solo i casi vietati, come la <b>donazione</b> di beni futuri.",
+  "e": "Un costruttore vende un appartamento che sarà costruito l'anno prossimo (vendita su progetto). Un agricoltore vende il raccolto della prossima estate.",
   "x": {
-   "B": "non è limitata alle obbligazioni di non fare",
-   "C": "non è sempre vietata",
-   "D": "può esserlo"
+   "B": "non vale solo per le obbligazioni di non fare: anzi, tipicamente riguarda vendite",
+   "C": "non è sempre vietata: di regola è ammessa",
+   "D": "può essere oggetto di contratto"
   },
-  "k": "cose future sì, salvo divieti"
+  "k": "cose future sì, salvo divieti",
+  "r": "È la gemella della domanda sui beni futuri: <b>«Sì, salvo i divieti di legge»</b>. Se rivedi «cose future» o «beni futuri», la risposta ha sempre questa forma."
  },
  "4624": {
-  "q": "Come può manifestarsi la volontà di concludere un contratto?",
-  "p": "<b>Sia in forma espressa sia in forma tacita</b>. Espressa significa con parole o per iscritto; tacita significa con un comportamento che fa capire chiaramente la volontà.",
-  "e": "Espressa: dico «accetto». Tacita: il negoziante riceve il mio ordine e mi spedisce subito la merce, senza rispondere.",
+  "q": "La domanda chiede in che modo si può manifestare la <b>volontà di concludere un contratto</b>.",
+  "p": "La volontà si può manifestare <b>sia in forma espressa sia in forma tacita</b>. <b>Espressa</b>: con parole, per iscritto o con segni chiari (es. firmare). <b>Tacita</b>: con un comportamento che non lascia dubbi sulla volontà, anche senza dire nulla. È una conseguenza della libertà di forma.",
+  "e": "Espressa: rispondo «accetto la tua offerta» via e-mail. Tacita: ricevo a casa i libri ordinati in prova e inizio a usarli e a sottolinearli, mostrando che li tengo.",
   "x": {
    "B": "vale anche la forma tacita",
-   "C": "vale anche la forma tacita",
-   "D": "vale anche la forma espressa"
+   "C": "«esplicita» è un sinonimo di espressa: esclude a torto la tacita",
+   "D": "vale anche la forma espressa, anzi è la più comune"
   },
-  "k": "espressa o tacita"
+  "k": "espressa o tacita",
+  "r": "<b>«Parole o fatti»</b>: la volontà si mostra in tutti e due i modi. Quando le opzioni dicono «solo X», cerca quella che dice «<b>sia… sia…</b>»."
  },
  "4625": {
-  "q": "In quale caso serve almeno la forma scritta <i>ad substantiam</i>?",
-  "p": "Nella <b>vendita di una casa</b>: i trasferimenti di immobili richiedono lo scritto a pena di nullità. Per i normali beni mobili la forma è libera.",
-  "e": "Vendita della casa a voce: nulla. Vendita di una bici a voce: valida.",
+  "q": "Tra quattro contratti, la domanda chiede quale richiede <b>almeno la forma scritta <i>ad substantiam</i></b>.",
+  "p": "La <b>vendita di una casa</b>. I contratti che trasferiscono la proprietà di <b>beni immobili</b> devono essere fatti per atto pubblico o scrittura privata, altrimenti sono <b>nulli</b>. Per i beni mobili comuni (bicicletta, libro, televisore) vale invece la libertà di forma: si possono vendere o noleggiare anche a voce.",
+  "e": "Compro un televisore in negozio senza firmare nulla: contratto valido. Compro una casa con una stretta di mano: contratto nullo, serve l'atto scritto.",
   "x": {
-   "B": "la bicicletta è un bene mobile",
-   "C": "il libro è un bene mobile",
-   "D": "il televisore è un bene mobile"
+   "B": "la bicicletta è un bene <b>mobile</b>",
+   "C": "il libro è un bene <b>mobile</b>",
+   "D": "il televisore è un bene <b>mobile</b>"
   },
-  "k": "immobili = scritto"
+  "k": "immobili = scritto",
+  "r": "<b>«Casa = carta»</b>: tra le opzioni cerca l'unico <b>immobile</b>. Bici, libro e televisore si portano via con le mani, una casa no."
  },
  "4626": {
-  "q": "Caio costringe Tizio a firmare una compravendita minacciando un male contro un discendente di Tizio (per esempio un figlio). Tizio può chiedere l'annullamento?",
-  "p": "<b>Sì.</b> La violenza rende annullabile il contratto anche quando la minaccia non colpisce direttamente chi firma, ma una persona a lui vicina: il coniuge, un discendente o un ascendente. In questi casi il consenso non è libero, perché chi firma lo fa per paura per il familiare.",
-  "e": "Caio dice a Tizio: «Se non vendi, faccio del male a tuo figlio». Tizio firma per proteggere il figlio: può chiedere l'annullamento.",
+  "q": "Caio ha costretto Tizio a firmare una compravendita minacciando di fare del male a un <b>discendente</b> di Tizio (un figlio o un nipote). La domanda chiede se Tizio può chiedere l'annullamento.",
+  "p": "<b>Sì</b>. La violenza è causa di annullamento anche quando il male minacciato riguarda il <b>coniuge</b>, un <b>discendente</b> o un <b>ascendente</b> del contraente. Chi firma per proteggere il figlio non decide liberamente, esattamente come se la minaccia fosse contro di lui. Per altre persone, invece, decide il giudice caso per caso.",
+  "e": "«Firma la vendita del tuo terreno, o tuo figlio ne paga le conseguenze»: Tizio firma per paura. Può chiedere l'annullamento come se la minaccia fosse rivolta a lui.",
   "x": {
-   "B": "la violenza è proprio una delle cause di annullamento del contratto",
-   "C": "la tutela non si ferma al coniuge: comprende anche i discendenti",
-   "D": "non conta solo la minaccia al contraente: valgono anche quelle ai suoi familiari stretti"
+   "B": "la violenza è proprio una delle cause tipiche di annullamento",
+   "C": "non si limita al contraente e al coniuge: comprende anche discendenti e ascendenti",
+   "D": "non si limita al contraente: comprende la famiglia stretta"
   },
-  "k": "minaccia al discendente = contratto annullabile"
+  "k": "minaccia al figlio = annullabile",
+  "r": "È la gemella della domanda sul coniuge: <b>famiglia stretta = coniuge, figli, genitori</b>. Ogni risposta che dice «solo…» restringe il cerchio ed è sbagliata. Qui basta il <b>«Sì»</b>."
  },
  "4627": {
-  "q": "Quando la causa di un contratto, cioè la sua funzione concreta, è illecita?",
-  "p": "<b>Quando è contraria a norme imperative, all'ordine pubblico o al buon costume.</b> Basta uno solo di questi tre contrasti. È una regola da memorizzare così, con tutti e tre gli elementi.",
-  "e": "Un contratto con cui Tizio paga Caio per commettere un reato ha una causa illecita: contrasta con norme imperative.",
+  "q": "La domanda chiede quando la <b>causa</b> del contratto (la sua funzione) è <b>illecita</b>.",
+  "p": "La causa è illecita quando è contraria a <b>norme imperative</b>, all'<b>ordine pubblico</b> o al <b>buon costume</b>. Sono tre limiti diversi e <b>bastano tutti</b>: è sufficiente violarne uno. Norme imperative = regole di legge che le parti non possono derogare. Ordine pubblico = principi fondamentali dello Stato. Buon costume = regole morali condivise. Un contratto con causa illecita è <b>nullo</b>.",
+  "e": "Un contratto con cui Tizio paga Caio perché voti un certo candidato viola l'ordine pubblico ed è nullo. Un contratto per comprare un voto in un concorso pubblico viola norme imperative ed è nullo.",
   "x": {
-   "B": "sbaglia a escludere ordine pubblico e buon costume: anche questi contrasti rendono illecita la causa",
-   "C": "sbaglia a escludere il buon costume: anche questo contrasto rende illecita la causa",
-   "D": "sbaglia a escludere l'ordine pubblico: anche questo contrasto rende illecita la causa"
+   "B": "esclude a torto ordine pubblico e buon costume, che rendono illecita la causa allo stesso modo",
+   "C": "esclude a torto il buon costume",
+   "D": "esclude a torto l'ordine pubblico"
   },
-  "k": "illecita = norme imperative, ordine pubblico, buon costume"
+  "k": "norme imperative, ordine pubblico, buon costume",
+  "r": "Ricorda il trio <b>«I-O-B»</b>: Imperative, Ordine pubblico, Buon costume. Contale: sono <b>3</b>, e la risposta giusta è l'unica che le elenca tutte e tre senza escluderne nessuna."
  },
  "4628": {
-  "q": "Le parti possono accordarsi per dare al loro contratto una certa forma, per esempio quella scritta?",
-  "p": "<b>Sì, e si presume che la forma sia stata voluta per la validità del contratto.</b> Le parti sono libere di scegliere una forma anche quando la legge non la richiede. Se lo fanno, la legge presume che senza quella forma il contratto non debba valere.",
-  "e": "Tizio e Caio si impegnano per iscritto a stipulare il futuro contratto solo con atto scritto. Se poi si accordano solo a voce, si presume che quel contratto non sia valido.",
+  "q": "Le parti possono decidere tra loro di fare un contratto in una certa <b>forma</b> (es. per iscritto), anche se la legge non lo richiede? E che valore ha questo accordo?",
+  "p": "<b>Sì</b>, e il codice dice che in questo caso <b>si presume che la forma sia stata voluta per la validità</b> del contratto. È la <b>forma convenzionale</b>: se le parti si sono accordate per iscritto di usare una forma, il contratto concluso senza quella forma si presume non valido. Le parti si sono date una regola da sole, e la legge la prende sul serio.",
+  "e": "Un'azienda e un fornitore firmano un accordo quadro: «Ogni ordine sarà valido solo se fatto per iscritto». Un ordine dato per telefono, salvo prova contraria, non vale.",
   "x": {
-   "B": "non serve alcuna autorizzazione del Tribunale: è una libera scelta delle parti",
-   "C": "è il contrario: la presunzione esiste, quindi il mancato rispetto incide sulla validità",
-   "D": "le parti possono farlo: rientra nella loro autonomia"
+   "B": "non serve nessuna autorizzazione del tribunale: è libertà delle parti",
+   "C": "inverte la presunzione: si presume proprio che la forma serva per la validità",
+   "D": "è ammesso"
   },
-  "k": "forma convenuta = si presume per la validità"
+  "k": "forma convenzionale = per la validità",
+  "r": "<b>«Se ve lo siete promesso, vale come una legge tra voi»</b>. La parola chiave è <b>«si presume»</b>: la forma pattuita si presume voluta per la validità. La C è la trappola perché dice il contrario."
  },
  "4629": {
-  "q": "Tra le opzioni, quale caso rende illecita la causa del contratto?",
-  "p": "<b>Quando è contraria all'ordine pubblico.</b> L'ordine pubblico è uno dei tre limiti previsti dalla legge, insieme alle norme imperative e al buon costume. L'ordine pubblico riguarda i principi fondamentali dell'ordinamento.",
-  "e": "Un contratto che punta a impedire a una persona di esercitare i suoi diritti fondamentali va contro l'ordine pubblico: la causa è illecita.",
+  "q": "La domanda chiede di nuovo quando la <b>causa</b> del contratto è illecita, ma con opzioni diverse.",
+  "p": "Quando è contraria all'<b>ordine pubblico</b>, cioè ai principi fondamentali del nostro ordinamento. Gli altri due casi di illiceità sono le <b>norme imperative</b> e il <b>buon costume</b>. Le altre opzioni usano parole vicine ma sbagliate: le norme <b>non</b> imperative si possono derogare, mentre «buon senso» e «morale comune» non sono i criteri del codice.",
+  "e": "Un contratto con cui una persona si impegna a non sposarsi mai in cambio di denaro è contrario all'ordine pubblico, perché limita una libertà fondamentale.",
   "x": {
-   "B": "contano le norme imperative, cioè inderogabili: le norme non imperative possono essere derogate dalle parti",
-   "C": "il «buon senso» non è un limite previsto: la legge parla di buon costume",
-   "D": "la legge non parla di «morale comune», ma di buon costume"
+   "B": "le norme <b>non imperative</b> (dispositive) si possono derogare: violarle non rende illecita la causa",
+   "C": "«buon senso» non è un criterio giuridico; il codice parla di buon <b>costume</b>",
+   "D": "il codice non dice «morale comune» ma «buon costume»"
   },
-  "k": "ordine pubblico: sì; buon senso: no"
+  "k": "ordine pubblico = causa illecita",
+  "r": "Torna il trio <b>I-O-B</b>: Imperative, Ordine pubblico, Buon costume. Diffida dei <b>falsi amici</b>: «non imperative», «buon senso», «morale comune» somigliano alle parole giuste ma non sono quelle del codice."
  },
  "4630": {
-  "q": "Se nel contratto non è fissato quando va eseguita la prestazione, che cosa può fare il creditore?",
-  "p": "<b>Può esigerla immediatamente.</b> Senza un termine, il debito è subito esigibile: il creditore non deve aspettare. Fa eccezione il caso in cui, per gli usi o per la natura della prestazione, serva un termine: allora, in mancanza di accordo, lo fissa il giudice.",
-  "e": "Tizio deve 500 euro a Caio e non è indicata alcuna data. Caio può chiederli subito.",
+  "q": "Nel contratto non è indicato <b>quando</b> va eseguita la prestazione. La domanda chiede cosa può fare il creditore.",
+  "p": "Il creditore <b>può esigerla immediatamente</b>. Se le parti non hanno fissato un termine, la regola è che la prestazione è dovuta subito. Solo se serve un termine per la natura della prestazione o per gli usi, e le parti non si accordano, lo fissa il giudice. Non c'è una diffida obbligatoria di 30 o 60 giorni.",
+  "e": "Ti presto 500 € senza dire quando me li restituisci. Posso chiederteli indietro da subito, anche domani.",
   "x": {
-   "B": "non è prevista come regola una diffida preventiva di trenta giorni",
-   "C": "il giudice interviene solo se un termine è necessario, non come regola generale",
-   "D": "non è prevista come regola una diffida preventiva di sessanta giorni"
+   "B": "non serve nessuna diffida con un termine di 30 giorni",
+   "C": "il giudice interviene solo se serve un termine per la natura della prestazione, non sempre",
+   "D": "non serve nessuna diffida con un termine di 60 giorni"
   },
-  "k": "nessun termine = esigibile subito"
+  "k": "nessun termine = subito",
+  "r": "<b>«Niente data = adesso»</b>. Le opzioni con 30 o 60 giorni sono numeri messi lì per confonderti: se il contratto non dice nulla, si paga subito."
  },
  "4631": {
-  "q": "Caio vende a Cesare un'autocisterna con 130.000 km. Non trovano un prezzo accettabile per entrambi e nel contratto indicano Tacito per stabilirlo. Il contratto è valido?",
-  "p": "<b>Sì.</b> Il prezzo deve essere determinato o almeno determinabile. Le parti possono affidarne la determinazione a un terzo scelto da loro, e questo basta a rendere valido il contratto. Non serve che il terzo abbia una carica particolare.",
-  "e": "Caio e Cesare scrivono: «Il prezzo lo stabilirà Tacito». Il contratto vale anche se il prezzo non è ancora indicato in cifre.",
+  "q": "Caio vende a Cesare un'autocisterna (130.000 km). Non trovano un prezzo e nel contratto incaricano <b>Tacito</b> di stabilirlo. La domanda chiede se il contratto è valido.",
+  "p": "<b>Sì</b>. Il codice permette alle parti di affidare la <b>determinazione del prezzo a un terzo</b>. Così il prezzo è <b>determinabile</b>, e l'oggetto del contratto è valido. Non serve che il terzo abbia una carica particolare: basta che le parti si fidino di lui. I chilometri dell'autocisterna sono un dettaglio messo per distrarti.",
+  "e": "Vendo la mia auto a un amico e non ci accordiamo sul prezzo. Scriviamo: «Il prezzo lo decide il meccanico Rossi». Il contratto è valido da subito.",
   "x": {
-   "B": "il prezzo può essere stabilito da un terzo: non serve indicarlo subito in contratto",
-   "C": "al terzo non è richiesta la carica di Presidente dell'Ordine degli Avvocati",
-   "D": "al terzo non è richiesta la carica di Presidente della Camera di Commercio"
+   "B": "è valido: il prezzo affidato a un terzo è ammesso",
+   "C": "il terzo non deve essere il Presidente dell'Ordine degli Avvocati: può essere chiunque scelgano le parti",
+   "D": "il terzo non deve essere il Presidente della Camera di Commercio: può essere chiunque scelgano le parti"
   },
-  "k": "prezzo affidato a un terzo = contratto valido"
+  "k": "prezzo fissato dal terzo = valido",
+  "r": "<b>«Il prezzo lo può fare un amico»</b>: qualunque terzo scelto dalle parti va bene. Le risposte con cariche precise (Ordine degli Avvocati, Camera di Commercio) sono esche."
  },
  "4632": {
-  "q": "Tacito chiede a voce a Catullo di fare insider trading. Questo contratto è valido?",
-  "p": "<b>No.</b> L'insider trading è un illecito vietato dalla legge. Un accordo che ha come scopo un'attività vietata va contro norme imperative, quindi non è valido. Il problema è il contenuto dell'accordo, non il fatto che sia verbale.",
-  "e": "Anche se Tacito e Catullo firmassero un documento con tutti i dettagli, l'accordo resterebbe invalido: lo scopo è vietato.",
+  "q": "Tacito chiede a voce a Catullo di fare <b>insider trading</b>, cioè operare in borsa usando informazioni privilegiate. La domanda chiede se questo contratto è valido.",
+  "p": "<b>No</b>. L'insider trading è un <b>reato</b>: un contratto che ha come scopo un'attività vietata dalla legge ha <b>oggetto e causa illeciti</b>, quindi è <b>nullo</b>. Il problema non è la forma (a voce o per iscritto): anche scritto e firmato dal notaio resterebbe nullo. E non cambia niente se Catullo è un consulente finanziario: anzi, per lui sarebbe ancora più grave.",
+  "e": "«Ti pago 5.000 € se compri azioni Alfa prima che esca la notizia della fusione che conosco solo io»: il contratto è nullo e il pagamento non si può pretendere in tribunale.",
   "x": {
-   "B": "la qualifica di consulente non può rendere lecito un accordo per un'attività vietata",
-   "C": "la forma scritta non sanerebbe nulla: il difetto sta nello scopo illecito",
-   "D": "un accordo per un'attività vietata dalla legge non può essere valido"
+   "B": "la qualifica di consulente non rende lecito un reato",
+   "C": "il problema non è la forma: il contratto è illecito comunque",
+   "D": "un contratto con oggetto illecito non è mai valido"
   },
-  "k": "scopo illecito = contratto non valido, a voce o per iscritto"
+  "k": "insider trading = contratto nullo",
+  "r": "<b>«Reato = nullo»</b>, senza eccezioni. Se un'opzione prova a salvare un contratto illecito con la forma scritta o con una qualifica professionale, è sbagliata."
  },
  "4633": {
-  "q": "Se vendo una cosa mobile, dove va consegnata secondo il codice civile?",
-  "p": "<b>Se non c'è patto o uso contrario e le parti lo sapevano, nel luogo dove la cosa si trovava al momento della vendita.</b> Il venditore deve metterla a disposizione lì, e non è tenuto a portarla a casa del compratore. Questo vale salvo accordi o usi diversi.",
-  "e": "Tizio vende a Caio un quadro che entrambi sanno trovarsi in un deposito a Verona. Se non hanno pattuito altro, la consegna avviene a Verona.",
+  "q": "La domanda chiede dove deve avvenire la <b>consegna</b> di una cosa mobile venduta, secondo il codice civile.",
+  "p": "Se non ci sono accordi o usi diversi, la consegna avviene <b>nel luogo dove la cosa si trovava al momento della vendita</b>, se le parti lo sapevano. Altrimenti si guarda al domicilio del venditore. Se la cosa va spedita al compratore, il venditore <b>si libera consegnandola allo spedizioniere</b> e le spese di trasporto sono, di regola, del <b>compratore</b>. Le opzioni sbagliate rovesciano proprio questi punti.",
+  "e": "Compri un mobile antico che sai che si trova nel magazzino del venditore a Bologna: la consegna avviene lì. Se chiedi che te lo spediscano a Roma, il venditore è a posto quando lo affida al corriere, e il trasporto lo paghi tu.",
   "x": {
-   "B": "è il contrario: salvo patto o uso contrario, le spese di trasporto sono a carico del compratore, non del venditore",
-   "C": "il luogo di consegna non è il domicilio del compratore",
-   "D": "salvo patto o uso contrario, il venditore si libera rimettendo la cosa allo spedizioniere"
+   "B": "le spese di trasporto sono di regola del <b>compratore</b>, non del venditore",
+   "C": "la consegna non avviene al domicilio del compratore ma dove si trovava la cosa",
+   "D": "è il contrario: rimettendo la cosa allo spedizioniere il venditore <b>si libera</b>"
   },
-  "k": "consegna = dove si trovava la cosa alla vendita"
+  "k": "consegna dove si trovava la cosa",
+  "r": "<b>«La cosa non viaggia gratis»</b>: si consegna dove si trova, e se viaggia paga il compratore. Tutte e tre le sbagliate fanno un favore al compratore."
  },
  "4634": {
-  "q": "Chi paga le spese necessarie per pagare un debito?",
-  "p": "<b>Le spese sono a carico del debitore.</b> È lui che deve adempiere, quindi sostiene anche i costi necessari per farlo. Il creditore deve ricevere quanto gli spetta, senza subire riduzioni.",
-  "e": "Tizio deve 1.000 euro a Caio e fa un bonifico con 2 euro di commissione. Caio deve ricevere 1.000 euro e i 2 euro restano a carico di Tizio.",
+  "q": "Pagare un debito può avere dei costi (commissioni, bonifico, ecc.). La domanda chiede chi li sostiene.",
+  "p": "Le spese del pagamento sono <b>a carico del debitore</b>. È lui che deve adempiere, quindi è lui che sostiene i costi necessari per farlo. Il creditore deve ricevere esattamente quanto gli spetta, senza rimetterci nulla.",
+  "e": "Devi 1.000 € a un fornitore e il bonifico costa 2 € di commissione: paghi tu i 2 €, e al fornitore arrivano 1.000 € pieni.",
   "x": {
-   "B": "le spese non si dividono a metà con il creditore",
-   "C": "la banca fornisce solo il mezzo per pagare: non è lei a sostenere le spese dell'obbligazione",
-   "D": "è il contrario: il creditore non sostiene le spese"
+   "B": "le spese non si dividono a metà",
+   "C": "la banca non paga le spese dei suoi clienti: è solo il canale del pagamento",
+   "D": "il creditore non deve rimetterci per ricevere quello che gli spetta"
   },
-  "k": "spese del pagamento = debitore"
+  "k": "spese del pagamento = debitore",
+  "r": "<b>«Chi deve, paga tutto»</b>: il debito e anche il costo per saldarlo."
  },
  "4635": {
-  "q": "Il creditore può rifiutare un pagamento o una prestazione solo in parte?",
-  "p": "<b>Sì, salvo che la legge o gli usi dispongano diversamente.</b> Il creditore ha diritto a ricevere l'intera prestazione, anche se questa sarebbe divisibile. Non è obbligato ad accettare un adempimento a pezzi.",
-  "e": "Tizio deve 1.000 euro a Caio e gliene offre 400. Caio può rifiutare e pretendere l'intera somma.",
+  "q": "Il debitore offre solo <b>una parte</b> della prestazione. La domanda chiede se il creditore può rifiutarla.",
+  "p": "<b>Sì, il creditore può rifiutare un adempimento parziale</b>, a meno che la legge o gli usi dispongano diversamente. Vale <b>anche se la prestazione è divisibile</b>. Il motivo: il creditore ha diritto a ricevere tutto insieme come pattuito, e non deve essere costretto a incassare a rate se non è stato concordato.",
+  "e": "Mi devi 3.000 € entro il 30 giugno e il 30 giugno mi offri 1.000 €. Posso rifiutare e considerarti inadempiente per l'intera somma.",
   "x": {
-   "B": "il tipo di obbligazione, come quella di fare, non toglie al creditore questo diritto",
-   "C": "non è «in nessun caso»: il creditore può rifiutare, salvo diversa legge o uso",
-   "D": "anche se la prestazione è divisibile, il creditore può rifiutare l'adempimento parziale"
+   "B": "vale anche per le obbligazioni di fare: il creditore può rifiutare la prestazione parziale",
+   "C": "può rifiutare, salvo eccezioni di legge o usi",
+   "D": "anche se la prestazione è divisibile, il creditore può rifiutare"
   },
-  "k": "adempimento parziale = si può rifiutare"
+  "k": "adempimento parziale = rifiutabile",
+  "r": "<b>«Tutto o niente»</b>: il creditore ha diritto alla prestazione intera. Le risposte con «No» si eliminano insieme."
  },
  "4636": {
-  "q": "Il creditore può rifiutare il pagamento solo parziale di una somma di denaro, che pure è divisibile?",
-  "p": "<b>Sì, salvo che la legge e gli usi dispongano diversamente.</b> Il denaro si può dividere, ma questo non obbliga il creditore ad accettarlo a rate. Ha diritto all'intera somma, salvo eccezioni previste dalla legge o dagli usi.",
-  "e": "Tizio deve restituire 3.000 euro e ne offre 1.000 ora. Caio può rifiutarli e chiedere tutti i 3.000 euro.",
+  "q": "Il debitore offre di pagare <b>solo una parte di una somma di denaro</b>, che per natura è divisibile. La domanda chiede se il creditore può rifiutare.",
+  "p": "<b>Sì, salvo che la legge o gli usi dispongano diversamente</b>. Il denaro si può dividere, ma questo non obbliga il creditore ad accettare pagamenti parziali: ha diritto all'intera somma alla scadenza concordata. Pagare a rate è possibile solo se lo prevede l'accordo, la legge o gli usi.",
+  "e": "L'inquilino deve 1.200 € di affitto a fine mese e ne offre 600, promettendo il resto più avanti. Il padrone di casa può rifiutare.",
   "x": {
-   "B": "non è «mai»: la regola è proprio che può rifiutare",
-   "C": "interessi e rivalutazione non obbligano il creditore ad accettare un pagamento parziale",
-   "D": "la decisione non dipende dall'opposizione del coniuge né dal regime di comunione"
+   "B": "«mai» è sbagliato: il creditore <b>può</b> rifiutare",
+   "C": "interessi e rivalutazione non cambiano la regola: l'adempimento resta parziale",
+   "D": "il coniuge del creditore non c'entra"
   },
-  "k": "anche il denaro: parziale si può rifiutare"
+  "k": "anche il denaro: parziale rifiutabile",
+  "r": "Gemella della precedente: <b>«tutto o niente», anche con i soldi</b>. La parola «divisibile» nella domanda è una trappola per farti dire «No»."
  },
  "4637": {
-  "q": "In un contratto con più di due parti e uno scopo comune, una parte non può più eseguire la sua prestazione. Che succede al contratto?",
-  "p": "<b>Non si scioglie rispetto alle altre parti, salvo che la prestazione mancata sia, secondo le circostanze, essenziale.</b> Il contratto serve a uno scopo comune, quindi di regola può continuare con chi resta. Se però senza quella prestazione lo scopo non è più raggiungibile, il contratto si scioglie.",
-  "e": "Tre soci mettono in comune denaro, un capannone e un brevetto. Se manca il brevetto e l'attività dipende interamente da quello, la prestazione è essenziale. Se manca una parte secondaria, il contratto prosegue.",
+  "q": "Nei contratti con <b>più di due parti</b> e uno <b>scopo comune</b> (es. un contratto di società o di consorzio), una delle parti non può più eseguire la sua prestazione. La domanda chiede cosa succede al contratto per gli altri.",
+  "p": "Il contratto <b>non si scioglie rispetto alle altre parti</b>, a meno che la prestazione mancata sia, secondo le circostanze, <b>essenziale</b>. Ha senso: se cinque soci fanno un'impresa e uno non può più contribuire, gli altri quattro possono proseguire. Solo se il suo contributo era indispensabile per lo scopo comune, il contratto cade per tutti.",
+  "e": "Quattro amici si accordano per organizzare un festival: uno porta il palco, uno le luci, uno la musica, uno il catering. Se il catering salta, il festival si fa lo stesso. Se salta il palco ed è impossibile trovarne un altro, il contratto cade per tutti.",
   "x": {
-   "B": "non è «in ogni caso»: l'inefficacia per tutti non è automatica",
-   "C": "non c'è nullità automatica: il contratto di regola prosegue",
-   "D": "non c'è annullabilità automatica: conta se la prestazione è essenziale"
+   "B": "non è «in ogni caso»: il contratto prosegue tra gli altri",
+   "C": "non c'è nullità automatica",
+   "D": "non c'è annullabilità automatica"
   },
-  "k": "scopo comune: prosegue, salvo prestazione essenziale"
+  "k": "scopo comune: si scioglie solo se essenziale",
+  "r": "<b>«Uno cade, gli altri continuano»</b>, tranne se cade il pezzo essenziale. Diffida delle opzioni con «<b>in ogni caso</b>»: qui sono tutte sbagliate."
  },
  "4638": {
-  "q": "Se una prestazione è diventata impossibile solo in parte, che cosa deve fare il debitore?",
-  "p": "<b>Il debitore si libera eseguendo la prestazione per la parte rimasta possibile.</b> L'impossibilità lo scusa solo per ciò che non si può più fare. Per il resto, l'obbligo rimane.",
-  "e": "Tizio deve consegnare 10 quadri, ma 3 vengono distrutti senza sua colpa. Si libera consegnando i 7 rimasti.",
+  "q": "La prestazione è diventata impossibile <b>solo in parte</b> (senza colpa del debitore). La domanda chiede cosa deve fare il debitore.",
+  "p": "Il debitore <b>si libera eseguendo la parte rimasta possibile</b>. Per la parte divenuta impossibile non è responsabile, ma per il resto deve ancora adempiere: non può approfittare della situazione per non dare nulla. Ricorda sempre chi esegue la prestazione: il <b>debitore</b>, non il creditore.",
+  "e": "Un vivaio deve consegnare 100 piante, ma una grandinata ne distrugge 30. Il vivaio si libera consegnando le 70 rimaste.",
   "x": {
-   "B": "è il debitore che deve eseguire la prestazione, non il creditore",
-   "C": "non è liberato da tutto: resta obbligato per la parte possibile",
-   "D": "l'impossibilità parziale non gli dà un diritto al risarcimento"
+   "B": "è il <b>debitore</b> che esegue la prestazione, non il creditore",
+   "C": "l'impossibilità è solo parziale, quindi non si libera da tutto",
+   "D": "il debitore non ha diritto a un risarcimento: semmai è lui che deve qualcosa"
   },
-  "k": "impossibile in parte = esegui il resto"
+  "k": "impossibilità parziale = esegui il possibile",
+  "r": "<b>«Dai quello che puoi»</b>: per la parte persa sei libero, per il resto no. Scarta subito l'opzione in cui il creditore «esegue la prestazione»."
  },
  "4639": {
-  "q": "Nei contratti con prestazioni corrispettive, quanto deve pesare l'inadempimento perché il giudice risolva il contratto?",
-  "p": "<b>Di non scarsa importanza (cioè grave), avuto riguardo all'interesse dell'altra parte.</b> Lo scioglimento è una conseguenza forte, quindi non basta un inadempimento minimo. La gravità non si misura con una percentuale fissa, ma guardando l'interesse di chi ha subito l'inadempimento.",
-  "e": "Il fornitore consegna con un'ora di ritardo una merce che non serviva con urgenza: di solito è poca cosa. Se la merce doveva servire proprio per quell'ora, l'inadempimento può essere grave.",
+  "q": "Nei contratti con prestazioni corrispettive, la domanda chiede quanto deve essere grave l'<b>inadempimento</b> per ottenere dal giudice la <b>risoluzione</b> del contratto.",
+  "p": "L'inadempimento deve essere di <b>non scarsa importanza</b>, valutata guardando all'<b>interesse della parte che ha subito</b> l'inadempimento. Il codice non fissa percentuali: il giudice valuta caso per caso quanto pesa per la parte fedele. Un ritardo o un difetto minimo non basta per sciogliere tutto il contratto.",
+  "e": "Ordini un abito da sposa per il 10 giugno e arriva il 20, dopo il matrimonio: inadempimento grave, puoi chiedere la risoluzione. Se manca un bottone facilmente sostituibile, l'inadempimento è di scarsa importanza.",
   "x": {
-   "B": "la gravità non si misura con una soglia fissa del 5%",
-   "C": "un inadempimento minimo o marginale non basta",
-   "D": "la gravità non si misura con una soglia fissa del 10%"
+   "B": "il codice non fissa nessuna soglia del 5%",
+   "C": "un inadempimento minimo non basta per la risoluzione",
+   "D": "il codice non fissa nessuna soglia del 10%"
   },
-  "k": "risoluzione = inadempimento non di scarsa importanza"
+  "k": "risoluzione: inadempimento non di scarsa importanza",
+  "r": "<b>«Per rompere il contratto ci vuole un colpo serio»</b>. Le percentuali (5%, 10%) sono inventate: il codice non usa numeri ma il criterio dell'<b>importanza</b> per chi subisce."
  },
  "4640": {
-  "q": "Tizio e il fratello Caio hanno una cassetta di sicurezza in banca. Caio muore e lascia la moglie Sempronia e due figli. Come può Tizio farla aprire?",
-  "p": "<b>Con il consenso di Sempronia e dei due nipoti o, se uno di loro rifiuta, con un provvedimento dell'autorità giudiziaria.</b> Alla morte di un intestatario, nella cassetta possono esserci beni degli eredi, quindi servono tutti gli interessati. Se manca un consenso, decide il giudice.",
-  "e": "Sempronia e un figlio dicono sì, l'altro figlio dice no. Tizio non può aprire con i soli due sì: deve rivolgersi all'autorità giudiziaria.",
+  "q": "I fratelli Tizio e Caio hanno insieme una <b>cassetta di sicurezza</b> in banca. Caio muore, lasciando la moglie Sempronia e due figli maggiorenni. Tizio vuole aprire la cassetta: la domanda chiede di chi serve il consenso.",
+  "p": "Quando muore uno degli intestatari, la banca può far aprire la cassetta solo con il <b>consenso di tutti gli interessati</b>, cioè degli <b>eredi</b> del defunto: qui la moglie <b>Sempronia</b> e i <b>due figli</b>. Se anche uno solo rifiuta, serve un <b>provvedimento del giudice</b>. È una tutela per gli eredi: dentro la cassetta potrebbero esserci beni dell'eredità.",
+  "e": "Se Sempronia e un figlio dicono sì ma l'altro figlio dice no, Tizio deve rivolgersi al tribunale per ottenere l'apertura.",
   "x": {
-   "B": "non basta un solo nipote: serve il consenso di tutti gli interessati",
-   "C": "la divisione dell'eredità non è necessaria: bastano il consenso di tutti o il provvedimento del giudice",
-   "D": "non basta la sola Sempronia: servono anche i due figli di Caio"
+   "B": "non basta un solo nipote: servono tutti gli eredi",
+   "C": "la banca non deve aspettare la divisione dell'eredità: basta il consenso di tutti o il giudice",
+   "D": "non basta la sola cognata: servono anche i due figli"
   },
-  "k": "cassetta dopo la morte = tutti d'accordo o giudice"
+  "k": "cassetta: consenso di tutti gli eredi o giudice",
+  "r": "<b>«Tutti d'accordo, o decide il giudice»</b>. La risposta giusta è la più completa: nomina tutti gli eredi e prevede il giudice in caso di rifiuto."
  },
  "4641": {
-  "q": "La clausola <i>solve et repete</i> vieta a una parte di sollevare eccezioni per evitare o ritardare la prestazione. Funziona contro un'eccezione di annullamento per vizio del consenso?",
-  "p": "<b>La clausola non ha effetto.</b> <i>Solve et repete</i> significa «prima paga, poi chiedi indietro». Non può però bloccare le eccezioni più gravi: nullità, annullabilità e rescissione. Il vizio del consenso porta all'annullabilità, quindi l'eccezione resta possibile.",
-  "e": "Tizio ha firmato perché ingannato e il contratto contiene la clausola. Può comunque opporre l'annullabilità, senza dover prima pagare.",
+  "q": "La clausola <i>solve et repete</i> («prima paga, poi chiedi indietro») impedisce a una parte di sollevare eccezioni per ritardare il pagamento. La domanda chiede se funziona quando la parte eccepisce l'<b>annullamento</b> del contratto per un vizio del consenso.",
+  "p": "<b>No, la clausola non ha effetto</b>. Il codice dice che questa clausola non vale per le eccezioni di <b>nullità, annullabilità e rescissione</b> del contratto. Il motivo: non si può costringere qualcuno a pagare in base a un contratto che forse non è nemmeno valido, ad esempio perché è stato firmato per errore, violenza o dolo.",
+  "e": "Un contratto dice «paghi prima e contesti dopo». Se Tizio scopre di essere stato ingannato (dolo) e chiede l'annullamento, può rifiutarsi di pagare subito nonostante la clausola.",
   "x": {
-   "B": "il tempo trascorso, come un anno, non fa scattare gli effetti della clausola",
-   "C": "il valore del contratto, come 1.000 euro, non conta",
-   "D": "l'errore di calcolo porta alla rettifica, non all'annullamento: non cambia la regola"
+   "B": "il tempo trascorso non conta: la clausola non vale contro l'annullabilità",
+   "C": "il valore del contratto non conta",
+   "D": "non c'è un'eccezione per l'errore di calcolo che renda efficace la clausola"
   },
-  "k": "solve et repete non ferma l'annullabilità"
+  "k": "solve et repete ≠ nullità/annullabilità",
+  "r": "Ricorda le <b>3 N-A-R</b>: <b>N</b>ullità, <b>A</b>nnullabilità, <b>R</b>escissione. Contro queste, la clausola «prima paga» non funziona mai."
  },
  "4642": {
-  "q": "Dopo che l'altra parte ha chiesto la risoluzione, l'inadempiente può ancora adempiere e rimediare, anche senza il consenso dell'altra parte?",
-  "p": "<b>No.</b> Dalla domanda di risoluzione in poi, chi è inadempiente non può più adempiere per sanare la sua posizione. La legge protegge così chi ha scelto di sciogliere il contratto, che non deve restare in attesa di un adempimento tardivo.",
-  "e": "Caio chiede al giudice la risoluzione perché Tizio non ha consegnato la merce. Una settimana dopo Tizio la offre: Caio non è tenuto ad accettarla.",
+  "q": "Una parte non ha adempiuto e l'altra ha già fatto <b>domanda di risoluzione</b> del contratto. La domanda chiede se l'inadempiente può ancora adempiere per sistemare le cose.",
+  "p": "<b>No</b>. Dal momento in cui è stata proposta la domanda di risoluzione, <b>l'inadempiente non può più adempiere</b>. La parte fedele ha scelto di sciogliere il contratto e non deve essere costretta ad accettare una prestazione tardiva. Non ci sono termini di grazia di 10 o 30 giorni.",
+  "e": "Il fornitore non consegna la merce. Dopo mesi l'azienda fa causa per la risoluzione. Il giorno dopo il fornitore manda la merce: l'azienda può rifiutarla.",
   "x": {
-   "B": "la domanda di risoluzione chiude proprio questa possibilità",
-   "C": "non è previsto un termine di dieci giorni per rimediare",
-   "D": "non è previsto un termine di trenta giorni per rimediare"
+   "B": "dopo la domanda di risoluzione non può più adempiere",
+   "C": "non c'è nessun termine di 10 giorni",
+   "D": "non c'è nessun termine di 30 giorni"
   },
-  "k": "domanda di risoluzione = troppo tardi per adempiere"
+  "k": "domanda di risoluzione = basta adempiere",
+  "r": "<b>«Troppo tardi»</b>: una volta chiesta la risoluzione, il treno è partito. I numeri 10 e 30 giorni sono esche."
  },
  "4643": {
-  "q": "Un debitore paga una somma prima della scadenza. Può poi chiederla indietro?",
-  "p": "<b>No.</b> Il debito esisteva già: era solo non ancora scaduto. Pagando prima, il debitore ha pagato una somma dovuta, quindi non può chiederne la restituzione.",
-  "e": "Tizio deve 2.000 euro a Caio entro dicembre e li paga a giugno. A settembre non può chiederli indietro.",
+  "q": "Il debitore ha pagato una somma di denaro <b>prima della scadenza</b>. La domanda chiede se può chiederne la restituzione.",
+  "p": "<b>No</b>. Il termine di pagamento è di solito a favore del debitore: può aspettare, ma se decide di pagare prima ha comunque pagato un debito vero. Per questo <b>non può chiedere indietro</b> quello che ha versato in anticipo, nemmeno se l'ha fatto senza sapere della scadenza.",
+  "e": "Devi restituire 2.000 € a dicembre ma li paghi a settembre. A ottobre ti servono soldi: non puoi pretendere che ti vengano restituiti.",
   "x": {
-   "B": "la restituzione non si può ottenere nemmeno in sede giudiziale",
-   "C": "l'intimazione scritta di 8 giorni non dà diritto alla restituzione",
-   "D": "una diffida entro 15 giorni non dà diritto alla restituzione"
+   "B": "non può chiederli, nemmeno in giudizio",
+   "C": "non può chiederli, nemmeno con un'intimazione di 8 giorni",
+   "D": "non può chiederli, nemmeno con una diffida di 15 giorni"
   },
-  "k": "pagato prima della scadenza = niente restituzione"
+  "k": "pagato prima = non si ripete",
+  "r": "<b>«Pagato è pagato»</b>: se il debito c'era, anticipare non dà diritto a riprendere i soldi. I numeri 8 e 15 giorni sono distrazioni."
  },
  "4644": {
-  "q": "In un contratto con prestazioni corrispettive, una parte è liberata perché la sua prestazione è diventata impossibile. Che cosa succede alla controprestazione?",
-  "p": "<b>Non può chiedere la controprestazione e deve restituire quello che ha già ricevuto.</b> Le due prestazioni sono collegate: una esiste in cambio dell'altra. Se una viene meno, cade anche la ragione dell'altra.",
-  "e": "Tizio deve consegnare un quadro a Caio per 5.000 euro, ma il quadro va distrutto senza sua colpa. Tizio non può chiedere i 5.000 euro e, se li ha già incassati, li deve restituire.",
+  "q": "In un contratto con prestazioni corrispettive, la prestazione di una parte diventa <b>impossibile</b> e quella parte è liberata. La domanda chiede se può comunque ricevere la prestazione dell'altra.",
+  "p": "<b>Non può chiedere la controprestazione e deve restituire quello che ha già ricevuto</b>. Nei contratti di scambio, se una prestazione salta, salta anche l'altra: non c'è più motivo di pagare per qualcosa che non arriverà. Se ha già incassato qualcosa, deve restituirlo.",
+  "e": "Hai pagato in anticipo 500 € per un concerto, ma il teatro viene distrutto da un incendio e il concerto non si può fare. L'organizzatore non può chiederti il resto e deve restituirti i 500 €.",
   "x": {
-   "B": "non può chiedere la controprestazione, perché non dà più nulla in cambio",
-   "C": "la prima parte è giusta, ma deve anche restituire quanto ricevuto",
-   "D": "sbaglia su entrambi i punti: niente controprestazione e obbligo di restituzione"
+   "B": "non può chiedere la controprestazione",
+   "C": "deve restituire quanto ha ricevuto",
+   "D": "sbaglia due volte: non può chiedere la controprestazione e deve restituire"
   },
-  "k": "niente prestazione = niente controprestazione, e si restituisce"
+  "k": "impossibilità: niente controprestazione e restituzione",
+  "r": "<b>«Niente dai, niente prendi, e ridai quello che hai preso»</b>. Lo scambio cade tutto intero."
  },
  "4645": {
-  "q": "In una compravendita di un immobile per persona da nominare, in che forma va fatta la nomina dell'acquirente?",
-  "p": "<b>Scrittura privata o atto pubblico.</b> La vendita di un immobile richiede la forma scritta, e la nomina deve rispettare la forma del contratto. Così è scritto chiaramente chi diventa l'acquirente.",
-  "e": "Tizio compra una casa «per sé o per persona da nominare» e poi indica Caio. L'indicazione deve risultare da scrittura privata o atto pubblico, non da una semplice dichiarazione informale.",
+  "q": "In una compravendita di un immobile l'acquirente si riserva di <b>nominare in seguito</b> chi sarà il vero compratore (contratto per persona da nominare). La domanda chiede in che forma va fatta la dichiarazione di nomina.",
+  "p": "La dichiarazione di nomina deve avere la <b>stessa forma del contratto</b>. La vendita di un immobile richiede <b>atto pubblico o scrittura privata</b>, quindi anche la nomina deve rispettare la stessa forma. Altrimenti si potrebbe aggirare la forma scritta indicando a voce chi diventa proprietario della casa.",
+  "e": "Un'agenzia firma il preliminare «per sé o per persona da nominare» e poi indica il cliente che comprerà davvero. L'indicazione del cliente va fatta per iscritto, come la vendita.",
   "x": {
-   "B": "una mail non certificata non è la forma richiesta per la nomina",
-   "C": "non va bene qualsiasi forma: qui serve la forma scritta",
-   "D": "non serve solo l'atto pubblico con testimoni: basta anche la scrittura privata"
+   "B": "un'e-mail non certificata non basta",
+   "C": "la forma non è libera: segue quella del contratto",
+   "D": "non serve solo l'atto pubblico, né i testimoni"
   },
-  "k": "nomina = stessa forma del contratto"
+  "k": "nomina = stessa forma del contratto",
+  "r": "Come per la procura: <b>la nomina è la «copia» del contratto</b>. Casa → scritto. Cerca di nuovo la coppia «scrittura privata o atto pubblico»."
  },
  "4646": {
-  "q": "Una compravendita di obbligazioni per persona da nominare è stata fatta con scrittura privata. In che forma va fatta la nomina?",
-  "p": "<b>Per scrittura privata.</b> La nomina deve avere la stessa forma usata dalle parti per il contratto, anche se la legge non la richiederebbe. Qui il contratto è per scrittura privata, quindi anche la nomina lo è.",
-  "e": "Tizio compra titoli con una scrittura privata e poi nomina Caio: serve un'altra scrittura privata.",
+  "q": "Una compravendita di obbligazioni è stata fatta per <b>scrittura privata</b> «per sé o per persona da nominare». La domanda chiede in che forma va fatta la dichiarazione di nomina.",
+  "p": "<b>Per scrittura privata</b>, cioè con la <b>stessa forma usata per il contratto</b>. La regola è sempre la stessa: la nomina ha la forma del contratto originario. Qui il contratto è una scrittura privata, quindi basta una scrittura privata. Non serve l'atto pubblico né l'autenticazione delle firme, e non basta una dichiarazione a voce.",
+  "e": "Firmi una scrittura privata per comprare titoli «per te o per un amico da nominare». Per indicare l'amico basta un'altra scrittura privata firmata.",
   "x": {
-   "B": "non serve una forma più rigida di quella del contratto, come l'atto pubblico",
-   "C": "la forma orale non basta: il contratto è scritto",
-   "D": "non serve l'autenticazione delle firme, che il contratto non ha"
+   "B": "l'atto pubblico non è necessario: basta la stessa forma del contratto",
+   "C": "a voce non basta: il contratto era scritto",
+   "D": "l'autenticazione delle firme non è richiesta"
   },
-  "k": "contratto in scrittura privata = nomina in scrittura privata"
+  "k": "nomina = stessa forma del contratto",
+  "r": "<b>«Stessa forma, né più né meno»</b>: guarda come è stato fatto il contratto e rispondi con quella forma. Qui la domanda te lo dice già: scrittura privata."
  },
  "4647": {
-  "q": "Tizio compra titoli per sé o per persona da nominare entro dieci giorni, ma non fa validamente la nomina in tempo. Il contratto produce effetti?",
-  "p": "<b>Sì, tra i contraenti originari.</b> Se la nomina manca o non è valida, il terzo non entra nel contratto. L'acquisto resta quindi a chi ha firmato, e il contratto non cade.",
-  "e": "Tizio si riserva dieci giorni per nominare Caio e non lo fa. All'undicesimo giorno l'acquirente dei titoli resta Tizio.",
+  "q": "Tizio compra obbligazioni «per sé o per persona da nominare entro dieci giorni», ma la nomina <b>non arriva in tempo</b>. La domanda chiede se il contratto produce i suoi effetti.",
+  "p": "<b>Sì, tra i contraenti originari</b>. Se la nomina non viene fatta validamente nel termine, il contratto resta in piedi tra chi l'ha firmato: Tizio diventa lui stesso l'acquirente. Il contratto non salta, e non servono nuovi consensi o rinunce del terzo.",
+  "e": "Luca firma l'acquisto «per me o per un amico da nominare entro 10 giorni». Passano 10 giorni e non indica nessuno: i titoli sono di Luca, che deve pagarli.",
   "x": {
-   "B": "non serve una dichiarazione di disinteresse del terzo",
-   "C": "non serve rinnovare il consenso entro trenta giorni: il contratto produce già effetti",
-   "D": "il contratto non perde effetto: resta tra chi lo ha firmato"
+   "B": "non serve che il terzo dichiari di non essere interessato",
+   "C": "non serve rinnovare il consenso: il contratto vale già",
+   "D": "il contratto produce effetti tra i contraenti originari"
   },
-  "k": "nomina mancata = contratto resta tra gli originari"
+  "k": "nomina mancata = vale tra gli originari",
+  "r": "<b>«Se non nomini nessuno, il compratore sei tu»</b>. Il contratto non svanisce: resta a chi l'ha firmato."
  },
  "4648": {
-  "q": "Un contratto a titolo oneroso rimane oscuro anche dopo aver usato le regole di interpretazione. Come va inteso?",
-  "p": "<b>Nel senso che realizzi un equo contemperamento degli interessi delle parti.</b> Nel contratto oneroso entrambe le parti danno e ricevono qualcosa, quindi la soluzione deve bilanciare i loro interessi. Il senso meno gravoso per l'obbligato vale invece per i contratti a titolo gratuito.",
-  "e": "In una vendita una clausola sul prezzo resta oscura: il giudice sceglie il significato che bilancia venditore e compratore, senza favorirne uno.",
+  "q": "Un contratto a titolo oneroso (entrambe le parti danno qualcosa) resta <b>oscuro</b> anche dopo tutte le regole di interpretazione. La domanda chiede come va inteso.",
+  "p": "Va inteso nel senso che <b>realizzi un equo contemperamento degli interessi delle parti</b>, cioè un giusto equilibrio. È l'ultima regola del codice. Se il contratto è <b>oneroso</b> si cerca l'equilibrio tra le parti; se invece è a <b>titolo gratuito</b> si sceglie il senso <b>meno gravoso per l'obbligato</b>, perché chi dà gratis non deve essere penalizzato.",
+  "e": "In una vendita una clausola sul trasporto resta ambigua: il giudice sceglie la soluzione che bilancia i due interessi. In una donazione ambigua sceglie il senso più leggero per chi dona.",
   "x": {
-   "B": "il senso meno gravoso per l'obbligato vale per i contratti a titolo gratuito, non onerosi",
-   "C": "non si privilegia l'interesse dell'accettante, ma l'equilibrio tra le parti",
-   "D": "non si privilegia l'interesse del proponente, ma l'equilibrio tra le parti"
+   "B": "«meno gravoso per l'obbligato» è la regola dei contratti <b>gratuiti</b>, non onerosi",
+   "C": "non si favorisce l'accettante",
+   "D": "non si favorisce il proponente"
   },
-  "k": "oneroso oscuro = equilibrio tra le parti"
+  "k": "oneroso oscuro = equilibrio",
+  "r": "Coppia da ricordare: <b>oneroso → equilibrio</b>, <b>gratuito → leggero per chi dà</b>. La B è la trappola perché è la regola giusta, ma per l'altro tipo di contratto."
  },
  "4649": {
-  "q": "Come si interpretano le clausole ambigue di un contratto?",
-  "p": "<b>Secondo ciò che si pratica generalmente nel luogo ove il contratto è stato concluso.</b> Quando il testo non è chiaro, si guarda a come ci si comporta di solito in quel luogo. È una regola del codice civile da memorizzare.",
-  "e": "Un contratto concluso a Genova usa un'espressione ambigua sui tempi di consegna: si guarda a come viene intesa di solito a Genova.",
+  "q": "La domanda chiede come si interpretano le <b>clausole ambigue</b> del contratto.",
+  "p": "Le clausole ambigue si interpretano <b>secondo ciò che si pratica generalmente nel luogo in cui il contratto è stato concluso</b>. Si guarda alle abitudini locali, che le parti conoscono e a cui probabilmente si riferivano. Non si dà ragione a una parte (proponente o accettante) e non esistono «raccolte di clausole» della Cassazione da applicare.",
+  "e": "Un contratto di vendita di vino concluso in Toscana parla di «una botte», senza indicare quanti litri. Si guarda a cosa si intende di solito per «botte» in quella zona.",
   "x": {
-   "B": "non conta il senso attribuito dall'accettante, ma la pratica generale del luogo",
-   "C": "il criterio non sono le raccolte di clausole della Cassazione, ma la pratica generale del luogo",
-   "D": "non conta il senso attribuito dal proponente, ma la pratica generale del luogo"
+   "B": "non si sceglie il senso dato dall'accettante",
+   "C": "la Cassazione non ha raccolte di clausole da applicare in questo modo",
+   "D": "non si sceglie il senso dato dal proponente"
   },
-  "k": "clausola ambigua = pratica del luogo di conclusione"
+  "k": "clausole ambigue = usi del luogo",
+  "r": "<b>«Paese che vai, usanza che trovi»</b>: per le clausole ambigue conta l'uso del <b>luogo</b> dove si è firmato. Le opzioni che favoriscono una sola parte sono sbagliate."
  },
  "4650": {
-  "q": "Un'espressione del contratto può avere più significati. Quale si sceglie, nel dubbio?",
-  "p": "<b>Il senso più conveniente alla natura e all'oggetto del contratto.</b> Il significato giusto è quello che si adatta al tipo di contratto e a ciò di cui tratta. È una regola del codice civile da memorizzare.",
-  "e": "Nell'affitto di un appartamento, la parola «locali» si legge come stanze della casa: è il senso adatto a quel contratto.",
+  "q": "La domanda chiede come vanno interpretate, nel dubbio, le <b>espressioni con più significati</b> in un contratto.",
+  "p": "Vanno intese <b>nel senso più conveniente alla natura e all'oggetto del contratto</b>. Se una parola può significare due cose, si sceglie il significato che ha più senso per quel tipo di contratto e per ciò che riguarda. Non si favorisce una delle parti.",
+  "e": "In un contratto di affitto di un ufficio, «locali» può voler dire «stanze» o «esercizi commerciali». Visto che è un affitto di ufficio, si intende «stanze».",
   "x": {
-   "B": "non conta il senso scelto dal proponente, ma quello adatto al contratto",
-   "C": "non conta il senso scelto dall'accettante, ma quello adatto al contratto",
-   "D": "non conta il senso comune, ma quello adatto alla natura e all'oggetto del contratto"
+   "B": "non si sceglie il senso del proponente",
+   "C": "non si sceglie il senso dell'accettante",
+   "D": "non conta il senso comune in astratto, ma quello adatto a quel contratto"
   },
-  "k": "più sensi = quello adatto al contratto"
+  "k": "più sensi = natura e oggetto del contratto",
+  "r": "<b>«Che senso ha per questo contratto?»</b>. Ricorda le tre regole gemelle: clausole ambigue → <b>luogo</b>; parole con più sensi → <b>natura e oggetto</b>; contratto oscuro → <b>equilibrio</b> (se oneroso)."
  },
  "4651": {
   "q": "Se una clausola del contratto è dubbia, come va letta secondo il codice civile?",
