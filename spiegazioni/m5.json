@@ -1800,554 +1800,604 @@
   "r": "<b>«Il debitore deve saperlo»</b>: notifica o accettazione. Le opzioni con mesi o anni sono inventate."
  },
  "4751": {
-  "q": "Il debitore e un terzo si accordano: il terzo si prenderà il debito. Da quando questo accordo non si può più revocare?",
-  "p": "L'accordo diventa irrevocabile <b>quando il creditore dichiara di aderire</b>. Fino a quel momento debitore e terzo possono cambiare idea, perché l'accordo riguarda solo loro due. Con l'adesione entra in gioco anche il creditore, che ora conta su quell'impegno: per questo non si torna più indietro.",
-  "e": "Marco deve 1.000 euro a Luca e Anna si accorda con Marco per pagarli. Finché Luca non aderisce, Marco e Anna possono sciogliere l'accordo. Dopo l'adesione di Luca, no.",
+  "q": "Il debitore e un terzo si accordano perché il terzo si prenda il debito (<b>accollo</b>). La domanda chiede quando questo accordo diventa <b>irrevocabile</b>.",
+  "p": "Quando il <b>creditore dichiara di aderire</b> all'accordo. Prima di quel momento, debitore e terzo possono cambiare idea, perché l'accordo è solo tra loro. Con l'adesione il creditore acquista il diritto verso il nuovo debitore, e l'accordo non si può più revocare. Non ci sono scadenze in giorni o mesi.",
+  "e": "Luca deve 5.000 € a Marco. Il fratello di Luca si accolla il debito. Finché Marco non dice «va bene, accetto», i due fratelli possono ancora ripensarci.",
   "x": {
-   "B": "non conta il passare di trenta giorni, ma l'adesione del creditore",
-   "C": "non è previsto un termine di sei mesi: decide l'adesione del creditore",
-   "D": "non è previsto un termine di tre mesi: decide l'adesione del creditore"
+   "B": "non dipende da un termine di 30 giorni",
+   "C": "non dipende da un termine di sei mesi",
+   "D": "non dipende da un termine di tre mesi"
   },
-  "k": "accollo: irrevocabile con l'adesione del creditore"
+  "k": "accollo irrevocabile con l'adesione del creditore",
+  "r": "<b>«Quando il creditore dice sì, è fatta»</b>. Tutte le risposte con un tempo fisso sono esche."
  },
  "4752": {
-  "q": "Chi cede un credito ha garantito che il debitore pagherà. Quando finisce questa garanzia?",
-  "p": "La garanzia cessa <b>se il mancato incasso per insolvenza dipende dalla negligenza del cessionario</b>, cioè di chi ha acquistato il credito, nell'iniziare o nel proseguire le azioni contro il debitore. Il motivo è semplice: il cedente garantisce il rischio che il debitore non possa pagare, non la trascuratezza di chi doveva attivarsi.",
-  "e": "Paolo compra un credito da Sara, che ne garantisce la solvenza. Paolo non agisce per anni e nel frattempo il debitore perde tutto. Se l'incasso è mancato per quell'inerzia, Sara non risponde più.",
+  "q": "Chi cede un credito ha garantito anche che il debitore pagherà (garanzia della solvenza). La domanda chiede quando questa garanzia cessa.",
+  "p": "Cessa se il credito non si è potuto incassare per <b>negligenza del cessionario</b>, cioè perché chi ha ricevuto il credito non si è attivato o non ha proseguito le azioni contro il debitore. Il cedente garantisce la solvenza, ma non può pagare le conseguenze dell'inerzia del cessionario.",
+  "e": "Ti cedo un credito garantendo che il debitore pagherà. Tu non fai nulla per due anni e nel frattempo il debitore fallisce. Non puoi chiedermi di pagare: è colpa della tua inerzia.",
   "x": {
-   "B": "iniziare l'azione entro sei mesi non fa cessare la garanzia: la fa cessare la negligenza",
-   "C": "iniziare l'azione entro tre mesi non fa cessare la garanzia: la fa cessare la negligenza",
-   "D": "non è vero «mai»: la negligenza del cessionario fa cessare la garanzia"
+   "B": "agire entro sei mesi non è il criterio: conta la negligenza",
+   "C": "agire entro tre mesi non è il criterio: conta la negligenza",
+   "D": "può cessare, in caso di negligenza"
   },
-  "k": "cessionario negligente = garanzia persa"
+  "k": "garanzia di solvenza cessa per negligenza del cessionario",
+  "r": "<b>«Se dormi tu, non pago io»</b>. Cerca la parola <b>«negligenza»</b>."
  },
  "4753": {
-  "q": "In una cessione di credito a pagamento, chi cede risponde se il debitore non è in grado di pagare?",
-  "p": "Il cedente risponde della solvenza <b>solo se ne ha assunto espressamente la garanzia</b>. Di regola chi cede assicura che il credito esiste, non che il debitore pagherà davvero. Il rischio di insolvenza passa quindi a chi acquista, a meno di un impegno esplicito del cedente.",
-  "e": "Sara vende a Paolo un credito di 5.000 euro. Il debitore fallisce: Paolo può rivolgersi a Sara solo se lei aveva promesso espressamente di garantire la solvenza.",
+  "q": "In una cessione di credito <b>a pagamento</b>, la domanda chiede se il cedente risponde del fatto che il debitore paghi (solvenza).",
+  "p": "<b>Solo se ne ha assunto espressamente la garanzia</b>. Di regola chi cede un credito a pagamento garantisce che il credito <b>esiste</b>, ma non che il debitore <b>pagherà</b>. Il rischio di insolvenza passa al cessionario, salvo patto contrario.",
+  "e": "Una banca compra da un'azienda dei crediti verso i suoi clienti. Se un cliente non paga, la banca non può rivalersi sull'azienda, a meno che l'azienda non abbia garantito espressamente la solvenza (cessione «pro solvendo»).",
   "x": {
-   "B": "non risponde sempre: serve che abbia assunto la garanzia",
-   "C": "la condizione non sono le istanze entro sei mesi, ma la garanzia espressa",
-   "D": "non è vero «mai»: risponde se ha assunto espressamente la garanzia"
+   "B": "non risponde sempre: solo se l'ha garantito",
+   "C": "il termine di sei mesi non c'entra",
+   "D": "può risponderne, se l'ha garantito"
   },
-  "k": "solvenza garantita solo se promessa"
+  "k": "solvenza garantita solo se pattuita",
+  "r": "Ricorda la coppia: <b>esistenza → sempre garantita</b> (salvo patto), <b>solvenza → solo se promessa</b>. In finanza si dice «pro soluto» (non garantisci) e «pro solvendo» (garantisci)."
  },
  "4754": {
-  "q": "Si può cedere un credito gratis, senza farsi pagare?",
-  "p": "<b>Sì</b>. La cessione del credito può essere a pagamento oppure gratuita. La legge non pone limiti legati a chi riceve il credito o a chi è il debitore. Cambia solo la garanzia dovuta da chi cede, che nella cessione gratuita è più limitata.",
-  "e": "Un nonno regala al nipote un credito di 2.000 euro verso un amico: è una cessione a titolo gratuito.",
+  "q": "La domanda chiede se un credito si può cedere <b>gratis</b>.",
+  "p": "<b>Sì</b>. Il codice ammette sia la cessione a titolo <b>oneroso</b> (con un corrispettivo) sia quella a titolo <b>gratuito</b> (per esempio come donazione). Non ci sono limiti legati a familiari o parenti.",
+  "e": "Un padre cede gratis al figlio un credito di 10.000 € che vanta verso un cliente: ora è il figlio a poterlo incassare.",
   "x": {
-   "B": "non serve che chi riceve il credito sia un familiare del cedente",
-   "C": "non serve che il debitore ceduto sia un familiare del cedente",
-   "D": "è sbagliato: la cessione gratuita è ammessa"
+   "B": "non è limitato ai familiari del cedente",
+   "C": "non è limitato ai crediti verso familiari",
+   "D": "è possibile"
   },
-  "k": "credito cedibile anche gratis"
+  "k": "cessione del credito anche gratuita",
+  "r": "<b>«Un credito si può anche regalare»</b>. Basta il «Sì»: le condizioni sui familiari sono esche."
  },
  "4755": {
-  "q": "Da quando la cessione del credito ha effetto verso il debitore?",
-  "p": "Ha effetto <b>quando il debitore l'ha accettata o quando gli è stata notificata</b>. La cessione si conclude tra cedente e cessionario, senza bisogno del consenso del debitore. Lui però deve saperlo, altrimenti non può sapere a chi pagare.",
-  "e": "Sara cede a Paolo un credito verso Luca. Da quando Luca riceve la notifica, o accetta la cessione, deve pagare Paolo e non più Sara.",
+  "q": "La domanda chiede da quando una cessione onerosa di credito vale <b>nei confronti del debitore</b>.",
+  "p": "Da quando il debitore <b>l'ha accettata</b> oppure <b>gli è stata notificata</b>. Prima di quel momento il debitore non sa che deve pagare a qualcun altro, quindi se paga al vecchio creditore in buona fede è liberato. Non esistono termini di 60 o 120 giorni.",
+  "e": "Ricevi una lettera: «Il tuo debito è stato ceduto a Beta S.r.l.». Da quel giorno devi pagare Beta.",
   "x": {
-   "B": "non è immediata in ogni caso: serve accettazione o notifica",
-   "C": "non si attendono 120 giorni: conta l'accettazione o la notifica",
-   "D": "non si attendono 60 giorni: conta l'accettazione o la notifica"
+   "B": "non è immediata verso il debitore: serve notifica o accettazione",
+   "C": "non c'è un termine di 120 giorni",
+   "D": "non c'è un termine di 60 giorni"
   },
-  "k": "debitore: accettazione o notifica"
+  "k": "cessione credito efficace con notifica o accettazione",
+  "r": "Gemella di un'altra domanda: <b>«il debitore deve saperlo»</b>. Le opzioni con giorni sono inventate."
  },
  "4756": {
-  "q": "Se cedo un credito a pagamento, che cosa devo garantire?",
-  "p": "<b>Salvo diverso patto, il cedente garantisce che il credito esiste al momento della cessione</b>. Chi paga per un credito deve almeno ricevere qualcosa di reale. Le parti però possono accordarsi diversamente ed escludere questa garanzia.",
-  "e": "Sara vende a Paolo per 3.000 euro un credito che in realtà era già stato pagato. Il credito non esisteva: Sara ne risponde, se non avevano pattuito altro.",
+  "q": "In una cessione di credito <b>a pagamento</b>, la domanda chiede se il cedente garantisce che il credito <b>esiste</b>.",
+  "p": "<b>Sì, salvo diverso patto</b>: il cedente deve garantire l'<b>esistenza del credito al momento della cessione</b>. Chi vende un credito deve almeno vendere qualcosa di vero. Le parti però possono escludere questa garanzia. Nella cessione <b>gratuita</b>, invece, la garanzia vale solo nei limiti previsti per il donante.",
+  "e": "Mi vendi per 900 € un credito di 1.000 € verso Tizio. Se scopro che Tizio aveva già pagato e il credito non esisteva, puoi dovermi rispondere.",
   "x": {
-   "B": "il limite legato alla garanzia del donante riguarda la cessione gratuita, non quella onerosa",
-   "C": "la garanzia può essere esclusa con un patto: è il «salvo diverso patto»",
-   "D": "non è vero «mai»: di regola il cedente la deve"
+   "B": "questa è la regola della cessione <b>gratuita</b>, non onerosa",
+   "C": "la garanzia si può escludere con un patto",
+   "D": "è tenuto, salvo patto contrario"
   },
-  "k": "cessione onerosa: garantita l'esistenza del credito"
+  "k": "cessione onerosa: garantita l'esistenza, salvo patto",
+  "r": "<b>«Se vendi, garantisci che esiste»</b>. La B è la trappola: è la regola giusta, ma per la cessione gratuita."
  },
  "4757": {
-  "q": "Il debitore, invece di pagare, cede al creditore un suo credito. Quando si estingue il debito?",
-  "p": "Si estingue <b>con la riscossione del credito, se non risulta una diversa volontà delle parti</b>. Il creditore vuole essere pagato davvero: il suo diritto finisce quando incassa, non quando riceve soltanto un altro credito. Le parti però possono decidere che basti la cessione.",
-  "e": "Marco deve 1.000 euro a Luca e gli cede un credito di 1.000 euro verso Anna. Il debito di Marco si estingue quando Luca incassa da Anna, non il giorno della cessione.",
+  "q": "Invece di pagare, il debitore <b>cede al creditore un proprio credito</b> verso un terzo. La domanda chiede quando si estingue il debito originario.",
+  "p": "<b>Con la riscossione del credito</b>, salvo che le parti abbiano voluto diversamente. Il creditore accetta il credito ceduto, ma il debito originario si estingue solo quando incassa davvero. Se il terzo non paga, il debitore resta obbligato (cessione «pro solvendo»).",
+  "e": "Devi 3.000 € a Marco e gli cedi un credito di 3.000 € che hai verso Luca. Il tuo debito si estingue solo quando Luca paga Marco.",
   "x": {
-   "B": "la cessione da sola estingue il debito solo se le parti lo hanno voluto",
-   "C": "la cessione in luogo dell'adempimento è consentita",
-   "D": "non vale «in ogni caso»: la diversa volontà delle parti prevale"
+   "B": "la sola cessione non estingue il debito, salvo diversa volontà",
+   "C": "è consentita",
+   "D": "la volontà delle parti può prevedere diversamente"
   },
-  "k": "cessione al posto del pagamento: conta l'incasso"
+  "k": "credito ceduto al posto del pagamento: estinzione all'incasso",
+  "r": "<b>«Sei libero quando lui incassa»</b>, non quando firmi. Scegli la risposta con <b>«riscossione»</b> e il «salvo diversa volontà»."
  },
  "4758": {
-  "q": "Alla firma del contratto una parte versa una somma. Se il contratto viene eseguito, la somma è restituita o scalata dal dovuto. Di che cosa si tratta?",
-  "p": "Si tratta di una <b>caparra confirmatoria</b>: una somma data alla conclusione del contratto che rafforza l'impegno preso. Se tutto va bene, viene restituita o imputata alla prestazione, cioè scalata dal dovuto. Questo meccanismo è proprio ciò che la identifica.",
-  "e": "Compri un'auto da 10.000 euro e versi 1.000 euro di caparra confirmatoria. Alla consegna ne paghi altri 9.000.",
+  "q": "Alla firma di un contratto una parte dà all'altra una somma che, se il contratto viene eseguito, viene <b>restituita o scalata dal prezzo</b>. La domanda chiede come si chiama.",
+  "p": "È una <b>caparra confirmatoria</b>. Serve a «confermare» la serietà dell'impegno. Se tutto va bene, si scala dal prezzo o si restituisce. Se una parte non adempie, l'altra può recedere e trattenere la caparra (o chiederne il doppio se l'aveva data lei).",
+  "e": "Firmi il compromesso per una casa da 200.000 € e versi 20.000 € di caparra. Al rogito paghi solo i 180.000 € restanti.",
   "x": {
-   "B": "un sovrapprezzo si aggiunge al prezzo: non viene restituito né scalato",
-   "C": "un contratto aleatorio dipende da un rischio, non da una somma versata alla firma",
-   "D": "la clausola penale fissa cosa si paga in caso di inadempimento, senza una somma versata alla firma"
+   "B": "il sovrapprezzo è una somma in più, non un acconto che si scala",
+   "C": "un contratto aleatorio dipende da un rischio, non da una caparra",
+   "D": "la penale è una somma dovuta in caso di inadempimento, non versata in anticipo"
   },
-  "k": "restituita o scalata = caparra confirmatoria"
+  "k": "somma alla firma scalata dal prezzo = caparra confirmatoria",
+  "r": "<b>«Confermo che faccio sul serio»</b>: caparra confirmatoria. Se va tutto bene, diventa un acconto."
  },
  "4759": {
-  "q": "Con una caparra penitenziale, chi l'ha ricevuta decide di recedere dal contratto. Quanto deve dare all'altra parte?",
-  "p": "Deve <b>restituire il doppio dell'importo ricevuto</b>. La caparra penitenziale è il prezzo del recesso. Chi l'ha versata e recede la perde, chi l'ha ricevuta e recede ne dà il doppio: restituisce la somma e paga altrettanto come prezzo. Così il costo del recesso è uguale per entrambi.",
-  "e": "Ricevi 1.000 euro di caparra penitenziale e recedi: restituisci 2.000 euro. Dei 2.000, 1.000 sono la somma ricevuta e 1.000 il prezzo del recesso.",
+  "q": "Il contratto prevede una <b>caparra penitenziale</b> (prezzo per poter recedere). Recede la parte che <b>ha ricevuto</b> la caparra: la domanda chiede quanto deve restituire.",
+  "p": "Deve restituire il <b>doppio</b> di quanto ha ricevuto. La caparra penitenziale è il «prezzo» del recesso: chi l'ha data e recede la perde, chi l'ha ricevuta e recede la restituisce raddoppiata. Così entrambe le parti pagano la stessa somma per uscire.",
+  "e": "Ricevi 5.000 € di caparra penitenziale per la vendita di una barca e poi decidi di non venderla più: restituisci 10.000 €.",
   "x": {
-   "B": "non può tenerla: chi l'ha ricevuta e recede deve dare il doppio",
-   "C": "restituire solo l'importo ricevuto non gli costerebbe nulla: il dovuto è il doppio",
-   "D": "il triplo non è la regola prevista: il dovuto è il doppio"
+   "B": "deve restituirla, anzi raddoppiata",
+   "C": "non basta restituire quanto ricevuto: va restituito il doppio",
+   "D": "non il triplo: il doppio"
   },
-  "k": "recede chi ha ricevuto: doppio"
+  "k": "caparra penitenziale: chi l'ha ricevuta e recede rende il doppio",
+  "r": "<b>«Chi dà e scappa perde, chi riceve e scappa rende il doppio»</b>. Vale per entrambi i tipi di caparra."
  },
  "4760": {
-  "q": "Chi non ha adempiuto può chiedere al giudice di ridurre la penale fissata nel contratto?",
-  "p": "<b>Sì, il giudice può diminuire equamente la penale</b>. Può farlo se l'obbligazione è stata eseguita in parte, oppure se la penale è manifestamente eccessiva. Serve a evitare che una somma sproporzionata diventi una punizione ingiusta.",
-  "e": "Per un lieve ritardo su un lavoro da 1.000 euro è prevista una penale di 50.000 euro. Il giudice può ridurla perché è manifestamente eccessiva.",
+  "q": "Il contratto contiene una <b>clausola penale</b> (una somma fissa da pagare se non si adempie). La domanda chiede se la parte inadempiente può chiedere al giudice di ridurla.",
+  "p": "<b>Sì</b>: il giudice può <b>ridurre equamente</b> la penale se l'obbligazione è stata eseguita in parte, oppure se la penale è <b>manifestamente eccessiva</b>. È uno strumento contro le penali sproporzionate. Non serve dimostrare la malafede dell'altra parte.",
+  "e": "Un contratto prevede 50.000 € di penale per un giorno di ritardo su una fornitura da 10.000 €: il giudice può ridurla.",
   "x": {
-   "B": "la riduzione non dipende dalla mancata buona fede della controparte",
-   "C": "non è vero «in nessun caso»: il giudice può ridurla",
-   "D": "si contraddice: il ricorso serve proprio a ottenere la riduzione"
+   "B": "la buona fede della controparte non è il requisito",
+   "C": "la riduzione è possibile",
+   "D": "è possibile proprio ottenere la riduzione"
   },
-  "k": "penale eccessiva: il giudice può ridurla"
+  "k": "penale eccessiva = riducibile dal giudice",
+  "r": "<b>«Il giudice taglia le penali esagerate»</b>. Scegli il «Sì» più semplice."
  },
  "4761": {
-  "q": "Un contratto sinallagmatico, cioè con prestazioni reciproche, può avere una clausola penale?",
-  "p": "<b>Sì</b>. Sinallagmatico vuol dire che ciascuna parte si impegna verso l'altra perché anche l'altra si impegna. In questi contratti l'inadempimento è un rischio tipico, quindi fissare in anticipo una penale è del tutto normale.",
-  "e": "In un contratto di appalto l'impresa costruisce e il cliente paga. Si può prevedere: 100 euro di penale per ogni giorno di ritardo nella consegna.",
+  "q": "La domanda chiede se un contratto <b>sinallagmatico</b> (con prestazioni reciproche) può contenere una clausola penale.",
+  "p": "<b>Sì</b>. La clausola penale si può inserire in qualsiasi contratto, sinallagmatico compreso: serve a fissare in anticipo il risarcimento in caso di inadempimento o ritardo. Anzi, è proprio nei contratti di scambio che si usa di più. Anche la caparra è ammessa.",
+  "e": "In un contratto d'appalto si prevede una penale di 100 € per ogni giorno di ritardo nella consegna dei lavori.",
   "x": {
-   "B": "può contenere una caparra, ma anche una clausola penale",
-   "C": "la penale non è limitata alla compravendita: è ammessa nei contratti sinallagmatici in generale",
-   "D": "sono ammesse entrambe, clausola penale e caparra"
+   "B": "può contenere sia la penale sia la caparra",
+   "C": "non è limitata alla compravendita",
+   "D": "può contenere sia la penale sia la caparra"
   },
-  "k": "prestazioni reciproche: penale ammessa"
+  "k": "penale ammessa nei contratti sinallagmatici",
+  "r": "<b>«Penale ovunque»</b>: basta il «Sì». Le risposte con «No» si eliminano insieme."
  },
  "4762": {
-  "q": "La caparra penitenziale può dare il diritto di recesso a una sola delle parti?",
-  "p": "<b>Sì</b>. Il recesso può essere pattuito per una sola parte o per entrambe: lo decidono i contraenti. In questo caso la caparra è il prezzo che paga chi ha quel diritto, se decide di usarlo.",
-  "e": "In un preliminare si stabilisce che solo l'acquirente può recedere, perdendo i 5.000 euro di caparra versati. Il venditore invece resta vincolato.",
+  "q": "La domanda chiede se la <b>caparra penitenziale</b> si può prevedere per il recesso di <b>una sola</b> delle parti.",
+  "p": "<b>Sì</b>. Il codice dice che la caparra penitenziale può riguardare il diritto di recesso di <b>una o di entrambe</b> le parti. Le parti decidono liberamente a chi dare questa «via d'uscita a pagamento». L'importo non conta.",
+  "e": "In un preliminare si scrive che solo il compratore può recedere, perdendo i 5.000 € di caparra. Il venditore invece resta vincolato.",
   "x": {
-   "B": "non dipende dal rapporto tra valore del contratto e caparra",
-   "C": "non dipende da quanto è alta la caparra in valore assoluto",
-   "D": "non è vero «in nessun caso»: è ammessa anche per una sola parte"
+   "B": "il rapporto tra importo e valore non conta",
+   "C": "l'importo non conta",
+   "D": "è possibile"
   },
-  "k": "recesso con caparra: anche per una sola parte"
+  "k": "caparra penitenziale anche per una sola parte",
+  "r": "<b>«Una o entrambe»</b>: la via d'uscita può averla anche uno solo. Basta il «Sì»."
  },
  "4763": {
-  "q": "C'è una clausola penale: chi ha adempiuto può chiedere anche il danno ulteriore?",
-  "p": "<b>No, salva diversa pattuizione</b>. La penale fissa in anticipo il risarcimento e limita il dovuto a quella somma: è il suo vantaggio, perché evita discussioni sul danno. Il danno ulteriore si può chiedere solo se le parti lo hanno previsto.",
-  "e": "La penale è di 1.000 euro e il danno reale è di 3.000. Si ottengono 1.000 euro, a meno che il contratto non preveda anche il danno ulteriore.",
+  "q": "C'è una clausola penale e la parte che ha subito l'inadempimento ha avuto un <b>danno maggiore</b> della penale. La domanda chiede se può chiedere anche il danno ulteriore.",
+  "p": "<b>No, salvo che sia stato pattuito</b>. La clausola penale <b>fissa in anticipo</b> il risarcimento: il vantaggio è che non devi provare il danno, ma il limite è che non puoi chiedere di più. Solo se le parti hanno previsto anche il risarcimento del danno ulteriore si può ottenere di più.",
+  "e": "Penale di 2.000 € per il ritardo nella consegna. Il ritardo ti ha causato danni per 5.000 €: ottieni 2.000 €, salvo che il contratto preveda anche il danno ulteriore.",
   "x": {
-   "B": "la costituzione in mora non basta: serve un patto sul danno ulteriore",
-   "C": "agire in giudizio non basta: serve un patto sul danno ulteriore",
-   "D": "la diffida e i 60 giorni non contano: serve un patto sul danno ulteriore"
+   "B": "la costituzione in mora non basta: serve il patto",
+   "C": "non dipende dall'andare in giudizio",
+   "D": "non dipende dalla diffida di 60 giorni"
   },
-  "k": "penale = tetto al danno, salvo patto"
+  "k": "penale = tetto al risarcimento, salvo patto",
+  "r": "<b>«La penale è un pacchetto chiuso»</b>: comodo ma con un tetto. Per avere di più bisogna averlo scritto."
  },
  "4764": {
-  "q": "La penale si deve pagare anche se non si prova di aver subito un danno?",
-  "p": "<b>Sì</b>. La penale è dovuta indipendentemente dalla prova del danno. Serve proprio a questo: le parti stabiliscono prima quanto si paga, così chi la chiede deve dimostrare l'inadempimento, ma non il danno.",
-  "e": "Il contratto prevede 500 euro di penale per il ritardo. La consegna ritarda: la somma è dovuta, anche senza provare una perdita.",
+  "q": "La domanda chiede se la penale è dovuta anche <b>senza provare il danno</b>.",
+  "p": "<b>Sì</b>. È proprio la funzione della clausola penale: la penale è dovuta <b>indipendentemente dalla prova del danno</b>. Basta l'inadempimento o il ritardo. Le parti hanno già deciso in anticipo quanto vale il danno.",
+  "e": "Il fornitore consegna con 10 giorni di ritardo e il contratto prevede 50 € di penale al giorno. Ti spettano 500 € anche se non dimostri di aver subito un danno.",
   "x": {
-   "B": "non è vero «mai»: è dovuta anche senza prova del danno",
-   "C": "non dipende dalla misura del danno: non serve provarlo",
-   "D": "non vale solo per l'appalto: la regola è generale"
+   "B": "è dovuta",
+   "C": "non dipende dalla misura del danno",
+   "D": "non è limitata all'appalto"
   },
-  "k": "penale: niente prova del danno"
+  "k": "penale dovuta senza prova del danno",
+  "r": "<b>«Penale = niente prove»</b>: è il suo vantaggio. Basta il «Sì»."
  },
  "4765": {
-  "q": "Se la penale non è solo per il ritardo, il creditore può chiedere sia la prestazione sia la penale?",
-  "p": "<b>No</b>. In questo caso la penale sostituisce la prestazione non eseguita: chiederle entrambe significherebbe ottenere due volte la stessa cosa. Il creditore deve scegliere. Il cumulo è possibile solo quando la penale è pattuita per il semplice ritardo.",
-  "e": "Il venditore non consegna la merce e la penale è per l'inadempimento: il cliente chiede la merce o la penale, non entrambe. Se la penale era per il ritardo, può chiedere merce e penale.",
+  "q": "Il creditore vuole sia la <b>prestazione principale</b> sia la <b>penale</b>, e la penale non è prevista per il semplice ritardo. La domanda chiede se può chiederle insieme.",
+  "p": "<b>No</b>. Se la penale sostituisce il risarcimento per l'inadempimento, il creditore deve scegliere: o la prestazione o la penale. Chiederle insieme significherebbe ottenere due volte la stessa cosa. Diverso è il caso della penale per il <b>ritardo</b>, che si somma alla prestazione.",
+  "e": "Un fornitore non consegna e c'è una penale di 10.000 € per l'inadempimento. Puoi chiedere la consegna oppure i 10.000 €, non entrambi.",
   "x": {
-   "B": "il cumulo vale solo per la penale da semplice ritardo",
-   "C": "il cumulo non dipende dal superamento di cinquecentomila euro",
-   "D": "il cumulo non dipende dal superamento di centomila euro"
+   "B": "non può cumularle",
+   "C": "l'importo della penale non conta",
+   "D": "l'importo della penale non conta"
   },
-  "k": "prestazione o penale, non entrambe"
+  "k": "penale per inadempimento: o lei o la prestazione",
+  "r": "<b>«O la torta o il rimborso»</b>, non tutti e due. Solo la penale per <b>ritardo</b> si somma."
  },
  "4766": {
-  "q": "In quanto tempo si prescrive il risarcimento per un fatto illecito che non è reato e non riguarda la circolazione dei veicoli?",
-  "p": "In <b>cinque anni dal giorno in cui il fatto si è verificato</b>. È la regola generale per il danno da fatto illecito. Per questa materia il termine è più breve di quello ordinario di dieci anni, ed è un dato da memorizzare.",
-  "e": "Il danno avviene il 10 marzo 2020 per un fatto illecito di questo tipo: il diritto si prescrive il 10 marzo 2025, salvo interruzioni.",
+  "q": "La domanda chiede in quanto tempo si prescrive il diritto al risarcimento per un <b>fatto illecito</b> comune (né reato né incidente stradale).",
+  "p": "In <b>cinque anni</b> dal giorno in cui il fatto si è verificato. È la prescrizione ordinaria per la <b>responsabilità extracontrattuale</b>. Per i danni da circolazione dei veicoli è più breve: <b>due anni</b>. Per i diritti in generale la prescrizione ordinaria è di dieci anni.",
+  "e": "Il tuo vicino rompe la tua recinzione il 1° marzo 2026: hai tempo fino al 1° marzo 2031 per chiedere il risarcimento.",
   "x": {
-   "B": "dieci anni è la prescrizione ordinaria, non quella del fatto illecito",
-   "C": "un anno è troppo breve: il termine previsto è cinque anni",
-   "D": "tre anni non è la regola prevista: il termine è cinque anni"
+   "B": "dieci anni è la prescrizione ordinaria generale, non quella dell'illecito",
+   "C": "un anno è troppo breve",
+   "D": "tre anni non è il termine previsto"
   },
-  "k": "fatto illecito: 5 anni dal fatto"
+  "k": "fatto illecito = 5 anni",
+  "r": "<b>Illecito = 5, incidente stradale = 2, regola generale = 10</b>. Una mano aperta (5) per l'illecito."
  },
  "4767": {
-  "q": "Entro quanto si prescrive il risarcimento del danno da atto illecito?",
-  "p": "<b>Entro cinque anni dal giorno in cui si è verificato il fatto</b>. È una regola da memorizzare: termine di cinque anni, che parte dal fatto e non dal momento in cui si va in giudizio.",
-  "e": "Un fatto illecito avviene a giugno 2021: il diritto si prescrive a giugno 2026, salvo interruzioni.",
+  "q": "La domanda chiede entro quanto si prescrive il risarcimento del danno da <b>atto illecito</b>.",
+  "p": "<b>Cinque anni</b> dal giorno in cui si è verificato il fatto. Il tempo decorre dal <b>fatto</b>, non dalla domanda in tribunale. È la stessa regola della domanda precedente.",
+  "e": "Un ciclista ti investe il 10 maggio 2026: hai cinque anni, fino al 10 maggio 2031, per chiedere il risarcimento.",
   "x": {
-   "B": "tre anni non è la regola generale: il termine è cinque anni",
-   "C": "sbaglia sia la durata sia la partenza: il termine parte dal fatto, non dalla domanda",
-   "D": "due anni non è la regola generale: il termine è cinque anni"
+   "B": "tre anni non è il termine previsto",
+   "C": "il termine non decorre dalla domanda giudiziale, e non è di due anni",
+   "D": "due anni valgono per gli incidenti stradali, non per l'illecito in generale"
   },
-  "k": "illecito: 5 anni dal fatto"
+  "k": "atto illecito = 5 anni dal fatto",
+  "r": "Gemella della precedente: <b>5 dal fatto</b>. Il 2 è la trappola, perché vale solo per i veicoli."
  },
  "4768": {
-  "q": "Un cane lupo scappa dal capanno di una villa e morde un ragazzo di 13 anni in un parco cittadino. Chi risponde?",
-  "p": "Risponde <b>il proprietario, salvo che provi il caso fortuito</b>. Chi ha l'animale ne risponde anche se è smarrito o fuggito. Non basta dire «l'avevo custodito»: deve provare un evento imprevedibile e inevitabile, estraneo a lui.",
-  "e": "Il cane esce perché il capanno è chiuso male: il proprietario paga le cure del ragazzo. Si libera solo se prova il caso fortuito.",
+  "q": "Un cane lupo scappa dal capanno di una villa e, nel parco in centro città, morde un ragazzo di 13 anni. La domanda chiede chi risponde del danno.",
+  "p": "Il <b>proprietario del cane</b> (o chi se ne serve), salvo che provi il <b>caso fortuito</b>. Per i danni causati dagli animali la legge presume la responsabilità di chi ne ha la custodia: non serve dimostrare che è stato negligente. Si salva solo provando un evento imprevedibile e inevitabile.",
+  "e": "Il cane scappa perché qualcuno ha lasciato aperto il cancello: il proprietario risponde comunque, perché lasciare aperto il cancello non è un caso fortuito.",
   "x": {
-   "B": "il giardiniere del parco non è né proprietario né custode del cane",
-   "C": "i genitori del minore non hanno alcun legame con il cane",
-   "D": "il minore è la vittima, non chi deve rispondere"
+   "B": "il giardiniere del parco non ha la custodia del cane",
+   "C": "i genitori del ragazzo non hanno causato il danno",
+   "D": "il ragazzo è la vittima"
   },
-  "k": "danno da animale: proprietario, salvo caso fortuito"
+  "k": "danno da animali = proprietario, salvo caso fortuito",
+  "r": "<b>«Il cane è tuo, il morso è tuo»</b>, salvo l'imprevedibile. Tutti i dettagli sulla villa e sul parco servono a distrarre."
  },
  "4769": {
-  "q": "Se non si può provare quanto vale esattamente un danno, chi lo quantifica e come?",
-  "p": "Lo liquida <b>il giudice con valutazione equitativa</b>. Il danno c'è, ma non si riesce a dimostrarne l'importo preciso. Non sarebbe giusto lasciare il danneggiato senza nulla, quindi il giudice stabilisce una somma ragionevole.",
-  "e": "Un incendio distrugge un archivio di famiglia di cui non si può stimare il valore esatto: il giudice fissa un importo secondo equità.",
+  "q": "Un danno esiste ma <b>non si riesce a provarne l'importo preciso</b>. La domanda chiede chi lo liquida e come.",
+  "p": "Lo liquida il <b>giudice con valutazione equitativa</b>. Se il danno c'è ma non si può quantificare con precisione, sarebbe ingiusto non risarcirlo: il giudice fissa una somma secondo equità, cioè ragionevole e motivata. Non lo fanno né il danneggiato né il danneggiante, e tanto meno un ordine professionale.",
+  "e": "Un incendio distrugge un archivio di foto di famiglia: non hanno un prezzo di mercato preciso, quindi il giudice stabilisce una cifra equa.",
   "x": {
-   "B": "il danneggiato è parte in causa: non può fissare da solo una somma forfettaria",
-   "C": "il presidente dell'ordine dei commercialisti non ha questo compito: spetta al giudice",
-   "D": "il danneggiante è parte in causa, e il criterio non sono gli usi"
+   "B": "il danneggiato non può liquidarsi da solo il danno",
+   "C": "il presidente dei commercialisti non c'entra",
+   "D": "il danneggiante non decide il risarcimento"
   },
-  "k": "importo non provabile: giudice, equità"
+  "k": "danno non quantificabile = equità del giudice",
+  "r": "<b>«Quando i numeri mancano, decide il giudice con equità»</b>. È l'unica opzione con una figura imparziale."
  },
  "4770": {
-  "q": "Chi non era capace di intendere o di volere quando ha causato il danno ne risponde?",
-  "p": "<b>No, a meno che lo stato di incapacità derivi da sua colpa</b>. Per rispondere di un fatto bisogna poterlo capire e volere. Se però è stato lui stesso a mettersi in quello stato, l'incapacità non lo protegge.",
-  "e": "Chi perde conoscenza per un malore improvviso e rompe una vetrina di norma non risponde. Chi si ubriaca e la rompe, sì.",
+  "q": "Una persona causa un danno mentre <b>non era capace di intendere o di volere</b>. La domanda chiede se ne risponde.",
+  "p": "<b>No</b>, a meno che lo stato di incapacità sia <b>colpa sua</b>. Chi non capisce ciò che fa non può essere rimproverato. Ma se si è messo da solo in quella situazione, ad esempio bevendo o drogandosi, ne risponde. In questi casi può rispondere anche chi doveva sorvegliarlo.",
+  "e": "Una persona con una grave malattia mentale rompe una vetrina durante una crisi: non risponde. Chi si ubriaca e rompe la stessa vetrina, sì.",
   "x": {
-   "B": "non è vero «mai»: risponde se l'incapacità deriva da sua colpa",
-   "C": "la responsabilità non dipende dal superamento di diecimila euro",
-   "D": "inverte la regola: di base non risponde, risponde se è colpa sua"
+   "B": "non è «mai»: risponde se l'incapacità è colpa sua",
+   "C": "il valore del danno non conta",
+   "D": "inverte la regola: di base non risponde"
   },
-  "k": "incapace non risponde, salvo sua colpa"
+  "k": "incapace non risponde, salvo incapacità colpevole",
+  "r": "<b>«Non rispondi, a meno che ti sia ubriacato da solo»</b>. A e D sono speculari: vince quella che parte dal «No»."
  },
  "4771": {
-  "q": "Chi causa un danno per difendere legittimamente sé o altri ne è responsabile?",
-  "p": "<b>Non è responsabile</b>. La legittima difesa rende il fatto non ingiusto: chi reagisce per proteggersi da un'aggressione esercita una difesa ammessa dalla legge. Per questo non c'è obbligo di risarcire.",
-  "e": "Un aggressore colpisce Anna, lei lo spinge per difendersi e lui si fa male. Anna non deve risarcirlo.",
+  "q": "Una persona causa un danno per <b>legittima difesa</b> di sé o di altri. La domanda chiede se ne risponde.",
+  "p": "<b>Non è responsabile</b>. La legittima difesa rende il fatto <b>lecito</b>: chi si difende da un'aggressione ingiusta, in modo proporzionato, non deve risarcire chi lo aggrediva.",
+  "e": "Un ladro ti aggredisce per strada, tu lo spingi via e lui si rompe gli occhiali. Non devi ripagarglieli.",
   "x": {
-   "B": "in legittima difesa il danno non è ingiusto",
-   "C": "non vale «sempre»: in legittima difesa non c'è responsabilità",
-   "D": "non deve risarcire: non è responsabile"
+   "B": "il danno non è ingiusto, perché la difesa è legittima",
+   "C": "non risponde, nemmeno a titolo extracontrattuale",
+   "D": "non deve risarcire"
   },
-  "k": "legittima difesa: nessuna responsabilità"
+  "k": "legittima difesa = nessuna responsabilità",
+  "r": "<b>«Difendersi non è un torto»</b>. Basta la risposta più semplice."
  },
  "4772": {
-  "q": "Valerio vende per conto di Caio un garage a Sempronio, nello stesso condominio in cui Valerio abita. Un mese dopo Sempronio, insoddisfatto, chiede l'annullamento per conflitto di interessi. Può vincere?",
-  "p": "<b>No, non ha molte possibilità di vincere</b>. Abitare nello stesso condominio non crea di per sé un conflitto di interessi. Inoltre l'annullamento per conflitto tutela il rappresentato, cioè Caio, e non chi ha comprato. L'insoddisfazione per l'acquisto non è un motivo di annullamento.",
-  "e": "Sarebbe diverso se Valerio, a danno di Caio, ricavasse un vantaggio personale dalla vendita: a lamentarsi potrebbe essere Caio, non Sempronio.",
+  "q": "Valerio rappresenta Caio nella vendita di un garage a Sempronio. Il garage è nello stesso condominio dove abita Valerio. Un mese dopo Sempronio, scontento, chiede l'annullamento sostenendo che Valerio era in <b>conflitto di interessi</b>. La domanda chiede se ha speranze.",
+  "p": "<b>No, non ha molte possibilità</b>. Il contratto del rappresentante in conflitto di interessi è annullabile <b>su domanda del rappresentato</b> (qui Caio), e solo se il conflitto era conosciuto o riconoscibile dal terzo. Sempronio è il terzo, non il rappresentato. Inoltre abitare nello stesso condominio non è di per sé un conflitto di interessi. La sua è solo insoddisfazione per l'acquisto.",
+  "e": "Un agente vende la casa del cliente a suo cugino a metà prezzo: è il <b>cliente</b> che può chiedere l'annullamento, non il cugino che ha comprato.",
   "x": {
-   "B": "nessuna causa dà certezza, e qui mancano le basi per vincere",
-   "C": "senza annullamento non può chiedere la restituzione del prezzo, tanto meno direttamente",
-   "D": "residenza e vicinanza dei garage non bastano a creare il conflitto"
+   "B": "non ha nessuna certezza di vincere: anzi, il contrario",
+   "C": "non può chiedere direttamente la restituzione del prezzo",
+   "D": "anche dimostrando questi dettagli non avrebbe titolo: il conflitto lo fa valere il rappresentato"
   },
-  "k": "conflitto d'interessi: tutela il rappresentato"
+  "k": "conflitto di interessi: lo fa valere il rappresentato",
+  "r": "<b>«Il conflitto tutela chi è rappresentato, non chi compra»</b>. Quando una parte è solo scontenta, la risposta di solito è «No»."
  },
  "4773": {
-  "q": "Il rappresentante conclude un contratto in nome e nell'interesse del rappresentato. Su chi ricadono gli effetti?",
-  "p": "Gli effetti si producono <b>direttamente in capo al rappresentato</b>. Il rappresentante agisce con un potere ricevuto e spende il nome di un altro: è come se avesse firmato il rappresentato stesso. Diritti e obblighi vanno quindi a lui.",
-  "e": "Luca, con procura di Anna, compra un'auto a nome di Anna. La proprietaria è Anna e il prezzo lo deve Anna, non Luca.",
+  "q": "Un rappresentante conclude un contratto <b>in nome e nell'interesse</b> del rappresentato. La domanda chiede su chi ricadono gli effetti.",
+  "p": "Gli effetti si producono <b>direttamente in capo al rappresentato</b>. È proprio il senso della rappresentanza: il rappresentante agisce in nome di un altro, quindi diritti e obblighi vanno subito a quell'altro, come se avesse firmato lui. Il rappresentante resta fuori dal rapporto.",
+  "e": "Con una procura tua sorella compra un'auto in tuo nome: proprietario sei tu, e il debito del prezzo è tuo.",
   "x": {
-   "B": "gli effetti non ricadono sul rappresentante: agisce in nome e nell'interesse del rappresentato",
-   "C": "gli effetti non si dividono: vanno solo al rappresentato",
-   "D": "è ammesso: è proprio la rappresentanza"
+   "B": "non ricadono sul rappresentante",
+   "C": "non ricadono su entrambi",
+   "D": "è ammesso"
   },
-  "k": "rappresentanza: effetti sul rappresentato"
+  "k": "rappresentanza = effetti diretti sul rappresentato",
+  "r": "<b>«Firma lui, vale per te»</b>. La parola chiave è <b>«direttamente»</b>."
  },
  "4774": {
-  "q": "Quale requisito deve avere il rappresentante perché il contratto che conclude sia valido?",
-  "p": "Deve avere <b>la capacità di intendere e di volere, considerati natura e contenuto del contratto</b>. Gli effetti ricadono sul rappresentato, quindi non serve che il rappresentante abbia la piena capacità di agire. Serve però che capisca ciò che sta facendo.",
-  "e": "Un diciassettenne maturo può concludere per conto di un adulto una semplice compravendita: gli effetti ricadono sull'adulto, che deve essere capace di agire.",
+  "q": "La domanda chiede quale requisito deve avere il <b>rappresentante</b> perché il contratto che conclude sia valido.",
+  "p": "Deve avere la <b>capacità di intendere e di volere</b>, tenuto conto della natura e del contenuto del contratto. Non serve la piena <b>capacità di agire</b>: è il <b>rappresentato</b> che deve averla, perché gli effetti ricadono su di lui. Il rappresentante deve solo capire cosa sta facendo.",
+  "e": "Un diciassettenne sveglio può firmare come rappresentante del padre (maggiorenne e capace) un contratto semplice: basta che capisca cosa sta firmando.",
   "x": {
-   "B": "la capacità di agire è richiesta al rappresentato, non al rappresentante",
-   "C": "non serve la personalità giuridica: può rappresentare anche una persona fisica",
-   "D": "la capacità politica non c'entra con i contratti"
+   "B": "la capacità di agire la deve avere il rappresentato, non il rappresentante",
+   "C": "la personalità giuridica non c'entra",
+   "D": "la capacità politica non c'entra"
   },
-  "k": "rappresentante: basta capire e volere"
+  "k": "rappresentante: basta la capacità di intendere e volere",
+  "r": "<b>Rappresentante = capisce; rappresentato = capace</b>. La B è la trappola: è un requisito reale, ma della persona sbagliata."
  },
  "4775": {
-  "q": "In che forma va rilasciata la procura perché sia efficace?",
-  "p": "Va rilasciata <b>con le forme prescritte per il contratto che il rappresentante deve concludere</b>. La forma della procura segue quella del contratto: se per il contratto la legge chiede una certa forma, la stessa serve per il potere di concluderlo.",
-  "e": "La vendita di una casa richiede la forma scritta: anche la procura a venderla deve essere scritta. Se il contratto non richiede forme, nemmeno la procura.",
+  "q": "La domanda chiede in che forma deve essere rilasciata la <b>procura</b> per essere efficace.",
+  "p": "<b>Con le stesse forme prescritte per il contratto</b> che il rappresentante dovrà concludere. Procura per vendere una casa: per iscritto. Procura per comprare un oggetto qualsiasi: forma libera. Non è sempre scritta e non è sempre libera: dipende dal contratto.",
+  "e": "Per vendere il tuo appartamento serve una procura scritta. Per comprare un divano può bastare un incarico a voce.",
   "x": {
-   "B": "la libertà di forme non vale se il contratto richiede una forma precisa",
-   "C": "non conta la prova in caso di lite, ma la forma del contratto da concludere",
-   "D": "non serve sempre lo scritto: dipende dal contratto"
+   "B": "la libertà di forma non vale quando il contratto richiede una forma",
+   "C": "non basta la prova scritta in caso di lite: segue la forma del contratto",
+   "D": "non è necessariamente scritta: dipende dal contratto"
   },
-  "k": "procura: stessa forma del contratto"
+  "k": "procura = forma del contratto",
+  "r": "<b>«La procura è la fotocopia del contratto»</b>, come il preliminare e la nomina. Cerca «le forme prescritte per il contratto»."
  },
  "4776": {
-  "q": "Un rappresentante conclude un contratto con un terzo andando oltre i poteri ricevuti con la procura. Il rappresentato resta vincolato a quel contratto?",
-  "p": "<b>No</b>. Il rappresentato risponde solo di ciò che ha autorizzato: per la parte che eccede i poteri, il rappresentante agisce senza potere e il contratto non produce effetti verso il rappresentato. Il contratto può vincolarlo solo se lui decide di approvarlo dopo, con la <i>ratifica</i>. Se il terzo subisce un danno perché ha confidato nel contratto, può chiederne il risarcimento al rappresentante.",
-  "e": "Anna autorizza Marco a comprare un'auto fino a 10.000 €. Marco ne compra una da 15.000 €. Anna non è obbligata verso il venditore, a meno che non approvi l'acquisto.",
+  "q": "Il rappresentante conclude un contratto <b>superando i poteri</b> che gli dava la procura. La domanda chiede se il rappresentato ne è vincolato.",
+  "p": "<b>No</b>. Il contratto concluso oltre i poteri <b>non produce effetti</b> per il rappresentato, a meno che lui lo <b>ratifichi</b>, cioè lo approvi dopo. Il rappresentato aveva dato un mandato preciso: non può trovarsi obbligato a cose che non ha mai autorizzato. Il terzo che ha confidato senza colpa nella validità del contratto può chiedere i danni al falso rappresentante.",
+  "e": "Dai a tuo cugino la procura per affittare il tuo box e lui lo vende. La vendita non ti vincola, a meno che tu non decida di ratificarla.",
   "x": {
-   "B": "Il rappresentato non è vincolato, quindi non deve pagare e poi rivalersi sul rappresentante: la rivalsa non serve.",
-   "C": "Il vantaggio tratto non basta a vincolarlo: la regola richiede la sua approvazione, cioè la ratifica.",
-   "D": "La sola buona fede del terzo non rende efficace il contratto verso il rappresentato; il terzo può chiedere i danni al rappresentante."
+   "B": "non è vincolato, quindi non deve neppure rivalersi",
+   "C": "il vantaggio non lo vincola: serve la ratifica",
+   "D": "la buona fede del terzo non vincola il rappresentato: il terzo può solo chiedere i danni al falso rappresentante"
   },
-  "k": "Oltre i poteri: non vincola, salvo ratifica."
+  "k": "oltre i poteri = non vincola, salvo ratifica",
+  "r": "<b>«Non l'ho autorizzato, non mi vincola»</b>, a meno che non dica «ok» dopo (ratifica). Basta il «No» semplice."
  },
  "4777": {
-  "q": "Giulio ha una procura di Tizio solo per dare in locazione un ufficio a 5.000 € al mese. Invece lo vende a Sempronio per 400.000 €. Tizio rifiuta il contratto. Sempronio può chiedere a Tizio il prezzo?",
-  "p": "<b>No, perché Tizio non ha ratificato la compravendita stipulata da Giulio, privo del potere di vendere</b>. Una procura per locare non dà il potere di vendere: vendere è un atto del tutto diverso e più grave. Il contratto concluso senza potere non produce effetti verso Tizio. Diventerebbe efficace verso di lui solo con la ratifica, che qui manca perché Tizio si rifiuta.",
-  "e": "Procura per affittare l'ufficio a 5.000 € al mese, vendita a 400.000 €: l'atto compiuto è fuori dalla procura. Tizio rifiuta e quindi non deve né ricevere l'ufficio né pagare i 400.000 €.",
+  "q": "Giulio ha una procura di Tizio per <b>affittare</b> un ufficio a 5.000 € al mese, ma lo <b>vende</b> a Sempronio per 400.000 €. Tizio rifiuta la vendita. La domanda chiede se Sempronio può pretendere il prezzo da Tizio.",
+  "p": "<b>No</b>, perché Tizio <b>non ha ratificato</b> la vendita e Giulio <b>non aveva il potere</b> di vendere. Una procura per affittare non permette di vendere. Senza ratifica, il contratto non produce effetti per Tizio. Sempronio può semmai chiedere i danni a Giulio.",
+  "e": "Dai una procura per affittare la tua casa al mare e il procuratore la vende. Puoi semplicemente non ratificare: la vendita non ti tocca.",
   "x": {
-   "B": "Non basta aver firmato a nome di Tizio: Giulio non aveva il potere di vendere e Tizio non ha ratificato.",
-   "C": "Il termine di sei mesi non c'entra: senza ratifica il prezzo non si può chiedere in nessun momento.",
-   "D": "Anche il termine di un anno è irrilevante: il problema è la mancanza del potere, non il tempo trascorso."
+   "B": "non può: manca il potere di vendere e la ratifica",
+   "C": "non c'è un termine di sei mesi che lo renda possibile",
+   "D": "non c'è un termine di un anno che lo renda possibile"
   },
-  "k": "Procura per locare non è potere di vendere."
+  "k": "procura per affittare ≠ potere di vendere",
+  "r": "<b>«Affittare ≠ vendere»</b>: il procuratore è andato oltre. Senza ratifica il rappresentato non è vincolato. Le opzioni con un termine sono esche."
  },
  "4778": {
-  "q": "Una procura a vendere è stata data per un certo periodo, che ora è finito. Se il rappresentato la chiede indietro, il rappresentante deve restituirla?",
-  "p": "<b>Sì</b>. Quando il periodo è finito i poteri sono cessati, e il rappresentante deve restituire il documento che li prova. Il motivo è pratico: chi tiene ancora il documento potrebbe presentarsi ai terzi come se avesse ancora quei poteri. Per questo la legge non fissa un termine entro cui il rappresentato deve fare la richiesta.",
-  "e": "Luca dà a Paolo una procura a vendere valida fino al 30 giugno. A settembre Luca la chiede indietro: Paolo deve restituirla, anche se sono passati mesi dalla scadenza.",
+  "q": "Una procura a vendere aveva una <b>scadenza</b>, ed è passata. La domanda chiede se il rappresentante deve restituirla quando il rappresentato la chiede.",
+  "p": "<b>Sì</b>. Quando la procura si estingue, il rappresentante deve <b>restituire il documento</b> della procura. Altrimenti potrebbe continuare a mostrarlo ai terzi, facendo credere di avere ancora poteri che non ha più. Non c'è un termine entro cui il rappresentato deve chiederla.",
+  "e": "La procura per vendere la tua auto scadeva il 31 marzo. Ad aprile la chiedi indietro: il procuratore te la deve restituire.",
   "x": {
-   "B": "Non è previsto il limite dei trenta giorni: l'obbligo di restituire non dipende da quando arriva la richiesta.",
-   "C": "Nemmeno il limite dei sei mesi è la regola prevista: l'obbligo nasce dalla cessazione dei poteri.",
-   "D": "«Mai» è il contrario della regola: cessati i poteri, il documento va restituito."
+   "B": "non c'è un termine di 30 giorni per chiederla",
+   "C": "non c'è un termine di sei mesi per chiederla",
+   "D": "deve restituirla"
   },
-  "k": "Poteri cessati: la procura si restituisce."
+  "k": "procura scaduta = va restituita",
+  "r": "<b>«Scaduta? Ridammela»</b>, così non la usi più. Basta il «Sì» semplice."
  },
  "4779": {
-  "q": "Il rappresentato incarica il procuratore di vendere al miglior prezzo azioni non quotate. Il procuratore le compra lui stesso, a proprio nome e per proprio conto. Che sorte ha il contratto?",
-  "p": "<b>Il contratto è annullabile</b>. È il caso del <i>contratto con se stesso</i>: il rappresentante è allo stesso tempo venditore per conto altrui e compratore per sé. Chi vuole pagare poco non può anche cercare il miglior prezzo per chi vende, quindi c'è un conflitto di interessi. La legge non lo rende nullo, ma permette al rappresentato di chiederne l'annullamento. Le eccezioni sono l'autorizzazione specifica del rappresentato o un contenuto fissato in modo da escludere il conflitto, cose che qui non risultano: «al miglior prezzo» lascia libero il prezzo.",
-  "e": "Sara incarica Dario di vendere le sue azioni al miglior prezzo. Dario se le compra a un prezzo deciso da lui. Sara può chiedere al giudice di annullare la vendita.",
+  "q": "Il rappresentato dà al procuratore il potere di <b>vendere</b> delle azioni non quotate al miglior prezzo. Il procuratore le <b>compra lui stesso</b>, a nome e per conto proprio. La domanda chiede se il contratto è valido.",
+  "p": "Il contratto è <b>annullabile</b>. È il caso del <b>contratto con se stesso</b>: il rappresentante sta da tutte e due le parti, e ha interesse a pagare poco mentre dovrebbe vendere al prezzo migliore. Il codice lo considera annullabile, a meno che il rappresentato lo abbia autorizzato o il contenuto fosse già fissato in modo da escludere il conflitto.",
+  "e": "Incarichi un amico di vendere le tue quote di una srl al prezzo migliore, e lui se le compra a un prezzo basso. Puoi chiedere l'annullamento.",
   "x": {
-   "B": "La congruità del prezzo accertata dal giudice non è ciò che rende valido il contratto: il vizio è il conflitto di interessi.",
-   "C": "Il rimedio previsto è l'annullabilità, che tutela il solo rappresentato; la nullità non è la regola per questo caso.",
-   "D": "Sei mesi non è il termine dell'azione: si applica il termine ordinario di annullamento, che è più lungo."
+   "B": "la congruità del prezzo non lo salva automaticamente",
+   "C": "non è nullo: è annullabile",
+   "D": "non c'è un termine di sei mesi"
   },
-  "k": "Contratto con se stesso: annullabile."
+  "k": "contratto con se stesso = annullabile",
+  "r": "<b>«Non puoi vendere a te stesso quello che ti ho dato da vendere»</b>. La sanzione è l'annullabilità, come per il conflitto di interessi."
  },
  "4780": {
-  "q": "Una procura generale scritta non indica espressamente gli atti di straordinaria amministrazione. Dà al rappresentante il potere di vendere un immobile?",
-  "p": "<b>No</b>. La procura generale, senza altre indicazioni, copre solo gli atti di ordinaria amministrazione, cioè la gestione normale del patrimonio. Vendere un immobile è straordinaria amministrazione, perché cambia in modo rilevante il patrimonio. Per questi atti serve un potere espresso, altrimenti la vendita resta fuori dalla procura.",
-  "e": "Bruno dà a Carla una procura generale per gestire i suoi beni. Carla può incassare gli affitti, ma per vendere l'appartamento di Bruno le serve un potere espresso.",
+  "q": "Una <b>procura generale</b> scritta non indica espressamente gli atti di straordinaria amministrazione. La domanda chiede se permette di <b>vendere un immobile</b>.",
+  "p": "<b>No</b>. La procura generale comprende solo gli atti di <b>ordinaria amministrazione</b>. Per quelli di <b>straordinaria amministrazione</b>, come vendere una casa, serve che siano <b>indicati espressamente</b>. Vendere un immobile cambia in modo rilevante il patrimonio: il rappresentato deve averlo voluto in modo chiaro.",
+  "e": "Dai al tuo commercialista una procura generale per gestire i tuoi affari: può pagare bollette e incassare affitti, ma non vendere la tua casa.",
   "x": {
-   "B": "Il prezzo congruo, anche se confermato da una consulenza tecnica, non crea un potere che la procura non attribuisce.",
-   "C": "Nemmeno il parere di un esperto sul prezzo può sostituire il potere espresso di vendere.",
-   "D": "La posizione dell'immobile, anche in un comune montano, non cambia la natura straordinaria della vendita."
+   "B": "la congruità del prezzo non dà il potere che manca",
+   "C": "il parere di un esperto non dà il potere che manca",
+   "D": "il comune montano non c'entra"
   },
-  "k": "Procura generale: solo ordinaria amministrazione."
+  "k": "procura generale = solo ordinaria amministrazione",
+  "r": "<b>«Generale = solo ordinaria»</b>: per gli atti grandi serve una procura che li nomini. Le condizioni strane delle altre opzioni sono esche."
  },
  "4781": {
-  "q": "Che effetto ha il contratto simulato tra le parti che lo firmano?",
-  "p": "Il contratto simulato <b>non produce effetti tra le parti che lo stipulano</b>. Simulare significa creare solo l'apparenza di un contratto: le parti si accordano in segreto perché quel contratto non valga tra loro. La legge dà quindi peso alla loro vera volontà e non all'apparenza.",
-  "e": "Mario finge di vendere la casa a Luigi, ma i due si accordano in segreto perché nulla cambi. Tra loro Mario resta proprietario e Luigi non deve alcun prezzo.",
+  "q": "La domanda chiede che effetti ha tra le parti un <b>contratto simulato</b>, cioè un contratto finto.",
+  "p": "<b>Non produce effetti tra le parti</b>. Nella simulazione le parti fanno finta di concludere un contratto che in realtà non vogliono, di solito per ingannare i terzi. Tra loro vale la realtà, non l'apparenza: il contratto simulato non le vincola.",
+  "e": "Per nascondere un bene ai creditori, Tizio finge di vendere la casa a un amico, ma tra loro è chiaro che resta di Tizio. Tra Tizio e l'amico la vendita non ha effetto.",
   "x": {
-   "B": "È l'opposto della regola: un contratto solo apparente non produce gli effetti di un contratto vero.",
-   "C": "Il contratto aleatorio è un'altra cosa: è un contratto vero, il cui risultato economico dipende da un evento incerto.",
-   "D": "Il contratto per persona da nominare è un contratto vero, in cui una parte si riserva di indicare chi subentrerà: non c'è finzione."
+   "B": "non produce gli effetti di un contratto vero",
+   "C": "il contratto aleatorio è un'altra cosa: dipende da un rischio",
+   "D": "il contratto per persona da nominare è un'altra cosa"
   },
-  "k": "Simulato: tra le parti nessun effetto."
+  "k": "contratto simulato = senza effetti tra le parti",
+  "r": "<b>«Finto per gli altri, nullo per noi»</b>: tra le parti la finta non vale."
  },
  "4782": {
-  "q": "Chi finge di vendere un bene è il simulato alienante. I suoi creditori possono far valere la simulazione?",
-  "p": "<b>Sì, se la simulazione pregiudica i loro diritti</b>. Con la vendita finta il debitore fa sembrare che il bene sia uscito dal suo patrimonio, e i creditori non potrebbero più aggredirlo. Dimostrando la simulazione, il bene risulta ancora del debitore e la loro garanzia torna integra. Serve però un pregiudizio concreto: è l'interesse che giustifica la loro azione.",
-  "e": "Franco deve 50.000 € a Elena e finge di vendere la sua unica casa a un amico. Elena può far accertare la simulazione e agire sulla casa per recuperare il credito.",
+  "q": "Un debitore finge di vendere un bene (simulato alienante). La domanda chiede se i suoi <b>creditori</b> possono far valere la simulazione.",
+  "p": "<b>Sì, se la simulazione pregiudica i loro diritti</b>. È proprio il caso tipico: il debitore finge di vendere i beni per sottrarli ai creditori. I creditori possono dimostrare che la vendita è finta, così il bene torna aggredibile.",
+  "e": "Tizio deve 100.000 € e finge di vendere la casa al cognato. I creditori dimostrano che la vendita è simulata e possono pignorare la casa.",
   "x": {
-   "B": "La regola non si limita alla compravendita immobiliare: conta il pregiudizio ai diritti del creditore.",
-   "C": "Non vale solo per la permuta immobiliare: il tipo di contratto non è il criterio previsto.",
-   "D": "I creditori possono agire proprio per difendersi dal pregiudizio, quindi «mai» è errato."
+   "B": "non è limitato alla compravendita immobiliare",
+   "C": "non è limitato alla permuta immobiliare",
+   "D": "possono farla valere"
   },
-  "k": "Creditori pregiudicati: possono far valere la simulazione."
+  "k": "creditori possono far valere la simulazione",
+  "r": "<b>«Il finto non frega i creditori»</b>. Scegli il «Sì, se pregiudica»."
  },
  "4783": {
-  "q": "In un contratto con più di due parti e uno scopo comune, il vincolo di una sola parte è nullo. Cade tutto il contratto?",
-  "p": "<b>No, salvo che la partecipazione di quella parte debba, secondo le circostanze, considerarsi essenziale</b>. Se le altre parti possono comunque raggiungere lo scopo comune, è giusto salvare il contratto tra loro. Se invece senza quella parte lo scopo non si può realizzare, il contratto perde senso e cade per intero. Il criterio è quindi l'importanza concreta di quella partecipazione.",
-  "e": "Quattro soci creano una società. Il vincolo di uno è nullo: se era un socio come gli altri, gli altri tre proseguono. Se solo lui poteva portare il brevetto su cui si basa l'attività, la nullità colpisce l'intero contratto.",
+  "q": "In un contratto con più parti e uno <b>scopo comune</b>, è nullo il vincolo di <b>una sola parte</b>. La domanda chiede se diventa nullo tutto il contratto.",
+  "p": "<b>No</b>, salvo che la partecipazione di quella parte sia, secondo le circostanze, <b>essenziale</b>. È la stessa logica dell'impossibilità della prestazione di una parte: gli altri possono continuare, a meno che il pezzo mancante fosse indispensabile.",
+  "e": "Cinque soci fondano una società e uno era incapace: il suo vincolo è nullo, ma la società resta tra gli altri quattro, salvo che lui fosse l'unico con il capitale necessario.",
   "x": {
-   "B": "Il criterio non è il tipo di contratto né l'oggetto immobiliare, ma l'essenzialità della partecipazione.",
-   "C": "«In nessun caso» è troppo assoluto: se la partecipazione è essenziale, il contratto è nullo.",
-   "D": "«Sempre» è troppo assoluto: se la partecipazione non è essenziale, il contratto resta valido."
+   "B": "non è limitato alla compravendita immobiliare",
+   "C": "non è «in nessun caso»: se la parte era essenziale, cade tutto",
+   "D": "non è «sempre»"
   },
-  "k": "Nullità di uno: conta se era essenziale."
+  "k": "scopo comune: nullità di una parte non travolge tutto, salvo essenziale",
+  "r": "Gemella dell'impossibilità nei contratti plurilaterali: <b>«Uno cade, gli altri continuano», salvo il pezzo essenziale</b>."
  },
  "4784": {
-  "q": "Due fratelli firmano una scrittura privata che sembra una vendita ma nasconde una vera donazione. Questa scrittura ha effetto?",
-  "p": "<b>No, mai</b>. Tra le parti vale il contratto realmente voluto, cioè la donazione, ma solo se ne ha anche i requisiti di forma. La donazione richiede l'atto pubblico e una scrittura privata non lo è. Mancando la forma richiesta, la donazione nascosta non ha effetto e nemmeno la vendita apparente, perché è simulata.",
-  "e": "Paola «vende» la casa al fratello con una scrittura privata, ma nessun prezzo viene pagato perché è un regalo. Il regalo non è valido perché manca l'atto pubblico, e la vendita è solo finta.",
+  "q": "Due fratelli firmano una <b>scrittura privata</b> che sembra una vendita ma nasconde in realtà una <b>donazione</b>. La domanda chiede se questo accordo ha effetto.",
+  "p": "<b>No, mai</b>. Quando si nasconde un contratto (dissimulato) dietro un altro, il contratto nascosto vale solo se ne ha i <b>requisiti di forma</b>. La donazione richiede l'<b>atto pubblico</b> con i testimoni: una scrittura privata non basta, qualunque siano giuramenti o autentiche delle firme.",
+  "e": "Un fratello finge di vendere all'altro la sua auto d'epoca con una scrittura privata, ma in realtà gliela regala. La donazione nascosta non vale, perché manca l'atto pubblico.",
   "x": {
-   "B": "Il giuramento decisorio riguarda la prova in un processo: non sostituisce la forma richiesta per la donazione.",
-   "C": "L'accertamento giudiziale delle firme conferma chi ha firmato, ma il documento resta una scrittura privata.",
-   "D": "Anche con firma autenticata la scrittura resta privata: non diventa l'atto pubblico richiesto."
+   "B": "il giuramento non sostituisce l'atto pubblico",
+   "C": "l'accertamento delle firme non sostituisce l'atto pubblico",
+   "D": "l'autentica delle firme non sostituisce l'atto pubblico"
   },
-  "k": "Donazione nascosta senza atto pubblico: nessun effetto."
+  "k": "donazione dissimulata in scrittura privata = senza effetto",
+  "r": "<b>«Donazione = notaio + testimoni»</b>. Una scrittura privata non può nascondere una donazione valida."
  },
  "4785": {
-  "q": "Quando è valido un contratto in cui le parti stabiliscono un vantaggio a favore di un terzo?",
-  "p": "<b>Qualora lo stipulante vi abbia interesse</b>. Lo stipulante è chi ottiene dall'altra parte la promessa di una prestazione al terzo. La legge chiede che abbia un proprio interesse, anche solo morale e non per forza economico, perché questo giustifica il contratto. Si tratta di una regola da memorizzare.",
-  "e": "Giorgio stipula un'assicurazione sulla vita a favore della figlia: l'assicurazione pagherà a lei. L'interesse di Giorgio è proteggere la figlia, quindi il contratto è valido.",
+  "q": "La domanda chiede quando è valido un <b>contratto a favore di un terzo</b> (es. una polizza vita con un beneficiario).",
+  "p": "È valido <b>qualora lo stipulante vi abbia interesse</b>. Chi fa il contratto a vantaggio di un altro deve avere un proprio interesse a farlo, anche solo morale o affettivo. Senza interesse, il contratto non ha una ragione giuridica.",
+  "e": "Un padre stipula un'assicurazione sulla vita indicando come beneficiaria la figlia: il suo interesse è proteggerla, quindi il contratto è valido.",
   "x": {
-   "B": "«Mai» è errato: la legge ammette questo contratto, se c'è l'interesse dello stipulante.",
-   "C": "«Sempre» è errato: senza interesse dello stipulante il contratto non è valido.",
-   "D": "È il contrario della regola: l'interesse dello stipulante è una condizione necessaria."
+   "B": "è valido, se c'è interesse",
+   "C": "non sempre: serve l'interesse",
+   "D": "l'interesse dello stipulante è necessario"
   },
-  "k": "A favore di terzo: serve l'interesse dello stipulante."
+  "k": "contratto a favore di terzo = serve interesse dello stipulante",
+  "r": "<b>«Perché lo fai? Devi avere un motivo»</b>. Cerca la parola <b>«interesse»</b> senza negazioni."
  },
  "4786": {
-  "q": "Il contratto simulato non ha effetto tra le parti. Se però esse volevano davvero un contratto diverso da quello apparente, che cosa vale tra loro?",
-  "p": "<b>Ha effetto il contratto dissimulato, purché ne sussistano i requisiti di sostanza e di forma</b>. Il contratto dissimulato è quello vero, nascosto dietro l'apparenza. Vale perché è ciò che le parti hanno voluto, ma deve rispettare tutte le regole previste per quel tipo di contratto. Nascondere un accordo non permette quindi di aggirare i requisiti di legge.",
-  "e": "Due persone firmano una «vendita» di un'auto, ma in realtà è una donazione. Tra loro vale la donazione solo se è stata rispettata anche la forma richiesta per donare.",
+  "q": "Il contratto simulato non ha effetto tra le parti. Ma se le parti volevano in realtà un <b>contratto diverso</b> (dissimulato), la domanda chiede se quello nascosto vale.",
+  "p": "Ha effetto il <b>contratto dissimulato</b>, <b>purché ne sussistano i requisiti di sostanza e di forma</b>. Tra le parti vale quello che volevano davvero, ma solo se quel contratto, guardato da solo, sarebbe valido.",
+  "e": "Due persone fingono una vendita per nascondere una donazione. La donazione vale solo se è stata fatta con atto pubblico e testimoni.",
   "x": {
-   "B": "I requisiti non si possono ignorare: senza sostanza e forma il contratto nascosto non ha effetto.",
-   "C": "La regola non è limitata né fa eccezione per la compravendita immobiliare: i requisiti servono sempre.",
-   "D": "È errato perché il contratto dissimulato ha effetto, se ha i requisiti richiesti."
+   "B": "servono i requisiti di sostanza e forma",
+   "C": "non c'è un'eccezione per la compravendita immobiliare",
+   "D": "il dissimulato può avere effetto, se ha i requisiti"
   },
-  "k": "Dissimulato valido solo con sostanza e forma."
+  "k": "dissimulato valido se ha requisiti di sostanza e forma",
+  "r": "<b>«Vale quello vero, se è fatto bene»</b>. Collegala alla domanda della donazione tra fratelli."
  },
  "4787": {
-  "q": "Quale regime patrimoniale si applica alla famiglia secondo la legge?",
-  "p": "<b>In mancanza di diversa convenzione, è costituito dalla comunione legale dei beni</b>. È il regime «di base»: si applica in automatico se i coniugi non scelgono altro. Proprio perché è solo la regola di partenza, i coniugi possono cambiarla con una convenzione, ad esempio scegliendo la separazione dei beni.",
-  "e": "Elisa e Tommaso si sposano senza scegliere nulla: sono in comunione legale. Se avessero scelto la separazione dei beni, si applicherebbe quella.",
+  "q": "La domanda chiede qual è il <b>regime patrimoniale legale</b> della famiglia, cioè quello che si applica se i coniugi non scelgono nulla.",
+  "p": "In mancanza di diversa convenzione, è la <b>comunione legale dei beni</b>. Se gli sposi non dicono nulla, gli acquisti fatti durante il matrimonio diventano di entrambi. Possono però scegliere la <b>separazione dei beni</b>, anche al momento delle nozze.",
+  "e": "Due sposi non scelgono nulla e dopo il matrimonio comprano una casa intestandola solo al marito: è comunque di entrambi.",
   "x": {
-   "B": "«Sempre» è errato: i coniugi possono scegliere un regime diverso con una convenzione.",
-   "C": "La separazione non si applica sempre: è un regime che i coniugi devono scegliere.",
-   "D": "Inverte la regola: senza una diversa convenzione si applica la comunione, non la separazione."
+   "B": "non è «sempre»: si può scegliere diversamente",
+   "C": "la separazione va scelta, non è automatica",
+   "D": "senza convenzione vale la comunione, non la separazione"
   },
-  "k": "Se nessuno sceglie: comunione legale."
+  "k": "regime legale = comunione, salvo convenzione",
+  "r": "<b>«Se non dici nulla, è tutto in comune»</b>. Le opzioni con «sempre» sono sbagliate."
  },
  "4788": {
-  "q": "I beni che un coniuge possedeva già prima del matrimonio entrano in comunione?",
-  "p": "<b>No</b>. Sono <i>beni personali</i> di quel coniuge. La comunione legale riguarda soprattutto ciò che i coniugi acquistano durante il matrimonio, non ciò che ciascuno aveva già. Sposarsi, quindi, non toglie a nessuno la proprietà esclusiva di quanto possedeva prima.",
-  "e": "Marta compra un appartamento nel 2015 e si sposa in comunione legale nel 2020. L'appartamento resta solo suo.",
+  "q": "Un coniuge era proprietario di un bene <b>prima del matrimonio</b>. La domanda chiede se il bene entra nella comunione.",
+  "p": "<b>No</b>. I beni posseduti prima del matrimonio restano <b>personali</b>. La comunione riguarda gli acquisti fatti <b>durante</b> il matrimonio. Sono personali anche i beni ricevuti per donazione o successione e quelli di uso strettamente personale.",
+  "e": "Lei aveva un appartamento prima di sposarsi: dopo le nozze in comunione resta solo suo.",
   "x": {
-   "B": "È il contrario della regola: i beni avuti prima del matrimonio restano personali.",
-   "C": "La domanda chiede la regola della comunione: per essa i beni precedenti sono personali, senza dipendere da una convenzione.",
-   "D": "La durata del matrimonio non conta: il bene resta personale anche dopo molti anni."
+   "B": "non entrano nella comunione",
+   "C": "la regola è stabilita dalla legge",
+   "D": "la durata del matrimonio non conta"
   },
-  "k": "Beni di prima del matrimonio: personali."
+  "k": "beni di prima del matrimonio = personali",
+  "r": "<b>«Quello che avevi prima resta tuo»</b>. La comunione guarda solo al <b>dopo</b>."
  },
  "4789": {
-  "q": "Due coniugi sono in separazione dei beni. Di chi è un bene se nessuno dei due riesce a dimostrare che è solo suo?",
-  "p": "I beni <b>sono di proprietà indivisa per pari quota di entrambi i coniugi</b>. Quando la prova manca, serve una regola semplice che eviti di favorire uno dei due. La legge perciò considera il bene di entrambi al 50%. Chi vuole essere considerato unico proprietario deve provarlo.",
-  "e": "Luisa e Andrea sono in separazione. Nessuno dei due può provare di aver comprato il divano: il divano è di entrambi, metà ciascuno.",
+  "q": "I coniugi sono in <b>separazione dei beni</b>. Per alcuni beni nessuno dei due riesce a dimostrare di esserne l'unico proprietario. La domanda chiede di chi sono.",
+  "p": "Sono di <b>proprietà indivisa per pari quota</b> di entrambi i coniugi. Se non si sa di chi sia un bene, la legge lo divide a metà. È una soluzione equa e semplice, che non guarda a chi è più ricco.",
+  "e": "In casa c'è un quadro e nessuno dei due coniugi in separazione ha uno scontrino o un atto: è di entrambi, al 50%.",
   "x": {
-   "B": "Il valore del patrimonio non è il criterio: non si favorisce il coniuge con il patrimonio minore.",
-   "C": "La regola prevede quote uguali, non quote indicate nell'atto convenzionale.",
-   "D": "Nemmeno il coniuge con il patrimonio maggiore è favorito: le quote sono pari."
+   "B": "non va a chi ha meno patrimonio",
+   "C": "non si guardano quote dell'atto: vale la metà ciascuno",
+   "D": "non va a chi ha più patrimonio"
   },
-  "k": "Proprietà non provata: metà per ciascuno."
+  "k": "separazione: beni senza prova = metà ciascuno",
+  "r": "<b>«Se non si sa, si fa a metà»</b>. La regola è la più semplice possibile."
  },
  "4790": {
-  "q": "Quale legge regola i rapporti personali tra coniugi?",
-  "p": "<b>La legge nazionale comune o, se i coniugi hanno cittadinanze diverse o più cittadinanze comuni, la legge dello Stato nel quale la vita matrimoniale è prevalentemente localizzata</b>. Il primo criterio è la cittadinanza che i coniugi hanno in comune. Se questo criterio non dà una risposta unica, si guarda al luogo in cui si svolge davvero la loro vita di coppia. Sono criteri uguali per entrambi, senza preferenze per il marito o la moglie.",
-  "e": "Due cittadini francesi: si applica la legge francese. Lei italiana e lui spagnolo, che vivono soprattutto in Germania: si applica la legge tedesca.",
+  "q": "La domanda chiede quale legge si applica ai <b>rapporti personali tra coniugi</b> quando c'è un elemento internazionale.",
+  "p": "Si applica la <b>legge nazionale comune</b>, cioè quella dello Stato di cui entrambi sono cittadini. Se hanno cittadinanze diverse o più cittadinanze comuni, si applica la legge dello Stato in cui la <b>vita matrimoniale è prevalentemente localizzata</b>. Le regole che favoriscono il marito sono state superate dal principio di parità.",
+  "e": "Due italiani sposati che vivono a Parigi: legge italiana. Un'italiana e un tedesco che vivono a Milano: legge italiana, dove si svolge la vita di coppia.",
   "x": {
-   "B": "Scegliere la legge del marito lo privilegerebbe: il criterio è la cittadinanza comune, non quella di uno solo.",
-   "C": "Nemmeno il Paese di residenza del marito è il criterio: conta il luogo della vita matrimoniale di entrambi.",
-   "D": "Per i rapporti personali la regola non è la scelta dei coniugi, ma la cittadinanza comune o la vita matrimoniale."
+   "B": "la legge del marito è stata superata dalla parità tra coniugi",
+   "C": "la residenza del marito non è il criterio",
+   "D": "per i rapporti personali non vale la scelta dei coniugi"
   },
-  "k": "Cittadinanza comune, altrimenti dove vive la coppia."
+  "k": "rapporti tra coniugi: cittadinanza comune o luogo della vita matrimoniale",
+  "r": "<b>«Stesso passaporto → quella legge; passaporti diversi → dove vivete»</b>. Le opzioni centrate sul marito sono superate."
  },
  "4791": {
-  "q": "Un coniuge in comunione legale ha redditi personali, ad esempio lo stipendio. Che fine fanno?",
-  "p": "I redditi personali <b>non cadono in comunione fino allo scioglimento di questa e il coniuge ne ha la piena disponibilità</b>. Finché dura la comunione chi li guadagna decide liberamente come usarli. Se allo scioglimento della comunione ne resta una parte non consumata, quella parte entra nella comunione: è la cosiddetta <i>comunione de residuo</i>.",
-  "e": "Carlo guadagna 2.000 € al mese e usa lo stipendio come preferisce. Quando la comunione si scioglie ha 10.000 € risparmiati: solo allora quella somma entra in comunione.",
+  "q": "In <b>comunione legale</b>, la domanda chiede che fine fanno i <b>redditi personali</b> di un coniuge (es. lo stipendio).",
+  "p": "Secondo la risposta della banca dati, vanno messi a disposizione della famiglia <b>per quanto occorre ai suoi bisogni</b>, e il coniuge mantiene la <b>disponibilità di ciò che avanza</b>. I coniugi devono contribuire ai bisogni familiari in base alle proprie capacità. Lo stipendio non diventa automaticamente comune mentre lo si incassa; quello che non è stato consumato entra in comunione solo quando la comunione si scioglie.",
+  "e": "Marco guadagna 2.500 € al mese: usa ciò che serve per spesa, bollette e figli. Il resto resta nella sua disponibilità.",
   "x": {
-   "B": "La regola non impone di destinare i redditi solo ai bisogni dell'altro coniuge: il titolare ne dispone pienamente.",
-   "C": "I redditi non vanno conferiti in comunione durante il regime: entrano solo allo scioglimento, per la parte rimasta.",
-   "D": "Non c'è nemmeno un vincolo a usarli esclusivamente per i figli: il coniuge ne ha la piena disponibilità."
+   "B": "non li deve usare solo per i bisogni dell'altro coniuge",
+   "C": "è la risposta da scegliere secondo la banca dati",
+   "D": "non li deve usare solo per i figli"
   },
-  "k": "Redditi personali: liberi fino allo scioglimento."
+  "k": "redditi personali: prima i bisogni della famiglia, poi liberi",
+  "r": "<b>«Prima la famiglia, poi il resto è tuo»</b>. Le opzioni che destinano i redditi a una sola persona (l'altro coniuge, i figli) sono sbagliate."
  },
  "4792": {
-  "q": "Il familiare che lavora in modo continuativo nell'impresa familiare ha diritto a mantenimento, utili e incrementi dell'azienda. Questo diritto esiste? Si può trasferire?",
-  "p": "<b>Sì, è riconosciuto, ma è intrasferibile, salvo che il trasferimento avvenga a favore di familiari indicati dalla legge e con il consenso di tutti i partecipi</b>. Il diritto premia il lavoro svolto per l'impresa, e per questo è riconosciuto. Il limite al trasferimento serve a non far entrare estranei nell'impresa di famiglia. L'unica apertura è verso i familiari, con l'accordo unanime.",
-  "e": "Nell'impresa di famiglia lavorano Rita e i suoi due fratelli. Rita non può cedere il suo diritto a un amico. Può cederlo a un familiare indicato dalla legge, se tutti e tre i partecipi sono d'accordo.",
+  "q": "Un familiare lavora in modo continuativo nell'<b>impresa familiare</b>. La domanda chiede se ha diritto a mantenimento e partecipazione agli utili, e se può trasferire questo diritto.",
+  "p": "<b>Sì, il diritto è riconosciuto</b>: mantenimento, partecipazione agli utili, ai beni acquistati con essi e agli incrementi dell'azienda, in proporzione al lavoro prestato. Ma è <b>intrasferibile</b>, salvo che il trasferimento avvenga a <b>favore di altri familiari</b> e con il <b>consenso di tutti i partecipi</b>. L'impresa familiare resta così nella famiglia.",
+  "e": "Una figlia lavora da anni nel ristorante di famiglia: partecipa agli utili. Può cedere la sua quota a un fratello se tutti sono d'accordo, ma non a un estraneo.",
   "x": {
-   "B": "È errato: la legge riconosce espressamente questo diritto a chi lavora in modo continuativo.",
-   "C": "«In nessun caso» è troppo rigido: il trasferimento ai familiari, con il consenso di tutti, è ammesso.",
-   "D": "Non è liberamente trasferibile: valgono il limite ai familiari e il consenso di tutti i partecipi."
+   "B": "il diritto è riconosciuto",
+   "C": "non è «in nessun caso» trasferibile: si può ai familiari con il consenso di tutti",
+   "D": "non è liberamente trasferibile"
   },
-  "k": "Diritto riconosciuto: cedibile solo a familiari, con consenso unanime."
+  "k": "impresa familiare: diritti sì, trasferibili solo in famiglia con consenso",
+  "r": "<b>«Resta in famiglia»</b>: diritti sì, cessione solo a familiari e con il sì di tutti. Scegli il «Sì, ma» più articolato."
  },
  "4793": {
-  "q": "Un'impresa familiare viene divisa tra eredi o trasferita. Quale diritto hanno i familiari che vi lavorano in modo continuativo?",
-  "p": "<b>Hanno diritto di prelazione sull'azienda</b>. Prelazione significa essere preferiti agli altri a parità di condizioni. La legge vuole tenere l'azienda nelle mani di chi vi ha lavorato con continuità, tutelando il suo contributo e la continuità dell'impresa.",
-  "e": "Il padre trasferisce l'azienda di famiglia e c'è un compratore esterno. Il figlio che vi lavora con continuità può comprarla lui, alle stesse condizioni.",
+  "q": "L'azienda di un'impresa familiare viene divisa tra gli eredi o venduta. La domanda chiede che diritto hanno i familiari che ci lavorano stabilmente.",
+  "p": "Hanno un <b>diritto di prelazione</b> sull'azienda: a parità di condizioni, devono essere preferiti agli estranei. È il modo in cui la legge cerca di mantenere l'impresa nelle mani di chi ci lavora davvero.",
+  "e": "Il padre muore e gli eredi decidono di vendere la pasticceria di famiglia. Il figlio che ci lavora ha diritto a comprarla per primo, alle stesse condizioni offerte da un estraneo.",
   "x": {
-   "B": "È l'opposto della regola: la prelazione a questi familiari è riconosciuta.",
-   "C": "Il diritto previsto per questo caso è la prelazione, non un equo compenso.",
-   "D": "Il consenso di un altro familiare non è una condizione: il diritto spetta a chi lavora nell'impresa."
+   "B": "hanno diritto di prelazione",
+   "C": "non si tratta di un equo compenso: è una prelazione",
+   "D": "non serve il consenso di un altro familiare"
   },
-  "k": "Impresa familiare ceduta: prelazione a chi ci lavora."
+  "k": "impresa familiare: prelazione dei familiari che lavorano",
+  "r": "<b>«Prima chi ci lavora»</b>. La parola chiave è <b>prelazione</b>, senza condizioni aggiuntive."
  },
  "4794": {
-  "q": "Dopo una transazione su un affare specifico, si scoprono documenti che provano che una delle parti non aveva alcun diritto. Che sorte ha la transazione?",
-  "p": "La transazione <b>è annullabile</b>. Con la transazione le parti chiudono una lite facendosi concessioni reciproche. Se i documenti trovati dopo mostrano che una parte non aveva alcun diritto, l'accordo si fonda su una base falsata e chi è stato danneggiato può chiederne l'annullamento. La regola vale per la transazione su un affare determinato, come dice la domanda.",
-  "e": "Ugo paga 5.000 € a Rino per chiudere una lite su un terreno. Poi emergono atti che provano che Rino non aveva alcun diritto. Ugo può chiedere di annullare la transazione.",
+  "q": "Dopo una transazione si scoprono <b>documenti</b> che dimostrano che una delle parti <b>non aveva alcun diritto</b>. La domanda chiede che sorte ha la transazione.",
+  "p": "È <b>annullabile</b>. Chi ha transatto lo ha fatto credendo che la pretesa dell'altro avesse almeno un fondamento. Se nuovi documenti dimostrano che non ne aveva nessuno, il consenso era falsato. È la stessa logica della transazione su documenti falsi.",
+  "e": "Ti accordi con un vicino per un confine, poi trovi un vecchio atto che prova che il terreno era tutto tuo. Puoi chiedere l'annullamento.",
   "x": {
-   "B": "La regola per questo caso è l'annullabilità: il contratto non è nullo da solo, serve un'azione.",
-   "C": "È il contrario della regola: su un affare determinato la scoperta dei documenti consente l'annullamento.",
-   "D": "«Falsa» non è una categoria di invalidità del contratto: il rimedio è l'annullamento."
+   "B": "non è nulla: è annullabile",
+   "C": "è annullabile",
+   "D": "«falsa» non è una sanzione giuridica"
   },
-  "k": "Documenti scoperti dopo, affare determinato: annullabile."
+  "k": "transazione + documenti nuovi decisivi = annullabile",
+  "r": "Per le transazioni le sorprese portano all'<b>annullabilità</b>: documenti falsi, lite già decisa, documenti nuovi."
  },
  "4795": {
-  "q": "Un contratto viene annullato. I terzi in buona fede che hanno acquistato diritti pagando un corrispettivo li perdono?",
-  "p": "<b>No, se l'annullamento non dipende da incapacità legale, salvi gli effetti della trascrizione della domanda di annullamento</b>. La legge protegge chi ha comprato in buona fede e a titolo oneroso, perché si è fidato di un contratto apparentemente valido. Fa eccezione l'incapacità legale, perché prevale la tutela dell'incapace. La trascrizione della domanda, poi, può rendere la sentenza opponibile a chi acquista dopo.",
-  "e": "Rosa vende un'auto a Dino per errore, e Dino la rivende a Sergio, in buona fede, che la paga. Se il contratto Rosa-Dino viene annullato per errore, Sergio la tiene. Se Rosa era legalmente incapace, Sergio perde l'auto.",
+  "q": "Un contratto viene annullato. La domanda chiede se l'annullamento colpisce i diritti acquistati a <b>pagamento</b> da <b>terzi in buona fede</b>.",
+  "p": "<b>No</b>, l'annullamento non pregiudica i terzi in buona fede che hanno acquistato a titolo oneroso. C'è però un'eccezione: se l'annullamento dipende da <b>incapacità legale</b> (es. minore), i terzi sono travolti. Restano salvi anche gli effetti della <b>trascrizione della domanda</b> di annullamento.",
+  "e": "A vende a B con un contratto annullabile per errore, B rivende a C in buona fede. Se il contratto A-B viene annullato, C si tiene il bene. Se A era minorenne, invece, C perde il bene.",
   "x": {
-   "B": "Non tiene conto dell'eccezione: l'annullamento per incapacità legale pregiudica anche il terzo.",
-   "C": "Il criterio non è la prescrizione dell'azione, e la regola generale è che i terzi siano protetti.",
-   "D": "Inverte la regola generale: il terzo di buona fede a titolo oneroso di norma non è pregiudicato."
+   "B": "in caso di incapacità legale i terzi sono pregiudicati",
+   "C": "la prescrizione non è il criterio",
+   "D": "di regola i terzi in buona fede non sono pregiudicati"
   },
-  "k": "Terzo oneroso in buona fede salvo, tranne incapacità legale."
+  "k": "annullamento non tocca terzi in buona fede, salvo incapacità legale",
+  "r": "<b>«I terzi in buona fede sono al sicuro, tranne contro un minore»</b>. Gli incapaci sono protetti più di tutti."
  },
  "4796": {
-  "q": "Un errore di calcolo permette di annullare il contratto?",
-  "p": "<b>No, salvo che sia un errore sulla quantità e sia determinante del consenso</b>. Di norma un errore di calcolo si corregge: il contratto viene rettificato e resta in piedi. Si può chiedere l'annullamento solo se lo sbaglio si traduce in un errore sulla quantità così importante che, senza di esso, la parte non avrebbe dato il consenso.",
-  "e": "Un preventivo somma male le voci e indica 1.100 € invece di 1.000 €: si rettifica il totale. Se invece l'errore porta a ordinare una quantità di merce molto diversa, che la parte non avrebbe mai accettato, si può chiedere l'annullamento.",
+  "q": "La domanda chiede se un <b>errore di calcolo</b> permette di annullare il contratto.",
+  "p": "<b>No</b>: l'errore di calcolo dà luogo solo alla <b>rettifica</b>, cioè si corregge il conto. Fa eccezione il caso in cui l'errore riguardi la <b>quantità</b> e sia stato <b>determinante del consenso</b>: allora diventa un vero errore che permette l'annullamento.",
+  "e": "In un preventivo 10 × 50 € è scritto 450 €: si corregge in 500 €, il contratto resta. Se invece per errore si ordinano 1.000 pezzi invece di 100, ed è stato decisivo, si può annullare.",
   "x": {
-   "B": "Il fatto che l'errore non sia riconoscibile non lo rende causa di annullamento: di norma si rettifica, salvo errore sulla quantità determinante del consenso.",
-   "C": "«Sempre» è errato: l'annullamento è un'eccezione e di norma si rettifica.",
-   "D": "Il rimedio normale è proprio la rettifica: dire che non si può rettificare è sbagliato."
+   "B": "non è causa di annullamento, nemmeno se non riconoscibile",
+   "C": "non è sempre causa di annullamento",
+   "D": "il contratto si può rettificare"
   },
-  "k": "Errore di calcolo: si rettifica, salvo quantità determinante."
+  "k": "errore di calcolo = rettifica, salvo errore sulla quantità determinante",
+  "r": "<b>«Il conto sbagliato si corregge, non si butta»</b>. Le opzioni con «sempre» o «non può essere rettificato» sono sbagliate."
  },
  "4797": {
-  "q": "Il dolo, cioè l'inganno, permette sempre di annullare il contratto?",
-  "p": "<b>No, solo il dolo determinante per la conclusione del contratto può essere causa di annullamento</b>. È determinante l'inganno senza il quale la parte non avrebbe firmato affatto. Se invece il contratto sarebbe stato concluso comunque, ma a condizioni diverse, il dolo è <i>incidente</i>: il contratto resta valido e chi ha ingannato risponde dei danni.",
-  "e": "Ti vendono un quadro falso come autentico e non lo avresti mai comprato: dolo determinante, contratto annullabile. Se lo avresti comprato comunque ma pagando meno: dolo incidente, solo risarcimento.",
+  "q": "La domanda chiede se il <b>dolo</b> (raggiri per ingannare l'altra parte) è sempre causa di annullamento.",
+  "p": "<b>No</b>: solo il dolo <b>determinante</b>, cioè quei raggiri senza i quali l'altra parte <b>non avrebbe concluso</b> il contratto. Se invece l'inganno ha solo portato a condizioni peggiori (dolo <b>incidente</b>), il contratto resta valido, ma chi ha ingannato deve risarcire i danni.",
+  "e": "Un venditore ti fa credere che l'auto non ha mai fatto incidenti, ed è la ragione per cui la compri: dolo determinante, puoi annullare. Se l'avresti comprata comunque, ma a un prezzo più basso: dolo incidente, solo risarcimento.",
   "x": {
-   "B": "La condizione non è la lesione patrimoniale: conta se l'inganno ha determinato il consenso.",
-   "C": "«In ogni caso» è errato: il dolo incidente non porta all'annullamento.",
-   "D": "Inverte la regola: il dolo incidente dà solo il risarcimento, l'annullamento spetta a quello determinante."
+   "B": "la lesione patrimoniale non è il requisito",
+   "C": "non in ogni caso: serve il dolo determinante",
+   "D": "è il contrario: il dolo incidente dà solo il risarcimento"
   },
-  "k": "Annullamento solo per dolo determinante."
+  "k": "annullamento solo per dolo determinante",
+  "r": "<b>Determinante → annulli; incidente → risarcimento</b>. «Senza l'inganno non avrei firmato» = determinante."
  },
  "4798": {
-  "q": "Un terzo, estraneo al contratto, inganna una delle parti con raggiri. Quando questi raggiri possono portare all'annullamento?",
-  "p": "<b>Nel caso in cui i raggiri erano noti al contraente che ne ha tratto vantaggio</b>. L'altra parte, se non sapeva nulla, ha il diritto di contare sul contratto. Se invece conosceva l'inganno e ne ha approfittato, non merita protezione e il contratto può essere annullato.",
-  "e": "Un amico di Piero convince con l'inganno Sofia a comprare la sua auto. Se Piero sapeva dell'inganno, Sofia può chiedere l'annullamento. Se non ne sapeva nulla, questa strada non è aperta.",
+  "q": "I raggiri li ha fatti un <b>terzo</b>, non la controparte. La domanda chiede quando questo dolo permette l'annullamento.",
+  "p": "Quando i raggiri <b>erano noti al contraente che ne ha tratto vantaggio</b>. Se la controparte sapeva dell'inganno e ne ha approfittato, non è innocente. Se invece non sapeva nulla, il contratto resta valido e l'ingannato può agire solo contro il terzo.",
+  "e": "Un amico del venditore ti mente sulla qualità di una casa. Se il venditore lo sapeva e ne ha approfittato, puoi annullare; se non ne sapeva niente, no.",
   "x": {
-   "B": "Il criterio non sono le condizioni inique, ma il fatto che il contraente conoscesse i raggiri.",
-   "C": "«Sempre» è errato: se il contraente non conosceva i raggiri, non c'è annullamento.",
-   "D": "«Mai» è errato: se il contraente avvantaggiato conosceva i raggiri, l'annullamento è possibile."
+   "B": "non dipende da condizioni inique",
+   "C": "non sempre: serve che la controparte lo sapesse",
+   "D": "è possibile, se la controparte lo sapeva"
   },
-  "k": "Raggiri del terzo: conta se il contraente li conosceva."
+  "k": "dolo del terzo: annullabile se noto alla controparte",
+  "r": "<b>«Se lo sapeva e ne ha approfittato, è complice»</b>."
  },
  "4799": {
-  "q": "Il solo timore riverenziale, cioè la soggezione verso qualcuno, permette di annullare il contratto?",
-  "p": "<b>No</b>. Il timore riverenziale è il desiderio di non scontentare una persona verso cui si prova rispetto, ad esempio un genitore. Senza una minaccia vera, non è una violenza che vizia il consenso: la scelta, pur influenzata, resta libera. Per questo da solo non basta.",
-  "e": "Giulia firma un contratto solo per non deludere il padre, che non l'ha minacciata in alcun modo. Non può chiedere l'annullamento per questo motivo.",
+  "q": "La domanda chiede se il <b>solo timore riverenziale</b> (soggezione verso un genitore, un capo, una persona autorevole) basta per annullare un contratto.",
+  "p": "<b>No</b>. Il codice dice espressamente che il <b>solo timore riverenziale</b> non è causa di annullamento. Il rispetto o la soggezione verso qualcuno non sono una minaccia: per annullare serve una vera violenza.",
+  "e": "Firmi un contratto perché te lo chiede tuo padre e non vuoi deluderlo: il contratto è valido.",
   "x": {
-   "B": "«Sempre» è errato: da solo, il timore riverenziale non è causa di annullamento.",
-   "C": "Il termine di tre mesi non cambia nulla: il timore da solo non è causa di annullamento.",
-   "D": "Neppure il termine di un anno rende rilevante il solo timore riverenziale."
+   "B": "non è mai, da solo, causa di annullamento",
+   "C": "non c'è un termine di tre mesi",
+   "D": "non c'è un termine di un anno"
   },
-  "k": "Timore riverenziale da solo: nessun annullamento."
+  "k": "timore riverenziale da solo ≠ annullamento",
+  "r": "<b>«Il rispetto non è una minaccia»</b>. Nota la parola <b>«solo»</b> nella domanda: senza una minaccia vera, il contratto resta valido."
  },
  "4800": {
-  "q": "Minacciare di far valere un proprio diritto può portare all'annullamento del contratto?",
-  "p": "<b>Sì, quando è diretta a conseguire vantaggi ingiusti</b>. Far valere un diritto è di per sé lecito. Diventa un problema quando il diritto viene usato come mezzo di pressione per ottenere più di quanto spetta. In quel caso la minaccia vizia il consenso, e il contratto può essere annullato.",
-  "e": "Un creditore di 1.000 € può dire: «Se non paghi, ti faccio causa». Non può usare la stessa minaccia per farsi vendere a 1.000 € una casa che ne vale 200.000: quel vantaggio è ingiusto.",
+  "q": "La domanda chiede se la <b>minaccia di far valere un diritto</b> (es. «ti faccio causa») può portare all'annullamento del contratto.",
+  "p": "<b>Sì, quando è diretta a ottenere vantaggi ingiusti</b>. Minacciare di agire in giudizio è di regola lecito, perché si esercita un diritto. Diventa violenza quando lo si usa per ottenere qualcosa di <b>sproporzionato</b> o non dovuto.",
+  "e": "Un creditore minaccia di farti fallire se non gli vendi la tua casa a metà prezzo, anche se il debito è di pochi euro: è un vantaggio ingiusto, il contratto è annullabile.",
   "x": {
-   "B": "«Mai» è errato: se serve a ottenere vantaggi ingiusti, la minaccia può portare all'annullamento.",
-   "C": "La soglia di centomila euro non è il criterio: conta l'ingiustizia del vantaggio.",
-   "D": "Anche la soglia di cinquecentomila euro è irrilevante: il valore del contratto non è il criterio."
+   "B": "non è «mai»: lo è se il vantaggio è ingiusto",
+   "C": "il valore del contratto non conta",
+   "D": "il valore del contratto non conta"
   },
-  "k": "Minaccia di un diritto: annullabile se il vantaggio è ingiusto."
+  "k": "minaccia di far valere un diritto: annullabile se per vantaggi ingiusti",
+  "r": "<b>«Il diritto non è un'arma per estorcere»</b>. La parola chiave è <b>«ingiusti»</b>; le soglie in euro sono esche."
  },
  "4801": {
   "q": "Il contratto dice: 1.000 azioni a 2 euro l'una, totale 3.000 euro. Il conto è sbagliato: è annullabile?",
