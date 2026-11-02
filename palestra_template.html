@@ -385,6 +385,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .field select,.field input{font-family:var(--font);font-size:15px;padding:9px 10px;border:1px solid rgba(0,0,0,.42);border-radius:4px;background:#fff;color:var(--mud-text);max-width:100%}
 .radio-row{display:flex;flex-direction:column;gap:6px}
 .tagrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px}
+.cat-tick{display:inline-block;color:#fff;background:#2e7d32;border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:12px;font-weight:700;margin-right:6px;vertical-align:1px}
 .tagrow__l{font-size:12.5px;color:var(--ocf-ink-soft)}
 .tagbtn{display:inline-flex;align-items:center;gap:6px;border:1.3px solid var(--tc);color:var(--tc);background:#fff;border-radius:999px;padding:3px 10px;font:600 12.5px var(--font);cursor:pointer}
 .tagbtn.on{background:var(--tc);color:#fff}.tagbtn.on .tagdot{background:#fff}
@@ -882,11 +883,13 @@ const IN_CLAUDE = !!(window.claude && window.claude.use);
 const CODE_RE = /^[A-HJ-NP-Z2-9]{4}(-[A-HJ-NP-Z2-9]{4}){4}$/; // alfabeto dei codici: niente 0, 1, I, O
 const blankBase = () => ({1:{},2:{},3:{},4:{},5:{}});
 const blank = () => ({v:2, base:blankBase(), h:[]});
-let S = {v:2, base:blankBase(), h:[], m:blankBase()};
+// RIPARTENZA: dal 1/11/2026 si riparte da zero; i test precedenti restano in S.old (salvati e sincronizzati) ma non contano
+const RESET_AT = new Date("2026-11-01T00:00:00+01:00").getTime();
+let S = {v:2, base:blankBase(), h:[], m:blankBase(), old:{base:blankBase(), h:[]}};
 const store = {db:null, uid:null, code:null, online:false, lastSync:null, ver:0, err:null};
 const lsGet = k => { try{ return localStorage.getItem(k); }catch(e){ return null; } };
 const lsSet = (k,v) => { try{ v===null?localStorage.removeItem(k):localStorage.setItem(k,v); }catch(e){} };
-const persisted = () => Object.assign({v:2, base:S.base, h:S.h}, S.n && Object.keys(S.n).length ? {n:S.n} : {});
+const persisted = () => Object.assign({v:2, base:S.old.base, h:[...S.old.h, ...S.h]}, S.n && Object.keys(S.n).length ? {n:S.n} : {});
 function setSync(t){ const el=$("#sync"); if(el) el.textContent=t; }
 function hasData(s){ return s && ((s.h||[]).length || [1,2,3,4,5].some(k=>Object.keys((s.base||{})[k]||{}).length)); }
 function sid(){ const a=new Uint8Array(8); crypto.getRandomValues(a); return [...a].map(x=>x.toString(16).padStart(2,"0")).join(""); }
@@ -968,7 +971,7 @@ function derive(){
     const r=m[qq[0]][n]||[0,0,0]; r[0]++; if(e===1) r[1]++; r[2]=e===1?1:0; m[qq[0]][n]=r; }
   S.m=m;
 }
-function setLocal(st){ S={v:2, base:st.base, h:st.h, n:st.n||{}, m:null}; derive(); }
+function setLocal(st){ S={v:2, base:blankBase(), h:st.h.filter(h=>h.t>=RESET_AT), old:{base:st.base, h:st.h.filter(h=>h.t<RESET_AT)}, n:st.n||{}, m:null}; derive(); }
 function lsRead(){ try{ const v=lsGet(LS_KEY); if(v) return clean(JSON.parse(v)); const o=lsGet(LS_OLD); if(o) return clean(JSON.parse(o)); }catch(e){} return null; }
 function lsWrite(){
   // un'altra scheda o finestra può aver salvato dopo di noi: si unisce prima di scrivere, così nessun test si perde
@@ -1422,7 +1425,7 @@ function renderHome(){
     <div class="ocf-landing-hero__left"><div class="ocf-landing-hero__eyebrow">Materia ${m} · prova valutativa OCF</div>
       <h2 class="ocf-landing-hero__title">${esc(MAT[m].name)}</h2>
       <p class="ocf-landing-hero__subtitle">Tutte le ${s.tot} domande ufficiali divise per argomento. Scegli i temi e allenati, oppure fai la simulazione d'esame.</p>
-      <button class="btn ocf-landing-hero__cta" data-goto="categorie">${icon("play_arrow")} Allenati per argomento</button></div>
+      <button class="btn ocf-landing-hero__cta" data-goto="categorie">${icon("play_arrow")} Allenati per argomento</button>${tagged(m,"s").length?`<button class="btn ocf-landing-hero__cta" id="home-saved" style="margin-top:8px">★ Domande salvate (${tagged(m,"s").length})</button>`:""}</div>
     <div class="ocf-landing-hero__right">
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.seen}</div><div class="ocf-landing-hero__stat-label">Fatte</div></div>
       <div class="ocf-landing-hero__stat"><div class="ocf-landing-hero__stat-value">${s.ok}</div><div class="ocf-landing-hero__stat-label">Giuste</div></div>
@@ -1450,7 +1453,7 @@ function renderHome(){
         <span class="prova-card__score"><span class="prova-card__score-value">${h.ok}</span><span class="prova-card__score-max">/${ans}</span></span><span></span></div>`; }).join("")}</div>`
       :`<div class="alert">${icon("info_outline")}<span>Ancora nessun allenamento. Tocca "Domande totali" e scegli un blocco.</span></div>`}
   </section>`;
-  bindGoto();
+  bindGoto(); { const hs=$("#home-saved"); if(hs) hs.onclick=()=>openTag(m,"s"); }
   const qn=$("#q-new"); qn.onclick=()=>startSession({kind:"studio", title:"Domande mai fatte", ids:BY_MAT[m].filter(n=>!S.m[m][n]).slice(0,25), fb:"now", w:"new", src:"home-new"});
   $("#q-xls").onclick=e=>exportReport(e.currentTarget);
   bindPdfBlocks(m); bindChain();
@@ -1642,7 +1645,7 @@ function renderMateria(){
   renderTrainbar(G);
 }
 // ETICHETTE COLORATE: come conosci una domanda, scelta da te durante il test (sincronizzate insieme alle note)
-const TAGS={r:{t:"Sbaglio sempre",p:"rosse",c:"#d32f2f"}, o:{t:"Attenzione",p:"arancioni",c:"#e65100"}, b:{t:"Tranquilla",p:"blu",c:"#1565c0"}};
+const TAGS={s:{t:"Salvate",p:"salvate",c:"#1565c0"}};
 function tagOf(n){ const v=(S.n||{})["c:"+n]; return v && TAGS[v[1]] ? v[1] : ""; }
 function setTag(n,t){ if(!S.n) S.n={}; S.n["c:"+n]=[Date.now(), tagOf(n)===t?"":t]; lsWrite(); pushAll(); }
 function tagged(m,t,scope){ return (scope||BY_MAT[m]).filter(n=>tagOf(n)===t); }
@@ -2203,13 +2206,15 @@ function renderCategorie(){
   if(state.pickedB) state.pickedB.clear(); // qui si sceglie per categoria, non per blocco
   if(!state.catOpen) state.catOpen=new Set();
   const tagChips=ids=>{ const tc=Object.keys(TAGS).map(t=>[t,tagged(m,t,ids).length]).filter(x=>x[1]); return tc.length?`<span class="cat-tags">${tc.map(([t,k])=>`<b style="--tc:${TAGS[t].c}" title="${TAGS[t].t}">${k}</b>`).join("")}</span>`:""; };
+  const fullSub=new Map(), fullCat=new Map(); groupsOf(m).forEach(g=>{ fullCat.set(g.ci,g.ids); g.subs.forEach(x=>fullSub.set(g.ci+":"+x.si,x.ids)); });
+  const tick=ids=>ids&&ids.length&&ids.every(fatta)?`<span class="cat-tick" title="Completata">✓</span>`:"";
   const meta=ids=>{ const st=gstats(ids); return `${st.tot} domande · fatte ${st.seen}${st.wr?` · <span style="color:var(--ocf-red)">${st.wr} da ripassare</span>`:""}`; };
   const rows=G.map(g=>{ const keys=g.subs.map(s=>g.ci+":"+s.si), nOn=keys.filter(k=>state.picked.has(k)).length, open=state.catOpen.has(g.ci);
     return `<div class="cat"><div class="cat-h"><input type="checkbox" data-catall="${g.ci}" ${nOn===keys.length?"checked":""} aria-label="Seleziona tutto l'argomento">
-      <span class="cat-name" data-catopen="${g.ci}">${esc(CONT[g.ci])}</span><span class="cat-meta">${meta(g.ids)}</span>${tagChips(g.ids)}
+      <span class="cat-name" data-catopen="${g.ci}">${tick(fullCat.get(g.ci))}${esc(CONT[g.ci])}</span><span class="cat-meta">${meta(g.ids)}</span>${tagChips(g.ids)}
       <button class="cat-exp" data-catopen="${g.ci}" aria-label="${open?"Chiudi":"Apri"} le sottocategorie">${icon(open?"expand_less":"expand_more")}</button></div>
       ${open?g.subs.map(s=>{ const k=g.ci+":"+s.si; return `<div class="cat-s"><input type="checkbox" data-catsub="${k}" ${state.picked.has(k)?"checked":""} aria-label="Seleziona ${esc(SUB[s.si]||"sottocategoria")}">
-        <span class="cat-sn" data-catsubn="${k}">${esc(SUB[s.si]||"(senza nome)")}</span><span class="cat-meta">${meta(s.ids)}</span>${tagChips(s.ids)}<button class="cat-read" data-catread="${k}">Leggi</button></div>`; }).join(""):""}</div>`; }).join("");
+        <span class="cat-sn" data-catsubn="${k}">${tick(fullSub.get(k))}${esc(SUB[s.si]||"(senza nome)")}</span><span class="cat-meta">${meta(s.ids)}</span>${tagChips(s.ids)}<button class="cat-read" data-catread="${k}">Leggi</button></div>`; }).join(""):""}</div>`; }).join("");
   $("#view").innerHTML = `
   ${head("account_tree","Categorie e sottocategorie")}
   <section class="ocf-landing-hero"><div class="ocf-landing-hero__inner">
@@ -2310,7 +2315,7 @@ function renderSession(){
     <div class="quesito-box"><span class="quesito-box__label">Domanda</span><div class="quesito-box__testo">${esc(q[4])}</div></div>
     <div class="quesito-alt-list">${alts}</div>
     ${!isSim && reveal ? spiegaHTML(it.n, it.order, it.exp) : ""}
-    ${isSim?"":`<div class="tagrow" role="group" aria-label="Segna questa domanda (facoltativo)"><span class="tagrow__l">Segna, se vuoi:</span>${Object.entries(TAGS).map(([k,v])=>`<button class="tagbtn ${tagOf(it.n)===k?"on":""}" data-tag="${k}" style="--tc:${v.c}" aria-pressed="${tagOf(it.n)===k}"><i class="tagdot"></i>${v.t}</button>`).join("")}</div>`}
+    ${isSim?"":`<div class="tagrow"><button class="tagbtn ${tagOf(it.n)==="s"?"on":""}" data-tag="s" style="--tc:${TAGS.s.c}" aria-pressed="${tagOf(it.n)==="s"}">${tagOf(it.n)==="s"?"★ Salvata · tocca per togliere":"☆ Salva per riguardarla"}</button></div>`}
     ${note}
     ${chainKo && !bonusDone?`<div class="alert alert-chain">${icon("link_off")}<span><b>Catena interrotta a ${T.chainBroken} di fila.</b> La risposta giusta è quella in verde. Puoi <b>andare avanti</b> quanto vuoi per vedere le altre risposte, oppure <b>ricominciare il blocco</b>.</span></div>`:""}
     ${bonusDone?`<div class="alert alert-chain">${icon("replay")}<span><b>${T.i===T.chainBroken?`Catena interrotta a ${T.chainBroken} di fila.`:"Fine del blocco."}</b> Tra pochi secondi si riparte dall'inizio del blocco (oppure tocca Ricomincia).</span></div>`:""}
