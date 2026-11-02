@@ -2400,554 +2400,604 @@
   "r": "<b>«Il diritto non è un'arma per estorcere»</b>. La parola chiave è <b>«ingiusti»</b>; le soglie in euro sono esche."
  },
  "4801": {
-  "q": "Il contratto dice: 1.000 azioni a 2 euro l'una, totale 3.000 euro. Il conto è sbagliato: è annullabile?",
-  "p": "<b>No, si fa una semplice rettifica, a meno che l'errore sulla quantità sia stato determinante del consenso.</b> Un errore di calcolo è di solito una svista che si corregge, senza far cadere l'accordo. Il contratto diventa annullabile solo se quell'errore ha portato davvero la parte ad accettare. Se senza l'errore non avrebbe mai firmato, il consenso è viziato.",
-  "e": "1.000 × 2 = 2.000 euro, non 3.000. Si corregge il totale e il contratto resta in piedi. Si può annullare solo se quell'errore sulla quantità è stato decisivo per dire sì.",
+  "q": "Nel contratto c'è scritto: <b>1.000 azioni a 2 € l'una, totale 3.000 €</b>. Il conto è sbagliato (1.000 × 2 = 2.000). La domanda chiede se il contratto è annullabile.",
+  "p": "<b>No, si fa una semplice rettifica</b>: si corregge il totale. È un <b>errore di calcolo</b>, che non intacca la volontà delle parti: tutti e due volevano 1.000 azioni a 2 €. Fa eccezione il caso in cui l'errore sulla quantità sia stato <b>determinante del consenso</b>: allora si può annullare.",
+  "e": "Il totale viene corretto in 2.000 €. Se invece il compratore aveva capito di comprare 1.500 azioni (3.000 ÷ 2) e senza quell'errore non avrebbe firmato, potrebbe chiedere l'annullamento.",
   "x": {
-   "B": "non c'è un diritto di comprare fino a 1.500 azioni: il rimedio è la rettifica",
-   "C": "«in ogni caso» è sbagliato: di regola basta rettificare",
-   "D": "non c'è un obbligo di comprare 1.500 azioni: il conto si corregge e basta"
+   "B": "non si cambia il numero di azioni: si corregge il conto",
+   "C": "non è annullabile «in ogni caso»: di regola si rettifica",
+   "D": "non si cambia il numero di azioni: si corregge il conto"
   },
-  "k": "errore di calcolo = rettifica, salvo errore determinante"
+  "k": "errore di calcolo = rettifica",
+  "r": "<b>«Rifai la moltiplicazione»</b>: 1.000 × 2 = 2.000, si corregge e basta. È la gemella dell'altra domanda sull'errore di calcolo."
  },
  "4802": {
-  "q": "Minacciare di far valere un proprio diritto può portare all'annullamento del contratto?",
-  "p": "<b>Sì, quando la minaccia serve a ottenere vantaggi ingiusti.</b> Far valere un diritto è di per sé lecito, quindi di solito non è violenza. Diventa causa di annullamento quando il diritto viene usato come strumento di pressione per ottenere qualcosa che non spetta.",
-  "e": "Un creditore di 1.000 euro minaccia una causa per farsi pagare i 1.000 euro: è lecito. Se la minaccia serve a farsi vendere una casa a prezzo stracciato, il vantaggio è ingiusto e il contratto è annullabile.",
+  "q": "La domanda chiede di nuovo se la <b>minaccia di far valere un diritto</b> può portare all'annullamento del contratto.",
+  "p": "<b>Sì, quando è diretta a ottenere vantaggi ingiusti</b>. Di regola minacciare un'azione legale è lecito, perché è esercizio di un diritto. Diventa una minaccia illegittima quando lo si usa come leva per ottenere qualcosa di sproporzionato o non dovuto.",
+  "e": "«Se non mi cedi la tua azienda per pochi soldi, ti denuncio per un debito di 200 €»: vantaggio ingiusto, il contratto si può annullare.",
   "x": {
-   "B": "se il vantaggio è giusto, chi minaccia esercita solo un suo diritto: niente annullamento",
-   "C": "la regola non è limitata agli immobili e il tipo di vantaggio conta",
-   "D": "«mai» è sbagliato: il vantaggio ingiusto rende possibile l'annullamento"
+   "B": "se il vantaggio è giusto non c'è violenza",
+   "C": "non è limitato agli immobili e il vantaggio ingiusto è decisivo",
+   "D": "è possibile, se il vantaggio è ingiusto"
   },
-  "k": "minaccia di un diritto + vantaggio ingiusto = annullabile"
+  "k": "minaccia di un diritto + vantaggio ingiusto = annullabile",
+  "r": "Gemella della 4800: la parola decisiva è <b>«ingiusti»</b>. Se l'opzione dice «anche giusti», è sbagliata."
  },
  "4803": {
-  "q": "Se una delle parti era legalmente incapace di contrattare, che fine fa il contratto?",
-  "p": "Il contratto è <b>annullabile</b>. L'incapacità legale serve a proteggere la parte debole, per esempio un minore. Per questo il contratto produce effetti finché la parte protetta, o chi la rappresenta, non chiede l'annullamento.",
-  "e": "Un minorenne firma da solo l'acquisto di un'auto. Il contratto non è nullo in partenza: può essere fatto annullare nell'interesse del minore.",
+  "q": "Una delle parti era <b>legalmente incapace</b> di contrattare (es. un minore o un interdetto). La domanda chiede che sorte ha il contratto.",
+  "p": "Il contratto è <b>annullabile</b>. La legge protegge l'incapace: solo lui (o chi lo rappresenta) può chiedere l'annullamento, se il contratto gli è sfavorevole. Se invece gli conviene, può tenerlo. Non è nullo: la nullità colpirebbe tutti, anche contro l'interesse dell'incapace.",
+  "e": "Un ragazzo di 16 anni compra uno smartphone da 1.200 €. I genitori possono chiedere l'annullamento; se il telefono gli va bene, il contratto resta.",
   "x": {
-   "B": "la nullità riguarda difetti più gravi, come la mancanza di un elemento essenziale",
-   "C": "il contratto esiste e produce effetti finché non viene annullato",
-   "D": "simulato significa che le parti fingono un accordo: qui non c'è alcuna finzione"
+   "B": "non è nullo: è annullabile",
+   "C": "«inesistente» non è la sanzione prevista",
+   "D": "non c'entra la simulazione"
   },
-  "k": "incapacità legale = annullabile"
+  "k": "incapacità legale = annullabile",
+  "r": "<b>Incapacità, errore, violenza, dolo = annullabile</b>. Sono i «vizi» che proteggono una sola parte, che può scegliere."
  },
  "4804": {
-  "q": "La violenza permette di annullare il contratto?",
-  "p": "<b>Sì, anche se la esercita un terzo.</b> Quello che conta è che il consenso non sia stato libero. Non importa chi ha fatto la pressione: la vittima è stata costretta comunque, quindi merita la stessa tutela.",
-  "e": "Marco firma una vendita a Luca perché Paolo, estraneo al contratto, lo ha minacciato. Marco può chiedere l'annullamento anche se Luca non ha minacciato nessuno.",
+  "q": "La domanda chiede se la <b>violenza</b> è causa di annullamento del contratto, anche se esercitata da un terzo.",
+  "p": "<b>Sì, anche se esercitata da un terzo</b>. A differenza del dolo, per la violenza non importa chi la eserciti: chi firma sotto minaccia non è libero, chiunque lo minacci. La violenza deve essere tale da fare impressione su una persona sensata e far temere un male ingiusto e notevole.",
+  "e": "Un estraneo minaccia Tizio di fargli del male se non vende la casa a Caio, e Caio non ne sa nulla. Tizio può comunque chiedere l'annullamento.",
   "x": {
-   "B": "la violenza del terzo vizia il consenso allo stesso modo",
-   "C": "«in nessun caso» è sbagliato: la violenza è proprio una causa di annullamento",
-   "D": "una minaccia che fa temere un male ingiusto e notevole è proprio la violenza che permette l'annullamento"
+   "B": "vale anche se la esercita un terzo",
+   "C": "la violenza è proprio una causa di annullamento",
+   "D": "descrive la violenza rilevante, ma dice «No»: è al contrario"
   },
-  "k": "violenza, anche del terzo = annullabile"
+  "k": "violenza = annullabile, anche se di un terzo",
+  "r": "Ricorda la differenza: <b>violenza del terzo → sempre annullabile</b>; <b>dolo del terzo → solo se la controparte lo sapeva</b>."
  },
  "4805": {
-  "q": "Le parti lasciano al mero arbitrio di un terzo la scelta dell'oggetto del contratto. Si può impugnare quella scelta?",
-  "p": "<b>No, salvo la prova della mala fede del terzo.</b> Affidandosi al «mero arbitrio» le parti accettano la scelta del terzo anche se non è equa. Rimane un solo limite: la scelta non può essere fatta in mala fede, e chi la contesta deve provarla.",
-  "e": "Due soci lasciano a un amico la scelta del quadro da vendere. Se la scelta non piace, non si può contestare. Si può farlo solo provando che l'amico ha agito in mala fede, per esempio d'accordo con una delle parti.",
+  "q": "Le parti affidano a un terzo la determinazione dell'oggetto del contratto <b>a suo mero arbitrio</b>, cioè secondo il suo personale giudizio. La domanda chiede se la sua decisione si può contestare.",
+  "p": "<b>No, salvo che si provi la malafede del terzo</b>. Se le parti hanno voluto affidarsi completamente al giudizio di quella persona, accettano la sua decisione anche se sembra poco equa. L'unica via è dimostrare che il terzo ha agito in malafede.",
+  "e": "Due soci affidano a un amico comune il compito di stabilire, a suo giudizio, il prezzo di una quota. Il prezzo non piace a uno dei due, ma si può contestare solo provando che l'amico ha agito in malafede.",
   "x": {
-   "B": "la mala fede è proprio il caso in cui l'impugnazione è ammessa, anche se il terzo è scelto dalle parti",
-   "C": "l'oggetto non è indeterminato: è determinabile tramite il terzo",
-   "D": "«in ogni caso» è sbagliato: serve la prova della mala fede"
+   "B": "la malafede permette l'impugnazione",
+   "C": "l'oggetto è determinabile, perché c'è il terzo",
+   "D": "non sempre: solo con la malafede"
   },
-  "k": "mero arbitrio: si impugna solo per mala fede"
+  "k": "mero arbitrio del terzo: impugnabile solo per malafede",
+  "r": "<b>«Ti sei affidato a lui? Ora accetti, salvo che ti abbia fregato»</b>. La parola chiave è <b>«mala fede»</b>."
  },
  "4806": {
-  "q": "In base all'art. 1427 c.c., il contraente può chiedere l'annullamento del contratto?",
-  "p": "<b>Sì, se il consenso fu dato per errore o estorto con violenza.</b> In questi casi la volontà non si è formata in modo libero e consapevole. L'articolo cita anche il dolo, cioè il raggiro, che qui non compare tra le opzioni: tra le risposte, la A è l'unica che comprende entrambi i vizi indicati.",
-  "e": "Anna compra un quadro credendolo di un altro autore (errore). Bruno firma perché minacciato (violenza). Tutti e due possono chiedere l'annullamento.",
+  "q": "La domanda chiede, in base all'art. 1427 del codice civile, quando il contraente può chiedere l'<b>annullamento</b> del contratto.",
+  "p": "<b>Se il consenso è stato dato per errore, estorto con violenza o carpito con dolo</b>. Sono i tre <b>vizi del consenso</b>. Tra le opzioni c'è la versione con errore e violenza: è l'unica che non ne esclude nessuno ed è quella giusta.",
+  "e": "Errore: compri un quadro credendolo autentico ed è una copia. Violenza: firmi sotto minaccia. Dolo: firmi perché ti hanno ingannato.",
   "x": {
-   "B": "«esclusivamente» l'errore è sbagliato: vale anche la violenza",
-   "C": "«esclusivamente» la violenza è sbagliato: vale anche l'errore",
-   "D": "«mai» è sbagliato: i vizi del consenso consentono l'annullamento"
+   "B": "non è esclusivamente l'errore",
+   "C": "non è esclusivamente la violenza",
+   "D": "è possibile"
   },
-  "k": "consenso viziato = annullamento"
+  "k": "vizi del consenso: errore, violenza, dolo",
+  "r": "Ricorda i <b>3 vizi «E-V-D»</b>: Errore, Violenza, Dolo. Le risposte con «esclusivamente» ne tagliano uno: sono sbagliate."
  },
  "4807": {
-  "q": "Il venditore vende una cosa che non è sua. Quando il compratore può chiedere la risoluzione?",
-  "p": "<b>Se, quando ha concluso il contratto, ignorava che la cosa non era del venditore e se nel frattempo il venditore non gliene ha fatto acquistare la proprietà.</b> Servono entrambe le condizioni. Il compratore deve essere stato all'oscuro, altrimenti ha accettato il rischio. E il problema deve essere ancora presente: se ha ottenuto la proprietà, ha avuto ciò che voleva.",
-  "e": "Sara compra un'auto da Tino, senza sapere che è di Ugo. Se Tino non le fa avere la proprietà, Sara può chiedere la risoluzione. Se Tino la compra da Ugo e gliela trasferisce, non può più.",
+  "q": "Il venditore ha venduto una cosa <b>che non era sua</b>. La domanda chiede quando il compratore può chiedere la risoluzione del contratto.",
+  "p": "Se <b>al momento del contratto non sapeva</b> che la cosa non era del venditore, e se <b>nel frattempo il venditore non gliene ha fatto acquistare la proprietà</b>. Sono necessarie entrambe le condizioni. Se il compratore lo sapeva, ha accettato il rischio. Se il venditore ha sistemato le cose, il problema non c'è più.",
+  "e": "Compri un'auto che credi del venditore, invece è del fratello. Se il venditore non riesce a fartene diventare proprietario, puoi chiedere la risoluzione.",
   "x": {
-   "B": "se il compratore ha ormai acquistato la proprietà, non c'è più motivo di risolvere",
-   "C": "«mai» è sbagliato: il compratore in buona fede ha questo rimedio",
-   "D": "chi sapeva che la cosa era altrui non è il compratore tutelato da questo rimedio"
+   "B": "se il venditore gli ha fatto acquistare la proprietà, il problema è risolto",
+   "C": "è possibile, alle due condizioni",
+   "D": "se lo sapeva, ha accettato il rischio"
   },
-  "k": "ignorava + proprietà non ottenuta = risoluzione"
+  "k": "vendita di cosa altrui: risoluzione se ignorava e non è diventato proprietario",
+  "r": "<b>Due condizioni: «non lo sapevo» + «non è ancora mia»</b>. Controlla che la risposta le abbia tutte e due."
  },
  "4808": {
-  "q": "Il debitore ha scritto che non vuole eseguire l'obbligazione. Serve ancora la costituzione in mora?",
-  "p": "<b>Non è necessaria la costituzione in mora.</b> La costituzione in mora è l'atto con cui il creditore chiede formalmente di adempiere. Se il debitore ha già dichiarato per iscritto che non lo farà, chiederglielo sarebbe inutile: la mora scatta senza quell'atto.",
-  "e": "Luca scrive a Maria: «Non ti restituirò i 500 euro». Maria non deve mandargli una richiesta formale di pagamento: Luca è già in mora.",
+  "q": "Il debitore ha dichiarato <b>per iscritto</b> che non vuole eseguire l'obbligazione. La domanda chiede se serve ancora la costituzione in mora.",
+  "p": "<b>Non è necessaria</b>. La costituzione in mora serve a intimare al debitore di adempiere. Ma se lui ha già scritto chiaramente che non adempirà, chiederglielo è inutile: è già in mora automaticamente.",
+  "e": "Un fornitore ti scrive: «Non consegnerò mai la merce». Non devi mandargli una diffida: è già in mora.",
   "x": {
-   "B": "la dichiarazione ha valore: è proprio lei a rendere inutile la costituzione in mora",
-   "C": "«comunque necessaria» è sbagliato: in questo caso se ne fa a meno",
-   "D": "rifiutarsi di pagare non libera il debitore: il debito resta"
+   "B": "la dichiarazione ha valore: mette il debitore in mora",
+   "C": "non è necessaria",
+   "D": "il debitore non è liberato: è inadempiente"
   },
-  "k": "rifiuto scritto = mora senza richiesta"
+  "k": "rifiuto scritto di adempiere = mora automatica",
+  "r": "<b>«Me l'hai scritto tu che non paghi»</b>: non serve chiedertelo di nuovo."
  },
  "4809": {
-  "q": "La risoluzione per inadempimento vale anche per il passato tra le parti?",
-  "p": "<b>Sì, salvo i contratti ad esecuzione continuata o periodica, per i quali non tocca le prestazioni già eseguite.</b> La risoluzione cancella il contratto come se non ci fosse stato, quindi le parti si restituiscono ciò che hanno ricevuto. Nei contratti che durano nel tempo, però, ciò che è già stato eseguito ha avuto la sua utilità e resta fermo.",
-  "e": "Vendita di un'auto non pagata: si risolve, e l'auto torna indietro. Fornitura mensile di gas: i mesi già forniti e pagati restano validi.",
+  "q": "La domanda chiede se la <b>risoluzione per inadempimento</b> ha effetto retroattivo tra le parti.",
+  "p": "<b>Sì</b>: la risoluzione cancella il contratto <b>dal momento in cui è nato</b>, e le parti devono restituirsi quanto ricevuto. Fanno eccezione i contratti a <b>esecuzione continuata o periodica</b> (es. un affitto, un abbonamento), dove la risoluzione <b>non tocca le prestazioni già eseguite</b>.",
+  "e": "Vendita con prezzo pagato e cosa non consegnata: con la risoluzione ti restituiscono il prezzo. Affitto di due anni risolto dopo un anno: i canoni pagati per l'anno trascorso non vengono restituiti.",
   "x": {
-   "B": "la retroattività viene dalla legge, non serve che le parti la prevedano",
-   "C": "non dipende da una scelta del giudice: la prevede la legge",
-   "D": "«no» è sbagliato: la regola è la retroattività, con l'eccezione indicata"
+   "B": "è retroattiva per legge, non solo se previsto",
+   "C": "non lo decide il giudice: lo prevede la legge",
+   "D": "è il contrario: di regola è retroattiva"
   },
-  "k": "risoluzione retroattiva, ma non per il già eseguito nei contratti di durata"
+  "k": "risoluzione retroattiva, salvo contratti continuati",
+  "r": "<b>«Si torna indietro, tranne per quello già goduto»</b>. Tieni A e D a confronto: cambiano solo «Sì» e «No»."
  },
  "4810": {
-  "q": "Caio noleggia gli sci da Cesare per il suo unico giorno di vacanza, e lo ha detto. Cesare non li consegna quel giorno e propone un'altra data. Caio può risolvere?",
-  "p": "<b>Sì.</b> Quel giorno era essenziale per Caio, e Cesare lo sapeva: gli sci servivano solo in quella data. Una consegna più tardi non gli è più utile, quindi la mancata consegna è un inadempimento importante che giustifica la risoluzione.",
-  "e": "Se Caio ha solo sabato di vacanza, gli sci consegnati martedì non gli servono a niente. Può sciogliere il contratto senza accettare la nuova data.",
+  "q": "Caio noleggia degli sci per un giorno preciso, dicendo che è l'unico giorno di vacanza che ha. Cesare quel giorno non li consegna e propone un'altra data. La domanda chiede se Caio può risolvere il contratto.",
+  "p": "<b>Sì</b>. Il termine era chiaramente <b>essenziale</b>: Caio aveva detto che quello era il suo unico giorno di vacanza. Dopo quel giorno gli sci non gli servono più, quindi l'inadempimento di Cesare è grave e Caio può risolvere il contratto.",
+  "e": "Ordini la torta per un compleanno e il pasticcere non la consegna quel giorno: un'altra data non ti serve, il contratto si risolve.",
   "x": {
-   "B": "proprio il fatto che il noleggio valga per quel solo giorno rende decisiva la consegna",
-   "C": "non è vero che Caio debba accettare un'altra data: quel giorno era decisivo",
-   "D": "la regola non dipende dal fatto che Cesare noleggi per professione"
+   "B": "proprio perché era per un solo giorno, il termine era essenziale",
+   "C": "può risolverlo",
+   "D": "non serve che Cesare noleggi sci per professione"
   },
-  "k": "data decisiva mancata = risoluzione"
+  "k": "termine essenziale mancato = risoluzione",
+  "r": "<b>«Dopo quel giorno non mi serve più»</b>: termine essenziale. La frase «unico giorno di vacanza» è il dettaglio decisivo."
  },
  "4811": {
-  "q": "Si può intimare per iscritto alla parte inadempiente di adempiere entro un congruo termine, altrimenti il contratto è risolto? E quanto deve durare il termine?",
-  "p": "<b>Sì, e il termine non può essere inferiore a quindici giorni, salvo diverso patto o salvo che la natura del contratto o gli usi rendano congruo un termine minore.</b> È la diffida ad adempiere: dà un'ultima possibilità all'altra parte. Il numero dei giorni è una regola da memorizzare: 15.",
-  "e": "Il 1° marzo Anna scrive a Bruno: «Consegna entro 15 giorni, altrimenti il contratto è risolto». Se il 16 marzo Bruno non ha consegnato, il contratto è risolto senza andare dal giudice.",
+  "q": "Una parte vuole <b>intimare per iscritto</b> all'altra di adempiere entro un termine, avvisando che altrimenti il contratto si risolve (diffida ad adempiere). La domanda chiede quanto deve essere lungo il termine.",
+  "p": "<b>Non inferiore a quindici giorni</b>, salvo diverso accordo o salvo che per la natura del contratto o per gli usi sia congruo un termine più breve. Se il termine passa senza adempimento, il contratto si risolve <b>automaticamente</b>, senza bisogno di andare dal giudice.",
+  "e": "Il fornitore non consegna. Gli scrivi: «Hai 15 giorni per consegnare, poi il contratto è risolto». Al 16° giorno senza consegna, il contratto è sciolto.",
   "x": {
-   "B": "sessanta giorni non è il minimo previsto: è quindici",
-   "C": "trenta giorni non è il minimo previsto: è quindici",
-   "D": "novanta giorni non è il minimo previsto: è quindici"
+   "B": "non sessanta giorni",
+   "C": "non trenta giorni",
+   "D": "non novanta giorni"
   },
-  "k": "diffida ad adempiere: minimo 15 giorni"
+  "k": "diffida ad adempiere = almeno 15 giorni",
+  "r": "<b>«Diffida = 15»</b>. Le quattro risposte sono identiche tranne il numero: memorizza <b>quindici</b>."
  },
  "4812": {
-  "q": "Che effetto ha nel tempo la risoluzione per inadempimento?",
-  "p": "<b>Ha effetto retroattivo tra le parti, salvo i contratti ad esecuzione continuata o periodica, per i quali non si estende alle prestazioni già eseguite.</b> Di regola si torna alla situazione di partenza. Nei contratti di durata, però, le prestazioni già scambiate restano ferme, perché non si possono cancellare in modo sensato.",
-  "e": "Abbonamento mensile: se si risolve a giugno, i mesi da gennaio a maggio già eseguiti restano validi. In una vendita singola, invece, bene e prezzo si restituiscono.",
+  "q": "La domanda chiede ancora che effetto ha la <b>risoluzione per inadempimento</b> tra le parti.",
+  "p": "Ha <b>effetto retroattivo</b>, salvo nei contratti a <b>esecuzione continuata o periodica</b>, dove non tocca le prestazioni già eseguite. È la stessa regola della 4809: il contratto si cancella dall'origine, ma non si possono «restituire» mesi di servizio già goduti.",
+  "e": "Un abbonamento in palestra si risolve dopo sei mesi per inadempimento della palestra: i sei mesi già usati non si toccano.",
   "x": {
-   "B": "la retroattività è la regola generale, non un'eccezione per certi immobili",
-   "C": "«mai» è sbagliato: tra le parti la retroattività è la regola",
-   "D": "«sempre» è sbagliato: nei contratti di durata il già eseguito resta fermo"
+   "B": "non c'è un'eccezione per gli immobili di valore: la regola è la retroattività",
+   "C": "ha effetto retroattivo",
+   "D": "nei contratti continuati non si estende alle prestazioni già eseguite"
   },
-  "k": "retroattiva, salvo il già eseguito nei contratti di durata"
+  "k": "risoluzione retroattiva, salvo contratti continuati",
+  "r": "Gemella della 4809: <b>«si torna indietro, tranne per quello già goduto»</b>."
  },
  "4813": {
-  "q": "Una parte, in stato di bisogno, accetta una prestazione sproporzionata e l'altra se ne approfitta. Cosa può chiedere in base all'art. 1448 c.c.?",
-  "p": "<b>La rescissione del contratto, ma l'azione non è ammessa se la lesione non supera la metà del valore che la sua prestazione aveva al tempo del contratto.</b> La legge interviene solo quando lo squilibrio è grave. Per questo fissa una soglia: la parte danneggiata deve aver ricevuto meno della metà di quanto ha dato. La soglia è da memorizzare.",
-  "e": "Un bene vale 100.000 euro e, per bisogno, viene venduto a 40.000: la perdita è di 60.000, oltre la metà, quindi si può chiedere la rescissione. Se viene venduto a 60.000, la perdita è di 40.000 e l'azione non è ammessa.",
+  "q": "Una parte era in <b>stato di bisogno</b> e l'altra ne ha approfittato, creando una <b>sproporzione</b> tra le prestazioni. La domanda chiede cosa può chiedere la parte danneggiata.",
+  "p": "Può chiedere la <b>rescissione</b> del contratto, ma solo se la lesione è <b>oltre la metà</b> del valore: cioè se ha dato o promesso più del doppio di quanto ha ricevuto. Inoltre la lesione deve durare fino alla domanda, e la rescissione non vale per i contratti aleatori.",
+  "e": "Per pagare un'operazione urgente vendi a 40.000 € una casa che ne vale 100.000, e il compratore ne approfitta. Hai ricevuto meno della metà del valore: puoi chiedere la rescissione.",
   "x": {
-   "B": "i contratti aleatori sono esclusi: in questi contratti il rischio è accettato",
-   "C": "la lesione deve durare fino a quando la domanda è proposta",
-   "D": "il rimedio previsto è la rescissione, non «esclusivamente» una riduzione del prezzo"
+   "B": "i contratti aleatori sono esclusi",
+   "C": "la lesione deve durare fino alla domanda",
+   "D": "non solo uno sconto: c'è la rescissione"
   },
-  "k": "stato di bisogno + lesione oltre la metà = rescissione"
+  "k": "rescissione per lesione: oltre la metà",
+  "r": "<b>«Più della metà»</b>: è il numero della rescissione per lesione. Tre ingredienti: <b>bisogno + approfittamento + oltre metà</b>."
  },
  "4814": {
-  "q": "Il contratto rescindibile si può convalidare?",
-  "p": "<b>No.</b> La legge esclude la convalida per il contratto rescindibile: è una regola da memorizzare. La ragione è la tutela di chi ha firmato in condizioni di bisogno o di pericolo: una conferma della parte debole potrebbe nascere dalla stessa pressione. Non confondere con il contratto annullabile, che invece si può convalidare.",
-  "e": "Chi ha venduto sottocosto per bisogno non può «sistemare» tutto firmando una convalida: il contratto resta rescindibile.",
+  "q": "La domanda chiede se un contratto <b>rescindibile</b> può essere convalidato.",
+  "p": "<b>No</b>. Il codice vieta la convalida del contratto rescindibile. La parte in stato di bisogno potrebbe essere costretta a convalidarlo dalla stessa situazione che l'ha portata a firmare. La legge non le permette di rinunciare così alla tutela. Il contratto può però essere salvato se l'altra parte offre di riequilibrare le prestazioni.",
+  "e": "Hai venduto casa a metà prezzo per bisogno. Anche se poi dici «va bene così», non conta come convalida: puoi comunque chiedere la rescissione nei termini.",
   "x": {
-   "B": "«in ogni caso» è l'opposto della regola: la convalida è esclusa",
-   "C": "la regola non fa eccezione per l'appalto",
-   "D": "la regola non fa eccezione per la compravendita"
+   "B": "non si può convalidare",
+   "C": "non c'è un'eccezione per l'appalto",
+   "D": "non c'è un'eccezione per la compravendita"
   },
-  "k": "rescindibile = niente convalida"
+  "k": "contratto rescindibile non convalidabile",
+  "r": "Coppia da ricordare: <b>annullabile → si convalida</b>; <b>rescindibile → no</b>; <b>nullo → no</b>."
  },
  "4815": {
-  "q": "Nei contratti ad esecuzione continuata o periodica, la risoluzione tocca le prestazioni già eseguite?",
-  "p": "<b>Non si estende alle prestazioni già eseguite.</b> In questi contratti ogni periodo sta in piedi da solo: chi ha ricevuto il servizio ne ha già goduto. Quindi la risoluzione vale solo per il futuro.",
-  "e": "Contratto di fornitura mensile risolto a settembre: i mesi da gennaio ad agosto già eseguiti restano validi. Da settembre in poi il contratto non opera più.",
+  "q": "La domanda chiede se la <b>risoluzione</b> di un contratto a esecuzione continuata o periodica tocca le prestazioni già eseguite.",
+  "p": "<b>Non si estende alle prestazioni già eseguite</b>. Nei contratti che durano nel tempo (affitto, fornitura periodica) ciò che è stato dato e ricevuto è già «consumato»: non si può restituire mesi di servizio. La risoluzione vale per il futuro. La causa della risoluzione non cambia questa regola.",
+  "e": "Contratto di fornitura di gas risolto a giugno: i mesi da gennaio a maggio restano pagati e goduti.",
   "x": {
-   "B": "«in ogni caso» è l'opposto della regola: il già eseguito resta fermo",
-   "C": "anche quando la risoluzione nasce dall'inadempimento, il già eseguito resta fermo",
-   "D": "anche con la clausola risolutiva espressa, il già eseguito resta fermo"
+   "B": "non si estende in ogni caso",
+   "C": "non cambia se la causa è l'inadempimento",
+   "D": "non cambia se c'è una clausola risolutiva espressa"
   },
-  "k": "contratti di durata: il già eseguito resta"
+  "k": "risoluzione contratti continuati: non tocca il passato",
+  "r": "<b>«Il passato è già consumato»</b>. Le opzioni che fanno dipendere la regola dalla causa sono sbagliate."
  },
  "4816": {
-  "q": "Nei contratti ad esecuzione continuata o periodica, il recesso ha effetto sulle prestazioni già eseguite o in corso?",
-  "p": "<b>No, salvo patto contrario.</b> Il recesso guarda al futuro: chiude il rapporto da quel momento in poi, senza toccare ciò che è già avvenuto o che è in corso. Le parti possono però accordarsi diversamente, perché la regola ammette il patto contrario.",
-  "e": "Un cliente recede da un abbonamento annuale a luglio: i mesi già eseguiti e quello in corso non vengono toccati. Vale l'opposto solo se il contratto lo prevede.",
+  "q": "Nei contratti a esecuzione continuata o periodica, la domanda chiede se il <b>recesso</b> ha effetto sulle prestazioni già eseguite o in corso.",
+  "p": "<b>No, salvo patto contrario</b>. Il recesso vale per il futuro: le prestazioni già eseguite o in corso restano. Le parti possono però accordarsi diversamente.",
+  "e": "Disdici l'abbonamento a una rivista mensile: il numero già spedito e quello in stampa restano dovuti.",
   "x": {
-   "B": "«sì» è l'opposto della regola: il recesso non tocca queste prestazioni",
-   "C": "il patto contrario è ammesso, quindi le parti possono cambiare la regola",
-   "D": "la regola non dipende da alcuna percentuale di prestazioni"
+   "B": "di regola non ha effetto sul passato",
+   "C": "il patto contrario è ammesso",
+   "D": "la percentuale non conta"
   },
-  "k": "recesso solo per il futuro, salvo patto"
+  "k": "recesso: non tocca il passato, salvo patto",
+  "r": "<b>«Recedi dal domani»</b>. A e C differiscono solo per il patto contrario: è ammesso."
  },
  "4817": {
-  "q": "Nei contratti di durata, una parte può recedere anche dopo l'inizio dell'esecuzione. Che effetto ha il recesso?",
-  "p": "Il recesso <b>non ha effetto per le prestazioni già eseguite o in corso di esecuzione</b>. Serve a interrompere il rapporto per il futuro, non a cancellare quello che è già stato fatto o che si sta facendo. Così si protegge l'equilibrio tra le prestazioni già scambiate.",
-  "e": "Un servizio di pulizie mensile parte a gennaio e una parte recede a marzo, mese in corso. Gennaio, febbraio e marzo restano fermi: il recesso vale dai mesi successivi.",
+  "q": "Nei contratti a esecuzione continuata o periodica una parte può recedere anche dopo che il contratto è cominciato. La domanda chiede se il recesso tocca le prestazioni già eseguite o in corso.",
+  "p": "<b>Non ha effetto per le prestazioni già eseguite o in corso di esecuzione</b>. Il recesso chiude il rapporto per il futuro: ciò che è già stato fatto, o che si sta facendo, resta valido.",
+  "e": "Recedi da un contratto di pulizie mensili a metà mese: il servizio dei mesi passati e quello del mese in corso restano dovuti.",
   "x": {
-   "B": "il recesso non tocca né il già eseguito né ciò che è in corso",
-   "C": "non tocca il già eseguito: l'opzione sbaglia su questo punto",
-   "D": "non tocca ciò che è in corso: l'opzione sbaglia su questo punto"
+   "B": "non ha effetto sul passato",
+   "C": "non ha effetto nemmeno su quelle già eseguite",
+   "D": "non ha effetto nemmeno su quelle in corso"
   },
-  "k": "recesso: già eseguito e in corso restano"
+  "k": "recesso dopo l'inizio: salvo il già fatto e l'in corso",
+  "r": "Gemella della precedente: <b>«recedi dal domani»</b>. Né il già fatto né l'in corso."
  },
  "4818": {
-  "q": "In quanto tempo si prescrive l'azione per far dichiarare la nullità del contratto?",
-  "p": "<b>L'azione è imprescrittibile</b>: si può esercitare senza limiti di tempo. Il contratto nullo non produce effetti fin dall'inizio e il passare degli anni non lo sistema. Per questo chi ha interesse può farla valere anche molto tempo dopo.",
-  "e": "Un contratto nullo firmato 30 anni fa resta nullo: si può ancora chiedere al giudice di dichiararlo.",
+  "q": "La domanda chiede in quanto tempo si prescrive l'azione per far dichiarare la <b>nullità</b> di un contratto.",
+  "p": "L'azione di nullità è <b>imprescrittibile</b>: si può far valere in qualsiasi momento. Un contratto nullo non è mai nato davvero, e il tempo non può renderlo valido. Restano salvi gli effetti dell'usucapione e la prescrizione delle azioni di ripetizione.",
+  "e": "Scopri dopo vent'anni che un contratto firmato da tuo padre era nullo: puoi ancora farlo dichiarare tale.",
   "x": {
-   "B": "1 anno non è previsto: per la nullità non c'è un termine di prescrizione",
-   "C": "5 anni è il termine tipico dell'annullamento, non della nullità",
-   "D": "3 anni non è previsto: per la nullità non c'è un termine di prescrizione"
+   "B": "non si prescrive in un anno",
+   "C": "cinque anni è la prescrizione dell'annullamento, non della nullità",
+   "D": "non si prescrive in tre anni"
   },
-  "k": "nullità = azione imprescrittibile"
+  "k": "nullità = imprescrittibile",
+  "r": "<b>Nullità → mai; annullamento → 5 anni</b>. Il 5 è la trappola."
  },
  "4819": {
-  "q": "Tra questi casi, quando il contratto è nullo secondo il codice civile?",
-  "p": "Quando <b>la causa è un mezzo per eludere l'applicazione di una norma imperativa</b>. La causa è lo scopo del contratto: se serve ad aggirare una regola obbligatoria, è illecita. Un difetto così grave tocca un interesse generale e porta alla nullità. Le altre opzioni riguardano invece vizi che proteggono una sola parte, e portano all'annullabilità.",
-  "e": "Due persone costruiscono un contratto apparentemente regolare, ma il suo vero scopo è aggirare un divieto di legge: quel contratto è nullo.",
+  "q": "La domanda chiede in quale di questi casi il contratto è <b>nullo</b> secondo il codice civile.",
+  "p": "Quando la <b>causa serve a eludere una norma imperativa</b> (contratto in <b>frode alla legge</b>). Le parti usano un contratto lecito in apparenza per ottenere un risultato vietato. Gli altri casi elencati (violenza morale, errore, incapacità legale) rendono il contratto solo <b>annullabile</b>.",
+  "e": "Due persone fanno una serie di contratti formalmente leciti solo per aggirare un divieto di legge: il contratto è in frode alla legge e quindi nullo.",
   "x": {
-   "B": "la violenza morale vizia il consenso: il contratto è annullabile, non nullo",
-   "C": "l'errore sull'identità dell'oggetto vizia il consenso: il contratto è annullabile",
-   "D": "l'incapacità legale rende il contratto annullabile, non nullo"
+   "B": "la violenza rende annullabile, non nullo",
+   "C": "l'errore rende annullabile, non nullo",
+   "D": "l'incapacità legale rende annullabile, non nullo"
   },
-  "k": "causa che aggira norma imperativa = nullo"
+  "k": "frode alla legge = nullo",
+  "r": "Separa le liste: <b>nullo</b> = illecito, frode alla legge, mancanza di elementi essenziali; <b>annullabile</b> = errore, violenza, dolo, incapacità."
  },
  "4820": {
-  "q": "Due persone si accordano solo a voce per vendere un immobile, senza scrivere nulla. Com'è il contratto?",
-  "p": "Il contratto è <b>nullo</b>. Per la compravendita di immobili la legge richiede la forma scritta a pena di nullità. Qui la forma è un elemento essenziale del contratto: se manca, il contratto non produce effetti.",
-  "e": "Paolo dice a Rita: «Ti vendo casa per 200.000 euro» e si stringono la mano. Non c'è nulla di scritto: Rita non è diventata proprietaria e il contratto è nullo.",
+  "q": "Due persone concludono <b>a voce</b> la compravendita di un <b>immobile</b> e non la mettono mai per iscritto. La domanda chiede che sorte ha il contratto.",
+  "p": "È <b>nullo</b>. Per i trasferimenti di immobili la forma scritta è richiesta <b>a pena di nullità</b>. Senza lo scritto il contratto non produce nessun effetto, e non si «converte» automaticamente.",
+  "e": "Stretta di mano per vendere un appartamento: il contratto è nullo e nessuno dei due può pretendere nulla.",
   "x": {
-   "B": "senza forma scritta, questa vendita non può produrre effetti tra le parti",
-   "C": "la mancanza di forma richiesta porta alla nullità, non all'annullabilità",
-   "D": "il contratto non è valido: non è un accordo valido che attende solo una forma diversa"
+   "B": "non è valido",
+   "C": "non è annullabile: è nullo",
+   "D": "non è valido e non si converte"
   },
-  "k": "immobile a voce = nullo"
+  "k": "vendita immobiliare a voce = nulla",
+  "r": "<b>«Casa = carta, altrimenti nullo»</b>."
  },
  "4821": {
-  "q": "Se è nulla solo una parte del contratto, cade tutto il contratto?",
-  "p": "<b>Sì, se risulta che i contraenti non lo avrebbero concluso senza quella parte colpita da nullità.</b> La legge cerca di salvare il contratto quando è possibile. Cade tutto solo se la parte nulla era così importante che, senza di essa, le parti non avrebbero firmato.",
-  "e": "In una vendita è nulla una clausola secondaria sugli orari di consegna: di solito il resto regge. Se invece quella clausola era il motivo per cui si è comprato, cade tutto.",
+  "q": "Una parte del contratto è nulla. La domanda chiede se diventa nullo l'intero contratto.",
+  "p": "<b>Sì, se risulta che le parti non lo avrebbero concluso</b> senza quella parte colpita da nullità. Altrimenti il resto del contratto rimane valido. Si guarda all'importanza della parte nulla nell'economia del contratto.",
+  "e": "In un contratto di vendita c'è una clausola nulla sugli interessi di mora: il resto della vendita regge. Se invece è nulla la clausola sul prezzo, cade tutto.",
   "x": {
-   "B": "la data del 2 gennaio 1990 non è un criterio previsto: conta la volontà delle parti",
-   "C": "«mai» è sbagliato: può cadere tutto se la parte nulla era decisiva",
-   "D": "«sempre» è sbagliato: se la parte nulla non era decisiva, il resto si salva"
+   "B": "la data non conta",
+   "C": "non è «mai»: dipende dall'importanza",
+   "D": "non è «sempre»: dipende dall'importanza"
   },
-  "k": "parte nulla decisiva = tutto nullo"
+  "k": "nullità parziale travolge tutto solo se essenziale",
+  "r": "<b>«Senza quel pezzo l'avreste firmato?»</b> Se no, cade tutto."
  },
  "4822": {
-  "q": "Il contratto nullo si può convalidare?",
-  "p": "<b>No, se la legge non dispone altrimenti.</b> La nullità è il difetto più grave e il contratto non produce effetti. La regola generale è che le parti non possono rimediare con una conferma. Solo la legge può prevedere delle eccezioni.",
-  "e": "Due persone firmano un contratto con causa illecita. Anche se poi scrivono «lo confermiamo», il contratto resta nullo.",
+  "q": "La domanda chiede se un contratto <b>nullo</b> può essere convalidato.",
+  "p": "<b>No, se la legge non dispone altrimenti</b>. Un contratto nullo non può essere sistemato con una convalida, perché il suo difetto riguarda interessi generali. Si può solo concludere un nuovo contratto valido. Diverso il contratto annullabile, che si convalida.",
+  "e": "Un contratto con causa illecita è nullo: le parti non possono «convalidarlo» dichiarando che va bene.",
   "x": {
-   "B": "«sempre» è l'opposto della regola: di norma la convalida è esclusa",
-   "C": "la causa illecita non è un caso in cui la convalida è ammessa",
-   "D": "la contrarietà a norme imperative non è un caso in cui la convalida è ammessa"
+   "B": "non si può sempre convalidare",
+   "C": "proprio la causa illecita non è convalidabile",
+   "D": "la contrarietà a norme imperative non è convalidabile"
   },
-  "k": "nullo = non si convalida, salvo legge"
+  "k": "nullo non si convalida, salvo legge",
+  "r": "<b>Nullo → no convalida; annullabile → sì; rescindibile → no</b>."
  },
  "4823": {
-  "q": "Singole clausole sono nulle ma vengono sostituite di diritto da norme imperative: cade tutto il contratto?",
-  "p": "<b>No, quando le clausole nulle sono sostituite di diritto da norme imperative.</b> In questo caso è la legge stessa a riempire il vuoto: la clausola nulla viene rimpiazzata dalla regola obbligatoria. Il contratto resta completo e non c'è motivo di farlo cadere.",
-  "e": "Un contratto contiene una clausola con un prezzo che viola un prezzo imposto dalla legge. Al suo posto entra il prezzo di legge e il contratto continua a valere.",
+  "q": "Alcune clausole sono nulle, ma le parti avrebbero comunque concluso il contratto senza di esse. La domanda chiede cosa succede, in particolare se le clausole nulle sono sostituite da norme imperative.",
+  "p": "Il contratto <b>non diventa interamente nullo quando le clausole nulle sono sostituite di diritto da norme imperative</b>. La legge stessa riempie il vuoto, inserendo la regola corretta al posto della clausola nulla, e il contratto continua.",
+  "e": "Un contratto prevede un interesse oltre la soglia di legge: la clausola è nulla e viene sostituita dalla regola di legge, ma il contratto resta.",
   "x": {
-   "B": "«sempre» è sbagliato: la sostituzione di diritto salva il contratto",
-   "C": "è il contrario: se c'è la sostituzione di diritto, il contratto non cade",
-   "D": "la regola non fa eccezione per la compravendita"
+   "B": "non è sempre nullo",
+   "C": "la sostituzione con norme imperative salva il contratto",
+   "D": "la compravendita non fa eccezione"
   },
-  "k": "clausola sostituita per legge: il contratto regge"
+  "k": "clausole nulle sostituite dalla legge = contratto salvo",
+  "r": "<b>«La legge tappa il buco»</b>: se la norma imperativa sostituisce la clausola, il contratto resta in piedi."
  },
  "4824": {
-  "q": "Quando la nullità di una parte del contratto fa cadere tutto il contratto?",
-  "p": "<b>Se risulta che i contraenti non lo avrebbero concluso senza quella parte colpita da nullità.</b> Conta quanto quella parte era importante per le parti. Se era decisiva, viene meno tutto l'accordo. Se non lo era, il resto del contratto si salva.",
-  "e": "Un'azienda compra un macchinario solo perché è inclusa l'assistenza. Se la clausola sull'assistenza è nulla e senza di essa non avrebbe comprato, cade tutto il contratto.",
+  "q": "La domanda chiede quando la <b>nullità parziale</b> rende nullo l'intero contratto.",
+  "p": "<b>Se risulta che i contraenti non lo avrebbero concluso</b> senza la parte colpita dalla nullità. È la stessa regola della 4821: non dipende dal tipo di parti (consumatori o imprenditori), ma dall'importanza di quella parte.",
+  "e": "Senza la clausola nulla sul prezzo nessuno avrebbe firmato: cade tutto il contratto.",
   "x": {
-   "B": "la regola non è limitata ai contratti tra consumatori",
-   "C": "la regola non è limitata ai contratti tra imprenditori",
-   "D": "«mai» è sbagliato: se la parte nulla era decisiva, cade tutto"
+   "B": "non dipende dal fatto che le parti siano consumatori",
+   "C": "non dipende dal fatto che le parti siano imprenditori",
+   "D": "in alcuni casi la produce"
   },
-  "k": "senza quella parte non avrebbero firmato = tutto nullo"
+  "k": "nullità parziale → totale se essenziale",
+  "r": "Gemella della 4821: <b>«senza quel pezzo l'avreste firmato?»</b>."
  },
  "4825": {
-  "q": "Salvo diversa disposizione di legge, chi può far valere la nullità?",
-  "p": "<b>Chiunque vi ha interesse, e il giudice può rilevarla d'ufficio.</b> La nullità tocca interessi generali, non solo quelli di una parte. Per questo può farla valere anche chi è estraneo al contratto, se ne ha interesse, e il giudice può rilevarla anche se nessuno lo chiede.",
-  "e": "Durante una causa su un contratto, il giudice nota che il contratto è nullo: può rilevarlo da solo. Può agire anche un terzo che ne subisce un danno, come un creditore interessato.",
+  "q": "La domanda chiede chi può far valere la <b>nullità</b> di un contratto.",
+  "p": "<b>Chiunque vi abbia interesse</b>, e il <b>giudice</b> può rilevarla <b>d'ufficio</b>, anche se nessuno la chiede. La nullità protegge interessi generali, quindi non è riservata alle parti. È la differenza con l'annullabilità, che può farla valere solo la parte protetta.",
+  "e": "Un creditore di una delle parti scopre che un contratto è nullo: può farlo valere. Anche il giudice, se se ne accorge in una causa, può dichiararlo da solo.",
   "x": {
-   "B": "non è riservata all'accettante: può farla valere chiunque abbia interesse",
-   "C": "non è riservata al proponente: può farla valere chiunque abbia interesse",
-   "D": "la prima parte è giusta, ma il giudice può rilevarla d'ufficio"
+   "B": "non solo l'accettante",
+   "C": "non solo il proponente",
+   "D": "il giudice può rilevarla d'ufficio"
   },
-  "k": "nullità: chiunque ha interesse + giudice d'ufficio"
+  "k": "nullità: chiunque ha interesse + giudice d'ufficio",
+  "r": "<b>Nullità = «chiunque, anche il giudice»</b>; <b>annullabilità = «solo la parte protetta»</b>."
  },
  "4826": {
-  "q": "Due parti concludono un contratto solo per un motivo illecito che hanno in comune: che cosa succede?",
-  "p": "<b>Il contratto è illecito.</b> Di solito i motivi personali non contano per il diritto. Fa eccezione il caso in cui il motivo illecito è comune a entrambe ed è l'unica ragione per cui hanno contrattato: allora la legge non protegge l'accordo, che è nullo.",
-  "e": "Tizio e Caio firmano un normale affitto di un locale, ed entrambi lo fanno solo per usarlo come bisca clandestina. Il contratto sembra regolare, ma è illecito.",
+  "q": "Le parti hanno concluso un contratto <b>solo per un motivo illecito comune a entrambe</b>. La domanda chiede che sorte ha.",
+  "p": "Il contratto è <b>illecito</b>, e quindi <b>nullo</b>. Di regola i motivi personali non contano per la validità di un contratto. Ma se entrambe le parti hanno concluso il contratto <b>esclusivamente</b> per uno scopo illecito che condividono, il contratto diventa uno strumento per violare la legge.",
+  "e": "Affitti un appartamento a un amico e tutti e due sapete che lo userete solo per nascondere merce rubata: il contratto è nullo.",
   "x": {
-   "B": "non resta valido: il motivo illecito comune ed esclusivo lo rende illecito",
-   "C": "lo svantaggio di una parte non c'entra: conta il motivo illecito comune",
-   "D": "essere sinallagmatico, cioè a prestazioni reciproche, non salva il contratto"
+   "B": "non resta valido",
+   "C": "lo svantaggio di una parte non c'entra",
+   "D": "essere sinallagmatico non lo salva"
   },
-  "k": "motivo illecito comune ed esclusivo = contratto illecito"
+  "k": "motivo illecito comune ed esclusivo = nullo",
+  "r": "Tre ingredienti: <b>motivo illecito + comune a entrambe + unico motivo</b>. Se ci sono tutti e tre, il contratto è nullo."
  },
  "4827": {
-  "q": "Come si chiama l'atto con cui una sola parte, con la sua volontà, scioglie il rapporto nato dal contratto?",
-  "p": "Si chiama <b>recesso unilaterale</b>. «Unilaterale» significa che basta la volontà di una parte, senza un nuovo accordo con l'altra. Questa facoltà deve essere prevista dal contratto o dalla legge.",
-  "e": "Un contratto dà a Luca il diritto di uscire con un preavviso. Luca comunica che esce: il rapporto si scioglie anche se l'altra parte non è d'accordo.",
+  "q": "La domanda chiede come si chiama la dichiarazione con cui <b>una sola parte</b> scioglie un rapporto contrattuale.",
+  "p": "È il <b>recesso unilaterale</b>. Con il recesso una parte, da sola, mette fine al contratto, nei casi in cui la legge o il contratto glielo permettono. Spesso la si chiama anche disdetta, ma il nome giuridico corretto è recesso.",
+  "e": "Comunichi alla compagnia telefonica che vuoi chiudere l'abbonamento: eserciti il recesso.",
   "x": {
-   "B": "l'evizione è la perdita del bene comprato perché un terzo dimostra di averne diritto",
-   "C": "la distinzione totale/parziale tra disdetta e rinuncia non è la definizione prevista",
-   "D": "la cooptazione è la nomina di un amministratore da parte del consiglio, non uno scioglimento"
+   "B": "l'evizione è la perdita della cosa comprata perché un terzo ne è proprietario",
+   "C": "inventa una distinzione tra disdetta e rinuncia che il codice non fa",
+   "D": "la cooptazione è la nomina di un amministratore da parte del consiglio"
   },
-  "k": "una parte scioglie il contratto = recesso"
+  "k": "scioglimento unilaterale = recesso",
+  "r": "<b>«Recesso = esco io»</b>. Le altre parole (evizione, cooptazione) sono termini giuridici veri ma di altri istituti."
  },
  "4828": {
-  "q": "Il cliente di un professionista iscritto a un albo può recedere dal contratto in qualsiasi momento?",
-  "p": "<b>Sì.</b> Il rapporto con un professionista intellettuale si basa sulla fiducia: se la fiducia viene meno, il cliente deve poter uscire. Non deve dare una giustificazione, ma deve rimborsare le spese e pagare il lavoro già svolto.",
-  "e": "Anna incarica un avvocato e dopo un mese cambia idea. Può revocare l'incarico, pagando le spese e l'attività già fatta.",
+  "q": "La domanda chiede se il cliente di un <b>professionista iscritto a un albo</b> (avvocato, commercialista, ingegnere) può recedere quando vuole.",
+  "p": "<b>Sì</b>. Il cliente può recedere dal contratto d'opera intellettuale <b>in qualsiasi momento</b>, rimborsando al professionista le spese sostenute e pagando il compenso per il lavoro già svolto. Il rapporto con un professionista si basa sulla fiducia: se viene meno, il cliente deve poter cambiare.",
+  "e": "Non ti fidi più del tuo avvocato a metà causa: puoi revocargli l'incarico e pagare solo il lavoro già fatto.",
   "x": {
-   "B": "la giusta causa non serve al cliente: può recedere liberamente",
-   "C": "non serve alcuna autorizzazione dell'organo che tiene l'albo",
-   "D": "«mai» è sbagliato: la legge riconosce proprio questa facoltà al cliente"
+   "B": "non serve una giusta causa: per il professionista sì, per il cliente no",
+   "C": "non serve l'autorizzazione dell'ordine",
+   "D": "può recedere"
   },
-  "k": "cliente del professionista = recede quando vuole, pagando il fatto"
+  "k": "cliente del professionista: recesso libero",
+  "r": "<b>«Il cliente cambia professionista quando vuole»</b>. La giusta causa serve al professionista, non al cliente."
  },
  "4829": {
-  "q": "In una compravendita immobiliare il compratore può recedere pagando una caparra penitenziale. Ha già ricevuto la casa e versato l'acconto del 40%: può ancora recedere?",
-  "p": "<b>No, perché il contratto ha avuto un principio di esecuzione.</b> Di regola la facoltà di recesso si può usare solo finché il contratto non è stato iniziato. La vendita è un contratto a esecuzione istantanea, anche se il prezzo è pagato a rate: rateizzare non basta a renderlo periodico. Consegna e acconto sono già esecuzione, quindi il recesso non è più possibile.",
-  "e": "Casa da 100.000 euro: il compratore ha ricevuto le chiavi e versato 40.000 euro. Restano le rate da 20.000 euro ciascuna, ma non può più tirarsi indietro con la caparra.",
+  "q": "In una vendita di immobile il compratore ha la facoltà di recedere pagando una caparra penitenziale. Ha già ricevuto l'immobile e pagato l'acconto del 40%. La domanda chiede se può ancora recedere.",
+  "p": "<b>No</b>, perché il contratto <b>ha già avuto un principio di esecuzione</b>. Il diritto di recesso pattuito può essere esercitato solo finché il contratto non è stato iniziato. Con la consegna dell'immobile e il pagamento dell'acconto, l'esecuzione è iniziata. Le rate successive non c'entrano.",
+  "e": "Hai preso le chiavi di casa e pagato una parte del prezzo: non puoi più usare il recesso con caparra penitenziale.",
   "x": {
-   "B": "la seconda rata non è il limite: il recesso è finito con l'inizio dell'esecuzione",
-   "C": "la prima rata non è il limite: consegna e acconto sono arrivati prima",
-   "D": "non si può recedere fino all'ultima rata: basta il principio di esecuzione a impedirlo"
+   "B": "le rate non spostano il limite: l'esecuzione è già iniziata",
+   "C": "le rate non spostano il limite: l'esecuzione è già iniziata",
+   "D": "le rate non spostano il limite: l'esecuzione è già iniziata"
   },
-  "k": "contratto iniziato = recesso chiuso"
+  "k": "recesso solo prima del principio di esecuzione",
+  "r": "<b>«Una volta partiti, non si scende»</b>. La domanda è piena di numeri per distrarti: il punto è che <b>consegna e acconto</b> ci sono già stati."
  },
  "4830": {
-  "q": "Se una parte ha la facoltà di recedere dal contratto, fino a quando può usarla?",
-  "p": "<b>Finché il contratto non abbia avuto un principio di esecuzione.</b> Il recesso serve a uscire prima di iniziare. Una volta avviata l'esecuzione, l'altra parte ha ormai fatto affidamento sul contratto, e la regola generale non permette più di uscire.",
-  "e": "Marco può recedere da una fornitura una tantum. Può farlo finché la merce non è consegnata e nulla è stato pagato. Dopo l'inizio dell'esecuzione non può più.",
+  "q": "Una parte ha la facoltà di recedere dal contratto. La domanda chiede fino a quando può esercitarla.",
+  "p": "<b>Finché il contratto non ha avuto un principio di esecuzione</b>. Una volta che le parti hanno cominciato ad adempiere, il recesso non è più possibile (salvo i contratti continuati, dove vale per il futuro, e salvo patto contrario).",
+  "e": "Hai prenotato un mobile su misura con diritto di recesso: puoi recedere finché il falegname non ha iniziato a lavorare.",
   "x": {
-   "B": "è il contrario: il limite è prima dell'esecuzione, e nessuna garanzia è richiesta",
-   "C": "dopo l'intera esecuzione non resterebbe nulla da cui recedere",
-   "D": "è il contrario: il recesso va esercitato prima dell'esecuzione, non dopo"
+   "B": "è il contrario: prima, non dopo l'esecuzione",
+   "C": "dopo l'esecuzione completa non c'è più nulla da cui recedere",
+   "D": "è il contrario: prima, non dopo l'esecuzione"
   },
-  "k": "recesso = prima di iniziare"
+  "k": "recesso finché non c'è principio di esecuzione",
+  "r": "Gemella della precedente: <b>«prima di partire»</b>. Le opzioni con «solo dopo» sono capovolte."
  },
  "4831": {
-  "q": "In un contratto di durata o a esecuzione differita la prestazione diventa troppo costosa: chi la deve può chiedere la risoluzione?",
-  "p": "<b>Sì, se l'onerosità deriva da avvenimenti straordinari e imprevedibili e non rientra nell'alea normale del contratto.</b> L'alea è il rischio che ogni contratto porta con sé. La legge aiuta solo contro lo squilibrio che nessuno poteva prevedere, non contro le normali oscillazioni.",
-  "e": "Un fornitore deve consegnare per anni a prezzo fisso. Un evento straordinario e imprevedibile fa esplodere i costi: può chiedere la risoluzione. Un normale aumento dei prezzi invece resta a suo rischio.",
+  "q": "In un contratto che dura nel tempo o si esegue in futuro, la prestazione di una parte diventa <b>eccessivamente onerosa</b>. La domanda chiede se quella parte può chiedere la risoluzione.",
+  "p": "<b>Sì</b>, se l'eccessiva onerosità deriva da <b>avvenimenti straordinari e imprevedibili</b> e non rientra nell'<b>alea normale</b> del contratto, cioè nel rischio che è normale accettare. Se l'evento era prevedibile, o fa parte del rischio tipico di quel contratto, no.",
+  "e": "Un'azienda si impegna a fornire energia per 5 anni a prezzo fisso, poi scoppia una crisi internazionale che fa decuplicare i costi. Può chiedere la risoluzione. Un aumento del 5%, normale per il mercato, non basta.",
   "x": {
-   "B": "la regola non è limitata alle obbligazioni di fare",
-   "C": "«in nessun caso» è sbagliato: la risoluzione è ammessa, alle condizioni dette",
-   "D": "gli avvenimenti prevedibili non bastano: devono essere straordinari e imprevedibili"
+   "B": "non è limitata alle obbligazioni di fare",
+   "C": "è possibile",
+   "D": "gli avvenimenti devono essere imprevedibili"
   },
-  "k": "straordinario, imprevedibile, fuori dall'alea = risoluzione"
+  "k": "eccessiva onerosità: eventi straordinari e imprevedibili",
+  "r": "Due parole chiave: <b>straordinari + imprevedibili</b>, e fuori dall'<b>alea normale</b>. La D dice «prevedibili» ed è la trappola."
  },
  "4832": {
-  "q": "Il contratto prevede un corrispettivo da pagare per il recesso, senza patti contrari: quando ha effetto il recesso?",
-  "p": "Il recesso ha effetto <b>quando la prestazione è eseguita</b>, cioè quando il corrispettivo è stato pagato. Lo dice l'art. 1373, comma 3, del codice civile. La logica è semplice: chi vuole uscire deve prima pagare il prezzo dell'uscita. Le parti possono comunque accordarsi diversamente.",
-  "e": "Per recedere Paola deve pagare 1.000 euro. Comunica il recesso, ma finché non paga i 1.000 euro il recesso non produce effetto.",
+  "q": "Il contratto prevede un <b>corrispettivo per il recesso</b> (un prezzo per poter uscire). La domanda chiede da quando il recesso ha effetto.",
+  "p": "Il recesso <b>ha effetto quando la prestazione è eseguita</b>, cioè quando il corrispettivo è stato pagato, salvo patto contrario. Il «biglietto d'uscita» deve essere pagato prima di uscire davvero.",
+  "e": "Un contratto dice: «Puoi recedere pagando 1.000 €». Il recesso vale dal momento in cui paghi i 1.000 €, non da quando lo comunichi.",
   "x": {
-   "B": "non basta il 50%: serve la prestazione eseguita",
-   "C": "«mai» è sbagliato: ha effetto, una volta pagato il corrispettivo",
-   "D": "è il contrario: prima dell'esecuzione della prestazione non ha effetto"
+   "B": "non basta il 50%",
+   "C": "ha effetto, al pagamento",
+   "D": "non ha effetto prima del pagamento"
   },
-  "k": "recesso a pagamento = effetto quando paghi"
+  "k": "recesso con corrispettivo: efficace al pagamento",
+  "r": "<b>«Paghi ed esci»</b>: prima il prezzo, poi l'uscita."
  },
  "4833": {
-  "q": "La revisione legale dei conti di una S.p.A. può essere fatta da una persona fisica?",
-  "p": "<b>Sì, se in possesso di apposita abilitazione.</b> La revisione legale può essere affidata a un revisore legale oppure a una società di revisione. Conta quindi l'abilitazione, cioè l'iscrizione nel registro dei revisori, non il fatto di essere una società.",
-  "e": "La S.p.A. Alfa può incaricare la dottoressa Rossi, revisore legale iscritta nel registro, oppure una società di revisione.",
+  "q": "La domanda chiede se la <b>revisione legale dei conti</b> di una S.p.A. può farla una <b>persona fisica</b>.",
+  "p": "<b>Sì, se è abilitata</b>, cioè iscritta nel registro dei revisori legali. La revisione può essere affidata a un <b>revisore legale</b> (persona fisica) o a una <b>società di revisione legale</b>. Conta l'abilitazione, non la forma giuridica.",
+  "e": "Una S.p.A. di medie dimensioni affida la revisione a un commercialista iscritto nel registro dei revisori legali.",
   "x": {
-   "B": "non solo le società di revisione: è ammesso anche il singolo revisore abilitato",
-   "C": "non serve un'associazione: il singolo abilitato può operare da solo",
-   "D": "il bilancio in forma ridotta non è la condizione: conta l'abilitazione"
+   "B": "non solo società: anche persone fisiche abilitate",
+   "C": "anche il singolo professionista abilitato può farla",
+   "D": "non dipende dal bilancio in forma ridotta"
   },
-  "k": "revisore persona fisica sì, se abilitato"
+  "k": "revisore legale: persona fisica abilitata o società",
+  "r": "<b>«Basta il patentino»</b>: con l'iscrizione nel registro, anche una persona sola può fare la revisione."
  },
  "4834": {
-  "q": "La società Alfa non deve fare il bilancio consolidato: il suo statuto può affidare la revisione legale al collegio sindacale?",
-  "p": "<b>Sì, ma il collegio sindacale deve essere costituito da revisori legali iscritti nell'apposito registro.</b> La legge ammette questa scelta per le società non tenute al consolidato. Chi controlla i conti deve però avere comunque la qualifica di revisore, altrimenti il controllo perderebbe la sua garanzia.",
-  "e": "Lo statuto di Alfa affida la revisione al collegio sindacale: tutti i sindaci devono essere iscritti nel registro dei revisori.",
+  "q": "La società Alfa non deve fare il bilancio consolidato. La domanda chiede se lo statuto può affidare la revisione legale al <b>collegio sindacale</b>.",
+  "p": "<b>Sì</b>, ma in questo caso il collegio sindacale deve essere <b>composto da revisori legali iscritti</b> nel registro. Per le società non obbligate al consolidato la legge permette di accorpare controllo e revisione nel collegio sindacale, purché i sindaci abbiano la qualifica per fare la revisione.",
+  "e": "Una S.p.A. di piccole dimensioni affida la revisione ai suoi tre sindaci, tutti iscritti nel registro dei revisori legali.",
   "x": {
-   "B": "«mai» è sbagliato: per chi non fa il consolidato lo statuto può prevederlo",
-   "C": "non serve un'autorizzazione del ministro: basta la previsione dello statuto",
-   "D": "il vincolo esiste: i sindaci devono essere revisori iscritti"
+   "B": "è possibile",
+   "C": "non serve un'autorizzazione del ministro",
+   "D": "ci sono vincoli: i sindaci devono essere revisori iscritti"
   },
-  "k": "revisione al collegio = sindaci tutti revisori iscritti"
+  "k": "revisione al collegio sindacale: sindaci revisori iscritti",
+  "r": "<b>«Sì, ma tutti con il patentino»</b>. Scegli il «Sì, ma» con i revisori iscritti."
  },
  "4835": {
-  "q": "Il revisore Alfa dà un giudizio negativo sul bilancio della società quotata Beta: deve comunicarlo a qualcuno all'esterno?",
-  "p": "<b>Sì, alla CONSOB.</b> La CONSOB è l'autorità che vigila sui mercati e sulle società quotate. Un giudizio negativo sul bilancio interessa gli investitori, quindi l'informazione va a chi tutela il mercato. Qui il punto è soprattutto una regola da memorizzare.",
-  "e": "Beta è quotata in Borsa e Alfa conclude che il suo bilancio non è corretto: Alfa informa la CONSOB.",
+  "q": "Il revisore della società quotata Beta emette un <b>giudizio negativo</b> sul bilancio. La domanda chiede se deve comunicarlo a qualcuno, secondo il TUF.",
+  "p": "<b>Sì, alla CONSOB</b>. Le società quotate sono vigilate dalla CONSOB per la trasparenza verso il mercato. Un giudizio negativo, o l'impossibilità di esprimere un giudizio, è un'informazione grave per gli investitori: per questo il revisore deve informare subito la CONSOB.",
+  "e": "Il revisore di una quotata scopre che il bilancio non rappresenta la realtà: emette un giudizio negativo e lo comunica alla CONSOB.",
   "x": {
-   "B": "la Banca d'Italia non è il destinatario previsto per questo caso",
-   "C": "la comunicazione va alla sola CONSOB, senza aggiungere la Banca d'Italia",
-   "D": "il ministero della Giustizia non è il destinatario previsto"
+   "B": "la Banca d'Italia vigila sulle banche, non sui bilanci delle quotate",
+   "C": "basta la CONSOB",
+   "D": "il ministero della Giustizia non è il destinatario"
   },
-  "k": "quotata + giudizio negativo = CONSOB"
+  "k": "giudizio negativo su quotata → CONSOB",
+  "r": "<b>Quotate = CONSOB</b>. Ricorda la divisione: CONSOB → trasparenza e mercati, Banca d'Italia → stabilità di banche e intermediari."
  },
  "4836": {
-  "q": "Se una norma del codice civile sul bilancio è incompatibile con la rappresentazione veritiera e corretta, che cosa si fa?",
-  "p": "<b>La disposizione non deve essere applicata, e la scelta va motivata in nota integrativa.</b> Lo scopo del bilancio è dare un quadro veritiero e corretto, e questo principio prevale sulla singola norma. La deroga va però spiegata, perché chi legge deve capire che cosa è stato fatto.",
-  "e": "Una regola di valutazione darebbe, in un caso particolare, un'immagine distorta della società. Gli amministratori non la applicano e spiegano il motivo nella nota integrativa.",
+  "q": "Nel redigere il bilancio, applicare una certa norma del codice civile porterebbe a una rappresentazione <b>non veritiera e corretta</b>. La domanda chiede cosa fare.",
+  "p": "<b>La norma non deve essere applicata</b>, e la deroga va <b>motivata nella nota integrativa</b>, spiegando gli effetti sul bilancio. Il principio supremo è la <b>rappresentazione veritiera e corretta</b>: se una regola tecnica la impedisce, prevale il principio.",
+  "e": "Un criterio di valutazione, in un caso eccezionale, falserebbe il valore reale di un bene: gli amministratori non lo applicano e spiegano perché nella nota integrativa.",
   "x": {
-   "B": "la norma non si applica: non si corregge il suo effetto con una partita di rettifica",
-   "C": "applicarla comunque tradirebbe la rappresentazione veritiera e corretta",
-   "D": "la norma non si applica, e la motivazione va in nota integrativa, non nella relazione sulla gestione"
+   "B": "non va applicata, nemmeno con una rettifica",
+   "C": "non va applicata",
+   "D": "non va applicata, e la motivazione va nella nota integrativa, non nella relazione sulla gestione"
   },
-  "k": "norma che distorce = si disapplica e si motiva in nota"
+  "k": "deroga per rappresentazione veritiera, motivata in nota integrativa",
+  "r": "<b>«La verità batte la regola»</b>, ma va spiegata nella <b>nota integrativa</b>, che è il «libretto di istruzioni» del bilancio."
  },
  "4837": {
-  "q": "Da dove viene lo schema di stato patrimoniale e conto economico di una società industriale?",
-  "p": "Lo schema <b>è specificamente indicato nel Codice Civile</b>. La legge fissa voci e ordine, così i bilanci delle società sono chiari e si possono confrontare. Per questo ogni società non può scegliere una struttura a piacere.",
-  "e": "Due società industriali concorrenti usano le stesse voci previste dal codice civile: confrontare i loro bilanci è più semplice.",
+  "q": "La domanda chiede chi stabilisce gli <b>schemi</b> dello stato patrimoniale e del conto economico di una società industriale.",
+  "p": "Sono <b>specificamente indicati nel codice civile</b>. Il codice detta schemi obbligatori con voci e ordine prestabiliti, così i bilanci di società diverse sono confrontabili. Gli schemi non sono liberi, e non dipendono dal TUF o dal TUB.",
+  "e": "Due società industriali diverse presentano lo stato patrimoniale con le stesse voci nello stesso ordine: immobilizzazioni, attivo circolante, eccetera.",
   "x": {
-   "B": "lo schema non è libero: una giustificazione in nota integrativa non basta",
-   "C": "non è il TUF a fissarlo, e avere fidi bancari non cambia la fonte",
-   "D": "non è il TUB a fissarlo, e avere fidi bancari non cambia la fonte"
+   "B": "non sono liberi",
+   "C": "il TUF non detta gli schemi delle società industriali",
+   "D": "il TUB non detta gli schemi delle società industriali"
   },
-  "k": "schemi di bilancio = codice civile"
+  "k": "schemi di bilancio = codice civile",
+  "r": "<b>«Il bilancio si fa con il codice civile»</b>. TUF e TUB sono esche."
  },
  "4838": {
-  "q": "Secondo l'art. 2423 c.c., da quali documenti è costituito il bilancio di esercizio redatto dagli amministratori?",
-  "p": "Da <b>stato patrimoniale, conto economico, rendiconto finanziario e nota integrativa</b>. Ognuno ha una funzione: mostrare il patrimonio, il risultato, i flussi di denaro e le spiegazioni dei dati. Le relazioni di altri organi accompagnano il bilancio, ma non ne fanno parte. L'elenco va memorizzato.",
-  "e": "Pensa a una fotografia (stato patrimoniale), a un film dell'anno (conto economico), ai movimenti di cassa (rendiconto) e alle note di spiegazione (nota integrativa).",
+  "q": "La domanda chiede da quali documenti è composto il <b>bilancio d'esercizio</b>, secondo l'art. 2423 del codice civile.",
+  "p": "Da <b>stato patrimoniale, conto economico, rendiconto finanziario e nota integrativa</b>. Sono quattro documenti: cosa ha la società, come ha guadagnato o perso, come si sono mossi i soldi, e come leggere i numeri. Le relazioni degli amministratori o dei sindaci accompagnano il bilancio, ma non ne fanno parte.",
+  "e": "Stato patrimoniale = la fotografia al 31 dicembre; conto economico = il film dell'anno; rendiconto finanziario = i flussi di cassa; nota integrativa = le spiegazioni.",
   "x": {
-   "B": "mancano tre documenti, e l'assemblea non redige una relazione che faccia parte del bilancio",
-   "C": "mancano conto economico, rendiconto e nota integrativa; la relazione degli amministratori non è tra i documenti indicati",
-   "D": "mancano tre documenti, e la relazione del collegio sindacale non fa parte del bilancio"
+   "B": "mancano conto economico, rendiconto e nota; la relazione dell'assemblea non esiste",
+   "C": "mancano conto economico, rendiconto e nota; la relazione degli amministratori accompagna il bilancio",
+   "D": "mancano conto economico, rendiconto e nota; la relazione dei sindaci accompagna il bilancio"
   },
-  "k": "bilancio = SP + CE + rendiconto + nota"
+  "k": "bilancio = SP + CE + rendiconto + nota integrativa",
+  "r": "Sono <b>4 documenti</b>, ricordali con <b>«SP-CE-RF-NI»</b>. Solo la A ne elenca quattro."
  },
  "4839": {
-  "q": "Nello stato patrimoniale e nel conto economico sono ammessi i compensi di partite?",
-  "p": "No: i compensi di partite sono <b>vietati</b>. Compensare significa mostrare solo la differenza tra due voci, ad esempio tra un credito e un debito. Così chi legge perderebbe informazioni, perché vedrebbe un solo importo netto. Per questo le voci vanno indicate separatamente.",
-  "e": "Crediti per 100 e debiti per 80: non si scrive solo +20, ma si indicano separatamente 100 e 80.",
+  "q": "La domanda chiede se nel bilancio sono ammessi i <b>compensi di partite</b>, cioè sommare insieme voci positive e negative facendo vedere solo il saldo.",
+  "p": "Sono <b>vietati</b>. Se si compensano crediti e debiti, o ricavi e costi, il lettore vede solo il risultato netto e non capisce le dimensioni reali delle operazioni. Per questo il codice vieta le compensazioni, salvo i casi in cui le ammette la legge.",
+  "e": "Una società ha 1.000.000 € di crediti e 900.000 € di debiti verso lo stesso cliente: non può scrivere solo 100.000 € di crediti, deve mostrare tutte e due le voci.",
   "x": {
-   "B": "«sempre consentiti» è il contrario della regola: sono vietati",
-   "C": "la soglia del 2% dell'attivo non è la regola prevista: il divieto vale senza percentuali",
-   "D": "la soglia del 20% dell'attivo non è la regola prevista: il divieto vale senza percentuali"
+   "B": "non sono consentite",
+   "C": "non c'è una soglia del 2%",
+   "D": "non c'è una soglia del 20%"
   },
-  "k": "compensi di partite = vietati"
+  "k": "compensi di partite vietati",
+  "r": "<b>«Niente saldi nascosti»</b>: ogni voce si mostra intera. Le soglie in percentuale sono inventate."
  },
  "4840": {
-  "q": "Una società con sede in Italia fattura solo con clienti statunitensi: in che valuta deposita il bilancio?",
-  "p": "<b>Deve depositare un bilancio redatto in euro.</b> Conta la legge italiana che regola la società, non il luogo in cui opera o il paese dei clienti. La moneta del bilancio è una regola fissa, e non una scelta della società.",
-  "e": "Alfa S.p.A. incassa tutto in dollari. Nel bilancio depositato in Italia, comunque, i valori sono espressi in euro.",
+  "q": "Una società con sede in Italia fa tutto il suo fatturato negli Stati Uniti. La domanda chiede in quale valuta deposita il bilancio.",
+  "p": "<b>In euro</b>. Il codice civile impone di redigere il bilancio in euro per tutte le società italiane, qualunque sia la valuta in cui lavorano. Le operazioni in dollari si convertono in euro.",
+  "e": "Una società di Milano che vende solo in America incassa in dollari, ma il bilancio depositato al registro delle imprese è in euro.",
   "x": {
-   "B": "il dollaro non è ammesso, anche se si usa il cambio medio dell'esercizio",
-   "C": "non esiste un'opzione per il dollaro: il bilancio deve essere in euro",
-   "D": "il dollaro non è ammesso, anche se si usa il cambio del 31 dicembre"
+   "B": "non in dollari",
+   "C": "non c'è un'opzione per il dollaro",
+   "D": "non in dollari"
   },
-  "k": "società italiana = bilancio in euro"
+  "k": "bilancio delle società italiane = in euro",
+  "r": "<b>«Sede in Italia = bilancio in euro»</b>. Le opzioni in dollari sono tutte sbagliate."
  },
  "4841": {
-  "q": "Approvare il bilancio libera qualcuno dalle responsabilità per la gestione della società?",
-  "p": "No: l'approvazione <b>non implica liberazione degli amministratori</b>. La stessa regola vale per direttori generali, dirigenti preposti ai documenti contabili e sindaci. Approvare il bilancio significa accettare i conti, non cancellare eventuali errori o danni di gestione.",
-  "e": "L'assemblea approva il bilancio. In seguito emerge un danno causato da un amministratore: la società può ancora agire contro di lui.",
+  "q": "La domanda chiede se l'<b>approvazione del bilancio</b> libera qualcuno dalle responsabilità per la gestione.",
+  "p": "<b>No</b>: l'approvazione del bilancio <b>non libera gli amministratori</b>, e nemmeno direttori generali, dirigenti preposti ai documenti contabili e sindaci, dalle responsabilità per la gestione. I soci approvano i numeri, non assolvono chi ha gestito. Se si scoprono errori o illeciti, si può agire anche dopo.",
+  "e": "Il bilancio viene approvato, poi si scopre che l'amministratore ha fatto operazioni dannose: la società può fargli causa lo stesso.",
   "x": {
-   "B": "anche i direttori generali non sono liberati",
-   "C": "anche i dirigenti preposti ai documenti contabili non sono liberati",
-   "D": "anche i sindaci non sono liberati"
+   "B": "non libera neppure i direttori generali",
+   "C": "non libera neppure i dirigenti preposti",
+   "D": "non libera neppure i sindaci"
   },
-  "k": "approvare il bilancio non libera nessuno"
+  "k": "approvazione bilancio ≠ liberazione dalle responsabilità",
+  "r": "<b>«Approvare non è assolvere»</b>. Nessuno è liberato: le risposte con «implica liberazione» sono tutte sbagliate."
  },
  "4842": {
-  "q": "In una S.p.A., l'approvazione del bilancio libera dalle responsabilità di gestione?",
-  "p": "No: <b>non implica liberazione degli amministratori</b>. Il voto sul bilancio riguarda i conti e non assolve chi ha gestito. La stessa regola vale anche per direttori generali, dirigenti preposti e sindaci, quindi la tutela della società resta intatta.",
-  "e": "Il bilancio di Beta S.p.A. è approvato a maggio. A settembre si scopre una grave irregolarità di gestione: l'approvazione non impedisce di chiedere conto agli amministratori.",
+  "q": "In una S.p.A., la domanda chiede se l'<b>approvazione del bilancio</b> libera gli amministratori dalle responsabilità per la gestione.",
+  "p": "<b>No</b>: l'approvazione del bilancio <b>non implica liberazione</b> degli amministratori, né di direttori generali, dirigenti preposti e sindaci. È la stessa regola della 4841: approvare il bilancio non significa rinunciare ad agire contro chi ha gestito male.",
+  "e": "I soci approvano il bilancio a maggio; a settembre scoprono un'operazione dannosa: possono ancora agire contro gli amministratori.",
   "x": {
-   "B": "dirigenti preposti e sindaci non sono liberati",
-   "C": "i direttori generali non sono liberati",
-   "D": "è l'opposto della regola: gli amministratori non sono liberati"
+   "B": "non libera dirigenti e sindaci",
+   "C": "non libera i direttori generali",
+   "D": "non libera gli amministratori"
   },
-  "k": "bilancio approvato, responsabilità intatte"
+  "k": "approvazione bilancio ≠ liberazione",
+  "r": "Gemella della precedente: <b>«approvare non è assolvere»</b>."
  },
  "4843": {
-  "q": "In una S.p.A. con sistema dualistico, cioè con consiglio di gestione e consiglio di sorveglianza, chi approva il bilancio?",
-  "p": "<b>Il consiglio di sorveglianza</b>. Lo statuto può però prevedere che, se il bilancio non viene approvato o se lo chiede almeno un terzo dei componenti di uno dei due consigli, la competenza passi all'assemblea. Nel dualistico, infatti, il consiglio di sorveglianza svolge anche compiti che nel sistema tradizionale spettano all'assemblea.",
-  "e": "Consiglio di gestione con 6 membri: se lo statuto lo prevede, 2 di loro (un terzo) possono chiedere che sia l'assemblea ad approvare il bilancio.",
+  "q": "Una S.p.A. ha il sistema <b>dualistico</b> (consiglio di gestione + consiglio di sorveglianza). La domanda chiede chi approva il bilancio d'esercizio.",
+  "p": "Lo approva il <b>consiglio di sorveglianza</b>. Lo statuto però può prevedere che, se il bilancio non viene approvato o se lo chiede almeno un terzo dei componenti dei due consigli, la competenza passi all'<b>assemblea</b>. Nel sistema dualistico il consiglio di sorveglianza prende alcune funzioni che nel sistema tradizionale sono dell'assemblea.",
+  "e": "Una grande banca con sistema dualistico: il consiglio di gestione prepara il bilancio, il consiglio di sorveglianza lo approva.",
   "x": {
-   "B": "non è «sempre» l'assemblea, e nel dualistico non c'è un consiglio di amministrazione",
-   "C": "non è «sempre» l'assemblea, e nel dualistico non c'è un consiglio di amministrazione che dia il parere",
-   "D": "il consiglio di gestione non è l'organo previsto per l'approvazione"
+   "B": "non sempre l'assemblea, e nel dualistico non c'è il consiglio di amministrazione",
+   "C": "nel dualistico non c'è il consiglio di amministrazione",
+   "D": "il consiglio di gestione lo prepara, non lo approva"
   },
-  "k": "dualistico = approva la sorveglianza"
+  "k": "dualistico: bilancio approvato dalla sorveglianza",
+  "r": "<b>Dualistico: la gestione lo scrive, la sorveglianza lo approva</b>. Le opzioni con «consiglio di amministrazione» sono fuori luogo nel dualistico."
  },
  "4844": {
-  "q": "Se si vendono azioni, chi ha il diritto di voto?",
-  "p": "<b>Il venditore, fino al momento della consegna.</b> Finché i titoli non passano di mano, il voto resta a chi li deve ancora consegnare. Si tratta di una regola da memorizzare: la consegna è il momento che sposta il diritto al compratore.",
-  "e": "Tizio vende azioni a Caio il 1° marzo e le consegna il 10 marzo. Per un'assemblea del 5 marzo vota Tizio.",
+  "q": "Si vendono delle <b>azioni</b>. La domanda chiede a chi spetta il <b>diritto di voto</b> nel periodo tra la vendita e la consegna.",
+  "p": "Spetta al <b>venditore fino al momento della consegna</b>. Finché i titoli non sono consegnati, è il venditore che figura come socio e può votare. Con la consegna il voto passa al compratore. Non c'entra il tipo di società.",
+  "e": "Vendi 100 azioni il 1° aprile con consegna il 15 aprile. All'assemblea del 10 aprile voti ancora tu.",
   "x": {
-   "B": "la regola non dipende dal tipo di società, S.p.A. o S.a.p.A.",
-   "C": "nessuna proroga di quindici giorni: il limite è la consegna",
-   "D": "prima della consegna il voto non spetta ancora al compratore"
+   "B": "il tipo di società non conta",
+   "C": "non ci sono 15 giorni dopo la consegna",
+   "D": "il compratore vota solo dopo la consegna"
   },
-  "k": "voto al venditore fino alla consegna"
+  "k": "voto al venditore fino alla consegna",
+  "r": "<b>«Finché le hai in mano, voti tu»</b>."
  },
  "4845": {
-  "q": "Che cosa stabilisce l'art. 2347 c.c. sulle azioni di una S.p.A.?",
-  "p": "Le azioni sono <b>indivisibili ma possono avere comproprietari</b>. Sono due cose diverse: un'azione non si spezza in frazioni, ma può appartenere a più persone insieme. In quel caso i comproprietari agiscono attraverso un rappresentante comune.",
-  "e": "Due fratelli ereditano un'azione. Non possono dividerla in due mezze azioni, ma ne restano entrambi comproprietari.",
+  "q": "La domanda chiede come sono le <b>azioni</b> di una S.p.A. secondo l'art. 2347 del codice civile.",
+  "p": "Sono <b>indivisibili</b>, ma possono avere <b>più comproprietari</b>. Un'azione non si può spezzare in frazioni con diritti separati, ma più persone possono possederla insieme (per esempio gli eredi). In quel caso i diritti si esercitano tramite un <b>rappresentante comune</b>.",
+  "e": "Tre fratelli ereditano un'azione: non possono dividerla in tre pezzi, ma la possiedono insieme e nominano un rappresentante per votare.",
   "x": {
-   "B": "indivisibili sì, ma la comproprietà è ammessa",
-   "C": "le azioni non sono divisibili",
-   "D": "sbaglia su entrambi i punti: sono indivisibili e possono avere più proprietari"
+   "B": "possono avere comproprietari",
+   "C": "non sono divisibili",
+   "D": "non sono divisibili, e possono avere comproprietari"
   },
-  "k": "indivisibile sì, comproprietà sì"
+  "k": "azioni indivisibili, comproprietà ammessa",
+  "r": "<b>«Un'azione non si taglia, ma si condivide»</b>."
  },
  "4846": {
-  "q": "Una S.p.A. può emettere azioni divisibili?",
-  "p": "<b>No, le azioni sono indivisibili.</b> Se un'azione ha più comproprietari, i loro diritti vengono esercitati da un <b>rappresentante comune</b>. Tutti rispondono <b>solidalmente</b> delle obbligazioni che ne derivano, quindi ciascuno può essere chiamato a pagare per intero. In questo modo la società ha un solo interlocutore e la garanzia di ottenere quanto le spetta.",
-  "e": "Anna e Bruno possiedono un'azione insieme: votano tramite un rappresentante. Se restano 100 euro da versare, la società può chiederli anche solo ad Anna.",
+  "q": "La domanda chiede se una S.p.A. può emettere <b>azioni divisibili</b>.",
+  "p": "<b>No, le azioni sono indivisibili</b>. Se un'azione ha più comproprietari, i loro diritti si esercitano tramite un <b>rappresentante comune</b>, e i comproprietari rispondono <b>in solido</b> degli obblighi legati all'azione. Nessuna delibera può renderle divisibili.",
+  "e": "Due coniugi ereditano un'azione non interamente pagata: nominano un rappresentante per votare, e la società può chiedere il versamento mancante all'uno o all'altro.",
   "x": {
-   "B": "«sempre» è sbagliato: l'indivisibilità è la regola",
-   "C": "l'assemblea straordinaria non può rendere divisibili le azioni",
+   "B": "non sono mai divisibili",
+   "C": "nemmeno l'assemblea straordinaria può renderle divisibili",
    "D": "nemmeno il consiglio di amministrazione può renderle divisibili"
   },
-  "k": "azione indivisibile, rappresentante comune, responsabilità solidale"
+  "k": "azioni indivisibili; comproprietari con rappresentante comune",
+  "r": "Gemella della precedente: <b>«non si taglia, si condivide»</b>, con un <b>rappresentante comune</b>."
  },
  "4847": {
-  "q": "In una S.p.A., azioni della stessa categoria possono dare diritti diversi?",
-  "p": "<b>No.</b> Una categoria è proprio un gruppo di azioni con gli stessi diritti. Se i diritti fossero diversi, non si tratterebbe più della stessa categoria. Per dare diritti diversi occorre creare categorie diverse.",
-  "e": "Tutte le azioni ordinarie danno gli stessi diritti tra loro. Azioni con un diritto particolare formano una categoria separata.",
+  "q": "La domanda chiede se le azioni della <b>stessa categoria</b> possono dare diritti diversi.",
+  "p": "<b>No</b>. Le azioni di una stessa categoria conferiscono <b>uguali diritti</b>. La società può creare categorie diverse con diritti diversi (es. azioni privilegiate, di risparmio), ma all'interno di una categoria tutte le azioni sono uguali.",
+  "e": "Tutte le azioni ordinarie di Alfa hanno lo stesso voto e lo stesso dividendo. Le azioni di risparmio sono un'altra categoria, con diritti diversi.",
   "x": {
-   "B": "l'assemblea straordinaria non può dare diritti diversi all'interno della stessa categoria",
-   "C": "«sempre valida» è sbagliato: stessa categoria significa stessi diritti",
-   "D": "nemmeno l'assemblea ordinaria può dare diritti diversi all'interno della stessa categoria"
+   "B": "nemmeno con l'assemblea straordinaria",
+   "C": "non è valida",
+   "D": "nemmeno con l'assemblea ordinaria"
   },
-  "k": "stessa categoria = stessi diritti"
+  "k": "stessa categoria = stessi diritti",
+  "r": "<b>«Stessa categoria, stessa musica»</b>: per diritti diversi serve un'altra categoria."
  },
  "4848": {
-  "q": "In una S.p.A., quale soglia minima deve sempre rispettare il valore dei conferimenti?",
-  "p": "Il valore dei conferimenti non può <b>essere complessivamente inferiore all'ammontare globale del capitale sociale</b>. Il capitale indicato deve corrispondere a valori realmente apportati, altrimenti sarebbe solo una cifra sulla carta. Il controllo è sul totale: se lo statuto lo prevede, le azioni possono essere assegnate ai soci in modo non proporzionale ai conferimenti.",
-  "e": "Capitale sociale di 200.000 euro: i conferimenti devono valere in totale almeno 200.000 euro. Con assegnazione non proporzionale prevista dallo statuto, un socio può conferire 120.000 euro e ricevere azioni per 100.000, un altro conferire 80.000 e ricevere azioni per 100.000: il totale è comunque 200.000.",
+  "q": "In una S.p.A., la domanda chiede cosa non può mai succedere riguardo al <b>valore dei conferimenti</b> dei soci.",
+  "p": "Il valore complessivo dei conferimenti <b>non può mai essere inferiore all'ammontare globale del capitale sociale</b>. Il capitale indicato nello statuto deve essere davvero coperto da quello che i soci apportano. Altrimenti il capitale sarebbe «gonfiato» e i creditori sarebbero ingannati.",
+  "e": "Una S.p.A. con capitale di 120.000 € deve ricevere conferimenti per almeno 120.000 €.",
   "x": {
-   "B": "il limite non è 100.000 euro: il confronto è con il capitale sociale",
-   "C": "il limite vale nel complesso, non per ciascun socio",
-   "D": "non è previsto un minimo di 1.000 euro per socio"
+   "B": "non c'è un minimo di 100.000 € per i conferimenti in questo senso",
+   "C": "la regola che non si può mai derogare è quella sul totale",
+   "D": "non c'è un minimo di 1.000 € per socio"
   },
-  "k": "conferimenti totali ≥ capitale sociale"
+  "k": "conferimenti ≥ capitale sociale",
+  "r": "<b>«Il capitale deve essere vero»</b>: i conferimenti devono coprirlo tutto. Ragiona sul <b>totale</b>."
  },
  "4849": {
-  "q": "Tizio vende a Caio un'azione al portatore, ma non gliela consegna. Che cosa succede?",
-  "p": "<b>Caio non diviene proprietario.</b> Il titolo al portatore si trasferisce con la consegna: è il passaggio materiale del documento a trasferire il diritto. Senza consegna, dunque, la titolarità dell'azione non passa a Caio.",
-  "e": "Caio paga 500 euro, ma Tizio tiene il titolo in cassaforte. Caio potrà pretendere la consegna, ma per ora non è proprietario dell'azione.",
+  "q": "Tizio vende a Caio un'<b>azione al portatore</b> ma non gliela consegna fisicamente. La domanda chiede cosa succede.",
+  "p": "<b>Caio non diventa proprietario</b>. I titoli al portatore si trasferiscono con la <b>consegna</b> del titolo: chi lo ha in mano è il titolare. Senza consegna, il trasferimento del titolo non avviene, anche se il prezzo è stato pagato.",
+  "e": "È come una banconota: diventa tua quando ti viene data in mano, non quando qualcuno ti promette di dartela.",
   "x": {
-   "B": "la mancata consegna non è di per sé un reato: l'effetto è che la proprietà non passa",
-   "C": "avere già altre azioni non sostituisce la consegna",
-   "D": "neppure pagare il prezzo sostituisce la consegna"
+   "B": "non è un reato",
+   "C": "possedere altre azioni non cambia nulla",
+   "D": "pagare il prezzo non basta: serve la consegna"
   },
-  "k": "al portatore = serve la consegna"
+  "k": "titolo al portatore = si trasferisce con la consegna",
+  "r": "<b>«Al portatore = chi lo porta»</b>: senza consegna non è tuo."
  },
  "4850": {
-  "q": "Tizio trasferisce a Caio un'azione non interamente pagata. Dopo sei mesi la società Alfa vuole il versamento mancante: a chi può rivolgersi?",
-  "p": "<b>A entrambi.</b> Chi compra l'azione assume l'obbligo di versare il dovuto. Chi vende resta obbligato in solido per tre anni dall'annotazione del trasferimento nel libro dei soci, e sei mesi rientrano in questo periodo. La società deve però chiedere prima all'attuale possessore: può rivolgersi al venditore se la richiesta resta senza esito. Così il cambio di socio non indebolisce la garanzia della società.",
-  "e": "Sull'azione mancano 100 euro. Dopo sei mesi Alfa li chiede a Caio, che oggi è il socio. Se Caio non paga, può chiederli a Tizio, perché non sono passati tre anni.",
+  "q": "Tizio vende a Caio un'azione <b>non ancora interamente pagata</b> alla società. Sei mesi dopo la società chiede il versamento mancante. La domanda chiede a chi può chiederlo.",
+  "p": "<b>A entrambi</b>. Chi vende un'azione non liberata resta <b>obbligato in solido</b> con il compratore per i versamenti ancora dovuti, per <b>tre anni</b> dall'annotazione del trasferimento nel libro dei soci. Sei mesi rientrano nei tre anni, quindi la società può chiedere a Tizio o a Caio.",
+  "e": "L'azione da 100 € è pagata a metà. La società può chiedere i 50 € mancanti sia al vecchio socio sia al nuovo.",
   "x": {
-   "B": "l'obbligo di Caio deriva dall'essere socio: non serve un'accettazione esplicita",
-   "C": "non solo Tizio: anzi, la richiesta va fatta prima a Caio, il nuovo socio",
-   "D": "non solo Caio: Tizio resta obbligato, perché sono passati solo sei mesi"
+   "B": "non serve l'accettazione di Caio",
+   "C": "non solo a Tizio",
+   "D": "non solo a Caio: anche Tizio resta obbligato"
   },
-  "k": "azione non liberata = venditore e compratore obbligati"
+  "k": "azione non liberata: venditore e compratore in solido per 3 anni",
+  "r": "<b>«Tre anni di solidarietà»</b>: chi vende un'azione non pagata resta obbligato con chi compra."
  },
  "4851": {
   "q": "Se l'atto costitutivo non dice altro, quanti voti dà un'azione ordinaria di una S.p.A.?",
