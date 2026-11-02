@@ -2181,6 +2181,7 @@ function spiegaHTML(n, order, open){
     const alt=Object.entries(sp.x||{}).map(([o,t])=>[ "ABCD".indexOf(o), t ]).filter(x=>x[0]>0);
     if(alt.length){ alt.sort((a,b)=>order?order.indexOf(a[0])-order.indexOf(b[0]):a[0]-b[0]);
       h+=`<p class="sp-h">Perché non le altre</p><ul>${alt.map(([o,t])=>`<li>${order?`<b>${let_(o)}</b>`:`«${esc(Q[n-1][5+o])}»`} — ${t}</li>`).join("")}</ul>`; }
+    if(sp.r) h+=`<div class="sp-nota">🧠 <b>Trucco per ricordarla:</b> ${sp.r}</div>`;
     if(sp.t) h+=`<div class="sp-nota">💡 ${sp.t}</div>`;
   }
   gem.forEach(([n2,a2,stessa])=>{ const p2=BY_MAT[Q[n2-1][0]].indexOf(n2)+1;
