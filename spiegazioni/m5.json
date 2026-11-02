@@ -3600,554 +3600,604 @@
   "r": "<b>«Guadagni se la società guadagna»</b>. Basta il «Sì»."
  },
  "4901": {
-  "q": "In una spa con consiglio di sorveglianza (sistema dualistico), cosa decide l'assemblea ordinaria?",
-  "p": "L'assemblea <b>delibera sulla distribuzione degli utili</b>. Nel sistema dualistico i compiti cambiano: il bilancio, di regola, non passa dall'assemblea, ma dal consiglio di sorveglianza. All'assemblea ordinaria restano decisioni come la nomina dei sorveglianti e, appunto, la destinazione degli utili.",
-  "e": "Il consiglio di sorveglianza di Alfa spa approva il bilancio con un utile di 1 milione. Sono poi i soci, in assemblea, a decidere quanta parte di quell'utile distribuire.",
+  "q": "Nelle società con <b>consiglio di sorveglianza</b> (sistema dualistico), la domanda chiede cosa decide l'<b>assemblea ordinaria</b>.",
+  "p": "Delibera sulla <b>distribuzione degli utili</b>. Nel dualistico l'assemblea perde alcuni poteri del sistema tradizionale: il bilancio lo approva il consiglio di sorveglianza. Restano all'assemblea, tra l'altro, la nomina del consiglio di sorveglianza e la decisione su quanta parte degli utili distribuire ai soci.",
+  "e": "Il consiglio di sorveglianza approva il bilancio con 10 milioni di utile; poi l'assemblea decide di distribuirne 6 come dividendo.",
   "x": {
-   "B": "Il bilancio di esercizio qui, di regola, lo approva il consiglio di sorveglianza, non l'assemblea.",
-   "C": "Anche il bilancio consolidato è di regola compito del consiglio di sorveglianza, non dell'assemblea.",
-   "D": "Nel dualistico il collegio sindacale non esiste: il controllo spetta al consiglio di sorveglianza."
+   "B": "nel dualistico il bilancio lo approva il consiglio di sorveglianza",
+   "C": "non è l'assemblea ordinaria del dualistico ad approvare il consolidato",
+   "D": "nel dualistico non c'è il collegio sindacale"
   },
-  "k": "Dualistico: bilancio ai sorveglianti, utili ai soci."
+  "k": "dualistico: assemblea decide la distribuzione degli utili",
+  "r": "<b>«La sorveglianza approva i conti, i soci decidono quanto prendersi»</b>. Ricorda: nel dualistico il collegio sindacale non esiste."
  },
  "4902": {
-  "q": "In una spa, quale organo decide di distribuire acconti sui dividendi?",
-  "p": "Decide <b>l'organo amministrativo</b>. Gli acconti sono anticipi sul dividendo, pagati prima della fine del percorso di approvazione del bilancio. La scelta richiede una valutazione tecnica sui conti della società, e per questo la legge la affida a chi gestisce. È una regola da memorizzare.",
-  "e": "Il consiglio di amministrazione di Beta spa, verificati i conti, delibera un acconto di 0,20 euro per azione: la decisione è sua, non dei sindaci.",
+  "q": "La domanda chiede quale organo di una S.p.A. delibera gli <b>acconti sui dividendi</b>.",
+  "p": "L'<b>organo amministrativo</b>. Gli acconti sui dividendi sono anticipi sugli utili dell'esercizio in corso, distribuiti prima dell'approvazione del bilancio. Li decidono gli amministratori, nei casi e con i limiti di legge (es. bilancio certificato, revisore favorevole), se lo statuto lo prevede.",
+  "e": "A novembre il CdA di una società quotata delibera un acconto di 0,20 € per azione sui profitti dell'anno.",
   "x": {
-   "B": "Gli azionisti di maggioranza non sono un organo della società e non deliberano gli acconti.",
-   "C": "Il presidente del Tribunale è esterno alla società e non decide la distribuzione di somme ai soci.",
-   "D": "Il collegio sindacale controlla la gestione, non delibera pagamenti ai soci."
+   "B": "i soci di maggioranza non deliberano da soli",
+   "C": "il tribunale non c'entra",
+   "D": "il collegio sindacale controlla, non delibera gli acconti"
   },
-  "k": "Acconti sui dividendi: li decidono gli amministratori."
+  "k": "acconti sui dividendi = amministratori",
+  "r": "<b>«Acconti = CdA; dividendo finale = assemblea»</b>."
  },
  "4903": {
-  "q": "I sindaci di una spa quotata italiana possono fare ispezioni e controlli? E quando, secondo l'art. 151 del TUF?",
-  "p": "Sì, possono farlo <b>in qualunque momento</b>. Il controllo è utile solo se è continuo e può arrivare senza preavviso: limitarlo a certi periodi lo renderebbe molto meno efficace. Per questo il TUF non pone vincoli di tempo.",
-  "e": "A marzo, a metà di un normale mese di lavoro, un sindaco di una quotata può chiedere di verificare i documenti di un'operazione, senza aspettare la preparazione del bilancio.",
+  "q": "La domanda chiede se, secondo il TUF, i <b>sindaci di una società quotata</b> possono fare ispezioni e controlli.",
+  "p": "<b>Sì, in qualunque momento</b>, anche individualmente. Nelle quotate il controllo deve essere costante, perché ci sono di mezzo i risparmiatori: per questo i sindaci possono ispezionare e controllare quando vogliono, non solo alla redazione del bilancio.",
+  "e": "Un sindaco di una quotata, a metà anno, chiede di vedere i contratti di un'operazione sospetta: può farlo subito.",
   "x": {
-   "B": "Limitare i controlli al momento del bilancio contrasta con il potere esercitabile in qualunque momento.",
-   "C": "Il potere non è subordinato a una delibera del collegio con delega a un sindaco.",
-   "D": "Il «no, mai» è sbagliato: l'art. 151 riconosce proprio questo potere ai sindaci."
+   "B": "non solo durante la preparazione del bilancio",
+   "C": "non serve la delibera del collegio",
+   "D": "possono farlo"
   },
-  "k": "Sindaci di quotata: ispezioni in qualunque momento."
+  "k": "sindaci di quotate: ispezioni in qualunque momento",
+  "r": "<b>«Il controllore non ha orari»</b>, nelle quotate meno che mai."
  },
  "4904": {
-  "q": "Una spa può creare uno o più patrimoni destinati ciascuno a uno specifico affare?",
-  "p": "<b>Sì, per un valore complessivo non superiore al dieci per cento del patrimonio netto</b>. Il patrimonio destinato separa una parte dei beni per un singolo affare. Il limite serve a proteggere i creditori generali, perché quei beni sono tolti alla garanzia comune. Il 10% è un dato da memorizzare.",
-  "e": "Se il patrimonio netto è 2.000.000 euro, i patrimoni destinati possono arrivare in totale al massimo a 200.000 euro (2.000.000 x 10%).",
+  "q": "La domanda chiede se una S.p.A. può costituire uno o più <b>patrimoni destinati</b> a uno specifico affare, e con quale limite.",
+  "p": "<b>Sì</b>, ma per un valore complessivo <b>non superiore al 10% del patrimonio netto</b> della società. Il patrimonio destinato separa dei beni per un progetto preciso, così i creditori di quell'affare si rivalgono solo su quei beni. Il limite del 10% evita che si svuoti la società.",
+  "e": "Una S.p.A. con patrimonio netto di 50 milioni può destinare al massimo 5 milioni a uno o più affari specifici.",
   "x": {
-   "B": "Lo strumento è previsto proprio per le spa, non è riservato alle società di persone.",
-   "C": "La facoltà non è riservata alle srl: la domanda riguarda una possibilità riconosciuta alle spa.",
-   "D": "Il limite del cinquanta per cento è errato: la soglia è il dieci per cento."
+   "B": "è proprio delle S.p.A., non delle società di persone",
+   "C": "non riservato alle S.r.l.",
+   "D": "il limite è il 10%, non il 50%"
   },
-  "k": "Patrimoni destinati: massimo 10% del patrimonio netto."
+  "k": "patrimoni destinati: max 10% del patrimonio netto",
+  "r": "Numero chiave: <b>10%</b>."
  },
  "4905": {
-  "q": "Quali organi si nominano nel sistema dualistico di amministrazione e controllo?",
-  "p": "Si nominano <b>un consiglio di gestione e un consiglio di sorveglianza</b>. «Dualistico» significa proprio due organi: il primo gestisce, il secondo controlla. Il consiglio di sorveglianza svolge il controllo che nel sistema tradizionale spetta al collegio sindacale, quindi quest'ultimo non serve.",
-  "e": "Gamma spa adotta il dualistico: i sorveglianti, nominati dai soci, nominano a loro volta i gestori. Nell'organigramma non compare nessun collegio sindacale.",
+  "q": "La domanda chiede quali organi prevede il sistema <b>dualistico</b>.",
+  "p": "Un <b>consiglio di gestione</b> e un <b>consiglio di sorveglianza</b>. «Duale» vuol dire due organi: uno gestisce, l'altro controlla. Non c'è il collegio sindacale, perché le sue funzioni sono assorbite dal consiglio di sorveglianza.",
+  "e": "Alcune grandi banche hanno adottato il dualistico: consiglio di gestione + consiglio di sorveglianza.",
   "x": {
-   "B": "Aggiunge il collegio sindacale, che nel dualistico non è previsto.",
-   "C": "Manca il consiglio di sorveglianza e compare il collegio sindacale, che qui non esiste.",
-   "D": "Manca il consiglio di gestione, cioè l'organo che amministra, e il collegio sindacale è di troppo."
+   "B": "nel dualistico non c'è il collegio sindacale",
+   "C": "manca il consiglio di sorveglianza; il collegio sindacale non c'è",
+   "D": "manca il consiglio di gestione; il collegio sindacale non c'è"
   },
-  "k": "Dualistico: gestione più sorveglianza, niente sindaci."
+  "k": "dualistico = gestione + sorveglianza",
+  "r": "<b>Duale = due</b>: gestione e sorveglianza. Il collegio sindacale è un terzo incomodo."
  },
  "4906": {
-  "q": "Aedes spa, non quotata e a base familiare, può prevedere nello statuto un avviso di convocazione ai soci almeno cinque giorni prima dell'assemblea?",
-  "p": "<b>No</b>. Nella spa non quotata la legge fissa un preavviso minimo di otto giorni, e lo statuto non può scendere sotto: serve a dare ai soci il tempo di informarsi e organizzarsi. Cinque giorni sono troppo pochi anche per una piccola società familiare. Né la natura familiare né il mezzo usato cambiano la risposta.",
-  "e": "Assemblea di Aedes fissata per il 20 del mese: un avviso inviato il 15 darebbe solo cinque giorni ai soci, meno degli otto richiesti, e questo preavviso non è ammesso anche se lo statuto lo prevedesse.",
+  "q": "Lo statuto di Aedes S.p.A., società familiare non quotata, vuole che la convocazione dell'assemblea arrivi ai soci <b>almeno cinque giorni prima</b>. La domanda chiede se è possibile.",
+  "p": "<b>No</b>. Nelle S.p.A. non quotate lo statuto può prevedere la convocazione con mezzi che garantiscono la prova del ricevimento (raccomandata, PEC), ma <b>almeno otto giorni prima</b> dell'assemblea. Cinque giorni sono troppo pochi per permettere ai soci di prepararsi. Il mezzo usato non cambia il termine.",
+  "e": "Assemblea fissata per il 20 del mese: l'avviso via PEC deve arrivare entro il 12.",
   "x": {
-   "B": "Il telegramma non basta: il mezzo non permette di scendere a cinque giorni.",
-   "C": "Il «sì» secco è sbagliato: cinque giorni sono sotto il minimo di otto giorni.",
-   "D": "Nemmeno la posta elettronica consente un preavviso così breve."
+   "B": "il telegramma non cambia il minimo di otto giorni",
+   "C": "cinque giorni sono sotto il minimo",
+   "D": "l'e-mail non cambia il minimo di otto giorni"
   },
-  "k": "Spa non quotata: preavviso minimo otto giorni."
+  "k": "convocazione S.p.A. non quotata: almeno 8 giorni prima",
+  "r": "Numero chiave: <b>8 giorni</b>. Cinque è sotto, quindi «No»."
  },
  "4907": {
-  "q": "In prima convocazione per il bilancio di Gamma spa, Tizio (26%) è presente e Caio (25%) ha votato per corrispondenza, come ammesso dallo statuto. L'assemblea è validamente costituita?",
-  "p": "<b>Sì</b>. Chi vota per corrispondenza si considera intervenuto in assemblea, quindi il suo capitale conta. L'assemblea ordinaria in prima convocazione richiede almeno metà del capitale. Qui si ha 26% + 25% = 51%, che supera il 50%.",
-  "e": "Conteggio: Tizio 26% + Caio 25% = 51%. Soglia richiesta: 50%. Il quorum è raggiunto anche se in sala c'è una sola persona.",
+  "q": "All'assemblea di Gamma S.p.A. in prima convocazione per il bilancio, Tizio (26%) è presente e Caio (25%) ha votato <b>per corrispondenza</b>, come permesso dallo statuto. La domanda chiede se l'assemblea è validamente costituita.",
+  "p": "<b>Sì</b>. L'assemblea ordinaria in prima convocazione è costituita con almeno <b>metà del capitale</b>. Chi vota per corrispondenza si considera <b>intervenuto</b>: quindi 26% + 25% = <b>51%</b>, che supera il 50%.",
+  "e": "È come se Caio fosse in sala: il suo voto per lettera conta per il quorum.",
   "x": {
-   "B": "Il «no» ignorerebbe il voto di Caio, che conta: il 51% supera la metà del capitale.",
-   "C": "La costituzione dipende dal capitale rappresentato, non dal consenso del collegio sindacale.",
-   "D": "Non serve il consenso di Tizio: il quorum si calcola sulle quote, in automatico."
+   "B": "è costituita: il quorum c'è",
+   "C": "non serve il consenso del collegio sindacale",
+   "D": "non serve il consenso di Tizio"
   },
-  "k": "Voto per corrispondenza = socio presente per il quorum."
+  "k": "voto per corrispondenza conta per il quorum",
+  "r": "Calcolo: <b>26 + 25 = 51 > 50</b>. Chi vota per posta conta come presente."
  },
  "4908": {
-  "q": "Chi può convocare l'assemblea ordinaria di Gamma spa, non quotata?",
-  "p": "La convocano <b>gli amministratori o il consiglio di gestione</b>. La convocazione spetta di regola a chi gestisce la società: amministratori nel sistema tradizionale e nel monistico, consiglio di gestione nel dualistico. La risposta copre entrambe le situazioni, mentre le altre usano un «esclusivamente» che non regge.",
-  "e": "Se Gamma ha un consiglio di amministrazione, convoca quello. Se adotta il dualistico, convoca il consiglio di gestione.",
+  "q": "La domanda chiede chi può convocare l'<b>assemblea ordinaria</b> di Gamma S.p.A., non quotata.",
+  "p": "Gli <b>amministratori</b> o, nel dualistico, il <b>consiglio di gestione</b>. Convocare l'assemblea è compito dell'organo che gestisce. In casi particolari possono farlo anche i sindaci (es. se gli amministratori non provvedono), ma la regola è l'organo amministrativo.",
+  "e": "Ogni primavera il CdA convoca l'assemblea per approvare il bilancio.",
   "x": {
-   "B": "Il rappresentante degli obbligazionisti non è l'organo che convoca l'assemblea dei soci.",
-   "C": "Il collegio sindacale non ha un potere esclusivo: la regola affida la convocazione agli amministratori.",
-   "D": "«Esclusivamente» è errato: il consiglio di gestione c'è solo nel dualistico, altrimenti convocano gli amministratori."
+   "B": "non esclusivamente il rappresentante degli obbligazionisti",
+   "C": "non esclusivamente il collegio sindacale",
+   "D": "non esclusivamente il consiglio di gestione: anche gli amministratori"
   },
-  "k": "Convoca chi gestisce: amministratori o consiglio di gestione."
+  "k": "convocazione assemblea = amministratori",
+  "r": "Le risposte con <b>«esclusivamente»</b> sono troppo strette. Scegli quella che include gli amministratori."
  },
  "4909": {
-  "q": "L'assemblea straordinaria di Alfa spa chiude una sede secondaria con il 55% del capitale, e la delibera viene impugnata. Quale può essere il motivo?",
-  "p": "Il motivo può essere che <b>lo statuto prevede una maggioranza più elevata per le delibere dell'assemblea straordinaria</b>. Lo statuto può alzare le maggioranze di legge. Se le alza oltre il 55%, la delibera non ha raggiunto il voto richiesto e può quindi essere contestata per violazione dello statuto.",
-  "e": "Se lo statuto di Alfa chiede il 60%, il voto favorevole del 55% resta sotto di 5 punti: la delibera è in contrasto con lo statuto.",
+  "q": "L'assemblea straordinaria di Alfa delibera di chiudere una sede secondaria con il <b>55%</b> del capitale. La delibera viene impugnata. La domanda chiede quale potrebbe essere il motivo.",
+  "p": "Che <b>lo statuto preveda una maggioranza più alta</b> per le delibere straordinarie. Lo statuto può alzare le maggioranze di legge: se richiede, ad esempio, il 60% e la delibera è passata con il 55%, non è conforme allo statuto ed è annullabile.",
+  "e": "Lo statuto di Alfa chiede i due terzi per le delibere straordinarie: con il 55% la delibera non passa e può essere impugnata.",
   "x": {
-   "B": "Il parere contrario dei sindaci non vincola i soci: l'assemblea può votare diversamente.",
-   "C": "L'assenso preventivo della Camera di Commercio non è la regola prevista per chiudere una sede.",
-   "D": "«Solo» è errato: l'assemblea straordinaria può decidere la materia, anche se lo statuto può affidarla agli amministratori."
+   "B": "il parere contrario dei sindaci non rende invalida la delibera",
+   "C": "non serve il permesso della Camera di Commercio",
+   "D": "se l'ha decisa l'assemblea straordinaria, il problema non è la competenza in questo senso"
   },
-  "k": "Maggioranza statutaria non raggiunta: delibera impugnabile."
+  "k": "delibera sotto la maggioranza statutaria = impugnabile",
+  "r": "<b>«Lo statuto alza l'asticella»</b>: se non la raggiungi, la delibera è impugnabile."
  },
  "4910": {
-  "q": "Provvedimento di sospensione e sentenza sull'impugnazione di una delibera assembleare: cosa va fatto dei loro dispositivi?",
-  "p": "<b>Devono essere iscritti, a cura degli amministratori, nel registro delle imprese</b>. Il registro è il luogo in cui i terzi si informano sulla società, quindi deve mostrare se una delibera è sospesa o annullata. L'obbligo spetta agli amministratori perché sono loro a gestire gli adempimenti della società.",
-  "e": "Il tribunale sospende la delibera di aumento di capitale di Alfa spa: gli amministratori fanno iscrivere il provvedimento, così chi consulta il registro sa che la delibera è sospesa.",
+  "q": "Il tribunale ha sospeso una delibera assembleare o ha deciso sulla sua impugnazione. La domanda chiede se questi provvedimenti vanno resi pubblici.",
+  "p": "<b>Sì</b>: devono essere <b>iscritti nel registro delle imprese a cura degli amministratori</b>. I terzi devono sapere se una delibera è stata sospesa o annullata, perché potrebbe riguardarli. Il registro delle imprese è lo strumento di pubblicità per tutto ciò che riguarda le società.",
+  "e": "Viene annullata la delibera di aumento di capitale: gli amministratori iscrivono la sentenza nel registro delle imprese.",
   "x": {
-   "B": "Senza iscrizione i terzi non saprebbero nulla: l'iscrizione è obbligatoria.",
-   "C": "L'adempimento spetta agli amministratori, non ai sindaci.",
-   "D": "La pubblicità prevista è il registro delle imprese, non l'Albo Pretorio del Comune."
+   "B": "devono essere iscritti",
+   "C": "non a cura dei sindaci",
+   "D": "non all'albo pretorio del Comune"
   },
-  "k": "Sospensione e sentenza: iscrive l'amministratore nel registro."
+  "k": "sentenze su delibere: iscritte nel registro dagli amministratori",
+  "r": "<b>«Registro delle imprese = bacheca delle società»</b>, e a curarlo sono gli amministratori."
  },
  "4911": {
-  "q": "Se in assemblea di spa si sbaglia il conteggio dei voti, il socio dissenziente può impugnare la delibera?",
-  "p": "<b>No, salvo che l'errore sia stato determinante per raggiungere la maggioranza richiesta</b>. Se, correggendo il conteggio, la maggioranza c'è comunque, il risultato non cambia e annullare la delibera sarebbe inutile. Conta solo l'errore che ha davvero deciso l'esito. Questo controllo si chiama «prova di resistenza».",
-  "e": "Serve il 50% più uno. La delibera passa con il 70%, ma 5 punti sono contati male: resta al 65%, nessuna impugnazione. Se fosse passata con il 52%, scenderebbe al 47% e l'errore sarebbe determinante.",
+  "q": "In assemblea viene sbagliato il <b>conteggio dei voti</b>. La domanda chiede se un socio dissenziente può impugnare la delibera.",
+  "p": "<b>No</b>, a meno che l'errore di conteggio sia stato <b>determinante</b> per raggiungere la maggioranza. Se anche contando giusto la delibera sarebbe passata, l'errore non cambia nulla e non giustifica l'impugnazione.",
+  "e": "La delibera passa con 70 voti contro 30, ma ne sono stati contati 5 in più: senza quei 5 sarebbe passata lo stesso, quindi non si annulla.",
   "x": {
-   "B": "Non conta se il socio poteva accorgersi dell'errore: conta se l'errore ha cambiato l'esito.",
-   "C": "«In qualunque caso» è errato: un errore non determinante non permette l'impugnazione.",
-   "D": "La facoltà non è riservata al socio assente: anche il dissenziente può impugnare se l'errore è determinante."
+   "B": "non conta se poteva accorgersene",
+   "C": "non in qualunque caso",
+   "D": "non solo il socio assente"
   },
-  "k": "Errore di conteggio: conta solo se determinante."
+  "k": "errore di conteggio: impugnabile solo se determinante",
+  "r": "<b>«Avrebbe vinto lo stesso?»</b> Se sì, niente annullamento."
  },
  "4912": {
-  "q": "Come e dove si impugna una delibera societaria?",
-  "p": "Si impugna <b>con atto di citazione davanti al tribunale del luogo dove la società ha sede</b>. L'impugnazione è una vera causa civile, quindi la decide un giudice e si avvia con l'atto tipico del processo. Il registro delle imprese è solo un archivio pubblico: non giudica nessuna lite.",
-  "e": "Un socio di una spa con sede a Padova contesta una delibera: fa notificare un atto di citazione e la causa si svolge davanti al tribunale competente per Padova.",
+  "q": "La domanda chiede come e davanti a chi si impugna una delibera societaria.",
+  "p": "Con <b>atto di citazione</b> davanti al <b>tribunale del luogo dove la società ha sede</b>. Impugnare una delibera vuol dire fare causa, e le cause si fanno in tribunale. Il registro delle imprese è un ufficio di pubblicità, non un giudice.",
+  "e": "Un socio di una S.p.A. con sede a Torino impugna la delibera con citazione al tribunale di Torino.",
   "x": {
-   "B": "L'ingiunzione non è l'atto previsto e il registro delle imprese non è un giudice.",
-   "C": "Il «richiamo» non è l'atto previsto e il registro non decide le cause.",
-   "D": "L'atto di citazione è giusto, ma si propone davanti al tribunale, non al registro."
+   "B": "il registro delle imprese non decide le impugnazioni",
+   "C": "il registro delle imprese non decide le impugnazioni",
+   "D": "la citazione si fa al tribunale, non al registro"
   },
-  "k": "Citazione, davanti al tribunale della sede."
+  "k": "impugnazione delibera: citazione al tribunale della sede",
+  "r": "<b>«Le cause si fanno in tribunale»</b>. Le opzioni con il registro delle imprese sono tutte sbagliate."
  },
  "4913": {
-  "q": "L'assemblea per il bilancio di una spa non quotata non è stata convocata. Chi può impugnare la delibera, ed entro quanto?",
-  "p": "Può impugnarla <b>chiunque vi abbia interesse, nel termine di tre anni dall'iscrizione o deposito della delibera nel registro delle imprese</b>. La mancata convocazione è un vizio molto grave, perché esclude i soci dalla decisione: è un caso di nullità. Per questo non agiscono solo i soci ma chiunque abbia un interesse, e il termine è più lungo di quello dell'annullabilità.",
-  "e": "Delibera depositata nel registro il 10 marzo 2024: un socio o anche un creditore con interesse può agire secondo questa regola fino al 10 marzo 2027.",
+  "q": "L'assemblea di una S.p.A. non quotata per l'approvazione del bilancio <b>non è stata convocata</b>. La domanda chiede chi può impugnare la delibera ed entro quando.",
+  "p": "<b>Chiunque vi abbia interesse</b>, entro <b>tre anni</b> dall'iscrizione o dal deposito della delibera nel registro delle imprese. La mancata convocazione è un vizio grave che rende la delibera <b>nulla</b>: per questo può agire chiunque ne abbia interesse, non solo i soci, ma entro un termine.",
+  "e": "Un socio non ha mai ricevuto la convocazione e scopre una delibera depositata due anni fa: può ancora impugnarla.",
   "x": {
-   "B": "Non sono legittimati solo i soci, e il termine è tre anni, non cinque.",
-   "C": "Non agiscono solo i soci, e il termine è tre anni, non uno.",
-   "D": "La legittimazione è corretta, ma il termine è tre anni, non dieci."
+   "B": "non solo i soci e non cinque anni",
+   "C": "non solo i soci e non un anno",
+   "D": "non dieci anni"
   },
-  "k": "Mancata convocazione: chiunque interessato, tre anni."
+  "k": "mancata convocazione: chiunque, entro 3 anni",
+  "r": "Nullità delle delibere: <b>chiunque, 3 anni</b>. Annullabilità: <b>soci, 90 giorni</b>."
  },
  "4914": {
-  "q": "Una delibera annullabile viene sostituita con una nuova delibera regolare. Che fine fanno i diritti acquistati in buona fede dai terzi con gli atti esecutivi della prima?",
-  "p": "Quei diritti sono <b>fatti salvi</b>. Il terzo in buona fede si è fidato di una delibera che appariva valida e non deve pagare per un vizio interno alla società. La regola protegge la sicurezza degli affari: la sostituzione sistema la delibera senza danneggiare chi ha agito correttamente.",
-  "e": "Alfa spa vende un immobile a Tizio, in buona fede, in esecuzione di una delibera viziata, poi sostituita da una regolare: Tizio conserva l'acquisto.",
+  "q": "Una delibera annullabile viene <b>sostituita</b> da una nuova delibera regolare. La domanda chiede che fine fanno i diritti acquistati in buona fede dai terzi in esecuzione della prima delibera.",
+  "p": "Sono <b>fatti salvi</b>. I terzi che hanno agito in buona fede, fidandosi della delibera, non devono subire le conseguenze dei vizi interni alla società. Sostituire la delibera non cancella i loro diritti.",
+  "e": "Una delibera viziata autorizza la vendita di un immobile a un terzo. Poi la delibera viene sostituita: il terzo in buona fede si tiene l'immobile.",
   "x": {
-   "B": "I diritti non vengono annullati: quindi è errata anche la decorrenza dalla pronuncia di annullamento.",
-   "C": "I diritti non vengono annullati, nemmeno con effetto dalla data della deliberazione.",
-   "D": "I diritti non vengono annullati, nemmeno dalla data di esecutività."
+   "B": "non sono annullati",
+   "C": "non sono annullati",
+   "D": "non sono annullati"
   },
-  "k": "Terzi in buona fede: diritti salvi."
+  "k": "terzi in buona fede: diritti salvi",
+  "r": "<b>«I terzi in buona fede sono al sicuro»</b>. Le tre opzioni di annullamento cambiano solo la data: si eliminano insieme."
  },
  "4915": {
-  "q": "Chi è vincolato dalle delibere dell'assemblea di una spa?",
-  "p": "<b>Se prese in conformità della legge e dell'atto costitutivo, vincolano tutti i soci, anche assenti o dissenzienti</b>. È il principio maggioritario: la società deve poter decidere senza aspettare il consenso di ciascuno. Il socio contrario ha gli strumenti previsti dalla legge per reagire a una delibera irregolare, ma non può ignorare una delibera regolare.",
-  "e": "Il 70% dei soci approva un dividendo: la decisione vale anche per il socio che ha votato contro e per quello che non è venuto.",
+  "q": "La domanda chiede chi è vincolato dalle <b>delibere dell'assemblea</b> di una S.p.A.",
+  "p": "Se prese in conformità di legge e atto costitutivo, <b>vincolano tutti i soci</b>, anche quelli <b>assenti o dissenzienti</b>. È il principio maggioritario: la società decide a maggioranza, e la decisione vale per tutti. Chi non è d'accordo può impugnarla se è invalida, o in certi casi recedere.",
+  "e": "L'assemblea approva il bilancio con il 70%: vale anche per il socio che ha votato contro e per quello che non è venuto.",
   "x": {
-   "B": "I soci assenti sono vincolati senza alcuna ratifica specifica.",
-   "C": "Non sono vincolati solo i favorevoli: lo sono anche dissenzienti e assenti, senza ratifica.",
-   "D": "Nella spa si decide a maggioranza: l'unanimità non è la regola."
+   "B": "vincolano anche gli assenti, senza ratifica",
+   "C": "vincolano tutti, non solo chi ha votato sì",
+   "D": "si delibera a maggioranza, non all'unanimità"
   },
-  "k": "Delibera regolare: vincola tutti i soci."
+  "k": "delibere valide vincolano tutti i soci",
+  "r": "<b>«La maggioranza decide per tutti»</b>."
  },
  "4916": {
-  "q": "Una delibera di spa modifica l'oggetto sociale prevedendo attività illecite o impossibili. Entro quando si può impugnare?",
-  "p": "Si può impugnare <b>senza limiti di tempo</b>. Un oggetto illecito o impossibile è un vizio talmente grave che il passare del tempo non può sanarlo: la società non può continuare a operare su quella base. Per questo la legge non fissa alcuna scadenza.",
-  "e": "Una spa inserisce nell'oggetto sociale un'attività vietata dalla legge: anche dopo molti anni un interessato può ancora contestare quella delibera.",
+  "q": "L'assemblea modifica l'oggetto sociale introducendo <b>attività illecite o impossibili</b>. La domanda chiede entro quanto si può impugnare.",
+  "p": "<b>Senza limiti di tempo</b>. Una delibera che rende l'oggetto sociale illecito o impossibile è talmente grave che non si consolida mai: può essere impugnata in qualsiasi momento.",
+  "e": "Una società modifica l'oggetto per svolgere attività di gioco d'azzardo illegale: la delibera si può impugnare anche dopo molti anni.",
   "x": {
-   "B": "Nessun termine di dieci anni: in questo caso non c'è alcuna scadenza.",
-   "C": "Novanta giorni non è il termine applicabile a un vizio così grave.",
-   "D": "I tre anni riguardano altri vizi, come la mancata convocazione, non questo."
+   "B": "non dieci anni: nessun limite",
+   "C": "non novanta giorni: nessun limite",
+   "D": "non tre anni: nessun limite"
   },
-  "k": "Oggetto illecito o impossibile: impugnazione senza scadenza."
+  "k": "oggetto illecito o impossibile: impugnabile senza limiti",
+  "r": "Scala dei termini: <b>90 giorni</b> (annullabili) → <b>3 anni</b> (nulle) → <b>mai</b> (oggetto illecito o impossibile)."
  },
  "4917": {
-  "q": "Nelle società che ricorrono al mercato del capitale di rischio, quali sono i quorum dell'assemblea straordinaria in prima convocazione?",
-  "p": "Si costituisce con almeno <b>la metà del capitale sociale e delibera con il voto favorevole di almeno i due terzi del capitale rappresentato in assemblea</b>. Sono decisioni importanti, come le modifiche dello statuto, quindi servono una presenza ampia e un consenso largo. Sono numeri da memorizzare.",
-  "e": "Capitale 100. Sono presenti 60 (almeno 50: assemblea costituita). Per deliberare servono almeno 40 voti favorevoli, cioè 60 x 2/3.",
+  "q": "Nelle società che fanno ricorso al mercato del capitale di rischio, la domanda chiede quorum costitutivo e deliberativo dell'<b>assemblea straordinaria in prima convocazione</b>.",
+  "p": "È costituita con almeno <b>metà del capitale sociale</b> e delibera con il voto favorevole di almeno <b>due terzi del capitale rappresentato</b> in assemblea. Sono maggioranze alte, perché le delibere straordinarie modificano le regole della società.",
+  "e": "Capitale 100: devono essere presenti almeno 50. Se sono presenti 60, servono almeno 40 voti favorevoli (2/3 di 60).",
   "x": {
-   "B": "Un quarto del capitale e tre quinti dei voti sono più bassi dei quorum richiesti.",
-   "C": "La metà del capitale è giusta, ma i due quinti dei voti sono troppo pochi: servono i due terzi.",
-   "D": "Un terzo del capitale e due quinti dei voti sono entrambi sotto la soglia."
+   "B": "un quarto e tre quinti non sono i quorum della prima convocazione",
+   "C": "due quinti è troppo poco per deliberare",
+   "D": "un terzo e due quinti non sono i quorum della prima convocazione"
   },
-  "k": "Straordinaria, prima convocazione: metà presenti, due terzi favorevoli."
+  "k": "straordinaria 1ª conv. (società aperte): 1/2 presente, 2/3 dei presenti",
+  "r": "Formula: <b>«metà per entrare, due terzi per decidere»</b>."
  },
  "4918": {
-  "q": "Quali società sono considerate controllate?",
-  "p": "Sono controllate <b>le società in cui un'altra società dispone di voti sufficienti per esercitare un'influenza dominante nell'assemblea ordinaria</b>. Il controllo guarda al potere reale di decidere, non a una percentuale fissa. Una quota anche inferiore alla maggioranza può bastare, se con essa si domina l'assemblea.",
-  "e": "Alfa ha il 40% di Beta, mentre il resto è diviso tra tanti piccoli soci che non partecipano. Con quel 40% Alfa decide in assemblea: Beta è controllata.",
+  "q": "La domanda chiede quando una società è <b>controllata</b> da un'altra.",
+  "p": "Quando un'altra società dispone di <b>voti sufficienti per esercitare un'influenza dominante nell'assemblea ordinaria</b>. Il controllo si misura sull'effettivo potere di decidere, non su soglie fisse come il 5%, 10% o 15%. Sono controllate anche le società in cui un'altra ha la maggioranza dei voti o un'influenza dominante per vincoli contrattuali.",
+  "e": "Una società con il 35% può controllarne un'altra se il resto del capitale è molto frammentato e nessuno si oppone.",
   "x": {
-   "B": "Il 15% senza influenza dominante non crea controllo: conta il potere, non la cifra.",
-   "C": "Il 5% senza influenza dominante non crea controllo.",
-   "D": "Il 10% senza influenza dominante non crea controllo."
+   "B": "il 15% senza influenza dominante non è controllo",
+   "C": "il 5% senza influenza dominante non è controllo",
+   "D": "il 10% senza influenza dominante non è controllo"
   },
-  "k": "Controllo = influenza dominante in assemblea ordinaria."
+  "k": "controllo = influenza dominante",
+  "r": "<b>«Controlla chi comanda»</b>: conta l'influenza, non la percentuale."
  },
  "4919": {
-  "q": "Quando la spa acquista la personalità giuridica?",
-  "p": "La acquista con <b>l'iscrizione nel registro delle imprese</b>. L'iscrizione ha effetto costitutivo: da quel momento la società esiste come soggetto autonomo, separato dai soci. Così i terzi hanno un momento certo e pubblico a cui fare riferimento.",
-  "e": "Atto costitutivo firmato il 1° marzo, iscrizione il 15 marzo: la spa ha personalità giuridica dal 15 marzo.",
+  "q": "La domanda chiede quando una S.p.A. acquista la <b>personalità giuridica</b>.",
+  "p": "Con l'<b>iscrizione nel registro delle imprese</b>. Prima dell'iscrizione la società non esiste ancora come soggetto autonomo. L'iscrizione ha <b>efficacia costitutiva</b>: fa nascere la società.",
+  "e": "Firmato l'atto costitutivo dal notaio, la società nasce solo quando viene iscritta nel registro delle imprese.",
   "x": {
-   "B": "La prima operazione bancaria è un atto di gestione, non fa nascere la società.",
-   "C": "La scelta della denominazione è un contenuto dell'atto, non basta a far nascere la società.",
-   "D": "La scelta degli amministratori fa parte dell'organizzazione, non attribuisce la personalità."
+   "B": "la prima operazione bancaria non c'entra",
+   "C": "la scelta del nome non basta",
+   "D": "la scelta degli amministratori non basta"
   },
-  "k": "Spa nasce con l'iscrizione al registro."
+  "k": "personalità giuridica S.p.A. = iscrizione nel registro",
+  "r": "<b>«Nasce quando si iscrive»</b>, come un bambino all'anagrafe."
  },
  "4920": {
-  "q": "Quale regola vale per la denominazione sociale di una spa?",
-  "p": "<b>Deve contenere l'indicazione di società per azioni</b>. Chi tratta con la società deve capire subito che tipo di società ha di fronte e quindi come funzionano le responsabilità. Il nome può essere scelto liberamente, ma questa indicazione deve sempre esserci.",
-  "e": "«Rossi Costruzioni S.p.A.» è una denominazione corretta. «Rossi Costruzioni» da solo non indica il tipo di società.",
+  "q": "La domanda chiede cosa deve contenere la <b>denominazione</b> di una S.p.A.",
+  "p": "Deve contenere l'<b>indicazione di società per azioni</b> (o «S.p.A.»). Chi tratta con la società deve sapere subito che ha davanti una società di capitali, dove risponde solo il patrimonio sociale. Non ci sono limiti di caratteri.",
+  "e": "«Alfa Costruzioni S.p.A.»: il nome dice subito che tipo di società è.",
   "x": {
-   "B": "Il limite di 40 caratteri non è la regola prevista.",
-   "C": "Nemmeno il limite di 100 caratteri è la regola prevista.",
-   "D": "È l'esatto contrario: l'indicazione deve esserci."
+   "B": "nessun limite di 40 caratteri",
+   "C": "nessun limite di 100 caratteri",
+   "D": "deve contenerla"
   },
-  "k": "Nel nome deve comparire «società per azioni»."
+  "k": "denominazione S.p.A. = contiene «società per azioni»",
+  "r": "<b>«Il nome dice cosa sei»</b>: S.p.A. nel nome."
  },
  "4921": {
-  "q": "Per quale motivo può essere pronunciata la nullità di una spa?",
-  "p": "Può essere pronunciata <b>per illiceità dell'oggetto sociale</b>. Dopo l'iscrizione la nullità è ammessa solo in pochi casi gravi fissati dalla legge, per proteggere chi ha già trattato con la società. Una società nata per un'attività vietata dalla legge rientra in questi casi. Gli altri difetti elencati non vi rientrano.",
-  "e": "Una spa ha come oggetto un'attività vietata dalla legge: il vizio riguarda il cuore della società e può portare alla nullità.",
+  "q": "La domanda chiede per quale motivo può essere pronunciata la <b>nullità di una S.p.A.</b>.",
+  "p": "Per <b>illiceità dell'oggetto sociale</b>. Le cause di nullità della S.p.A. sono pochissime: mancata stipula per atto pubblico, oggetto illecito, mancanza nell'atto costitutivo di denominazione, conferimenti, capitale o oggetto. Non c'è bisogno di più fondatori (esiste la S.p.A. unipersonale), e la mancanza di amministratori o della sede non rende nulla la società.",
+  "e": "Una S.p.A. costituita per commerciare armi illegali può essere dichiarata nulla.",
   "x": {
-   "B": "Non serve una pluralità di fondatori: la spa può avere anche un socio unico.",
-   "C": "La mancata indicazione degli amministratori non è tra i casi di nullità.",
-   "D": "La mancata indicazione della sede non è tra i casi di nullità."
+   "B": "la S.p.A. può avere un solo socio",
+   "C": "la mancata indicazione degli amministratori non è causa di nullità",
+   "D": "la mancata indicazione della sede non è causa di nullità"
   },
-  "k": "Oggetto sociale illecito: spa nulla."
+  "k": "nullità S.p.A.: anche per oggetto illecito",
+  "r": "Le cause di nullità della S.p.A. sono <b>poche e gravi</b>: oggetto illecito è la più facile da ricordare."
  },
  "4922": {
-  "q": "Una spa deve avere un capitale sociale minimo?",
-  "p": "<b>Sì, 50.000 euro</b>. Il capitale minimo è la dotazione di partenza richiesta a chi usa un modello in cui i soci rispondono solo nei limiti del conferimento. È anche una garanzia iniziale per i creditori. L'importo è un dato da memorizzare.",
-  "e": "Tre soci vogliono costituire una spa con 30.000 euro di capitale: non basta, devono arrivare almeno a 50.000.",
+  "q": "La domanda chiede se esiste un <b>capitale sociale minimo</b> per una S.p.A.",
+  "p": "<b>Sì, 50.000 €</b>. È la soglia minima per costituire una S.p.A., che serve a garantire una base patrimoniale ai creditori. Per la S.r.l. il minimo ordinario è molto più basso (10.000 €, con forme semplificate anche meno).",
+  "e": "Per costituire una S.p.A. servono almeno 50.000 € di capitale.",
   "x": {
-   "B": "10.000 euro è inferiore al minimo della spa.",
-   "C": "80.000 euro è più alto del minimo: la soglia è 50.000.",
-   "D": "Il «no» è errato: un minimo di legge esiste."
+   "B": "10.000 € è il minimo della S.r.l. ordinaria",
+   "C": "80.000 € non è il minimo attuale",
+   "D": "il minimo esiste"
   },
-  "k": "Capitale minimo spa: 50.000 euro."
+  "k": "capitale minimo S.p.A. = 50.000 €",
+  "r": "<b>S.p.A. = 50.000, S.r.l. = 10.000</b>."
  },
  "4923": {
-  "q": "Quale di queste operazioni può fare una spa?",
-  "p": "Può <b>fare una nuova emissione di azioni, se i titoli già in circolazione sono stati interamente liberati</b>. «Liberati» significa interamente pagati dai soci. È logico: prima si incassa quanto già promesso, poi si chiede nuovo capitale. Rispettata questa condizione, l'operazione è ammessa.",
-  "e": "Beta spa ha azioni per 100.000 euro, tutte pagate: può emetterne di nuove. Se mancassero 20.000 euro di versamenti, dovrebbe prima incassarli.",
+  "q": "La domanda chiede quale di queste operazioni è <b>consentita</b> a una S.p.A.",
+  "p": "<b>Emettere nuove azioni quando quelle già in circolazione sono interamente liberate</b> (cioè pagate). Le altre sono vietate: la sottoscrizione reciproca di azioni gonfierebbe il capitale in modo fittizio, accettare azioni proprie in garanzia aggirerebbe i limiti sulle azioni proprie, e soci accomandatari e accomandanti esistono solo nelle società in accomandita.",
+  "e": "Una S.p.A. con azioni già pagate al 100% decide un aumento di capitale con nuove azioni.",
   "x": {
-   "B": "Accomandatari e accomandanti appartengono alle società in accomandita, non alla spa.",
-   "C": "La sottoscrizione reciproca è vietata: gonfierebbe il capitale senza nuove risorse reali.",
-   "D": "Accettare azioni proprie in garanzia è vietato, anche tramite interposta persona o fiduciaria."
+   "B": "accomandatari e accomandanti sono soci delle accomandite",
+   "C": "la sottoscrizione reciproca di azioni è vietata",
+   "D": "accettare azioni proprie in garanzia è vietato"
   },
-  "k": "Nuove azioni solo se le vecchie sono pagate."
+  "k": "nuove azioni solo se le precedenti sono liberate",
+  "r": "<b>«Prima paghi le vecchie, poi emetti le nuove»</b>."
  },
  "4924": {
-  "q": "Si può costituire una spa con un solo socio?",
-  "p": "<b>Sì, ma è tra l'altro necessario versare l'intero capitale sociale</b>. Con un solo socio manca il controllo reciproco tra più soci, e la legge chiede quindi una garanzia più forte per i creditori: tutto il capitale deve essere versato subito, senza rimandare una parte.",
-  "e": "Tizio costituisce da solo una spa con 50.000 euro di capitale: deve versare tutti i 50.000 euro.",
+  "q": "La domanda chiede se si può costituire una <b>S.p.A. con un solo socio</b>.",
+  "p": "<b>Sì</b>, ma tra l'altro serve il <b>versamento dell'intero capitale sociale</b>. Con più soci basta versare il 25% alla costituzione. Con un socio unico la legge vuole più garanzie per i creditori: il capitale deve essere pagato tutto subito.",
+  "e": "Una persona costituisce da sola una S.p.A. con 50.000 € di capitale: deve versarli tutti, non solo 12.500.",
   "x": {
-   "B": "Il venticinque per cento non basta quando il socio è uno solo: serve l'intero capitale.",
-   "C": "La spa con un solo socio è ammessa, quindi non servono almeno due soci.",
-   "D": "Nemmeno il cinquanta per cento basta: va versato tutto il capitale."
+   "B": "il 25% basta solo con più soci",
+   "C": "la S.p.A. unipersonale è ammessa",
+   "D": "non basta il 50%"
   },
-  "k": "Spa unipersonale: capitale versato al 100%."
+  "k": "S.p.A. unipersonale: capitale versato al 100%",
+  "r": "<b>«Da solo paghi tutto»</b>: con più soci il 25%, con uno solo il 100%."
  },
  "4925": {
-  "q": "Tizio, Caio e Sempronio costituiscono una spa di motocicli e vogliono stabilizzare la proprietà nella fase di avvio. Cosa possono fare?",
-  "p": "Possono <b>inserire nello statuto una clausola che vieta, per tre anni, il trasferimento delle azioni</b>. Il divieto è ammesso, ma solo per un periodo limitato: la legge consente al massimo cinque anni, perché il socio non può restare bloccato troppo a lungo. Tre anni rientrano nel limite.",
-  "e": "Spa costituita a gennaio 2026 con divieto di tre anni: i soci non vendono le azioni fino a gennaio 2029, poi tornano liberi.",
+  "q": "Tizio, Caio e Sempronio costituiscono una S.p.A. per produrre moto e vogliono <b>stabilizzare la proprietà</b> nella fase di avvio. La domanda chiede cosa possono fare.",
+  "p": "Inserire nello statuto una clausola che <b>vieta il trasferimento delle azioni per tre anni</b>. Il codice ammette questo divieto, ma per un periodo <b>massimo di cinque anni</b>. Tre anni rientrano nel limite; dieci anni o tutta la durata della società no, perché i soci resterebbero prigionieri.",
+  "e": "Tre amici che fondano una start-up si impegnano nello statuto a non vendere le azioni per tre anni.",
   "x": {
-   "B": "Un fondo di garanzia presso la Motorizzazione non è la regola prevista, e non stabilizza la proprietà.",
-   "C": "Dieci anni superano il limite massimo di cinque anni.",
-   "D": "Un divieto per tutta la durata della società supera il limite di cinque anni."
+   "B": "non esiste un fondo di garanzia presso la Motorizzazione",
+   "C": "dieci anni superano il massimo di cinque",
+   "D": "tutta la durata della società supera il massimo di cinque anni"
   },
-  "k": "Divieto di trasferire azioni: massimo cinque anni."
+  "k": "divieto di trasferimento azioni: max 5 anni",
+  "r": "Numero chiave: <b>5 anni</b> massimo. Tre anni è l'unica opzione sotto la soglia."
  },
  "4926": {
-  "q": "In quale momento una S.p.A. diventa una persona giuridica, cioè un soggetto distinto dai soci?",
-  "p": "<b>Con l'iscrizione nel registro delle imprese.</b> La società nasce come soggetto autonomo solo quando è iscritta, perché da quel momento la sua esistenza è conoscibile da tutti. Per questo si dice che l'iscrizione ha efficacia costitutiva: prima la S.p.A. non esiste ancora come persona giuridica.",
-  "e": "Tre soci firmano l'atto dal notaio a marzo e l'iscrizione avviene ad aprile: la S.p.A. acquista la personalità giuridica ad aprile, non a marzo.",
+  "q": "La domanda chiede in che modo una S.p.A. acquista la <b>personalità giuridica</b>.",
+  "p": "Con l'<b>iscrizione nel registro delle imprese</b>. Né la firma dell'atto costitutivo né il deposito dello statuto bastano: la società nasce come soggetto autonomo solo con l'iscrizione, che ha <b>efficacia costitutiva</b>.",
+  "e": "Firmato l'atto dal notaio, chi agisce in nome della società prima dell'iscrizione risponde personalmente delle operazioni compiute.",
   "x": {
-   "B": "il semplice deposito dello statuto non basta: conta l'iscrizione nel registro",
-   "C": "la stipula dell'atto costitutivo è un passaggio necessario, ma la società non è ancora nata",
-   "D": "il versamento del capitale non fa nascere la società, e la personalità dipende dall'iscrizione"
+   "B": "il deposito dello statuto non basta",
+   "C": "la stipula dell'atto costitutivo non basta",
+   "D": "non conta il versamento dei due terzi del capitale"
   },
-  "k": "S.p.A. nasce con l'iscrizione"
+  "k": "S.p.A. nasce con l'iscrizione",
+  "r": "Gemella della 4919: <b>«nasce quando si iscrive»</b>."
  },
  "4927": {
-  "q": "Che forma deve avere l'atto costitutivo di una S.p.A.?",
-  "p": "<b>L'atto pubblico</b>, cioè un atto redatto da un notaio. È una regola da memorizzare. La legge la richiede perché il notaio controlla la regolarità dell'atto e la società avrà effetti importanti verso i terzi.",
-  "e": "Quattro amici che vogliono creare una S.p.A. devono andare dal notaio: una loro scrittura firmata, anche con firme autenticate, non basta.",
+  "q": "La domanda chiede in che forma va redatto l'<b>atto costitutivo</b> di una S.p.A.",
+  "p": "Con <b>atto pubblico</b>, cioè davanti a un notaio. La costituzione di una società di capitali crea un nuovo soggetto con regole precise: il notaio verifica la legalità di tutto. Senza atto pubblico la S.p.A. è nulla.",
+  "e": "Tre soci vanno dal notaio a firmare l'atto costitutivo della loro S.p.A.",
   "x": {
-   "B": "la scrittura privata autenticata non basta: serve l'atto pubblico",
-   "C": "la forma non è scelta dalle parti con un patto: la impone la legge",
-   "D": "la forma non è libera: è obbligatorio l'atto pubblico"
+   "B": "la scrittura privata autenticata non basta",
+   "C": "non è una forma convenzionale scelta dalle parti",
+   "D": "la forma non è libera"
   },
-  "k": "S.p.A. = atto pubblico"
+  "k": "atto costitutivo S.p.A. = atto pubblico",
+  "r": "<b>«Società di capitali = notaio»</b>. Atto pubblico, sempre."
  },
  "4928": {
-  "q": "Quanto devono valere, nel complesso, i conferimenti dei soci di una S.r.l. rispetto al capitale sociale?",
-  "p": "<b>Non possono valere meno del capitale sociale complessivo.</b> Il capitale è la cifra dichiarata ai terzi come garanzia: deve corrispondere a valori realmente promessi dai soci. Altrimenti il capitale indicato sarebbe in parte fittizio.",
-  "e": "Se il capitale della S.r.l. è 30.000 euro, i conferimenti dei soci devono valere in totale almeno 30.000 euro, non 20.000.",
+  "q": "La domanda chiede quale deve essere il valore dei <b>conferimenti</b> in una S.r.l.",
+  "p": "Non può essere <b>complessivamente inferiore all'ammontare globale del capitale sociale</b>. Come nella S.p.A., il capitale indicato deve essere davvero coperto da quanto i soci conferiscono. Altrimenti sarebbe un capitale «finto». Non ci sono percentuali ridotte.",
+  "e": "Una S.r.l. con 20.000 € di capitale deve ricevere conferimenti per almeno 20.000 €.",
   "x": {
-   "B": "il 75% non basta: i conferimenti devono coprire tutto il capitale",
-   "C": "il 50% lascerebbe scoperta metà del capitale",
-   "D": "il 30% lascerebbe scoperta la maggior parte del capitale"
+   "B": "non basta il 75%",
+   "C": "non basta il 50%",
+   "D": "non basta il 30%"
   },
-  "k": "conferimenti ≥ capitale sociale"
+  "k": "conferimenti ≥ capitale (anche S.r.l.)",
+  "r": "Gemella della 4848: <b>«il capitale deve essere vero»</b>. Le percentuali sono tutte trappole."
  },
  "4929": {
-  "q": "Una S.p.A. nasce con conferimenti di beni e crediti: dove va indicato il valore che è stato loro attribuito?",
-  "p": "<b>Nell'atto costitutivo.</b> Il documento che fonda la società deve dire quanto valgono i beni e i crediti conferiti, perché quel valore concorre a formare il capitale. Così chiunque può verificare su quali valori si regge il capitale.",
-  "e": "Un socio conferisce un capannone valutato 200.000 euro: questo valore compare nell'atto costitutivo della S.p.A.",
+  "q": "Una S.p.A. viene costituita con conferimenti di <b>beni e crediti</b> (non solo denaro). La domanda chiede dove va indicato il loro valore.",
+  "p": "Deve essere <b>indicato nell'atto costitutivo</b>. I terzi devono sapere quanto vale ciò che i soci hanno conferito al posto del denaro. Per questo il valore attribuito ai beni in natura e ai crediti è un elemento obbligatorio dell'atto costitutivo, accompagnato dalla relazione di stima.",
+  "e": "Un socio conferisce un capannone stimato 300.000 €: l'atto costitutivo riporta questo valore.",
   "x": {
-   "B": "la corrispondenza della società non è il luogo previsto per questa indicazione",
-   "C": "non c'è un limite fino all'incasso o alla vendita: è un'indicazione fatta al momento della costituzione",
-   "D": "i titoli azionari non sono il luogo previsto: il valore va nell'atto costitutivo"
+   "B": "non va indicato nella corrispondenza",
+   "C": "va indicato senza limiti di tempo",
+   "D": "non va sui titoli azionari"
   },
-  "k": "beni e crediti: valore nell'atto costitutivo"
+  "k": "valore dei conferimenti in natura: nell'atto costitutivo",
+  "r": "<b>«Quello che metti dentro si scrive nell'atto di nascita»</b>."
  },
  "4930": {
-  "q": "L'atto costitutivo di una S.p.A. non dice nulla sui conferimenti: in quale forma vanno fatti?",
-  "p": "<b>In danaro.</b> Il danaro è la regola di base quando l'atto tace. Conferimenti diversi, come beni o crediti, sono possibili solo se l'atto costitutivo li prevede, perché il loro valore va stimato e controllato.",
-  "e": "Se l'atto costitutivo non dice niente, un socio che sottoscrive azioni per 10.000 euro non può dare un'auto: deve conferire 10.000 euro in danaro.",
+  "q": "L'atto costitutivo di una S.p.A. <b>non dice nulla</b> sui conferimenti. La domanda chiede come vanno fatti.",
+  "p": "<b>In denaro</b>. È la regola di base: se l'atto costitutivo non prevede diversamente, i soci conferiscono denaro. I conferimenti in natura sono possibili solo se previsti. Nella S.p.A. non sono ammessi conferimenti di opera o servizi.",
+  "e": "Tre soci costituiscono una S.p.A. senza indicare il tipo di conferimenti: ciascuno versa la sua parte in euro.",
   "x": {
-   "B": "le prestazioni d'opera non possono essere conferite nella S.p.A.",
-   "C": "in natura si può conferire solo se l'atto lo prevede: nel silenzio vale il danaro",
-   "D": "le prestazioni di servizi non possono essere conferite nella S.p.A."
+   "B": "le prestazioni d'opera non sono conferibili nella S.p.A.",
+   "C": "il conferimento in natura deve essere previsto",
+   "D": "le prestazioni di servizi non sono conferibili nella S.p.A."
   },
-  "k": "atto muto = danaro"
+  "k": "conferimenti S.p.A., se nulla è detto = denaro",
+  "r": "<b>«Se non dici nulla, paghi in euro»</b>."
  },
  "4931": {
-  "q": "Tra S.p.A. e S.r.l., quale può avere un solo socio?",
-  "p": "<b>Entrambe.</b> La legge consente sia la S.p.A. sia la S.r.l. con socio unico. La pluralità di soci, quindi, non è necessaria per nessuno dei due tipi.",
-  "e": "Maria può creare da sola una S.r.l. per la sua attività, e Luca può essere l'unico azionista di una S.p.A.",
+  "q": "La domanda chiede quale tra S.p.A. e S.r.l. può avere un <b>unico socio</b>.",
+  "p": "<b>Entrambe</b>. La legge ammette sia la S.p.A. unipersonale sia la S.r.l. unipersonale. Per tutelare i creditori ci sono regole in più: per esempio, il capitale va versato interamente e va data pubblicità al socio unico.",
+  "e": "Un imprenditore costituisce da solo una S.r.l. per la sua attività: è una S.r.l. unipersonale.",
   "x": {
-   "B": "anche la S.r.l. può avere un solo socio",
-   "C": "al contrario, entrambe possono avere un socio unico",
-   "D": "anche la S.p.A. può avere un solo socio"
+   "B": "anche la S.r.l. può averne uno",
+   "C": "entrambe possono",
+   "D": "anche la S.p.A. può averne uno"
   },
-  "k": "socio unico: S.p.A. e S.r.l."
+  "k": "socio unico: sia S.p.A. sia S.r.l.",
+  "r": "<b>«Società di capitali, anche da solo»</b>."
  },
  "4932": {
-  "q": "Tre soci vogliono costituire una S.p.A.: quanta parte del capitale deve essere sottoscritta?",
-  "p": "<b>Tutto il capitale sociale deve essere sottoscritto.</b> Sottoscrivere significa impegnarsi a conferire: la società deve sapere che l'intero capitale dichiarato ha qualcuno che si è obbligato a versarlo. Non confondere la sottoscrizione con il versamento, che può avvenire in parte in un momento successivo.",
-  "e": "Con un capitale di 120.000 euro, i tre soci devono impegnarsi complessivamente per tutti i 120.000 euro, per esempio 40.000 euro ciascuno.",
+  "q": "Tre soci vogliono costituire una S.p.A. La domanda chiede quanto del capitale sociale deve essere <b>sottoscritto</b>.",
+  "p": "Il capitale deve essere <b>integralmente sottoscritto</b>, cioè al 100%. Sottoscrivere significa impegnarsi a conferire. Il <b>versamento</b> invece può essere parziale: almeno il 25% dei conferimenti in denaro (il 100% con un socio unico). Non confondere sottoscrizione e versamento.",
+  "e": "Capitale 100.000 €: i soci devono impegnarsi per tutti i 100.000 €, ma alla costituzione ne versano almeno 25.000.",
   "x": {
-   "B": "il 50% non basta: la sottoscrizione deve essere totale",
-   "C": "il 25% non basta per la sottoscrizione: va sottoscritto l'intero capitale",
-   "D": "anche il 75% lascerebbe parte del capitale senza sottoscrittore"
+   "B": "la sottoscrizione deve essere totale",
+   "C": "il 25% è il minimo del versamento, non della sottoscrizione",
+   "D": "la sottoscrizione deve essere totale"
   },
-  "k": "sottoscrizione = 100% del capitale"
+  "k": "capitale integralmente sottoscritto",
+  "r": "<b>Sottoscrivere 100%, versare almeno 25%</b>. La C è la trappola: confonde le due cose."
  },
  "4933": {
-  "q": "L'avvocato Caio ha azioni privilegiate di Beta S.p.A.: deve per questo lavorare per la società a prezzi di favore?",
-  "p": "<b>No.</b> Il privilegio dà all'azionista un vantaggio di natura patrimoniale, per esempio sugli utili o sul rimborso del capitale. Non crea l'obbligo di fornire prestazioni professionali alla società, tanto meno a prezzi preferenziali.",
-  "e": "Caio può ricevere un dividendo maggiorato e, se Beta gli chiede una consulenza, farsi pagare la normale parcella.",
+  "q": "L'avvocato Caio riceve <b>azioni privilegiate</b> di Beta S.p.A. La domanda chiede se deve fare prestazioni a prezzo preferenziale per la società.",
+  "p": "<b>No</b>. Le azioni privilegiate danno <b>vantaggi patrimoniali</b> al socio (es. dividendo maggiore, priorità nel rimborso), non obblighi di lavoro o di sconti. Essere socio, privilegiato o no, non obbliga a prestare servizi alla società.",
+  "e": "Un medico con azioni privilegiate di una clinica incassa un dividendo maggiorato, ma non deve visitare gratis i pazienti della clinica.",
   "x": {
-   "B": "le azioni privilegiate non comportano normalmente questo obbligo",
-   "C": "non c'è nessuna scelta tra sconti e dividendi: l'obbligo non nasce dal privilegio",
-   "D": "il numero di azioni non cambia nulla: il privilegio non fa nascere l'obbligo"
+   "B": "non c'è nessun obbligo di prestazioni",
+   "C": "non c'è nessun obbligo di prestazioni",
+   "D": "il numero di azioni non conta"
   },
-  "k": "privilegio = vantaggio, non obbligo di lavoro"
+  "k": "azioni privilegiate = vantaggi, non obblighi",
+  "r": "<b>«Privilegio = ricevi di più, non devi di più»</b>."
  },
  "4934": {
-  "q": "Caio ha azioni privilegiate di Gamma S.p.A.: può votare in alcune assemblee?",
-  "p": "<b>Sì, secondo quanto prevede lo statuto.</b> Le azioni privilegiate possono avere diritti di voto limitati, ma la misura è stabilita dallo statuto. Per questo la risposta dipende da come lo statuto ha disegnato quella categoria di azioni.",
-  "e": "Se lo statuto di Gamma riconosce il voto ai privilegiati nell'assemblea straordinaria, Caio vota lì, anche se ha poche azioni.",
+  "q": "Caio ha <b>azioni privilegiate</b> di Gamma S.p.A. La domanda chiede se può votare in alcune assemblee.",
+  "p": "<b>Sì, secondo quanto prevede lo statuto</b>. Lo statuto può creare azioni privilegiate con voto pieno, voto limitato a certi argomenti o senza voto. Bisogna quindi guardare cosa dice lo statuto.",
+  "e": "Lo statuto di Gamma prevede che le privilegiate votino solo nelle assemblee straordinarie: Caio vota lì, non nelle ordinarie.",
   "x": {
-   "B": "il voto dipende dallo statuto, non dall'essere azionista di maggioranza",
-   "C": "«in nessun caso» è troppo netto: lo statuto può prevedere il voto",
-   "D": "non serve convertire le azioni in ordinarie, se lo statuto già attribuisce il voto"
+   "B": "non serve essere azionista di maggioranza",
+   "C": "può votare, se lo statuto lo prevede",
+   "D": "non serve convertirle"
   },
-  "k": "voto dei privilegiati: decide lo statuto"
+  "k": "voto delle privilegiate: lo decide lo statuto",
+  "r": "<b>«Leggi lo statuto»</b>: ogni categoria ha le sue regole."
  },
  "4935": {
-  "q": "Una S.p.A. può creare categorie speciali di azioni, con diritti diversi da quelli delle ordinarie?",
-  "p": "<b>Sì.</b> La legge consente alla S.p.A. di creare categorie di azioni con diritti diversi, così da attrarre investitori con esigenze differenti. Le azioni privilegiate sono l'esempio tipico.",
-  "e": "Una S.p.A. può emettere azioni che danno un dividendo più alto in cambio di un voto limitato.",
+  "q": "La domanda chiede se una S.p.A. può creare <b>categorie speciali di azioni</b> con diritti diversi dalle ordinarie.",
+  "p": "<b>Sì</b>. Lo statuto può creare categorie di azioni con diritti diversi, anche per l'incidenza delle perdite, gli utili o il voto. Non ci sono limiti di età della società o di materia.",
+  "e": "Una S.p.A. emette azioni privilegiate che ricevono il dividendo prima delle ordinarie.",
   "x": {
-   "B": "non c'è l'attesa di dieci anni: non è questa la condizione prevista",
-   "C": "«mai» è sbagliato: le categorie speciali sono ammesse",
-   "D": "i diritti diversi non riguardano solo le perdite: possono riguardare anche altri aspetti, come gli utili"
+   "B": "non serve aspettare dieci anni",
+   "C": "è possibile",
+   "D": "non solo per le perdite"
   },
-  "k": "S.p.A. = sì a categorie speciali"
+  "k": "categorie speciali di azioni = ammesse",
+  "r": "<b>«Le azioni possono avere gusti diversi»</b>. Basta il «Sì»."
  },
  "4936": {
-  "q": "Alfa S.p.A. delibera la liquidazione: Tizio, che ha azioni privilegiate, fa bene a essere meno preoccupato degli azionisti ordinari?",
-  "p": "<b>Sì.</b> Le azioni privilegiate di solito hanno la precedenza nel rimborso del capitale quando la società si scioglie. Tizio verrà quindi rimborsato prima degli azionisti ordinari, sempre dopo i creditori della società.",
-  "e": "Se dopo aver pagato i creditori restano 100.000 euro, il rimborso va prima ai privilegiati. Agli ordinari spetta quello che rimane.",
+  "q": "Tizio ha <b>azioni privilegiate</b> di Alfa S.p.A., che viene messa in <b>liquidazione</b>. È meno preoccupato degli azionisti ordinari. La domanda chiede se ha ragione.",
+  "p": "<b>Sì</b>. Le azioni privilegiate spesso hanno un <b>privilegio nel rimborso del capitale</b> in caso di liquidazione: vengono rimborsate prima delle ordinarie. Se l'attivo che resta dopo aver pagato i creditori è limitato, chi è privilegiato ha più probabilità di recuperare qualcosa.",
+  "e": "In liquidazione restano 1 milione per i soci: prima si rimborsano le privilegiate, poi con il resto le ordinarie.",
   "x": {
-   "B": "l'attivo incide su quanto si recupera, ma non cancella la posizione di vantaggio di Tizio",
-   "C": "«no» ignora la precedenza nel rimborso propria delle privilegiate",
-   "D": "il vantaggio dipende dal tipo di azione, non da quante azioni possiede"
+   "B": "il privilegio vale comunque",
+   "C": "il suo comportamento è motivato",
+   "D": "il numero di azioni non conta"
   },
-  "k": "liquidazione: privilegiate rimborsate prima"
+  "k": "privilegiate: priorità nel rimborso in liquidazione",
+  "r": "<b>«Il privilegiato esce per primo»</b> quando si chiude."
  },
  "4937": {
-  "q": "Dove va stabilito l'oggetto sociale, cioè l'attività che una S.r.l. svolgerà?",
-  "p": "<b>Nell'atto costitutivo.</b> L'oggetto sociale è un elemento fondamentale, perché dice ai soci e ai terzi in quale attività la società opera. Per questo deve essere già indicato al momento della costituzione.",
-  "e": "Una S.r.l. nata per gestire ristoranti indica «attività di ristorazione» già nell'atto costitutivo.",
+  "q": "La domanda chiede dove deve essere indicato l'<b>oggetto sociale</b> di una S.r.l.",
+  "p": "Deve essere <b>definito nell'atto costitutivo</b>. L'oggetto sociale (l'attività della società) è un elemento essenziale: senza di esso la società non sa cosa può fare, e i terzi non lo sanno. Può essere modificato in seguito con le regole previste, senza limiti di tre anni.",
+  "e": "Nell'atto costitutivo di una S.r.l. si scrive: «produzione e vendita di abbigliamento».",
   "x": {
-   "B": "non è previsto un blocco di tre anni alla modifica dell'oggetto",
-   "C": "l'oggetto può essere cambiato durante la vita della società, con le regole previste",
-   "D": "non si può rinviare: l'oggetto va definito già nell'atto costitutivo"
+   "B": "non c'è un limite di tre anni per modificarlo",
+   "C": "può essere modificato",
+   "D": "deve esserci fin dalla costituzione"
   },
-  "k": "oggetto sociale: nell'atto costitutivo"
+  "k": "oggetto sociale S.r.l. = nell'atto costitutivo",
+  "r": "<b>«Alla nascita dici cosa farai»</b>."
  },
  "4938": {
-  "q": "Nella S.r.l., chi risponde delle obbligazioni sociali, cioè dei debiti della società?",
-  "p": "<b>Soltanto la società, con il suo patrimonio.</b> È il vantaggio tipico della società di capitali: il patrimonio della società è separato da quello dei soci. I soci rischiano in genere solo ciò che hanno conferito.",
-  "e": "Se la S.r.l. non paga un fornitore, questo può agire sui beni della società, ma non sulla casa personale del socio.",
+  "q": "La domanda chiede quale caratteristica ha la <b>S.r.l.</b> come società di capitali.",
+  "p": "Per le obbligazioni sociali <b>risponde soltanto la società con il suo patrimonio</b>. È l'<b>autonomia patrimoniale perfetta</b>: i beni personali dei soci sono al sicuro. Le partecipazioni sono <b>quote</b>, non azioni.",
+  "e": "Se la S.r.l. di Luca fallisce, i creditori non possono pignorare la casa di Luca.",
   "x": {
-   "B": "i soci non rispondono con il patrimonio personale: risponde la società",
-   "C": "nella S.r.l. le quote non sono azioni",
-   "D": "le quote della S.r.l. non possono essere rappresentate da azioni"
+   "B": "i soci non rispondono con il patrimonio personale",
+   "C": "le quote non sono azioni",
+   "D": "le quote non possono essere azioni"
   },
-  "k": "S.r.l.: paga solo il patrimonio sociale"
+  "k": "S.r.l.: risponde solo la società",
+  "r": "<b>«Responsabilità limitata = rischi solo quello che hai messo»</b>."
  },
  "4939": {
-  "q": "Per svolgere un'attività commerciale tramite una S.r.l. serve raggiungere un fatturato minimo?",
-  "p": "<b>No.</b> La legge non fissa alcun fatturato minimo per poter operare con una S.r.l. Il fatturato è il risultato dell'attività, non un requisito per esercitarla.",
-  "e": "Una S.r.l. appena nata che nel primo anno fattura poco può continuare a operare regolarmente.",
+  "q": "La domanda chiede se esiste un <b>fatturato minimo</b> per svolgere un'attività commerciale tramite una S.r.l.",
+  "p": "<b>No</b>. Non esistono soglie di fatturato per poter usare una S.r.l. Esistono regole sul capitale, non sul fatturato.",
+  "e": "Una piccola S.r.l. che fattura 15.000 € l'anno è perfettamente regolare.",
   "x": {
-   "B": "10.000 euro non è un vincolo previsto: nessuna soglia di fatturato è richiesta",
-   "C": "100.000 euro non è un vincolo previsto: nessuna soglia di fatturato è richiesta",
-   "D": "50.000 euro non è un vincolo previsto: nessuna soglia di fatturato è richiesta"
+   "B": "non c'è una soglia di 10.000 €",
+   "C": "non c'è una soglia di 100.000 €",
+   "D": "non c'è una soglia di 50.000 €"
   },
-  "k": "S.r.l.: nessun fatturato minimo"
+  "k": "nessun fatturato minimo per la S.r.l.",
+  "r": "<b>«Il fatturato non è un requisito»</b>. Le soglie sono inventate."
  },
  "4940": {
-  "q": "Dei debiti di una S.r.l. risponde sempre e solo la società con il suo patrimonio?",
-  "p": "<b>Sì, salvo il caso del socio unico che non ha rispettato i vincoli di legge</b> necessari per conservare la responsabilità limitata. La separazione tra società e socio è la regola. I vincoli sono due: conferimenti effettuati come prevede la legge e pubblicità del socio unico nel registro delle imprese. Se non sono rispettati e la società diventa insolvente, il socio unico risponde con i suoi beni per i debiti sorti mentre era solo.",
-  "e": "Anna è socia unica di una S.r.l. e non ha fatto la pubblicità richiesta. La società diventa insolvente con 20.000 euro di debiti sorti in quel periodo: il creditore può chiedere il pagamento anche ad Anna personalmente.",
+  "q": "La domanda chiede se per le obbligazioni di una S.r.l. risponde <b>sempre</b> solo la società.",
+  "p": "<b>Sì, salvo il caso del socio unico</b> che non abbia rispettato le regole necessarie per mantenere la limitazione di responsabilità. Se, in caso di insolvenza, il socio unico non ha versato interamente i conferimenti o non ha fatto la pubblicità sull'unicità del socio, risponde illimitatamente.",
+  "e": "Luca è socio unico della sua S.r.l. ma non ha versato tutto il capitale. Se la società diventa insolvente, i creditori possono rivalersi anche su di lui.",
   "x": {
-   "B": "la responsabilità illimitata non dipende dal capitale inferiore a 50.000 euro",
-   "C": "«in qualunque caso» è sbagliato: esiste l'eccezione del socio unico",
-   "D": "avere meno di tre soci non rende per questo i soci illimitatamente responsabili"
+   "B": "non c'è una soglia di 50.000 € per la S.r.l.",
+   "C": "non in qualunque caso: c'è l'eccezione del socio unico",
+   "D": "avere meno di tre soci non fa scattare la responsabilità illimitata"
   },
-  "k": "eccezione: socio unico inadempiente"
+  "k": "S.r.l.: risponde la società, salvo socio unico irregolare",
+  "r": "<b>«Socio unico che non rispetta le regole paga di tasca sua»</b>."
  },
  "4941": {
-  "q": "In generale, nelle società di persone chi ha il potere di rappresentare la società verso l'esterno?",
-  "p": "<b>Ciascun socio amministratore.</b> Nella regola generale, chi amministra può anche agire in nome della società con i terzi. È una regola di base, che l'atto costitutivo può modificare.",
-  "e": "In una società con due soci amministratori, ciascuno dei due può firmare un contratto con un fornitore a nome della società.",
+  "q": "Nelle <b>società di persone</b>, la domanda chiede chi ha la <b>rappresentanza</b> della società.",
+  "p": "<b>Ciascun socio amministratore</b>, salvo diversa previsione. Nelle società di persone, di regola, ogni socio che amministra può anche agire in nome della società verso i terzi. Non conta l'anzianità o la quota.",
+  "e": "In una s.n.c. con tre soci amministratori, ciascuno può firmare un contratto con un fornitore in nome della società.",
   "x": {
-   "B": "l'età non conta: non spetta solo all'amministratore più anziano",
-   "C": "la rappresentanza segue la qualità di amministratore, non la maggioranza",
-   "D": "è il contrario: la regola generale la riconosce a ciascun amministratore"
+   "B": "non solo l'amministratore più anziano",
+   "C": "non spetta ai soci di maggioranza non amministratori",
+   "D": "i soci amministratori hanno la rappresentanza"
   },
-  "k": "socio amministratore = rappresenta"
+  "k": "società di persone: rappresentanza a ciascun socio amministratore",
+  "r": "<b>«Chi amministra, rappresenta»</b>."
  },
  "4942": {
-  "q": "Un socio può usare i beni della società per scopi personali?",
-  "p": "<b>Non può farlo senza il consenso degli altri soci.</b> I beni sociali servono agli scopi della società e appartengono a un patrimonio distinto da quello del singolo socio. Per questo un uso estraneo richiede l'accordo degli altri.",
-  "e": "Il socio Marco non può prendere il furgone della società per il trasloco di casa, se gli altri soci non sono d'accordo.",
+  "q": "La domanda chiede se un socio può usare i <b>beni della società</b> per scopi personali.",
+  "p": "<b>Non può</b>, senza il <b>consenso degli altri soci</b>, servirsi dei beni sociali per fini estranei alla società. I beni sociali servono all'attività comune. Non conta se il socio è a responsabilità limitata, illimitata o di maggioranza.",
+  "e": "Il socio di una s.n.c. non può usare il furgone aziendale per il trasloco del figlio senza il permesso degli altri soci.",
   "x": {
-   "B": "la responsabilità limitata non dà il diritto di usare liberamente i beni sociali",
-   "C": "nemmeno la responsabilità illimitata dà questo diritto",
-   "D": "neppure il socio di maggioranza può farne a meno: serve il consenso degli altri"
+   "B": "anche il socio limitatamente responsabile serve il consenso",
+   "C": "anche il socio illimitatamente responsabile ha bisogno del consenso",
+   "D": "anche il socio di maggioranza ha bisogno del consenso"
   },
-  "k": "beni sociali: serve il consenso degli altri soci"
+  "k": "beni sociali per fini personali: serve il consenso",
+  "r": "<b>«È di tutti, non tuo»</b>: senza permesso non si usa."
  },
  "4943": {
-  "q": "Una società semplice può svolgere un'attività commerciale?",
-  "p": "<b>No.</b> La società semplice è il tipo pensato per le attività non commerciali. Chi vuole esercitare un'attività commerciale deve scegliere un altro tipo di società.",
-  "e": "Due soci possono gestire un'attività agricola con una società semplice, ma non un negozio di abbigliamento.",
+  "q": "La domanda chiede se la <b>società semplice</b> può svolgere un'<b>attività commerciale</b>.",
+  "p": "<b>No</b>. La società semplice può svolgere solo attività <b>non commerciali</b>, tipicamente agricole o di gestione di beni. Per un'attività commerciale bisogna usare un'altra forma, come la s.n.c. o una società di capitali.",
+  "e": "Tre fratelli che coltivano insieme un'azienda agricola possono usare una società semplice. Se aprono un negozio, no.",
   "x": {
-   "B": "«sì» contrasta con il limite della società semplice: niente attività commerciale",
-   "C": "anche l'attività industriale è commerciale, quindi resta esclusa",
-   "D": "anche l'attività ausiliaria è commerciale, quindi resta esclusa"
+   "B": "non può",
+   "C": "nemmeno l'attività industriale",
+   "D": "nemmeno l'attività ausiliaria"
   },
-  "k": "società semplice = no attività commerciale"
+  "k": "società semplice: niente attività commerciale",
+  "r": "<b>«Semplice = campagna, non negozio»</b>."
  },
  "4944": {
-  "q": "Il creditore personale di un socio di S.n.c. può chiedere la liquidazione della quota di quel socio?",
-  "p": "<b>No, finché dura la società.</b> La S.n.c. ha un patrimonio destinato all'attività comune e va tutelata dai debiti personali del singolo socio. Il creditore non può quindi far uscire quel valore dalla società mentre questa è in vita.",
-  "e": "Luca, socio di una S.n.c., deve 5.000 euro a un amico: l'amico non può ottenere la liquidazione della quota di Luca, finché la società dura.",
+  "q": "Il <b>creditore personale</b> di un socio di s.n.c. vuole farsi pagare. La domanda chiede se può chiedere la <b>liquidazione della quota</b> del socio.",
+  "p": "<b>No, finché dura la società</b>. Nella s.n.c. il creditore personale del socio non può chiedere di liquidare la sua quota. Così la società è protetta dalle vicende personali dei soci. Il creditore può agire sugli altri beni del socio e sugli utili.",
+  "e": "Luca, socio di una s.n.c., ha un debito personale con la banca. La banca non può costringere la s.n.c. a liquidargli la quota per pagarsi.",
   "x": {
-   "B": "non può chiederla in ogni momento: la durata della società lo impedisce",
-   "C": "la previsione di mancato pagamento spontaneo non è un'eccezione a questo divieto",
-   "D": "l'insufficienza del patrimonio residuo del socio non fa venir meno il divieto finché dura la società"
+   "B": "non in ogni momento",
+   "C": "non dipende dall'inadempimento previsto",
+   "D": "questo vale per la società semplice, non per la s.n.c."
   },
-  "k": "S.n.c.: niente liquidazione finché dura"
+  "k": "s.n.c.: creditore personale non chiede liquidazione della quota",
+  "r": "<b>«La s.n.c. è blindata finché vive»</b>. La D è la regola della società semplice: trappola."
  },
  "4945": {
-  "q": "Dieci persone vogliono produrre e vendere biciclette: perché scegliere una S.n.c. e non una società semplice?",
-  "p": "<b>Perché la società semplice può svolgere solo attività non commerciale.</b> Produrre e vendere biciclette è un'attività commerciale, quindi la società semplice non è utilizzabile. La S.n.c. invece è adatta a questo scopo.",
-  "e": "Lo stesso gruppo potrebbe usare una società semplice per un'attività agricola, ma per fabbricare e vendere biciclette sceglie una S.n.c.",
+  "q": "Dieci persone vogliono costituire una società per produrre e vendere biciclette. La domanda chiede perché dovrebbero scegliere la <b>s.n.c.</b> invece della società semplice.",
+  "p": "<b>Perché la società semplice può svolgere solo attività non commerciali</b>. Produrre e vendere biciclette è un'attività commerciale, quindi serve almeno una s.n.c. Il numero di soci non conta e la s.n.c. non limita la responsabilità.",
+  "e": "Per un'officina che produce e vende bici serve una s.n.c. o una società di capitali, non una società semplice.",
   "x": {
-   "B": "il motivo è il tipo di attività, non il numero delle persone",
-   "C": "è il contrario: la S.n.c. comporta più adempimenti formali della società semplice, non meno",
-   "D": "la S.n.c. non limita la responsabilità: i soci rispondono illimitatamente"
+   "B": "il numero di soci non conta",
+   "C": "la s.n.c. ha più adempimenti, non meno",
+   "D": "la s.n.c. non limita la responsabilità"
   },
-  "k": "attività commerciale: no società semplice"
+  "k": "attività commerciale = no società semplice",
+  "r": "Collega alla 4943: <b>«semplice = niente negozio»</b>."
  },
  "4946": {
-  "q": "Quale di questi eventi scioglie una società di persone?",
-  "p": "<b>Il conseguimento dell'oggetto sociale.</b> La società nasce per svolgere una certa attività: se lo scopo è stato raggiunto, viene meno la sua ragione di esistere. Per questo la legge lo considera una causa di scioglimento.",
-  "e": "Tre soci creano una società per costruire un solo edificio: finito e venduto l'edificio, l'oggetto è conseguito e la società si scioglie.",
+  "q": "La domanda chiede quale di queste è una causa di <b>scioglimento</b> di una società di persone.",
+  "p": "Il <b>conseguimento dell'oggetto sociale</b>, cioè la società ha completato lo scopo per cui era nata. Le altre non bastano: serve la volontà di <b>tutti</b> i soci, non della metà; il venir meno della pluralità scioglie solo se non viene ricostituita entro sei mesi; il recesso di un socio non scioglie la società.",
+  "e": "Una s.n.c. creata per costruire un solo edificio si scioglie quando l'edificio è finito.",
   "x": {
-   "B": "la volontà della sola metà non basta: la causa prevista è la volontà di tutti i soci",
-   "C": "se la pluralità dei soci viene ricostituita nel termine di legge, la società non si scioglie",
-   "D": "il recesso riguarda il singolo socio e non scioglie di per sé la società"
+   "B": "serve la volontà di tutti i soci",
+   "C": "se la pluralità viene ricostituita in tempo, non c'è scioglimento",
+   "D": "il recesso di un socio non scioglie la società"
   },
-  "k": "oggetto raggiunto = scioglimento"
+  "k": "scioglimento: conseguimento dell'oggetto sociale",
+  "r": "<b>«Missione compiuta = si chiude»</b>."
  },
  "4947": {
-  "q": "Secondo l'art. 2291 del codice civile, come rispondono i soci di una S.n.c. per i debiti della società?",
-  "p": "<b>Tutti i soci rispondono solidalmente e illimitatamente.</b> Illimitatamente significa anche con il patrimonio personale. Solidalmente significa che il creditore può chiedere l'intero importo a uno solo dei soci, che poi potrà rivalersi sugli altri.",
-  "e": "La S.n.c. deve 30.000 euro e non paga: il creditore può chiedere tutti i 30.000 euro al socio Paolo, che poi recupera dagli altri le loro parti.",
+  "q": "La domanda chiede, in base all'art. 2291 del codice civile, come rispondono i soci di una <b>s.n.c.</b>",
+  "p": "<b>Tutti i soci rispondono solidalmente e illimitatamente</b> per le obbligazioni sociali. Il creditore può chiedere l'intero debito a qualsiasi socio, che risponde con tutto il suo patrimonio (dopo aver provato sul patrimonio sociale).",
+  "e": "Una s.n.c. con tre soci ha un debito di 90.000 € che non riesce a pagare: il creditore può chiederlo tutto a un socio, anche a uno solo.",
   "x": {
-   "B": "è il contrario: rispondono tutti i soci in questo modo",
-   "C": "il limite alla quota conferita non è la regola della S.n.c.",
-   "D": "non solo alcune tipologie di soci: nella S.n.c. rispondono tutti"
+   "B": "tutti rispondono",
+   "C": "la responsabilità non è limitata alla quota",
+   "D": "nella s.n.c. rispondono tutti, non solo alcuni"
   },
-  "k": "S.n.c.: tutti, solidali e illimitati"
+  "k": "s.n.c.: tutti i soci illimitatamente e solidalmente",
+  "r": "<b>«In nome collettivo = tutti insieme, senza limiti»</b>."
  },
  "4948": {
-  "q": "Un socio di S.n.c. può fare anche l'amministratore della stessa società?",
-  "p": "<b>Sì.</b> Nella società di persone l'amministrazione è normalmente in mano ai soci stessi. Essere socio e amministratore insieme è quindi la situazione tipica, non un'eccezione.",
-  "e": "Giulia e Andrea creano una S.n.c.: entrambi sono soci e possono amministrarla direttamente.",
+  "q": "La domanda chiede se il socio di una s.n.c. può essere <b>amministratore</b> della società.",
+  "p": "<b>Sì</b>. Anzi, nella s.n.c., salvo diverso accordo, l'amministrazione spetta a <b>ciascun socio</b>. Non servono deleghe o quote minime.",
+  "e": "In una s.n.c. di due fratelli, entrambi sono amministratori.",
   "x": {
-   "B": "«no» è l'opposto della regola: il socio può amministrare",
-   "C": "non serve una delega limitata nel tempo per poter amministrare",
-   "D": "non è previsto un minimo del 25% del capitale per amministrare"
+   "B": "è possibile",
+   "C": "non serve una delega limitata",
+   "D": "non serve il 25% del capitale"
   },
-  "k": "socio S.n.c. può amministrare"
+  "k": "socio s.n.c. può essere amministratore",
+  "r": "<b>«Nella s.n.c. i soci gestiscono»</b>. Basta il «Sì»."
  },
  "4949": {
-  "q": "In una S.n.c. si può fare un patto che esclude la responsabilità illimitata e solidale di alcuni soci?",
-  "p": "<b>Sì, ma il patto non ha effetti verso i terzi.</b> I soci possono accordarsi tra loro, ma i creditori fanno affidamento sulla garanzia di tutti i soci. Il patto vale quindi solo nei rapporti interni.",
-  "e": "Il socio Marco ha un patto che lo esonera: un creditore può comunque chiedergli di pagare, e Marco potrà poi rivalersi sugli altri soci.",
+  "q": "La domanda chiede se in una s.n.c. si può fare un patto che <b>esclude la responsabilità illimitata</b> di uno o più soci.",
+  "p": "<b>Sì, ma il patto non ha effetto verso i terzi</b>. Tra i soci il patto vale: chi ha pagato per un socio «esonerato» potrà rivalersi su di lui. Ma i creditori possono comunque chiedere il pagamento a tutti i soci, perché la responsabilità illimitata nella s.n.c. li tutela.",
+  "e": "Due soci si accordano che il terzo socio non risponderà dei debiti. Se un creditore chiede i soldi al terzo socio, lui deve pagare, poi può chiedere il rimborso agli altri due.",
   "x": {
-   "B": "il patto è possibile nella S.n.c., pur senza effetti verso i terzi: il riferimento all'accomandita per azioni è errato",
-   "C": "il patto è possibile nella S.n.c.: il riferimento alla S.p.A. è errato",
-   "D": "il patto è possibile nella S.n.c.: il riferimento alla società a responsabilità limitata è errato"
+   "B": "il patto è consentito nella s.n.c., con effetti solo interni",
+   "C": "il patto è consentito nella s.n.c., con effetti solo interni",
+   "D": "il patto è consentito nella s.n.c., con effetti solo interni"
   },
-  "k": "patto valido solo tra i soci"
+  "k": "patto di esonero nella s.n.c.: vale solo tra soci",
+  "r": "<b>«Tra di noi sì, verso i creditori no»</b>."
  },
  "4950": {
-  "q": "Che conseguenza ha l'accomandante di una S.a.s. che viola il divieto di immistione, cioè si intromette nella gestione?",
-  "p": "<b>Risponde verso i terzi illimitatamente e solidalmente per tutte le obbligazioni sociali.</b> L'accomandante ha un rischio limitato proprio perché non gestisce. Se gestisce, perde questa protezione: la sanzione colpisce tutti i debiti della società, non solo quelli legati ai suoi atti.",
-  "e": "L'accomandante Sara firma contratti e tratta con i fornitori come se gestisse: i creditori possono chiederle di pagare tutti i debiti sociali.",
+  "q": "Il socio <b>accomandante</b> di una s.a.s. viola il <b>divieto di immistione</b>, cioè compie atti di amministrazione. La domanda chiede come viene sanzionato.",
+  "p": "<b>Risponde verso i terzi illimitatamente e solidalmente per tutte le obbligazioni sociali</b>. L'accomandante ha responsabilità limitata proprio perché non gestisce. Se si comporta da amministratore, perde il beneficio: diventa responsabile come un accomandatario, per tutti i debiti della società.",
+  "e": "Un accomandante tratta e firma contratti con i fornitori in nome della s.a.s.: diventa responsabile illimitatamente per tutti i debiti sociali.",
   "x": {
-   "B": "la sanzione non è limitata alle sole obbligazioni passate: riguarda tutte le obbligazioni sociali",
-   "C": "una sanzione è prevista, ed è la perdita della responsabilità limitata",
-   "D": "non è limitata agli atti da lui compiuti: copre tutte le obbligazioni sociali"
+   "B": "non solo per le obbligazioni passate: per tutte",
+   "C": "la sanzione c'è",
+   "D": "non solo per gli atti da lui compiuti: per tutte le obbligazioni"
   },
-  "k": "immistione = risponde di tutti i debiti"
+  "k": "accomandante che si immischia: responsabilità illimitata su tutto",
+  "r": "<b>«Se gestisci, rischi tutto»</b>: perde lo scudo per tutte le obbligazioni."
  },
  "4951": {
   "q": "Il socio accomandante di una s.a.s. può amministrare o concludere affari in nome della società?",
