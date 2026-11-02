@@ -600,554 +600,604 @@
   "r": "<b>«Che senso ha per questo contratto?»</b>. Ricorda le tre regole gemelle: clausole ambigue → <b>luogo</b>; parole con più sensi → <b>natura e oggetto</b>; contratto oscuro → <b>equilibrio</b> (se oneroso)."
  },
  "4651": {
-  "q": "Se una clausola del contratto è dubbia, come va letta secondo il codice civile?",
-  "p": "Va letta <b>nel senso in cui può avere effetto, piuttosto che in quello in cui non ne ha alcuno</b>. Le parti scrivono una clausola per ottenere un risultato, quindi si presume che non l'abbiano scritta a vuoto. Tra due letture possibili si salva quella che fa funzionare la clausola.",
-  "e": "Una clausola si può leggere in due modi: in uno regola il pagamento, nell'altro non serve a nulla. Si sceglie il primo.",
+  "q": "La domanda chiede come vanno interpretati, nel dubbio, un contratto o una sua clausola che possono avere due significati: uno che produce effetti e uno che non ne produce nessuno.",
+  "p": "Vanno interpretati <b>nel senso in cui possono avere qualche effetto</b>, piuttosto che in quello in cui non ne avrebbero alcuno. È il <b>principio di conservazione</b> del contratto: se le parti hanno scritto una clausola, si presume che volessero farle produrre qualcosa, non che fosse inutile.",
+  "e": "Una clausola dice «l'inquilino può usare il giardino». Se si potesse leggere come «può guardarlo dalla finestra», non servirebbe a nulla. Si sceglie la lettura utile: può usarlo davvero.",
   "x": {
-   "B": "la lettura solo letterale non è la regola: conta far produrre effetti alla clausola",
-   "C": "è l'opposto della regola: si preferisce il senso che produce effetti",
-   "D": "non vale un senso qualunque: conta proprio che la clausola produca effetti"
+   "B": "il codice vieta proprio di fermarsi al solo senso letterale",
+   "C": "è l'opposto del principio di conservazione",
+   "D": "non conta solo il significato delle parole: tra due sensi si preferisce quello che produce effetti"
   },
-  "k": "nel dubbio, la clausola deve funzionare"
+  "k": "conservazione: meglio un effetto che nessuno",
+  "r": "<b>«Meglio utile che inutile»</b>: tra due letture, vince quella che fa funzionare il contratto. La parola chiave è <b>«effetto»</b>."
  },
  "4652": {
-  "q": "Quando si interpreta un contratto, a cosa bisogna guardare secondo il codice civile?",
-  "p": "Si deve <b>indagare la comune intenzione delle parti, senza limitarsi al senso letterale delle parole</b>. Il contratto nasce da un accordo, quindi conta ciò che le parti volevano davvero insieme. Le parole sono il punto di partenza, non il limite.",
-  "e": "Se due persone scrivono «affitto» ma dal contratto risulta che volevano un uso gratuito, si cerca cosa volevano davvero entrambe.",
+  "q": "La domanda chiede qual è la regola base per <b>interpretare un contratto</b>.",
+  "p": "Bisogna <b>indagare quale sia stata la comune intenzione delle parti</b>, senza fermarsi al <b>senso letterale delle parole</b>. Le parole sono importanti ma possono tradire: conta cosa volevano davvero le parti quando hanno firmato. Le clausole poi si interpretano <b>le une per mezzo delle altre</b>, leggendo il contratto nel suo insieme.",
+  "e": "In un contratto c'è scritto «consegna entro fine mese», ma da tutte le e-mail risulta che le parti intendevano «fine mese lavorativo». Si guarda alla loro intenzione comune.",
   "x": {
-   "B": "«esclusivamente» è sbagliato: il testo letterale non basta",
-   "C": "non esiste un favore per il contraente economicamente più forte",
-   "D": "le clausole si interpretano le une per mezzo delle altre, non isolate"
+   "B": "il codice dice proprio di <b>non</b> fermarsi al senso letterale",
+   "C": "non si favorisce la parte economicamente più forte",
+   "D": "le clausole si interpretano proprio le une per mezzo delle altre"
   },
-  "k": "conta la comune intenzione, non solo le parole"
+  "k": "comune intenzione, non solo lettera",
+  "r": "<b>«Cosa volevate dire?»</b> è la prima domanda del giudice. Ricorda le due parole <b>«comune intenzione»</b>: comune = di entrambe le parti."
  },
  "4653": {
-  "q": "Per capire cosa volevano davvero le parti, quali comportamenti si possono valutare?",
-  "p": "Si valuta il <b>comportamento complessivo delle parti, anche quello posteriore alla conclusione del contratto</b>. Anche ciò che le parti fanno dopo la firma mostra come avevano inteso l'accordo. Per questo non si esclude nessun momento.",
-  "e": "Il contratto è ambiguo sul luogo di consegna, ma per due anni il venditore consegna sempre in negozio senza proteste: questo aiuta a capire l'accordo.",
+  "q": "Per capire quale fosse la <b>comune intenzione</b> delle parti, la domanda chiede quali comportamenti si possono considerare.",
+  "p": "Si deve valutare il loro <b>comportamento complessivo, anche posteriore</b> alla conclusione del contratto. Conta quindi quello che le parti hanno fatto prima, durante e <b>dopo</b> la firma. Il comportamento successivo è spesso il più rivelatore: mostra come le parti stesse hanno inteso e applicato il contratto.",
+  "e": "Il contratto parla di «consegne periodiche» senza dire ogni quanto. Per due anni il fornitore ha consegnato ogni lunedì e il cliente ha sempre accettato: questo comportamento aiuta a capire cosa intendevano.",
   "x": {
-   "B": "«esclusivamente» è sbagliato: non conta solo il dopo, ma tutto il comportamento",
-   "C": "il comportamento posteriore non è escluso, anzi è espressamente compreso",
-   "D": "il comportamento delle parti si può valutare: il testo da solo non basta"
+   "B": "non solo quello posteriore: conta il comportamento complessivo",
+   "C": "esclude a torto proprio il comportamento posteriore, che invece conta",
+   "D": "il comportamento delle parti si può e si deve considerare"
   },
-  "k": "comportamento complessivo, anche dopo la firma"
+  "k": "comportamento complessivo, anche dopo",
+  "r": "<b>«Prima, durante e dopo»</b>: tutto il comportamento conta. La parola-trappola è «escluso»: la C esclude il «dopo», ed è sbagliata."
  },
  "4654": {
-  "q": "Che cos'è un'obbligazione di valore?",
-  "p": "È un'obbligazione che <b>diventa pecuniaria nel momento in cui la somma dovuta viene stabilita dal giudice o da un accordo</b>. All'inizio non si deve una cifra precisa, ma il valore di un bene o di un danno. Solo quando quel valore è tradotto in euro il debito diventa un debito di denaro.",
-  "e": "Chi deve risarcire un'auto distrutta deve all'inizio il valore dell'auto. Quando il giudice fissa la cifra, il debito diventa una somma di denaro.",
+  "q": "La domanda chiede cos'è un'<b>obbligazione di valore</b>.",
+  "p": "È un'obbligazione che <b>non nasce come somma di denaro</b>, ma come un valore da reintegrare (tipicamente il <b>risarcimento di un danno</b>). <b>Diventa pecuniaria</b>, cioè si trasforma in una somma precisa, solo quando l'importo viene stabilito dal giudice o da un accordo tra le parti (liquidazione). Fino ad allora il valore si adegua all'inflazione.",
+  "e": "Un'auto ti tampona e ti rovina la macchina. Il responsabile ti deve «il valore del danno». Diventa un debito di 3.500 € solo quando il giudice o un accordo fissano la cifra.",
   "x": {
-   "B": "non c'entra il reddito: conta il momento in cui il valore diventa una somma",
-   "C": "questa è l'obbligazione pecuniaria vera e propria, non quella di valore",
-   "D": "la scelta tra più prestazioni descrive un'altra figura, non l'obbligazione di valore"
+   "B": "«reddituale» non c'entra: non è un'obbligazione di reddito",
+   "C": "questa è l'obbligazione <b>pecuniaria</b> (di valuta), il contrario di quella di valore",
+   "D": "questa è l'obbligazione <b>alternativa</b>, in cui il debitore sceglie tra più prestazioni"
   },
-  "k": "valore prima, denaro dopo la liquidazione"
+  "k": "obbligazione di valore → diventa denaro con la liquidazione",
+  "r": "<b>«Prima è un valore, poi diventa soldi»</b>. Ricorda la coppia: <b>di valuta</b> = soldi fin dall'inizio; <b>di valore</b> = soldi solo dopo la liquidazione."
  },
  "4655": {
-  "q": "Una clausola dubbia è scritta in un modulo preparato da un contraente: a favore di chi si interpreta?",
-  "p": "Si interpreta <b>a favore dell'altro contraente</b>, cioè di chi non l'ha predisposta. Chi prepara il modulo decide le parole e poteva scriverle in modo chiaro. Quindi il rischio dell'ambiguità resta a suo carico.",
-  "e": "Una banca usa un modulo con una clausola poco chiara: nel dubbio si sceglie la lettura che favorisce il cliente.",
+  "q": "Una parte prepara <b>moduli o condizioni generali</b> (es. quelle di una banca o di un'assicurazione) e l'altra si limita a firmare. Se una clausola è dubbia, la domanda chiede a favore di chi si interpreta.",
+  "p": "<b>A favore dell'altro contraente</b>, cioè di chi ha solo firmato. Chi ha scritto il modulo aveva tutto il tempo per scriverlo in modo chiaro: se non l'ha fatto, il dubbio va a suo svantaggio. È la regola chiamata <i>interpretatio contra proferentem</i>, «contro chi ha predisposto». Vale per tutti, comprese banche e assicurazioni.",
+  "e": "Una polizza dice «sono coperti i danni da acqua» e non chiarisce se include l'allagamento da pioggia. Nel dubbio si interpreta a favore dell'assicurato.",
   "x": {
-   "B": "essere una compagnia assicurativa non cambia la regola: il dubbio pesa su chi ha predisposto",
-   "C": "neanche per un istituto di credito c'è eccezione: il dubbio pesa su chi ha predisposto",
-   "D": "è il contrario: il dubbio non favorisce mai chi ha predisposto il modulo"
+   "B": "le compagnie assicurative non hanno nessun privilegio: il dubbio va contro chi ha scritto il modulo",
+   "C": "le banche non hanno nessun privilegio: il dubbio va contro chi ha scritto il modulo",
+   "D": "è l'esatto contrario della regola"
   },
-  "k": "clausola dubbia: contro chi l'ha scritta"
+  "k": "moduli dubbi = contro chi li ha scritti",
+  "r": "<b>«Chi scrive, paga l'ambiguità»</b>. Se un'opzione favorisce chi ha preparato il modulo (banca, assicurazione, «in ogni caso»), è sbagliata."
  },
  "4656": {
-  "q": "Il termine per adempiere scade di domenica: cosa succede?",
-  "p": "Salvo usi diversi, <b>il termine è prorogato di diritto al lunedì, se non festivo</b>. La regola è che il termine che cade in giorno festivo passa al primo giorno seguente non festivo. «Di diritto» vuol dire che la proroga scatta da sola, senza bisogno di un accordo.",
-  "e": "Un pagamento scade domenica: si può pagare lunedì. Se quel lunedì è festivo, si paga martedì.",
+  "q": "Il termine per adempiere un'obbligazione cade di <b>domenica</b>. La domanda chiede cosa succede.",
+  "p": "Salvo usi diversi, il termine è <b>prorogato di diritto al giorno seguente non festivo</b>: di solito il lunedì, a patto che <b>non sia festivo</b>. Di domenica uffici e banche sono chiusi, e sarebbe ingiusto pretendere l'adempimento proprio quel giorno. «Di diritto» vuol dire che la proroga è automatica, senza bisogno di chiederla.",
+  "e": "Il pagamento scade domenica 6 gennaio. Il lunedì 7 non è festivo: puoi pagare il 7. Se invece scade domenica e il lunedì è Pasquetta, puoi pagare il martedì.",
   "x": {
-   "B": "il lunedì festivo non vale: si passa al primo giorno non festivo",
-   "C": "la proroga non è di una settimana, ma al giorno seguente non festivo",
+   "B": "il lunedì festivo non vale: si va al primo giorno non festivo",
+   "C": "non si rimanda di un'intera settimana alla domenica successiva",
    "D": "il termine non resta invariato: viene prorogato"
   },
-  "k": "scade di festivo: primo giorno non festivo"
+  "k": "scadenza di domenica = primo giorno non festivo",
+  "r": "<b>«Si slitta al primo giorno lavorativo»</b>. Le parole decisive sono <b>«se non festivo»</b>: senza questa precisazione la risposta è incompleta."
  },
  "4657": {
-  "q": "Un contratto con condizione sospensiva o a termine ha una prestazione all'inizio impossibile: quando è comunque valido?",
-  "p": "È valido <b>se la prestazione diventa possibile prima dell'avveramento della condizione o della scadenza del termine</b>. In questi contratti gli effetti sono rinviati a un momento futuro. Basta quindi che la prestazione sia possibile quando quel momento arriva.",
-  "e": "Anna vende a Luca un terreno che oggi non si può vendere, a condizione che Luca ottenga un mutuo. Il terreno diventa vendibile a maggio e il mutuo arriva a giugno: il contratto è valido.",
+  "q": "Un contratto ha per oggetto una prestazione <b>inizialmente impossibile</b> ed è sottoposto a una condizione sospensiva o a un termine. La domanda chiede quando è comunque valido.",
+  "p": "È valido <b>se la prestazione diventa possibile prima che si avveri la condizione o che scada il termine</b>. Di regola una prestazione impossibile rende nullo il contratto. Ma se l'efficacia è comunque rinviata, il codice guarda al momento in cui il contratto deve produrre effetti: se a quel momento la prestazione è diventata possibile, il contratto si salva.",
+  "e": "Firmo un contratto per vendere un terreno che oggi non è edificabile, «se entro un anno il Comune lo renderà edificabile». Se il Comune cambia il piano regolatore entro l'anno, il contratto è valido.",
   "x": {
-   "B": "la validità non dipende da una convalida delle parti",
-   "C": "è il caso opposto: qui la prestazione nasce impossibile e poi diventa possibile",
-   "D": "se diventa possibile solo dopo è troppo tardi: serve che accada prima"
+   "B": "non basta la convalida delle parti: conta che la prestazione diventi possibile",
+   "C": "descrive il caso opposto: una prestazione che <b>diventa</b> impossibile",
+   "D": "deve diventare possibile <b>prima</b>, non dopo l'avveramento della condizione o la scadenza del termine"
   },
-  "k": "possibile prima della condizione o del termine"
+  "k": "impossibile → possibile prima della condizione = valido",
+  "r": "<b>«Conta il traguardo»</b>: la prestazione deve essere possibile quando il contratto parte davvero. La parola chiave è <b>prima</b>; la D dice «anche dopo» ed è la trappola."
  },
  "4658": {
-  "q": "Quando il termine per una prestazione è essenziale nell'interesse dell'altra parte?",
-  "p": "Quando l'essenzialità <b>risulta dalla natura o dall'oggetto del contratto, oppure è stata espressamente convenuta dalle parti</b>. Essenziale vuol dire che, passata quella data, la prestazione non interessa più all'altra parte. Non basta una formula di stile: conta la sostanza dell'accordo.",
-  "e": "La torta nuziale va consegnata il giorno delle nozze: il giorno dopo non serve più. Il termine è essenziale per la natura del contratto.",
+  "q": "La domanda chiede quando il termine fissato per una prestazione si considera <b>essenziale</b>, cioè così importante che dopo la scadenza la prestazione non interessa più.",
+  "p": "Il termine è essenziale quando lo è per la <b>natura o l'oggetto del contratto</b>, oppure quando le parti lo hanno <b>espressamente convenuto</b>. Non bastano le formule generiche come «al più presto», «nel minor tempo possibile» o «entro e non oltre»: da sole non dicono che, superata la data, la prestazione diventa inutile.",
+  "e": "Torta nuziale da consegnare il giorno del matrimonio: il termine è essenziale per natura. Una consegna di bulloni «entro e non oltre il 15» non è automaticamente essenziale.",
   "x": {
-   "B": "«al più presto» non fissa nemmeno una data precisa: non rende essenziale il termine",
-   "C": "«nel minor tempo possibile» è una formula generica: non basta",
-   "D": "la sola formula «entro e non oltre» non basta: serve una volontà chiara o la natura del contratto"
+   "B": "«al più presto» è una formula generica e non rende il termine essenziale",
+   "C": "«nel minor tempo possibile» è una formula generica e non rende il termine essenziale",
+   "D": "anche «entro e non oltre», da solo, non basta"
   },
-  "k": "essenziale per natura, oggetto o patto"
+  "k": "termine essenziale = natura/oggetto o patto espresso",
+  "r": "<b>«La torta nuziale»</b>: è essenziale quando dopo non serve più a niente, oppure quando l'avete detto chiaramente. Le formule fatte delle altre opzioni non bastano."
  },
  "4659": {
-  "q": "Quando la condizione si avvera, da quando valgono i suoi effetti?",
-  "p": "La condizione ha <b>efficacia retroattiva, salvo che la volontà delle parti o la natura del rapporto portino gli effetti a un momento diverso</b>. Quindi gli effetti risalgono di regola al momento della conclusione del contratto. Questa regola non è assoluta: ammette eccezioni.",
-  "e": "Vendita conclusa a marzo con condizione che si avvera a giugno: di regola gli effetti risalgono a marzo. Le parti però possono stabilire diversamente.",
+  "q": "Un contratto è sottoposto a <b>condizione</b>. Quando la condizione si avvera, la domanda chiede da quando si producono gli effetti.",
+  "p": "L'efficacia della condizione è <b>retroattiva</b>: gli effetti si considerano prodotti <b>dal momento della conclusione del contratto</b>, come se la condizione ci fosse già stata fin dall'inizio. Ci sono però eccezioni: le parti possono decidere diversamente, oppure può imporlo la natura del rapporto. Per questo la risposta giusta è la più articolata.",
+  "e": "Ti vendo la casa a gennaio «se entro giugno ottieni il mutuo». Lo ottieni a maggio: ai fini giuridici sei proprietario da gennaio.",
   "x": {
-   "B": "la retroattività è la regola: non serve prevederla espressamente",
-   "C": "«sempre» è sbagliato: ci sono le eccezioni per volontà delle parti o natura del rapporto",
-   "D": "«ex nunc» significa da ora in poi: è l'opposto della regola generale"
+   "B": "la retroattività è la regola, non serve prevederla espressamente",
+   "C": "«sempre» è sbagliato: ci sono le eccezioni",
+   "D": "è il contrario: la regola è la retroattività, non l'efficacia dal momento dell'evento"
   },
-  "k": "retroattiva, salvo eccezioni"
+  "k": "condizione = effetti retroattivi, salvo eccezioni",
+  "r": "<b>«Come se fosse vero da subito»</b>: la condizione torna indietro nel tempo. Scegli la risposta con «retroattiva, <b>salvo che</b>…»: le opzioni assolute («sempre», «solo se») sono sbagliate."
  },
  "4660": {
-  "q": "Si può sottoporre a condizione sospensiva o risolutiva una sola clausola del contratto?",
-  "p": "<b>Generalmente sì</b>. La legge permette di subordinare a condizione sia il contratto intero sia un singolo patto. E vale per entrambi i tipi di condizione, sospensiva e risolutiva.",
-  "e": "In una vendita, solo la clausola sulla garanzia extra può valere a condizione che arrivi un certo finanziamento. Il resto del contratto vale subito.",
+  "q": "La domanda chiede se si può sottoporre a condizione <b>una sola clausola</b> del contratto, invece del contratto intero.",
+  "p": "<b>Generalmente sì</b>. Il codice dice che le parti possono subordinare a una condizione, sospensiva o risolutiva, <b>l'efficacia o la risoluzione del contratto o di un singolo patto</b>. Si può quindi condizionare anche un solo pezzo del contratto, con entrambi i tipi di condizione.",
+  "e": "Vendita di un'auto con una clausola: «Il venditore regala gli pneumatici invernali se la vendita si conclude prima di novembre». Solo quella clausola è condizionata.",
   "x": {
-   "B": "non è vero che si possa condizionare solo l'intero contratto: vale anche per un singolo patto",
-   "C": "«esclusivamente sospensiva» è sbagliato: è ammessa anche la risolutiva",
-   "D": "«esclusivamente risolutiva» è sbagliato: è ammessa anche la sospensiva"
+   "B": "si può condizionare anche un singolo patto, non solo l'intero contratto",
+   "C": "non è limitato alla condizione sospensiva",
+   "D": "non è limitato alla condizione risolutiva"
   },
-  "k": "anche un singolo patto può essere condizionato"
+  "k": "condizione anche su una singola clausola",
+  "r": "Nel codice ci sono le parole <b>«o di un singolo patto»</b>. Quando le opzioni dicono «solo sospensiva» o «solo risolutiva», ricorda che valgono <b>tutte e due</b>."
  },
  "4661": {
-  "q": "Un contratto con una condizione illecita è valido?",
-  "p": "<b>No, mai</b>. Una condizione contraria a norme imperative, all'ordine pubblico o al buon costume rende nullo il contratto. La regola non cambia in base alle persone, al valore o al tipo di contratto indicati nelle altre opzioni.",
-  "e": "«Ti vendo l'auto a condizione che tu commetta un reato»: il contratto è nullo, a prescindere dal prezzo.",
+  "q": "Un contratto contiene una <b>condizione illecita</b>, cioè contraria alla legge, all'ordine pubblico o al buon costume. La domanda chiede se il contratto è valido.",
+  "p": "<b>No, mai</b>: la condizione illecita rende <b>nullo</b> l'intero contratto. Non si può far dipendere un contratto da un fatto vietato, perché sarebbe un incentivo a commetterlo. Non ci sono eccezioni per parenti, per contratti di poco valore o per le donazioni.",
+  "e": "«Ti vendo la casa se picchi il mio vicino»: il contratto è nullo, anche se il prezzo e tutto il resto sono regolari.",
   "x": {
-   "B": "la parentela tra i contraenti non rende valida una condizione illecita",
-   "C": "il valore basso del contratto non salva una condizione illecita",
-   "D": "il fatto che sia una donazione non rende valida la condizione illecita"
+   "B": "la parentela non rende lecita la condizione",
+   "C": "il valore del contratto non conta",
+   "D": "anche la donazione non si salva con una condizione illecita"
   },
-  "k": "condizione illecita = contratto nullo"
+  "k": "condizione illecita = contratto nullo",
+  "r": "<b>«Illecito = nullo, senza sconti»</b>. Le opzioni con eccezioni strane (parenti, 1.000 €, donazione) sono esche."
  },
  "4662": {
-  "q": "Un contratto è sottoposto a una condizione sospensiva impossibile: produce effetti?",
-  "p": "<b>No, è nullo</b>. La condizione sospensiva impossibile non si potrà mai avverare, quindi gli effetti del contratto non potrebbero mai partire. Per questo la legge non lo considera solo annullabile, ma nullo.",
-  "e": "«Ti vendo la casa se toccherai il sole con un dito»: l'evento non può accadere e il contratto è nullo.",
+  "q": "Un contratto è subordinato a una <b>condizione sospensiva impossibile</b> (un evento che non può mai accadere). La domanda chiede se produce effetti.",
+  "p": "<b>No, è nullo</b>. Se l'efficacia del contratto dipende da un evento che non può accadere, il contratto non partirà mai: per il codice è nullo. Attenzione alla differenza: se la condizione impossibile è <b>risolutiva</b>, si considera come <b>non apposta</b> e il contratto resta valido.",
+  "e": "«Ti vendo l'auto se domani il sole sorge a ovest»: il contratto non produrrà mai effetti, quindi è nullo.",
   "x": {
-   "B": "nessun effetto, e non è previsto un termine di tre mesi",
-   "C": "nessun effetto, e non è previsto un termine di sei mesi",
-   "D": "la conseguenza è la nullità, non l'annullabilità"
+   "B": "non esiste un termine di tre mesi",
+   "C": "non esiste un termine di sei mesi",
+   "D": "la sanzione è la nullità, non l'annullabilità"
   },
-  "k": "sospensiva impossibile = nullo"
+  "k": "sospensiva impossibile = nullo",
+  "r": "<b>«Se non può partire, è morto»</b>: sospensiva impossibile = nullo. Ricorda la coppia: <b>risolutiva</b> impossibile = come se non ci fosse."
  },
  "4663": {
-  "q": "Quando un contratto si dice condizionale?",
-  "p": "Quando le parti hanno subordinato <b>l'efficacia o la risoluzione del contratto o di un singolo patto a un avvenimento futuro e incerto</b>. Servono tutte e due le caratteristiche: l'evento deve ancora accadere e non si sa se accadrà. È proprio l'incertezza a distinguere la condizione dal termine.",
-  "e": "«Ti vendo la casa se otterrò il trasferimento a Roma»: è futuro e non è sicuro, quindi è una condizione.",
+  "q": "La domanda chiede quando un contratto si dice <b>condizionale</b>.",
+  "p": "Quando le parti fanno dipendere l'<b>efficacia</b> o la <b>risoluzione</b> del contratto, o di un singolo patto, da un <b>avvenimento futuro e incerto</b>. Servono entrambi i requisiti: <b>futuro</b> (deve ancora accadere) e <b>incerto</b> (non si sa se accadrà). Un evento futuro ma certo è un <b>termine</b>, non una condizione.",
+  "e": "«Ti vendo la casa se vinco il concorso» è una condizione: futuro e incerto. «Ti vendo la casa il 1° marzo» è un termine: futuro e certo.",
   "x": {
-   "B": "questo descrive il termine, che è un'altra cosa rispetto alla condizione",
-   "C": "un evento futuro e certo è un termine, non una condizione",
-   "D": "un evento passato e certo non è né futuro né incerto"
+   "B": "il termine per l'adempimento è un'altra cosa: un evento futuro e certo",
+   "C": "«futuro e certo» descrive il termine, non la condizione",
+   "D": "un evento passato non può essere una condizione"
   },
-  "k": "condizione = evento futuro e incerto"
+  "k": "condizione = futuro e incerto",
+  "r": "<b>Condizione = «SE»</b> (futuro e incerto); <b>termine = «QUANDO»</b> (futuro e certo). Cerca la parola <b>«incerto»</b>."
  },
  "4664": {
-  "q": "Chi ha un diritto sottoposto a condizione può disporne prima che la condizione si avveri?",
-  "p": "<b>Sì, ma gli effetti di ogni atto di disposizione sono subordinati alla stessa condizione</b>. Il diritto si può trasferire così com'è, con la sua incertezza. Chi lo riceve ottiene quindi un diritto che segue la sorte della condizione.",
-  "e": "Luca ha comprato un terreno a condizione sospensiva e lo rivende a Sara. Se la condizione non si avvera, anche l'acquisto di Sara non produce effetti.",
+  "q": "Una persona ha un diritto sottoposto a condizione sospensiva o risolutiva, che non si è ancora avverata. La domanda chiede se può venderlo o disporne in altro modo.",
+  "p": "<b>Sì, ma gli effetti di ogni atto di disposizione sono subordinati alla stessa condizione</b>. Chi compra da lui riceve un diritto «condizionato» uguale al suo: se la condizione andrà come previsto, l'acquisto si consolida; se no, cade anche l'acquisto. Vale per entrambi i tipi di condizione.",
+  "e": "Tizio ha comprato un terreno «se il Comune lo renderà edificabile» e lo rivende a Caio prima della decisione del Comune. Se il Comune dice no, anche Caio perde il terreno.",
   "x": {
-   "B": "disporne è possibile: l'atto resta però legato alla condizione",
-   "C": "non c'è questa esclusione: vale anche per la condizione sospensiva",
-   "D": "non c'è questa esclusione: vale anche per la condizione risolutiva"
+   "B": "può disporne, ma con la stessa condizione",
+   "C": "vale anche per la condizione sospensiva",
+   "D": "vale anche per la condizione risolutiva"
   },
-  "k": "si può disporre, ma la condizione segue il diritto"
+  "k": "si può disporre, con la stessa condizione",
+  "r": "<b>«La condizione viaggia con il diritto»</b>: puoi passarlo ad altri, ma con la stessa «etichetta» attaccata."
  },
  "4665": {
-  "q": "Impresa soggetta a registrazione: che forma serve per trasferire la proprietà o il godimento dell'azienda?",
-  "p": "Questi contratti <b>devono essere provati per iscritto, salve le forme richieste dalla legge per i singoli beni dell'azienda o per la particolare natura del contratto</b>. Lo scritto qui serve a provare il contratto, non è richiesto in generale per la sua validità. Restano però le forme speciali di certi beni o contratti.",
-  "e": "Si vende un'azienda che comprende un immobile: oltre alla prova scritta, per l'immobile si rispetta la forma prevista per il suo trasferimento.",
+  "q": "La domanda chiede come vanno fatti i contratti che <b>trasferiscono o danno in godimento un'azienda</b>, nel caso di imprese soggette a registrazione.",
+  "p": "Devono essere <b>provati per iscritto</b>: è una forma <i>ad probationem</i>, che serve per la prova. Restano salve le forme più rigorose richieste per i singoli beni dell'azienda (es. un immobile) o per la natura del contratto. Non è una forma richiesta a pena di nullità.",
+  "e": "Vendo il mio bar: il contratto deve risultare per iscritto per poterlo provare. Se nel bar c'è anche il locale di mia proprietà, per quell'immobile serve la forma richiesta per gli immobili.",
   "x": {
-   "B": "questi contratti sono ammessi: l'azienda si può vendere o dare in godimento",
-   "C": "la regola parla di prova scritta, non di inesistenza del contratto",
-   "D": "la regola generale è la prova scritta, non lo scritto a pena di nullità in ogni caso"
+   "B": "sono pienamente ammessi",
+   "C": "il codice non parla di «inesistenza»: la forma serve per la prova",
+   "D": "non è a pena di nullità: è forma per la prova"
   },
-  "k": "azienda: prova scritta, più forme speciali"
+  "k": "cessione d'azienda = prova per iscritto",
+  "r": "<b>Azienda → «ad probationem»</b>: scritto per <b>provare</b>, non per esistere. Le opzioni con nullità o inesistenza sono troppo severe."
  },
  "4666": {
-  "q": "Chi riceve una proposta e la accetta cambiandone il contenuto, che cosa fa secondo il codice civile?",
-  "p": "La sua risposta <b>equivale a una nuova proposta</b>. Il contratto nasce solo se l'accettazione corrisponde alla proposta. Se è diversa, i ruoli si invertono: ora è il proponente iniziale a dover decidere se accettare.",
-  "e": "Anna offre l'auto a 10.000 euro e Marco risponde «la prendo a 9.000»: è una nuova proposta, che Anna può accettare o no.",
+  "q": "Una parte risponde a una proposta accettando, ma <b>cambiando alcune condizioni</b>. La domanda chiede che valore ha questa risposta.",
+  "p": "Un'accettazione non conforme alla proposta <b>equivale a una nuova proposta</b>. Per concludere il contratto l'accettazione deve corrispondere esattamente alla proposta. Se la modifica, i ruoli si invertono: chi aveva proposto ora riceve una controproposta, e il contratto nasce solo se la accetta.",
+  "e": "Ti offro la mia bici a 300 €. Rispondi: «Accetto, ma a 250 €». Non c'è contratto: la tua è una nuova proposta. Se rispondo «va bene», il contratto è concluso a 250 €.",
   "x": {
-   "B": "rispondere in modo diverso è consentito: vale come nuova proposta",
-   "C": "non è un'accettazione condizionata: non si forma alcun contratto",
-   "D": "non impedisce nuove offerte: anzi, è essa stessa una nuova offerta"
+   "B": "è consentita, ma vale come nuova proposta",
+   "C": "non è un'accettazione condizionata: non è proprio un'accettazione",
+   "D": "non blocca la trattativa: anzi, la riapre con una nuova offerta"
   },
-  "k": "accettazione difforme = nuova proposta"
+  "k": "accettazione difforme = nuova proposta",
+  "r": "<b>«Se cambi, proponi»</b>: ogni modifica trasforma l'accettazione in una controproposta, come in una trattativa al mercato."
  },
  "4667": {
-  "q": "Nei contratti a durata indeterminata si può recedere?",
-  "p": "Secondo la risposta prevista, <b>sì, quando il recesso è espressamente previsto dalla legge o dalle parti</b>. Il contratto ha forza di legge tra le parti e di regola non si scioglie per decisione di una sola. Per questo il recesso deve avere una base nella legge o nell'accordo. Non dipende da scadenze fisse dopo la firma.",
-  "e": "Un contratto di fornitura senza scadenza prevede che ciascuna parte possa recedere con preavviso: si può uscire proprio grazie a quella clausola.",
+  "q": "La domanda chiede se nei contratti <b>senza una durata stabilita</b> è possibile recedere, cioè sciogliersi con una dichiarazione unilaterale.",
+  "p": "Secondo la risposta della banca dati, il recesso è ammesso <b>quando è previsto dalla legge o dalle parti</b>. La logica di fondo è che un contratto senza scadenza non può vincolare le parti per sempre: per questo la legge prevede il recesso in molti contratti a tempo indeterminato, e le parti possono comunque pattuirlo. Non esistono finestre fisse di 8 o 60 giorni dalla firma.",
+  "e": "Un contratto di fornitura di energia senza scadenza prevede che ciascuna parte possa recedere con un preavviso: il recesso è ammesso perché lo prevedono la legge e il contratto.",
   "x": {
-   "B": "il limite di 8 giorni dalla conclusione non è la regola prevista",
-   "C": "«mai» è sbagliato: il recesso è possibile se la legge o le parti lo prevedono",
-   "D": "il limite di 60 giorni dalla conclusione non è la regola prevista"
+   "B": "non esiste una finestra generale di 8 giorni dalla conclusione",
+   "C": "il recesso è ammesso in questi casi, quindi «mai» è sbagliato",
+   "D": "non esiste una finestra generale di 60 giorni dalla conclusione"
   },
-  "k": "recesso se previsto da legge o parti"
+  "k": "recesso: se previsto da legge o parti",
+  "r": "<b>«Nessuno è legato per sempre»</b>: se lo prevedono legge o contratto, si esce. Le opzioni con 8 e 60 giorni sono numeri inventati per confonderti."
  },
  "4668": {
-  "q": "Nel contratto si può inserire una clausola che dà a una parte il diritto di recedere da sola?",
-  "p": "<b>Sì</b>. Il codice civile riconosce che una parte possa avere la facoltà di recedere se questa è attribuita dal contratto. È una scelta dell'autonomia delle parti e non è limitata a un tipo di prestazione.",
-  "e": "Un contratto di servizi prevede che il cliente possa uscire con un preavviso: la clausola è possibile.",
+  "q": "La domanda chiede se nel contratto si può inserire una clausola che dia a <b>una sola parte</b> il diritto di recedere.",
+  "p": "<b>Sì</b>. Il codice permette alle parti di attribuire a una di loro la <b>facoltà di recedere</b> dal contratto. Di regola il recesso va esercitato finché il contratto non ha avuto un principio di esecuzione; nei contratti a esecuzione continuata o periodica vale anche dopo, ma non per le prestazioni già eseguite. Non c'è nessun limite legato al tipo di prestazione (dare o fare).",
+  "e": "In un abbonamento in palestra c'è la clausola: «Il cliente può recedere in ogni momento con 30 giorni di preavviso». È valida.",
   "x": {
-   "B": "il divieto non esiste: le parti possono prevedere il recesso",
-   "C": "la facoltà non è limitata ai contratti con prestazioni di dare",
-   "D": "la facoltà non è limitata ai contratti con prestazioni di fare"
+   "B": "è ammessa",
+   "C": "non è limitata ai contratti con prestazioni di dare",
+   "D": "non è limitata ai contratti con prestazioni di fare"
   },
-  "k": "il recesso unilaterale si può pattuire"
+  "k": "recesso unilaterale pattuibile = sì",
+  "r": "<b>«Si può sempre prevedere una porta d'uscita»</b>. Basta il <b>«Sì»</b> semplice: le limitazioni a dare o fare sono inventate."
  },
  "4669": {
-  "q": "Come si chiama il contratto in cui una parte, con i propri mezzi e a proprio rischio, realizza un'opera o un servizio in cambio di denaro?",
-  "p": "È <b>l'appalto</b>. I suoi tratti tipici sono proprio l'organizzazione dei mezzi, la gestione a rischio dell'appaltatore e il corrispettivo in denaro. Il risultato promesso è un'opera o un servizio.",
-  "e": "Un'impresa edile si impegna a costruire una villetta per 200.000 euro, con i suoi operai e a suo rischio: è un appalto.",
+  "q": "La domanda descrive un contratto: una parte, <b>con la propria organizzazione e a proprio rischio</b>, si impegna a realizzare un'<b>opera o un servizio</b> in cambio di denaro. Chiede come si chiama.",
+  "p": "È l'<b>appalto</b>. I suoi tratti tipici sono tre: l'appaltatore usa la <b>propria organizzazione</b> di mezzi, lavora <b>a proprio rischio</b> (se costa di più, è un problema suo) e deve un <b>risultato</b>, cioè l'opera o il servizio, in cambio di un <b>corrispettivo in denaro</b>.",
+  "e": "Un'impresa edile si impegna a ristrutturare il tuo bagno per 8.000 €, usando i suoi operai e le sue attrezzature. È un appalto.",
   "x": {
-   "B": "la somministrazione riguarda prestazioni periodiche o continuative di cose",
+   "B": "la somministrazione è la fornitura periodica o continuativa di cose (es. gas, acqua)",
    "C": "la transazione serve a chiudere o prevenire una lite con reciproche concessioni",
-   "D": "la vendita trasferisce la proprietà di una cosa o un diritto verso un prezzo"
+   "D": "la vendita trasferisce la proprietà di una cosa, non realizza un'opera"
   },
-  "k": "opera o servizio, mezzi e rischio = appalto"
+  "k": "appalto = opera/servizio, organizzazione e rischio propri",
+  "r": "<b>«Appalto = cantiere»</b>: pensa all'impresa che costruisce con i suoi mezzi e a suo rischio. Le parole spia sono <b>«organizzazione»</b> e <b>«rischio»</b>."
  },
  "4670": {
-  "q": "Il giudice può stabilire il prezzo dell'appalto?",
-  "p": "<b>Sì, ma solo in via sussidiaria</b>: se le parti non hanno fissato la misura né il modo per determinarla, e non si può calcolare con tariffe e usi. L'ordine è quindi accordo, poi tariffe e usi, infine il giudice. Il giudice interviene solo come ultima soluzione.",
-  "e": "Nessun prezzo nel contratto e nessuna tariffa o uso applicabile per quei lavori: a quel punto lo determina il giudice.",
+  "q": "La domanda chiede se il <b>prezzo dell'appalto</b> può essere stabilito dal giudice.",
+  "p": "Sì, ma <b>solo in via sussidiaria</b>, come ultima soluzione. Prima si guarda all'accordo delle parti sulla misura o sul modo di calcolarlo; poi alle <b>tariffe</b> e agli <b>usi</b>. Solo se nessuno di questi strumenti funziona interviene il giudice. Né l'appaltatore né il committente possono decidere il prezzo da soli.",
+  "e": "Fai rifare il tetto senza concordare il prezzo e non esistono tariffe applicabili. Se non vi mettete d'accordo, il prezzo lo fissa il giudice.",
   "x": {
-   "B": "non dipende dalla scelta dell'appaltatore, ma dalla mancanza degli altri criteri",
-   "C": "non dipende dalla scelta del committente, ma dalla mancanza degli altri criteri",
-   "D": "«mai» è sbagliato: il giudice può intervenire come ultima soluzione"
+   "B": "l'appaltatore non può decidere da solo il prezzo",
+   "C": "il committente non può decidere da solo il prezzo",
+   "D": "il giudice può intervenire, in via sussidiaria"
   },
-  "k": "prezzo: accordo, tariffe e usi, poi giudice"
+  "k": "prezzo appalto: patti → tariffe/usi → giudice",
+  "r": "Ricorda la <b>scala: patti → tariffe e usi → giudice</b>. Il giudice è l'ultimo gradino. Le opzioni in cui decide una sola parte «a insindacabile scelta» sono sempre sbagliate."
  },
  "4671": {
-  "q": "Quando l'appaltatore può affidare a un altro l'esecuzione dell'opera?",
-  "p": "<b>Solo quando è stato autorizzato dal committente</b>. Il committente ha scelto quell'appaltatore e deve poter decidere se accettare che lavori qualcun altro. Senza autorizzazione il subappalto non è consentito.",
-  "e": "Un'impresa incaricata di ristrutturare casa vuole far fare l'impianto elettrico a un'altra ditta: deve prima avere l'ok del committente.",
+  "q": "La domanda chiede quando l'appaltatore può affidare a un'altra impresa (<b>subappalto</b>) l'esecuzione dell'opera.",
+  "p": "<b>Solo se autorizzato dal committente</b>. Il committente ha scelto quell'appaltatore per la sua affidabilità: non può ritrovarsi a sua insaputa un'impresa diversa che lavora in casa sua. Per questo serve il suo consenso.",
+  "e": "Hai scelto l'impresa Rossi per ristrutturare casa. Rossi non può passare il lavoro all'impresa Bianchi senza il tuo permesso.",
   "x": {
-   "B": "la rappresentanza sindacale non c'entra: decide il committente",
-   "C": "non è a discrezione dell'appaltatore: serve l'autorizzazione",
-   "D": "«in nessun caso» è sbagliato: con l'autorizzazione si può"
+   "B": "i sindacati non c'entrano: serve l'autorizzazione del committente",
+   "C": "non può farlo a sua discrezione",
+   "D": "può farlo, se autorizzato"
   },
-  "k": "subappalto solo con ok del committente"
+  "k": "subappalto = autorizzazione del committente",
+  "r": "<b>«Casa mia, decido io chi entra»</b>: il subappalto passa sempre dal permesso del committente. Diffida delle opzioni con i sindacati."
  },
  "4672": {
-  "q": "I dipendenti dell'appaltatore non pagati possono chiedere la retribuzione al committente?",
-  "p": "Sì: <b>possono agire direttamente contro il committente, fino alla concorrenza del debito che questi ha verso l'appaltatore al momento della domanda</b>. La legge li tutela, ma con un limite preciso. Il committente non paga più di quanto deve ancora all'appaltatore in quel momento.",
-  "e": "I dipendenti chiedono 30.000 euro e il committente deve ancora 20.000 all'appaltatore: dal committente possono ottenere al massimo 20.000.",
+  "q": "I dipendenti dell'appaltatore non sono stati pagati. La domanda chiede se possono chiedere i soldi al <b>committente</b>.",
+  "p": "Sì: hanno un'<b>azione diretta contro il committente</b>, ma <b>fino a concorrenza del debito</b> che il committente ha ancora verso l'appaltatore nel momento in cui fanno la domanda. Il committente non paga due volte: paga ai lavoratori quello che avrebbe dovuto ancora pagare all'appaltatore.",
+  "e": "Il committente deve ancora 10.000 € all'impresa. I dipendenti dell'impresa vantano 15.000 € di stipendi non pagati: possono ottenere dal committente al massimo 10.000 €.",
   "x": {
-   "B": "«mai» è sbagliato: l'azione diretta è prevista",
-   "C": "ci sono condizioni e limiti: il tetto è il debito del committente",
-   "D": "non serve l'autorizzazione dell'appaltatore: l'azione è diretta"
+   "B": "possono agire, entro il limite del debito del committente",
+   "C": "ci sono limiti: il debito ancora dovuto dal committente",
+   "D": "non serve l'autorizzazione dell'appaltatore"
   },
-  "k": "azione diretta, nei limiti del debito residuo"
+  "k": "dipendenti → committente, fino al debito residuo",
+  "r": "<b>«Il committente paga solo quello che deve ancora»</b>. La risposta giusta ha un tetto: cerca la parola <b>«concorrenza»</b>."
  },
  "4673": {
-  "q": "Nell'appalto chi deve fornire i materiali per fare l'opera?",
-  "p": "<b>L'appaltatore, se il contratto o gli usi non stabiliscono diversamente</b>. È coerente con il fatto che l'appaltatore lavora con mezzi propri e a proprio rischio. Le parti però possono accordarsi in modo diverso.",
-  "e": "Un'impresa costruisce un muro: compra lei i mattoni, a meno che il contratto dica che li fornisce il committente.",
+  "q": "Nell'appalto, la domanda chiede chi deve fornire i <b>materiali</b> necessari per realizzare l'opera.",
+  "p": "<b>L'appaltatore</b>, salvo che il contratto o gli usi dicano diversamente. È coerente con l'idea dell'appalto: l'appaltatore lavora con la <b>propria organizzazione</b> e consegna un risultato finito, materiali compresi.",
+  "e": "L'impresa che rifà il tuo pavimento porta piastrelle, colla e attrezzi, salvo che tu abbia deciso di comprare tu le piastrelle e lo abbiate scritto nel contratto.",
   "x": {
-   "B": "il committente non è il fornitore previsto dalla regola generale: può esserlo solo per accordo o usi",
-   "C": "la rappresentanza sindacale non c'entra con la fornitura dei materiali",
-   "D": "i dipendenti non forniscono i materiali: è un compito dell'appaltatore"
+   "B": "di regola li fornisce l'appaltatore, non il committente",
+   "C": "i sindacati non c'entrano",
+   "D": "i dipendenti non forniscono i materiali: li fornisce l'appaltatore"
   },
-  "k": "materiali: appaltatore, salvo patto o usi"
+  "k": "materiali = appaltatore",
+  "r": "<b>«L'impresa porta tutto»</b>, come quando chiami un idraulico: arriva con i pezzi. Collegalo all'«organizzazione dei mezzi» tipica dell'appalto."
  },
  "4674": {
-  "q": "Il comodatario, cioè chi ha ricevuto una cosa in prestito, risponde se questa perisce per caso fortuito?",
-  "p": "<b>Sì, se poteva salvarla usando al suo posto una cosa propria, o se, potendo salvarne una sola, ha preferito la propria</b>. Di regola il caso fortuito non si addebita a chi non ne ha colpa. Qui però il comodatario ha sacrificato la cosa altrui per proteggere la sua.",
-  "e": "In un incendio Marco può portare fuori un solo quadro. Salva il suo e lascia bruciare quello prestato: ne risponde.",
+  "q": "Nel <b>comodato</b> (prestito gratuito di una cosa), la cosa prestata si distrugge per un <b>caso fortuito</b>, cioè un evento imprevedibile. La domanda chiede se il comodatario ne risponde.",
+  "p": "Di regola no, ma <b>risponde in due casi</b>: se poteva salvare la cosa prestata <b>usando al suo posto una cosa propria</b>, oppure se, potendo salvare solo una delle due, <b>ha preferito salvare la propria</b>. Chi riceve una cosa gratis deve trattarla con riguardo, e non può sacrificarla per proteggere le sue.",
+  "e": "Ti presto la mia bici. Scoppia un incendio e puoi portare fuori una sola bici: salvi la tua e lasci bruciare la mia. Ne rispondi.",
   "x": {
-   "B": "se fosse provocato volontariamente non sarebbe un caso fortuito: non è questa la regola prevista",
-   "C": "non conta che la cosa sia del tutto inservibile, ma la scelta del comodatario",
-   "D": "«in nessun caso» è sbagliato: ci sono i due casi di responsabilità"
+   "B": "un caso fortuito non si provoca volontariamente: il problema è la scelta di salvare la propria cosa",
+   "C": "non conta quanto è rovinata la cosa, ma il comportamento del comodatario",
+   "D": "in quei due casi ne risponde"
   },
-  "k": "risponde se ha preferito salvare la propria"
+  "k": "comodato: risponde se ha preferito salvare la propria cosa",
+  "r": "<b>«Prima salvi quella prestata»</b>: chi riceve gratis non può fare l'egoista. La risposta giusta è la più lunga e dettagliata, perché descrive i due casi."
  },
  "4675": {
-  "q": "Come si chiama il contratto con cui si consegna una cosa perché l'altro la usi per un tempo o un uso determinato e poi la restituisca?",
-  "p": "È il <b>comodato</b>. La parte che riceve può servirsi della cosa, mobile o immobile, ma resta obbligata a restituirla. La proprietà non passa a chi la riceve.",
-  "e": "Presti l'auto a un amico per il weekend e lui la riporta lunedì: è un comodato.",
+  "q": "La domanda descrive un contratto: una parte <b>consegna</b> a un'altra una cosa mobile o immobile perché la <b>usi per un certo tempo e scopo</b>, con <b>l'obbligo di restituirla</b>. Chiede come si chiama.",
+  "p": "È il <b>comodato</b>, cioè il prestito d'uso. È <b>essenzialmente gratuito</b>: se si paga un corrispettivo diventa un'altra cosa, per esempio una locazione. È un contratto <b>reale</b>: si perfeziona con la consegna della cosa. Chi la riceve (comodatario) deve custodirla e restituirla.",
+  "e": "Il nonno presta al nipote la sua vecchia auto per l'estate, senza chiedere nulla. A settembre il nipote gliela restituisce. È un comodato.",
   "x": {
-   "B": "la permuta è uno scambio di proprietà di cose, senza obbligo di restituzione",
-   "C": "l'usucapione non è un contratto, ma un modo di acquistare un diritto col possesso prolungato",
-   "D": "la donazione trasferisce il bene senza obbligo di restituzione"
+   "B": "la permuta è lo scambio di una cosa con un'altra, senza restituzione",
+   "C": "l'usucapione è un modo di acquistare la proprietà con il possesso prolungato, non un contratto",
+   "D": "la donazione trasferisce la cosa per sempre, senza obbligo di restituirla"
   },
-  "k": "comodato = uso con restituzione"
+  "k": "comodato = prestito gratuito d'uso",
+  "r": "<b>«Comodato = te la presto, poi me la ridai»</b>. Le parole spia sono <b>«servirsene»</b> e <b>«restituzione»</b>: nessuna delle altre opzioni prevede di restituire."
  },
  "4676": {
-  "q": "Se chi custodisce la cosa lo fa <b>gratis</b>, come si valuta la sua colpa?",
-  "p": "La colpa <b>è valutata con minor rigore</b>. Chi custodisce senza compenso fa un favore e non guadagna nulla, quindi la legge è meno severa con lui. Il depositario deve comunque custodire con diligenza: la sua responsabilità è solo giudicata in modo più mite.",
-  "e": "Un amico tiene gratis la tua bici e la lascia un attimo incustodita: il giudice sarà meno severo con lui che con un deposito bici a pagamento.",
+  "q": "Nel <b>deposito</b> qualcuno custodisce una cosa per un altro. Se lo fa <b>gratis</b>, la domanda chiede come viene valutata la sua responsabilità per colpa.",
+  "p": "È valutata <b>con minor rigore</b>. Il depositario deve sempre custodire con la diligenza del buon padre di famiglia, ma se lavora gratis il giudice è meno severo nel valutare i suoi errori. È una regola di buon senso: chi fa un favore non può essere trattato come un professionista pagato. La responsabilità però non sparisce del tutto.",
+  "e": "Un'amica ti tiene il cane gratis per un weekend e il cane scappa per una sua piccola disattenzione: il giudice sarà meno severo che con una pensione per cani a pagamento.",
   "x": {
-   "B": "è il contrario: il maggior rigore non si applica a chi non riceve compenso",
-   "C": "gratuito e oneroso non sono trattati allo stesso modo: la gratuità attenua il giudizio",
-   "D": "la responsabilità non è esclusa: viene solo valutata con meno rigore"
+   "B": "è il contrario: il deposito gratuito alleggerisce la valutazione",
+   "C": "gratuito e oneroso non sono valutati allo stesso modo",
+   "D": "la responsabilità non è esclusa: è solo valutata con meno rigore"
   },
-  "k": "deposito gratis = colpa valutata con meno rigore"
+  "k": "deposito gratuito = colpa valutata con meno rigore",
+  "r": "<b>«Chi fa un favore va trattato con favore»</b>. Il trucco: gratuito → <b>meno</b> rigore. Le opzioni estreme («esclusa», «maggior rigore») sono sbagliate."
  },
  "4677": {
-  "q": "Chi tiene in custodia una cosa altrui può usarla?",
-  "p": "<b>Sì, ma solo con il consenso del depositante</b>. Il deposito serve a custodire la cosa e a restituirla, non a usarla. La cosa resta di chi l'ha consegnata, quindi è lui a decidere se può essere usata.",
-  "e": "Lasci l'auto a un amico perché la tenga in garage. Può guidarla solo se tu gli dai il permesso.",
+  "q": "La domanda chiede se il <b>depositario</b> (chi custodisce) può usare la cosa che gli è stata affidata.",
+  "p": "<b>Sì, ma solo con il consenso del depositante</b>. Il deposito serve a <b>custodire</b>, non a usare: la cosa deve essere conservata e restituita com'era. Se il depositante lo permette, il depositario può servirsene; altrimenti no, nemmeno pagando un risarcimento e nemmeno se la cosa non si consuma.",
+  "e": "Lasci l'auto in un garage in custodia mentre sei in vacanza. Il gestore non può usarla per fare commissioni, a meno che tu non glielo abbia permesso.",
   "x": {
-   "B": "«in nessun caso» è troppo: con il consenso l'uso è ammesso",
-   "C": "il consenso serve sempre, anche se il bene non si usura con l'uso",
-   "D": "risarcire il danno non sostituisce il consenso del depositante"
+   "B": "può farlo, se il depositante acconsente",
+   "C": "il consenso serve sempre, anche se la cosa non si consuma",
+   "D": "non basta risarcire: serve il consenso prima"
   },
-  "k": "usare la cosa depositata = serve il consenso"
+  "k": "depositario usa la cosa solo con consenso",
+  "r": "<b>«Custodire, non usare»</b>: per usarla serve il <b>permesso</b>. È la stessa logica di quando lasci il cappotto al guardaroba."
  },
  "4678": {
-  "q": "Il contratto di deposito si considera gratuito o a pagamento?",
-  "p": "<b>Si presume gratuito, salvo che dalla qualità professionale del depositario o da altre circostanze si debba desumere una diversa volontà</b>. Se non risulta altro, quindi, si parte dall'idea che la custodia non sia pagata. La presunzione cede quando le circostanze mostrano che le parti volevano un compenso.",
-  "e": "Se un vicino ti tiene una valigia, si presume gratis. Se la lasci a un magazzino professionale, dalla sua attività si capisce che va pagato.",
+  "q": "La domanda chiede se il contratto di deposito, quando non si dice nulla, è <b>gratuito o a pagamento</b>.",
+  "p": "Il deposito <b>si presume gratuito</b>, salvo che dalla <b>qualità professionale</b> del depositario o da altre circostanze risulti che le parti volevano un compenso. Tra privati il deposito nasce come favore; ma se il depositario fa questo di mestiere, si capisce che va pagato.",
+  "e": "Lasci il trolley a un vicino per un pomeriggio: è gratuito. Lo lasci al deposito bagagli della stazione: si paga, perché è un servizio professionale.",
   "x": {
-   "B": "non è «sempre oneroso»: anzi, la regola di partenza è la gratuità",
-   "C": "inverte la presunzione: si presume gratuito, non oneroso",
-   "D": "non è «sempre gratuito»: le circostanze possono mostrare una volontà diversa"
+   "B": "non è sempre oneroso: la regola è la gratuità",
+   "C": "inverte la presunzione: si presume gratuito",
+   "D": "non è sempre gratuito: le circostanze possono indicare un compenso"
   },
-  "k": "deposito = gratuito, salvo diversa volontà desumibile"
+  "k": "deposito si presume gratuito",
+  "r": "Coppia da ricordare: <b>deposito → gratuito</b> (salvo professionisti), <b>mandato → oneroso</b>. Diffida delle opzioni con «sempre»."
  },
  "4679": {
-  "q": "Si può fare da garante a chi è già garante (fideiussore) del debitore principale?",
-  "p": "<b>Sì</b>. La legge ammette la fideiussione anche per il fideiussore: è il cosiddetto fideiussore del fideiussore. È una garanzia in più per il creditore. L'importo non è un requisito: basta che la garanzia riguardi l'obbligo di quel fideiussore.",
-  "e": "Anna garantisce il debito di Marco. Luca può a sua volta garantire per Anna, con una seconda fascia di protezione per la banca.",
+  "q": "La domanda chiede se si può prestare una fideiussione <b>a garanzia del fideiussore</b> stesso (il «fideiussore del fideiussore»).",
+  "p": "<b>Sì</b>. Il codice ammette espressamente la fideiussione per il fideiussore. Chi garantisce può a sua volta essere garantito da un'altra persona: è un secondo livello di garanzia per il creditore. Non ci sono limiti di importo diversi da quelli dell'obbligazione garantita.",
+  "e": "La banca presta 100.000 € a Luca, il padre di Luca fa da fideiussore, e uno zio garantisce per il padre. Lo zio è il fideiussore del fideiussore.",
   "x": {
-   "B": "la legge non chiede un importo superiore, e la garanzia non può eccedere il dovuto",
-   "C": "la legge non pone come condizione un importo inferiore",
-   "D": "la fideiussione del fideiussore è ammessa"
+   "B": "non deve essere per un importo superiore",
+   "C": "non deve essere per un importo inferiore",
+   "D": "è ammessa dal codice"
   },
-  "k": "si può garantire anche il garante"
+  "k": "fideiussione del fideiussore = ammessa",
+  "r": "<b>«Garanzia sulla garanzia»</b>: è possibile. Basta il <b>«Sì»</b> semplice: le varianti con importi diversi sono esche."
  },
  "4680": {
-  "q": "Tizio, Caio e Sempronio garantiscono insieme il debito di Catullo, che non paga. Chi paga al creditore, e quanto?",
-  "p": "<b>Uno chiunque di loro dovrà pagare l'intero debito, salvo sia stato pattuito il beneficio della divisione</b>. Più fideiussori dello stesso debitore sono obbligati in solido: il creditore può chiedere tutto a uno solo. Per dividere la richiesta in quote serve un patto apposito. Chi ha pagato potrà poi rivalersi sugli altri.",
-  "e": "Debito di 90.000 euro. Il creditore può chiederne 90.000 a Caio. Senza il patto, Caio non può pretendere di pagarne solo 30.000.",
+  "q": "Tizio, Caio e Sempronio hanno fatto da fideiussori per lo stesso debito di Catullo. Catullo non paga. La domanda chiede chi deve pagare e quanto.",
+  "p": "Quando più persone garantiscono lo stesso debito, <b>ciascuna è obbligata per l'intero</b>: il creditore può chiedere tutto a una qualsiasi di loro. Fa eccezione il caso in cui sia stato pattuito il <b>beneficio della divisione</b>: allora ciascuno risponde solo per la sua quota. Chi paga tutto potrà poi rivalersi sugli altri fideiussori per le loro parti.",
+  "e": "Debito di 90.000 €. La banca può chiedere tutti i 90.000 € a Caio. Caio paga e poi chiede 30.000 € a Tizio e 30.000 € a Sempronio.",
   "x": {
-   "B": "nessuna regola limita ciascuno alla metà del debito",
-   "C": "non conta l'ordine di firma: il creditore può rivolgersi a chiunque",
-   "D": "la divisione in tre quote vale solo se è stato pattuito il beneficio della divisione"
+   "B": "non c'è un limite automatico alla metà",
+   "C": "non conta l'ordine in cui hanno firmato",
+   "D": "la divisione in terzi vale solo se pattuita con il beneficio della divisione"
   },
-  "k": "più fideiussori = ognuno per l'intero"
+  "k": "più fideiussori = ciascuno per l'intero",
+  "r": "<b>«Uno per tutti»</b>: il creditore sceglie chi vuole e chiede tutto. La parola chiave dell'eccezione è <b>«beneficio della divisione»</b>."
  },
  "4681": {
-  "q": "Quando il garante del garante deve rispondere verso il creditore?",
-  "p": "<b>Quando il debitore principale e tutti i suoi fideiussori sono insolventi, o sono liberati perché incapaci</b>. Il fideiussore del fideiussore è una garanzia di ultima fila. Il creditore può rivolgersi a lui solo se davanti non resta nessuno che possa rispondere.",
-  "e": "Marco deve pagare, Anna lo garantisce e Luca garantisce Anna. Luca risponde al creditore solo se Marco e Anna sono entrambi insolventi o liberati perché incapaci.",
+  "q": "La domanda chiede quando il <b>fideiussore del fideiussore</b> deve pagare il creditore.",
+  "p": "Solo quando <b>il debitore principale e tutti i suoi fideiussori sono insolventi</b>, oppure sono liberati perché incapaci. È una garanzia di <b>secondo livello</b>: interviene solo se cadono tutti quelli che stanno prima di lui nella catena.",
+  "e": "Luca non paga, e non paga nemmeno il padre fideiussore perché a sua volta è insolvente. Solo a questo punto la banca può chiedere allo zio, fideiussore del padre.",
   "x": {
-   "B": "non basta il solo debitore: conta anche la posizione di tutti i fideiussori",
-   "C": "il confronto tra i patrimoni dei due garanti non è un criterio previsto",
-   "D": "non basta il solo fideiussore: conta anche la posizione del debitore principale"
+   "B": "non basta l'incapacità del solo debitore principale",
+   "C": "non si confrontano i patrimoni: conta l'insolvenza di tutti quelli prima di lui",
+   "D": "non basta l'incapacità del solo fideiussore"
   },
-  "k": "garante del garante = ultima fila"
+  "k": "fideiussore del fideiussore = ultimo della fila",
+  "r": "<b>«L'ultimo della fila»</b>: paga solo quando sono caduti <b>tutti</b> quelli davanti a lui. Cerca la parola <b>«tutti»</b>."
  },
  "4682": {
-  "q": "Tizio garantisce per Caio e viene citato in giudizio per il pagamento. Che cosa può fare?",
-  "p": "<b>Può agire contro Caio perché questi gli procuri la liberazione</b>. Il debito è di Caio, e Tizio rischia di pagare per lui. Per questo, una volta citato in giudizio, può muoversi anche prima di aver pagato e pretendere che Caio lo liberi dalla garanzia, ad esempio pagando il creditore.",
-  "e": "La banca cita Tizio per 20.000 euro dovuti da Caio. Tizio agisce subito contro Caio perché saldi la banca e lo tolga dal problema.",
+  "q": "Tizio è fideiussore di Caio e viene <b>citato in giudizio</b> dal creditore per pagare. La domanda chiede cosa può fare.",
+  "p": "Può <b>agire contro Caio perché gli procuri la liberazione</b>, cioè perché paghi il debito o lo faccia uscire dalla garanzia. Il codice dà al fideiussore questo diritto in alcuni casi di pericolo, e il primo è proprio quando viene <b>convenuto in giudizio</b> per il pagamento. Il fideiussore non deve aspettare passivamente la condanna.",
+  "e": "La banca fa causa a Tizio per il debito di Caio. Tizio agisce subito contro Caio: «Paga tu la banca e liberami».",
   "x": {
-   "B": "il fideiussore non può pretendere l'annullamento del contratto da cui nasce il debito",
-   "C": "non è vero che non può fare nulla: ha l'azione per ottenere la liberazione",
-   "D": "pagare come garante non rende Caio colpevole di appropriazione indebita: c'è invece il regresso civile"
+   "B": "non può pretendere che Caio annulli il contratto da cui nasce il debito",
+   "C": "può fare qualcosa: chiedere la liberazione",
+   "D": "non c'è appropriazione indebita: Caio ha solo un debito"
   },
-  "k": "fideiussore citato = può chiedere la liberazione"
+  "k": "fideiussore citato = chiede la liberazione al debitore",
+  "r": "<b>«Toglimi da questo guaio»</b>: è quello che il fideiussore può chiedere al debitore. La parola chiave è <b>«liberazione»</b>."
  },
  "4683": {
-  "q": "Sempronio deve garantire un grosso debito di Tizio. Quale proposta lo protegge di più?",
-  "p": "<b>Inserire nel contratto che il fideiussore non è tenuto a pagare prima dell'escussione del debitore principale</b>. Questo patto si chiama beneficio di escussione. Il creditore deve prima tentare di farsi pagare da Tizio, aggredendone i beni. Sempronio così paga solo dopo, e non è il primo a essere chiamato.",
-  "e": "Tizio deve 100.000 euro. Con il patto, il creditore deve prima agire sui beni di Tizio. Sempronio risponde solo dopo.",
+  "q": "Tizio chiede a Sempronio di fargli da fideiussore per un debito grosso. La domanda chiede quale clausola protegge di più Sempronio.",
+  "p": "Il <b>beneficio della preventiva escussione</b>: si scrive nel contratto che il fideiussore <b>non è tenuto a pagare prima che il creditore abbia escusso</b> (cioè provato a farsi pagare da) il debitore principale. Senza questo patto il creditore può rivolgersi subito al fideiussore. Con il patto, Sempronio paga solo se il creditore non riesce a farsi pagare da Tizio.",
+  "e": "Senza il beneficio, la banca può chiedere subito i soldi a Sempronio. Con il beneficio, prima deve provare a pignorare i beni di Tizio.",
   "x": {
-   "B": "la garanzia non può superare il debito principale: il doppio non è un vantaggio ammissibile",
-   "C": "anche una volta e mezzo supera il debito principale, quindi non è una vera tutela",
-   "D": "essere chiamato in giudizio non evita di pagare per primo: è una protezione più debole"
+   "B": "la fideiussione non può comunque superare il debito principale: «il doppio» non protegge, peggiora",
+   "C": "«una volta e mezzo» supera comunque il debito garantito, quindi non è una protezione",
+   "D": "essere chiamato in giudizio non è una tutela: il fideiussore risponderebbe comunque in solido"
   },
-  "k": "beneficio di escussione = prima paga il debitore"
+  "k": "beneficio di escussione = prima il debitore",
+  "r": "<b>«Prima bussa alla porta del debitore»</b>: è questo il beneficio di escussione. Quando una domanda chiede cosa conviene al fideiussore, cerca <b>«escussione del debitore principale»</b>."
  },
  "4684": {
-  "q": "Come si chiama chi si obbliga personalmente verso il creditore per garantire il debito di un altro?",
-  "p": "Si chiama <b>fideiussore</b>. Qui il perché è solo la definizione da memorizzare: la fideiussione è il contratto, il fideiussore è chi presta la garanzia. Risponde con tutto il proprio patrimonio accanto al debitore.",
-  "e": "Un padre si impegna con la banca a pagare il mutuo del figlio se lui non paga: il padre è il fideiussore.",
+  "q": "La domanda chiede come si chiama chi, <b>obbligandosi personalmente</b> verso il creditore, garantisce che un altro adempia il suo debito.",
+  "p": "È il <b>fideiussore</b>. Con la fideiussione una persona mette a garanzia <b>tutto il proprio patrimonio</b> per il debito di un altro: per questo è una garanzia <b>personale</b>. Se il debitore non paga, il creditore può chiedere al fideiussore.",
+  "e": "Per l'affitto di un appartamento il padrone di casa chiede che il padre dello studente firmi come fideiussore: se lo studente non paga, paga il padre.",
   "x": {
-   "B": "beneficiario è chi riceve un vantaggio, non chi garantisce un debito altrui",
-   "C": "«escussore» non è il termine previsto per chi presta la garanzia",
-   "D": "il termine corretto è fideiussore, non «fideiussatore»"
+   "B": "il beneficiario è chi riceve un vantaggio, non chi garantisce",
+   "C": "«escussore» non è il garante: escutere vuol dire agire sui beni del debitore",
+   "D": "«fideiussatore» non esiste: la parola corretta è fideiussore"
   },
-  "k": "chi garantisce il debito altrui = fideiussore"
+  "k": "fideiussore = garante personale",
+  "r": "Il termine giusto è <b>FIDEIUSSORE</b> (da <i>fides</i>, «fiducia»). La D è una parola inventata molto simile: leggi bene le lettere."
  },
  "4685": {
-  "q": "Se il debito principale non è valido, la garanzia prestata su quel debito è valida?",
-  "p": "<b>No</b>. La fideiussione dipende dal debito che garantisce: se non esiste un debito valido, non c'è nulla da garantire. Questo legame si chiama accessorietà. La legge fa un'eccezione per il debito assunto da un incapace, ma la regola generale è questa.",
-  "e": "Il contratto di finanziamento di Marco è nullo. Anna, che lo garantiva, non deve pagare in base a quel debito.",
+  "q": "Il debito principale <b>non è valido</b>. La domanda chiede se è valida la fideiussione che lo garantisce.",
+  "p": "<b>No</b>. La fideiussione è <b>accessoria</b>: esiste per garantire un altro debito. Se il debito principale non è valido, cade anche la garanzia. L'unica eccezione prevista dal codice è il debito assunto da un <b>incapace</b>: in quel caso la fideiussione resta valida, proprio per proteggere il creditore.",
+  "e": "Il contratto di prestito tra Luca e la banca è nullo. Anche la fideiussione del padre di Luca è senza effetto: non c'è un debito valido da garantire.",
   "x": {
-   "B": "l'importo non cambia la regola: conta la validità del debito principale",
-   "C": "«sì» ignora il legame tra la garanzia e il debito garantito",
-   "D": "la regola deriva dall'accessorietà, non da una scelta caso per caso delle parti"
+   "B": "l'importo non conta",
+   "C": "la fideiussione segue la sorte del debito principale",
+   "D": "la volontà delle parti non salva una garanzia di un debito invalido"
   },
-  "k": "debito non valido = fideiussione non valida"
+  "k": "debito invalido = fideiussione invalida",
+  "r": "<b>«L'ombra segue il corpo»</b>: la fideiussione è l'ombra del debito principale. Se il debito sparisce, sparisce anche la garanzia."
  },
  "4686": {
-  "q": "Che cosa sono l'avallo e la fideiussione?",
-  "p": "Sono <b>forme di garanzia personale</b>. Chi le presta si impegna con il proprio patrimonio a pagare il debito di un altro, senza vincolare un bene specifico. L'avallo si usa per i titoli come cambiali e assegni, la fideiussione per le obbligazioni in generale.",
-  "e": "Un amico firma per avallo la tua cambiale: se tu non paghi, il portatore può chiedere il pagamento a lui, che ne risponde con i suoi beni.",
+  "q": "La domanda chiede che cosa sono l'<b>avallo</b> e la <b>fideiussione</b>.",
+  "p": "Sono due <b>forme di garanzia personale</b>: una persona garantisce un debito altrui con <b>tutto il suo patrimonio</b>, senza vincolare un bene specifico. L'avallo si usa per i titoli di credito (cambiali), la fideiussione per qualsiasi obbligazione. Le garanzie <b>reali</b>, invece, sono il pegno e l'ipoteca, che vincolano un bene preciso.",
+  "e": "Il padre firma come avallante una cambiale del figlio, o come fideiussore per il suo mutuo: in entrambi i casi risponde con tutti i suoi beni.",
   "x": {
-   "B": "non servono a raccogliere denaro: garantiscono un debito",
-   "C": "non sono crediti erogati dalla banca: sono impegni di garanzia",
-   "D": "la garanzia reale vincola un bene preciso, come pegno e ipoteca; qui si impegna la persona"
+   "B": "non servono alle banche per raccogliere denaro: sono garanzie",
+   "C": "non sono crediti erogati dalle banche",
+   "D": "le garanzie reali sono pegno e ipoteca, che vincolano un bene specifico"
   },
-  "k": "avallo e fideiussione = garanzie personali"
+  "k": "avallo e fideiussione = garanzie personali",
+  "r": "<b>Personale = una persona; reale = una cosa</b> (<i>res</i>). Avallo e fideiussione → persone. Pegno e ipoteca → cose."
  },
  "4687": {
-  "q": "In quale di questi casi la fideiussione è efficace?",
-  "p": "<b>Quando il debitore non è a conoscenza della fideiussione prestata a suo favore</b>. Il contratto riguarda il fideiussore e il creditore: il debitore non deve parteciparvi e nemmeno saperlo. Chi garantisce, invece, deve volerlo in modo espresso.",
-  "e": "Un padre garantisce con la banca il debito del figlio senza dirglielo: la garanzia è efficace lo stesso.",
+  "q": "La domanda chiede in quale di queste situazioni la fideiussione è comunque <b>efficace</b>.",
+  "p": "La fideiussione è efficace <b>anche se il debitore non sa</b> che qualcuno ha garantito per lui. È un accordo tra fideiussore e creditore, quindi il debitore non deve partecipare. Il <b>fideiussore</b>, invece, deve saperlo eccome: la sua volontà di garantire deve essere <b>espressa</b>, cioè chiara, e non può essere dedotta da comportamenti o da altri contratti simili.",
+  "e": "Una zia, all'insaputa del nipote, si presenta in banca e firma una fideiussione per il suo prestito. È valida anche se il nipote non ne sa niente.",
   "x": {
-   "B": "il fideiussore deve sapere e volere: non può essere obbligato a sua insaputa",
-   "C": "la volontà di garantire deve essere espressa: i contratti simili non bastano",
-   "D": "un semplice atteggiamento non basta: la volontà deve essere espressa"
+   "B": "il fideiussore deve conoscere e volere la garanzia: senza la sua volontà non c'è fideiussione",
+   "C": "la volontà deve essere espressa, non dedotta da contratti simili",
+   "D": "la volontà deve essere espressa, non dedotta da un atteggiamento"
   },
-  "k": "il debitore può non saperlo, il garante no"
+  "k": "fideiussione valida anche all'insaputa del debitore",
+  "r": "<b>«Il debitore può non saperlo, il garante no»</b>. La volontà del fideiussore va sempre <b>espressa</b>: le opzioni con «desumibile» sono sbagliate."
  },
  "4688": {
-  "q": "Si può garantire sia un debito sotto condizione sia un debito futuro?",
-  "p": "<b>Sì, ma per l'obbligazione futura va previsto l'importo massimo garantito</b>. Un debito futuro non è ancora noto nel suo ammontare, quindi il limite serve a far sapere al garante quanto rischia al massimo. Il debito condizionale è anch'esso garantibile.",
-  "e": "Anna garantisce i futuri debiti di Marco verso la banca fino a un massimo di 50.000 euro: oltre quella cifra non risponde.",
+  "q": "La domanda chiede se si può garantire con fideiussione un'obbligazione <b>condizionale</b> e anche un'obbligazione <b>futura</b>.",
+  "p": "<b>Sì, per entrambe</b>. Per l'obbligazione futura però il codice chiede di <b>indicare l'importo massimo garantito</b>. Il motivo è proteggere il fideiussore: se garantisce debiti che ancora non esistono, deve sapere fino a quanto potrebbe dover pagare.",
+  "e": "Un imprenditore apre un fido in banca. Il padre garantisce i debiti futuri del figlio «fino a un massimo di 50.000 €»: è valida.",
   "x": {
-   "B": "anche l'obbligazione futura è garantibile, se c'è l'importo massimo",
-   "C": "sono ammesse entrambe: il divieto totale non è la regola",
-   "D": "anche l'obbligazione condizionale è garantibile"
+   "B": "è ammessa anche per le obbligazioni future",
+   "C": "è ammessa per tutte e due",
+   "D": "è ammessa anche per le obbligazioni condizionali"
   },
-  "k": "debito futuro = serve l'importo massimo"
+  "k": "fideiussione su debiti futuri = con importo massimo",
+  "r": "<b>«Futuro sì, ma con un tetto»</b>. La parola da cercare è <b>«importo massimo»</b>."
  },
  "4689": {
-  "q": "Tizio vuole garantire un debito che nascerà in futuro. Può farlo?",
-  "p": "<b>Sì, con la previsione dell'importo massimo garantito</b>. Il tetto protegge Tizio: il debito futuro non è ancora noto, e senza limite si esporrebbe a un rischio indefinito. Un minimo non lo proteggerebbe affatto.",
-  "e": "Tizio garantisce i futuri acquisti a credito di un amico «fino a 10.000 euro»: sa fin da subito quanto può dover pagare al massimo.",
+  "q": "Tizio vuole garantire con fideiussione un debito <b>che deve ancora nascere</b>. La domanda chiede se può farlo.",
+  "p": "<b>Sì, indicando l'importo massimo garantito</b>. È la stessa regola della domanda precedente: la fideiussione per debiti futuri è ammessa, ma il fideiussore deve conoscere il limite massimo del suo rischio. Non serve nessun pegno aggiuntivo, e il limite è un <b>massimo</b>, non un minimo.",
+  "e": "Tizio garantisce «tutti i debiti futuri di Caio verso la banca fino a 30.000 €». Se Caio arriva a dovere 40.000 €, Tizio risponde al massimo per 30.000 €.",
   "x": {
-   "B": "non serve dare in pegno azioni o obbligazioni: basta indicare il massimo",
-   "C": "serve un massimo, non un minimo: è il tetto che limita il rischio",
-   "D": "le obbligazioni future si possono garantire"
+   "B": "non servono pegni su azioni o obbligazioni",
+   "C": "il limite è un importo <b>massimo</b>, non minimo",
+   "D": "è possibile"
   },
-  "k": "fideiussione futura = tetto massimo"
+  "k": "debiti futuri = importo massimo garantito",
+  "r": "Gemella della precedente: <b>«futuro sì, con un tetto»</b>. La trappola è la C: «minimo» invece di «massimo»."
  },
  "4690": {
-  "q": "Chi è in affitto risponde se la cosa si perde o si rovina durante la locazione?",
-  "p": "<b>Sì, qualora non provi che è accaduto per causa a lui non imputabile</b>. Il conduttore ha la cosa nelle sue mani, quindi la legge presume la sua responsabilità. Tocca a lui dimostrare che la causa non dipende da lui, altrimenti risponde.",
-  "e": "Il soffitto dell'appartamento si rovina per una perdita. L'inquilino non paga se prova che dipende da un guasto del palazzo e non da lui.",
+  "q": "Durante la locazione la cosa affittata si <b>perde o si deteriora</b>. La domanda chiede se ne risponde il conduttore (l'inquilino).",
+  "p": "<b>Sì, a meno che non provi</b> che è successo per una causa a lui <b>non imputabile</b>. L'inquilino ha la cosa sotto il suo controllo, quindi la legge presume che il danno sia colpa sua: tocca a lui dimostrare il contrario. Anche per l'incendio vale la stessa logica: risponde se non prova che non è colpa sua.",
+  "e": "Lasci l'appartamento in affitto con il parquet rovinato. Il padrone di casa può chiederti i danni, a meno che tu non provi che il danno è stato causato da un'infiltrazione dal piano di sopra.",
   "x": {
-   "B": "l'incendio non è un'eccezione automatica: il conduttore deve comunque provare la causa non imputabile",
-   "C": "inverte l'onere della prova: deve provare il conduttore, non il locatore",
-   "D": "la regola non è l'esonero: il conduttore risponde se non dà la prova"
+   "B": "l'incendio non è escluso: anche lì l'inquilino deve provare di non avere colpa",
+   "C": "inverte l'onere della prova: è l'inquilino che deve dimostrare di non avere colpa",
+   "D": "generalmente ne risponde, salvo prova contraria"
   },
-  "k": "danni in locazione = prova a carico del conduttore"
+  "k": "conduttore risponde salvo prova di causa non imputabile",
+  "r": "<b>«Ce l'avevi tu, dimostra che non è colpa tua»</b>. La domanda gioca su <b>chi deve provare</b>: la C sposta la prova sul locatore ed è la trappola."
  },
  "4691": {
-  "q": "Quanto può durare al massimo una locazione?",
-  "p": "Al massimo <b>30 anni</b>. È una regola da memorizzare: il codice civile fissa questo limite perché il bene non resti vincolato troppo a lungo. Se le parti pattuiscono di più, la durata si riduce a 30 anni.",
-  "e": "Un contratto firmato per 40 anni non vale per 40: dura solo 30 anni.",
+  "q": "La domanda chiede qual è la <b>durata massima</b> di una locazione secondo il codice civile.",
+  "p": "<b>30 anni</b>. Il codice non vuole che un bene resti vincolato all'infinito: per questo la locazione non può durare più di trent'anni, e se si prevede una durata più lunga si riduce a trenta. Le durate di 4, 6 o 9 anni che conosci sono altre cose (durate minime delle leggi speciali o la soglia della forma scritta).",
+  "e": "Un contratto di affitto di un capannone «per 40 anni» vale per 30 anni.",
   "x": {
-   "B": "6 anni non è il limite massimo generale della locazione",
-   "C": "4 anni non è il limite massimo generale della locazione",
-   "D": "9 anni non è il limite massimo generale della locazione"
+   "B": "6 anni è la durata minima delle locazioni commerciali, non il massimo",
+   "C": "4 anni è la durata minima delle locazioni abitative, non il massimo",
+   "D": "9 anni è la soglia oltre cui serve la forma scritta, non il massimo"
   },
-  "k": "locazione = massimo 30 anni"
+  "k": "locazione: massimo 30 anni",
+  "r": "Tieni distinti i numeri: <b>4</b> (minimo casa), <b>6</b> (minimo negozi), <b>9</b> (oltre serve lo scritto), <b>30</b> (massimo assoluto). La domanda chiede il massimo: <b>30</b>."
  },
  "4692": {
-  "q": "La cosa affittata ha bisogno di riparazioni che non spettano all'inquilino. Che cosa deve fare lui?",
-  "p": "<b>Il conduttore è tenuto a darne avviso al locatore</b>. Il locatore è la controparte del contratto e chi deve provvedere a quelle riparazioni. Senza avviso potrebbe non saperlo, perché la cosa è in mano all'inquilino.",
-  "e": "L'inquilino scopre che la caldaia è da sostituire: deve avvisare subito il padrone di casa.",
+  "q": "La cosa affittata ha bisogno di riparazioni che <b>non spettano all'inquilino</b>. La domanda chiede cosa deve fare l'inquilino.",
+  "p": "Deve <b>avvisare il locatore</b>, cioè il padrone di casa. Le riparazioni che non sono di piccola manutenzione spettano al locatore, ma lui non può farle se non sa del problema. L'inquilino non deve farle da solo (salvo urgenza) e non può smettere di pagare l'affitto per decisione propria.",
+  "e": "Si rompe la caldaia per vecchiaia: chiami il padrone di casa e lo avvisi. Non sospendi l'affitto in attesa che la aggiusti.",
   "x": {
-   "B": "l'obbligo è verso il locatore, non verso l'amministratore di condominio",
-   "C": "quelle riparazioni non sono a suo carico: non deve eseguirle in ogni caso",
-   "D": "il guasto non dà il diritto di sospendere subito il canone: il suo obbligo è avvisare"
+   "B": "l'avviso va dato al locatore, non all'amministratore del condominio",
+   "C": "non è tenuto a eseguire lui le riparazioni che spettano al locatore",
+   "D": "non può sospendere da solo il pagamento dell'affitto"
   },
-  "k": "riparazione non sua = avvisa il locatore"
+  "k": "riparazioni del locatore = avvisare il locatore",
+  "r": "<b>«Prima chiama il padrone di casa»</b>. È la risposta più semplice e prudente: le altre propongono reazioni sproporzionate o il destinatario sbagliato."
  },
  "4693": {
-  "q": "Nella locazione, chi paga le piccole riparazioni di manutenzione?",
-  "p": "Il <b>conduttore</b>. Chi usa la cosa ogni giorno sostiene i piccoli interventi legati a quell'uso. Le altre riparazioni necessarie, invece, in generale spettano al locatore, che deve mantenere la cosa in buono stato.",
-  "e": "L'inquilino cambia la guarnizione del rubinetto a sue spese. Il rifacimento dell'impianto, invece, tocca al locatore.",
+  "q": "Nella locazione, la domanda chiede chi paga le <b>riparazioni di piccola manutenzione</b>.",
+  "p": "Il <b>conduttore</b>, cioè l'inquilino. Sono riparazioni dovute all'uso quotidiano (una maniglia, un rubinetto che gocciola, una lampadina), quindi le sostiene chi usa la casa ogni giorno. Le altre riparazioni restano al <b>locatore</b> (proprietario).",
+  "e": "Si rompe la maniglia della porta del bagno: la ripari tu che sei in affitto. Se invece va rifatto l'impianto elettrico, paga il proprietario.",
   "x": {
-   "B": "le parti del contratto sono locatore e conduttore: la piccola manutenzione non spetta al proprietario",
-   "C": "al locatore spettano le altre riparazioni, non la piccola manutenzione",
-   "D": "il fattore non è parte del contratto di locazione"
+   "B": "il proprietario/locatore paga le riparazioni più importanti, non la piccola manutenzione",
+   "C": "il locatore paga le riparazioni più importanti, non la piccola manutenzione",
+   "D": "«fattore» non c'entra con la locazione"
   },
-  "k": "piccola manutenzione = conduttore"
+  "k": "piccola manutenzione = conduttore",
+  "r": "<b>«Il piccolo lo paga chi ci vive»</b>, come nel diritto di abitazione e nell'usufrutto. Attento: proprietario e locatore sono la stessa persona qui, quindi B e C cadono insieme."
  },
  "4694": {
-  "q": "Giulia, in affitto per 9 anni nella villa di Carla, costruisce una serra e due garage. Alla fine, Carla deve pagarle qualcosa?",
-  "p": "<b>Sì, se le opere non vengono tolte e la proprietaria preferisce tenerle, nella minor somma tra le spese complessive e il valore delle addizioni alla riconsegna</b>. Le addizioni sono opere aggiunte al bene. Se Carla sceglie di tenerle, deve un'indennità, perché ne trae un vantaggio. Il criterio della minor somma evita che paghi più del costo o più del valore reale.",
-  "e": "Giulia ha speso 50.000 euro e alla riconsegna le opere valgono 30.000. Carla le tiene e paga 30.000: la minore delle due cifre.",
+  "q": "Giulia affitta per 9 anni una villa a Portofino e ci costruisce una serra e due garage. Alla fine della locazione, la domanda chiede se la proprietaria deve pagarle qualcosa per queste <b>addizioni</b>.",
+  "p": "Dipende. Se le opere si possono togliere senza danneggiare la villa, l'inquilina le porta via. Se <b>non si possono togliere senza danno</b> e la proprietaria <b>preferisce tenerle</b>, deve pagare un'indennità pari alla <b>minor somma</b> tra quanto si è speso e il valore delle opere alla riconsegna. Così la proprietaria non si arricchisce gratis, ma non paga più di quanto valgono davvero.",
+  "e": "I garage sono costati 40.000 € ma alla riconsegna valgono 30.000 €. Se la proprietaria li tiene, paga 30.000 €, la cifra più bassa.",
   "x": {
-   "B": "«mai» è sbagliato: se la proprietaria tiene le opere, l'indennità è dovuta",
-   "C": "l'indennità non è fissa alla metà dei costi: si guarda la minor somma",
-   "D": "non è dovuta in ogni caso, né sempre pari ai costi: conta anche il valore alla riconsegna"
+   "B": "non è «mai»: se il proprietario tiene le opere deve pagare",
+   "C": "non è una metà fissa dei costi",
+   "D": "non sono sempre i costi pieni: si paga la minore tra spesa e valore"
   },
-  "k": "addizioni tenute = minor somma tra spese e valore"
+  "k": "addizioni: minor somma tra spesa e valore",
+  "r": "<b>«Paga il meno»</b>: il proprietario che tiene le addizioni paga la cifra <b>più bassa</b> tra costo e valore. La risposta giusta è la più lunga e piena di condizioni."
  },
  "4695": {
-  "q": "In che forma vanno fatti i contratti che trasferiscono la proprietà di un immobile?",
-  "p": "<b>Per atto pubblico o per scrittura privata, sotto pena di nullità</b>. Per gli immobili la forma scritta è richiesta per la validità stessa del contratto. Senza forma scritta il contratto è nullo, cioè non produce effetti. È una regola da memorizzare.",
-  "e": "Due persone si accordano a voce per vendere un appartamento e si stringono la mano: quel contratto è nullo.",
+  "q": "La domanda chiede in che forma devono essere fatti i contratti che <b>trasferiscono la proprietà di immobili</b> e cosa succede se la forma manca.",
+  "p": "Devono essere fatti <b>per atto pubblico o per scrittura privata, sotto pena di nullità</b>. Lo scritto è una forma <i>ad substantiam</i>: senza, il contratto non è inefficace, è proprio <b>nullo</b>. Va bene anche la scrittura privata, non solo l'atto del notaio (che poi serve per la trascrizione).",
+  "e": "Due fratelli si vendono una casa con una stretta di mano: il contratto è nullo. Se firmano una scrittura privata, è valido.",
   "x": {
-   "B": "per gli immobili non vale una forma qualsiasi, tantomeno tacita",
-   "C": "«esclusivamente» è troppo: basta anche la scrittura privata",
-   "D": "senza la forma il contratto non è «valido ma inefficace»: è nullo"
+   "B": "la forma non è libera: serve lo scritto",
+   "C": "non serve <b>solo</b> l'atto pubblico: basta anche la scrittura privata",
+   "D": "senza la forma il contratto è nullo, non «valido ma inefficace»"
   },
-  "k": "immobili = per iscritto o nullità"
+  "k": "immobili = atto pubblico o scrittura privata, pena nullità",
+  "r": "<b>«Casa = carta, altrimenti nullo»</b>. Le due insidie: «esclusivamente atto pubblico» (troppo stretto) e «inefficace» (sanzione sbagliata)."
  },
  "4696": {
-  "q": "Tizio compra una moto da Caio e chiede di fargliela spedire a casa con un autocarro. Chi paga il trasporto?",
-  "p": "<b>Tizio, salvo diverso specifico accordo con Caio</b>. Il bene viaggia per arrivare dal compratore, e la regola generale mette queste spese a carico suo. Le parti possono però accordarsi diversamente.",
-  "e": "Il trasporto costa 200 euro: li paga Tizio, salvo che Caio abbia accettato di accollarseli.",
+  "q": "Tizio compra una moto da Caio e chiede di spedirgliela a casa con un camion. La domanda chiede chi paga il trasporto.",
+  "p": "<b>Tizio</b>, il compratore, salvo un accordo diverso con Caio. Il venditore deve consegnare la cosa dove si trova; se il compratore la vuole altrove, il trasporto è un costo in più a suo carico. Inoltre il venditore si libera consegnando la moto al trasportatore.",
+  "e": "Compri una cucina in un negozio di Torino e la vuoi a Napoli: il trasporto lo paghi tu, salvo che il negozio non abbia offerto la spedizione gratis.",
   "x": {
-   "B": "la divisione a metà non è la regola, serve un accordo",
-   "C": "inverte la regola: di base paga il compratore, non il venditore",
-   "D": "«in ogni caso» è sbagliato, e di base il trasporto non spetta al venditore"
+   "B": "non si divide a metà",
+   "C": "le spese di trasporto sono del compratore, non del venditore",
+   "D": "non è «in ogni caso» del venditore: anzi, di regola è del compratore"
   },
-  "k": "trasporto = compratore, salvo accordo"
+  "k": "trasporto = a carico del compratore",
+  "r": "<b>«La cosa non viaggia gratis»</b>: chi la vuole a casa paga il viaggio. È la stessa regola della consegna nel luogo in cui si trova la cosa."
  },
  "4697": {
-  "q": "Tizio vende un tornio a Caio con patto di riscatto. Che cosa può accadere?",
-  "p": "<b>Tizio può riavere il tornio</b>. Con il patto di riscatto il venditore si riserva il diritto di riprendere il bene restituendo il prezzo, entro il termine di legge. Il diritto spetta a chi ha venduto, cioè a Tizio.",
-  "e": "Tizio vende il tornio a Caio. Poi decide di riscattarlo: restituisce il prezzo e le altre somme dovute e torna proprietario.",
+  "q": "Caio compra un tornio da Tizio e le parti inseriscono un <b>patto di riscatto</b>. La domanda chiede cosa permette questo patto.",
+  "p": "Permette al <b>venditore</b> (Tizio) di <b>riavere il tornio</b>, restituendo il prezzo e le spese, entro un certo termine. È il diritto di «ricomprare» la cosa venduta. Per i beni mobili il termine massimo è di 2 anni, per gli immobili di 5.",
+  "e": "Un artigiano in difficoltà vende il suo tornio con patto di riscatto. Un anno dopo gli affari vanno meglio: restituisce il prezzo e si riprende il tornio.",
   "x": {
-   "B": "il riscatto è un diritto del venditore, non un diritto di restituzione del compratore",
-   "C": "il riscatto non rinvia il pagamento a una condizione",
-   "D": "il riscatto non rinvia la consegna a una condizione"
+   "B": "il riscatto spetta al venditore, non al compratore che restituisce",
+   "C": "non c'entra una condizione sul pagamento",
+   "D": "non c'entra una condizione sulla consegna"
   },
-  "k": "riscatto = il venditore riprende il bene"
+  "k": "riscatto = il venditore riprende la cosa",
+  "r": "<b>«Ri-scatto = ri-prendo»</b>: è il <b>venditore</b> che si riprende la cosa. Il trucco è ricordare chi ha il diritto: chi ha venduto."
  },
  "4698": {
-  "q": "Il compratore può smettere di pagare se teme che un terzo rivendichi il bene comprato?",
-  "p": "<b>Sì, salvo che il venditore presti idonea garanzia o che il pericolo fosse già noto al compratore al momento della vendita</b>. La sospensione lo protegge dal rischio di pagare e perdere il bene. Non serve più se il venditore dà garanzie. Non spetta nemmeno a chi conosceva già il rischio quando ha comprato.",
-  "e": "Luca compra un quadro e poi scopre che un terzo lo reclama: sospende il pagamento finché il venditore non gli dà una garanzia adeguata.",
+  "q": "Il compratore teme che qualcuno possa rivendicare il bene acquistato (cioè sostenere di esserne il vero proprietario). La domanda chiede se può sospendere il pagamento.",
+  "p": "<b>Sì</b>, ma con due eccezioni: non può sospendere se il <b>venditore presta un'idonea garanzia</b>, oppure se il compratore <b>conosceva già il pericolo</b> al momento della vendita. La sospensione è uno strumento di tutela, non un modo per approfittarne: se il rischio era già noto o è coperto da garanzie, non serve.",
+  "e": "Dopo l'acquisto di un quadro scopri che un museo sostiene sia rubato: puoi sospendere il pagamento. Se però il venditore ti dà una fideiussione bancaria, devi pagare.",
   "x": {
-   "B": "la mala fede del venditore non è la condizione: conta il pericolo di rivendica",
-   "C": "il modesto valore del bene non è una delle eccezioni previste",
-   "D": "la regola di base è opposta: il compratore può sospendere, non «no»"
+   "B": "non serve la malafede del venditore",
+   "C": "il valore del bene non conta",
+   "D": "è incompleta: manca l'eccezione della garanzia del venditore, e inizia con un «No» sbagliato"
   },
-  "k": "rischio rivendica = sospendi, salvo garanzia o rischio già noto"
+  "k": "sospensione del prezzo, salvo garanzia o pericolo già noto",
+  "r": "<b>«Ti fermo i soldi, a meno che tu non mi garantisca»</b>. La risposta giusta ha <b>due «salvo»</b>: garanzia e conoscenza del pericolo."
  },
  "4699": {
-  "q": "Qual è l'obbligo principale di chi compra un bene mobile?",
-  "p": "<b>Pagare il prezzo convenuto nel luogo e nel termine stabilito</b>. La vendita è uno scambio tra bene e prezzo: il venditore dà il bene, il compratore paga. Per questo il pagamento è il suo obbligo principale.",
-  "e": "Compri una macchina da ufficio per 1.000 euro con pagamento a 30 giorni in sede del venditore: devi pagare lì, entro quel termine.",
+  "q": "La domanda chiede qual è l'<b>obbligazione principale del compratore</b> di beni mobili.",
+  "p": "<b>Pagare il prezzo</b> nel luogo e nel termine stabiliti. La vendita è uno scambio cosa contro prezzo: il venditore trasferisce e consegna il bene, il compratore paga. Ritirare la cosa è un'attività collegata, ma non è l'obbligazione principale. Garantire contro i terzi spetta al venditore, non al compratore.",
+  "e": "Compri un divano: la tua obbligazione principale è pagare i 900 € pattuiti alla data concordata.",
   "x": {
-   "B": "ritirare il bene non è l'obbligazione principale: lo è pagare il prezzo",
-   "C": "il compratore non deve proteggere il venditore dai creditori di quest'ultimo",
-   "D": "semmai è il venditore a garantire il compratore contro le rivendiche dei terzi"
+   "B": "ritirare il bene non è l'obbligazione principale",
+   "C": "non spetta al compratore tutelare il venditore dai suoi creditori",
+   "D": "la garanzia contro le rivendicazioni dei terzi spetta al <b>venditore</b>"
   },
-  "k": "compratore = paga il prezzo"
+  "k": "compratore = paga il prezzo",
+  "r": "<b>«Il venditore dà la cosa, il compratore dà i soldi»</b>. Le opzioni che fanno «garantire» il compratore invertono i ruoli."
  },
  "4700": {
-  "q": "Il compratore non paga il prezzo. Che cosa può fare il venditore?",
-  "p": "<b>Può far vendere il bene per conto e a spese del compratore, e ha diritto alla differenza tra prezzo convenuto e ricavo netto, oltre al maggior danno</b>. Il venditore recupera con la rivendita ciò che può. La parte che manca resta a carico di chi non ha pagato, perché è lui che ha causato il danno.",
-  "e": "Prezzo 10.000 euro, ricavo netto della rivendita 8.000. La differenza è 10.000 - 8.000 = 2.000: spetta al venditore, più l'eventuale maggior danno.",
+  "q": "Il compratore di un bene mobile <b>non paga il prezzo</b>. La domanda chiede cosa può fare il venditore.",
+  "p": "Il venditore può <b>far vendere il bene per conto e a spese del compratore</b>, e ha diritto alla <b>differenza tra il prezzo pattuito e il ricavo netto</b>, oltre al <b>risarcimento del maggior danno</b>. È l'esecuzione coattiva: il venditore non resta con la merce in mano e recupera quello che perde.",
+  "e": "Hai venduto un macchinario a 50.000 € e il compratore non paga. Lo fai rivendere e ricavi 42.000 €: il compratore ti deve 8.000 € di differenza più gli eventuali altri danni.",
   "x": {
-   "B": "non è limitato a un sollecito scritto: può far vendere il bene",
-   "C": "il risarcimento spetta al venditore, non al compratore inadempiente",
-   "D": "la differenza spetta al venditore, non al compratore"
+   "B": "non può solo sollecitare: ha strumenti più forti",
+   "C": "è il venditore, non il compratore inadempiente, ad avere diritto al risarcimento",
+   "D": "è il venditore, non il compratore, ad avere diritto alla differenza"
   },
-  "k": "compratore non paga = rivendita a sue spese + differenza"
+  "k": "compratore non paga = vendita coattiva + differenza + danni",
+  "r": "<b>«Chi non paga, paga la differenza»</b>. Le opzioni C e D sono identiche alla A ma danno i soldi alla persona sbagliata: controlla sempre <b>chi</b> riceve il risarcimento."
  },
  "4701": {
   "q": "Vendita a termine di titoli: il venditore incassa interessi o dividendi dopo la firma ma prima della scadenza. A chi vanno?",
