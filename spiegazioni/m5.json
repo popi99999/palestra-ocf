@@ -1200,554 +1200,604 @@
   "r": "<b>«Chi non paga, paga la differenza»</b>. Le opzioni C e D sono identiche alla A ma danno i soldi alla persona sbagliata: controlla sempre <b>chi</b> riceve il risarcimento."
  },
  "4701": {
-  "q": "Vendita a termine di titoli: il venditore incassa interessi o dividendi dopo la firma ma prima della scadenza. A chi vanno?",
-  "p": "Vanno accreditati <b>al compratore</b>. Dalla conclusione del contratto il vantaggio economico dei titoli è già destinato a lui, anche se il venditore li detiene ancora fino al termine. Il venditore che incassa, quindi, deve riconoscergli quelle somme.",
-  "e": "Mario vende a termine a Luca azioni con scadenza tra tre mesi. Dopo un mese Mario riscuote un dividendo di 100 euro: quei 100 euro vanno accreditati a Luca.",
+  "q": "Nella <b>vendita a termine di titoli</b> (si firma oggi, i titoli passano al compratore a una data futura), maturano interessi o dividendi tra la firma e la scadenza. Il venditore li incassa: la domanda chiede a chi spettano.",
+  "p": "Spettano al <b>compratore</b>. Dalla conclusione del contratto i titoli sono economicamente suoi: il prezzo è già fissato e tiene conto di quei frutti. Se il venditore li riscuote nel frattempo, li incassa <b>per conto del compratore</b> e deve accreditarglieli.",
+  "e": "Ad aprile vendi a termine 1.000 azioni con consegna a luglio. A maggio arriva un dividendo di 500 €: lo incassi tu, ma devi girarlo al compratore.",
   "x": {
-   "B": "nessuna divisione in due terzi e un terzo: la somma spetta tutta al compratore",
-   "C": "il venditore riscuote materialmente, ma non può tenere la somma",
-   "D": "nessuna divisione in parti uguali: spetta solo al compratore"
+   "B": "non c'è nessuna divisione in terzi",
+   "C": "il venditore non può tenerli: li deve al compratore",
+   "D": "non si dividono a metà"
   },
-  "k": "vendita a termine: frutti al compratore"
+  "k": "vendita a termine titoli: frutti al compratore",
+  "r": "<b>«Dalla firma, i frutti sono di chi compra»</b>. Il venditore è solo un «postino» che incassa e passa. Le risposte con percentuali sono esche."
  },
  "4702": {
-  "q": "Tizio si impegna ad acquistare da Tullio azioni di una società da costituire entro quindici giorni. La società non nasce: che succede alla vendita?",
-  "p": "<b>La vendita è nulla, salvo che le parti abbiano voluto un contratto aleatorio</b>. È una vendita di cosa futura: se la cosa non viene a esistenza, manca l'oggetto del contratto. Se però le parti hanno accettato il rischio (contratto aleatorio), il contratto regge e il prezzo resta dovuto.",
-  "e": "Se la società non viene costituita, Tizio non deve pagare. Se però aveva comprato accettando il rischio che non nascesse mai, il prezzo è dovuto lo stesso.",
+  "q": "Tizio si impegna a comprare da Tullio le azioni di una società <b>che deve ancora essere costituita</b>. La società però non nasce. La domanda chiede cosa succede alla vendita.",
+  "p": "La vendita è <b>nulla</b>, salvo che le parti abbiano voluto un <b>contratto aleatorio</b>. È una vendita di <b>cosa futura</b>: l'acquisto si realizza solo se la cosa viene a esistenza. Se non nasce, il contratto non ha oggetto. Diverso è se le parti hanno accettato il rischio («compro comunque, anche se non nascerà»): allora il contratto è aleatorio e il prezzo resta dovuto.",
+  "e": "Compri le azioni di una start-up «da costituire entro 15 giorni». Se la start-up non nasce, non devi pagare nulla, a meno che non vi foste accordati che pagavi comunque per il rischio.",
   "x": {
-   "B": "il contratto non è illecito: comprare una cosa futura è permesso",
-   "C": "non è valida comunque: senza la cosa e senza alea è nulla",
-   "D": "l'eccezione riguarda il contratto aleatorio, non quello estimatorio"
+   "B": "non è illecita: vendere cose future è ammesso",
+   "C": "non è comunque valida: senza la cosa manca l'oggetto",
+   "D": "il contratto estimatorio è un'altra cosa (merce in conto vendita)"
   },
-  "k": "cosa futura mai nata = nulla, salvo alea"
+  "k": "cosa futura che non nasce = nulla, salvo aleatorietà",
+  "r": "<b>«Niente cosa, niente vendita»</b>, a meno che si sia comprato il <b>rischio</b>. La parola chiave dell'eccezione è <b>«aleatorio»</b> (da <i>alea</i>, «dado»)."
  },
  "4703": {
-  "q": "Un terzo fa causa al compratore dicendo di avere diritti sulla cosa venduta. Cosa deve fare il compratore?",
-  "p": "<b>Deve chiamare in causa il venditore, altrimenti rischia di perdere la garanzia</b>. Il venditore deve garantire che la cosa sia libera da diritti altrui e deve poter difendere la vendita nel processo. Se non viene chiamato e il compratore perde, il venditore può liberarsi provando che aveva buone ragioni per far respingere la domanda.",
-  "e": "Anna compra un quadro e Paolo la cita dicendo che è suo. Anna chiama in causa il venditore, così conserva il diritto alla garanzia se perde il quadro.",
+  "q": "Un terzo fa causa al compratore sostenendo di avere diritti sulla cosa che ha comprato. La domanda chiede cosa deve fare il compratore.",
+  "p": "Deve <b>chiamare in causa il venditore</b>. Il venditore deve garantire che la cosa sia libera dai diritti dei terzi (garanzia per evizione). Se il compratore non lo coinvolge e perde la causa, rischia di <b>perdere il diritto alla garanzia</b>: il venditore potrebbe dire che, se fosse stato chiamato, avrebbe avuto argomenti per vincere.",
+  "e": "Compri un quadro e un collezionista ti fa causa dicendo che è suo. Chiami in causa il venditore: tocca a lui difendere la vendita.",
   "x": {
-   "B": "nessun obbligo di transigere: può difendersi nel processo",
-   "C": "provare la vendita non basta: il venditore va coinvolto nella causa",
-   "D": "è il contrario: può, e gli conviene, chiamarlo in causa"
+   "B": "non è obbligato a fare un accordo con il terzo",
+   "C": "non basta provare il contratto: deve coinvolgere il venditore",
+   "D": "può, anzi deve, chiamarlo in causa"
   },
-  "k": "lite col terzo = chiama il venditore"
+  "k": "compratore citato da terzi = chiama il venditore",
+  "r": "<b>«Chiama chi te l'ha venduta»</b>: la garanzia è del venditore, ma se non lo chiami la perdi."
  },
  "4704": {
-  "q": "Che tipo di contratto è la compravendita?",
-  "p": "È un contratto <b>consensuale a effetti reali</b>. Consensuale: si perfeziona con il solo accordo, senza bisogno di consegnare la cosa. A effetti reali: la proprietà passa al compratore per effetto di quell'accordo.",
-  "e": "Compri un mobile in negozio e lo ritiri domani: sei proprietario già da oggi, quando vi siete accordati.",
+  "q": "La domanda chiede come si classifica la <b>compravendita</b>: consensuale o reale, a effetti reali o obbligatori.",
+  "p": "È un contratto <b>consensuale a effetti reali</b>. <b>Consensuale</b>: si conclude con il semplice accordo, senza bisogno di consegnare la cosa. <b>Effetti reali</b>: la proprietà passa al compratore <b>nel momento dell'accordo</b>. La forma scritta serve solo per alcuni beni, come gli immobili, non sempre.",
+  "e": "Compri un quadro in galleria e decidi di ritirarlo la settimana dopo. Sei proprietario da subito, anche se il quadro è ancora appeso in galleria.",
   "x": {
-   "B": "non è reale, perché non serve la consegna per concluderla",
-   "C": "è a effetti reali, ma non è reale: basta il consenso",
-   "D": "la forma scritta non è sempre richiesta: un bene mobile si vende anche a voce"
+   "B": "non è reale: non serve la consegna per concluderla",
+   "C": "non è reale: non serve la consegna per concluderla",
+   "D": "la forma scritta non serve sempre, solo per alcuni beni"
   },
-  "k": "basta l'accordo, e la proprietà passa"
+  "k": "vendita = consensuale a effetti reali",
+  "r": "<b>«Basta il sì, e la cosa è tua»</b>: <b>consenso → proprietà</b>. Ricorda l'opposto: il comodato è <b>reale</b> (serve la consegna)."
  },
  "4705": {
-  "q": "Il venditore può tenersi il diritto di riavere la cosa restituendo il prezzo e i rimborsi di legge?",
-  "p": "<b>Sì, ma il patto di restituire un prezzo superiore a quello della vendita è nullo per l'eccedenza</b>. È il patto di riscatto. La legge pone il limite per evitare che il riscatto nasconda un prestito a interesse garantito dalla cosa. È nulla solo la parte in più, non tutto il patto.",
-  "e": "Vendita a 10.000 euro con riscatto a 12.000: i 2.000 euro in più sono nulli, quindi il riscatto si esercita con 10.000 euro più i rimborsi di legge.",
+  "q": "Il venditore vuole riservarsi il diritto di <b>riprendersi la cosa venduta</b> restituendo il prezzo (patto di riscatto). La domanda chiede se è possibile e a quale prezzo.",
+  "p": "<b>Sì</b>, il patto di riscatto è ammesso. Ma il patto di restituire un <b>prezzo superiore</b> a quello della vendita è <b>nullo per la parte eccedente</b>. Il motivo: altrimenti il riscatto diventerebbe un modo nascosto per fare prestiti con interessi da usura (vendo a 100, ricompro a 150).",
+  "e": "Vendi un macchinario a 10.000 € con patto di riscatto a 12.000 €. Il patto vale, ma il prezzo di riscatto si riduce a 10.000 €: i 2.000 € in più non sono dovuti.",
   "x": {
-   "B": "il patto è ammesso: si chiama patto di riscatto",
-   "C": "non è riservato agli enti pubblici: può usarlo ogni venditore",
-   "D": "il prezzo superiore non è valido: è nullo per l'eccedenza"
+   "B": "il patto di riscatto è ammesso",
+   "C": "non è riservato agli enti pubblici",
+   "D": "il prezzo superiore è nullo per l'eccedenza"
   },
-  "k": "riscatto sì, ma mai sopra il prezzo"
+  "k": "riscatto sì, ma non a prezzo maggiorato",
+  "r": "<b>«Ricompri, ma non ci guadagni sopra»</b>. Tutto quello che supera il prezzo originale è nullo: è una protezione contro l'usura."
  },
  "4706": {
-  "q": "Si può escludere o limitare con un patto la garanzia del venditore per i vizi della cosa?",
-  "p": "<b>Sì, ma il patto non ha effetto se il venditore ha taciuto i vizi in mala fede</b>. Le parti possono ridistribuire il rischio dei difetti, perché la garanzia non è inderogabile. Non possono però proteggere chi nasconde un difetto che conosce.",
-  "e": "Vendi un'auto usata «senza garanzia» e sai che il motore è guasto, ma non lo dici: il patto non ti protegge e rispondi del vizio.",
+  "q": "La domanda chiede se nel contratto di vendita si può <b>escludere o limitare la garanzia per i vizi</b> della cosa.",
+  "p": "<b>Sì</b>, il patto è ammesso. Ma <b>non ha effetto</b> se il venditore ha <b>taciuto in malafede</b> i vizi al compratore. Si può vendere «così com'è», ma non si può nascondere un difetto che si conosce e poi ripararsi dietro la clausola.",
+  "e": "Vendi un'auto usata «visto e piaciuto, senza garanzia». Se sapevi che il motore era da rifare e non l'hai detto, la clausola non ti protegge.",
   "x": {
-   "B": "non c'è questa distinzione: il patto vale anche per gli immobili",
-   "C": "il patto è ammesso, con il solo limite della mala fede",
-   "D": "è l'opposto: la mala fede fa perdere effetto al patto"
+   "B": "non è limitato ai beni mobili",
+   "C": "il patto è ammesso",
+   "D": "la malafede rende inefficace il patto"
   },
-  "k": "esclusione vizi: non copre la mala fede"
+  "k": "esclusione garanzia vizi sì, salvo malafede",
+  "r": "<b>«La clausola non copre i furbi»</b>: chi nasconde un difetto non è protetto. Scegli il «Sì, ma» con la malafede."
  },
  "4707": {
-  "q": "La cosa venduta non ha le qualità promesse o quelle essenziali per il suo uso: cosa può ottenere il compratore?",
-  "p": "<b>La risoluzione del contratto per inadempimento, purché il difetto superi i limiti di tolleranza stabiliti dagli usi</b>. La mancanza di qualità è un inadempimento del venditore e si applicano le regole generali. I piccoli scostamenti che gli usi tollerano, però, non bastano a far cadere il contratto.",
-  "e": "Compri tessuto impermeabile e arriva tessuto che fa passare l'acqua: puoi chiedere la risoluzione. Una lieve differenza che nel settore è normalmente tollerata non basta.",
+  "q": "La cosa venduta <b>non ha le qualità promesse</b>, o quelle essenziali per il suo uso. La domanda chiede cosa può ottenere il compratore.",
+  "p": "Può chiedere la <b>risoluzione del contratto</b> secondo le regole generali sull'inadempimento, purché il difetto <b>superi i limiti di tolleranza stabiliti dagli usi</b>. Un piccolo scostamento accettato comunemente nel settore non basta; uno significativo sì.",
+  "e": "Compri un vino «di 10 anni» e scopri che ne ha 3: puoi chiedere la risoluzione. Se una partita di stoffa è un millimetro più stretta, entro le tolleranze d'uso, no.",
   "x": {
-   "B": "non è limitato a chiedere uno sconto: può chiedere la risoluzione",
-   "C": "nessun diritto al doppio del prezzo pagato",
-   "D": "il difetto deve superare la tolleranza: se non la supera, niente risoluzione"
+   "B": "non è limitato a chiedere uno sconto",
+   "C": "non ha diritto al doppio del prezzo",
+   "D": "il difetto deve superare la tolleranza d'uso"
   },
-  "k": "qualità mancante oltre tolleranza = risoluzione"
+  "k": "mancanza di qualità: risoluzione se oltre la tolleranza",
+  "r": "<b>«Oltre la tolleranza si rompe»</b>. A e D sono quasi uguali: cambia solo «purché ecceda» contro «anche se non eccede». Vince «<b>purché</b>»."
  },
  "4708": {
-  "q": "Vendita a rate di una Smart con riserva della proprietà: quando il compratore diventa proprietario?",
-  "p": "<b>Con il pagamento dell'ultima rata del prezzo</b>. La riserva di proprietà serve proprio a garantire il venditore: finché il prezzo non è saldato per intero la proprietà resta sua. Il compratore ha l'auto e la usa, ma ne diventa proprietario solo alla fine.",
-  "e": "Smart pagata in 36 rate: il compratore la guida dal primo giorno, ma diventa proprietario pagando la trentaseiesima.",
+  "q": "Si compra una Smart <b>a rate con riserva della proprietà</b>. La domanda chiede quando il compratore ne diventa proprietario.",
+  "p": "Con il <b>pagamento dell'ultima rata</b>. Nella vendita con riserva di proprietà il compratore riceve subito l'auto e la usa, ma il venditore resta proprietario fino al pagamento completo. Così si tutela il venditore: se le rate non vengono pagate, l'auto è ancora sua. I rischi però passano al compratore già dalla consegna.",
+  "e": "Compri la Smart in 36 rate. La guidi dal primo giorno, ma diventa tua solo quando paghi la 36ª rata.",
   "x": {
-   "B": "la consegna dà la disponibilità dell'auto e sposta i rischi sul compratore, non la proprietà",
-   "C": "nessuna soglia del 75%: conta l'ultima rata",
-   "D": "nessuna soglia del 51%: conta l'ultima rata"
+   "B": "la consegna trasferisce i rischi, non la proprietà",
+   "C": "non esiste una soglia del 75%",
+   "D": "non esiste una soglia del 51%"
   },
-  "k": "riserva di proprietà = proprietario all'ultima rata"
+  "k": "riserva di proprietà = proprietà all'ultima rata",
+  "r": "<b>«È tua all'ultima rata»</b>. Le percentuali (75%, 51%) sono inventate."
  },
  "4709": {
-  "q": "Chi paga le spese della permuta?",
-  "p": "<b>Salvo patto contrario, entrambi i contraenti, in parti uguali</b>. Nella permuta non c'è un compratore e un venditore: tutti e due danno e ricevono, quindi è logico dividere a metà. Le parti possono però accordarsi diversamente.",
-  "e": "Luca e Sara si scambiano due terreni e le spese sono 2.000 euro: 1.000 a testa, se non hanno pattuito altro.",
+  "q": "Nella <b>permuta</b> (scambio di una cosa con un'altra), la domanda chiede chi paga le spese del contratto.",
+  "p": "Salvo patto contrario, le spese sono <b>a carico di entrambi in parti uguali</b>. Nella permuta non c'è un compratore e un venditore: tutti e due danno e ricevono una cosa, quindi è giusto dividere. Le parti però possono accordarsi diversamente.",
+  "e": "Scambi la tua moto con l'auto di un amico e il notaio per il passaggio costa 400 €: 200 € a testa, salvo diverso accordo.",
   "x": {
-   "B": "il preponente non c'entra: è una figura del contratto di agenzia",
+   "B": "«preponente» non c'entra con la permuta",
    "C": "il patto contrario è ammesso",
-   "D": "la divisione è in parti uguali, non in proporzione al valore"
+   "D": "non si divide in proporzione al valore"
   },
-  "k": "spese permuta: metà per uno, salvo patto"
+  "k": "spese permuta = metà ciascuno, salvo patto",
+  "r": "<b>«Scambio alla pari, spese alla pari»</b>. Attenzione a C: è quasi giusta ma vieta il patto contrario."
  },
  "4710": {
-  "q": "Con la permuta si può trasferire solo la proprietà?",
-  "p": "<b>No, si possono trasferire anche altri diritti</b>. La permuta è il reciproco trasferimento della proprietà di cose oppure di altri diritti, da un contraente all'altro. L'oggetto dello scambio, quindi, può essere più ampio della sola proprietà.",
-  "e": "Tizio trasferisce a Caio un diritto di usufrutto su un terreno e riceve in cambio la proprietà di un'auto: è una permuta.",
+  "q": "La domanda chiede se con la permuta si può trasferire <b>solo la proprietà</b>.",
+  "p": "<b>No</b>: con la permuta si possono trasferire la <b>proprietà</b> di cose oppure <b>altri diritti</b>. Si può scambiare, per esempio, la proprietà di un bene con un diritto di usufrutto, o due diritti tra loro. Non c'è nessun limite di tempo né per i beni mobili.",
+  "e": "Scambi la nuda proprietà di un box con l'usufrutto di un appartamento: è una permuta di diritti.",
   "x": {
-   "B": "la legge non richiede che questi diritti siano a tempo determinato",
+   "B": "non c'è un limite «a tempo determinato»",
    "C": "non solo la proprietà: anche altri diritti",
-   "D": "nessuna eccezione legata ai beni mobili"
+   "D": "vale anche per i beni mobili"
   },
-  "k": "permuta: proprietà o altri diritti"
+  "k": "permuta = proprietà o altri diritti",
+  "r": "<b>«Si scambia anche un diritto»</b>. Basta il «No, anche altri diritti» senza aggiunte."
  },
  "4711": {
-  "q": "La permuta è un contratto di che tipo?",
-  "p": "È un contratto <b>tipico</b>. Tipico significa che è previsto e disciplinato dalla legge: il Codice civile lo regola con norme proprie. Non serve un altro ragionamento: è una classificazione da memorizzare.",
-  "e": "Permuta, vendita e trasporto sono tipici perché hanno una disciplina nel Codice civile.",
+  "q": "La domanda chiede come si classifica il contratto di <b>permuta</b>.",
+  "p": "È un contratto <b>tipico</b>: il codice civile lo prevede e lo disciplina espressamente. È anche <b>sinallagmatico</b>, perché ciascuna parte trasferisce qualcosa in cambio di ciò che riceve. Atipici sono invece i contratti che non hanno una disciplina specifica nel codice.",
+  "e": "Vendita, permuta, locazione, appalto sono tutti contratti tipici: hanno un nome e regole nel codice.",
   "x": {
-   "B": "atipico è il contratto senza una disciplina propria nel Codice, e non è il caso della permuta",
-   "C": "«topico» non è la classificazione giusta: il termine è «tipico»",
-   "D": "è sinallagmatico: le due prestazioni sono collegate tra loro"
+   "B": "non è atipico: il codice lo regola",
+   "C": "«topico» non è una categoria giuridica: parola-trappola simile a «tipico»",
+   "D": "è sinallagmatico, perché c'è uno scambio"
   },
-  "k": "permuta = regolata dal Codice = tipica"
+  "k": "permuta = contratto tipico",
+  "r": "<b>Tipico = ha un nome nel codice</b>. Attento alla trappola <b>«topico»</b>, che somiglia a «tipico»."
  },
  "4712": {
-  "q": "Come si chiama il contratto con cui due parti si trasferiscono a vicenda la proprietà di cose?",
-  "p": "Si chiama <b>permuta</b>. È uno scambio di una cosa contro un'altra: la differenza con la vendita è che il corrispettivo non è un prezzo in denaro, ma un altro bene.",
-  "e": "Scambi la tua moto con la bicicletta elettrica di un amico: è una permuta.",
+  "q": "La domanda chiede come si chiama il contratto con cui due parti si <b>trasferiscono reciprocamente la proprietà di cose</b>.",
+  "p": "È la <b>permuta</b>: lo scambio di una cosa con un'altra, senza denaro come prezzo. È l'antenata della vendita, quando il prezzo era sostituito da un'altra cosa.",
+  "e": "Scambi la tua chitarra con la bici di un amico: è una permuta.",
   "x": {
-   "B": "la somministrazione è una fornitura periodica o continuativa di cose contro un prezzo",
-   "C": "il riporto riguarda la vendita di titoli con successiva rivendita a termine",
-   "D": "nell'estimatorio si ricevono cose da vendere o restituire entro un termine"
+   "B": "la somministrazione è la fornitura periodica o continuativa di cose",
+   "C": "il riporto riguarda titoli di credito venduti e ricomprati a termine",
+   "D": "il contratto estimatorio riguarda merce in conto vendita"
   },
-  "k": "cosa contro cosa = permuta"
+  "k": "permuta = cosa contro cosa",
+  "r": "<b>«Permuta = baratto»</b>. Se nella definizione non c'è il prezzo in denaro ma uno scambio di cose, è permuta."
  },
  "4713": {
-  "q": "Sempronio stipula una transazione con Tizio esibendo un testamento che poi risulta falso. Che ne è del contratto?",
-  "p": "Il contratto <b>è annullabile</b>. La transazione fondata su documenti poi riconosciuti falsi è viziata, perché una parte ha accettato l'accordo credendo vero ciò che non lo era. La legge protegge questa parte permettendole di chiedere l'annullamento. È una regola da memorizzare: annullabile, non nullo.",
-  "e": "Tizio rinuncia a metà dell'eredità perché crede vero il testamento di Sempronio. Scoperto il falso, può chiedere l'annullamento della transazione.",
+  "q": "Sempronio fa una <b>transazione</b> con Tizio mostrando un testamento che poi si scopre <b>falso</b>. La domanda chiede che sorte ha il contratto.",
+  "p": "La transazione è <b>annullabile</b>. Il codice prevede espressamente che la transazione fatta sulla base di <b>documenti poi riconosciuti falsi</b> si possa annullare. Chi ha accettato l'accordo l'ha fatto credendo a un documento che non era vero: la sua volontà era falsata.",
+  "e": "Due cugini litigano su un'eredità e uno mostra un testamento che gli dà ragione. Si accordano, ma dopo si scopre che il testamento era falso: l'altro cugino può chiedere l'annullamento.",
   "x": {
-   "B": "non resta semplicemente valido: può essere annullato",
-   "C": "la conseguenza prevista è l'annullabilità, non la nullità",
-   "D": "nessun termine di tre mesi legato alla scoperta che renda valido il contratto"
+   "B": "non è valida: la parte può farla annullare",
+   "C": "non è nulla: la sanzione è l'annullabilità",
+   "D": "non c'è nessun termine di tre mesi"
   },
-  "k": "transazione su documento falso = annullabile"
+  "k": "transazione su documenti falsi = annullabile",
+  "r": "<b>«Documento falso → annullabile»</b>. Ricorda la gemella: transazione su lite già decisa con sentenza ignorata = <b>anche annullabile</b>."
  },
  "4714": {
-  "q": "Come si chiama il contratto con cui le parti si fanno concessioni reciproche per chiudere una lite o evitarla?",
-  "p": "Si chiama <b>transazione</b>. I suoi elementi tipici sono due: le reciproche concessioni e una lite, già iniziata o che potrebbe nascere. Ciascuno cede qualcosa pur di evitare la causa o chiuderla.",
-  "e": "Luca chiede 10.000 euro a Marta, che sostiene di non dovere nulla. Si accordano per 6.000 euro e chiudono la lite.",
+  "q": "La domanda chiede come si chiama il contratto con cui le parti, facendosi <b>reciproche concessioni</b>, chiudono una lite già iniziata o ne prevengono una.",
+  "p": "È la <b>transazione</b>. Ognuna delle parti rinuncia a qualcosa per evitare il rischio e i costi di una causa. L'elemento essenziale sono le <b>reciproche concessioni</b>: se una sola parte rinuncia, non è una transazione.",
+  "e": "Pretendo 10.000 € da un fornitore, lui dice di non dovermi nulla. Ci accordiamo per 6.000 €: ho rinunciato a 4.000, lui ha accettato di pagare. È una transazione.",
   "x": {
-   "B": "la permuta è lo scambio di cose o diritti, senza alcuna lite",
-   "C": "la somministrazione è una fornitura periodica o continuativa",
-   "D": "il mutuo è il prestito di denaro o altre cose fungibili"
+   "B": "la permuta è uno scambio di cose",
+   "C": "la somministrazione è una fornitura periodica",
+   "D": "il mutuo è un prestito di denaro o cose"
   },
-  "k": "concessioni reciproche + lite = transazione"
+  "k": "transazione = reciproche concessioni per chiudere una lite",
+  "r": "<b>«Transazione = ci veniamo incontro»</b>. Le parole spia sono <b>«lite»</b> e <b>«reciproche concessioni»</b>."
  },
  "4715": {
-  "q": "Come si prova una transazione che riguarda denaro, beni mobili e diritti reali su mobili?",
-  "p": "Serve la <b>prova scritta</b>. La legge vuole che la transazione sia provata per iscritto, data l'importanza di un accordo che chiude una lite. Non è richiesta una forma solenne, ma non si può dimostrarla liberamente con ogni mezzo.",
-  "e": "Anna e Bruno chiudono a 500 euro una lite su un debito. Per dimostrare l'accordo serve uno scritto, non bastano i testimoni.",
+  "q": "Una transazione riguarda denaro o beni mobili. La domanda chiede come si <b>prova</b> in giudizio.",
+  "p": "Con la <b>prova scritta</b>. Il codice dice che la transazione deve essere <b>provata per iscritto</b> (forma <i>ad probationem</i>). Se invece riguarda immobili, lo scritto serve anche per la validità. Non bastano testimoni o presunzioni.",
+  "e": "Ti accordi a voce con il vicino per chiudere una lite su 3.000 €. Se poi lui nega l'accordo, senza uno scritto non riesci a dimostrarlo.",
   "x": {
-   "B": "l'atto pubblico non è richiesto: basta uno scritto",
-   "C": "testimoni e presunzioni non bastano a provarla",
-   "D": "non sono ammesse tutte le prove: serve lo scritto"
+   "B": "non serve l'atto pubblico",
+   "C": "testimoni e presunzioni non bastano",
+   "D": "non tutte le prove sono ammesse"
   },
-  "k": "transazione = si prova per iscritto"
+  "k": "transazione = prova scritta",
+  "r": "<b>«Transazione → carta»</b>: anche quando non serve per la validità, serve per provarla. Esclude testimoni e presunzioni."
  },
  "4716": {
-  "q": "Si fa una transazione su una lite già decisa con sentenza definitiva: che sorte ha?",
-  "p": "<b>È annullabile se le parti, o una di esse, non ne avevano notizia</b>. La transazione serve a risolvere un'incertezza: se c'è già una sentenza definitiva, l'incertezza non c'è più. Chi ha transatto ignorando la sentenza può quindi chiedere l'annullamento. Chi la conosceva e ha transatto lo stesso non ha questa tutela.",
-  "e": "Paolo accetta 3.000 euro per chiudere una causa, senza sapere di averla già vinta con sentenza definitiva per 5.000 euro: può chiedere l'annullamento.",
+  "q": "Le parti fanno una transazione su una lite <b>già decisa da una sentenza definitiva</b> (passata in giudicato). La domanda chiede che sorte ha il contratto.",
+  "p": "La transazione è <b>annullabile se le parti, o una di esse, non sapevano della sentenza</b>. Se la lite è già finita, chi non lo sapeva ha rinunciato a qualcosa senza motivo. Se invece entrambe lo sapevano, possono comunque accordarsi diversamente da quanto deciso.",
+  "e": "Un'azienda vince una causa in Cassazione ma l'avvocato non le comunica la sentenza. Nel frattempo si accorda con l'altra parte accettando metà della somma: può annullare l'accordo.",
   "x": {
-   "B": "non sempre: serve che almeno una parte ignorasse la sentenza",
-   "C": "non c'è una soglia di un milione: conta l'ignoranza della sentenza",
-   "D": "non è nulla: è annullabile, e solo a quella condizione"
+   "B": "non è «comunque» annullabile: conta che una parte non lo sapesse",
+   "C": "il valore non conta",
+   "D": "non è nulla"
   },
-  "k": "sentenza ignorata = transazione annullabile"
+  "k": "transazione su lite già decisa = annullabile se ignorata",
+  "r": "<b>«Non sapevi di aver già vinto»</b>: allora puoi annullare. La parola chiave è <b>«notizia»</b>."
  },
  "4717": {
-  "q": "Tizio e Caio fanno una transazione con clausole contrarie a norme imperative e ne discutono apertamente. Che ne è del contratto?",
-  "p": "<b>Il contratto è nullo</b>. Le norme imperative non si possono aggirare con un accordo: parlarne tra le parti non sana il problema. Il contrasto resta anche se le parti lo conoscono e ne hanno trattato specificamente.",
-  "e": "Anche se Tizio e Caio scrivono di sapere che una clausola viola una norma imperativa, il contratto resta nullo.",
+  "q": "Tizio e Caio fanno una transazione con clausole <b>contrarie a norme imperative</b> e ne parlano proprio in modo specifico. La domanda chiede se il contratto è valido.",
+  "p": "Il contratto è <b>nullo</b>. Le norme imperative non si possono derogare con un accordo privato, nemmeno con una transazione e nemmeno se le parti ne sono consapevoli e ne discutono. Una firma aggiuntiva o la presenza di testimoni non rendono lecito ciò che la legge vieta.",
+  "e": "Due parti si accordano per chiudere una lite inserendo una clausola che viola una norma imperativa. Anche se lo fanno consapevolmente, l'accordo è nullo.",
   "x": {
-   "B": "la firma specifica non rende valido ciò che è contrario alle norme imperative",
-   "C": "la presenza di testimoni non sana il contrasto con la legge",
+   "B": "la doppia firma non salva clausole contrarie a norme imperative",
+   "C": "i testimoni non salvano clausole contrarie a norme imperative",
    "D": "non è valido: è nullo"
   },
-  "k": "contro norme imperative = nullo, anche se ne parli"
+  "k": "transazione contro norme imperative = nulla",
+  "r": "<b>«Contro la legge = nullo»</b>, anche se lo sapete e lo scrivete. Doppie firme e testimoni non cambiano nulla."
  },
  "4718": {
-  "q": "Si può impugnare una transazione per lesione, cioè perché l'accordo è molto squilibrato?",
-  "p": "<b>No</b>. Nella transazione ciascuno cede qualcosa per chiudere una lite incerta, quindi uno squilibrio è accettato in partenza. Se si potesse impugnare per lesione, la lite si riaprirebbe e l'accordo perderebbe la sua funzione.",
-  "e": "Marta accetta 1.000 euro per chiudere una lite su 5.000 euro. Poi si pente: non può impugnare la transazione dicendo che è sproporzionata.",
+  "q": "La domanda chiede se una transazione si può impugnare per <b>lesione</b>, cioè perché una parte ci ha perso troppo.",
+  "p": "<b>No</b>. La transazione per sua natura comporta che ciascuna parte rinunci a qualcosa: lamentarsi poi di aver rinunciato troppo non ha senso. Per questo il codice esclude espressamente la <b>rescissione per lesione</b>.",
+  "e": "Chiudi una lite accettando 5.000 € invece dei 20.000 € che pretendevi. Non puoi poi dire «ci ho perso troppo» e chiedere la rescissione.",
   "x": {
-   "B": "nessun termine di cinque anni: l'azione non è ammessa",
-   "C": "non è ammessa, tanto meno senza limiti di tempo",
-   "D": "nessun termine di un anno: l'azione non è ammessa"
+   "B": "non è ammessa, nemmeno entro 5 anni",
+   "C": "non è ammessa, nemmeno senza limiti",
+   "D": "non è ammessa, nemmeno entro un anno"
   },
-  "k": "transazione: niente azione di lesione"
+  "k": "transazione: niente rescissione per lesione",
+  "r": "<b>«Hai accettato di rinunciare»</b>: non puoi lamentarti di averci perso. Le tre risposte con «Sì, entro…» cadono insieme."
  },
  "4719": {
-  "q": "Il mittente può fermare il trasporto e farsi restituire le cose?",
-  "p": "<b>Sì, rimborsando le spese e risarcendo i danni derivanti dal contrordine</b>. Il mittente resta padrone della spedizione e può cambiare idea. Il vettore però non deve rimetterci, quindi va tenuto indenne da costi e danni causati dal cambio di programma.",
-  "e": "Un'azienda spedisce merce da Milano a Roma e la ferma a Bologna: la riprende, ma paga le spese sostenute e gli eventuali danni al vettore.",
+  "q": "Il mittente ha affidato delle merci a un vettore. La domanda chiede se può fermare il trasporto e farsi restituire le cose.",
+  "p": "<b>Sì</b>, ma deve <b>rimborsare le spese</b> e <b>risarcire i danni</b> causati dal contrordine. Il mittente ha il diritto di cambiare idea, ma non può far pagare al vettore il suo ripensamento.",
+  "e": "Spedisci un pallet a Milano e a metà strada chiedi che torni indietro. Il trasportatore lo riporta, ma tu paghi il viaggio fatto e i danni del cambio di programma.",
   "x": {
-   "B": "non serve la forza maggiore: può farlo per sua scelta",
-   "C": "il diritto c'è, purché paghi spese e danni",
-   "D": "gli oneri ci sono: spese e risarcimento dei danni"
+   "B": "non serve la forza maggiore",
+   "C": "può farlo",
+   "D": "non è senza oneri: deve rimborsare e risarcire"
   },
-  "k": "contrordine sì, ma paga spese e danni"
+  "k": "contrordine = possibile, pagando spese e danni",
+  "r": "<b>«Puoi cambiare idea, ma paghi tu»</b>. Scegli il «Sì» con <b>spese + danni</b>."
  },
  "4720": {
-  "q": "Come si chiama il contratto con cui una parte, dietro compenso, si obbliga a portare persone o cose da un luogo a un altro?",
-  "p": "È il <b>contratto di trasporto</b>. Chi si obbliga è il vettore, e l'obbligazione è proprio spostare persone o cose verso un corrispettivo. L'elemento che lo distingue è il trasferimento da un luogo a un altro.",
-  "e": "Un corriere ritira un pacco a Torino e lo consegna a Napoli dietro pagamento: è un contratto di trasporto.",
+  "q": "La domanda chiede come si chiama il contratto con cui una parte, verso corrispettivo, si obbliga a <b>trasferire persone o cose</b> da un luogo a un altro.",
+  "p": "È il <b>contratto di trasporto</b>. Chi trasporta (vettore) si impegna a portare persone o cose a destinazione. È diverso dalla <b>spedizione</b>, in cui lo spedizioniere non trasporta lui stesso ma conclude il contratto di trasporto per conto del cliente.",
+  "e": "Compri un biglietto del treno: è un contratto di trasporto di persone. Paghi un corriere per portare un pacco: è un trasporto di cose.",
   "x": {
-   "B": "il deposito obbliga a custodire una cosa, non a spostarla",
-   "C": "la somministrazione è una fornitura periodica o continuativa di cose",
-   "D": "lo spedizioniere conclude un contratto di trasporto per conto del cliente, non trasporta lui"
+   "B": "il deposito serve a custodire, non a spostare",
+   "C": "la somministrazione è la fornitura periodica di cose",
+   "D": "lo spedizioniere organizza il trasporto per conto del cliente, ma non trasporta lui"
   },
-  "k": "spostare persone o cose = trasporto"
+  "k": "trasporto = spostare persone o cose",
+  "r": "<b>«Trasporto = da qui a lì»</b>. La trappola è la spedizione: lo spedizioniere <b>organizza</b>, il vettore <b>porta</b>."
  },
  "4721": {
-  "q": "Trasporto cumulativo di persone, cioè con più vettori in successione: chi risponde dei danni?",
-  "p": "<b>Ciascun vettore risponde nell'ambito del proprio percorso</b>. Ogni vettore controlla solo la tratta che svolge, quindi risponde di ciò che accade lì. Nessuno risponde automaticamente per l'intero viaggio.",
-  "e": "Viaggio con pullman A da Milano a Bologna e pullman B da Bologna a Roma. Se il passeggero si fa male tra Bologna e Roma, risponde il vettore B.",
+  "q": "In un <b>trasporto cumulativo di persone</b> (più vettori uno dopo l'altro con un solo biglietto), la domanda chiede chi risponde dei danni.",
+  "p": "<b>Ciascun vettore risponde per il proprio percorso</b>. Nel trasporto di persone ogni vettore risponde del tratto che ha eseguito lui. È una regola diversa dal trasporto cumulativo di <b>cose</b>, dove i vettori rispondono in solido per tutto il viaggio.",
+  "e": "Viaggi con un biglietto unico: pullman fino a Bologna, poi treno fino a Roma. Se ti fai male sul pullman, risponde la società del pullman.",
   "x": {
-   "B": "la responsabilità non è esclusa: è limitata alla propria tratta",
-   "C": "l'ultimo vettore non risponde per tutto il percorso",
-   "D": "il primo vettore non risponde per tutto il percorso"
+   "B": "la responsabilità non è esclusa",
+   "C": "l'ultimo vettore non risponde per tutto",
+   "D": "il primo vettore non risponde per tutto"
   },
-  "k": "trasporto cumulativo persone: ognuno la sua tratta"
+  "k": "cumulativo persone = ciascuno per il suo tratto",
+  "r": "<b>«Ognuno il suo pezzo»</b> per le persone. Le opzioni «il primo» o «l'ultimo» risponde per tutto sono sbagliate."
  },
  "4722": {
-  "q": "L'agente ha diritto alla provvigione sugli affari conclusi dal preponente con clienti già acquisiti da lui, per affari dello stesso tipo o nella sua zona riservata?",
-  "p": "<b>Sì, salvo che sia diversamente pattuito</b>. Quei clienti sono frutto del suo lavoro, oppure appartengono alla zona che gli è riservata, quindi la provvigione gli spetta anche se l'affare lo conclude direttamente il preponente. La regola può però essere modificata dalle parti.",
-  "e": "L'agente Marco ha portato il cliente Rossi. L'azienda vende di nuovo a Rossi senza passare da Marco: la provvigione spetta a Marco, se il contratto non dice altro.",
+  "q": "Il preponente (l'azienda) conclude affari con clienti che l'agente aveva portato in passato, o che sono nella sua zona riservata. La domanda chiede se l'agente ha diritto alla provvigione.",
+  "p": "<b>Sì, salvo diverso accordo</b>. L'agente ha lavorato per costruire quel rapporto o ha l'esclusiva su quella zona, quindi gli spetta la provvigione anche se l'affare lo conclude direttamente l'azienda. Le parti però possono pattuire diversamente.",
+  "e": "Un agente ha portato il cliente Alfa all'azienda. L'anno dopo Alfa ordina direttamente all'azienda: l'agente prende comunque la provvigione, se il contratto non dice altro.",
   "x": {
-   "B": "la provvigione è dovuta, salvo patto diverso",
-   "C": "il patto contrario è ammesso e prevale",
-   "D": "nessun requisito di cinque anni di durata"
+   "B": "ne ha diritto",
+   "C": "le parti possono pattuire diversamente",
+   "D": "non serve una durata di cinque anni"
   },
-  "k": "cliente dell'agente = provvigione, salvo patto"
+  "k": "provvigione anche su affari diretti nella sua zona, salvo patto",
+  "r": "<b>«Il cliente è suo»</b>: se l'ha portato lui o è nella sua zona, la provvigione gli spetta. Scegli il «Sì, salvo patto»."
  },
  "4723": {
-  "q": "L'agente ha diritto al rimborso delle spese di agenzia?",
-  "p": "<b>No</b>. L'agente svolge la sua attività in autonomia e a proprio rischio, e il suo compenso è la provvigione. Le spese dell'attività restano quindi a suo carico. Le parti possono eventualmente pattuire qualcosa di diverso, ma per legge il rimborso non spetta.",
-  "e": "L'agente Laura spende 300 euro di benzina per visitare i clienti: per legge non può chiederli indietro al preponente.",
+  "q": "La domanda chiede se l'agente ha diritto al <b>rimborso delle spese</b> che sostiene per la sua attività.",
+  "p": "<b>No</b>. Di regola l'agente <b>non ha diritto al rimborso delle spese di agenzia</b>. È un imprenditore autonomo: le spese fanno parte del suo rischio e sono già compensate dalla <b>provvigione</b>.",
+  "e": "Un agente percorre 50.000 km l'anno per visitare i clienti. Benzina e autostrada le paga lui: la provvigione serve anche a coprirle.",
   "x": {
-   "B": "la legge non prevede un rimborso forfettario sul fatturato",
-   "C": "per legge il rimborso non spetta",
-   "D": "la legge non prevede un rimborso legato all'area assegnata"
+   "B": "non c'è un rimborso forfettario sul fatturato",
+   "C": "non ha diritto al rimborso",
+   "D": "non c'è un rimborso proporzionale all'area"
   },
-  "k": "spese agenzia = a carico dell'agente"
+  "k": "agente: niente rimborso spese",
+  "r": "<b>«L'agente è un imprenditore: le spese sono sue»</b>. La provvigione copre tutto."
  },
  "4724": {
-  "q": "Il contratto di agenzia si può ricavare anche dai comportamenti delle parti, senza uno scritto?",
-  "p": "<b>No</b>. La risposta si collega alla regola per cui il contratto di agenzia deve essere provato per iscritto: dai soli comportamenti, quindi, non si può dimostrare che esista. Conviene ricordarla come regola da memorizzare.",
-  "e": "Un venditore procura clienti a un'azienda per mesi, ma non c'è nessuno scritto: non può dimostrare il contratto di agenzia solo con quei comportamenti.",
+  "q": "La domanda chiede se un contratto di agenzia può risultare anche da <b>comportamenti concludenti</b>, cioè dai fatti, senza un accordo scritto o espresso.",
+  "p": "<b>Sì</b>. Per la validità del contratto di agenzia non è richiesta una forma particolare. Se un'azienda di fatto affida stabilmente a una persona la promozione dei suoi affari in una zona e le paga le provvigioni, il rapporto di agenzia può risultare da questi comportamenti. Lo scritto serve per la prova.",
+  "e": "Per anni un rappresentante cerca clienti per un'azienda e riceve regolarmente le provvigioni, senza aver mai firmato nulla: il rapporto di agenzia risulta dai fatti.",
   "x": {
-   "B": "la data del 1988 non è il criterio della regola",
-   "C": "il comportamento concludente non basta: serve lo scritto per provarlo",
-   "D": "il bene oggetto del contratto non cambia la regola"
+   "B": "non c'è nessuna data spartiacque del 1988",
+   "C": "vale anche per i fatti, non solo per gli accordi espressi",
+   "D": "il bene trattato non conta"
   },
-  "k": "agenzia: conta lo scritto, non i comportamenti"
+  "k": "agenzia anche per comportamenti concludenti",
+  "r": "<b>«I fatti parlano»</b>: un rapporto vissuto per anni vale come contratto. Le date e le distinzioni per bene sono esche."
  },
  "4725": {
-  "q": "Che forma e che durata ha il patto di non concorrenza nel contratto di agenzia?",
-  "p": "<b>Deve farsi per iscritto</b>. Il patto limita l'attività dell'agente dopo la fine del contratto, e questo è un sacrificio serio: per questo la legge richiede lo scritto, che rende il vincolo chiaro e certo.",
-  "e": "Azienda e agente concordano che lui non lavorerà per concorrenti dopo la fine del rapporto: questo accordo va scritto, non basta dirlo a voce.",
+  "q": "La domanda chiede come va fatto il <b>patto di non concorrenza</b> nel contratto di agenzia (il divieto per l'agente di lavorare per concorrenti dopo la fine del rapporto).",
+  "p": "<b>Deve farsi per iscritto</b>. È un patto che limita la libertà di lavoro dell'agente, quindi il codice vuole certezza. Ha anche un limite di durata: <b>al massimo due anni</b> dalla fine del contratto, e riguarda la stessa zona, clientela e tipo di prodotti.",
+  "e": "Un agente di vini lascia l'azienda. Se il patto scritto glielo vieta, non può vendere vini di un concorrente nella stessa zona per due anni.",
   "x": {
-   "B": "la legge non fissa una durata minima di 10 anni: semmai il problema è limitare il vincolo",
-   "C": "la legge non fissa una durata minima di 6 anni: semmai il problema è limitare il vincolo",
+   "B": "non c'è una durata minima: c'è un massimo di due anni",
+   "C": "non c'è una durata minima: c'è un massimo di due anni",
    "D": "non può essere tacito: serve lo scritto"
   },
-  "k": "non concorrenza agente = per iscritto"
+  "k": "non concorrenza agente = per iscritto, max 2 anni",
+  "r": "<b>«Limiti la mia libertà? Mettilo per iscritto»</b>. Ricorda il numero <b>2</b> (anni massimi): le opzioni con minimi di 6 o 10 anni sono capovolte."
  },
  "4726": {
-  "q": "Un contratto di agenzia a tempo indeterminato dura da <b>otto anni</b> e non ci sono altri accordi: con quanto preavviso può recedere l'agente?",
-  "p": "Il preavviso è di <b>sei mesi</b>. Il codice civile fa crescere il preavviso con la durata del rapporto: un mese nel primo anno, due nel secondo, e così via fino a sei mesi dal sesto anno in poi. Dopo il sesto anno non cresce più, quindi anche all'ottavo anno restano sei mesi.",
-  "e": "Un agente che lavora da otto anni e vuole smettere comunica il recesso a marzo: il rapporto finisce dopo sei mesi, a settembre.",
+  "q": "Un contratto di agenzia a tempo indeterminato dura da <b>otto anni</b>. L'agente vuole recedere: la domanda chiede quanto preavviso deve dare, se non ci sono altri accordi.",
+  "p": "<b>Sei mesi</b>. Il codice fissa un preavviso che cresce con la durata del rapporto: <b>un mese per ogni anno</b> iniziato, fino a un massimo di <b>sei mesi</b> dal sesto anno in poi. Più il rapporto è lungo, più tempo serve all'altra parte per riorganizzarsi. Dopo otto anni si applica il massimo.",
+  "e": "Agente al 2° anno: 2 mesi di preavviso. Al 4° anno: 4 mesi. Dal 6° anno in poi: sempre 6 mesi, anche dopo 8 o 15 anni.",
   "x": {
-   "B": "tre mesi è il preavviso del terzo anno, non dell'ottavo",
+   "B": "tre mesi corrispondono al terzo anno di rapporto",
    "C": "un mese vale solo per il primo anno",
-   "D": "quattro mesi è il preavviso del quarto anno, non dell'ottavo"
+   "D": "quattro mesi corrispondono al quarto anno"
   },
-  "k": "dal sesto anno in poi = sei mesi"
+  "k": "agenzia: un mese per anno, massimo 6",
+  "r": "<b>«Un mese per ogni candelina, fino a 6»</b>. Dopo il sesto anno la risposta è sempre <b>6 mesi</b>."
  },
  "4727": {
-  "q": "Qual è il compito principale del mediatore?",
-  "p": "Il mediatore deve <b>mettere in relazione due o più parti per la conclusione di un affare</b>. Bastano due parti. La sua caratteristica è l'indipendenza: non è legato a nessuna delle parti da rapporti di collaborazione, dipendenza o rappresentanza.",
-  "e": "Un agente immobiliare fa incontrare chi vende una casa e chi vuole comprarla, senza rappresentare nessuno dei due: agisce da mediatore.",
+  "q": "La domanda chiede qual è il compito del <b>mediatore</b>.",
+  "p": "Il mediatore <b>mette in relazione due o più parti</b> per la conclusione di un affare, <b>senza essere legato a nessuna di esse</b> da rapporti di collaborazione, dipendenza o rappresentanza. È proprio questa <b>indipendenza</b> che lo distingue da un agente o da un rappresentante. Bastano due parti, non tre.",
+  "e": "L'agente immobiliare fa incontrare chi vende casa e chi la vuole comprare. Non lavora per l'uno o per l'altro: li mette in contatto e prende la provvigione da entrambi.",
   "x": {
-   "B": "il legame di rappresentanza con una parte toglie l'indipendenza del mediatore",
-   "C": "non servono almeno tre parti: ne bastano due",
-   "D": "sbaglia due volte: bastano due parti e il mediatore non è legato a nessuna"
+   "B": "se è legato a una parte da rappresentanza non è più un mediatore",
+   "C": "bastano due parti, non «almeno tre»",
+   "D": "sbaglia due volte: «almeno tre» e il legame di rappresentanza"
   },
-  "k": "mediatore = collega due o più parti, indipendente"
+  "k": "mediatore = mette in relazione, indipendente",
+  "r": "<b>«Mediatore = in mezzo, non da una parte»</b>. Due parti bastano. Scarta ogni opzione con «rappresentanza» o «almeno tre»."
  },
  "4728": {
-  "q": "Il mediatore può farsi rimborsare le spese che ha sostenuto?",
-  "p": "<b>Sì, salvo patti o usi contrari</b>. Il rimborso gli è dovuto da chi gli ha dato l'incarico, anche se l'affare non si conclude. La provvigione è diversa: quella spetta solo se l'affare si conclude. Le parti, o gli usi, possono però escludere il rimborso.",
-  "e": "Un mediatore paga annunci per vendere un capannone per conto di Tizio, ma la vendita non avviene. Non ha la provvigione, ma può chiedere il rimborso degli annunci, se non c'è un patto contrario.",
+  "q": "La domanda chiede se il mediatore ha diritto al <b>rimborso delle spese</b>.",
+  "p": "<b>Sì, salvo patti o usi contrari</b>, e anche se l'affare non si conclude. La provvigione invece gli spetta solo se l'affare va in porto. È una differenza da tenere a mente: le spese sono un rimborso di ciò che ha anticipato, la provvigione è il suo guadagno.",
+  "e": "Un mediatore organizza visite e pubblicità per vendere un capannone, spendendo 800 €. L'affare non si fa: niente provvigione, ma ha diritto agli 800 € di spese, se non si è pattuito diversamente.",
   "x": {
-   "B": "la conclusione dell'affare serve per la provvigione, non per il rimborso delle spese",
-   "C": "il rimborso è la regola, quindi «in nessun caso» è sbagliato",
-   "D": "il diritto non dipende dalla rappresentanza, che anzi è estranea alla figura del mediatore"
+   "B": "il rimborso spese spetta anche se l'affare non si conclude",
+   "C": "il rimborso spetta",
+   "D": "il mediatore non ha rapporti di rappresentanza con le parti"
   },
-  "k": "spese rimborsate anche senza affare, salvo patti o usi"
+  "k": "mediatore: rimborso spese salvo patti o usi",
+  "r": "<b>Spese sempre, provvigione solo se si chiude</b>. La B confonde le due cose."
  },
  "4729": {
-  "q": "Il mediatore può tenere nascosto a un contraente il nome dell'altro?",
-  "p": "<b>Sì, ma in tal caso risponde dell'esecuzione del contratto</b>. Chi contratta non sa con chi ha a che fare e non può valutarne l'affidabilità. Per questo la legge fa da contrappeso: la garanzia la dà il mediatore, che deve eseguire il contratto se la parte nascosta non lo fa.",
-  "e": "Un mediatore fa comprare un quadro a Caio senza dirgli chi è il venditore. Se il quadro non viene consegnato, Caio può rivolgersi al mediatore.",
+  "q": "La domanda chiede se il mediatore può <b>tenere nascosto</b> a un contraente il nome dell'altra parte.",
+  "p": "<b>Sì</b>, ma in quel caso <b>risponde dell'esecuzione del contratto</b>. Se il contraente non sa con chi ha a che fare, non può valutarne l'affidabilità: per compensare, il mediatore ne diventa garante. Se il contratto non viene eseguito, ne risponde lui.",
+  "e": "Un mediatore vende un'opera d'arte per conto di un collezionista che vuole restare anonimo. Se poi il venditore anonimo non consegna, il compratore può rivalersi sul mediatore.",
   "x": {
-   "B": "il silenzio sul nome è ammesso, quindi «in nessun caso» è sbagliato",
-   "C": "la possibilità non dipende da un contratto di rappresentanza",
-   "D": "non serve rappresentare la parte non nominata: la conseguenza è solo la responsabilità del mediatore"
+   "B": "è possibile",
+   "C": "il mediatore non ha rappresentanza con le parti",
+   "D": "il mediatore non ha rappresentanza con le parti"
   },
-  "k": "nome nascosto = il mediatore risponde"
+  "k": "nome nascosto = mediatore risponde dell'esecuzione",
+  "r": "<b>«Se nascondi il nome, ci metti la faccia»</b>: il mediatore diventa garante. Le opzioni con «rappresentanza» contraddicono l'idea stessa di mediatore."
  },
  "4730": {
-  "q": "Qual è la causa tipica del contratto di lavoro subordinato, cioè lo scopo economico che lo caratterizza?",
-  "p": "La causa è <b>lo scambio tra il lavoro prestato in posizione subordinata e la retribuzione</b>. La causa di un contratto è la funzione che realizza: qui il lavoratore dà il proprio lavoro, sotto la direzione del datore, e riceve in cambio una paga. Imposte e contributi sono obblighi che nascono da questo rapporto, ma non ne sono lo scopo.",
-  "e": "Anna lavora in un'azienda seguendo le direttive del capo e ogni mese riceve lo stipendio: questo scambio è la causa del contratto.",
+  "q": "La domanda chiede qual è la <b>causa</b> (la funzione) tipica del contratto di lavoro subordinato.",
+  "p": "È lo <b>scambio tra il lavoro prestato in posizione subordinata e la retribuzione</b>. Il lavoratore mette le sue energie a disposizione del datore, sotto la sua direzione, e in cambio riceve lo stipendio. Imposte e contributi sono conseguenze del rapporto, non la sua funzione.",
+  "e": "Un'impiegata lavora 40 ore a settimana seguendo le direttive dell'azienda e riceve 1.800 € al mese: lavoro contro retribuzione.",
   "x": {
-   "B": "imposte e servizi pubblici riguardano il rapporto con lo Stato, non quello con il datore",
-   "C": "i contributi sono una conseguenza del rapporto di lavoro, non la sua causa",
-   "D": "le imposte sono un obbligo fiscale, non lo scopo del contratto"
+   "B": "imposte e servizi pubblici sono il rapporto con lo Stato, non con il datore",
+   "C": "i contributi sono un effetto del rapporto, non la sua causa",
+   "D": "le imposte sono un effetto del rapporto, non la sua causa"
   },
-  "k": "causa = lavoro subordinato in cambio di retribuzione"
+  "k": "lavoro subordinato = lavoro contro retribuzione",
+  "r": "<b>«Lavoro contro stipendio»</b>: è uno scambio tra le due parti. Tutto quello che coinvolge Stato o enti previdenziali non è la causa."
  },
  "4731": {
-  "q": "Il periodo di prova nel contratto di lavoro richiede una forma particolare?",
-  "p": "<b>Sì: deve risultare da atto scritto, salva diversa disposizione</b>. La prova permette di interrompere il rapporto più facilmente, quindi riduce le tutele del lavoratore. Lo scritto serve a rendere certo che le parti l'hanno davvero voluta.",
-  "e": "Se Marco inizia a lavorare e il capo gli dice solo a voce «fai tre mesi di prova», manca lo scritto e il patto di prova non è regolare.",
+  "q": "La domanda chiede se il <b>periodo di prova</b> in un contratto di lavoro deve rispettare una forma.",
+  "p": "<b>Sì, deve risultare da atto scritto</b>, salva diversa disposizione. Durante la prova entrambe le parti possono recedere liberamente, senza preavviso: è una condizione molto forte per il lavoratore, quindi deve essere chiara fin dall'inizio. Se non è scritta, la prova non vale e il rapporto è definitivo da subito.",
+  "e": "Assumono Marco dicendogli a voce «hai tre mesi di prova». Se non c'è nulla di scritto, il patto di prova non vale e Marco non può essere licenziato liberamente come in prova.",
   "x": {
-   "B": "la forma scritta non dipende dalla durata del periodo",
-   "C": "basta un atto scritto, non serve l'atto pubblico davanti a un notaio",
-   "D": "il solo accordo verbale non basta, come regola generale"
+   "B": "la durata non conta: serve sempre lo scritto",
+   "C": "basta lo scritto, non serve l'atto pubblico",
+   "D": "non può essere verbale"
   },
-  "k": "prova = per iscritto"
+  "k": "patto di prova = per iscritto",
+  "r": "<b>«Prova a voce = nessuna prova»</b>. Cerca «atto scritto»; l'atto pubblico è troppo."
  },
  "4732": {
-  "q": "In un contratto di lavoro subordinato a tempo indeterminato si può recedere, cioè interrompere il rapporto?",
-  "p": "<b>Sì</b>. Un contratto senza scadenza non può vincolare le parti per sempre, quindi il recesso è possibile. Il lavoratore si dimette dando il preavviso. Il datore può licenziare, ma solo rispettando i limiti di legge, come la presenza di una giusta causa o di un giustificato motivo.",
-  "e": "Luca, assunto a tempo indeterminato, trova un altro lavoro: può dimettersi rispettando il preavviso, senza aspettare alcuna scadenza.",
+  "q": "In un contratto di lavoro subordinato <b>a tempo indeterminato</b>, la domanda chiede se è possibile il <b>recesso</b>.",
+  "p": "<b>Sì</b>. Il codice civile prevede che ciascuna parte possa recedere da un contratto di lavoro a tempo indeterminato, dando il <b>preavviso</b>. Per il datore di lavoro, poi, le leggi speciali richiedono una giusta causa o un giustificato motivo per licenziare, ma il recesso in sé è possibile. Non è limitato a piccole aziende o a mansioni particolari.",
+  "e": "Un dipendente si dimette dando il preavviso previsto dal contratto collettivo: è un recesso dal rapporto a tempo indeterminato.",
   "x": {
-   "B": "il recesso non è limitato alle aziende con meno di quindici dipendenti: quel numero incide semmai sulle tutele",
-   "C": "un rapporto senza scadenza deve poter finire, quindi il «no» è sbagliato",
-   "D": "il recesso non dipende dal tipo di mansione, pericolosa o meno"
+   "B": "non è limitato alle aziende con meno di 15 dipendenti",
+   "C": "è possibile",
+   "D": "non è limitato a mansioni pericolose"
   },
-  "k": "tempo indeterminato = recesso possibile"
+  "k": "lavoro a tempo indeterminato: recesso possibile",
+  "r": "<b>«Nessuno è legato a vita»</b>: nel tempo indeterminato si può sempre uscire, con preavviso. Basta il «Sì»."
  },
  "4733": {
-  "q": "Come si chiama il mandato che ha per oggetto l'acquisto o la vendita di beni?",
-  "p": "Si chiama <b>commissione</b>. È un tipo particolare di mandato senza rappresentanza: il commissionario compra o vende beni per conto del committente, ma in nome proprio. Il termine è in sostanza una definizione da memorizzare.",
-  "e": "Un collezionista incarica un commissionario di vendere i suoi orologi: il commissionario li vende a nome proprio, ma per conto del collezionista.",
+  "q": "La domanda chiede come si chiama il <b>mandato</b> che ha per oggetto <b>comprare o vendere beni</b>.",
+  "p": "È la <b>commissione</b>. Il commissionario compra o vende beni <b>per conto del committente</b> ma <b>in nome proprio</b>: verso i terzi appare lui come compratore o venditore. È un mandato senza rappresentanza specializzato nella compravendita.",
+  "e": "Un antiquario vende i mobili di un cliente nel suo negozio, a nome proprio, e poi gli gira il ricavato meno la sua percentuale. È un commissionario.",
   "x": {
-   "B": "«affare» è un termine generico, non il nome di questo contratto",
-   "C": "l'appalto riguarda la realizzazione di un'opera o di un servizio, non la compravendita per conto altrui",
-   "D": "l'estimazione richiama il contratto estimatorio, in cui si ricevono beni con l'obbligo di pagarli o restituirli"
+   "B": "«affare» non è un tipo di contratto",
+   "C": "l'appalto riguarda la realizzazione di un'opera o servizio",
+   "D": "«estimazione» non è il nome di questo mandato (il contratto estimatorio è un'altra cosa)"
   },
-  "k": "mandato per comprare o vendere = commissione"
+  "k": "mandato per comprare/vendere = commissione",
+  "r": "<b>«Commissione = vendi per me»</b>, come la «percentuale di commissione» che prendono i negozi dell'usato."
  },
  "4734": {
-  "q": "Che forma deve avere il contratto di anticresi?",
-  "p": "<b>Deve essere stipulato in forma scritta a pena di nullità</b>. Con l'anticresi il debitore consegna un immobile al creditore, che ne incassa i frutti per recuperare il credito. Poiché incide su un immobile, la legge chiede lo scritto: senza, il contratto non vale.",
-  "e": "Tizio deve 50.000 euro a Caio e gli consegna un appartamento perché ne incassi gli affitti. Se lo accordano solo a voce, il contratto è nullo.",
+  "q": "La domanda chiede quale forma deve avere il contratto di <b>anticresi</b>.",
+  "p": "Deve essere <b>stipulato per iscritto a pena di nullità</b>. Con l'anticresi il debitore consegna al creditore un <b>immobile</b>, e il creditore ne percepisce i frutti (es. gli affitti) imputandoli a interessi e capitale. Siccome riguarda un immobile, torna la regola «casa = carta».",
+  "e": "Luca deve 50.000 € a Marco e gli consegna un appartamento affittato: Marco incassa gli affitti finché il debito non è estinto. Questo accordo va fatto per iscritto.",
   "x": {
-   "B": "i comportamenti concludenti non bastano, perché serve lo scritto",
-   "C": "l'accordo orale non basta, perché il contratto sarebbe nullo",
-   "D": "lo scritto non serve solo come prova: serve perché il contratto sia valido"
+   "B": "non basta un comportamento: serve lo scritto",
+   "C": "non basta a voce: serve lo scritto",
+   "D": "lo scritto non serve solo come prova: senza, il contratto è nullo"
   },
-  "k": "anticresi = scritto, altrimenti nulla"
+  "k": "anticresi = scritto a pena di nullità",
+  "r": "<b>Anticresi = immobile = carta</b>. La trappola è la D: scritto sì, ma <b>per la validità</b>, non per la prova."
  },
  "4735": {
-  "q": "Chi risponde del danno provocato da cose in custodia?",
-  "p": "Risponde <b>chi ha le cose in custodia, salvo che provi il caso fortuito</b>. Chi ha il controllo della cosa è nella posizione migliore per evitare i danni. Per liberarsi deve dimostrare un evento imprevedibile e inevitabile, estraneo alla sua sfera di controllo.",
-  "e": "Dal balcone del negozio gestito da Sara cade un vaso e ferisce un passante: risponde Sara, se non prova il caso fortuito.",
+  "q": "Una cosa che qualcuno ha in custodia provoca un danno. La domanda chiede chi ne risponde.",
+  "p": "Risponde <b>chi ha la cosa in custodia</b>, a meno che provi il <b>caso fortuito</b>, cioè un evento imprevedibile e inevitabile. Chi controlla una cosa deve evitare che faccia danni; se ne causa, si presume la sua responsabilità, e tocca a lui dimostrare l'evento eccezionale.",
+  "e": "Un vaso cade dal balcone del tuo appartamento e rompe un'auto: ne rispondi tu, salvo che provi, per esempio, una tromba d'aria imprevedibile.",
   "x": {
-   "B": "la responsabilità ricade sul custode: la proprietà da sola non basta a far rispondere insieme",
-   "C": "il caso fortuito libera il custode, quindi «sempre» è sbagliato",
-   "D": "conta chi ha la custodia, non chi è proprietario"
+   "B": "non risponde solidalmente il proprietario: risponde il custode",
+   "C": "il caso fortuito lo libera",
+   "D": "non risponde il proprietario in quanto tale, ma il custode"
   },
-  "k": "danno da cosa = custode, salvo caso fortuito"
+  "k": "cose in custodia: risponde il custode salvo caso fortuito",
+  "r": "<b>«Chi tiene la cosa, risponde della cosa»</b>, salvo l'evento imprevedibile. Scegli la risposta con il <b>«salvo che provi il caso fortuito»</b>."
  },
  "4736": {
-  "q": "Che cosa succede se il contratto preliminare non ha la stessa forma che la legge chiede per il contratto definitivo?",
-  "p": "Il preliminare è <b>nullo</b>. Il preliminare obbliga a concludere il contratto definitivo, quindi la legge gli chiede la stessa forma. In caso contrario l'obbligo si potrebbe assumere aggirando le cautele previste per il contratto definitivo.",
-  "e": "La vendita di una casa richiede lo scritto. Se due persone si promettono la vendita solo a voce, il preliminare è nullo e nessuno può pretendere il rogito.",
+  "q": "Un <b>contratto preliminare</b> non rispetta la forma che la legge chiede per il contratto definitivo. La domanda chiede che sorte ha.",
+  "p": "È <b>nullo</b>. Il preliminare deve avere la <b>stessa forma prescritta per il definitivo</b>. Se il definitivo è una vendita di casa, che richiede lo scritto, anche il preliminare deve essere scritto. Altrimenti si potrebbe obbligare qualcuno a vendere casa con un semplice accordo a voce.",
+  "e": "Due persone si promettono a voce che una venderà all'altra la casa. Questo preliminare è nullo: nessuno dei due può pretendere la vendita.",
   "x": {
-   "B": "il difetto di forma non lascia il contratto valido ed efficace",
-   "C": "la conseguenza è la nullità, non l'annullabilità",
-   "D": "un preliminare senza la forma richiesta non è valido, quindi non è «valido ma inefficace»"
+   "B": "non è valido: è nullo",
+   "C": "non è annullabile: è nullo",
+   "D": "non è «valido ma inefficace»: è nullo"
   },
-  "k": "forma diversa dal definitivo = nullo"
+  "k": "preliminare senza forma del definitivo = nullo",
+  "r": "<b>«Il preliminare è la fotocopia del definitivo»</b>: stessa forma, altrimenti nullo. È la stessa logica di procura e nomina."
  },
  "4737": {
-  "q": "Secondo l'art. 1351 del codice civile, che forma deve avere il contratto preliminare?",
-  "p": "Deve avere <b>la medesima forma che la legge prescrive per il contratto definitivo, a pena di nullità</b>. La forma del preliminare segue quella del definitivo, perché il preliminare obbliga a stipularlo. La forma quindi cambia in base al contratto promesso.",
-  "e": "Il preliminare per vendere un appartamento deve essere scritto, perché è scritta la vendita di un immobile. Per il preliminare di un bene che non richiede forma, non serve lo scritto.",
+  "q": "La domanda chiede quale forma deve avere il <b>contratto preliminare</b>.",
+  "p": "<b>La stessa forma che la legge prescrive per il contratto definitivo, a pena di nullità</b>. Non è sempre lo scritto, né sempre libera: dipende dal definitivo. Preliminare di vendita di una casa: scritto. Preliminare di vendita di un'auto usata: forma libera, come la vendita.",
+  "e": "Il compromesso per comprare un appartamento si firma per iscritto, perché anche il rogito sarà scritto.",
   "x": {
-   "B": "pur essendo provvisorio, il preliminare segue la forma del definitivo",
-   "C": "non è «sempre» scritto: dipende dalla forma richiesta per il definitivo",
-   "D": "non è «sempre» verbale: se il definitivo richiede lo scritto, il verbale rende nullo il preliminare"
+   "B": "anche se provvisorio, deve rispettare la forma del definitivo",
+   "C": "non sempre lo scritto: dipende dal definitivo",
+   "D": "non sempre a voce: dipende dal definitivo"
   },
-  "k": "preliminare = stessa forma del definitivo"
+  "k": "preliminare = forma del definitivo",
+  "r": "Gemella della precedente: <b>«fotocopia del definitivo»</b>. Le opzioni con «sempre» sono sbagliate."
  },
  "4738": {
-  "q": "Una società italiana promette a uno Stato estero una nave da guerra, da consegnare entro 3 anni, e riceve un acconto del 30%. Poi scatta un <b>embargo</b> contro quello Stato: la società deve ancora consegnare?",
-  "p": "<b>No: può chiedere la risoluzione per impossibilità sopravvenuta, restituendo l'acconto</b>. L'embargo è un divieto dell'autorità arrivato dopo il contratto e non dipende dalla società: la consegna diventa giuridicamente impossibile. Il contratto si scioglie e nessuna parte deve più la prestazione. Chi ha ricevuto un pagamento lo restituisce, perché non ha più una ragione per tenerlo.",
-  "e": "Se il prezzo fosse 100 milioni, l'acconto sarebbe 30 milioni (100 x 30%). Con l'embargo la nave non viene consegnata e la società restituisce i 30 milioni.",
+  "q": "Una società italiana si impegna con un preliminare a costruire e vendere una nave da guerra a uno Stato estero, che versa un acconto del 30%. Prima della consegna, l'Italia e le istituzioni internazionali decretano un <b>embargo</b> contro quello Stato. La domanda chiede se la società deve comunque consegnare.",
+  "p": "<b>No</b>. L'embargo rende la prestazione <b>giuridicamente impossibile</b> per una causa successiva e non imputabile alla società. Si applica la <b>risoluzione per impossibilità sopravvenuta</b>: la società è liberata, ma deve <b>restituire l'acconto</b>, perché non può tenere il prezzo di una prestazione che non darà.",
+  "e": "Un'azienda deve consegnare macchinari a un Paese su cui scatta un embargo: non può più farlo e restituisce gli anticipi.",
   "x": {
-   "B": "l'adesione o meno dello Stato estero a trattati non elimina il divieto dell'embargo",
-   "C": "anche una società privata deve rispettare l'embargo",
-   "D": "l'acconto non rende possibile la consegna vietata: va restituito"
+   "B": "l'adesione dello Stato estero a trattati non c'entra",
+   "C": "il fatto che la società sia privata non cambia nulla: l'embargo vale per tutti",
+   "D": "l'acconto ricevuto non obbliga a consegnare: va restituito"
   },
-  "k": "embargo = impossibilità sopravvenuta, acconto restituito"
+  "k": "embargo = impossibilità sopravvenuta, si restituisce l'acconto",
+  "r": "<b>«La legge lo vieta = impossibile»</b>: si scioglie tutto e si ridanno i soldi. La domanda è piena di dettagli per confonderti: il punto chiave è l'<b>embargo</b>."
  },
  "4739": {
-  "q": "Il mandatario deve sempre avere la rappresentanza del mandante?",
-  "p": "<b>No, non necessariamente</b>. Il mandato obbliga a compiere atti giuridici per conto di un altro, mentre la rappresentanza è il potere di agire anche in suo nome. Sono due cose diverse: esistono il mandato con rappresentanza e quello senza rappresentanza.",
-  "e": "Luca incarica Marta di comprare un'auto per lui. Marta può comprarla a nome proprio, per conto di Luca, senza spendere il suo nome: è un mandato senza rappresentanza.",
+  "q": "La domanda chiede se il <b>mandatario</b> (chi compie atti per conto di un altro) deve sempre avere anche la <b>rappresentanza</b> del mandante.",
+  "p": "<b>No, non necessariamente</b>. Il mandato può essere <b>con rappresentanza</b> (il mandatario agisce in nome del mandante) o <b>senza rappresentanza</b> (agisce in nome proprio ma per conto del mandante). Il mandato riguarda il rapporto interno; la rappresentanza riguarda il potere di agire in nome di un altro verso i terzi.",
+  "e": "Mandato con rappresentanza: l'agente firma il contratto «in nome e per conto di Alfa S.p.A.». Mandato senza rappresentanza: il commissionario vende a nome suo e poi gira i soldi al cliente.",
   "x": {
-   "B": "la rappresentanza non è obbligatoria, perché esiste il mandato senza rappresentanza",
-   "C": "la rappresentanza può mancare del tutto: la durata non c'entra",
-   "D": "la rappresentanza può mancare del tutto, quindi non è dovuta nemmeno a tempo indeterminato"
+   "B": "non è obbligatoria",
+   "C": "non è obbligatoria, né per un tempo limitato",
+   "D": "non è obbligatoria, né a tempo indeterminato"
   },
-  "k": "mandato non significa rappresentanza"
+  "k": "mandato con o senza rappresentanza",
+  "r": "<b>«Per conto di» ≠ «in nome di»</b>: il mandato c'è sempre, la rappresentanza no. Le risposte con «Sì» cadono insieme."
  },
  "4740": {
-  "q": "Il mandato si può revocare in modo tacito, cioè senza dirlo espressamente?",
-  "p": "<b>Sì</b>. La revoca è tacita quando il comportamento del mandante mostra che non vuole più proseguire con quel mandatario. Succede, per esempio, se nomina un nuovo mandatario per lo stesso affare o se compie l'affare da solo. Conta il comportamento, non il tipo di durata.",
-  "e": "Tizio incarica Caio di vendere la sua auto, poi incarica Sempronio dello stesso affare: anche senza una revoca espressa il mandato a Caio è revocato, con effetto da quando Caio ne viene informato.",
+  "q": "La domanda chiede se il mandante può <b>revocare il mandato in modo tacito</b>, cioè con un comportamento, senza dichiararlo.",
+  "p": "<b>Sì</b>. La revoca può essere anche <b>tacita</b>: per esempio quando il mandante <b>nomina un nuovo mandatario</b> per lo stesso affare, o quando <b>compie lui stesso</b> l'affare. Questi comportamenti fanno capire senza dubbi che il primo incarico non vale più. Vale per qualsiasi durata del mandato.",
+  "e": "Incarichi un'agenzia di vendere la tua auto. Poi la vendi tu a un amico: il mandato all'agenzia è revocato tacitamente.",
   "x": {
-   "B": "la revoca tacita non è limitata ai mandati a tempo determinato",
-   "C": "la revoca tacita non è limitata ai mandati a tempo indeterminato",
-   "D": "la revoca tacita è ammessa, quindi «mai» è sbagliato"
+   "B": "non dipende dalla durata a tempo determinato",
+   "C": "non dipende dalla durata a tempo indeterminato",
+   "D": "è possibile"
   },
-  "k": "nuovo mandatario = revoca tacita"
+  "k": "revoca tacita del mandato = sì",
+  "r": "<b>«Se lo fai tu, l'incarico finisce»</b>. Ricorda i due casi di revoca tacita: <b>nuovo mandatario</b> o <b>affare fatto da te</b>."
  },
  "4741": {
-  "q": "Se un'azienda viene ceduta, che fine fanno i suoi crediti e da quando il passaggio ha effetto?",
-  "p": "I crediti <b>sono ceduti al cessionario, con effetto dal momento dell'iscrizione del trasferimento nel registro imprese</b>. Chi compra l'azienda subentra anche nei suoi crediti. Per la cessione di azienda basta la pubblicità nel registro, senza notifica ai singoli debitori o loro accettazione: sarebbe troppo oneroso rivolgersi a tutti.",
-  "e": "Alfa cede l'azienda a Beta, e un cliente deve ad Alfa 10.000 euro. Con l'iscrizione nel registro imprese, verso i terzi il credito è di Beta.",
+  "q": "Quando si <b>cede un'azienda</b>, la domanda chiede che fine fanno i <b>crediti</b> legati all'azienda e da quando la cessione vale.",
+  "p": "Passano al <b>cessionario</b> (chi compra), e la cessione ha effetto verso i terzi <b>dal momento dell'iscrizione del trasferimento nel registro delle imprese</b>. Per i crediti d'azienda non serve notificare la cessione a ogni singolo debitore: basta la pubblicità nel registro. Resta però tutelato il debitore che, in buona fede, paga al vecchio titolare.",
+  "e": "Compri un negozio che deve incassare 20.000 € da vari clienti. Iscritto il trasferimento nel registro delle imprese, quei crediti sono tuoi, senza mandare una lettera a ogni cliente.",
   "x": {
-   "B": "i crediti passano a chi acquista l'azienda, non restano al cedente",
-   "C": "non serve la notifica al debitore: conta l'iscrizione nel registro",
-   "D": "non serve l'accettazione del debitore: conta l'iscrizione nel registro"
+   "B": "non restano al cedente: passano al cessionario",
+   "C": "per i crediti d'azienda non serve la notifica al debitore: conta l'iscrizione",
+   "D": "non serve l'accettazione del debitore"
   },
-  "k": "crediti d'azienda = effetto dall'iscrizione nel registro"
+  "k": "crediti d'azienda: effetto dall'iscrizione nel registro",
+  "r": "Per l'azienda vale la <b>regola del registro</b>: tutto ciò che è pubblico nel registro imprese vale verso i terzi. La notifica (C) è la regola della cessione di un credito <b>singolo</b>."
  },
  "4742": {
-  "q": "Tizio nomina Sempronio institore, cioè preposto all'impresa, per la sua azienda di frutta secca. Cosa gli conferisce?",
-  "p": "Gli conferisce <b>una procura</b>. L'institore gestisce l'impresa per conto del titolare e deve poter trattare con i terzi in suo nome. La procura è l'atto che gli dà questo potere di rappresentanza. L'azienda resta di Tizio.",
-  "e": "Con la procura, Sempronio può firmare un contratto con un fornitore di noci: il contratto vincola Tizio.",
+  "q": "Tizio nomina Sempronio <b>institore</b> della sua azienda (chi dirige l'impresa per conto del titolare). La domanda chiede cosa gli conferisce.",
+  "p": "Gli conferisce una <b>procura</b>, cioè il <b>potere di rappresentarlo</b> nel compiere gli atti dell'impresa. L'institore è un collaboratore che gestisce l'azienda in nome del titolare: firma contratti, tratta con fornitori e clienti. Non diventa proprietario e non riceve titoli di studio o diritti di voto.",
+  "e": "Il direttore di una filiale di una catena di negozi, preposto a gestirla, firma i contratti con i fornitori in nome del titolare: è un institore.",
   "x": {
-   "B": "un titolo accademico viene da un'università, non dal titolare dell'azienda",
-   "C": "l'institore gestisce i beni, ma la proprietà resta al titolare",
-   "D": "qui Tizio è titolare dell'azienda e il potere dato riguarda la gestione, non il voto su azioni"
+   "B": "la nomina non dà un titolo accademico",
+   "C": "l'institore non diventa proprietario dei beni",
+   "D": "l'institore non riceve diritti di voto sulle azioni"
   },
-  "k": "institore = procura, non proprietà"
+  "k": "institore = procura",
+  "r": "<b>«Institore = gestisce con procura»</b>. Pensa a «direttore»: ha il potere di firmare, non la proprietà."
  },
  "4743": {
-  "q": "Se il contratto di consorzio non indica la durata, cosa succede?",
-  "p": "Il contratto <b>è valido per dieci anni</b>. La mancata indicazione non rende nullo l'accordo: la legge colma il vuoto con una durata fissa. Così i partecipanti non restano vincolati senza limite. È una regola da memorizzare.",
-  "e": "Tre imprese creano un consorzio nel 2026 senza indicare la durata: il contratto vale per dieci anni, quindi fino al 2036.",
+  "q": "Le parti creano un <b>consorzio</b> (un'organizzazione comune tra imprenditori) senza dire per quanto tempo. La domanda chiede quanto dura.",
+  "p": "È valido per <b>dieci anni</b>. Il codice fissa questa durata quando le parti non l'hanno indicata. Il consorzio vincola gli imprenditori a coordinarsi tra loro: non può restare in piedi all'infinito senza una scelta esplicita.",
+  "e": "Cinque cantine creano un consorzio per promuovere il loro vino senza fissare una durata: dura dieci anni.",
   "x": {
-   "B": "in mancanza di indicazione la durata è fissata dalla legge, quindi non è indeterminata",
-   "C": "la durata prevista dalla legge è dieci anni, non venti",
-   "D": "la mancanza della durata non rende nullo il contratto: si applicano i dieci anni"
+   "B": "non è a tempo indeterminato",
+   "C": "non dura venti anni",
+   "D": "non è nullo: dura dieci anni"
   },
-  "k": "consorzio senza durata = dieci anni"
+  "k": "consorzio senza durata = 10 anni",
+  "r": "<b>«Consorzio = 10»</b>: un numero tondo. Collegalo al 10 delle dita: cinque imprese, due mani."
  },
  "4744": {
-  "q": "Cosa succede se un contratto di consorzio non è fatto per iscritto?",
-  "p": "Il contratto <b>è nullo</b>. Per il consorzio la legge chiede la forma scritta a pena di nullità, quindi lo scritto è una condizione di validità. Vale per ogni consorzio, con o senza attività esterna.",
-  "e": "Tre imprese si accordano solo a voce per gestire insieme gli acquisti: il consorzio è nullo.",
+  "q": "Un contratto di <b>consorzio</b> non è fatto per iscritto. La domanda chiede che sorte ha.",
+  "p": "È <b>nullo</b>. Il codice richiede la <b>forma scritta a pena di nullità</b> per il contratto di consorzio. Crea un'organizzazione stabile con regole e obblighi per più imprenditori: serve certezza.",
+  "e": "Tre imprese edili si accordano a voce per gestire insieme gli acquisti. Questo consorzio è nullo finché non mettono tutto per iscritto.",
   "x": {
-   "B": "senza scritto il contratto non è valido, quindi non è «valido ma inefficace»",
-   "C": "la forma scritta serve anche per il consorzio con attività esterna",
-   "D": "senza scritto il contratto è nullo, non valido ed efficace"
+   "B": "non è «valido ma inefficace»: è nullo",
+   "C": "la forma scritta serve sempre, non solo per il consorzio con attività esterna",
+   "D": "non è valido"
   },
-  "k": "consorzio senza scritto = nullo"
+  "k": "consorzio = scritto a pena di nullità",
+  "r": "<b>Consorzio: «10 anni, per iscritto»</b>. Due regole da ricordare insieme."
  },
  "4745": {
-  "q": "Se viene data in pegno una cosa che produce frutti, a chi spettano i frutti?",
-  "p": "Spettano <b>al creditore, salvo patto contrario</b>. Il creditore ha il bene in mano e può fare suoi i frutti, che riducono il debito. Li imputa prima alle spese e agli interessi, poi al capitale.",
-  "e": "Tizio dà in pegno a Caio titoli che pagano 100 euro di cedola, con 30 euro di interessi dovuti. Caio imputa 30 euro agli interessi e 70 al capitale.",
+  "q": "Si dà in pegno una cosa che produce frutti (es. titoli che pagano interessi). La domanda chiede a chi spettano i frutti.",
+  "p": "Al <b>creditore, salvo patto contrario</b>. Il creditore li incassa, ma non per arricchirsi: li <b>imputa</b> prima alle spese e agli interessi e poi al capitale, riducendo così il debito. Le parti però possono accordarsi diversamente.",
+  "e": "Dai in pegno alla banca dei BTP che pagano 300 € di cedole. La banca incassa le cedole e le usa per ridurre il tuo debito.",
   "x": {
-   "B": "i frutti non vanno solo al capitale: prima coprono spese e interessi",
-   "C": "i frutti non vanno solo agli interessi: l'eccedenza va anche al capitale",
-   "D": "i frutti spettano al creditore, salvo patto contrario, quindi «sempre del debitore» è sbagliato"
+   "B": "non solo al capitale: prima spese e interessi",
+   "C": "non solo agli interessi: anche al capitale",
+   "D": "non sono sempre del debitore: di regola li incassa il creditore"
   },
-  "k": "frutti del pegno = al creditore, salvo patto"
+  "k": "frutti della cosa in pegno = al creditore, salvo patto",
+  "r": "<b>«Il creditore incassa e scala dal debito»</b>. Scegli il «Sì, salvo patto contrario»: le altre restringono l'imputazione a una sola voce."
  },
  "4746": {
-  "q": "Chi ha ricevuto un bene in pegno può venderlo?",
-  "p": "<b>Sì, se la cosa si deteriora, previo avviso a chi ha costituito il pegno e con l'autorizzazione del giudice</b>. Se il bene perde valore, la garanzia rischia di non bastare più, quindi vendere protegge il creditore. L'avviso e il controllo del giudice proteggono invece chi ha dato il bene.",
-  "e": "Un creditore ha in pegno merce che si sta rovinando. Avvisa chi l'ha data e chiede al giudice di poterla vendere: così la garanzia non va persa.",
+  "q": "Chi ha ricevuto un bene in pegno vuole <b>venderlo</b>. La domanda chiede se può farlo.",
+  "p": "Sì, se la cosa <b>si deteriora</b> e c'è il rischio che perda il valore che deve garantire. Ma serve <b>avvisare</b> chi ha dato il pegno e ottenere l'<b>autorizzazione del giudice</b>. Il ricavato prende il posto della cosa come garanzia. L'aumento di valore, invece, non giustifica la vendita.",
+  "e": "Dai in pegno una partita di formaggi stagionati che cominciano a rovinarsi. Il creditore, con l'autorizzazione del giudice e avvisandoti, li fa vendere e tiene il ricavato come garanzia.",
   "x": {
-   "B": "l'aumento di valore non giustifica la vendita da parte del creditore, tanto meno senza avviso",
-   "C": "l'aumento di valore non è il presupposto: il presupposto è il deterioramento",
-   "D": "la vendita è ammessa in caso di deterioramento, quindi «in nessun caso» è sbagliato"
+   "B": "l'aumento di valore non giustifica la vendita, e l'avviso serve",
+   "C": "l'aumento di valore non giustifica la vendita",
+   "D": "è possibile, nel caso del deterioramento"
   },
-  "k": "pegno che si deteriora = avviso + giudice = vendita"
+  "k": "pegno: vendita se la cosa si deteriora, con giudice",
+  "r": "<b>«Si vende per salvare la garanzia, non per guadagnare»</b>. La parola chiave è <b>«deteriora»</b>."
  },
  "4747": {
-  "q": "Quando chi ha costituito il pegno può chiedere indietro il bene?",
-  "p": "Può farlo <b>se sono stati interamente pagati il capitale e gli interessi e sono state rimborsate le spese relative al debito e al pegno</b>. Il pegno garantisce tutto il debito, non solo una parte. Finché resta qualcosa da pagare, il creditore può tenere il bene.",
-  "e": "Tizio ha restituito tutti i 1.000 euro di capitale, ma deve ancora 50 euro di interessi: il creditore può tenere il bene finché Tizio non paga anche quelli, e le eventuali spese.",
+  "q": "La domanda chiede quando chi ha dato una cosa in pegno può <b>chiederne la restituzione</b>.",
+  "p": "Solo quando sono stati <b>interamente pagati capitale e interessi</b> e <b>rimborsate le spese</b> del debito e del pegno. Il pegno garantisce <b>tutto</b> il debito: finché resta qualcosa da pagare, il creditore può trattenere la cosa.",
+  "e": "Hai dato in pegno un orologio per un prestito di 2.000 €. Hai restituito i 2.000 € ma non i 50 € di interessi: l'orologio resta alla banca finché non paghi anche quelli.",
   "x": {
-   "B": "le sole spese non bastano: vanno pagati anche capitale e interessi",
-   "C": "metà del capitale non basta: serve il pagamento integrale",
-   "D": "metà degli interessi non basta: serve il pagamento integrale"
+   "B": "servono anche gli interessi",
+   "C": "non basta metà del capitale",
+   "D": "non basta metà degli interessi"
   },
-  "k": "bene restituito solo a debito pagato per intero"
+  "k": "restituzione del pegno = tutto pagato",
+  "r": "<b>«Tutto pagato, tutto restituito»</b>. Le risposte con «metà» sono esche."
  },
  "4748": {
-  "q": "Quale di questi beni può essere dato in ipoteca?",
-  "p": "<b>Un appartamento</b>. L'ipoteca riguarda gli immobili e i beni iscritti in pubblici registri, perché va iscritta in un registro dove tutti possono vederla. L'appartamento è un immobile e quindi è ipotecabile. Per i beni mobili comuni e i crediti lo strumento tipico è il pegno.",
-  "e": "Chi prende un mutuo per comprare casa di solito concede alla banca un'ipoteca sull'appartamento.",
+  "q": "La domanda chiede quale di questi beni può essere dato in <b>ipoteca</b>.",
+  "p": "<b>Un appartamento</b>. L'ipoteca riguarda di regola i <b>beni immobili</b> (e alcuni beni mobili registrati, come navi, aerei, automobili). I beni mobili comuni, le universalità di mobili e i crediti si danno invece in <b>pegno</b>.",
+  "e": "Per ottenere un mutuo di 200.000 € la banca iscrive un'ipoteca sulla casa che compri.",
   "x": {
-   "B": "l'universalità di mobili, come una collezione, si può dare in pegno, non in ipoteca",
-   "C": "il credito si dà in pegno, non in ipoteca",
-   "D": "un bene mobile comune, senza pubblico registro, si dà in pegno"
+   "B": "un'universalità di mobili si dà in pegno, non in ipoteca",
+   "C": "un credito si dà in pegno, non in ipoteca",
+   "D": "un bene mobile comune si dà in pegno, non in ipoteca"
   },
-  "k": "immobile = ipoteca; mobile e credito = pegno"
+  "k": "ipoteca = immobili",
+  "r": "<b>Ipoteca = casa, pegno = cose che si spostano</b>. Cerca l'unico immobile."
  },
  "4749": {
-  "q": "Che cosa succede a un'ipoteca iscritta sulla base di un titolo annullabile?",
-  "p": "L'ipoteca <b>è convalidata con la convalida del titolo</b>. Un titolo annullabile ha un vizio che si può sanare con la convalida. L'ipoteca dipende dal titolo: se il vizio viene sanato, anche l'ipoteca si consolida, senza doverla iscrivere di nuovo.",
-  "e": "Tizio concede un'ipoteca con un atto annullabile perché viziato da errore. Se poi convalida l'atto, l'ipoteca iscritta resta valida senza una nuova iscrizione.",
+  "q": "Un'ipoteca è stata iscritta in base a un <b>titolo annullabile</b> (es. un contratto viziato). La domanda chiede che sorte ha.",
+  "p": "È <b>convalidata con la convalida del titolo</b>. L'ipoteca dipende dal titolo da cui nasce: se il contratto viziato viene convalidato, anche l'ipoteca diventa definitivamente valida, senza bisogno di una nuova iscrizione.",
+  "e": "Un mutuo è stato firmato da una persona in errore, ed è annullabile. Quando la persona lo convalida, anche l'ipoteca iscritta a garanzia diventa stabile.",
   "x": {
-   "B": "non serve una nuova iscrizione: basta la convalida del titolo",
-   "C": "la convalida serve: l'ipoteca non si consolida senza di essa",
-   "D": "senza la convalida del titolo l'ipoteca non è convalidata"
+   "B": "non serve una nuova iscrizione",
+   "C": "senza convalida il titolo resta annullabile, quindi anche l'ipoteca",
+   "D": "senza la convalida del titolo non c'è convalida dell'ipoteca"
   },
-  "k": "convalidi il titolo = convalidi l'ipoteca"
+  "k": "ipoteca segue la convalida del titolo",
+  "r": "<b>«L'ipoteca segue il suo titolo»</b>, come un'ombra: titolo convalidato, ipoteca convalidata."
  },
  "4750": {
-  "q": "Quando la cessione del credito ha effetto verso il debitore ceduto?",
-  "p": "<b>Quando la cessione è stata notificata al debitore oppure quest'ultimo l'ha accettata</b>. Il debitore deve sapere a chi pagare. Finché non è informato con la notifica o non ha accettato, non può essere vincolato verso il nuovo creditore. Il tempo trascorso, da solo, non conta.",
-  "e": "Banca Alfa cede a Beta un credito verso Mario. Dopo la notifica a Mario, lui deve pagare Beta e non più Alfa.",
+  "q": "Un creditore cede il suo credito a un altro. La domanda chiede da quando la cessione vale <b>nei confronti del debitore</b>.",
+  "p": "Da quando il debitore l'ha <b>accettata</b> oppure gli è stata <b>notificata</b>. Il debitore deve sapere a chi pagare: finché non lo sa, se paga al vecchio creditore in buona fede è liberato. Non ci sono termini fissi di mesi.",
+  "e": "La banca A cede il tuo debito alla società B. Finché non ricevi la comunicazione, continui a pagare correttamente la banca A; dopo la notifica devi pagare B.",
   "x": {
-   "B": "non conta il passare di sei mesi, ma la notifica o l'accettazione",
-   "C": "non conta il passare di un anno, ma la notifica o l'accettazione",
-   "D": "non conta il passare di un mese, ma la notifica o l'accettazione"
+   "B": "non dipende da un termine di sei mesi",
+   "C": "non dipende da un termine di un anno",
+   "D": "non dipende da un termine di un mese"
   },
-  "k": "cessione del credito = notifica o accettazione"
+  "k": "cessione credito: notifica o accettazione del debitore",
+  "r": "<b>«Il debitore deve saperlo»</b>: notifica o accettazione. Le opzioni con mesi o anni sono inventate."
  },
  "4751": {
   "q": "Il debitore e un terzo si accordano: il terzo si prenderà il debito. Da quando questo accordo non si può più revocare?",
