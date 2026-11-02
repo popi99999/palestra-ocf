@@ -3000,554 +3000,604 @@
   "r": "<b>«Tre anni di solidarietà»</b>: chi vende un'azione non pagata resta obbligato con chi compra."
  },
  "4851": {
-  "q": "Se l'atto costitutivo non dice altro, quanti voti dà un'azione ordinaria di una S.p.A.?",
-  "p": "Dà <b>un voto</b>. Di norma ogni azione ordinaria pesa allo stesso modo: chi ha più azioni ha più voti, ma il valore del singolo titolo in assemblea è sempre uno. L'atto costitutivo può prevedere regole diverse, ma se tace vale questa.",
-  "e": "Se Anna ha 100 azioni ordinarie e Luca 10, in assemblea Anna ha 100 voti e Luca 10.",
+  "q": "La domanda chiede quanti voti dà un'<b>azione ordinaria</b> di una S.p.A., se l'atto costitutivo non dice altro.",
+  "p": "<b>Un voto</b>. La regola base è <b>una azione, un voto</b>: chi ha più azioni ha più voti, in proporzione al capitale. Lo statuto può prevedere eccezioni (per esempio azioni a voto plurimo), ma senza previsioni vale un voto per azione.",
+  "e": "Hai 300 azioni ordinarie di Alfa: in assemblea esprimi 300 voti.",
   "x": {
-   "B": "il voto per azione non cambia con il totale del capitale sociale",
-   "C": "dieci voti non sono la regola di base: la regola è un voto per azione",
-   "D": "il numero dei soci non cambia i voti di ciascuna azione"
+   "B": "non dipende dal capitale complessivo",
+   "C": "non dieci voti",
+   "D": "non dipende dal numero dei soci"
   },
-  "k": "un'azione ordinaria = un voto"
+  "k": "azione ordinaria = un voto",
+  "r": "<b>«Una azione, un voto»</b>, come «una testa, un voto» nelle elezioni."
  },
  "4852": {
-  "q": "Tizio vuole vendere a un prezzo altissimo un'azione che ha un valore nominale di 1 euro. Cosa può fare chi dovrebbe comprarla?",
-  "p": "L'acquirente <b>è libero di accettare o meno il prezzo</b>. La vendita di un'azione è una trattativa tra privati: il prezzo lo decidono le parti e il valore nominale non lo limita. Se il prezzo non piace, basta non comprare.",
-  "e": "Un'azione con nominale di 1 euro può essere offerta a una cifra enorme: tu puoi semplicemente dire di no.",
+  "q": "Tizio vuole vendere un'azione con valore nominale di 1 € al prezzo di 1.000.000 €. La domanda chiede cosa può fare l'acquirente.",
+  "p": "È <b>libero di accettare o meno il prezzo</b>. Il valore nominale è solo la «quota di capitale» che l'azione rappresenta: il prezzo di vendita tra privati è libero e lo decide il mercato. Nessuna autorità interviene a fissare un prezzo «equo» in una normale compravendita.",
+  "e": "Un'azione con valore nominale di 1 € può valere in borsa 50 €, perché la società è andata bene. Il prezzo lo decidono venditore e compratore.",
   "x": {
-   "B": "la CONSOB non fissa un prezzo più equo in una vendita tra privati",
-   "C": "non è previsto un rimborso giudiziale della parte pagata oltre un «valore di legge»: se accetti, il prezzo è quello concordato",
-   "D": "la Banca d'Italia non interviene sul prezzo di questa vendita"
+   "B": "la CONSOB non fissa il prezzo delle compravendite private",
+   "C": "non c'è un «valore di legge» da cui farsi rimborsare",
+   "D": "la Banca d'Italia non fissa il prezzo delle azioni"
   },
-  "k": "prezzo libero: accetti o non compri"
+  "k": "prezzo delle azioni = libero",
+  "r": "<b>«Valore nominale ≠ prezzo»</b>: il prezzo è una trattativa. Se non ti piace, non compri."
  },
  "4853": {
-  "q": "Un socio che conferisce un immobile nella società può ricevere azioni in cambio?",
-  "p": "<b>Sì, di valore corrispondente al valore dell'immobile conferito</b>. Il capitale non si forma solo con il denaro: si possono conferire anche beni. Il socio riceve azioni per un valore pari a quello che ha portato, senza riduzioni automatiche.",
-  "e": "Se l'immobile vale 300.000 euro, il socio può ricevere azioni per 300.000 euro.",
+  "q": "Un socio conferisce un <b>immobile</b> alla società. La domanda chiede se può ricevere azioni in cambio.",
+  "p": "<b>Sì, di valore corrispondente al valore dell'immobile</b>. È un <b>conferimento in natura</b>: il bene viene valutato da un esperto (relazione di stima) e il socio riceve azioni per un valore pari a quello stimato. Non ci sono riduzioni automatiche di un terzo o della metà.",
+  "e": "Un socio conferisce un capannone stimato 500.000 €: riceve azioni per 500.000 €.",
   "x": {
-   "B": "il conferimento di beni è ammesso, quindi «in nessun caso» è sbagliato",
-   "C": "non si toglie un terzo: le azioni corrispondono al valore del bene",
-   "D": "non si dimezza: le azioni corrispondono all'intero valore del bene"
+   "B": "è possibile",
+   "C": "non c'è una riduzione di un terzo",
+   "D": "non c'è una riduzione alla metà"
   },
-  "k": "immobile conferito = azioni di pari valore"
+  "k": "conferimento in natura = azioni pari al valore stimato",
+  "r": "<b>«Dai un bene, ricevi azioni dello stesso valore»</b>. Le riduzioni automatiche sono inventate."
  },
  "4854": {
-  "q": "Quali caratteristiche hanno le azioni ordinarie?",
-  "p": "<b>Devono essere di uguale valore e danno uguali diritti</b> a chi le possiede. L'uguaglianza è il tratto tipico delle azioni: ogni azione rappresenta la stessa frazione del capitale. Per questo i diritti dipendono da quante azioni hai, non da chi sei.",
-  "e": "Se il capitale è diviso in 1.000 azioni ordinarie, ognuna vale un millesimo e dà gli stessi diritti delle altre.",
+  "q": "La domanda chiede come devono essere le <b>azioni ordinarie</b>.",
+  "p": "Devono essere <b>di uguale valore</b> e conferire ai loro possessori <b>uguali diritti</b>. È il principio di uguaglianza delle azioni: ogni azione rappresenta la stessa frazione di capitale e dà gli stessi diritti. Le differenze si fanno solo creando categorie diverse.",
+  "e": "In una S.p.A. tutte le azioni ordinarie hanno lo stesso valore e danno un voto e lo stesso dividendo ciascuna.",
   "x": {
-   "B": "il valore non si differenzia in base al totale del capitale sociale: resta uguale per tutte",
-   "C": "il valore uguale è giusto, ma le ordinarie non danno diritti diversi",
-   "D": "il valore non cambia in base a quanto ha conferito il socio: chi conferisce di più ha più azioni"
+   "B": "il valore non varia con il capitale complessivo",
+   "C": "devono dare uguali diritti",
+   "D": "il valore non varia con quanto ha conferito il singolo socio"
   },
-  "k": "ordinarie: stesso valore, stessi diritti"
+  "k": "azioni ordinarie = uguale valore e uguali diritti",
+  "r": "<b>«Tutte uguali»</b>: stesso valore, stessi diritti. La C è la trappola: uguale valore ma diritti diversi."
  },
  "4855": {
-  "q": "Se sulle azioni c'è un pegno o un usufrutto e non ci sono accordi diversi, chi vota?",
-  "p": "Vota <b>il creditore pignoratizio o l'usufruttuario</b>. È una regola da memorizzare: per legge il voto passa a chi ha il pegno o l'usufrutto, non al proprietario. Le parti possono però stabilire diversamente con un accordo.",
-  "e": "Marco dà in pegno le sue azioni alla banca. Senza accordo diverso, in assemblea vota la banca.",
+  "q": "Le azioni sono date in <b>pegno</b> o in <b>usufrutto</b>. La domanda chiede a chi spetta il diritto di voto, salvo accordi diversi.",
+  "p": "Spetta al <b>creditore pignoratizio</b> o all'<b>usufruttuario</b>, salvo convenzione contraria. Chi ha il pegno vuole proteggere il valore della sua garanzia; chi ha l'usufrutto gode dei frutti dell'azione. La legge dà a loro il voto, ma le parti possono accordarsi diversamente.",
+  "e": "Un padre dà al figlio l'usufrutto di 1.000 azioni: in assemblea vota il figlio, salvo patto diverso.",
   "x": {
-   "B": "«sempre» è sbagliato: senza accordo il voto non spetta al proprietario",
-   "C": "«anche in caso di accordo contrario» è sbagliato: l'accordo può cambiare la regola",
-   "D": "le azioni non perdono il voto: il voto passa a un altro soggetto"
+   "B": "non sempre al proprietario: di regola al creditore o all'usufruttuario",
+   "C": "il patto contrario è ammesso",
+   "D": "le azioni non perdono il diritto di voto"
   },
-  "k": "pegno o usufrutto: vota chi li ha, salvo patto"
+  "k": "pegno o usufrutto: voto al creditore/usufruttuario",
+  "r": "<b>«Vota chi ha il pegno o l'usufrutto»</b>, salvo accordo. Come nel pegno di cose fruttifere, il creditore ha i diritti utili."
  },
  "4856": {
-  "q": "Caio vuole intestare al figlio Tizio un'azione di una società. Può farlo?",
-  "p": "<b>Sì, liberamente</b>. Le azioni sono di regola trasferibili e nella domanda non c'è alcun limite particolare. Il fatto che il destinatario sia il figlio non impedisce l'operazione.",
-  "e": "Un padre può trasferire al figlio un'azione che possiede, come farebbe con un'altra persona.",
+  "q": "Caio vuole intestare al figlio Tizio un'azione di una società. La domanda chiede se può farlo.",
+  "p": "<b>Sì, liberamente</b>. Le azioni sono beni trasferibili: si possono vendere o donare a chiunque, compresi i figli, salvo particolari limiti dello statuto. Non contano la sede della società o il valore dell'azione.",
+  "e": "Un padre regala al figlio 10 azioni di una società quotata: è un'operazione normale.",
   "x": {
-   "B": "la sede in Italia non è una condizione per poter intestare l'azione",
-   "C": "non è richiesto che il valore dell'azione sia modico",
-   "D": "non c'è un divieto: le azioni sono di regola trasferibili"
+   "B": "la sede della società non conta",
+   "C": "il valore non conta",
+   "D": "è possibile"
   },
-  "k": "azioni: di regola liberamente trasferibili"
+  "k": "azioni liberamente trasferibili",
+  "r": "<b>«Le azioni circolano»</b>: si possono dare a chi vuoi. Basta il «Sì, liberamente»."
  },
  "4857": {
-  "q": "Quale di questi elementi deve comparire sui titoli azionari?",
-  "p": "Devono comparire <b>i diritti e gli obblighi particolari</b> legati a quelle azioni. Chi possiede o compra il titolo deve poter capire cosa ha in mano, compresi eventuali diritti speciali o vincoli. Serve quindi a informare il possessore.",
-  "e": "Se un'azione dà un privilegio sugli utili, questo particolare diritto va indicato sul titolo.",
+  "q": "La domanda chiede quale elemento deve essere indicato sui <b>titoli azionari</b>.",
+  "p": "I <b>diritti e gli obblighi particolari</b> legati alle azioni. Il titolo deve indicare anche denominazione e sede della società, numero e data di iscrizione nel registro delle imprese, capitale sociale, numero e valore nominale delle azioni. Il titolo serve a far capire a chi lo ha in mano cosa possiede.",
+  "e": "Un'azione privilegiata riporta sul titolo il suo privilegio sui dividendi, così chi la compra sa cosa compra.",
   "x": {
-   "B": "l'iscrizione presso l'IVASS non è un dato da riportare sul titolo",
-   "C": "l'iscrizione presso la CONSOB non è un dato da riportare sul titolo",
-   "D": "il titolo non deve riportare il nome dell'amministratore unico o del presidente"
+   "B": "l'IVASS vigila sulle assicurazioni e non c'entra",
+   "C": "l'iscrizione alla CONSOB non è richiesta",
+   "D": "il nome dell'amministratore non è richiesto"
   },
-  "k": "sul titolo: diritti e obblighi particolari"
+  "k": "titolo azionario: diritti e obblighi particolari",
+  "r": "<b>«Il titolo ti dice cosa ti dà»</b>. Le opzioni con IVASS, CONSOB o nomi di persone sono esche."
  },
  "4858": {
-  "q": "Modificando lo statuto si può creare una categoria di azioni con diritti diversi dalle ordinarie?",
-  "p": "<b>Sì, ad esempio azioni correlate ai risultati dell'attività sociale in un determinato settore</b>. Lo statuto può creare categorie speciali anche dopo la nascita della società. I diritti diversi non riguardano un solo aspetto: queste azioni, per esempio, legano i diritti patrimoniali all'andamento di un settore.",
-  "e": "Una società con le divisioni hotel e trasporti può emettere azioni legate ai risultati della sola divisione hotel.",
+  "q": "La domanda chiede se, <b>modificando lo statuto</b>, si può creare una categoria di azioni con diritti diversi da quelli delle ordinarie.",
+  "p": "<b>Sì</b>. Le categorie speciali si possono creare anche dopo la costituzione, con una modifica dello statuto. Le differenze possono riguardare vari aspetti, non solo il voto o gli utili. Un esempio sono le <b>azioni correlate</b> ai risultati di un determinato settore dell'attività della società.",
+  "e": "Una società con più settori emette azioni i cui dividendi dipendono solo dai risultati del settore farmaceutico.",
   "x": {
-   "B": "la differenza non riguarda «esclusivamente» il voto: può toccare anche i diritti patrimoniali",
-   "C": "la differenza non riguarda «solo» l'incidenza degli utili",
-   "D": "non serve farlo alla costituzione: basta una modifica dello statuto"
+   "B": "le differenze non riguardano solo il voto",
+   "C": "le differenze non riguardano solo gli utili",
+   "D": "si possono creare anche dopo la costituzione"
   },
-  "k": "categorie speciali: anche con modifica dello statuto"
+  "k": "categorie speciali anche con modifica dello statuto",
+  "r": "<b>«Le categorie si possono inventare anche dopo»</b>. Le risposte con «solo» sono troppo restrittive."
  },
  "4859": {
-  "q": "Chi possiede obbligazioni convertibili in azioni cosa può fare?",
-  "p": "<b>Può, invece del rimborso, sottoscrivere azioni della società che ha emesso le obbligazioni</b>. La conversione è una facoltà: l'obbligazionista sceglie se restare creditore e farsi rimborsare, oppure diventare socio. Non è un obbligo.",
-  "e": "Elena ha obbligazioni convertibili di Alfa: se le azioni Alfa le sembrano convenienti converte, altrimenti attende il rimborso.",
+  "q": "La domanda chiede cosa possono fare i possessori di <b>obbligazioni convertibili</b> in azioni.",
+  "p": "<b>Possono</b>, al posto del rimborso, <b>sottoscrivere azioni</b> della società emittente. La conversione è un <b>diritto</b> dell'obbligazionista, non un obbligo: sceglie lui se farsi rimborsare in denaro o diventare socio.",
+  "e": "Hai obbligazioni convertibili di Alfa. Se le azioni salgono, conviene convertire; se scendono, ti fai rimborsare.",
   "x": {
-   "B": "non c'è obbligo e le azioni non sono quelle delle società partecipate, ma dell'emittente",
-   "C": "non c'è alcun obbligo di accettare azioni come rimborso, né prima della scadenza né dopo",
-   "D": "le azioni sono quelle giuste, ma l'obbligo non c'è: è una scelta"
+   "B": "non è un obbligo, e riguarda la società emittente",
+   "C": "non è un obbligo",
+   "D": "non è un obbligo: è una facoltà"
   },
-  "k": "convertibili: puoi convertire, non devi"
+  "k": "convertibili = facoltà di convertire",
+  "r": "<b>«Convertibile = puoi, non devi»</b>. Le opzioni con «sono obbligati» sono tutte sbagliate."
  },
  "4860": {
-  "q": "Lo statuto fa dipendere la vendita delle azioni senza voto dal semplice gradimento di organi sociali o altri soci. Che effetto ha questa clausola?",
-  "p": "Queste clausole <b>sono inefficaci se non prevedono un obbligo di acquisto a carico della società o degli altri soci, oppure il diritto di recesso di chi vuole vendere</b>. Il gradimento libero potrebbe bloccare il socio dentro la società. La via d'uscita protegge il socio: se non può vendere a chi vuole, deve poter uscire comunque.",
-  "e": "Se gli altri soci rifiutano il compratore di Paolo, devono comprare loro le azioni oppure Paolo deve poter recedere.",
+  "q": "Lo statuto fa dipendere il trasferimento delle azioni dal <b>mero gradimento</b> (semplice approvazione discrezionale) degli organi sociali o di altri soci. La domanda chiede se queste clausole sono efficaci.",
+  "p": "Sono <b>inefficaci se non prevedono</b>, a carico della società o degli altri soci, un <b>obbligo di acquisto</b> oppure il <b>diritto di recesso</b> di chi vuole vendere. Altrimenti il socio resterebbe prigioniero delle sue azioni: non può venderle e non può uscire.",
+  "e": "Lo statuto dice: «Le azioni si vendono solo con il consenso del CdA». Se il CdA può dire no senza motivo, deve esserci almeno l'obbligo di comprarle o il diritto di recesso.",
   "x": {
-   "B": "fissare un periodo di cessione non è ciò che rende efficace la clausola",
-   "C": "fissare un prezzo di cessione non basta: serve l'acquisto obbligatorio o il recesso",
-   "D": "non sono «sempre» inefficaci: lo sono se manca la via d'uscita"
+   "B": "non basta fissare un periodo",
+   "C": "non basta fissare un prezzo",
+   "D": "non sempre: sono efficaci se c'è obbligo di acquisto o recesso"
   },
-  "k": "mero gradimento: serve via d'uscita per il socio"
+  "k": "mero gradimento: valido solo con obbligo d'acquisto o recesso",
+  "r": "<b>«Se mi blocchi, devi farmi uscire»</b>: o mi compri le azioni o mi lasci recedere."
  },
  "4861": {
-  "q": "Quando l'acquisto di azioni proprie deve restare nei limiti di utili distribuibili e riserve disponibili dell'ultimo bilancio approvato?",
-  "p": "<b>Nel caso di acquisto a titolo oneroso</b>, cioè quando la società paga per comprarle. Pagare i propri soci fa uscire denaro dalla società: per proteggere il capitale, si possono usare solo utili e riserve disponibili. Negli altri casi elencati le azioni arrivano per effetto di un'operazione, non di una compravendita.",
-  "e": "Se Alfa compra sul mercato azioni proprie per 100.000 euro, deve avere almeno 100.000 euro tra utili distribuibili e riserve disponibili.",
+  "q": "Una società compra <b>azioni proprie</b>. La domanda chiede in quale caso l'acquisto deve rispettare il limite degli <b>utili distribuibili e delle riserve disponibili</b>.",
+  "p": "Nell'<b>acquisto a titolo oneroso</b>. Quando la società paga per comprare le proprie azioni, usa risorse che potrebbero servire ai creditori: per questo può farlo solo con utili e riserve disponibili, non intaccando il capitale. Negli acquisti per successione, fusione o scissione non c'è un esborso di questo tipo, quindi il limite non si applica.",
+  "e": "Alfa vuole ricomprare il 5% delle sue azioni: può farlo solo se ha utili e riserve disponibili sufficienti nell'ultimo bilancio approvato.",
   "x": {
-   "B": "nella successione universale le azioni arrivano insieme a un intero patrimonio, senza un acquisto a pagamento",
-   "C": "nella fusione le azioni arrivano per effetto dell'operazione straordinaria, non di una compravendita",
-   "D": "nella scissione le azioni arrivano per effetto dell'operazione straordinaria, non di una compravendita"
+   "B": "la successione universale è un caso esentato",
+   "C": "la fusione è un caso esentato",
+   "D": "la scissione è un caso esentato"
   },
-  "k": "azioni proprie pagate = solo utili e riserve"
+  "k": "azioni proprie a pagamento = nei limiti di utili e riserve",
+  "r": "<b>«Se paghi, paghi con gli utili»</b>. Gli altri tre casi sono passaggi automatici, non acquisti a pagamento."
  },
  "4862": {
-  "q": "Tizio e Caio stipulano un patto parasociale: quale finalità può avere?",
-  "p": "Può servire a <b>stabilizzare gli assetti proprietari o il governo della società</b>. Con il patto, alcuni soci si accordano su come votare o su come gestire le loro partecipazioni. Così mantengono più stabile chi controlla e chi guida la società.",
-  "e": "Due soci si impegnano per tre anni a non vendere le azioni e a votare insieme per la nomina degli amministratori.",
+  "q": "Tizio e Caio, soci, fanno un <b>patto parasociale</b>. La domanda chiede quale può essere il suo scopo.",
+  "p": "<b>Stabilizzare gli assetti proprietari o il governo della società</b>. I patti parasociali sono accordi tra soci, fuori dallo statuto, per esempio su come votare in assemblea o su limiti alla vendita delle azioni. Servono a garantire stabilità nel controllo della società.",
+  "e": "Tre soci si impegnano a votare insieme per nominare il consiglio di amministrazione e a non vendere le azioni per 3 anni.",
   "x": {
-   "B": "le relazioni tra dipendenti non sono lo scopo di un accordo tra soci sulla società",
-   "C": "il patto non serve ad aumentare le azioni in circolazione: quello è un tema di capitale",
-   "D": "il dumping è una pratica commerciale di vendita sottocosto, non lo scopo di un patto tra soci"
+   "B": "i rapporti tra dipendenti non sono lo scopo",
+   "C": "non servono ad aumentare le azioni in circolazione",
+   "D": "il dumping è una pratica commerciale scorretta, non lo scopo dei patti"
   },
-  "k": "patto parasociale = stabilità di proprietà e governo"
+  "k": "patti parasociali = stabilità del controllo",
+  "r": "<b>«Patto tra soci per comandare insieme»</b>. Cerca le parole <b>«assetti proprietari»</b> e <b>«governo»</b>."
  },
  "4863": {
-  "q": "Una S.p.A. può essere obbligata a quotare i suoi titoli in Borsa?",
-  "p": "<b>No</b>. Quotarsi è una scelta della società, non un obbligo legato alla sua dimensione. Anche il numero dei soci, per quanto alto, non fa scattare l'obbligo di quotazione.",
-  "e": "Una S.p.A. con moltissimi soci può restare non quotata, se non decide di andare in Borsa.",
+  "q": "La domanda chiede se una S.p.A. può essere <b>obbligata</b> a quotarsi in Borsa.",
+  "p": "<b>No</b>. La quotazione è una <b>scelta</b> della società. Nessuna regola la impone in base al numero di soci. Una società con molti soci può però avere obblighi di trasparenza (es. azioni diffuse tra il pubblico), ma non l'obbligo di quotarsi.",
+  "e": "Grandi aziende italiane con migliaia di dipendenti e soci restano non quotate per scelta.",
   "x": {
-   "B": "superare i mille soci non fa scattare un obbligo di quotazione",
-   "C": "superare i centomila soci non fa scattare un obbligo di quotazione",
-   "D": "superare i diecimila soci non fa scattare un obbligo di quotazione"
+   "B": "non c'è una soglia di mille soci",
+   "C": "non c'è una soglia di centomila soci",
+   "D": "non c'è una soglia di diecimila soci"
   },
-  "k": "quotazione = scelta, mai obbligo"
+  "k": "quotazione = scelta, mai obbligo",
+  "r": "<b>«In Borsa si va per scelta»</b>. Le soglie di soci sono inventate."
  },
  "4864": {
-  "q": "Nelle società di mutua assicurazione, cosa garantisce le obbligazioni della società?",
-  "p": "Le garantisce <b>il patrimonio sociale</b>. La società risponde dei suoi debiti con ciò che possiede. I soci, quindi, non mettono a rischio il proprio patrimonio personale per queste obbligazioni.",
-  "e": "Se la mutua ha un debito, il creditore si rivale sul patrimonio della mutua, non sulla casa di un socio.",
+  "q": "Nelle <b>società di mutua assicurazione</b>, la domanda chiede chi garantisce le obbligazioni sociali.",
+  "p": "Le garantisce il <b>patrimonio sociale</b>. Le mutue assicuratrici sono società in cui gli assicurati sono anche soci. Come nelle società di capitali, per le obbligazioni risponde solo la società con il suo patrimonio, non i soci con i loro beni personali.",
+  "e": "Se una mutua assicuratrice ha debiti, i creditori possono rivalersi sul patrimonio della mutua, non sulle case dei soci assicurati.",
   "x": {
-   "B": "i soci non rispondono illimitatamente con il proprio patrimonio",
-   "C": "l'erario, cioè lo Stato, non garantisce questi debiti",
-   "D": "anche i soci cooperatori non rispondono illimitatamente con il proprio patrimonio"
+   "B": "i soci non rispondono illimitatamente",
+   "C": "lo Stato non garantisce",
+   "D": "i soci non rispondono illimitatamente"
   },
-  "k": "mutua assicurazione: risponde il patrimonio sociale"
+  "k": "mutua assicurazione: risponde il patrimonio sociale",
+  "r": "<b>«Risponde la cassa comune»</b>, non i soci. Le risposte con «illimitatamente» sono sbagliate."
  },
  "4865": {
-  "q": "Alfa è italiana e ha azioni quotate alla Borsa di Parigi. Può emettere azioni di risparmio secondo l'art. 145, comma 1, del TUF?",
-  "p": "<b>Sì</b>. La norma riguarda le società italiane con azioni quotate in mercati regolamentati italiani o di altri Paesi dell'Unione europea. La Francia è nell'Unione europea, quindi Alfa rientra nella regola.",
-  "e": "Una S.p.A. di Milano quotata a Parigi è ancora una società italiana quotata in un mercato UE: può emettere azioni di risparmio.",
+  "q": "Alfa è una società italiana con azioni quotate alla <b>Borsa di Parigi</b>. La domanda chiede se può emettere <b>azioni di risparmio</b>.",
+  "p": "<b>Sì</b>. Il TUF permette di emettere azioni di risparmio alle società italiane con azioni quotate in mercati regolamentati <b>italiani o di altri Paesi dell'Unione europea</b>. Parigi è nell'UE, quindi Alfa può farlo, senza autorizzazioni francesi.",
+  "e": "Una società italiana quotata a Francoforte o a Parigi può emettere azioni di risparmio come una quotata a Milano.",
   "x": {
-   "B": "la quotazione in Francia non è un ostacolo: la norma include i mercati UE",
-   "C": "l'autorizzazione dell'Autorità francese non è la condizione prevista",
-   "D": "non serve trasferire la sede o aprire una sede secondaria a Parigi"
+   "B": "la quotazione in Francia (UE) va bene",
+   "C": "non serve l'autorizzazione francese",
+   "D": "non deve trasferire la sede"
   },
-  "k": "italiana quotata in UE = risparmio ammesso"
+  "k": "azioni di risparmio: quotate in Italia o UE",
+  "r": "<b>«Quotata in UE = ok»</b>. La regola guarda all'Unione europea, non solo all'Italia."
  },
  "4866": {
-  "q": "Alfa S.p.A., non quotata, delibera di emettere azioni di risparmio e un socio contesta la decisione. Cosa accade in genere secondo l'art. 145 del TUF?",
-  "p": "<b>La società non emette azioni di risparmio</b>. Secondo l'art. 145 questa possibilità è prevista per le società con azioni quotate. Alfa non è quotata, quindi l'obiezione del socio è fondata e l'emissione non può proseguire.",
-  "e": "Beta, quotata, può valutare l'emissione. Alfa, non quotata, no: la contestazione del socio blocca l'operazione.",
+  "q": "Alfa S.p.A., <b>non quotata</b>, delibera di emettere azioni di risparmio. Un socio contesta la decisione. La domanda chiede cosa succede di solito.",
+  "p": "Secondo la risposta della banca dati, <b>la società non emette le azioni di risparmio</b>. Le azioni di risparmio sono previste dal TUF per le società <b>quotate</b>, in Italia o nell'UE. Una società non quotata non rientra in questa disciplina, quindi la contestazione del socio è fondata.",
+  "e": "Una srl o una S.p.A. familiare non quotata non può emettere le azioni di risparmio del TUF.",
   "x": {
-   "B": "una garanzia al socio non risolve il problema: Alfa non rientra nella norma",
-   "C": "un'autorizzazione della Consob non rende possibile l'emissione a una non quotata",
-   "D": "una garanzia del consiglio di amministrazione non supera il limite della non quotazione"
+   "B": "non si risolve con una garanzia al socio",
+   "C": "la CONSOB non può autorizzare chi non ha i requisiti",
+   "D": "non si risolve con una garanzia del CdA"
   },
-  "k": "non quotata = niente azioni di risparmio"
+  "k": "azioni di risparmio = solo quotate",
+  "r": "<b>«Risparmio = Borsa»</b>: senza quotazione, niente azioni di risparmio."
  },
  "4867": {
-  "q": "Secondo l'art. 145, comma 1, del TUF, cosa possono fare le società italiane quotate in Italia o in altri Paesi UE?",
-  "p": "<b>Possono emettere azioni prive del diritto di voto, dotate di particolari privilegi di natura patrimoniale</b>. Sono le azioni di risparmio. In pratica, chi le possiede rinuncia al voto in cambio di vantaggi economici.",
-  "e": "Un risparmiatore interessato solo al rendimento può comprare azioni senza voto ma con un privilegio patrimoniale.",
+  "q": "La domanda chiede cosa possono emettere, secondo l'art. 145 del TUF, le società italiane con azioni quotate in Italia o nell'UE.",
+  "p": "Possono emettere <b>azioni senza diritto di voto</b>, dotate di <b>particolari privilegi patrimoniali</b>: sono le <b>azioni di risparmio</b>. Chi le compra rinuncia al voto in cambio di vantaggi economici, come un dividendo maggiorato. Non servono autorizzazioni di tribunali o Camere di commercio.",
+  "e": "Un investitore che vuole solo il rendimento compra azioni di risparmio: non vota in assemblea, ma ha un dividendo privilegiato.",
   "x": {
-   "B": "«non possono mai» è sbagliato: la norma lo consente",
-   "C": "l'approvazione del presidente del tribunale non è la condizione prevista",
-   "D": "l'approvazione del presidente della Camera di commercio non è la condizione prevista"
+   "B": "possono emetterle",
+   "C": "non serve il presidente del tribunale",
+   "D": "non serve la Camera di commercio"
   },
-  "k": "quotate: azioni senza voto con privilegi patrimoniali"
+  "k": "azioni di risparmio = senza voto, con privilegi",
+  "r": "<b>«Rinunci al voto, guadagni di più»</b>: è lo scambio delle azioni di risparmio."
  },
  "4868": {
-  "q": "Tizio è il rappresentante comune degli azionisti di risparmio e chiede di partecipare all'assemblea dei soci. Cosa gli risponderanno secondo l'art. 147 del TUF?",
-  "p": "Che <b>può assistere ma non votare</b>. Il suo compito è seguire ciò che accade e tutelare gli interessi della categoria. Può quindi essere presente, ma non ha diritto di voto in quell'assemblea.",
-  "e": "Tizio entra in assemblea e ascolta la discussione. Quando si vota sulle delibere, però, non esprime alcun voto.",
+  "q": "Tizio è il <b>rappresentante comune</b> degli azionisti di risparmio e chiede di partecipare all'assemblea dei soci. La domanda chiede cosa gli risponderanno.",
+  "p": "Che <b>può assistere ma non votare</b>. Le azioni di risparmio non hanno voto nell'assemblea ordinaria e straordinaria, quindi nemmeno il loro rappresentante vota. Può però assistere, per informarsi e tutelare gli interessi della categoria.",
+  "e": "All'assemblea di Alfa il rappresentante degli azionisti di risparmio siede in sala, ascolta e prende appunti, ma non vota.",
   "x": {
-   "B": "non è limitato alle sole assemblee straordinarie",
-   "C": "non può votare, nemmeno in proporzione alle azioni di risparmio che possiede",
-   "D": "«non può partecipare» è sbagliato: può assistere"
+   "B": "non è limitato alle assemblee straordinarie",
+   "C": "non vota nemmeno in proporzione",
+   "D": "può partecipare, come uditore"
   },
-  "k": "rappresentante risparmio: assiste, non vota"
+  "k": "rappresentante azionisti di risparmio: assiste, non vota",
+  "r": "<b>«Ascolta ma non vota»</b>, coerente con azioni senza voto."
  },
  "4869": {
-  "q": "Una S.r.l. può emettere azioni da 10 euro di valore nominale?",
-  "p": "<b>No, non può emettere azioni</b>. Nella S.r.l. il capitale è diviso in quote, non in azioni. Le azioni sono tipiche della S.p.A., e il valore nominale di 10 euro non cambia nulla.",
-  "e": "Se Sara entra in una S.r.l., riceve una quota, ad esempio il 20%, e non un certo numero di azioni.",
+  "q": "La domanda chiede se una <b>S.r.l.</b> può emettere azioni da 10 €.",
+  "p": "<b>No</b>: la S.r.l. <b>non emette azioni</b>. Il capitale di una S.r.l. è diviso in <b>quote</b>, non in azioni. Le quote non sono titoli e non possono essere offerte al pubblico come le azioni.",
+  "e": "In una S.r.l. diciamo «Mario ha il 30% delle quote», non «ha 300 azioni».",
   "x": {
-   "B": "il parere favorevole del collegio sindacale non rimuove il divieto",
-   "C": "nemmeno l'unanimità dei soci permette a una S.r.l. di emettere azioni",
-   "D": "superare i 10.000 euro di capitale non permette di emettere azioni"
+   "B": "il collegio sindacale non c'entra",
+   "C": "nemmeno all'unanimità",
+   "D": "il capitale non c'entra"
   },
-  "k": "S.r.l. = quote, mai azioni"
+  "k": "S.r.l. = quote, non azioni",
+  "r": "<b>S.p.A. = azioni, S.r.l. = quote</b>. Se una domanda parla di azioni di una S.r.l., la risposta è «No»."
  },
  "4870": {
-  "q": "A novembre 2007 Beta S.r.l. sta convocando la quindicesima assemblea dell'anno. Può farlo validamente?",
-  "p": "<b>Sì</b>. Non c'è un numero massimo di assemblee che una società può convocare in un anno. I soci possono riunirsi ogni volta che serve, purché la convocazione sia regolare.",
-  "e": "Se in un anno difficile servono 15 decisioni dei soci in momenti diversi, la società può convocare 15 assemblee.",
+  "q": "La società Beta S.r.l., a novembre, vuole convocare la <b>quindicesima assemblea</b> dell'anno. La domanda chiede se può farlo.",
+  "p": "<b>Sì</b>. La legge <b>non pone un limite</b> al numero di assemblee che una società può convocare in un anno. Si convocano tutte le volte che serve.",
+  "e": "Una società in un anno complicato convoca un'assemblea al mese per decidere su varie operazioni: è legittimo.",
   "x": {
-   "B": "non è previsto un limite massimo di cinque assemblee",
-   "C": "non è previsto un limite massimo di dieci assemblee",
-   "D": "la validità non dipende da bilancio o nomine all'ordine del giorno"
+   "B": "non c'è un massimo di cinque",
+   "C": "non c'è un massimo di dieci",
+   "D": "l'ordine del giorno non conta per il numero"
   },
-  "k": "assemblee in un anno: nessun limite"
+  "k": "nessun limite al numero di assemblee",
+  "r": "<b>«Si riunisce quando serve»</b>. I limiti numerici sono inventati."
  },
  "4871": {
-  "q": "In una S.p.A. senza consiglio di sorveglianza, quale di queste decisioni spetta all'assemblea ordinaria?",
-  "p": "<b>Nominare gli amministratori e i sindaci</b>. L'assemblea ordinaria si occupa delle decisioni della vita normale della società, come la scelta di chi la amministra e la controlla. Le modifiche dell'atto costitutivo e i liquidatori sono invece materia dell'assemblea straordinaria.",
-  "e": "Scaduto il mandato del consiglio di amministrazione, l'assemblea ordinaria nomina i nuovi amministratori.",
+  "q": "La domanda chiede quale di queste decisioni spetta all'<b>assemblea ordinaria</b> di una S.p.A. (sistema tradizionale).",
+  "p": "<b>Nominare gli amministratori e i sindaci</b>. Sono decisioni di gestione ordinaria della vita sociale. Le altre (nomina dei liquidatori, emissione di obbligazioni secondo la regola generale, modifiche dell'atto costitutivo) spettano invece all'<b>assemblea straordinaria</b> o, per le obbligazioni, agli amministratori.",
+  "e": "Ogni tre anni l'assemblea ordinaria approva il bilancio e rinnova il consiglio di amministrazione e il collegio sindacale.",
   "x": {
-   "B": "la nomina e i poteri dei liquidatori spettano all'assemblea straordinaria",
-   "C": "l'emissione di obbligazioni, salvo regole diverse, è decisa dagli amministratori e non dall'assemblea ordinaria",
-   "D": "le modificazioni dell'atto costitutivo spettano all'assemblea straordinaria"
+   "B": "i liquidatori li nomina l'assemblea straordinaria",
+   "C": "le obbligazioni non sono materia dell'assemblea ordinaria",
+   "D": "le modifiche dell'atto costitutivo spettano alla straordinaria"
   },
-  "k": "ordinaria: nomina amministratori e sindaci"
+  "k": "assemblea ordinaria: nomina amministratori e sindaci",
+  "r": "<b>Ordinaria = bilancio + nomine; straordinaria = modifiche + liquidazione</b>."
  },
  "4872": {
-  "q": "Alfa S.p.A. controlla il 92% di Beta S.p.A. Il suo consiglio di amministrazione può deliberare la fusione per incorporazione di Beta senza assemblea straordinaria?",
-  "p": "<b>Sì, con le opportune previsioni statutarie</b>. Quando la società incorporante possiede già una quota molto alta dell'altra, come qui il 92%, la procedura può essere semplificata. Lo statuto può quindi affidare la decisione agli amministratori.",
-  "e": "Se lo statuto di Alfa lo prevede, il consiglio delibera la fusione con Beta senza convocare l'assemblea straordinaria.",
+  "q": "Alfa S.p.A. possiede il <b>92%</b> di Beta S.p.A. La domanda chiede se il consiglio di amministrazione di Alfa può deliberare la fusione per incorporazione di Beta senza convocare l'assemblea straordinaria.",
+  "p": "<b>Sì, con le opportune previsioni statutarie</b>. Quando una società incorpora una controllata posseduta <b>almeno al 90%</b>, lo statuto può affidare la decisione all'<b>organo amministrativo</b>. È una procedura semplificata, perché l'operazione è quasi interna al gruppo.",
+  "e": "La capogruppo, con lo statuto che lo prevede, incorpora con una delibera del CdA una controllata posseduta al 95%.",
   "x": {
-   "B": "non conta che il presidente dell'organo amministrativo sia socio: conta la previsione dello statuto",
-   "C": "«in nessun caso» è sbagliato: lo statuto può prevederlo",
-   "D": "non serve che tutti gli amministratori siano soci"
+   "B": "non dipende dal fatto che il presidente sia socio",
+   "C": "è possibile",
+   "D": "non dipende dal fatto che gli amministratori siano soci"
   },
-  "k": "controllo al 92%: fusione al CdA se lo statuto lo prevede"
+  "k": "incorporazione di controllata ≥90%: può decidere il CdA se lo statuto lo prevede",
+  "r": "Il numero chiave è <b>90%</b>: sopra quella soglia la fusione può essere affidata al CdA dallo statuto."
  },
  "4873": {
-  "q": "Un dipendente di Aedes S.p.A. può diventare sindaco della società?",
-  "p": "<b>No, mai</b>. Il sindaco deve controllare la società in modo indipendente. Chi ne è dipendente è legato a essa da un rapporto di lavoro, quindi non avrebbe l'indipendenza necessaria. Nessuna autorizzazione può risolvere questo problema.",
-  "e": "Un impiegato dell'ufficio contabile non può diventare sindaco: finirebbe per controllare l'impresa che lo paga.",
+  "q": "Un dipendente di Aedes S.p.A. vuole diventare <b>sindaco</b> della stessa società. La domanda chiede se può.",
+  "p": "<b>No, mai</b>. I sindaci devono controllare la società in modo <b>indipendente</b>. Un dipendente dipende dagli amministratori che dovrebbe controllare: per questo è <b>ineleggibile</b>. Nessuna autorizzazione può superare questo divieto.",
+  "e": "Il responsabile della contabilità di una S.p.A. non può essere nominato sindaco della stessa società: controllerebbe il proprio datore di lavoro.",
   "x": {
-   "B": "l'autorizzazione dell'organo amministrativo non elimina il legame di lavoro",
-   "C": "l'autorizzazione dell'assemblea non elimina il legame di lavoro",
-   "D": "l'autorizzazione del Tribunale non elimina il legame di lavoro"
+   "B": "nessuna autorizzazione degli amministratori",
+   "C": "nessuna autorizzazione dell'assemblea",
+   "D": "nessuna autorizzazione del tribunale"
   },
-  "k": "dipendente = mai sindaco"
+  "k": "dipendente non può essere sindaco",
+  "r": "<b>«Il controllore non può essere dipendente del controllato»</b>. Le autorizzazioni non bastano."
  },
  "4874": {
-  "q": "Gamma S.p.A., quotata, convoca per la terza volta l'assemblea straordinaria ed è presente il 21% del capitale. Si può deliberare?",
-  "p": "<b>Sì, salvo che lo statuto richieda una quota di capitale più elevata</b>. Nelle convocazioni successive alla seconda, per queste società basta che sia rappresentato almeno un quinto del capitale. Un quinto è il 20%, e il 21% lo supera. Lo statuto può però alzare la soglia.",
-  "e": "Passaggi: 1/5 = 20%; 21% è più di 20%; quindi l'assemblea può deliberare. Se lo statuto chiedesse il 25%, invece, non potrebbe.",
+  "q": "Gamma S.p.A., <b>quotata</b>, convoca per la terza volta l'assemblea straordinaria. È presente il <b>21%</b> del capitale. La domanda chiede se si può deliberare.",
+  "p": "<b>Sì</b>, salvo che lo statuto richieda una quota più alta. Nelle società quotate, dalle convocazioni successive alla prima l'assemblea straordinaria è validamente costituita con almeno <b>un quinto (20%)</b> del capitale. Il 21% supera questa soglia.",
+  "e": "Alla terza convocazione si presentano soci con il 21%: l'assemblea è valida e può deliberare.",
   "x": {
-   "B": "non servono tutti gli amministratori e i sindaci, né un certo ordine del giorno",
-   "C": "conta la quota di capitale rappresentata, non il numero delle persone",
-   "D": "«assolutamente no» è sbagliato: il 21% supera il quinto del capitale"
+   "B": "non servono queste condizioni speciali",
+   "C": "non serve un numero minimo di persone",
+   "D": "è possibile"
   },
-  "k": "dalla terza convocazione: basta un quinto"
+  "k": "quotate, convocazioni successive: straordinaria con 1/5",
+  "r": "<b>«Un quinto = 20%»</b>. Con il 21% ci sei sopra. Calcolo semplice: 21 > 20."
  },
  "4875": {
-  "q": "Su quale di questi temi delibera l'assemblea ordinaria di una S.p.A.?",
-  "p": "Delibera <b>sulla responsabilità degli amministratori e dei sindaci</b>. È l'assemblea ordinaria a nominare questi organi e a valutare il loro operato. Le modifiche dello statuto e i poteri dei liquidatori spettano invece all'assemblea straordinaria.",
-  "e": "Se gli amministratori causano un danno alla società, l'assemblea ordinaria può decidere sulla loro responsabilità.",
+  "q": "La domanda chiede su quale argomento delibera l'<b>assemblea ordinaria</b> di una S.p.A.",
+  "p": "Sulla <b>responsabilità degli amministratori e dei sindaci</b>. Rientra nel controllo ordinario dei soci sulla gestione: l'assemblea può decidere di agire contro chi ha amministrato o controllato male. Modifiche dello statuto, dell'oggetto sociale e poteri dei liquidatori spettano invece alla straordinaria.",
+  "e": "I soci scoprono che gli amministratori hanno fatto operazioni dannose e l'assemblea ordinaria delibera di fargli causa.",
   "x": {
-   "B": "cambiare l'oggetto sociale modifica lo statuto, quindi è materia straordinaria",
-   "C": "i poteri dei liquidatori sono materia dell'assemblea straordinaria",
-   "D": "le modificazioni dello statuto sono materia dell'assemblea straordinaria"
+   "B": "la modifica dell'oggetto sociale è materia straordinaria",
+   "C": "i poteri dei liquidatori sono materia straordinaria",
+   "D": "le modifiche dello statuto sono materia straordinaria"
   },
-  "k": "ordinaria: responsabilità di amministratori e sindaci"
+  "k": "assemblea ordinaria: responsabilità di amministratori e sindaci",
+  "r": "<b>Ordinaria = bilancio, nomine, responsabilità</b>. Tutto ciò che cambia lo statuto va alla straordinaria."
  },
  "4876": {
-  "q": "Un socio che è anche amministratore di una S.p.A. può votare in assemblea quando si decide sulla sua stessa responsabilità?",
-  "p": "<b>No</b>. Chi è giudicato non può anche decidere su se stesso: il suo interesse personale è in conflitto con quello della società. Per questo la legge vieta il voto agli amministratori nelle delibere che riguardano la loro responsabilità. Il divieto vale per ogni amministratore, qualunque sia il suo ruolo.",
-  "e": "Tizio ha il 40% delle azioni ed è amministratore. Se l'assemblea decide se fargli causa per danni, Tizio non può usare il suo 40% per bloccare la decisione.",
+  "q": "L'assemblea deve decidere sulla <b>responsabilità</b> di un amministratore che è anche socio. La domanda chiede se lui può votare.",
+  "p": "<b>No</b>. Gli amministratori <b>non possono votare</b> nelle delibere che riguardano la loro responsabilità. È un evidente conflitto di interessi: nessuno può essere giudice di se stesso. Non importa che tipo di amministratore sia.",
+  "e": "L'assemblea discute se fare causa all'amministratore Rossi, che ha il 30% delle azioni. Rossi non può votare con le sue azioni su quel punto.",
   "x": {
-   "B": "il divieto vale anche per l'amministratore non esecutivo",
-   "C": "il sì è sbagliato: voterebbe su una decisione che riguarda se stesso",
-   "D": "il divieto vale anche per chi non è amministratore delegato: riguarda tutti gli amministratori"
+   "B": "non dipende dal fatto che sia esecutivo",
+   "C": "non può votare",
+   "D": "non dipende dal fatto che sia delegato"
   },
-  "k": "sulla propria responsabilità non si vota"
+  "k": "amministratore non vota sulla propria responsabilità",
+  "r": "<b>«Nessuno è giudice di se stesso»</b>."
  },
  "4877": {
-  "q": "Lo statuto di una S.p.A. può dare agli amministratori il potere di aumentare il capitale?",
-  "p": "<b>Sì, in una o più volte, fino a un ammontare determinato e per massimo cinque anni dall'iscrizione della società nel registro delle imprese</b>. Di norma l'aumento lo decide l'assemblea, ma lo statuto può delegarlo agli amministratori per renderlo più rapido. I soci però fissano dei limiti: un tetto di importo e una durata. I numeri sono da memorizzare.",
-  "e": "Lo statuto delega gli amministratori ad aumentare il capitale fino a 2 milioni per cinque anni. Possono fare un aumento da 500.000 euro il primo anno e un altro da 1 milione più avanti.",
+  "q": "La domanda chiede se lo statuto di una S.p.A. può dare agli <b>amministratori</b> il potere di aumentare il capitale.",
+  "p": "<b>Sì</b>: lo statuto può delegare agli amministratori la facoltà di aumentare il capitale <b>in una o più volte</b>, fino a un <b>ammontare determinato</b> e per un periodo massimo di <b>cinque anni</b> dall'iscrizione della società nel registro delle imprese. È una delega utile per cogliere al momento giusto le occasioni di finanziamento.",
+  "e": "Lo statuto autorizza il CdA ad aumentare il capitale fino a 10 milioni nei prossimi cinque anni: il CdA decide tempi e tranche.",
   "x": {
-   "B": "la delega non è limitata a una sola volta né a due anni",
-   "C": "la delega è possibile, quindi «in nessun caso» è sbagliato",
-   "D": "la delega può andare agli amministratori, non ai sindaci, che hanno compiti di controllo"
+   "B": "non una sola volta e non due anni: più volte e fino a cinque anni",
+   "C": "è possibile",
+   "D": "i sindaci non aumentano il capitale"
   },
-  "k": "delega aumento: importo fissato, max 5 anni"
+  "k": "delega aumento capitale agli amministratori: max 5 anni",
+  "r": "Numero chiave: <b>5 anni</b>, «in una o più volte»."
  },
  "4878": {
-  "q": "Il collegio sindacale può fare proposte all'assemblea dei soci?",
-  "p": "<b>Sì, in ordine al bilancio e alla sua approvazione</b>. Il collegio controlla la società per tutto l'anno, quindi conosce bene i conti. Per questo, quando riferisce all'assemblea sui risultati dell'esercizio, può anche proporre qualcosa sul bilancio. Serve a far votare i soci con più informazioni.",
-  "e": "I sindaci rilevano un problema in una voce del bilancio e propongono all'assemblea di non approvarlo così com'è.",
+  "q": "La domanda chiede se il <b>collegio sindacale</b> può fare proposte all'assemblea.",
+  "p": "<b>Sì, sul bilancio e sulla sua approvazione</b>. Nella sua relazione all'assemblea il collegio sindacale riferisce sui risultati dell'esercizio e può fare osservazioni e proposte sul bilancio. È un ruolo di controllo che serve a informare i soci prima del voto.",
+  "e": "I sindaci propongono all'assemblea di non distribuire gli utili e di accantonarli, viste le incertezze sui crediti.",
   "x": {
-   "B": "è il contrario: il bilancio è proprio l'ambito in cui può fare proposte",
-   "C": "«mai» è sbagliato, perché sul bilancio la proposta è prevista",
-   "D": "non serve l'autorizzazione del giudice delegato: è un potere proprio del collegio"
+   "B": "è proprio sul bilancio che può fare proposte",
+   "C": "può farle",
+   "D": "non serve un giudice delegato"
   },
-  "k": "sindaci: proposte su bilancio e approvazione"
+  "k": "sindaci: proposte sul bilancio",
+  "r": "<b>«I sindaci commentano il bilancio»</b>."
  },
  "4879": {
-  "q": "In una S.p.A. un sindaco può essere revocato?",
-  "p": "<b>Sì, solo per giusta causa, e la delibera deve essere approvata con decreto dal tribunale, sentito l'interessato</b>. Il sindaco controlla chi gestisce, quindi deve essere indipendente. Se si potesse mandarlo via liberamente, la maggioranza potrebbe liberarsi di un controllore scomodo. Per questo servono due garanzie: un motivo serio e il controllo del tribunale.",
-  "e": "L'assemblea vuole revocare un sindaco che non partecipa mai alle riunioni. Delibera la revoca, il tribunale ascolta il sindaco e poi decide se approvarla con decreto.",
+  "q": "La domanda chiede se in una S.p.A. si può <b>revocare un sindaco</b>.",
+  "p": "<b>Sì, ma solo per giusta causa</b>, e la delibera di revoca deve essere <b>approvata con decreto dal tribunale</b>, sentito l'interessato. I sindaci controllano gli amministratori e la maggioranza: se potessero essere revocati liberamente, sarebbero ricattabili. Per questo la loro revoca è difficile.",
+  "e": "Un sindaco solleva critiche scomode agli amministratori. La maggioranza non può mandarlo via senza un valido motivo e senza il tribunale.",
   "x": {
-   "B": "la giusta causa è necessaria: il risarcimento non può sostituirla",
-   "C": "«anche senza giusta causa» è sbagliato: il decreto da solo non basta",
-   "D": "la revoca è possibile, se ci sono giusta causa e decreto"
+   "B": "non senza giusta causa",
+   "C": "non senza giusta causa",
+   "D": "è possibile, con giusta causa e tribunale"
   },
-  "k": "revoca sindaco = giusta causa + tribunale"
+  "k": "revoca sindaci: giusta causa + decreto del tribunale",
+  "r": "<b>«Il controllore è blindato»</b>: per revocarlo servono giusta causa e tribunale."
  },
  "4880": {
-  "q": "Nel sistema dualistico, a chi spetta gestire l'impresa?",
-  "p": "<b>Esclusivamente al consiglio di gestione</b>. Il dualistico separa nettamente due funzioni: il consiglio di gestione amministra, il consiglio di sorveglianza controlla. Chi controlla non deve anche gestire, altrimenti controllerebbe se stesso.",
-  "e": "La decisione di aprire un nuovo stabilimento la prende il consiglio di gestione. Il consiglio di sorveglianza vigila, ma non gestisce l'impresa.",
+  "q": "Nel sistema <b>dualistico</b> la domanda chiede a chi spetta la gestione dell'impresa.",
+  "p": "<b>Esclusivamente al consiglio di gestione</b>. Il consiglio di sorveglianza controlla e approva il bilancio, ma non gestisce. Separare i due ruoli è proprio il senso del sistema dualistico.",
+  "e": "In una banca con sistema dualistico il consiglio di gestione decide strategie e operazioni, il consiglio di sorveglianza le controlla.",
   "x": {
-   "B": "non c'è alternanza: la gestione spetta sempre allo stesso organo",
-   "C": "il consiglio di sorveglianza non partecipa alla gestione: controlla",
-   "D": "è il contrario: la sorveglianza controlla, la gestione spetta all'altro consiglio"
+   "B": "non alternativamente: solo il consiglio di gestione",
+   "C": "il consiglio di sorveglianza non gestisce",
+   "D": "il consiglio di sorveglianza non gestisce"
   },
-  "k": "dualistico: gestione solo al consiglio di gestione"
+  "k": "dualistico: gestione al solo consiglio di gestione",
+  "r": "<b>Il nome dice tutto</b>: «gestione» gestisce, «sorveglianza» sorveglia."
  },
  "4881": {
-  "q": "Per quali motivi e in che modo si revocano i sindaci di una S.p.A.?",
-  "p": "<b>Solo per giusta causa, con delibera dell'assemblea approvata con decreto del tribunale, sentito l'interessato</b>. I sindaci sono nominati dall'assemblea, che quindi decide anche la revoca. Il tribunale verifica poi che il motivo sia serio. Così il sindaco resta indipendente da chi ha la maggioranza.",
-  "e": "Un sindaco viola gravemente i suoi doveri. L'assemblea delibera la revoca, ma questa produce effetto solo dopo il decreto del tribunale, che deve prima sentirlo.",
+  "q": "La domanda chiede come e perché si possono <b>revocare i sindaci</b> di una S.p.A.",
+  "p": "Solo per <b>giusta causa</b>, con <b>delibera dell'assemblea</b> che deve essere <b>approvata con decreto del tribunale</b>, sentito l'interessato. È la stessa regola della 4879: tutela l'indipendenza di chi controlla.",
+  "e": "L'assemblea revoca un sindaco perché non partecipa mai alle riunioni: il tribunale verifica la giusta causa e approva.",
   "x": {
-   "B": "il motivo richiesto è la giusta causa e il collegio sindacale non revoca i propri membri",
-   "C": "gli amministratori non possono revocare chi li controlla: decide l'assemblea",
-   "D": "la giusta causa è sempre necessaria"
+   "B": "non decide il collegio stesso, e serve giusta causa",
+   "C": "non decidono gli amministratori",
+   "D": "serve la giusta causa"
   },
-  "k": "sindaci: assemblea + giusta causa + decreto"
+  "k": "revoca sindaci: giusta causa + assemblea + tribunale",
+  "r": "Gemella della 4879: <b>giusta causa + tribunale</b>."
  },
  "4882": {
-  "q": "Quali organi caratterizzano il sistema monistico?",
-  "p": "<b>Il consiglio di amministrazione e il comitato per il controllo sulla gestione costituito al suo interno</b>. «Monistico» vuol dire che c'è un solo organo eletto dall'assemblea: il consiglio. Il controllo è affidato a una parte dei suoi stessi membri, riuniti in un comitato. Non esiste quindi un collegio sindacale separato.",
-  "e": "Un consiglio di 9 membri nomina al proprio interno 3 consiglieri che formano il comitato: questi controllano la gestione.",
+  "q": "La domanda chiede quali organi caratterizzano il sistema <b>monistico</b>.",
+  "p": "Il <b>consiglio di amministrazione</b> e il <b>comitato per il controllo sulla gestione</b> costituito al suo interno. «Monistico» vuol dire un solo organo: il controllo non è affidato a un organo esterno (come il collegio sindacale), ma a un comitato di amministratori indipendenti nel CdA.",
+  "e": "Nel CdA di una società monistica, tre amministratori indipendenti formano il comitato per il controllo sulla gestione.",
   "x": {
-   "B": "consiglio di amministrazione e collegio sindacale sono gli organi del sistema tradizionale",
-   "C": "il nome giusto è comitato per il controllo sulla gestione: la sorveglianza richiama il dualistico",
-   "D": "l'amministratore delegato non è l'organo di controllo che caratterizza il sistema"
+   "B": "CdA + collegio sindacale è il sistema tradizionale",
+   "C": "«comitato di sorveglianza» non è il nome giusto: la sorveglianza è nel dualistico",
+   "D": "l'amministratore delegato non è un organo di controllo"
   },
-  "k": "monistico: CdA + comitato controllo interno"
+  "k": "monistico = CdA + comitato per il controllo sulla gestione",
+  "r": "<b>Tradizionale</b> = CdA + collegio sindacale; <b>dualistico</b> = gestione + sorveglianza; <b>monistico</b> = CdA con comitato di controllo dentro."
  },
  "4883": {
-  "q": "Un consiglio di amministrazione deve avere sempre un presidente?",
-  "p": "<b>Sì, nominato dall'assemblea o dal consiglio stesso</b>. Un organo collegiale ha bisogno di qualcuno che lo convochi e ne coordini i lavori. Se l'assemblea non lo ha nominato, il consiglio lo sceglie tra i propri componenti.",
-  "e": "L'assemblea elegge 5 consiglieri senza indicare il presidente: alla prima riunione sono i consiglieri a sceglierlo tra loro.",
+  "q": "La domanda chiede se il <b>consiglio di amministrazione</b> deve sempre avere un presidente.",
+  "p": "<b>Sì</b>. Il presidente è nominato <b>dall'assemblea</b> oppure, se lo statuto non dispone diversamente, <b>dal consiglio stesso</b>. Serve qualcuno che convochi e coordini le riunioni.",
+  "e": "Alla prima riunione il CdA elegge tra i suoi membri il presidente.",
   "x": {
-   "B": "il collegio sindacale controlla: non nomina il presidente del consiglio",
-   "C": "il presidente non deve essere sempre indicato nello statuto: lo nominano assemblea o consiglio",
-   "D": "il presidente è necessario: l'amministratore unico non forma un consiglio, quindi non è un'eccezione alla regola"
+   "B": "non lo nomina il collegio sindacale",
+   "C": "non deve essere sempre indicato nello statuto",
+   "D": "il CdA ha sempre un presidente"
   },
-  "k": "presidente CdA: lo sceglie assemblea o consiglio"
+  "k": "CdA ha sempre un presidente",
+  "r": "<b>«Ogni consiglio ha un capo»</b>, scelto dai soci o dal consiglio."
  },
  "4884": {
-  "q": "Ci sono limiti massimi di patrimonio netto e fatturato per avere un amministratore unico invece di un consiglio?",
-  "p": "<b>No</b>. La legge lascia alla società la scelta tra amministratore unico e consiglio, senza legarla alla sua dimensione economica. Fatturato e patrimonio netto non obbligano quindi a passare a un consiglio.",
-  "e": "Una S.p.A. non quotata cresce molto e il fatturato aumenta ogni anno. Per questo solo motivo non è obbligata a sostituire l'amministratore unico con un consiglio.",
+  "q": "La domanda chiede se ci sono <b>soglie di fatturato o patrimonio</b> oltre le quali la S.p.A. deve avere un consiglio di amministrazione invece di un amministratore unico.",
+  "p": "<b>No</b>. Il codice non fissa soglie economiche: la scelta tra amministratore unico e consiglio spetta ai soci. Anche una grande società può avere un amministratore unico.",
+  "e": "Una S.p.A. con 200 milioni di fatturato può essere gestita da un amministratore unico, se lo statuto lo prevede.",
   "x": {
-   "B": "i limiti di 5 e 2 milioni non sono previsti per questa scelta",
-   "C": "i limiti di 100 e 50 milioni non sono previsti per questa scelta",
-   "D": "i limiti di 10 e 50 milioni non sono previsti per questa scelta"
+   "B": "non ci sono soglie di 5 e 2 milioni",
+   "C": "non ci sono soglie di 100 e 50 milioni",
+   "D": "non ci sono soglie di 10 e 50 milioni"
   },
-  "k": "amministratore unico: nessun tetto di dimensione"
+  "k": "nessuna soglia per l'amministratore unico",
+  "r": "<b>«Decidono i soci»</b>. Le soglie in milioni sono tutte inventate."
  },
  "4885": {
-  "q": "Il coniuge di un amministratore può fare il sindaco nella stessa società?",
-  "p": "<b>No</b>. Il sindaco controlla gli amministratori e deve essere indipendente. Un legame stretto come il matrimonio lo renderebbe meno credibile come controllore. Per questo il coniuge è ineleggibile e, se nominato, decade.",
-  "e": "Tizio è amministratore di Alfa S.p.A. Sua moglie Caia non può diventare sindaco di Alfa: controllerebbe il marito.",
+  "q": "La domanda chiede se il <b>coniuge</b> di un amministratore può essere nominato <b>sindaco</b> della stessa società.",
+  "p": "<b>No</b>. Il coniuge, i parenti e gli affini entro il quarto grado degli amministratori sono <b>ineleggibili</b> come sindaci. Il motivo è sempre l'indipendenza: non si può controllare in modo obiettivo il proprio coniuge. Il divieto vale anche per le società del gruppo (controllanti, controllate).",
+  "e": "La moglie dell'amministratore delegato non può essere sindaco né della società né di una sua controllata.",
   "x": {
-   "B": "il divieto si estende anche alle società controllanti",
-   "C": "il coniuge è espressamente incluso nel divieto, anche se non è un parente",
-   "D": "il divieto si estende anche alle società controllate"
+   "B": "non può nemmeno nella controllante",
+   "C": "il coniuge è proprio tra gli ineleggibili",
+   "D": "non può nemmeno nella controllata"
   },
-  "k": "coniuge dell'amministratore: niente sindaco"
+  "k": "coniuge dell'amministratore non può essere sindaco",
+  "r": "<b>«In famiglia non ci si controlla»</b>. Coniuge e parenti fino al quarto grado sono esclusi."
  },
  "4886": {
-  "q": "In una S.p.A. non quotata con sistema tradizionale, chi nomina gli amministratori durante la vita della società?",
-  "p": "<b>L'assemblea</b>. Gli amministratori gestiscono il patrimonio conferito dai soci, quindi sono i soci riuniti in assemblea ordinaria a sceglierli. Solo i primi amministratori sono nominati nell'atto costitutivo.",
-  "e": "Scade il consiglio di Alfa S.p.A.: si convoca l'assemblea, che vota i nuovi amministratori.",
+  "q": "In una S.p.A. non quotata con sistema tradizionale, la domanda chiede chi nomina gli amministratori durante la vita della società.",
+  "p": "<b>L'assemblea</b>. Gli amministratori sono nominati dall'assemblea ordinaria dei soci (i primi nell'atto costitutivo). Il socio di maggioranza vota in assemblea, ma non nomina da solo. Collegio sindacale e tribunale non nominano gli amministratori.",
+  "e": "Ogni tre anni l'assemblea ordinaria vota per rinnovare il consiglio di amministrazione.",
   "x": {
-   "B": "il socio al 60% non nomina da solo: il suo peso conta votando in assemblea",
-   "C": "il collegio sindacale controlla gli amministratori, non li nomina in via ordinaria",
-   "D": "il presidente del Tribunale non ha il compito ordinario di nominare gli amministratori"
+   "B": "il socio di maggioranza vota in assemblea, ma non nomina da solo",
+   "C": "il collegio sindacale non nomina gli amministratori",
+   "D": "il tribunale non nomina gli amministratori"
   },
-  "k": "amministratori: li nomina l'assemblea"
+  "k": "amministratori nominati dall'assemblea",
+  "r": "<b>«I soci scelgono chi gestisce»</b>, in assemblea."
  },
  "4887": {
-  "q": "Un amministratore di S.p.A. può essere direttore generale di una società concorrente?",
-  "p": "<b>Sì, se autorizzato dall'assemblea</b>. Il divieto di concorrenza protegge la società: chi la amministra conosce le sue informazioni e potrebbe usarle a favore di un rivale. I soci possono però accettare questo rischio, e per questo la decisione spetta all'assemblea.",
-  "e": "Tizio amministra Alfa e riceve un'offerta come direttore generale dalla concorrente Beta. Può accettare solo dopo l'autorizzazione dell'assemblea di Alfa.",
+  "q": "La domanda chiede se un amministratore di S.p.A. può essere <b>direttore generale di una società concorrente</b>.",
+  "p": "<b>Sì, se autorizzato dall'assemblea</b>. Gli amministratori hanno un <b>divieto di concorrenza</b>: non possono lavorare per concorrenti, salvo che i soci lo autorizzino. Senza autorizzazione rischiano la revoca e il risarcimento dei danni.",
+  "e": "L'amministratore di una casa farmaceutica vuole diventare direttore generale di un'altra casa farmaceutica: serve il via libera dell'assemblea.",
   "x": {
-   "B": "comunicarlo al registro delle imprese non basta: serve l'autorizzazione",
-   "C": "«in nessun caso» è sbagliato: l'assemblea può autorizzare",
-   "D": "agire correttamente non sostituisce l'autorizzazione dell'assemblea"
+   "B": "non basta comunicarlo al registro",
+   "C": "è possibile con l'autorizzazione",
+   "D": "senza autorizzazione non può"
   },
-  "k": "concorrenza: sì solo con ok dell'assemblea"
+  "k": "divieto di concorrenza: serve autorizzazione dell'assemblea",
+  "r": "<b>«Lavori anche per il rivale? Chiedi ai soci»</b>."
  },
  "4888": {
-  "q": "In una S.p.A. non quotata, chi può denunciare al Tribunale gravi irregolarità degli amministratori che possono danneggiare la società?",
-  "p": "<b>Se la società non fa ricorso al mercato del capitale di rischio, i soci che rappresentano almeno il decimo del capitale</b>. Serve una quota minima per evitare denunce pretestuose di chi ha pochissime azioni, ma la soglia resta accessibile anche alle minoranze. Il 10% è un dato da memorizzare.",
-  "e": "Il capitale è di 1.000.000 euro. Un gruppo di soci con azioni per 100.000 euro raggiunge il 10% e può presentare la denuncia.",
+  "q": "In una S.p.A. non quotata, la domanda chiede chi può denunciare al tribunale <b>gravi irregolarità</b> degli amministratori.",
+  "p": "I soci che rappresentano <b>almeno un decimo del capitale</b> (per le società che non fanno ricorso al mercato del capitale di rischio). Lo statuto può prevedere una soglia più bassa. Il tribunale può ordinare un'ispezione e prendere provvedimenti.",
+  "e": "Soci con il 12% del capitale sospettano che gli amministratori stiano svuotando la società: possono rivolgersi al tribunale.",
   "x": {
-   "B": "una sola azione non basta: serve una quota minima di capitale",
-   "C": "il 20% è più alto della soglia prevista del decimo",
-   "D": "il potere non è riservato al Pubblico Ministero: lo hanno anche i soci qualificati"
+   "B": "non basta un'azione",
+   "C": "la soglia non è il 20%",
+   "D": "non solo il pubblico ministero"
   },
-  "k": "denuncia al Tribunale: soci con 1/10"
+  "k": "denuncia al tribunale: soci con 1/10",
+  "r": "Numero chiave: <b>un decimo (10%)</b> per le non quotate."
  },
  "4889": {
-  "q": "Dove si indica la nomina dei componenti del consiglio di sorveglianza di una S.p.A. appena costituita?",
-  "p": "<b>Deve essere indicata nell'atto costitutivo</b>. Quando la società nasce non si è ancora riunita un'assemblea che possa nominarli. I primi componenti sono quindi scelti direttamente dai fondatori nell'atto che costituisce la società. Le nomine successive spettano all'assemblea.",
-  "e": "Alfa S.p.A. nasce con il sistema dualistico: nell'atto costitutivo sono già scritti i nomi dei primi membri del consiglio di sorveglianza.",
+  "q": "Per una S.p.A. appena costituita con il sistema dualistico, la domanda chiede dove va indicata la nomina dei componenti del <b>consiglio di sorveglianza</b>.",
+  "p": "<b>Nell'atto costitutivo</b>. I primi organi sociali (amministratori, sindaci, o consiglio di sorveglianza nel dualistico) sono nominati nell'atto costitutivo, perché la società deve partire subito con i suoi organi. Dopo li nomina l'assemblea.",
+  "e": "Nell'atto di costituzione di una S.p.A. dualistica il notaio riporta i nomi dei primi membri del consiglio di sorveglianza.",
   "x": {
-   "B": "è il contrario: l'indicazione nell'atto costitutivo è obbligatoria",
-   "C": "la nomina non è affidata a un decreto di omologazione",
-   "D": "la sede prevista per i primi componenti è l'atto costitutivo, non lo statuto"
+   "B": "deve essere indicata",
+   "C": "non c'è un decreto di omologazione da integrare",
+   "D": "lo statuto contiene le regole, ma la nomina è nell'atto costitutivo"
   },
-  "k": "primi sorveglianti: nell'atto costitutivo"
+  "k": "primi organi nominati nell'atto costitutivo",
+  "r": "<b>«I primi nomi si scrivono alla nascita»</b>, nell'atto costitutivo."
  },
  "4890": {
-  "q": "Chi delibera di destinare un patrimonio a uno specifico affare?",
-  "p": "<b>Il consiglio di amministrazione o di gestione</b>. È una scelta legata alla gestione dell'impresa, che spetta all'organo amministrativo. Per questo, salvo diversa disposizione dello statuto, non si passa dall'assemblea.",
-  "e": "Alfa S.p.A. vuole riservare beni al finanziamento di un grande progetto edilizio: lo delibera il suo consiglio di amministrazione, senza convocare i soci.",
+  "q": "La domanda chiede chi delibera la costituzione di un <b>patrimonio destinato a uno specifico affare</b>.",
+  "p": "Il <b>consiglio di amministrazione</b> (o di gestione), salvo diversa previsione dello statuto. Il patrimonio destinato separa una parte del patrimonio per un progetto preciso: è una decisione di gestione, quindi spetta all'organo amministrativo.",
+  "e": "Una società di costruzioni destina 5 milioni a un singolo progetto immobiliare: la delibera la prende il CdA.",
   "x": {
-   "B": "l'assemblea straordinaria non è l'organo previsto per questa delibera",
-   "C": "l'assemblea ordinaria non è l'organo previsto per questa delibera",
-   "D": "il consiglio decide da sé: non è richiesta l'autorizzazione dei soci"
+   "B": "non l'assemblea straordinaria",
+   "C": "non l'assemblea ordinaria",
+   "D": "non serve l'autorizzazione dei soci"
   },
-  "k": "patrimonio destinato: decide l'organo gestorio"
+  "k": "patrimonio destinato = CdA",
+  "r": "<b>«È un affare di gestione»</b>: decide chi gestisce."
  },
  "4891": {
-  "q": "Nelle S.p.A., a chi spetta gestire l'impresa?",
-  "p": "<b>Esclusivamente agli amministratori</b>. Nella S.p.A. proprietà e gestione sono separate: i soci investono e scelgono gli amministratori, ma non gestiscono. Così le responsabilità di gestione restano in capo a chi ha ricevuto questo compito.",
-  "e": "Un socio con il 70% vuole firmare un contratto con un fornitore: da socio non può farlo. Può votare in assemblea, ma la gestione resta agli amministratori.",
+  "q": "La domanda chiede a chi spetta la <b>gestione dell'impresa</b> in una S.p.A.",
+  "p": "<b>Esclusivamente agli amministratori</b>. Nella S.p.A. i soci non gestiscono: votano in assemblea su temi riservati (bilancio, nomine, modifiche dello statuto). Le scelte operative le fanno gli amministratori. Anche il socio di maggioranza non può dare ordini su come gestire.",
+  "e": "Il socio che ha il 70% non può decidere da solo di aprire una nuova filiale: lo decide il CdA.",
   "x": {
-   "B": "i soci di maggioranza non gestiscono, se non sono amministratori",
-   "C": "chi non è amministratore non ha il potere di gestire",
-   "D": "sentire la minoranza non cambia nulla: la gestione non spetta ai soci"
+   "B": "non ai soci di maggioranza",
+   "C": "non ai soci",
+   "D": "non ai soci di maggioranza"
   },
-  "k": "S.p.A.: gestione solo agli amministratori"
+  "k": "gestione S.p.A. = solo amministratori",
+  "r": "<b>«I soci votano, gli amministratori gestiscono»</b>."
  },
  "4892": {
-  "q": "Tizio, amministratore di Alfa S.p.A., arriva con il coniuge al 75% dei voti in assemblea. Che cosa succede alla sua carica?",
-  "p": "<b>Tizio conserva la carica di amministratore</b>. Essere socio, anche con una quota molto alta, non è incompatibile con l'essere amministratore. La regola sulla carica non cambia con la percentuale di azioni. Ha semplicemente molto peso nelle votazioni dell'assemblea.",
-  "e": "Tizio ha il 50% e il coniuge il 25%. Insieme hanno il 75% dei voti, ma Tizio continua ad amministrare come prima.",
+  "q": "Tizio è amministratore di Alfa S.p.A. e, insieme al coniuge, arriva ad avere il <b>75% dei voti</b>. La domanda chiede cosa succede alla sua carica.",
+  "p": "<b>Conserva la carica</b>. Diventare socio di maggioranza non è incompatibile con l'essere amministratore. Non ci sono obblighi di vendere azioni o di rinunciare alla carica.",
+  "e": "In molte società familiari il socio di maggioranza è anche amministratore delegato.",
   "x": {
-   "B": "non è previsto l'obbligo di vendere una quota eccedente",
-   "C": "il voto in consiglio non si perde per il numero di azioni possedute",
-   "D": "nessuna regola impone di lasciare la carica per aver raggiunto il 75%"
+   "B": "non deve vendere la quota",
+   "C": "può continuare a votare in CdA",
+   "D": "non deve rinunciare"
   },
-  "k": "tante azioni non fanno perdere la carica"
+  "k": "amministratore e socio di maggioranza = compatibile",
+  "r": "<b>«Puoi essere padrone e capo»</b>. Nessun obbligo strano."
  },
  "4893": {
-  "q": "Caio è membro del comitato esecutivo di una S.p.A. Che cosa significa?",
-  "p": "<b>È anche componente del consiglio di amministrazione</b>. Il comitato esecutivo nasce da una delega del consiglio ed è formato da alcuni dei suoi componenti. Quindi per farne parte bisogna essere consiglieri.",
-  "e": "Il consiglio ha 9 membri e delega 3 di loro, tra cui Caio, a formare il comitato esecutivo.",
+  "q": "Caio fa parte del <b>comitato esecutivo</b> di una S.p.A. La domanda chiede cosa significa.",
+  "p": "Che è <b>anche componente del consiglio di amministrazione</b>. Il comitato esecutivo è formato da alcuni amministratori, ai quali il CdA delega parte dei suoi poteri. Non si può essere nel comitato senza essere amministratori.",
+  "e": "In un CdA di 12 membri, 4 formano il comitato esecutivo che si riunisce ogni settimana per le decisioni operative.",
   "x": {
-   "B": "è il contrario: per stare nel comitato deve essere amministratore",
-   "C": "il sindaco controlla gli amministratori, quindi non può anche essere uno di loro",
-   "D": "il revisore esterno controlla i conti dall'esterno e non deriva dal consiglio"
+   "B": "è proprio un amministratore",
+   "C": "non è sindaco: sarebbe incompatibile",
+   "D": "non è revisore esterno"
   },
-  "k": "comitato esecutivo = consiglieri delegati"
+  "k": "comitato esecutivo = amministratori",
+  "r": "<b>«Il comitato è un pezzo del CdA»</b>."
  },
  "4894": {
-  "q": "Il consiglio di Alfa S.p.A. ha nove amministratori, presidente incluso. Quanti devono essere presenti per deliberare validamente?",
-  "p": "<b>Cinque</b>. Per la validità serve la presenza della maggioranza degli amministratori in carica, salvo che lo statuto chieda di più. Il presidente si conta tra i nove. Passaggi: 9 ÷ 2 = 4,5; la maggioranza è il primo numero intero superiore, cioè 5.",
-  "e": "Con 5 consiglieri presenti su 9 la riunione è valida. Con 4 presenti non lo è, perché 4 è meno della metà di 9.",
+  "q": "Il CdA di Alfa S.p.A. ha <b>nove amministratori</b>. La domanda chiede quanti devono essere presenti perché le delibere siano valide.",
+  "p": "<b>Cinque</b>: serve la presenza della <b>maggioranza degli amministratori in carica</b>, salvo che lo statuto chieda di più. La metà di 9 è 4,5, quindi la maggioranza è 5.",
+  "e": "Se si presentano in 4 su 9, il CdA non può deliberare. Con 5 sì.",
   "x": {
-   "B": "otto è più della maggioranza richiesta",
-   "C": "quattro su nove non raggiunge la maggioranza",
-   "D": "tre su nove è molto sotto la maggioranza"
+   "B": "otto è più del necessario",
+   "C": "quattro non è la maggioranza di nove",
+   "D": "tre è troppo poco"
   },
-  "k": "presenza CdA: maggioranza dei membri (5 su 9)"
+  "k": "CdA: presenti la maggioranza degli amministratori",
+  "r": "Calcolo: <b>9 ÷ 2 = 4,5 → maggioranza = 5</b>."
  },
  "4895": {
-  "q": "Tizio, amministratore di S.p.A., può votare in consiglio al posto di un collega assente giustificato?",
-  "p": "<b>No</b>. Nel consiglio il voto non può essere dato per rappresentanza. L'incarico di amministratore è personale, si basa sulla fiducia in quella persona e sul confronto in riunione. Il motivo dell'assenza non cambia la regola.",
-  "e": "Caio è malato e chiede a Tizio di votare per lui. Tizio può esprimere solo il proprio voto, e quello di Caio non viene contato.",
+  "q": "Tizio, amministratore, vuole votare in CdA anche per conto di un collega assente giustificato. La domanda chiede se può.",
+  "p": "<b>No</b>. Nel consiglio di amministrazione <b>il voto non può essere dato per rappresentanza</b>. Ogni amministratore è scelto per le sue qualità personali e deve partecipare di persona (anche a distanza, se previsto), discutendo e votando lui stesso.",
+  "e": "Un amministratore malato non può delegare un collega a votare al suo posto; può però collegarsi in videoconferenza, se lo statuto lo prevede.",
   "x": {
-   "B": "l'accettazione del presidente non rende valido il voto per rappresentanza",
-   "C": "la regola non prevede un'eccezione per forza maggiore",
-   "D": "nemmeno la maggioranza dei presenti può consentire la rappresentanza"
+   "B": "la giustificazione non cambia il divieto",
+   "C": "nemmeno per forza maggiore",
+   "D": "la giustificazione non cambia il divieto"
   },
-  "k": "in CdA niente voto per delega"
+  "k": "CdA: niente voto per delega",
+  "r": "<b>«In CdA voti tu, non un altro»</b>. Diverso dall'assemblea, dove la delega è ammessa."
  },
  "4896": {
-  "q": "Che cosa può fare l'organo amministrativo quando ausiliari e dipendenti dei sindaci chiedono informazioni?",
-  "p": "<b>Può rifiutare loro l'accesso a informazioni riservate</b>. I sindaci possono farsi aiutare da collaboratori, ma questi non hanno gli stessi doveri e le stesse responsabilità dei sindaci. È quindi una tutela dei dati delicati, lasciata alla scelta degli amministratori. Il limite riguarda solo i collaboratori e solo i dati riservati.",
-  "e": "Il collaboratore di un sindaco chiede i termini di una trattativa segreta: gli amministratori possono negarli. Sulle informazioni non riservate non vale questo rifiuto.",
+  "q": "I sindaci si fanno aiutare da collaboratori (ausiliari e dipendenti). La domanda chiede se l'organo amministrativo può negare a questi collaboratori l'accesso a <b>informazioni riservate</b>.",
+  "p": "<b>Sì, può rifiutarlo</b>. I sindaci hanno pieno accesso alle informazioni, ma i loro collaboratori sono persone esterne non vincolate allo stesso modo: l'organo amministrativo può negare loro le informazioni <b>riservate</b>. Non può però negare l'accesso a qualunque informazione.",
+  "e": "I sindaci incaricano un consulente di verificare i magazzini. Gli amministratori possono non mostrargli i piani riservati di un'acquisizione.",
   "x": {
-   "B": "è il contrario: il rifiuto è consentito",
-   "C": "il rifiuto è una facoltà, non un obbligo",
-   "D": "il rifiuto riguarda solo le informazioni riservate, non qualunque informazione"
+   "B": "può rifiutarlo",
+   "C": "non è un obbligo, è una facoltà",
+   "D": "solo per le riservate, non per qualunque informazione"
   },
-  "k": "ausiliari dei sindaci: riservate rifiutabili"
+  "k": "ausiliari dei sindaci: accesso negabile alle riservate",
+  "r": "<b>«Ai sindaci tutto, ai loro aiutanti non i segreti»</b>. Attento a «qualunque» nella D."
  },
  "4897": {
-  "q": "Chi decide il compenso dell'amministratore delegato di una S.p.A. non quotata?",
-  "p": "<b>Il consiglio di amministrazione, sentito il collegio sindacale</b>. L'amministratore delegato ha una carica particolare, assegnata dal consiglio, che conosce bene i suoi compiti. Il parere dei sindaci serve a controllare un compenso deciso tra colleghi.",
-  "e": "Il consiglio di Alfa vuole fissare il compenso dell'AD: prima sente il collegio sindacale, poi delibera.",
+  "q": "La domanda chiede chi stabilisce la <b>remunerazione dell'amministratore delegato</b> di una S.p.A. non quotata.",
+  "p": "Il <b>consiglio di amministrazione, sentito il collegio sindacale</b>. Per gli amministratori con incarichi particolari (come l'AD), la retribuzione la decide il CdA, ma deve ascoltare il parere dei sindaci, che controllano la correttezza.",
+  "e": "Il CdA propone per l'AD un compenso di 300.000 € l'anno; prima di deliberare sente il parere del collegio sindacale.",
   "x": {
-   "B": "la Camera di Commercio non interviene nei compensi interni",
-   "C": "il presidente del Tribunale non decide i compensi della società",
-   "D": "il collegio sindacale dà il parere ma non decide"
+   "B": "la Camera di Commercio non c'entra",
+   "C": "il tribunale non c'entra",
+   "D": "i sindaci danno un parere, non decidono"
   },
-  "k": "compenso AD: CdA, sentiti i sindaci"
+  "k": "compenso AD: CdA, sentito il collegio sindacale",
+  "r": "<b>«Decide il CdA, i sindaci dicono la loro»</b>."
  },
  "4898": {
-  "q": "Da quando ha effetto la cessazione degli amministratori per scadenza del termine?",
-  "p": "<b>Da quando il consiglio di amministrazione è stato ricostituito</b>. La società non può restare senza chi la gestisce. Per questo i vecchi amministratori restano in carica finché non c'è il nuovo consiglio: è la cosiddetta <i>prorogatio</i>.",
-  "e": "Il mandato scade con l'assemblea di aprile, ma i nuovi amministratori sono nominati a maggio. Fino alla ricostituzione del consiglio restano in carica i vecchi.",
+  "q": "Gli amministratori scadono. La domanda chiede da quando la cessazione ha effetto.",
+  "p": "<b>Da quando il consiglio di amministrazione è stato ricostituito</b>. Gli amministratori scaduti restano in carica finché non arrivano i nuovi (<b>prorogatio</b>). La società non può restare senza gestione nemmeno per un giorno.",
+  "e": "Il mandato del CdA scade ad aprile, ma l'assemblea nomina i nuovi a maggio: fino a maggio restano i vecchi.",
   "x": {
-   "B": "la lettera raccomandata di soci con il 51% non è la regola prevista",
-   "C": "non serve un decreto del presidente del Tribunale",
-   "D": "il verbale del collegio sindacale non determina l'effetto della cessazione"
+   "B": "non serve una raccomandata dei soci",
+   "C": "non serve un decreto del tribunale",
+   "D": "non serve un verbale dei sindaci"
   },
-  "k": "scadenza: effetto a consiglio ricostituito"
+  "k": "scadenza amministratori: effetto alla ricostituzione",
+  "r": "<b>«Non si lascia la nave senza capitano»</b>: i vecchi restano finché arrivano i nuovi."
  },
  "4899": {
-  "q": "Caio, amministratore delegato, tra vari acquisti di negozi si trova a trattare anche quello del negozio del cognato. Come deve comportarsi?",
-  "p": "<b>Deve astenersi, darne notizia al consiglio, investire della decisione l'organo collegiale e informare l'organo di controllo interno</b>. Il legame col cognato crea un possibile interesse in conflitto con quello della società. L'AD ha più potere di un semplice consigliere, quindi non basta segnalarlo: deve passare la decisione al consiglio. Così la scelta viene valutata da persone senza quel legame.",
-  "e": "Caio si ferma, informa consiglio e sindaci del legame di parentela e lascia al consiglio la decisione sull'acquisto.",
+  "q": "Caio, amministratore delegato di una società all'ingrosso, sta trattando l'acquisto di vari negozi, tra cui quello del <b>cognato</b>. La domanda chiede come deve comportarsi.",
+  "p": "Deve <b>astenersi</b> dal compiere l'operazione e <b>investirne il consiglio di amministrazione</b>, informando anche l'organo di controllo. È un caso di <b>interesse dell'amministratore</b> in un'operazione: l'AD non può decidere da solo quando ha un legame personale con l'altra parte. La decisione passa all'organo collegiale.",
+  "e": "Il CdA valuta l'acquisto del negozio del cognato senza la partecipazione decisionale di Caio, e i sindaci sono informati.",
   "x": {
-   "B": "non può trattare direttamente: l'informativa a posteriori in nota integrativa non basta",
-   "C": "non deve dimettersi: basta astenersi e informare",
-   "D": "un obbligo c'è: l'interesse va dichiarato e la decisione passa al consiglio"
+   "B": "ha degli obblighi, non basta la nota integrativa",
+   "C": "non deve dimettersi",
+   "D": "ha degli obblighi"
   },
-  "k": "AD con interesse: si astiene e passa al CdA"
+  "k": "AD in conflitto: si astiene e passa al CdA",
+  "r": "<b>«C'è di mezzo un parente? Passa la palla al consiglio»</b>."
  },
  "4900": {
-  "q": "Gli amministratori di una S.r.l. possono essere pagati solo con una percentuale degli utili?",
-  "p": "<b>Sì</b>. Il compenso degli amministratori può consistere anche del tutto in una partecipazione agli utili. Questa forma lega la loro retribuzione ai risultati: guadagnano di più se la società guadagna di più.",
-  "e": "Una S.r.l. riconosce all'amministratore il 5% degli utili e nessun fisso. Con 200.000 euro di utili riceve 10.000 euro.",
+  "q": "La domanda chiede se gli amministratori di una <b>S.r.l.</b> possono essere pagati <b>solo con una percentuale degli utili</b>.",
+  "p": "<b>Sì</b>. Il compenso degli amministratori può consistere, in tutto o in parte, in una <b>partecipazione agli utili</b>. Lega il guadagno dell'amministratore ai risultati della società. Non ci sono limiti di durata o di proporzione.",
+  "e": "Lo statuto prevede che l'amministratore riceva il 5% degli utili annui, senza compenso fisso.",
   "x": {
-   "B": "non è richiesto il confronto con il doppio di una retribuzione in denaro",
-   "C": "il no è sbagliato: il compenso può essere tutto in utili",
-   "D": "non è previsto un limite ai primi tre anni di nomina"
+   "B": "non c'è un limite del doppio",
+   "C": "è possibile",
+   "D": "non c'è un limite dei primi tre anni"
   },
-  "k": "compenso amministratori: anche solo utili"
+  "k": "amministratori pagati con utili = possibile",
+  "r": "<b>«Guadagni se la società guadagna»</b>. Basta il «Sì»."
  },
  "4901": {
   "q": "In una spa con consiglio di sorveglianza (sistema dualistico), cosa decide l'assemblea ordinaria?",
