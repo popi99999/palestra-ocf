@@ -1068,7 +1068,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261104-094509";
+const APP_VERSION="20261104-095604";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1241,7 +1241,7 @@ const GOAL_KEY = "palestra-ocf-goal60";
 const goal60 = () => { const v=+lsGet(GOAL_KEY); return v>0 ? v : 180; };  // obiettivo di Brando: prova da 60 in 3 minuti
 const goalFor = n => Math.max(1, Math.round(goal60()*n/60));
 // materia su cui si sta lavorando (tutte le 5000 domande, divise per materia); si ricorda la scelta
-const MAT_KEY="palestra-ocf-mat", MAT_ORDER=[5,4,1,2,3]; // ordine del piano Mediolanum
+const MAT_KEY="palestra-ocf-mat", MAT_ORDER=[5,4,3,2,1]; // ordine di studio scelto da Brando: 5, 4, 3, 2, 1
 let ONLY = (m=>[1,2,3,4,5].includes(m)?m:5)(+lsGet(MAT_KEY));
 const state = {view:"home", T:null, sel:0, browse:{mat:ONLY,q:"",page:0,ids:null,label:""}, matSel:ONLY, open:new Set(), picked:new Set(), train:{n:25, which:"all", fb:true, time:"free", ord:"rand"}};
 function navKey(){
