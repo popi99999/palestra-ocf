@@ -385,6 +385,11 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .field select,.field input{font-family:var(--font);font-size:15px;padding:9px 10px;border:1px solid rgba(0,0,0,.42);border-radius:4px;background:#fff;color:var(--mud-text);max-width:100%}
 .radio-row{display:flex;flex-direction:column;gap:6px}
 .tagrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px}
+.dayblk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px}
+.dayblk{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border:1.3px solid #c8c8c8;border-radius:10px;background:#fff;font:600 15px var(--font);cursor:pointer;color:inherit}
+.dayblk small{font-weight:500;font-size:11.5px;opacity:.8}
+.dayblk.ok{background:#e8f5e9;border-color:#2e7d32;color:#1b5e20}.dayblk.ko{background:#fff3e0;border-color:#e65100;color:#bf360c}
+#day-blocks{margin-bottom:110px}
 .cat-tick{display:inline-block;color:#fff;background:#2e7d32;border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:12px;font-weight:700;margin-right:6px;vertical-align:1px}
 .tagrow__l{font-size:12.5px;color:var(--ocf-ink-soft)}
 .tagbtn{display:inline-flex;align-items:center;gap:6px;border:1.3px solid var(--tc);color:var(--tc);background:#fff;border-radius:999px;padding:3px 10px;font:600 12.5px var(--font);cursor:pointer}
@@ -910,7 +915,7 @@ function cleanSession(h){
   for(const f of ["selC","selS"]) if(h[f]===null) o[f]=null; else if(Array.isArray(h[f])) o[f]=intArr(h[f]);
   if(["all","new","err","worst","redo"].includes(h.w)) o.w=h.w;
   if(["free","q60","q85","tot"].includes(h.tm)) o.tm=h.tm;
-  if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena","blk","day","tag"].includes(h.src)) o.src=h.src;
+  if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena","blk","day","tag","giorno"].includes(h.src)) o.src=h.src;
   if(["rand","err","less","orig"].includes(h.ord)) o.ord=h.ord;
   if(h.fb===0 || h.fb===1) o.fb=h.fb;
   { const b=int(h.blk,1,1000); if(h.blk!=null && b) o.blk=b; if(h.bok===1) o.bok=1; }
@@ -1063,7 +1068,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261102-101528";
+const APP_VERSION="20261104-094509";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1922,7 +1927,7 @@ function renderStats(){
 }
 
 /* ================= TEST FATTI ================= */
-const SRC_L={bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco", day:"Ripasso del giorno", tag:"Etichetta colorata"};
+const SRC_L={giorno:"Blocchi del giorno", bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco", day:"Ripasso del giorno", tag:"Etichetta colorata"};
 const WHICH_TXT={all:"tutte", new:"mai fatte", err:"sbagliate", worst:"sbagliate più spesso", redo:"da rivedere"};
 const TIME_TXT={free:"cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"tempo totale d'esame"};
 function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[5]).includes(ONLY)).slice().sort((a,b)=>b.t-a.t); }
@@ -3003,6 +3008,22 @@ document.addEventListener("click",e=>{
   const k=e.target.closest("[data-chiave]"); if(k) k.nextElementSibling.classList.toggle("on");
 });
 
+/* ================= BLOCCHI DEL GIORNO: tutta la materia mescolata in blocchi da 25, nuovi ogni giorno a mezzanotte ================= */
+function dayBlocks(m){
+  // stesso giorno = stesso ordine su tutti i dispositivi (seme = data + materia)
+  let h=2166136261; for(const c of dayKey(Date.now())+":"+m){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); }
+  const rnd=()=>{ h=(h+0x6D2B79F5)|0; let t=Math.imul(h^h>>>15,1|h); t=(t+Math.imul(t^t>>>7,61|t))^t; return ((t^t>>>14)>>>0)/4294967296; };
+  const a=BY_MAT[m].slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(rnd()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  const out=[]; for(let i=0;i<a.length;i+=25) out.push(a.slice(i,i+25)); return out;
+}
+function dayBlocksHtml(m){
+  const B=dayBlocks(m), today=dayKey(Date.now()), done=new Map();
+  S.h.forEach(h=>{ if(h.src==="giorno" && h.blk && (h.ms||[]).includes(m) && dayKey(h.start||h.t)===today){ const p=done.get(h.blk); if(!p || h.t>p.t) done.set(h.blk,h); } });
+  return `<section class="paper card" id="day-blocks"><h3 style="margin:0 0 4px">${icon("shuffle")} Blocchi del giorno</h3>
+    <p class="hint" style="margin:0 0 12px">Tutte le ${BY_MAT[m].length} domande mescolate in ${B.length} blocchi da 25. A mezzanotte si rimescolano e ripartono da zero. Quelle che sbagli salvale con ☆.</p>
+    <div class="dayblk-grid">${B.map((ids,i)=>{ const h=done.get(i+1); return `<button class="dayblk ${h?(h.ok/h.n>=0.8?"ok":"ko"):""}" data-dayblk="${i}">${h?"✓ ":""}${i+1}${h?`<small>${h.ok}/${h.n}</small>`:""}</button>`; }).join("")}</div>
+    <p class="hint" style="margin:10px 0 0">Fatti oggi: <b>${done.size}</b> su ${B.length}</p></section>`;
+}
 /* ================= CATEGORIE E SOTTOCATEGORIE (come su Atena) ================= */
 function renderCategorie(){
   if(state.catDone===undefined){ try{ state.catDone=localStorage.getItem("palestra-ocf-catdone")==="1"; }catch(_){ state.catDone=false; } }
@@ -3037,6 +3058,7 @@ function renderCategorie(){
     <div class="cat-tools"><label class="check" style="margin-right:8px"><input type="checkbox" id="cat-done" ${state.catDone?"checked":""}> <b>Solo domande già fatte</b></label><button class="btn btn-outlined btn-sm" id="cat-openall">${icon("unfold_more")} Apri tutte</button><button class="btn btn-outlined btn-sm" id="cat-closeall">${icon("unfold_less")} Chiudi tutte</button><button class="btn btn-outlined btn-sm" id="cat-none" ${state.picked.size?"":"disabled"}>${icon("clear")} Togli le spunte</button></div>
     ${rows||`<p class="hint">Nessuna domanda già fatta in questa materia.</p>`}
   </section>
+  ${dayBlocksHtml(m)}
   <div class="trainbar" id="trainbar"></div>`;
   $("#cat-done").onchange=e=>{ state.catDone=e.target.checked; state.picked.clear(); try{ localStorage.setItem("palestra-ocf-catdone", state.catDone?"1":""); }catch(_){} renderCategorie(); };
   const re=()=>{ const y=window.scrollY; renderCategorie(); window.scrollTo(0,y); };
@@ -3048,6 +3070,7 @@ function renderCategorie(){
   $("#cat-openall").onclick=()=>{ G.forEach(g=>state.catOpen.add(g.ci)); re(); };
   $("#cat-closeall").onclick=()=>{ state.catOpen.clear(); re(); };
   $("#cat-none").onclick=()=>{ state.picked.clear(); re(); };
+  document.querySelectorAll("[data-dayblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.dayblk, B=dayBlocks(m); startSession({kind:"studio", title:`Blocco del giorno ${i+1} · Materia ${m}`, ids:B[i], fb:"now", w:"all", src:"giorno", meta:{blk:i+1}}); });
   renderTrainbar(G);
 }
 
