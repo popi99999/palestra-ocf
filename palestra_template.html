@@ -486,6 +486,10 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .grp-meta .cnt{display:inline-block;background:var(--ocf-brand-green-soft);color:var(--ocf-brand-green-dark);font-weight:700;border-radius:10px;padding:0 8px;font-size:13px;line-height:20px}
 /* barra allenamento */
 .page:has(.trainbar){padding-bottom:8px}
+#starbar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:#1565c0;color:#fff;border:0;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-size:17px;font-weight:700;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));cursor:pointer;box-shadow:0 -6px 16px -8px rgba(0,0,0,.3)}
+#starbar[hidden]{display:none}
+body.has-starbar main{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+body.has-starbar .trainbar{bottom:calc(52px + env(safe-area-inset-bottom,0px))}
 .trainbar{position:sticky;bottom:0;z-index:6;margin:16px -16px 0;background:#fff;border-top:1px solid var(--ocf-line);box-shadow:0 -8px 20px -12px rgba(0,0,0,.18);padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:14px 20px;flex-wrap:wrap}
 .trainbar__info{display:flex;flex-direction:column;min-width:150px}
 .trainbar__what{font-weight:600;color:var(--ocf-ink);font-size:15px}
@@ -833,6 +837,7 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 <div class="focus-chain" id="focus-chain" aria-live="polite"></div>
 <div class="focus-ctl" id="focus-ctl" role="group" aria-label="Testo e uscita"><button id="f-minus" aria-label="Testo più piccolo">A−</button><b id="fz-val">100%</b><button id="f-plus" aria-label="Testo più grande">A+</button><button id="f-exit" aria-label="Esci dal test"><span class="mi">close</span></button></div>
 <main><div class="page" id="view"></div></main>
+<button id="starbar" hidden></button>
 <div id="dlg"></div>
 <div id="print" aria-hidden="true"></div>
 
@@ -1296,6 +1301,10 @@ function render(){
   else if(v==="test") renderTestDetail();
   setNavActive();
   showActiveMat();
+  { const sb=$("#starbar"), on=MAT_VIEWS.includes(v), N=on?tagged(ONLY,"s").length:0; // barra in basso: le domande salvate con la stellina
+    sb.hidden=!on; document.body.classList.toggle("has-starbar", on);
+    sb.textContent=`★ Domande salvate · Materia ${ONLY} (${N})`;
+    sb.onclick=()=>N?openTag(ONLY,"s"):dialog({title:"Nessuna domanda salvata", body:"Durante un allenamento tocca <b>☆ Salva per riguardarla</b> sotto le domande che ti fanno impazzire: le ritrovi tutte qui.", actions:[{label:"Ok",primary:true}]}); }
   document.body.classList.remove("printing"); // cambiando pagina la stampa torna quella normale
   document.body.classList.toggle("focus", v==="session" && !!state.T && state.T.kind!=="sim");
   if(v==="session"){ timerId=setInterval(tick,250); tick(); }
