@@ -388,6 +388,16 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .dayblk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px}
 .dayblk{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border:1.3px solid #c8c8c8;border-radius:10px;background:#fff;font:600 15px var(--font);cursor:pointer;color:inherit}
 .dayblk small{font-weight:500;font-size:11.5px;opacity:.8}
+.starblk{position:relative;overflow:hidden;width:100%;margin-top:14px;display:flex;align-items:center;gap:14px;padding:16px 18px;border:0;border-radius:14px;background:linear-gradient(120deg,#0d1b3d,#1e3a8a 55%,#4c1d95);color:#fff;font:inherit;text-align:left;cursor:pointer;box-shadow:0 8px 22px -10px rgba(30,58,138,.7)}
+.starblk .sky{position:absolute;inset:0;pointer-events:none}
+.starblk .sky i{position:absolute;font-style:normal;color:#fde68a;opacity:.15;animation:twinkle 2.8s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.12;transform:scale(.7) rotate(0)}50%{opacity:.9;transform:scale(1.15) rotate(20deg)}}
+.starblk .sb-star{position:relative;font-size:30px;color:#fcd34d;text-shadow:0 0 14px rgba(252,211,77,.8);animation:spinstar 6s linear infinite}
+@keyframes spinstar{to{transform:rotate(360deg)}}
+.starblk .sb-txt{position:relative;flex:1;display:flex;flex-direction:column;gap:2px}
+.starblk .sb-txt b{font-size:17px}.starblk .sb-txt small{font-size:13px;opacity:.85}
+.starblk .sb-n{position:relative;min-width:44px;height:44px;border-radius:999px;display:grid;place-items:center;background:rgba(253,230,138,.18);border:1.5px solid #fcd34d;color:#fde68a;font-weight:700;font-size:18px}
+@media (prefers-reduced-motion:reduce){.starblk .sky i,.starblk .sb-star{animation:none}}
 .dayblk.ok{background:#e8f5e9;border-color:#2e7d32;color:#1b5e20}.dayblk.ko{background:#fff3e0;border-color:#e65100;color:#bf360c}
 #day-blocks{margin-bottom:110px}
 .cat-tick{display:inline-block;color:#fff;background:#2e7d32;border-radius:50%;width:18px;height:18px;line-height:18px;text-align:center;font-size:12px;font-weight:700;margin-right:6px;vertical-align:1px}
@@ -680,7 +690,6 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .pdf-block__acts{display:flex;flex-wrap:wrap;gap:8px}
 .mat-tabs{display:flex;gap:8px;overflow-x:auto;margin:0 0 14px;padding-bottom:2px;scrollbar-width:thin}
 .mat-col{flex:1 1 0;display:flex;flex-direction:column;gap:4px;min-width:118px}
-.mat-star{border:0;background:none;font:inherit;font-size:12.5px;font-weight:600;color:#1565c0;padding:2px 4px;cursor:pointer;text-align:center}
 .mat-tab{flex:1 1 auto;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:8px;align-items:center;text-align:left;min-width:118px;padding:8px 12px;border:1px solid var(--ocf-line);border-radius:10px;background:#fff;font:inherit;color:var(--ocf-ink);cursor:pointer}
 .mat-tab b{grid-row:1/3;font-size:18px;color:var(--ocf-brand-green)}
 .mat-tab span{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
@@ -1070,7 +1079,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261104-113320";
+const APP_VERSION="20261104-115735";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -1307,7 +1316,7 @@ const MAT_VIEWS=["home","materia","categorie","stats","tests","sfoglia","analisi
 function matTabs(){
   // sezioni: una scheda per materia con domande fatte / totali
   return `<nav class="mat-tabs" aria-label="Materia">${MAT_ORDER.map(m=>{ const st=gstats(BY_MAT[m]);
-    return `<div class="mat-col"><button class="mat-tab ${m===ONLY?"on":""}" data-mat="${m}" ${m===ONLY?'aria-current="page"':""}><b>M${m}</b><span>${esc(MAT[m].short)}</span><small>${st.seen}/${st.tot}</small></button><button class="mat-star" data-star="${m}">★ ${tagged(m,"s").length} salvate</button></div>`; }).join("")}</nav>`;
+    return `<div class="mat-col"><button class="mat-tab ${m===ONLY?"on":""}" data-mat="${m}" ${m===ONLY?'aria-current="page"':""}><b>M${m}</b><span>${esc(MAT[m].short)}</span><small>${st.seen}/${st.tot}</small></button></div>`; }).join("")}</nav>`;
 }
 function setMateria(m){
   if(!MAT[m] || m===ONLY) return;
@@ -1317,8 +1326,6 @@ function setMateria(m){
   render(); window.scrollTo(0,0);
 }
 document.addEventListener("click", e=>{ const b=e.target.closest && e.target.closest("[data-mat]"); if(b) setMateria(+b.dataset.mat); });
-document.addEventListener("click", e=>{ const b=e.target.closest && e.target.closest("[data-star]"); if(!b) return; const m=+b.dataset.star; // le salvate con la stellina di quella materia
-  tagged(m,"s").length?openTag(m,"s"):dialog({title:"Nessuna domanda salvata", body:`In Materia ${m} non hai ancora salvato domande. Durante un allenamento tocca <b>☆ Salva per riguardarla</b>: le ritrovi qui.`, actions:[{label:"Ok",primary:true}]}); });
 const head = (ic,t) => `${MAT_VIEWS.includes(state.view)?matTabs():""}<div class="pagehead">${icon(ic)}<h1>${t}</h1></div>`;
 
 /* ================= dialog ================= */
@@ -3026,7 +3033,10 @@ function dayBlocksHtml(m){
   return `<section class="paper card" id="day-blocks"><h3 style="margin:0 0 4px">${icon("shuffle")} Blocchi del giorno</h3>
     <p class="hint" style="margin:0 0 12px">Tutte le ${BY_MAT[m].length} domande mescolate in ${B.length} blocchi da 25. A mezzanotte si rimescolano e ripartono da zero. Quelle che sbagli salvale con ☆.</p>
     <div class="dayblk-grid">${B.map((ids,i)=>{ const h=done.get(i+1); return `<button class="dayblk ${h?(h.ok/h.n>=0.8?"ok":"ko"):""}" data-dayblk="${i}">${h?"✓ ":""}${i+1}${h?`<small>${h.ok}/${h.n}</small>`:""}</button>`; }).join("")}</div>
-    <p class="hint" style="margin:10px 0 0">Fatti oggi: <b>${done.size}</b> su ${B.length}</p></section>`;
+    <p class="hint" style="margin:10px 0 0">Fatti oggi: <b>${done.size}</b> su ${B.length}</p>
+    ${(()=>{ const N=tagged(m,"s").length; // il blocco delle domande salvate con la stellina
+      return `<button class="starblk" id="starblk"><span class="sky" aria-hidden="true">${Array.from({length:14},(_,k)=>`<i style="left:${(k*37+11)%97}%;top:${(k*53+7)%86}%;animation-delay:${(k%7)*.45}s;font-size:${9+(k*5)%10}px">★</i>`).join("")}</span>
+        <span class="sb-star" aria-hidden="true">★</span><span class="sb-txt"><b>Le tue domande salvate</b><small>${N?`${N} ${pl(N,"domanda","domande")} con la stellina · tocca per ripassarle`:"Ancora nessuna · salvale con ☆ durante i blocchi"}</small></span><span class="sb-n">${N}</span></button>`; })()}</section>`;
 }
 /* ================= CATEGORIE E SOTTOCATEGORIE (come su Atena) ================= */
 function renderCategorie(){
@@ -3074,6 +3084,7 @@ function renderCategorie(){
   $("#cat-openall").onclick=()=>{ G.forEach(g=>state.catOpen.add(g.ci)); re(); };
   $("#cat-closeall").onclick=()=>{ state.catOpen.clear(); re(); };
   $("#cat-none").onclick=()=>{ state.picked.clear(); re(); };
+  { const sb=$("#starblk"); if(sb) sb.onclick=()=>tagged(m,"s").length?openTag(m,"s"):dialog({title:"Nessuna domanda salvata", body:`In Materia ${m} non hai ancora salvato domande. Durante un blocco tocca <b>☆ Salva per riguardarla</b>: le ritrovi qui.`, actions:[{label:"Ok",primary:true}]}); }
   document.querySelectorAll("[data-dayblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.dayblk, B=dayBlocks(m); startSession({kind:"studio", title:`Blocco del giorno ${i+1} · Materia ${m}`, ids:B[i], fb:"now", w:"all", src:"giorno", meta:{blk:i+1}}); });
   renderTrainbar(G);
 }
