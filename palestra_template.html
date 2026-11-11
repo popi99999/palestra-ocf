@@ -397,6 +397,19 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .starblk .sb-txt{position:relative;flex:1;display:flex;flex-direction:column;gap:2px}
 .starblk .sb-txt b{font-size:17px}.starblk .sb-txt small{font-size:13px;opacity:.85}
 .starblk .sb-n{position:relative;min-width:44px;height:44px;border-radius:999px;display:grid;place-items:center;background:rgba(253,230,138,.18);border:1.5px solid #fcd34d;color:#fde68a;font-weight:700;font-size:18px}
+.ordblk{margin-top:14px;padding:16px 18px;border-radius:14px;background:linear-gradient(135deg,#e0f7f4,#c9f0ea);border:1.3px solid #5cc8ba;color:#0b4f48}
+.ordblk .ob-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ordblk .ob-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:#12a594;color:#fff}
+.ordblk .sb-txt{flex:1;min-width:180px;display:flex;flex-direction:column;gap:2px}.ordblk .sb-txt b{font-size:17px}.ordblk .sb-txt small{font-size:13px;opacity:.85}
+.ordblk .ob-go{border:0;border-radius:999px;background:#0f8c7e;color:#fff;font:700 15px var(--font);padding:11px 18px;cursor:pointer;box-shadow:0 6px 14px -8px #0f8c7e}
+.ordblk .ob-fin{font-weight:700;color:#0f8c7e}
+.ordblk .ob-arg{margin:16px 0 6px;font-size:13px;font-weight:700;letter-spacing:.02em;color:#0b6b61}
+.ordblk .ob-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px}
+.ordblk .ob-blk{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border:1.3px solid #7fd3c8;border-radius:10px;background:#fff;color:#0b4f48;font:600 15px var(--font);cursor:pointer}
+.ordblk .ob-blk small{font-weight:500;font-size:11px;opacity:.75}
+.ordblk .ob-blk.on{background:#12a594;border-color:#0f8c7e;color:#fff}
+.ordblk .ob-blk.next{border:2.2px solid #0f8c7e;box-shadow:0 0 0 3px rgba(18,165,148,.22)}
+.ordblk .ob-note{margin:12px 0 0;font-size:12.5px;opacity:.8}
 .starblk .sb-head{position:relative;display:flex;align-items:center;gap:14px}
 .starblk .sb-grid{position:relative;display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;margin-top:14px}
 .starblk .sb-blk{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border:1.3px solid rgba(253,230,138,.55);border-radius:10px;background:rgba(255,255,255,.08);color:#fff;font:600 15px var(--font);cursor:pointer;backdrop-filter:blur(2px)}
@@ -861,7 +874,7 @@ const RAW = JSON.parse(document.getElementById('ocf-data').textContent);
 const CONT = RAW.c, SUB = RAW.s;
 // q: [materia, contenutoIdx, subIdx, livello(=punti), domanda, A(corretta), B, C, D, pratico(0/1)]
 const Q = RAW.q;
-const SP = RAW.sp || {}, GEM = RAW.gem || {};
+const SP = RAW.sp || {}, GEM = RAW.gem || {}, ORD = RAW.ord || {};
 const MAT = {
   1:{name:"Diritto del mercato finanziario e degli intermediari e disciplina dei consulenti finanziari", short:"Mercato finanziario", sim:24, test:100},
   2:{name:"Matematica finanziaria, mercati e strumenti, pianificazione, finanza comportamentale e investimenti ESG", short:"Matematica finanziaria", sim:19, test:100},
@@ -932,7 +945,7 @@ function cleanSession(h){
   for(const f of ["selC","selS"]) if(h[f]===null) o[f]=null; else if(Array.isArray(h[f])) o[f]=intArr(h[f]);
   if(["all","new","err","worst","redo"].includes(h.w)) o.w=h.w;
   if(["free","q60","q85","tot"].includes(h.tm)) o.tm=h.tm;
-  if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena","blk","day","tag","giorno","stelle"].includes(h.src)) o.src=h.src;
+  if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena","blk","day","tag","giorno","stelle","ordine"].includes(h.src)) o.src=h.src;
   if(["rand","err","less","orig"].includes(h.ord)) o.ord=h.ord;
   if(h.fb===0 || h.fb===1) o.fb=h.fb;
   { const b=int(h.blk,1,1000); if(h.blk!=null && b) o.blk=b; if(h.bok===1) o.bok=1; const r=int(h.rnd,1,100000); if(h.rnd!=null && r) o.rnd=r; }
@@ -1944,7 +1957,7 @@ function renderStats(){
 }
 
 /* ================= TEST FATTI ================= */
-const SRC_L={giorno:"Blocchi del giorno", stelle:"Blocchi delle salvate", bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco", day:"Ripasso del giorno", tag:"Etichetta colorata"};
+const SRC_L={giorno:"Blocchi del giorno", stelle:"Blocchi delle salvate", ordine:"Studia in ordine", bar:"Barra allenamento", cat:"Allenati su una categoria", group:"Allenati su una parte", "home-new":"Home: mai fatte", "home-err":"Home: sbagliate", redo:"Rifai le sbagliate", worst:"Sbagliate più spesso", pdf:"Allenamento sul PDF", catena:"Catena", blk:"Blocco", day:"Ripasso del giorno", tag:"Etichetta colorata"};
 const WHICH_TXT={all:"tutte", new:"mai fatte", err:"sbagliate", worst:"sbagliate più spesso", redo:"da rivedere"};
 const TIME_TXT={free:"cronometro libero", q60:"60 s a domanda", q85:"85 s a domanda", tot:"tempo totale d'esame"};
 function sessList(){ return S.h.filter(h=>h.k!=="sim" && h.n>0 && (h.ms||[5]).includes(ONLY)).slice().sort((a,b)=>b.t-a.t); }
@@ -2227,6 +2240,22 @@ function dayBlocks(m){
   const a=BY_MAT[m].slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(rnd()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
   const out=[]; for(let i=0;i<a.length;i+=25) out.push(a.slice(i,i+25)); return out;
 }
+function ordBlocks(m){
+  // «Studia in ordine»: argomenti nell'ordine del libro, dentro ogni argomento le domande simili una dopo l'altra (blocchi fissi, max 15)
+  const O=ORD[m]; if(!O) return null;
+  const G=groupsOf(m).filter(g=>O[g.ci]).map(g=>({ci:g.ci, B:O[g.ci]})), done=new Map(); let i=0;
+  G.forEach(g=>g.B=g.B.map(ids=>({ids, i:i++})));
+  S.h.forEach(h=>{ if(h.src==="ordine" && h.blk && (h.ms||[]).includes(m)){ const p=done.get(h.blk); if(!p || h.t>p.t) done.set(h.blk,h); } });
+  return {G, done, tot:i};
+}
+function ordBlocksHtml(m){
+  const O=ordBlocks(m); if(!O) return "";
+  let next=-1; for(let i=0;i<O.tot;i++) if(!O.done.has(i+1)){ next=i; break; }
+  return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Un argomento alla volta, con le domande simili una dopo l'altra · fatti ${O.done.size} su ${O.tot}</small></span>
+      ${next>=0?`<button class="ob-go" data-ordblk="${next}">${O.done.size?"Continua":"Inizia"} · blocco ${next+1}</button>`:`<span class="ob-fin">✓ Finito</span>`}</div>
+    ${O.G.map(g=>`<p class="ob-arg">${esc(CONT[g.ci])}</p><div class="ob-grid">${g.B.map(b=>{ const h=O.done.get(b.i+1); return `<button class="ob-blk ${h?"on":""} ${b.i===next?"next":""}" data-ordblk="${b.i}">${h?"✓ ":""}${b.i+1}<small>${h?`${h.ok}/${h.n}`:`${b.ids.length} dom.`}</small></button>`; }).join("")}</div>`).join("")}
+    <p class="ob-note">Questi blocchi non cambiano mai: riparti sempre da dove eri.</p></div>`;
+}
 function starBlocks(m){
   // le salvate con ☆ in blocchi da 15: un giro finisce quando li hai fatti tutti, poi si rimescola (seme = materia + giro)
   let R=1; S.h.forEach(h=>{ if(h.src==="stelle" && h.rnd && (h.ms||[]).includes(m)) R=Math.max(R,h.rnd); });
@@ -2254,7 +2283,8 @@ function dayBlocksHtml(m){
       const sky=`<span class="sky" aria-hidden="true">${Array.from({length:18},(_,k)=>`<i style="left:${(k*37+11)%97}%;top:${(k*53+7)%93}%;animation-delay:${(k%7)*.45}s;font-size:${9+(k*5)%10}px">★</i>`).join("")}</span>`;
       return `<div class="starblk">${sky}<div class="sb-head"><span class="sb-star" aria-hidden="true">★</span><span class="sb-txt"><b>Le tue domande salvate</b><small>${N?`${N} ${pl(N,"domanda","domande")} in ${SB.B.length} ${pl(SB.B.length,"blocco","blocchi")} (max 15) · giro ${SB.R} · fatti ${SB.done.size} su ${SB.B.length}`:"Ancora nessuna · salvale con ☆ durante i blocchi"}</small></span><span class="sb-n">${N}</span></div>
         ${N?`<div class="sb-grid">${SB.B.map((ids,i)=>{ const h=SB.done.get(i+1); return `<button class="sb-blk ${h?"on":""}" data-starblk="${i}">${h?"★ ":""}${i+1}${h?`<small>${h.ok}/${h.n}</small>`:`<small>${ids.length} dom.</small>`}</button>`; }).join("")}</div>
-        <p class="sb-note">Quando li completi tutti, si rimescolano e ripartono da zero.</p>`:""}</div>`; })()}</section>`;
+        <p class="sb-note">Quando li completi tutti, si rimescolano e ripartono da zero.</p>`:""}</div>`; })()}
+    ${ordBlocksHtml(m)}</section>`;
 }
 /* ================= CATEGORIE E SOTTOCATEGORIE (come su Atena) ================= */
 function renderCategorie(){
@@ -2302,6 +2332,7 @@ function renderCategorie(){
   $("#cat-openall").onclick=()=>{ G.forEach(g=>state.catOpen.add(g.ci)); re(); };
   $("#cat-closeall").onclick=()=>{ state.catOpen.clear(); re(); };
   $("#cat-none").onclick=()=>{ state.picked.clear(); re(); };
+  document.querySelectorAll("[data-ordblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.ordblk, O=ordBlocks(m), x=O && O.G.flatMap(g=>g.B).find(y=>y.i===i); if(!x) return; startSession({kind:"studio", title:`Studia in ordine · blocco ${i+1} · Materia ${m}`, ids:x.ids, fb:"now", w:"all", src:"ordine", meta:{blk:i+1}}); });
   document.querySelectorAll("[data-starblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.starblk, SB=starBlocks(m); if(!SB.B[i]) return; startSession({kind:"studio", title:`Salvate ★ blocco ${i+1} · Materia ${m}`, ids:SB.B[i], fb:"now", w:"all", src:"stelle", meta:{blk:i+1, rnd:SB.R}}); });
   document.querySelectorAll("[data-dayblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.dayblk, B=dayBlocks(m); startSession({kind:"studio", title:`Blocco del giorno ${i+1} · Materia ${m}`, ids:B[i], fb:"now", w:"all", src:"giorno", meta:{blk:i+1}}); });
   renderTrainbar(G);
