@@ -17,14 +17,12 @@ for g in gr.values():
     if len(g)>1:
         for x in g: GEM[str(x['n'])]=[[o['n'],o['A'],norm(o['A'])==norm(x['A'])] for o in g if o['n']!=x['n']]
 print('spiegazioni:',len(SP),'| domande con gemella:',len(GEM))
-# «Studia in ordine»: blocchi per argomento con le domande simili in fila (per ora solo Materia 5)
+# «Studia in ordine»: sezioni a crescendo (uguali → stessa risposta → molto simili → simili → le altre), blocchi da max 15
 import ordine
 ORD={}
-for m in (5,):
-    per=collections.OrderedDict()
-    for b in ordine.blocks([x for x in q if x['materia']==m]): per.setdefault(rows[b[0]-1][1],[]).append(b)
-    ORD[str(m)]=per
-print('studia in ordine:',{m:sum(len(v) for v in d.values()) for m,d in ORD.items()},'blocchi')
+for m in (4,5):
+    ORD[str(m)]=ordine.sezioni([x for x in q if x['materia']==m])
+print('studia in ordine:',{m:[(n,len(B)) for n,B in d] for m,d in ORD.items()})
 data=json.dumps({'c':C,'s':S,'q':rows,'sp':SP,'gem':GEM,'ord':ORD},ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 t=open('palestra_template.html').read()
 # versione: la pagina la confronta con version.txt e si ricarica da sola quando ne esce una nuova

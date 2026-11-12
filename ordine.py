@@ -49,3 +49,41 @@ if __name__=='__main__':
     for b in B[7:9]:
         print('=== blocco')
         for i,n in enumerate(b): print(round(cos(V[b[i-1]],V[n]),2) if i else '   ', n, D[n]['domanda'][:95])
+
+# ---- Sezioni a crescendo: prima le uguali, poi quelle con la stessa risposta, poi le molto simili, le simili, le altre ----
+SEZIONI=[('Uguali','q',0.6),('Stessa risposta','a',0.6),('Molto simili','q',0.35),('Simili','q',0.2)]
+def vectorsA(qs):
+    docs=[collections.Counter(toks(x['A'])) for x in qs]; df=collections.Counter(w for d in docs for w in d); V={}
+    for x,d in zip(qs,docs):
+        v={w:(1+math.log(c))*math.log(1+len(qs)/df[w]) for w,c in d.items()}; nrm=math.sqrt(sum(a*a for a in v.values())) or 1
+        V[x['n']]={w:a/nrm for w,a in v.items()}
+    return V
+def cut(seq,V):
+    # blocchi da max 15, tutti di misura simile; il taglio cade dove due domande vicine si somigliano meno
+    tot=len(seq); nb=-(-tot//MAXB); base=tot/nb; cuts=[]
+    for k in range(1,nb):
+        c=round(k*base); prev=cuts[-1] if cuts else 0; lo=max(prev+1,c-3); hi=min(tot-1,c+3)
+        cand=[p for p in range(lo,hi+1) if p-prev<=MAXB and tot-p<=MAXB*(nb-k)] or [c]
+        cuts.append(min(cand,key=lambda p:(cos(V[seq[p-1]],V[seq[p]]),abs(p-c))))
+    return [seq[a:b] for a,b in zip([0]+cuts,cuts+[tot])]
+def sezioni(qs_mat):
+    V=vectors(qs_mat); VA=vectorsA(qs_mat); left=sorted(x['n'] for x in qs_mat); out=[]
+    for name,kind,th in SEZIONI:
+        W=VA if kind=='a' else V; par={i:i for i in left}
+        def f(i):
+            while par[i]!=i: par[i]=par[par[i]]; i=par[i]
+            return i
+        for a in range(len(left)):
+            for b in range(a+1,len(left)):
+                if cos(W[left[a]],W[left[b]])>=th: par[f(left[a])]=f(left[b])
+        g=collections.OrderedDict()
+        for i in left: g.setdefault(f(i),[]).append(i)
+        comp=[c for c in g.values() if len(c)>1]
+        if not comp: continue
+        seq=[n for c in comp for n in chain(c,W)]  # i gruppi uno dopo l'altro, nell'ordine del libro
+        out.append((name,cut(seq,W))); used=set(seq); left=[i for i in left if i not in used]
+    if left:
+        cont=collections.OrderedDict(); D={x['n']:x for x in qs_mat}
+        for n in left: cont.setdefault(D[n]['contenuto'],[]).append(n)
+        out.append(('Le altre',cut([n for ids in cont.values() for n in chain(ids,V)],V)))
+    return out

@@ -403,7 +403,9 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .ordblk .sb-txt{flex:1;min-width:180px;display:flex;flex-direction:column;gap:2px}.ordblk .sb-txt b{font-size:17px}.ordblk .sb-txt small{font-size:13px;opacity:.85}
 .ordblk .ob-go{border:0;border-radius:999px;background:#0f8c7e;color:#fff;font:700 15px var(--font);padding:11px 18px;cursor:pointer;box-shadow:0 6px 14px -8px #0f8c7e}
 .ordblk .ob-fin{font-weight:700;color:#0f8c7e}
-.ordblk .ob-arg{margin:16px 0 6px;font-size:13px;font-weight:700;letter-spacing:.02em;color:#0b6b61}
+.ordblk .ob-arg{margin:18px 0 8px;font-size:15px;font-weight:700;color:#0b6b61;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ordblk .ob-arg small{font-weight:500;font-size:12.5px;opacity:.8}
+.ordblk .ob-n{width:24px;height:24px;border-radius:50%;background:#12a594;color:#fff;display:grid;place-items:center;font-size:13px}
 .ordblk .ob-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px}
 .ordblk .ob-blk{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border:1.3px solid #7fd3c8;border-radius:10px;background:#fff;color:#0b4f48;font:600 15px var(--font);cursor:pointer}
 .ordblk .ob-blk small{font-weight:500;font-size:11px;opacity:.75}
@@ -2242,18 +2244,20 @@ function dayBlocks(m){
 }
 function ordBlocks(m){
   // «Studia in ordine»: argomenti nell'ordine del libro, dentro ogni argomento le domande simili una dopo l'altra (blocchi fissi, max 15)
+  // sezioni a crescendo: Uguali → Stessa risposta → Molto simili → Simili → Le altre (rnd 2 = questa versione dei blocchi)
   const O=ORD[m]; if(!O) return null;
-  const G=groupsOf(m).filter(g=>O[g.ci]).map(g=>({ci:g.ci, B:O[g.ci]})), done=new Map(); let i=0;
+  const G=O.map(([name,B])=>({name, B})), done=new Map(); let i=0;
   G.forEach(g=>g.B=g.B.map(ids=>({ids, i:i++})));
-  S.h.forEach(h=>{ if(h.src==="ordine" && h.blk && (h.ms||[]).includes(m)){ const p=done.get(h.blk); if(!p || h.t>p.t) done.set(h.blk,h); } });
+  S.h.forEach(h=>{ if(h.src==="ordine" && h.rnd===2 && h.blk && (h.ms||[]).includes(m)){ const p=done.get(h.blk); if(!p || h.t>p.t) done.set(h.blk,h); } });
   return {G, done, tot:i};
 }
+const SEZ_D={"Uguali":"la stessa domanda scritta in modi diversi","Stessa risposta":"domande diverse, risposta quasi uguale","Molto simili":"stesso argomento, quasi la stessa cosa","Simili":"stesso argomento","Le altre":"le domande che non somigliano a nessuna"};
 function ordBlocksHtml(m){
   const O=ordBlocks(m); if(!O) return "";
   let next=-1; for(let i=0;i<O.tot;i++) if(!O.done.has(i+1)){ next=i; break; }
-  return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Un argomento alla volta, con le domande simili una dopo l'altra · fatti ${O.done.size} su ${O.tot}</small></span>
+  return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Prima le uguali, poi via via le più diverse · fatti ${O.done.size} su ${O.tot}</small></span>
       ${next>=0?`<button class="ob-go" data-ordblk="${next}">${O.done.size?"Continua":"Inizia"} · blocco ${next+1}</button>`:`<span class="ob-fin">✓ Finito</span>`}</div>
-    ${O.G.map(g=>`<p class="ob-arg">${esc(CONT[g.ci])}</p><div class="ob-grid">${g.B.map(b=>{ const h=O.done.get(b.i+1); return `<button class="ob-blk ${h?"on":""} ${b.i===next?"next":""}" data-ordblk="${b.i}">${h?"✓ ":""}${b.i+1}<small>${h?`${h.ok}/${h.n}`:`${b.ids.length} dom.`}</small></button>`; }).join("")}</div>`).join("")}
+    ${O.G.map((g,k)=>`<p class="ob-arg"><span class="ob-n">${k+1}</span>${esc(g.name)}<small>${esc(SEZ_D[g.name]||"")}</small></p><div class="ob-grid">${g.B.map(b=>{ const h=O.done.get(b.i+1); return `<button class="ob-blk ${h?"on":""} ${b.i===next?"next":""}" data-ordblk="${b.i}">${h?"✓ ":""}${b.i+1}<small>${h?`${h.ok}/${h.n}`:`${b.ids.length} dom.`}</small></button>`; }).join("")}</div>`).join("")}
     <p class="ob-note">Questi blocchi non cambiano mai: riparti sempre da dove eri.</p></div>`;
 }
 function starBlocks(m){
@@ -2332,9 +2336,9 @@ function renderCategorie(){
   $("#cat-openall").onclick=()=>{ G.forEach(g=>state.catOpen.add(g.ci)); re(); };
   $("#cat-closeall").onclick=()=>{ state.catOpen.clear(); re(); };
   $("#cat-none").onclick=()=>{ state.picked.clear(); re(); };
-  document.querySelectorAll("[data-ordblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.ordblk, O=ordBlocks(m), x=O && O.G.flatMap(g=>g.B).find(y=>y.i===i); if(!x) return; startSession({kind:"studio", title:`Studia in ordine · blocco ${i+1} · Materia ${m}`, ids:x.ids, fb:"now", w:"all", src:"ordine", meta:{blk:i+1}}); });
+  document.querySelectorAll("[data-ordblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.ordblk, O=ordBlocks(m), x=O && O.G.flatMap(g=>g.B).find(y=>y.i===i); if(!x) return; startSession({kind:"studio", title:`Studia in ordine · blocco ${i+1} · Materia ${m}`, ids:x.ids, fb:"now", w:"all", src:"ordine", meta:{blk:i+1, rnd:2}}); });
   document.querySelectorAll("[data-starblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.starblk, SB=starBlocks(m); if(!SB.B[i]) return; startSession({kind:"studio", title:`Salvate ★ blocco ${i+1} · Materia ${m}`, ids:SB.B[i], fb:"now", w:"all", src:"stelle", meta:{blk:i+1, rnd:SB.R}}); });
-  document.querySelectorAll("[data-dayblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.dayblk, B=dayBlocks(m); startSession({kind:"studio", title:`Blocco del giorno ${i+1} · Materia ${m}`, ids:B[i], fb:"now", w:"all", src:"giorno", meta:{blk:i+1}}); });
+  document.querySelectorAll("[data-dayblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.dayblk, B=dayBlocks(m); startSession({kind:"studio", title:`Blocco del giorno ${i+1} · Materia ${m}`, ids:B[i], fb:"now", w:"all", src:"giorno", meta:{blk:i+1, rnd:2}}); });
   renderTrainbar(G);
 }
 
