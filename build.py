@@ -20,7 +20,7 @@ print('spiegazioni:',len(SP),'| domande con gemella:',len(GEM))
 # «Studia in ordine»: sezioni a crescendo (uguali → stessa risposta → molto simili → simili → le altre), blocchi da max 15
 import ordine
 ORD={}
-for m in (3,4,5):
+for m in (1,2,3,4,5):
     ORD[str(m)]=[[s,rows[B[0][0]-1][1] if c else -1,B] for s,c,B in ordine.sezioni([x for x in q if x['materia']==m])]
 print('studia in ordine:',{m:[(n,c,len(B)) for n,c,B in d] for m,d in ORD.items()})
 data=json.dumps({'c':C,'s':S,'q':rows,'sp':SP,'gem':GEM,'ord':ORD},ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
