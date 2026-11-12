@@ -66,7 +66,7 @@ def cut(seq,V,bounds=None):
         cand=[p for p in range(lo,hi+1) if p-prev<=MAXB and tot-p<=MAXB*(nb-k)] or [c]
         cuts.append(min(cand,key=lambda p:(0 if not bounds or p in bounds else 1,cos(V[seq[p-1]],V[seq[p]]),abs(p-c))))  # mai spezzare un gruppo di uguali
     return [seq[a:b] for a,b in zip([0]+cuts,cuts+[tot])]
-def gruppi(left,W,th,cap=12):
+def gruppi(left,W,th,cap=12,pre=()):
     # gruppi "stretti": due gruppi si uniscono solo se, in media, TUTTE le loro domande si somigliano (niente catene A~B~C con A diversa da C)
     L=sorted(left); P=[]
     for a in range(len(L)):
@@ -74,6 +74,12 @@ def gruppi(left,W,th,cap=12):
             c=cos(W[L[a]],W[L[b]])
             if c>=th: P.append((c,L[a],L[b]))
     P.sort(reverse=True); g={i:[i] for i in L}
+    for G0 in pre:  # domande con lo stesso identico testo: sempre nello stesso gruppo
+        G0=[i for i in G0 if i in g]
+        for j in G0[1:]:
+            if g[j] is not g[G0[0]]:
+                A,B=g[G0[0]],g[j]; A.extend(B)
+                for k in B: g[k]=A
     for c,x,y in P:
         A,B=g[x],g[y]
         if A is B or len(A)+len(B)>cap: continue
@@ -99,12 +105,37 @@ def pack(groups):
     if cur: B.append(cur)
     if len(B)>1 and len(B[-1])<6 and len(B[-2])+len(B[-1])<=MAXB: B[-2]+=B.pop()
     return B
+def ordina(groups,W):
+    # i gruppi che si somigliano tra loro stanno uno dopo l'altro (così finiscono nello stesso blocco o in blocchi vicini); altrimenti ordine del libro
+    def centro(G):
+        c=collections.Counter()
+        for i in G:
+            for w,v in W[i].items(): c[w]+=v
+        nrm=math.sqrt(sum(v*v for v in c.values())) or 1
+        return {w:v/nrm for w,v in c.items()}
+    C=[centro(G) for G in groups]; n=len(groups)
+    P=sorted(((cos(C[a],C[b]),a,b) for a in range(n) for b in range(a+1,n) if cos(C[a],C[b])>=0.3),reverse=True)
+    seq={k:[k] for k in range(n)}  # catene di gruppi: le coppie più simili si attaccano per prime, girando le catene per tenerle vicine
+    for c,x,y in P:
+        A,B=seq[x],seq[y]
+        if A is B: continue
+        best=min(([A,B],[A,B[::-1]],[A[::-1],B],[A[::-1],B[::-1]]),key=lambda t:(len(t[0])-1-t[0].index(x))+t[1].index(y))
+        M=best[0]+best[1]
+        for k in M: seq[k]=M
+    seen=set(); out=[]
+    for k in range(n):
+        if id(seq[k]) not in seen: seen.add(id(seq[k])); out+=seq[k]
+    return [groups[k] for k in out]
 def sezioni(qs_mat):
     V=vectors(qs_mat); VA=vectorsA(qs_mat); left=sorted(x['n'] for x in qs_mat); out=[]
+    stessa=collections.defaultdict(list)
+    for x in qs_mat: stessa[re.sub(r'[^a-z0-9]','',x['domanda'].lower())].append(x['n'])
+    pre=[g for g in stessa.values() if len(g)>1]
     for name,kind,th in SEZIONI:
         W=VA if kind=='a' else V
-        comp=gruppi(left,W,th)
+        comp=gruppi(left,W,th,pre=pre if kind=='q' else ())
         if not comp: continue
+        comp=ordina(comp,W)
         out.append((name,'',pack([chain(c,W) for c in comp])))  # i gruppi uno dopo l'altro, nell'ordine del libro, mai spezzati
         seq=[n for c in comp for n in c]; used=set(seq); left=[i for i in left if i not in used]
     if left:

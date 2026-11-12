@@ -2252,11 +2252,11 @@ function dayBlocks(m){
   out.nuove=a.filter(n=>T.get(n)===0).length; out.sbagliate=a.filter(n=>T.get(n)===1).length; return out;
 }
 function ordBlocks(m){
-  // sezioni in ordine: 1 Uguali → 2 Stessa risposta → 3 Stesso argomento (un argomento alla volta). Blocchi fissi, max 15 (rnd 4 = questa versione)
+  // sezioni in ordine: 1 Uguali → 2 Stessa risposta → 3 Stesso argomento (un argomento alla volta). Blocchi fissi, max 15 (rnd 5 = questa versione)
   const O=ORD[m]; if(!O) return null;
   const G=O.map(([name,ci,B])=>({name, ci, B})), done=new Map(); let i=0;
   G.forEach(g=>g.B=g.B.map(ids=>({ids, i:i++})));
-  S.h.forEach(h=>{ if(h.src==="ordine" && h.rnd===4 && h.blk && (h.ms||[]).includes(m)){ const p=done.get(h.blk); if(!p || h.t>p.t) done.set(h.blk,h); } });
+  S.h.forEach(h=>{ if(h.src==="ordine" && h.rnd===5 && h.blk && (h.ms||[]).includes(m)){ const p=done.get(h.blk); if(!p || h.t>p.t) done.set(h.blk,h); } });
   return {G, done, tot:i};
 }
 const SEZ_D={"Uguali":"la stessa domanda scritta in modi diversi","Stessa risposta":"domande diverse, risposta quasi uguale","Stesso argomento":"domande diverse sullo stesso argomento, un argomento alla volta"};
@@ -2346,9 +2346,9 @@ function renderCategorie(){
   $("#cat-openall").onclick=()=>{ G.forEach(g=>state.catOpen.add(g.ci)); re(); };
   $("#cat-closeall").onclick=()=>{ state.catOpen.clear(); re(); };
   $("#cat-none").onclick=()=>{ state.picked.clear(); re(); };
-  document.querySelectorAll("[data-ordblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.ordblk, O=ordBlocks(m), x=O && O.G.flatMap(g=>g.B).find(y=>y.i===i); if(!x) return; startSession({kind:"studio", title:`Studia in ordine · blocco ${i+1} · Materia ${m}`, ids:x.ids, fb:"now", w:"all", src:"ordine", meta:{blk:i+1, rnd:4}}); });
+  document.querySelectorAll("[data-ordblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.ordblk, O=ordBlocks(m), x=O && O.G.flatMap(g=>g.B).find(y=>y.i===i); if(!x) return; startSession({kind:"studio", title:`Studia in ordine · blocco ${i+1} · Materia ${m}`, ids:x.ids, fb:"now", w:"all", src:"ordine", meta:{blk:i+1, rnd:5}}); });
   document.querySelectorAll("[data-starblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.starblk, SB=starBlocks(m); if(!SB.B[i]) return; startSession({kind:"studio", title:`Salvate ★ blocco ${i+1} · Materia ${m}`, ids:SB.B[i], fb:"now", w:"all", src:"stelle", meta:{blk:i+1, rnd:SB.R}}); });
-  document.querySelectorAll("[data-dayblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.dayblk, B=dayBlocks(m); startSession({kind:"studio", title:`Blocco del giorno ${i+1} · Materia ${m}`, ids:B[i], fb:"now", w:"all", src:"giorno", meta:{blk:i+1, rnd:4}}); });
+  document.querySelectorAll("[data-dayblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.dayblk, B=dayBlocks(m); startSession({kind:"studio", title:`Blocco del giorno ${i+1} · Materia ${m}`, ids:B[i], fb:"now", w:"all", src:"giorno", meta:{blk:i+1, rnd:5}}); });
   renderTrainbar(G);
 }
 
