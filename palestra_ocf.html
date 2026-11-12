@@ -397,21 +397,29 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .starblk .sb-txt{position:relative;flex:1;display:flex;flex-direction:column;gap:2px}
 .starblk .sb-txt b{font-size:17px}.starblk .sb-txt small{font-size:13px;opacity:.85}
 .starblk .sb-n{position:relative;min-width:44px;height:44px;border-radius:999px;display:grid;place-items:center;background:rgba(253,230,138,.18);border:1.5px solid #fcd34d;color:#fde68a;font-weight:700;font-size:18px}
-.ordblk{margin-top:14px;padding:16px 18px;border-radius:14px;background:linear-gradient(135deg,#e0f0ff,#cde4fb);border:1.3px solid #60a5fa;color:#0c3a6b}
+.ordblk{margin-top:14px;padding:16px 18px;border-radius:14px;background:linear-gradient(135deg,#e0f7f4,#c9f0ea);border:1.3px solid #5cc8ba;color:#0b4f48}
 .ordblk .ob-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.ordblk .ob-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:#2563eb;color:#fff}
+.ordblk .ob-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:#12a594;color:#fff}
 .ordblk .sb-txt{flex:1;min-width:180px;display:flex;flex-direction:column;gap:2px}.ordblk .sb-txt b{font-size:17px}.ordblk .sb-txt small{font-size:13px;opacity:.85}
-.ordblk .ob-go{border:0;border-radius:999px;background:#1d4ed8;color:#fff;font:700 15px var(--font);padding:11px 18px;cursor:pointer;box-shadow:0 6px 14px -8px #1d4ed8}
-.ordblk .ob-fin{font-weight:700;color:#1d4ed8}
-.ordblk .ob-arg{margin:18px 0 8px;font-size:15px;font-weight:700;color:#1e40af;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ordblk .ob-go{border:0;border-radius:999px;background:#0f8c7e;color:#fff;font:700 15px var(--font);padding:11px 18px;cursor:pointer;box-shadow:0 6px 14px -8px #0f8c7e}
+.ordblk .ob-fin{font-weight:700;color:#0f8c7e}
+.ordblk .ob-arg{margin:18px 0 8px;font-size:15px;font-weight:700;color:#0b6b61;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .ordblk .ob-arg small{font-weight:500;font-size:12.5px;opacity:.8}
-.ordblk .ob-n{width:24px;height:24px;border-radius:50%;background:#2563eb;color:#fff;display:grid;place-items:center;font-size:13px}
+.ordblk .ob-n{width:24px;height:24px;border-radius:50%;background:#12a594;color:#fff;display:grid;place-items:center;font-size:13px}
 .ordblk .ob-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px}
-.ordblk .ob-blk{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border:1.3px solid #93c5fd;border-radius:10px;background:#fff;color:#0c3a6b;font:600 15px var(--font);cursor:pointer}
+.ordblk .ob-blk{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border:1.3px solid #7fd3c8;border-radius:10px;background:#fff;color:#0b4f48;font:600 15px var(--font);cursor:pointer}
 .ordblk .ob-blk small{font-weight:500;font-size:11px;opacity:.75}
-.ordblk .ob-blk.on{background:#2563eb;border-color:#1d4ed8;color:#fff}
-.ordblk .ob-blk.next{border:2.2px solid #1d4ed8;box-shadow:0 0 0 3px rgba(37,99,235,.22)}
-.ordblk .ob-sub{margin:10px 0 6px;font-size:13px;font-weight:600;color:#1e40af;opacity:.85}
+.ordblk .ob-blk.ok{background:#2e9e5b;border-color:#1f7a44;color:#fff}
+.ordblk .ob-blk.ko{background:#ffe9d6;border-color:#e65100;color:#b23c00}
+.ordblk .ob-blk.part{border-style:dashed;border-width:2px;background:#f3fbfa}
+.ordblk .ob-count{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-top:14px}
+.ordblk .ob-count span{background:#fff;border:1.3px solid #7fd3c8;border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.ordblk .ob-count b{font-size:24px;color:#0f8c7e}.ordblk .ob-count small{font-size:12px;line-height:1.25;opacity:.85}
+.ordblk .ob-leg{margin:10px 0 0;font-size:12.5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ordblk .ob-leg i{width:14px;height:14px;border-radius:4px;display:inline-block;margin-left:8px;border:1.5px solid}
+.ordblk .ob-leg i.ok{background:#2e9e5b;border-color:#1f7a44}.ordblk .ob-leg i.ko{background:#ffe9d6;border-color:#e65100}.ordblk .ob-leg i.part{background:#f3fbfa;border:2px dashed #7fd3c8}
+.ordblk .ob-blk.next{border:2.2px solid #0f8c7e;box-shadow:0 0 0 3px rgba(18,165,148,.22)}
+.ordblk .ob-sub{margin:10px 0 6px;font-size:13px;font-weight:600;color:#0b6b61;opacity:.85}
 .ordblk .ob-note{margin:12px 0 0;font-size:12.5px;opacity:.8}
 .starblk .sb-head{position:relative;display:flex;align-items:center;gap:14px}
 .starblk .sb-grid{position:relative;display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;margin-top:14px}
@@ -1101,7 +1109,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261112-103224";
+const APP_VERSION="20261112-113151";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -3058,23 +3066,30 @@ function dayBlocks(m){
   out.nuove=a.filter(n=>T.get(n)===0).length; out.sbagliate=a.filter(n=>T.get(n)===1).length; return out;
 }
 function ordBlocks(m){
-  // sezioni in ordine: 1 Uguali → 2 Stessa risposta → 3 Stesso argomento (un argomento alla volta). Blocchi fissi, max 15 (rnd 5 = questa versione)
+  // sezioni in ordine: 1 Uguali → 2 Stessa risposta → 3 Stesso argomento. Blocchi fissi, max 15.
+  // Un blocco è «fatto» quando hai risposto a tutte le sue domande dentro «Studia in ordine»: si guarda domanda per domanda (ultima risposta),
+  // così se i blocchi vengono riordinati i progressi restano.
   const O=ORD[m]; if(!O) return null;
-  const G=O.map(([name,ci,B])=>({name, ci, B})), done=new Map(); let i=0;
-  G.forEach(g=>g.B=g.B.map(ids=>({ids, i:i++})));
-  S.h.forEach(h=>{ if(h.src==="ordine" && h.rnd===5 && h.blk && (h.ms||[]).includes(m)){ const p=done.get(h.blk); if(!p || h.t>p.t) done.set(h.blk,h); } });
-  return {G, done, tot:i};
+  const G=O.map(([name,ci,B])=>({name, ci, B})), last=new Map(), today=dayKey(Date.now()); let i=0, oggi=0;
+  S.h.filter(h=>h.src==="ordine" && (h.ms||[]).includes(m)).sort((a,b)=>a.t-b.t).forEach(h=>{ const isT=dayKey(h.start||h.t)===today;
+    (h.q||[]).forEach(x=>{ if(!x[1]) return; last.set(x[0], x[1]===1); if(isT) oggi++; }); });
+  G.forEach(g=>g.B=g.B.map(ids=>{ const f=ids.filter(n=>last.has(n)).length, ok=ids.filter(n=>last.get(n)).length;
+    return {ids, i:i++, f, ok, st: f<ids.length ? (f?"part":"") : (ok/ids.length>=0.8?"ok":"ko")}; }));
+  const all=G.flatMap(g=>g.B);
+  return {G, all, tot:i, fatte:last.size, oggi, done:all.filter(b=>b.f===b.ids.length).length, pass:all.filter(b=>b.st==="ok").length};
 }
 const SEZ_D={"Uguali":"la stessa domanda scritta in modi diversi","Stessa risposta":"domande diverse, risposta quasi uguale","Stesso argomento":"domande diverse sullo stesso argomento, un argomento alla volta"};
 function ordBlocksHtml(m){
   const O=ordBlocks(m); if(!O) return "";
-  const all=O.G.flatMap(g=>g.B), nx=all.find(b=>!O.done.has(b.i+1)), next=nx?nx.i:-1, secs=[...new Set(O.G.map(g=>g.name))];
-  const blk=b=>{ const h=O.done.get(b.i+1); return `<button class="ob-blk ${h?"on":""} ${b.i===next?"next":""}" data-ordblk="${b.i}">${h?"✓ ":""}${b.i+1}<small>${h?`${h.ok}/${h.n}`:`${b.ids.length} dom.`}</small></button>`; };
-  return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Prima le uguali, poi la stessa risposta, poi lo stesso argomento · fatti ${O.done.size} su ${O.tot}</small></span>
-      ${next>=0?`<button class="ob-go" data-ordblk="${next}">${O.done.size?"Continua":"Inizia"} · blocco ${next+1}</button>`:`<span class="ob-fin">✓ Finito</span>`}</div>
+  const nx=O.all.find(b=>b.st===""||b.st==="part"), next=nx?nx.i:-1, secs=[...new Set(O.G.map(g=>g.name))], N=BY_MAT[m].length;
+  const blk=b=>`<button class="ob-blk ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}">${b.st==="ok"?"✓ ":b.st==="ko"?"✗ ":""}${b.i+1}<small>${b.st==="ok"||b.st==="ko"?`${b.ok}/${b.ids.length}`:b.st==="part"?`fatte ${b.f}/${b.ids.length}`:`${b.ids.length} dom.`}</small></button>`;
+  return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Prima le uguali, poi la stessa risposta, poi lo stesso argomento</small></span>
+      ${next>=0?`<button class="ob-go" data-ordblk="${next}">${O.fatte?"Continua":"Inizia"} · blocco ${next+1}</button>`:`<span class="ob-fin">✓ Finito</span>`}</div>
+    <div class="ob-count"><span><b>${O.fatte}</b><small>domande fatte finora<br>su ${N}</small></span><span><b>${O.oggi}</b><small>domande fatte<br>oggi</small></span><span><b>${O.done}</b><small>blocchi fatti<br>su ${O.tot}</small></span><span><b>${O.pass}</b><small>blocchi<br>passati</small></span></div>
+    <p class="ob-leg"><i class="ok"></i> passato (80% o più) <i class="ko"></i> non passato <i class="part"></i> iniziato</p>
     ${secs.map((s,k)=>`<p class="ob-arg"><span class="ob-n">${k+1}</span>${esc(s)}<small>${esc(SEZ_D[s]||"")}</small></p>
       ${O.G.filter(g=>g.name===s).map(g=>`${g.ci>=0?`<p class="ob-sub">${esc(CONT[g.ci])}</p>`:""}<div class="ob-grid">${g.B.map(blk).join("")}</div>`).join("")}`).join("")}
-    <p class="ob-note">Questi blocchi non cambiano mai: riparti sempre da dove eri.</p></div>`;
+    <p class="ob-note">Tocca un blocco: puoi <b>leggere</b> domande e risposte oppure <b>rispondere</b>. I blocchi non cambiano mai.</p></div>`;
 }
 function starBlocks(m){
   // le salvate con ☆ in blocchi da 15: un giro finisce quando li hai fatti tutti, poi si rimescola (seme = materia + giro)
@@ -3152,7 +3167,10 @@ function renderCategorie(){
   $("#cat-openall").onclick=()=>{ G.forEach(g=>state.catOpen.add(g.ci)); re(); };
   $("#cat-closeall").onclick=()=>{ state.catOpen.clear(); re(); };
   $("#cat-none").onclick=()=>{ state.picked.clear(); re(); };
-  document.querySelectorAll("[data-ordblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.ordblk, O=ordBlocks(m), x=O && O.G.flatMap(g=>g.B).find(y=>y.i===i); if(!x) return; startSession({kind:"studio", title:`Studia in ordine · blocco ${i+1} · Materia ${m}`, ids:x.ids, fb:"now", w:"all", src:"ordine", meta:{blk:i+1, rnd:5}}); });
+  document.querySelectorAll("[data-ordblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.ordblk, O=ordBlocks(m), x=O && O.all.find(y=>y.i===i); if(!x) return;
+    const title=`Studia in ordine · blocco ${i+1} · Materia ${m}`;
+    dialog({title:`Blocco ${i+1} · ${x.ids.length} domande`, body:`Cosa vuoi fare?<br><br><b>Leggi</b>: vedi le domande con la risposta giusta, senza test.<br><b>Rispondi</b>: parte il test.${x.st==="ok"||x.st==="ko"?`<br><br>L'ultima volta: <b>${x.ok} giuste su ${x.ids.length}</b>.`:""}`,
+      actions:[{label:"Leggi", run:()=>readIds(x.ids, title)}, {label:"Rispondi", primary:true, run:()=>startSession({kind:"studio", title, ids:x.ids, fb:"now", w:"all", src:"ordine", meta:{blk:i+1, rnd:5}})}]}); });
   document.querySelectorAll("[data-starblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.starblk, SB=starBlocks(m); if(!SB.B[i]) return; startSession({kind:"studio", title:`Salvate ★ blocco ${i+1} · Materia ${m}`, ids:SB.B[i], fb:"now", w:"all", src:"stelle", meta:{blk:i+1, rnd:SB.R}}); });
   document.querySelectorAll("[data-dayblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.dayblk, B=dayBlocks(m); startSession({kind:"studio", title:`Blocco del giorno ${i+1} · Materia ${m}`, ids:B[i], fb:"now", w:"all", src:"giorno", meta:{blk:i+1, rnd:5}}); });
   renderTrainbar(G);
