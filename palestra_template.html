@@ -416,6 +416,10 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .ordblk .ob-blk.next{border:2.2px solid #008577;box-shadow:0 0 0 3px rgba(18,165,148,.22)}
 .ordblk .ob-sub{margin:10px 0 6px;font-size:13px;font-weight:600;color:#055e55;opacity:.85}
 .ordblk .ob-note{margin:12px 0 0;font-size:12.5px;opacity:.8}
+.ob-pick{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ob-pick button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:120px;border-radius:16px;border:2px solid #00a896;background:#dcfff6;color:#06403a;font:700 26px var(--font);cursor:pointer}
+.ob-pick button#ob-risp{background:#00a896;color:#fff}
+.ob-pick button .material-symbols-outlined,.ob-pick button svg{font-size:34px;width:34px;height:34px}
 .starblk .sb-head{position:relative;display:flex;align-items:center;gap:14px}
 .starblk .sb-grid{position:relative;display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;margin-top:14px}
 .starblk .sb-blk{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border:1.3px solid rgba(253,230,138,.55);border-radius:10px;background:rgba(255,255,255,.08);color:#fff;font:600 15px var(--font);cursor:pointer;backdrop-filter:blur(2px)}
@@ -2357,8 +2361,9 @@ function renderCategorie(){
   $("#cat-none").onclick=()=>{ state.picked.clear(); re(); };
   document.querySelectorAll("[data-ordblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.ordblk, O=ordBlocks(m), x=O && O.all.find(y=>y.i===i); if(!x) return;
     const title=`Studia in ordine · blocco ${i+1} · Materia ${m}`;
-    dialog({title:`Blocco ${i+1} · ${x.ids.length} domande`, body:`Cosa vuoi fare?<br><br><b>Leggi</b>: vedi le domande con la risposta giusta, senza test.<br><b>Rispondi</b>: parte il test.${x.st==="ok"||x.st==="ko"?`<br><br>L'ultima volta: <b>${x.ok} giuste su ${x.ids.length}</b>.`:""}`,
-      actions:[{label:"Leggi", run:()=>readIds(x.ids, title)}, {label:"Rispondi", primary:true, run:()=>startSession({kind:"studio", title, ids:x.ids, fb:"now", w:"all", src:"ordine", meta:{blk:i+1, rnd:5}})}]}); });
+    dialog({title:`Blocco ${i+1} · ${x.ids.length} domande`, body:`<div class="ob-pick"><button id="ob-leggi">Leggi</button><button id="ob-risp">Rispondi</button></div>`, actions:[]});
+    $("#ob-leggi").onclick=()=>{ closeDialog(); readIds(x.ids, title); };
+    $("#ob-risp").onclick=()=>{ closeDialog(); startSession({kind:"studio", title, ids:x.ids, fb:"now", w:"all", src:"ordine", meta:{blk:i+1, rnd:5}}); }; });
   document.querySelectorAll("[data-starblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.starblk, SB=starBlocks(m); if(!SB.B[i]) return; startSession({kind:"studio", title:`Salvate ★ blocco ${i+1} · Materia ${m}`, ids:SB.B[i], fb:"now", w:"all", src:"stelle", meta:{blk:i+1, rnd:SB.R}}); });
   document.querySelectorAll("[data-dayblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.dayblk, B=dayBlocks(m); startSession({kind:"studio", title:`Blocco del giorno ${i+1} · Materia ${m}`, ids:B[i], fb:"now", w:"all", src:"giorno", meta:{blk:i+1, rnd:5}}); });
   renderTrainbar(G);
