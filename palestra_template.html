@@ -2237,11 +2237,19 @@ document.addEventListener("click",e=>{
 
 /* ================= BLOCCHI DEL GIORNO: tutta la materia mescolata in blocchi da 25, nuovi ogni giorno a mezzanotte ================= */
 function dayBlocks(m){
-  // stesso giorno = stesso ordine su tutti i dispositivi (seme = data + materia)
-  let h=2166136261; for(const c of dayKey(Date.now())+":"+m){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); }
+  // ogni giorno davanti: 1) quelle mai fatte, 2) quelle sbagliate l'ultima volta, 3) quelle giuste. Dentro ogni gruppo mescolate col seme del giorno.
+  // Si guarda com'eri a inizio giornata (le risposte di oggi non contano), così i blocchi restano fermi fino a mezzanotte.
+  const today=dayKey(Date.now()), cntToday={}, lastBefore={};
+  S.h.slice().sort((a,b)=>(a.start||a.t)-(b.start||b.t)).forEach(h=>{ const isToday=dayKey(h.start||h.t)===today;
+    (h.q||[]).forEach(x=>{ const n=x[0]; if(isToday) cntToday[n]=(cntToday[n]||0)+1; else lastBefore[n]=x[1]; }); });
+  let h=2166136261; for(const c of today+":"+m){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); }
   const rnd=()=>{ h=(h+0x6D2B79F5)|0; let t=Math.imul(h^h>>>15,1|h); t=(t+Math.imul(t^t>>>7,61|t))^t; return ((t^t>>>14)>>>0)/4294967296; };
   const a=BY_MAT[m].slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(rnd()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
-  const out=[]; for(let i=0;i<a.length;i+=25) out.push(a.slice(i,i+25)); return out;
+  const tier=n=>{ const r=S.m[m][n]; if(!r || r[0]<=(cntToday[n]||0)) return 0; // mai fatta prima di oggi
+    const last=n in lastBefore ? lastBefore[n]===1 : (cntToday[n] ? null : !!r[2]); return last===false ? 1 : last===null ? 1 : 2; };
+  const T=new Map(a.map(n=>[n,tier(n)])); a.sort((x,y)=>T.get(x)-T.get(y)); // sort stabile: l'ordine mescolato resta dentro ogni gruppo
+  const out=[]; for(let i=0;i<a.length;i+=25) out.push(a.slice(i,i+25));
+  out.nuove=a.filter(n=>T.get(n)===0).length; out.sbagliate=a.filter(n=>T.get(n)===1).length; return out;
 }
 function ordBlocks(m){
   // sezioni in ordine: 1 Uguali → 2 Stessa risposta → 3 Stesso argomento (un argomento alla volta). Blocchi fissi, max 15 (rnd 3 = questa versione)
@@ -2282,7 +2290,7 @@ function dayBlocksHtml(m){
   const B=dayBlocks(m), today=dayKey(Date.now()), done=new Map();
   S.h.forEach(h=>{ if(h.src==="giorno" && h.blk && (h.ms||[]).includes(m) && dayKey(h.start||h.t)===today){ const p=done.get(h.blk); if(!p || h.t>p.t) done.set(h.blk,h); } });
   return `<section class="paper card" id="day-blocks"><h3 style="margin:0 0 4px">${icon("shuffle")} Blocchi del giorno</h3>
-    <p class="hint" style="margin:0 0 12px">Tutte le ${BY_MAT[m].length} domande mescolate in ${B.length} blocchi da 25. A mezzanotte si rimescolano e ripartono da zero. Quelle che sbagli salvale con ☆.</p>
+    <p class="hint" style="margin:0 0 12px">Tutte le ${BY_MAT[m].length} domande in ${B.length} blocchi da 25. Davanti trovi prima quelle che non hai mai fatto${B.nuove?` (<b>${B.nuove}</b>)`:""}, poi quelle che avevi sbagliato${B.sbagliate?` (<b>${B.sbagliate}</b>)`:""}, poi le altre. Ogni notte a mezzanotte si rifanno. Quelle che sbagli salvale con ☆.</p>
     <div class="dayblk-grid">${B.map((ids,i)=>{ const h=done.get(i+1); return `<button class="dayblk ${h?(h.ok/h.n>=0.8?"ok":"ko"):""}" data-dayblk="${i}">${h?"✓ ":""}${i+1}${h?`<small>${h.ok}/${h.n}</small>`:""}</button>`; }).join("")}</div>
     <p class="hint" style="margin:10px 0 0">Fatti oggi: <b>${done.size}</b> su ${B.length}</p>
     ${(()=>{ const N=tagged(m,"s").length, SB=starBlocks(m); // le salvate con la stellina, a blocchi da 15
