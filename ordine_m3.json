@@ -1,0 +1,2095 @@
+{
+  "source_sha256": "219e2661038d454976f88dec95228ebd84f17355900048edd355f0a0b0945c07",
+  "groups": [
+    {
+      "section": 1,
+      "title": "Testo identico - Tassazione GPM",
+      "ids": [
+        3689,
+        3690
+      ],
+      "block": 1
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - Tassazione fondi comuni",
+      "ids": [
+        3704,
+        3707
+      ],
+      "block": 1
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - Tassazione fondi comuni",
+      "ids": [
+        3709,
+        3713
+      ],
+      "block": 1
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - I PIR",
+      "ids": [
+        3808,
+        3809
+      ],
+      "block": 1
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - I redditi di capitale",
+      "ids": [
+        3840,
+        3842
+      ],
+      "block": 1
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - I redditi di capitale",
+      "ids": [
+        3849,
+        3850,
+        3851
+      ],
+      "block": 1
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - I redditi di capitale",
+      "ids": [
+        3854,
+        3855
+      ],
+      "block": 1
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - I redditi di capitale",
+      "ids": [
+        3885,
+        3886
+      ],
+      "block": 2
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - I redditi di capitale",
+      "ids": [
+        3929,
+        3930,
+        3933
+      ],
+      "block": 2
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - I regimi di tassazione (regime della dichiarazione, regime del risparmio amministrato, regime del risparmio gestito)",
+      "ids": [
+        3969,
+        3971
+      ],
+      "block": 2
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - I regimi di tassazione (regime della dichiarazione, regime del risparmio amministrato, regime del risparmio gestito)",
+      "ids": [
+        3975,
+        3976
+      ],
+      "block": 2
+    },
+    {
+      "section": 1,
+      "title": "Testo identico - I redditi diversi",
+      "ids": [
+        4019,
+        4043
+      ],
+      "block": 2
+    },
+    {
+      "section": 1,
+      "title": "Periodo di imposta delle persone fisiche",
+      "ids": [
+        3607,
+        3609
+      ],
+      "block": 2
+    },
+    {
+      "section": 1,
+      "title": "OICR esteri non armonizzati: equiparazione condizionata",
+      "ids": [
+        3654,
+        3656,
+        3661
+      ],
+      "block": 3
+    },
+    {
+      "section": 1,
+      "title": "SICAV: tassazione per cassa della persona fuori impresa",
+      "ids": [
+        3659,
+        3703
+      ],
+      "block": 3
+    },
+    {
+      "section": 1,
+      "title": "GPM: proventi dei fondi immobiliari nel risultato",
+      "ids": [
+        3664,
+        3688
+      ],
+      "block": 3
+    },
+    {
+      "section": 1,
+      "title": "GPM: oneri e commissioni nella base imponibile",
+      "ids": [
+        3665,
+        3679
+      ],
+      "block": 3
+    },
+    {
+      "section": 1,
+      "title": "GPM: perdite riportabili fino al quarto periodo",
+      "ids": [
+        3671,
+        3672,
+        3980
+      ],
+      "block": 3
+    },
+    {
+      "section": 1,
+      "title": "Fondi mobiliari: principio di cassa fuori impresa",
+      "ids": [
+        3705,
+        3708,
+        3712,
+        3744,
+        3763
+      ],
+      "block": 4
+    },
+    {
+      "section": 1,
+      "title": "Fondi mobiliari: ritenuta applicata al realizzo",
+      "ids": [
+        3717,
+        3774
+      ],
+      "block": 4
+    },
+    {
+      "section": 1,
+      "title": "Fondi esteri non armonizzati: Paese e vigilanza",
+      "ids": [
+        3730,
+        3738
+      ],
+      "block": 4
+    },
+    {
+      "section": 1,
+      "title": "GPM: redditi di capitale generalmente al lordo",
+      "ids": [
+        3769,
+        3799
+      ],
+      "block": 4
+    },
+    {
+      "section": 1,
+      "title": "GPM: opzione da comunicare per iscritto",
+      "ids": [
+        3784,
+        3790
+      ],
+      "block": 4
+    },
+    {
+      "section": 1,
+      "title": "Fondo mobiliare: niente imposta sul risultato in capo al fondo",
+      "ids": [
+        3788,
+        3801
+      ],
+      "block": 4
+    },
+    {
+      "section": 1,
+      "title": "Conto corrente personale: aliquota e titolo del prelievo",
+      "ids": [
+        3843,
+        3845
+      ],
+      "block": 5
+    },
+    {
+      "section": 1,
+      "title": "Obbligazioni non quotate: imprenditore individuale",
+      "ids": [
+        3860,
+        3861
+      ],
+      "block": 5
+    },
+    {
+      "section": 1,
+      "title": "Obbligazioni quotate: persona fuori impresa",
+      "ids": [
+        3871,
+        3873
+      ],
+      "block": 5
+    },
+    {
+      "section": 1,
+      "title": "CDP: imposta sostitutiva e condizioni",
+      "ids": [
+        3889,
+        3890,
+        3903
+      ],
+      "block": 5
+    },
+    {
+      "section": 1,
+      "title": "Dividendi d’impresa: quota imponibile del 58,14%",
+      "ids": [
+        3909,
+        3911,
+        3935,
+        3992,
+        4012
+      ],
+      "block": 5
+    },
+    {
+      "section": 1,
+      "title": "Dividendi d’impresa: quota esente del 41,86%",
+      "ids": [
+        3910,
+        3994
+      ],
+      "block": 6
+    },
+    {
+      "section": 1,
+      "title": "Dividendi privati: obbligo della società erogante",
+      "ids": [
+        3915,
+        3916
+      ],
+      "block": 6
+    },
+    {
+      "section": 1,
+      "title": "Dividendi privati: ritenuta del 26%",
+      "ids": [
+        3919,
+        3920,
+        3921,
+        3936,
+        3993
+      ],
+      "block": 6
+    },
+    {
+      "section": 1,
+      "title": "Dividendi e redditi di capitale: stesso esempio di risposta",
+      "ids": [
+        3931,
+        3932
+      ],
+      "block": 6
+    },
+    {
+      "section": 1,
+      "title": "Minusvalenze nell’amministrato: compensazione successiva",
+      "ids": [
+        3944,
+        4047
+      ],
+      "block": 6
+    },
+    {
+      "section": 1,
+      "title": "Dividendi nel gestito: concorso al risultato maturato",
+      "ids": [
+        3945,
+        3948
+      ],
+      "block": 6
+    },
+    {
+      "section": 1,
+      "title": "Regimi finanziari: persone fisiche fuori impresa",
+      "ids": [
+        3950,
+        4001
+      ],
+      "block": 7
+    },
+    {
+      "section": 1,
+      "title": "Compensazione capitale/diversi nel gestito",
+      "ids": [
+        3965,
+        3978
+      ],
+      "block": 7
+    },
+    {
+      "section": 1,
+      "title": "Amministrato: revoca efficace dal periodo successivo",
+      "ids": [
+        3982,
+        3983
+      ],
+      "block": 7
+    },
+    {
+      "section": 1,
+      "title": "Dividendi nel dichiarativo: ritenuta alla fonte",
+      "ids": [
+        3995,
+        3997
+      ],
+      "block": 7
+    },
+    {
+      "section": 1,
+      "title": "Plusvalenze qualificate fuori impresa: esclusione IRPEF",
+      "ids": [
+        4003,
+        4005
+      ],
+      "block": 7
+    },
+    {
+      "section": 1,
+      "title": "Caso di plusvalenza: acquisto 1.000, vendita 11.000",
+      "ids": [
+        4029,
+        4030,
+        4035
+      ],
+      "block": 7
+    },
+    {
+      "section": 1,
+      "title": "Plusvalenza di 100 euro su partecipazione non quotata",
+      "ids": [
+        4031,
+        4066
+      ],
+      "block": 7
+    },
+    {
+      "section": 1,
+      "title": "Plusvalenze da Paesi privilegiati: imponibilità integrale",
+      "ids": [
+        4040,
+        4041
+      ],
+      "block": 8
+    },
+    {
+      "section": 2,
+      "title": "Fondi e SICAV: qualifica di lordista",
+      "ids": [
+        3631,
+        3632,
+        3633,
+        3634,
+        3636,
+        3641,
+        3648
+      ],
+      "block": 9
+    },
+    {
+      "section": 2,
+      "title": "OICR italiani: esenzione con vigilanza prudenziale",
+      "ids": [
+        3638,
+        3639,
+        3649,
+        3658,
+        3798
+      ],
+      "block": 9
+    },
+    {
+      "section": 2,
+      "title": "OICR esteri UE/SEE: assenza di imposizione nei casi descritti",
+      "ids": [
+        3651,
+        3652,
+        3653
+      ],
+      "block": 9
+    },
+    {
+      "section": 2,
+      "title": "GPM: il gestore/banca effettua il prelievo",
+      "ids": [
+        3663,
+        3680,
+        3684
+      ],
+      "block": 10
+    },
+    {
+      "section": 2,
+      "title": "GPM: imposta sostitutiva del 26% sul maturato",
+      "ids": [
+        3666,
+        3667,
+        3797
+      ],
+      "block": 10
+    },
+    {
+      "section": 2,
+      "title": "GPM: perdite pregresse assorbono i proventi",
+      "ids": [
+        3668,
+        3669,
+        3670,
+        3683
+      ],
+      "block": 10
+    },
+    {
+      "section": 2,
+      "title": "GPM: patrimonio finale nel calcolo del risultato",
+      "ids": [
+        3674,
+        3675
+      ],
+      "block": 10
+    },
+    {
+      "section": 2,
+      "title": "GPM: prelievi e conferimenti nel risultato",
+      "ids": [
+        3677,
+        3682,
+        3685
+      ],
+      "block": 10
+    },
+    {
+      "section": 2,
+      "title": "Fondi mobiliari: proventi societari nel reddito d’impresa",
+      "ids": [
+        3692,
+        3718
+      ],
+      "block": 11
+    },
+    {
+      "section": 2,
+      "title": "Fondi/SICAV: cessazione e certificazione delle perdite",
+      "ids": [
+        3693,
+        3694
+      ],
+      "block": 11
+    },
+    {
+      "section": 2,
+      "title": "Fondi/SICAV: perdite societarie deducibili",
+      "ids": [
+        3695,
+        3696,
+        3697,
+        3699
+      ],
+      "block": 11
+    },
+    {
+      "section": 2,
+      "title": "Fondi/SICAV: imposta o acconto secondo il percettore",
+      "ids": [
+        3711,
+        3745,
+        3757,
+        3758
+      ],
+      "block": 11
+    },
+    {
+      "section": 2,
+      "title": "Fondi: la ritenuta colpisce il percettore",
+      "ids": [
+        3729,
+        3756,
+        3765
+      ],
+      "block": 11
+    },
+    {
+      "section": 2,
+      "title": "Fondi mobiliari: proventi fuori impresa al 26% per cassa",
+      "ids": [
+        3733,
+        3734,
+        3735
+      ],
+      "block": 12
+    },
+    {
+      "section": 2,
+      "title": "OICR: niente ritenuta su plusvalenze da derivati",
+      "ids": [
+        3770,
+        3773,
+        3775,
+        3777,
+        3778,
+        3779
+      ],
+      "block": 12
+    },
+    {
+      "section": 2,
+      "title": "OICR: niente ritenuta sui dividendi ricevuti",
+      "ids": [
+        3772,
+        3776,
+        3781,
+        3793
+      ],
+      "block": 12
+    },
+    {
+      "section": 2,
+      "title": "OICR: niente ritenuta su plusvalenze azionarie",
+      "ids": [
+        3780,
+        3782,
+        3794,
+        3795
+      ],
+      "block": 13
+    },
+    {
+      "section": 2,
+      "title": "Fondi: niente ritenuta sugli interessi di deposito",
+      "ids": [
+        3785,
+        3786,
+        3787,
+        3789
+      ],
+      "block": 13
+    },
+    {
+      "section": 2,
+      "title": "Depositi bancari interbancari/Poste: niente ritenuta",
+      "ids": [
+        3816,
+        3817,
+        3818
+      ],
+      "block": 13
+    },
+    {
+      "section": 2,
+      "title": "Interessi pubblici percepiti fuori impresa: redditi di capitale",
+      "ids": [
+        3821,
+        3822,
+        3830
+      ],
+      "block": 13
+    },
+    {
+      "section": 2,
+      "title": "Dividendi/interessi percepiti nell’impresa: redditi d’impresa",
+      "ids": [
+        3823,
+        3831
+      ],
+      "block": 14
+    },
+    {
+      "section": 2,
+      "title": "Dividendi privati: prelievo 2.600 su 10.000",
+      "ids": [
+        3835,
+        3913
+      ],
+      "block": 14
+    },
+    {
+      "section": 2,
+      "title": "Dividendi privati: prelievo 260 su 1.000",
+      "ids": [
+        3836,
+        3918
+      ],
+      "block": 14
+    },
+    {
+      "section": 2,
+      "title": "Dividendi privati: prelievo 5.200 su 20.000",
+      "ids": [
+        3837,
+        3912
+      ],
+      "block": 14
+    },
+    {
+      "section": 2,
+      "title": "Interessi personali bancari/Poste: titolo definitivo",
+      "ids": [
+        3844,
+        3846
+      ],
+      "block": 14
+    },
+    {
+      "section": 2,
+      "title": "Interessi societari sui conti: acconto del 26%",
+      "ids": [
+        3847,
+        3848,
+        3880,
+        3881,
+        3882
+      ],
+      "block": 14
+    },
+    {
+      "section": 2,
+      "title": "Obbligazioni non quotate: informazioni insufficienti",
+      "ids": [
+        3863,
+        3864
+      ],
+      "block": 15
+    },
+    {
+      "section": 2,
+      "title": "Obbligazioni di enti e banche: sostitutiva del 26% ai privati",
+      "ids": [
+        3866,
+        3867,
+        3868,
+        3869,
+        3872,
+        3874,
+        3875,
+        3900,
+        3901
+      ],
+      "block": 15
+    },
+    {
+      "section": 2,
+      "title": "Titoli pubblici detenuti da società: niente ritenuta",
+      "ids": [
+        3877,
+        3878,
+        3879
+      ],
+      "block": 15
+    },
+    {
+      "section": 2,
+      "title": "Dividendi d’impresa: manca l’aliquota marginale IRPEF",
+      "ids": [
+        3883,
+        3884
+      ],
+      "block": 16
+    },
+    {
+      "section": 2,
+      "title": "Interessi societari sui conti: acconto scomputabile",
+      "ids": [
+        3887,
+        3888
+      ],
+      "block": 16
+    },
+    {
+      "section": 2,
+      "title": "Associazione in partecipazione: prelievo 1.300 su 5.000",
+      "ids": [
+        3924,
+        3926
+      ],
+      "block": 16
+    },
+    {
+      "section": 2,
+      "title": "Il regime richiesto in risposta è il dichiarativo",
+      "ids": [
+        3947,
+        3963,
+        3968
+      ],
+      "block": 16
+    },
+    {
+      "section": 2,
+      "title": "Regimi finanziari: esclusione degli investimenti d’impresa",
+      "ids": [
+        3949,
+        3987,
+        3988
+      ],
+      "block": 16
+    },
+    {
+      "section": 2,
+      "title": "Regimi finanziari: società semplici",
+      "ids": [
+        3951,
+        3970,
+        3974,
+        3977
+      ],
+      "block": 17
+    },
+    {
+      "section": 2,
+      "title": "Regimi finanziari: enti non commerciali",
+      "ids": [
+        3952,
+        3972
+      ],
+      "block": 17
+    },
+    {
+      "section": 2,
+      "title": "Il regime richiesto in risposta è il gestito",
+      "ids": [
+        3964,
+        3967,
+        3979,
+        3999
+      ],
+      "block": 17
+    },
+    {
+      "section": 2,
+      "title": "Regimi opzionali: riservati al soggetto fuori impresa",
+      "ids": [
+        4010,
+        4011
+      ],
+      "block": 17
+    },
+    {
+      "section": 2,
+      "title": "Cessione di azioni: reddito diverso",
+      "ids": [
+        4015,
+        4026,
+        4044
+      ],
+      "block": 17
+    },
+    {
+      "section": 2,
+      "title": "Plusvalenze private italiane: sostitutiva del 26%",
+      "ids": [
+        4021,
+        4022,
+        4023,
+        4055,
+        4058,
+        4059,
+        4061,
+        4063
+      ],
+      "block": 18
+    },
+    {
+      "section": 2,
+      "title": "Plusvalenza di 20.000: prelievo di 5.200",
+      "ids": [
+        4032,
+        4070
+      ],
+      "block": 18
+    },
+    {
+      "section": 2,
+      "title": "Plusvalenza di 10.000: prelievo di 2.600",
+      "ids": [
+        4036,
+        4067
+      ],
+      "block": 18
+    },
+    {
+      "section": 2,
+      "title": "Cessioni di strumenti: plusvalenza imponibile",
+      "ids": [
+        4045,
+        4046
+      ],
+      "block": 18
+    },
+    {
+      "section": 2,
+      "title": "Azioni di risparmio: sostitutiva sull’intero guadagno",
+      "ids": [
+        4052,
+        4053
+      ],
+      "block": 19
+    },
+    {
+      "section": 2,
+      "title": "Plusvalenze private italiane: imposta sostitutiva",
+      "ids": [
+        4056,
+        4060,
+        4062,
+        4069
+      ],
+      "block": 19
+    },
+    {
+      "section": 2,
+      "title": "Terzo settore: detrazione di 3.000 su 10.000",
+      "ids": [
+        4083,
+        4087
+      ],
+      "block": 19
+    },
+    {
+      "section": 2,
+      "title": "Trasferimenti ai discendenti: esenzione condizionata",
+      "ids": [
+        4098,
+        4100
+      ],
+      "block": 19
+    },
+    {
+      "section": 3,
+      "title": "Principi costituzionali e progressività",
+      "ids": [
+        3601,
+        3602,
+        3603,
+        3604,
+        3605
+      ],
+      "block": 20
+    },
+    {
+      "section": 3,
+      "title": "Soggetti, IRPEF, IRES e ritenute",
+      "ids": [
+        3606,
+        3608,
+        3610,
+        3622,
+        3623
+      ],
+      "block": 20
+    },
+    {
+      "section": 3,
+      "title": "Imposta, tassa e contributo",
+      "ids": [
+        3611,
+        3612,
+        3613
+      ],
+      "block": 20
+    },
+    {
+      "section": 3,
+      "title": "Imposte dirette e indirette",
+      "ids": [
+        3614,
+        3616,
+        3617,
+        3618,
+        3620,
+        3621
+      ],
+      "block": 21
+    },
+    {
+      "section": 3,
+      "title": "Confronto: imposta regressiva e progressiva",
+      "ids": [
+        3615,
+        3619
+      ],
+      "block": 21
+    },
+    {
+      "section": 3,
+      "title": "Residenza e territorialità dei redditi",
+      "ids": [
+        3624,
+        3625,
+        3626,
+        3627,
+        3628,
+        3629,
+        3630
+      ],
+      "block": 21
+    },
+    {
+      "section": 3,
+      "title": "Classificazione dei fondi e regime dei percettori",
+      "ids": [
+        3635,
+        3637,
+        3640,
+        3642,
+        3643,
+        3644,
+        3645,
+        3646,
+        3647,
+        3655,
+        3657,
+        3660
+      ],
+      "block": 22
+    },
+    {
+      "section": 3,
+      "title": "GPM: base imponibile, risultato e opzioni",
+      "ids": [
+        3650,
+        3662,
+        3673,
+        3676,
+        3678,
+        3681,
+        3686,
+        3687,
+        3768,
+        3791,
+        3792,
+        3796
+      ],
+      "block": 23
+    },
+    {
+      "section": 3,
+      "title": "Fondi: persone fisiche, impresa e dichiarazione",
+      "ids": [
+        3691,
+        3698,
+        3700,
+        3702,
+        3737,
+        3748,
+        3749,
+        3751,
+        3760,
+        3764
+      ],
+      "block": 24
+    },
+    {
+      "section": 3,
+      "title": "Fondi: calcolo della quota nel reddito d’impresa",
+      "ids": [
+        3701,
+        3706,
+        3710,
+        3714,
+        3715,
+        3716
+      ],
+      "block": 25
+    },
+    {
+      "section": 3,
+      "title": "Fondi mobiliari: esercizi sul prelievo del 26%",
+      "ids": [
+        3754,
+        3724,
+        3753,
+        3721,
+        3723,
+        3720,
+        3722,
+        3726,
+        3727,
+        3719,
+        3728
+      ],
+      "block": 26
+    },
+    {
+      "section": 3,
+      "title": "Fondi mobiliari: esercizi sul netto e cessioni frazionate",
+      "ids": [
+        3725,
+        3752,
+        3746,
+        3747,
+        3759
+      ],
+      "block": 27
+    },
+    {
+      "section": 3,
+      "title": "Fondi esteri: possibili effetti della tassazione",
+      "ids": [
+        3731,
+        3766
+      ],
+      "block": 27
+    },
+    {
+      "section": 3,
+      "title": "ETF, proventi e incrementi degli OICR",
+      "ids": [
+        3732,
+        3761,
+        3762,
+        3767,
+        3771,
+        3783,
+        3800
+      ],
+      "block": 27
+    },
+    {
+      "section": 3,
+      "title": "Fondi immobiliari: confronto dei due calcoli",
+      "ids": [
+        3736,
+        3740
+      ],
+      "block": 28
+    },
+    {
+      "section": 3,
+      "title": "Fondi immobiliari: status e partecipazioni",
+      "ids": [
+        3741,
+        3742,
+        3743,
+        3739,
+        3750,
+        3755
+      ],
+      "block": 28
+    },
+    {
+      "section": 3,
+      "title": "PIR: composizione e strumenti ammessi",
+      "ids": [
+        3802,
+        3805,
+        3807
+      ],
+      "block": 28
+    },
+    {
+      "section": 3,
+      "title": "PIR: benefici, limiti, durata e decadenza",
+      "ids": [
+        3803,
+        3804,
+        3806,
+        3810,
+        3811,
+        3812,
+        3813,
+        3814
+      ],
+      "block": 29
+    },
+    {
+      "section": 3,
+      "title": "Titoli pubblici: momento del prelievo e aliquota",
+      "ids": [
+        3815,
+        3819,
+        3827,
+        3858,
+        3876
+      ],
+      "block": 29
+    },
+    {
+      "section": 3,
+      "title": "Redditi di capitale: definizione e criteri",
+      "ids": [
+        3820,
+        3824,
+        3828,
+        3829,
+        3832,
+        3833,
+        3897,
+        3907,
+        3908
+      ],
+      "block": 30
+    },
+    {
+      "section": 3,
+      "title": "BOT: esercizi sullo scarto e sul prelievo",
+      "ids": [
+        3825,
+        3826,
+        3937
+      ],
+      "block": 30
+    },
+    {
+      "section": 3,
+      "title": "PCT e BTP: esercizi al 12,5%",
+      "ids": [
+        3834,
+        3938
+      ],
+      "block": 30
+    },
+    {
+      "section": 3,
+      "title": "Depositi: esercizi al 26% e aliquote",
+      "ids": [
+        3838,
+        3852,
+        3853
+      ],
+      "block": 31
+    },
+    {
+      "section": 3,
+      "title": "Obbligazioni: esercizi su aliquote e percettori diversi",
+      "ids": [
+        3839,
+        3865,
+        3902,
+        3898
+      ],
+      "block": 31
+    },
+    {
+      "section": 3,
+      "title": "Confronto: cedola di capitale e plusvalenza diversa",
+      "ids": [
+        3841
+      ],
+      "block": 31
+    },
+    {
+      "section": 3,
+      "title": "Riporti e pronti contro termine",
+      "ids": [
+        3856,
+        3857
+      ],
+      "block": 31
+    },
+    {
+      "section": 3,
+      "title": "Obbligazioni: ritenuta e imposta sostitutiva",
+      "ids": [
+        3859,
+        3862
+      ],
+      "block": 31
+    },
+    {
+      "section": 3,
+      "title": "Obbligazioni e gestione: reddito d’impresa e ritenute",
+      "ids": [
+        3870,
+        3896
+      ],
+      "block": 31
+    },
+    {
+      "section": 3,
+      "title": "Non residenti: white list, depositi e dividendi",
+      "ids": [
+        3891,
+        3892,
+        3899,
+        3904,
+        3905
+      ],
+      "block": 32
+    },
+    {
+      "section": 3,
+      "title": "Dividendi societari: IRES, trasparenza ed esenzioni",
+      "ids": [
+        3893,
+        3906,
+        3922,
+        3923,
+        3927,
+        3928
+      ],
+      "block": 32
+    },
+    {
+      "section": 3,
+      "title": "Dividendi: calcolo del netto dopo IRES e ritenuta",
+      "ids": [
+        3894,
+        3895
+      ],
+      "block": 32
+    },
+    {
+      "section": 3,
+      "title": "Associazione in partecipazione: calcoli su importi diversi",
+      "ids": [
+        3914,
+        3925
+      ],
+      "block": 32
+    },
+    {
+      "section": 3,
+      "title": "Dividendi d’impresa: assenza di ritenuta",
+      "ids": [
+        3917
+      ],
+      "block": 33
+    },
+    {
+      "section": 3,
+      "title": "Scambio automatico di informazioni: soggetti",
+      "ids": [
+        3934
+      ],
+      "block": 33
+    },
+    {
+      "section": 3,
+      "title": "Redditi diversi: categorie ed esempi",
+      "ids": [
+        3939,
+        3957,
+        4016,
+        4017,
+        4018,
+        4020,
+        4025,
+        4027,
+        4038,
+        4073
+      ],
+      "block": 33
+    },
+    {
+      "section": 3,
+      "title": "Regimi: quando e da chi viene prelevata l’imposta",
+      "ids": [
+        3940,
+        3942,
+        3943,
+        3946,
+        3959,
+        3960,
+        3961,
+        3966,
+        3986
+      ],
+      "block": 34
+    },
+    {
+      "section": 3,
+      "title": "Minusvalenze: confronto fra dichiarativo e amministrato",
+      "ids": [
+        3941,
+        3956,
+        3962,
+        4014,
+        4006,
+        4008,
+        4064,
+        4065
+      ],
+      "block": 35
+    },
+    {
+      "section": 3,
+      "title": "Confronto: conto cointestato e intestatario della quota",
+      "ids": [
+        3953,
+        3996
+      ],
+      "block": 35
+    },
+    {
+      "section": 3,
+      "title": "Regimi: definizioni, scelta e obblighi",
+      "ids": [
+        3954,
+        3955,
+        3981,
+        3985,
+        3989,
+        3990,
+        3991,
+        4000,
+        4002,
+        4007,
+        4009,
+        4013
+      ],
+      "block": 36
+    },
+    {
+      "section": 3,
+      "title": "Confronto: LIFO e costo medio ponderato",
+      "ids": [
+        3958,
+        3984
+      ],
+      "block": 36
+    },
+    {
+      "section": 3,
+      "title": "Regimi finanziari: requisiti soggettivi",
+      "ids": [
+        3973
+      ],
+      "block": 36
+    },
+    {
+      "section": 3,
+      "title": "Confronto: regime naturale per residente Italia o UE",
+      "ids": [
+        3998
+      ],
+      "block": 37
+    },
+    {
+      "section": 3,
+      "title": "Plusvalenze: esclusione IRPEF e minusvalenze",
+      "ids": [
+        4004,
+        4028
+      ],
+      "block": 37
+    },
+    {
+      "section": 3,
+      "title": "Plusvalenze: esercizio sul costo medio ponderato",
+      "ids": [
+        4024
+      ],
+      "block": 37
+    },
+    {
+      "section": 3,
+      "title": "Plusvalenze: esercizi su importi e aliquota del 26%",
+      "ids": [
+        4033,
+        4034,
+        4071
+      ],
+      "block": 37
+    },
+    {
+      "section": 3,
+      "title": "Plusvalenze: impresa, esenzioni e partecipazioni estere",
+      "ids": [
+        4037,
+        4042,
+        4048,
+        4049,
+        4050,
+        4051,
+        4054,
+        4057,
+        4068,
+        4072
+      ],
+      "block": 38
+    },
+    {
+      "section": 3,
+      "title": "Immobili: abitazione principale e plusvalenza",
+      "ids": [
+        4039
+      ],
+      "block": 38
+    },
+    {
+      "section": 3,
+      "title": "Trust: beneficiari individuati, non individuati e ritenute",
+      "ids": [
+        4074,
+        4078,
+        4079,
+        4075
+      ],
+      "block": 38
+    },
+    {
+      "section": 3,
+      "title": "Patto di famiglia e fondo patrimoniale: imposte dirette",
+      "ids": [
+        4076,
+        4077
+      ],
+      "block": 39
+    },
+    {
+      "section": 3,
+      "title": "Terzo settore: enti, agevolazioni e titoli di solidarietà",
+      "ids": [
+        4080,
+        4081,
+        4082,
+        4084,
+        4085,
+        4086,
+        4088
+      ],
+      "block": 39
+    },
+    {
+      "section": 3,
+      "title": "Imposte indirette: finanziamenti bancari",
+      "ids": [
+        4089,
+        4092
+      ],
+      "block": 39
+    },
+    {
+      "section": 3,
+      "title": "Imposta di bollo: regole ed esercizi",
+      "ids": [
+        4090,
+        4094,
+        4095,
+        4096
+      ],
+      "block": 39
+    },
+    {
+      "section": 3,
+      "title": "Tobin tax, registro e IVA",
+      "ids": [
+        4091,
+        4093,
+        4097
+      ],
+      "block": 40
+    },
+    {
+      "section": 3,
+      "title": "Fondo patrimoniale: successioni e donazioni",
+      "ids": [
+        4099
+      ],
+      "block": 40
+    }
+  ],
+  "blocks": [
+    [
+      3689,
+      3690,
+      3704,
+      3707,
+      3709,
+      3713,
+      3808,
+      3809,
+      3840,
+      3842,
+      3849,
+      3850,
+      3851,
+      3854,
+      3855
+    ],
+    [
+      3885,
+      3886,
+      3929,
+      3930,
+      3933,
+      3969,
+      3971,
+      3975,
+      3976,
+      4019,
+      4043,
+      3607,
+      3609
+    ],
+    [
+      3654,
+      3656,
+      3661,
+      3659,
+      3703,
+      3664,
+      3688,
+      3665,
+      3679,
+      3671,
+      3672,
+      3980
+    ],
+    [
+      3705,
+      3708,
+      3712,
+      3744,
+      3763,
+      3717,
+      3774,
+      3730,
+      3738,
+      3769,
+      3799,
+      3784,
+      3790,
+      3788,
+      3801
+    ],
+    [
+      3843,
+      3845,
+      3860,
+      3861,
+      3871,
+      3873,
+      3889,
+      3890,
+      3903,
+      3909,
+      3911,
+      3935,
+      3992,
+      4012
+    ],
+    [
+      3910,
+      3994,
+      3915,
+      3916,
+      3919,
+      3920,
+      3921,
+      3936,
+      3993,
+      3931,
+      3932,
+      3944,
+      4047,
+      3945,
+      3948
+    ],
+    [
+      3950,
+      4001,
+      3965,
+      3978,
+      3982,
+      3983,
+      3995,
+      3997,
+      4003,
+      4005,
+      4029,
+      4030,
+      4035,
+      4031,
+      4066
+    ],
+    [
+      4040,
+      4041
+    ],
+    [
+      3631,
+      3632,
+      3633,
+      3634,
+      3636,
+      3641,
+      3648,
+      3638,
+      3639,
+      3649,
+      3658,
+      3798,
+      3651,
+      3652,
+      3653
+    ],
+    [
+      3663,
+      3680,
+      3684,
+      3666,
+      3667,
+      3797,
+      3668,
+      3669,
+      3670,
+      3683,
+      3674,
+      3675,
+      3677,
+      3682,
+      3685
+    ],
+    [
+      3692,
+      3718,
+      3693,
+      3694,
+      3695,
+      3696,
+      3697,
+      3699,
+      3711,
+      3745,
+      3757,
+      3758,
+      3729,
+      3756,
+      3765
+    ],
+    [
+      3733,
+      3734,
+      3735,
+      3770,
+      3773,
+      3775,
+      3777,
+      3778,
+      3779,
+      3772,
+      3776,
+      3781,
+      3793
+    ],
+    [
+      3780,
+      3782,
+      3794,
+      3795,
+      3785,
+      3786,
+      3787,
+      3789,
+      3816,
+      3817,
+      3818,
+      3821,
+      3822,
+      3830
+    ],
+    [
+      3823,
+      3831,
+      3835,
+      3913,
+      3836,
+      3918,
+      3837,
+      3912,
+      3844,
+      3846,
+      3847,
+      3848,
+      3880,
+      3881,
+      3882
+    ],
+    [
+      3863,
+      3864,
+      3866,
+      3867,
+      3868,
+      3869,
+      3872,
+      3874,
+      3875,
+      3900,
+      3901,
+      3877,
+      3878,
+      3879
+    ],
+    [
+      3883,
+      3884,
+      3887,
+      3888,
+      3924,
+      3926,
+      3947,
+      3963,
+      3968,
+      3949,
+      3987,
+      3988
+    ],
+    [
+      3951,
+      3970,
+      3974,
+      3977,
+      3952,
+      3972,
+      3964,
+      3967,
+      3979,
+      3999,
+      4010,
+      4011,
+      4015,
+      4026,
+      4044
+    ],
+    [
+      4021,
+      4022,
+      4023,
+      4055,
+      4058,
+      4059,
+      4061,
+      4063,
+      4032,
+      4070,
+      4036,
+      4067,
+      4045,
+      4046
+    ],
+    [
+      4052,
+      4053,
+      4056,
+      4060,
+      4062,
+      4069,
+      4083,
+      4087,
+      4098,
+      4100
+    ],
+    [
+      3601,
+      3602,
+      3603,
+      3604,
+      3605,
+      3606,
+      3608,
+      3610,
+      3622,
+      3623,
+      3611,
+      3612,
+      3613
+    ],
+    [
+      3614,
+      3616,
+      3617,
+      3618,
+      3620,
+      3621,
+      3615,
+      3619,
+      3624,
+      3625,
+      3626,
+      3627,
+      3628,
+      3629,
+      3630
+    ],
+    [
+      3635,
+      3637,
+      3640,
+      3642,
+      3643,
+      3644,
+      3645,
+      3646,
+      3647,
+      3655,
+      3657,
+      3660
+    ],
+    [
+      3650,
+      3662,
+      3673,
+      3676,
+      3678,
+      3681,
+      3686,
+      3687,
+      3768,
+      3791,
+      3792,
+      3796
+    ],
+    [
+      3691,
+      3698,
+      3700,
+      3702,
+      3737,
+      3748,
+      3749,
+      3751,
+      3760,
+      3764
+    ],
+    [
+      3701,
+      3706,
+      3710,
+      3714,
+      3715,
+      3716
+    ],
+    [
+      3754,
+      3724,
+      3753,
+      3721,
+      3723,
+      3720,
+      3722,
+      3726,
+      3727,
+      3719,
+      3728
+    ],
+    [
+      3725,
+      3752,
+      3746,
+      3747,
+      3759,
+      3731,
+      3766,
+      3732,
+      3761,
+      3762,
+      3767,
+      3771,
+      3783,
+      3800
+    ],
+    [
+      3736,
+      3740,
+      3741,
+      3742,
+      3743,
+      3739,
+      3750,
+      3755,
+      3802,
+      3805,
+      3807
+    ],
+    [
+      3803,
+      3804,
+      3806,
+      3810,
+      3811,
+      3812,
+      3813,
+      3814,
+      3815,
+      3819,
+      3827,
+      3858,
+      3876
+    ],
+    [
+      3820,
+      3824,
+      3828,
+      3829,
+      3832,
+      3833,
+      3897,
+      3907,
+      3908,
+      3825,
+      3826,
+      3937,
+      3834,
+      3938
+    ],
+    [
+      3838,
+      3852,
+      3853,
+      3839,
+      3865,
+      3902,
+      3898,
+      3841,
+      3856,
+      3857,
+      3859,
+      3862,
+      3870,
+      3896
+    ],
+    [
+      3891,
+      3892,
+      3899,
+      3904,
+      3905,
+      3893,
+      3906,
+      3922,
+      3923,
+      3927,
+      3928,
+      3894,
+      3895,
+      3914,
+      3925
+    ],
+    [
+      3917,
+      3934,
+      3939,
+      3957,
+      4016,
+      4017,
+      4018,
+      4020,
+      4025,
+      4027,
+      4038,
+      4073
+    ],
+    [
+      3940,
+      3942,
+      3943,
+      3946,
+      3959,
+      3960,
+      3961,
+      3966,
+      3986
+    ],
+    [
+      3941,
+      3956,
+      3962,
+      4014,
+      4006,
+      4008,
+      4064,
+      4065,
+      3953,
+      3996
+    ],
+    [
+      3954,
+      3955,
+      3981,
+      3985,
+      3989,
+      3990,
+      3991,
+      4000,
+      4002,
+      4007,
+      4009,
+      4013,
+      3958,
+      3984,
+      3973
+    ],
+    [
+      3998,
+      4004,
+      4028,
+      4024,
+      4033,
+      4034,
+      4071
+    ],
+    [
+      4037,
+      4042,
+      4048,
+      4049,
+      4050,
+      4051,
+      4054,
+      4057,
+      4068,
+      4072,
+      4039,
+      4074,
+      4078,
+      4079,
+      4075
+    ],
+    [
+      4076,
+      4077,
+      4080,
+      4081,
+      4082,
+      4084,
+      4085,
+      4086,
+      4088,
+      4089,
+      4092,
+      4090,
+      4094,
+      4095,
+      4096
+    ],
+    [
+      4091,
+      4093,
+      4097,
+      4099
+    ]
+  ]
+}

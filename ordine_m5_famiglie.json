@@ -1,0 +1,105 @@
+{
+  "source_sha256": "ee4ba00cecfc90c0028795003046211b38a69894b51769f951c7be1181d4ec9a",
+  "equivalenti": [
+    {
+      "ids": [
+        4614,
+        4623
+      ],
+      "tema": "Prestazioni future e divieti di legge"
+    },
+    {
+      "ids": [
+        4635,
+        4636
+      ],
+      "tema": "Rifiuto dell’adempimento parziale"
+    },
+    {
+      "ids": [
+        4750,
+        4755
+      ],
+      "tema": "Cessione: notifica o accettazione del debitore"
+    },
+    {
+      "ids": [
+        4766,
+        4767
+      ],
+      "tema": "Prescrizione ordinaria del danno da illecito"
+    },
+    {
+      "ids": [
+        4809,
+        4812
+      ],
+      "tema": "Risoluzione e retroattività"
+    },
+    {
+      "ids": [
+        4816,
+        4817
+      ],
+      "tema": "Recesso nei contratti continuati o periodici"
+    },
+    {
+      "ids": [
+        4821,
+        4824
+      ],
+      "tema": "Nullità parziale essenziale"
+    },
+    {
+      "ids": [
+        4841,
+        4842
+      ],
+      "tema": "Approvazione del bilancio e responsabilità"
+    },
+    {
+      "ids": [
+        4879,
+        4881
+      ],
+      "tema": "Revoca dei sindaci"
+    },
+    {
+      "ids": [
+        4919,
+        4926
+      ],
+      "tema": "Personalità giuridica della S.p.A."
+    }
+  ],
+  "stessa_risposta": [
+    {
+      "ids": [
+        4608,
+        4645
+      ],
+      "tema": "Forma immobiliare: atto pubblico o scrittura privata"
+    },
+    {
+      "ids": [
+        4688,
+        4689
+      ],
+      "tema": "Fideiussione futura: importo massimo garantito"
+    },
+    {
+      "ids": [
+        4848,
+        4928
+      ],
+      "tema": "Valore dei conferimenti non inferiore al capitale"
+    },
+    {
+      "ids": [
+        4927,
+        4993
+      ],
+      "tema": "Costituzione e fusione: atto pubblico"
+    }
+  ]
+}

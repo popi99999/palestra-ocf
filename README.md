@@ -15,3 +15,13 @@ Sincronizzazione: i progressi stanno in Supabase (progetto `palestra-ocf`, tabel
 python3 build.py
 open preview.html
 ```
+
+## Studia in ordine
+
+Il percorso M1/M2/M5 usa `ordine_revisionato.py`; M3 segue i gruppi controllati di `ordine_m3.json`, M5 include le famiglie di `ordine_m5_famiglie.json`. M4 conserva il generatore precedente. Criteri, conteggi e verifiche in [docs/ordine-studio.md](docs/ordine-studio.md).
+
+```
+python3 -m unittest discover -s tests -v
+python3 build.py
+node scripts/check_ordering.cjs
+```
