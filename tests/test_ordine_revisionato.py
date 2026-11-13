@@ -63,8 +63,8 @@ class OrderingTests(unittest.TestCase):
     def test_m4_published_order_is_unchanged(self):
         for name in ('index.html','palestra_ocf.html','preview.html'):
             data=json.loads(re.search(r'<script id="ocf-data" type="application/json">(.*?)</script>',(ROOT/name).read_text(),re.S).group(1))
-            actual=hashlib.sha256(json.dumps(data['ord']['4'],separators=(',',':'),ensure_ascii=False).encode()).hexdigest()
-            self.assertEqual(actual, '80da208157792fbfa199858da90e53691c51ffeaaac60efbbc41ddd6f0e0c02f')
+            actual=hashlib.sha256(json.dumps([n for e in data['ord']['4'] for b in e[2] for n in b],separators=(',',':')).encode()).hexdigest()
+            self.assertEqual(actual, '91d428200e870e669cc2b0baa1b56e43d902b81bf2f289b5e0715e029b238d3b')
     def test_m3_source_drift_fails_closed(self):
         changed=copy.deepcopy([x for x in BANK if x['materia']==3]);changed[0]['A']+=' changed'
         with self.assertRaisesRegex(ValueError,'M3'):new.reviewed_m3(changed)

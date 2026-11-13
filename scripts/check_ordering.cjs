@@ -10,11 +10,16 @@ for(let m=1;m<=5;m++){
  const ids=built.ord[m].flatMap(([s,c,B])=>B.flat());
  const expected=built.q.flatMap((q,i)=>q[0]===m?[i+1]:[]);
  assert.deepEqual([...ids].sort((a,b)=>a-b),expected);
- assert(built.ord[m].every(([s,c,B])=>B.every(b=>b.length>=1&&b.length<=15)));
+ const blocks=built.ord[m].flatMap(e=>e[2]);
+ assert(blocks.every(b=>b.length>=14&&b.length<=15));
+ assert.equal(blocks.length,Math.ceil(expected.length/15));
+ const sections=[...new Set(built.ord[m].map(e=>e[0]))];
+ const displayed=sections.flatMap(s=>built.ord[m].filter(e=>e[0]===s).flatMap(e=>e[2].flat()));
+ assert.deepEqual(displayed,ids,'Le intestazioni non devono riordinare i blocchi');
 }
 if(process.argv[2]){
  const previous=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
- assert.deepEqual(built.ord[4],previous.ord[4],'Materia 4 alterata');
+ for(let m=1;m<=5;m++) assert.deepEqual(built.ord[m].flatMap(e=>e[2].flat()),previous.ord[m].flatMap(e=>e[2].flat()),`Ordine domande M${m} alterato`);
  for(const key of Object.keys(previous).filter(k=>k!=='ord')) assert.deepEqual(built[key],previous[key],`Dati alterati: ${key}`);
 }
 const template=fs.readFileSync(path.join(root,'palestra_template.html'),'utf8');
@@ -37,4 +42,4 @@ for(const name of ['index.html','palestra_ocf.html','preview.html']){
   if(!/type="application\/json"/.test(match[0].split('>')[0])&&match[1].trim()) new vm.Script(match[1],{filename:name});
  }
 }
-console.log('OK: tutte le 5 materie complete, blocchi <=15, 3 build coerenti, progressi per ID preservati, JS valido; baseline M4 e banca dati invariati.');
+console.log('OK: tutte le 5 materie complete, blocchi 14-15, 3 build coerenti, progressi per ID preservati, JS valido; baseline: tutte le sequenze e banca dati invariate.');

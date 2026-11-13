@@ -20,11 +20,31 @@ print('spiegazioni:',len(SP),'| domande con gemella:',len(GEM))
 # «Studia in ordine»: sezioni a crescendo (uguali → stessa risposta → molto simili → simili → le altre), blocchi da max 15
 import ordine
 import ordine_revisionato
+from blocchi_bilanciati import rebalance
 ORD={}
-for m in (1,2,3,4,5):
+for m in (5,4,3,2,1):
     generator = ordine.sezioni if m == 4 else ordine_revisionato.sezioni
     ORD[str(m)]=[[s,rows[B[0][0]-1][1] if c else -1,B] for s,c,B in generator([x for x in q if x['materia']==m])]
-print('studia in ordine:',{m:[(n,c,len(B)) for n,c,B in d] for m,d in ORD.items()})
+    subject = [x for x in q if x['materia'] == m]
+    lookup = {x['n']: ordine_revisionato.prepare(x) for x in subject}
+    protected = set()
+    for a, b in zip([n for s, c, B in ORD[str(m)] for block in B for n in block],
+                    [n for s, c, B in ORD[str(m)] for block in B for n in block][1:]):
+        if (ordine_revisionato.normalized(lookup[a]['domanda']) == ordine_revisionato.normalized(lookup[b]['domanda'])
+                or ordine_revisionato.equivalent(lookup[a], lookup[b])
+                or ordine_revisionato.same_answer(lookup[a], lookup[b])):
+            protected.add((a, b))
+    if m in (3, 5):
+        source = 'ordine_m3.json' if m == 3 else 'ordine_m5_famiglie.json'
+        families = json.load(open(source))
+        families = families['groups'] if m == 3 else families['equivalenti'] + families['stessa_risposta']
+        for family in families:
+            protected.update(zip(family['ids'], family['ids'][1:]))
+    def affinity(a, b):
+        left, right = lookup[a], lookup[b]
+        return ordine_revisionato.similarity(left['_q'], right['_q']) if left['sub'] == right['sub'] else 0.0
+    ORD[str(m)] = rebalance(ORD[str(m)], contents=C, protected_pairs=protected, affinity=affinity)
+print('studia in ordine:',{m:{'blocchi':sum(len(entry[2]) for entry in d),'dimensioni':sorted(set(len(b) for entry in d for b in entry[2]))} for m,d in ORD.items()})
 data=json.dumps({'c':C,'s':S,'q':rows,'sp':SP,'gem':GEM,'ord':ORD},ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
 t=open('palestra_template.html').read()
 # versione: la pagina la confronta con version.txt e si ricarica da sola quando ne esce una nuova

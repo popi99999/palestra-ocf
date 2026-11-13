@@ -18,7 +18,7 @@ open preview.html
 
 ## Studia in ordine
 
-Il percorso M1/M2/M5 usa `ordine_revisionato.py`; M3 segue i gruppi controllati di `ordine_m3.json`, M5 include le famiglie di `ordine_m5_famiglie.json`. M4 conserva il generatore precedente. Criteri, conteggi e verifiche in [docs/ordine-studio.md](docs/ordine-studio.md).
+Il percorso M1/M2/M5 usa `ordine_revisionato.py`; M3 segue i gruppi controllati di `ordine_m3.json`, M5 include le famiglie di `ordine_m5_famiglie.json`. M4 conserva il generatore precedente. Tutte le materie passano poi da `blocchi_bilanciati.py`: stessa sequenza di domande, blocchi da 14-15, con etichette per gli eventuali passaggi fra argomenti. Criteri, conteggi e verifiche in [docs/ordine-studio.md](docs/ordine-studio.md).
 
 ```
 python3 -m unittest discover -s tests -v
