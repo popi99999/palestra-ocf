@@ -1108,7 +1108,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261112-114716";
+const APP_VERSION="20261113-103245";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -3069,9 +3069,10 @@ function ordBlocks(m){
   // Un blocco è «fatto» quando hai risposto a tutte le sue domande dentro «Studia in ordine»: si guarda domanda per domanda (ultima risposta),
   // così se i blocchi vengono riordinati i progressi restano.
   const O=ORD[m]; if(!O) return null;
-  const G=O.map(([name,ci,B])=>({name, ci, B})), last=new Map(), today=dayKey(Date.now()); let i=0, oggi=0;
+  const G=O.map(([name,ci,B])=>({name, ci, B})), last=new Map(), today=dayKey(Date.now()), nuove=new Set(); let i=0, oggi=0;
   S.h.filter(h=>h.src==="ordine" && (h.ms||[]).includes(m)).sort((a,b)=>a.t-b.t).forEach(h=>{ const isT=dayKey(h.start||h.t)===today;
-    (h.q||[]).forEach(x=>{ if(!x[1]) return; last.set(x[0], x[1]===1); if(isT) oggi++; }); });
+    (h.q||[]).forEach(x=>{ if(!x[1]) return; if(isT && !last.has(x[0]) && !nuove.has(x[0])) nuove.add(x[0]); last.set(x[0], x[1]===1); }); });
+  oggi=nuove.size;
   G.forEach(g=>g.B=g.B.map(ids=>{ const f=ids.filter(n=>last.has(n)).length, ok=ids.filter(n=>last.get(n)).length;
     return {ids, i:i++, f, ok, st: f<ids.length ? (f?"part":"") : (ok/ids.length>=0.8?"ok":"ko")}; }));
   const all=G.flatMap(g=>g.B);
@@ -3084,7 +3085,7 @@ function ordBlocksHtml(m){
   const blk=b=>`<button class="ob-blk ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}">${b.st==="ok"||b.st==="ko"?"✓ ":""}${b.i+1}<small>${b.st==="ok"||b.st==="ko"?`${b.ok}/${b.ids.length}`:b.st==="part"?`fatte ${b.f}/${b.ids.length}`:`${b.ids.length} dom.`}</small></button>`;
   return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Prima le uguali, poi la stessa risposta, poi lo stesso argomento</small></span>
       ${next>=0?`<button class="ob-go" data-ordblk="${next}">${O.fatte?"Continua":"Inizia"} · blocco ${next+1}</button>`:`<span class="ob-fin">✓ Finito</span>`}</div>
-    <div class="ob-count"><span><b>${O.fatte}</b><small>domande fatte finora<br>su ${N}</small></span><span><b>${O.oggi}</b><small>domande fatte<br>oggi</small></span></div>
+    <div class="ob-count"><span><b>${O.fatte}</b><small>domande fatte finora<br>su ${N}</small></span><span><b>${O.oggi}</b><small>domande nuove<br>fatte oggi</small></span></div>
     ${secs.map((s,k)=>`<p class="ob-arg"><span class="ob-n">${k+1}</span>${esc(s)}<small>${esc(SEZ_D[s]||"")}</small></p>
       ${O.G.filter(g=>g.name===s).map(g=>`${g.ci>=0?`<p class="ob-sub">${esc(CONT[g.ci])}</p>`:""}<div class="ob-grid">${g.B.map(blk).join("")}</div>`).join("")}`).join("")}
     <p class="ob-note">Tocca un blocco: puoi <b>leggere</b> domande e risposte oppure <b>rispondere</b>. I blocchi non cambiano mai.</p></div>`;
