@@ -420,6 +420,8 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .ordblk--named .ob-topic{align-items:center;min-width:0;min-height:0;width:100%;aspect-ratio:1;padding:12px;background:#effffb;font-size:14px;line-height:1.3;text-align:center;overflow:hidden;overflow-wrap:anywhere}
 .ordblk--named .ob-topic-label{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden;max-width:100%;max-height:100%}
 .ordblk--named .ob-topic:hover{background:#dcfff6}
+.ordblk--named .ob-topic.ok,.ordblk--named .ob-topic.ko{background:#00a896;border-color:#008577;color:#fff}
+.ordblk--named .ob-topic.ok:hover,.ordblk--named .ob-topic.ko:hover{background:#008577}
 @media(min-width:1200px){.ordblk--named .ob-grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
 @media(max-width:600px){.ordblk--named .ob-grid{gap:6px}.ordblk--named .ob-topic{padding:4px;font-size:10px;line-height:1.15;border-radius:8px}.ordblk--named .ob-topic-label{-webkit-line-clamp:3}}
 .ob-pick{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -2284,7 +2286,7 @@ function ordBlocksHtml(m){
   const nx=O.all.find(b=>b.st===""||b.st==="part"), next=nx?nx.i:-1, secs=[...new Set(O.G.map(g=>g.name))], N=BY_MAT[m].length;
   if(O.G.every(g=>g.name==="Argomenti" && g.label)){
     return `<div class="ordblk ordblk--named"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b></span></div>
-      <div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span></button>`).join("")}</div></div>`;
+      <div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span></button>`).join("")}</div></div>`;
   }
   const blk=b=>`<button class="ob-blk ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}">${b.st==="ok"||b.st==="ko"?"✓ ":""}${b.i+1}<small>${b.st==="ok"||b.st==="ko"?`${b.ok}/${b.ids.length}`:b.st==="part"?`fatte ${b.f}/${b.ids.length}`:`${b.ids.length} dom.`}</small></button>`;
   return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Prima le uguali, poi la stessa risposta, poi lo stesso argomento</small></span>
