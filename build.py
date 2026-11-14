@@ -21,11 +21,16 @@ print('spiegazioni:',len(SP),'| domande con gemella:',len(GEM))
 import ordine
 import ordine_revisionato
 from blocchi_bilanciati import rebalance
+from ordini_approvati import load_approved_order
 ORD={}
 for m in (5,4,3,2,1):
+    subject = [x for x in q if x['materia'] == m]
+    approved = load_approved_order(subject, f'percorsi_approvati/m{m}.json')
+    if approved is not None:
+        ORD[str(m)] = approved
+        continue
     generator = ordine.sezioni if m == 4 else ordine_revisionato.sezioni
     ORD[str(m)]=[[s,rows[B[0][0]-1][1] if c else -1,B] for s,c,B in generator([x for x in q if x['materia']==m])]
-    subject = [x for x in q if x['materia'] == m]
     lookup = {x['n']: ordine_revisionato.prepare(x) for x in subject}
     protected = set()
     for a, b in zip([n for s, c, B in ORD[str(m)] for block in B for n in block],

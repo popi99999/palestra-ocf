@@ -60,11 +60,17 @@ class OrderingTests(unittest.TestCase):
         items=[q(i,str(i)) for i in range(1,4)]
         families=new.families(items,lambda a,b:abs(a['n']-b['n'])==1)
         self.assertTrue(all(len(g)<=2 for g in families))
-    def test_m4_published_order_is_unchanged(self):
+    def test_m4_published_order_matches_its_approved_plan(self):
+        plan_path = ROOT / 'percorsi_approvati/m4.json'
         for name in ('index.html','palestra_ocf.html','preview.html'):
             data=json.loads(re.search(r'<script id="ocf-data" type="application/json">(.*?)</script>',(ROOT/name).read_text(),re.S).group(1))
-            actual=hashlib.sha256(json.dumps([n for e in data['ord']['4'] for b in e[2] for n in b],separators=(',',':')).encode()).hexdigest()
-            self.assertEqual(actual, '91d428200e870e669cc2b0baa1b56e43d902b81bf2f289b5e0715e029b238d3b')
+            blocks = [b for e in data['ord']['4'] for b in e[2]]
+            if plan_path.exists():
+                approved = json.loads(plan_path.read_text())
+                self.assertEqual(blocks, [block['ids'] for block in approved['blocks']])
+            else:
+                actual=hashlib.sha256(json.dumps([n for b in blocks for n in b],separators=(',',':')).encode()).hexdigest()
+                self.assertEqual(actual, '91d428200e870e669cc2b0baa1b56e43d902b81bf2f289b5e0715e029b238d3b')
     def test_m3_source_drift_fails_closed(self):
         changed=copy.deepcopy([x for x in BANK if x['materia']==3]);changed[0]['A']+=' changed'
         with self.assertRaisesRegex(ValueError,'M3'):new.reviewed_m3(changed)

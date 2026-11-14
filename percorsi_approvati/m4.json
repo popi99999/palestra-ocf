@@ -1,0 +1,678 @@
+{
+  "subject": 4,
+  "approved": "2026-11-14",
+  "source_pdf": "materia_4_500_domande_blocchi_15.pdf",
+  "source_sha256": "d851a1c279a7ec3a440eec4a9b1886815f7f27ba7ce5c13fb97e7b4d82b0bc46",
+  "blocks": [
+    {
+      "label": "Contratto, polizza e documentazione",
+      "ids": [
+        4101,
+        4102,
+        4293,
+        4105,
+        4138,
+        4541,
+        4104,
+        4106,
+        4108,
+        4107,
+        4542,
+        4109,
+        4110,
+        4111,
+        4136
+      ]
+    },
+    {
+      "label": "Parti del contratto e variazioni del rischio",
+      "ids": [
+        4137,
+        4146,
+        4112,
+        4281,
+        4113,
+        4114,
+        4103,
+        4275,
+        4276,
+        4278,
+        4246,
+        4247,
+        4294,
+        4248,
+        4145
+      ]
+    },
+    {
+      "label": "Rischio assicurato e calcolo dei premi",
+      "ids": [
+        4148,
+        4249,
+        4166,
+        4168,
+        4169,
+        4167,
+        4570,
+        4115,
+        4135,
+        4257,
+        4261,
+        4260,
+        4258,
+        4259,
+        4141
+      ]
+    },
+    {
+      "label": "Premi non pagati e alienazione dei beni",
+      "ids": [
+        4253,
+        4250,
+        4251,
+        4127,
+        4252,
+        4116,
+        4117,
+        4286,
+        4287,
+        4289,
+        4290,
+        4288,
+        4134,
+        4176,
+        4140
+      ]
+    },
+    {
+      "label": "Danni assicurati e limiti dell’indennizzo",
+      "ids": [
+        4283,
+        4178,
+        4164,
+        4165,
+        4139,
+        4266,
+        4264,
+        4274,
+        4265,
+        4254,
+        4268,
+        4255,
+        4256,
+        4263,
+        4150
+      ]
+    },
+    {
+      "label": "Pluralità di assicuratori e obblighi nel sinistro",
+      "ids": [
+        4267,
+        4273,
+        4269,
+        4279,
+        4270,
+        4271,
+        4132,
+        4143,
+        4543,
+        4118,
+        4119,
+        4120,
+        4284,
+        4285,
+        4129
+      ]
+    },
+    {
+      "label": "Assicurazione vita e designazione del beneficiario",
+      "ids": [
+        4565,
+        4144,
+        4578,
+        4566,
+        4292,
+        4133,
+        4291,
+        4142,
+        4567,
+        4568,
+        4128,
+        4569,
+        4121,
+        4123,
+        4181
+      ]
+    },
+    {
+      "label": "Impignorabilità, riscatto e polizze caso morte",
+      "ids": [
+        4122,
+        4124,
+        4147,
+        4125,
+        4126,
+        4130,
+        4131,
+        4277,
+        4296,
+        4597,
+        4598,
+        4582,
+        4280,
+        4577,
+        4162
+      ]
+    },
+    {
+      "label": "Polizze vita, rendite e gestione separata",
+      "ids": [
+        4282,
+        4583,
+        4295,
+        4585,
+        4272,
+        4574,
+        4576,
+        4160,
+        4151,
+        4159,
+        4153,
+        4154,
+        4156,
+        4158,
+        4149
+      ]
+    },
+    {
+      "label": "Capitalizzazione e riserve tecniche",
+      "ids": [
+        4157,
+        4161,
+        4152,
+        4262,
+        4177,
+        4580,
+        4586,
+        4155,
+        4163,
+        4170,
+        4171,
+        4173,
+        4174,
+        4172,
+        4175
+      ]
+    },
+    {
+      "label": "Rami assicurativi e coperture vita",
+      "ids": [
+        4525,
+        4539,
+        4540,
+        4557,
+        4561,
+        4297,
+        4558,
+        4572,
+        4573,
+        4571,
+        4581,
+        4584,
+        4537,
+        4538,
+        4588
+      ]
+    },
+    {
+      "label": "Polizze linked e responsabilità civile",
+      "ids": [
+        4523,
+        4526,
+        4562,
+        4599,
+        4593,
+        4563,
+        4595,
+        4575,
+        4594,
+        4596,
+        4564,
+        4587,
+        4188,
+        4189,
+        4184
+      ]
+    },
+    {
+      "label": "Detrazioni dei premi e fiscalità delle polizze",
+      "ids": [
+        4185,
+        4182,
+        4245,
+        4190,
+        4191,
+        4203,
+        4192,
+        4193,
+        4196,
+        4194,
+        4197,
+        4199,
+        4204,
+        4205,
+        4195
+      ]
+    },
+    {
+      "label": "Autorizzazioni assicurative e coperture complementari",
+      "ids": [
+        4533,
+        4553,
+        4552,
+        4534,
+        4544,
+        4547,
+        4549,
+        4550,
+        4551,
+        4545,
+        4546,
+        4555,
+        4589,
+        4592,
+        4590
+      ]
+    },
+    {
+      "label": "Riassicurazione, fusione e liquidazione delle imprese",
+      "ids": [
+        4591,
+        4548,
+        4554,
+        4524,
+        4532,
+        4535,
+        4536,
+        4530,
+        4531,
+        4527,
+        4559,
+        4528,
+        4529,
+        4223,
+        4215
+      ]
+    },
+    {
+      "label": "Intermediari: requisiti e iscrizione al RUI",
+      "ids": [
+        4224,
+        4208,
+        4217,
+        4214,
+        4207,
+        4209,
+        4211,
+        4212,
+        4222,
+        4218,
+        4221,
+        4219,
+        4234,
+        4556,
+        4210
+      ]
+    },
+    {
+      "label": "Intermediari: incassi, responsabilità e controlli",
+      "ids": [
+        4220,
+        4206,
+        4216,
+        4213,
+        4241,
+        4243,
+        4237,
+        4236,
+        4225,
+        4232,
+        4229,
+        4228,
+        4231,
+        4227,
+        4226
+      ]
+    },
+    {
+      "label": "Vigilanza assicurativa e previdenza dei professionisti",
+      "ids": [
+        4238,
+        4240,
+        4244,
+        4242,
+        4235,
+        4230,
+        4239,
+        4233,
+        4485,
+        4486,
+        4494,
+        4487,
+        4508,
+        4506,
+        4488
+      ]
+    },
+    {
+      "label": "Contributi previdenziali e calcolo della pensione",
+      "ids": [
+        4491,
+        4492,
+        4505,
+        4509,
+        4510,
+        4517,
+        4518,
+        4519,
+        4521,
+        4522,
+        4489,
+        4490,
+        4493,
+        4499,
+        4497
+      ]
+    },
+    {
+      "label": "Calcolo e tassazione della pensione pubblica",
+      "ids": [
+        4500,
+        4498,
+        4501,
+        4503,
+        4504,
+        4495,
+        4496,
+        4502,
+        4511,
+        4516,
+        4512,
+        4514,
+        4507,
+        4520,
+        4513
+      ]
+    },
+    {
+      "label": "Destinazione del TFR maturato e maturando",
+      "ids": [
+        4515,
+        4298,
+        4334,
+        4375,
+        4302,
+        4324,
+        4330,
+        4333,
+        4319,
+        4300,
+        4303,
+        4318,
+        4322,
+        4301,
+        4299
+      ]
+    },
+    {
+      "label": "Conferimento del TFR e silenzio assenso",
+      "ids": [
+        4321,
+        4313,
+        4311,
+        4316,
+        4323,
+        4315,
+        4304,
+        4305,
+        4331,
+        4328,
+        4326,
+        4329,
+        4306,
+        4312,
+        4335
+      ]
+    },
+    {
+      "label": "TFR in azienda e contributi al fondo",
+      "ids": [
+        4364,
+        4393,
+        4314,
+        4317,
+        4307,
+        4309,
+        4308,
+        4325,
+        4336,
+        4310,
+        4320,
+        4327,
+        4332,
+        4187,
+        4179
+      ]
+    },
+    {
+      "label": "Polizze TFR/TFM e forme pensionistiche collettive",
+      "ids": [
+        4183,
+        4579,
+        4600,
+        4180,
+        4363,
+        4371,
+        4388,
+        4409,
+        4410,
+        4341,
+        4362,
+        4342,
+        4381,
+        4417,
+        4370
+      ]
+    },
+    {
+      "label": "Destinatari e regimi della previdenza complementare",
+      "ids": [
+        4407,
+        4379,
+        4405,
+        4354,
+        4361,
+        4373,
+        4377,
+        4353,
+        4387,
+        4350,
+        4367,
+        4380,
+        4347,
+        4378,
+        4401
+      ]
+    },
+    {
+      "label": "Fondi pensione, PIP e PEPP",
+      "ids": [
+        4386,
+        4345,
+        4374,
+        4349,
+        4343,
+        4360,
+        4369,
+        4344,
+        4365,
+        4415,
+        4376,
+        4560,
+        4395,
+        4411,
+        4403
+      ]
+    },
+    {
+      "label": "Adesioni multiple, età pensionabile e contributi",
+      "ids": [
+        4389,
+        4394,
+        4408,
+        4390,
+        4392,
+        4398,
+        4396,
+        4454,
+        4434,
+        4359,
+        4391,
+        4385,
+        4351,
+        4355,
+        4382
+      ]
+    },
+    {
+      "label": "Contributi previdenziali e deducibilità fiscale",
+      "ids": [
+        4404,
+        4352,
+        4356,
+        4384,
+        4450,
+        4201,
+        4202,
+        4200,
+        4198,
+        4340,
+        4418,
+        4449,
+        4423,
+        4451,
+        4366
+      ]
+    },
+    {
+      "label": "Gestione e investimenti dei fondi pensione",
+      "ids": [
+        4438,
+        4436,
+        4424,
+        4358,
+        4372,
+        4476,
+        4463,
+        4477,
+        4426,
+        4433,
+        4479,
+        4484,
+        4447,
+        4368,
+        4416
+      ]
+    },
+    {
+      "label": "Trasferimenti, riscatti e anticipazioni del fondo pensione",
+      "ids": [
+        4406,
+        4357,
+        4400,
+        4412,
+        4397,
+        4443,
+        4427,
+        4431,
+        4414,
+        4453,
+        4422,
+        4445,
+        4456,
+        4452,
+        4455
+      ]
+    },
+    {
+      "label": "Premorienza e prestazioni della previdenza complementare",
+      "ids": [
+        4448,
+        4459,
+        4346,
+        4348,
+        4435,
+        4437,
+        4440,
+        4444,
+        4457,
+        4420,
+        4337,
+        4338,
+        4399,
+        4339,
+        4413
+      ]
+    },
+    {
+      "label": "Capitale, RITA e tassazione delle prestazioni",
+      "ids": [
+        4458,
+        4419,
+        4186,
+        4446,
+        4421,
+        4428,
+        4429,
+        4439,
+        4425,
+        4430,
+        4441,
+        4442,
+        4432,
+        4465,
+        4469
+      ]
+    },
+    {
+      "label": "Fondi pensione: autorizzazione, organi e vigilanza",
+      "ids": [
+        4470,
+        4472,
+        4461,
+        4402,
+        4480,
+        4482,
+        4481,
+        4483,
+        4473,
+        4478,
+        4474,
+        4475,
+        4471,
+        4462,
+        4466
+      ]
+    },
+    {
+      "label": "Fondi pensione: sanzioni e crisi",
+      "ids": [
+        4460,
+        4467,
+        4468,
+        4383,
+        4464
+      ]
+    }
+  ]
+}
