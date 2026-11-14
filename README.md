@@ -18,7 +18,9 @@ open preview.html
 
 ## Studia in ordine
 
-Il percorso M1/M2/M5 usa `ordine_revisionato.py`; M3 segue i gruppi controllati di `ordine_m3.json`, M5 include le famiglie di `ordine_m5_famiglie.json`. M4 segue il PDF approvato in `percorsi_approvati/m4.json`: 33 blocchi da 15 e un ultimo da 5, con il nome del tema su ciascuna scheda verde acqua. I percorsi approvati sono caricati da `ordini_approvati.py` prima dei generatori, senza riordino o bilanciamento; la loro impronta controlla che domande e risposte della banca non cambino. Le altre materie passano da `blocchi_bilanciati.py` con blocchi da 14-15. Lo storico continua a usare gli ID originali. Criteri, conteggi e verifiche in [docs/ordine-studio.md](docs/ordine-studio.md).
+M1/M2 usano `ordine_revisionato.py`; M3 segue i gruppi controllati di `ordine_m3.json`. M4 e M5 seguono i PDF approvati in `percorsi_approvati/m4.json` e `percorsi_approvati/m5.json`: rispettivamente 34 blocchi (33 da 15 e l’ultimo da 5) e 27 blocchi (26 da 15 e l’ultimo da 10), con il solo nome dell’argomento sulle schede verde acqua.
+
+I percorsi approvati sono caricati da `ordini_approvati.py` prima dei generatori, senza riordino o bilanciamento. La loro impronta controlla che domande e risposte della banca non cambino. Le altre materie passano da `blocchi_bilanciati.py` con blocchi da 14-15. Storico e sincronizzazione continuano a usare gli ID originali delle domande. Criteri e verifiche in [docs/ordine-studio.md](docs/ordine-studio.md).
 
 ```
 python3 -m unittest discover -s tests -v

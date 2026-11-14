@@ -51,9 +51,15 @@ ctx.icon=()=>'';
 ctx.esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const renderer=template.split('function ordBlocksHtml(m){')[1].split('\nfunction starBlocks(m){')[0];
 vm.runInContext('function ordBlocksHtml(m){'+renderer,ctx);
+ctx.Q=built.q;
+const studyBack=template.split('function studyReturnView(T){')[1].split('\nfunction renderRiepilogo(){')[0];
+vm.runInContext('function studyReturnView(T){'+studyBack,ctx);
+assert.equal(ctx.studyReturnView({items:[{n:original[0]}],meta:{src:'ordine'}}),'materia');
 for(const m of [4,5]){
  const approved=approvedFor(m);if(!approved) continue;
  const ids=approved.blocks.flatMap(b=>b.ids);
+ assert.equal(ctx.studyReturnView({items:[{n:ids[0]}],meta:{src:'ordine'}}),'categorie');
+ assert.equal(ctx.studyReturnView({items:[{n:ids[0]}],meta:{src:'giorno'}}),'materia');
  ctx.S.h=[{src:'ordine',ms:[m],t:1,blk:999,q:[[ids[0],1,2],[ids[14],-1,2],[ids.at(-1),1,2]]}];
  result=ctx.ordBlocks(m);assert.equal(result.fatte,3);
  assert.equal(result.all[0].f,2);assert.equal(result.all[0].ok,1);

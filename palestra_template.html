@@ -2531,9 +2531,13 @@ function openSaved(h){
 }
 
 /* ================= riepilogo ================= */
+function studyReturnView(T){
+  const first=T.items && T.items[0], m=first && Q[first.n-1][0];
+  return T.meta && T.meta.src==="ordine" && ORD[m] && ORD[m].every(g=>g[0]==="Argomenti")?"categorie":"materia";
+}
 function renderRiepilogo(){
   const T=state.T, items=T.counted||T.items, isSim=T.kind==="sim";
-  if(!items.length){ state.view = "materia"; return render(); }
+  if(!items.length){ state.view = studyReturnView(T); return render(); }
   const ok=items.filter(x=>x.pick===0).length, err=items.filter(x=>x.pick!==null&&x.pick!==0).length, nd=items.filter(x=>x.pick===null).length;
   const pts=isSim?examPoints(items):null, pass=isSim&&pts>=80;
   const pageIcon=isSim?"quiz":T.kind==="migliora"?"trending_up":"school", pageTitle=isSim?"Mettiti alla prova":T.kind==="migliora"?"Migliora la tua preparazione":"Allenamento";
@@ -2566,7 +2570,7 @@ function renderRiepilogo(){
   </section>`;
   document.querySelectorAll("[data-sel]").forEach(b=>b.onclick=()=>{ state.sel=+b.dataset.sel; renderRiepilogo(); });
   const r=$("#redo"); if(r) r.onclick=()=>startSession({kind:"studio", title:"Rifai i quesiti da rivedere", ids:shuffle(wrongIds.slice()), fb:"now", w:"redo", src:"redo"});
-  $("#again").onclick=()=>go("materia");
+  $("#again").onclick=()=>go(studyReturnView(T));
 }
 function riepQuesito(x,k){
   const q=Q[x.n-1];

@@ -24,8 +24,11 @@
 ### Release 1: materia 4
 - [x] Loader con validazione, regressioni, JSON M4 e schede nominate.
 - [x] Build, test, confronto baseline, browser e review.
-- [ ] Commit, push e verifica del payload pubblico e della versione.
+- [x] Commit, push e verifica del payload pubblico e della versione.
+  M4: `d68b7a9`, versione `20261114-140746`; HTML pubblico identico alla build verificata prima di iniziare M5.
 
 ### Release 2: materia 5
-- [ ] JSON M5 rifinito, stessi controlli e nuovo numero cache.
+- [x] JSON M5 rifinito, stessi controlli e nuovo numero cache.
 - [ ] Commit/push separato e verifica online di entrambi gli ordini.
+  Verifiche locali: 29 test Python, controllo JavaScript/dati, lettura15/10, Rispondi e rientro ai blocchi; a320px nessuna scheda fuori schermo o con testo in overflow.
+  Ruling: il ritorno dai percorsi approvati punta a Categorie, dove si trovano le schede nominate; gli altri allenamenti conservano il ritorno precedente.
