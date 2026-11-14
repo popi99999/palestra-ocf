@@ -2281,11 +2281,15 @@ function ordBlocks(m){
   return {G, all, tot:i, fatte:last.size, oggi, done:all.filter(b=>b.f===b.ids.length).length, pass:all.filter(b=>b.st==="ok").length};
 }
 const SEZ_D={"Uguali":"la stessa domanda scritta in modi diversi","Stessa risposta":"domande diverse, risposta quasi uguale","Stesso argomento":"domande diverse sullo stesso argomento, un argomento alla volta"};
+function dailyNewHtml(m){
+  const days=studyDays(m), today=dayKey(Date.now()), count=(days.find(d=>d.k===today)||{ids:[]}).ids.length;
+  return `<div class="paper card" style="margin-bottom:16px"><b>Domande nuove fatte oggi: ${count}</b><p class="hint">Conta ogni domanda una sola volta, il giorno della prima risposta.</p><details><summary>Vedi i giorni precedenti</summary>${days.filter(d=>d.k!==today).map(d=>`<p>${esc(d.k.split("-").reverse().join("/"))}: <b>${d.ids.length}</b></p>`).join("")||`<p class="hint">Ancora nessun giorno precedente.</p>`}</details></div>`;
+}
 function ordBlocksHtml(m){
   const O=ordBlocks(m); if(!O) return "";
   const nx=O.all.find(b=>b.st===""||b.st==="part"), next=nx?nx.i:-1, secs=[...new Set(O.G.map(g=>g.name))], N=BY_MAT[m].length;
   if(O.G.every(g=>g.name==="Argomenti" && g.label)){
-    return `<div class="ordblk ordblk--named"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b></span></div>
+    return `${dailyNewHtml(m)}<div class="ordblk ordblk--named"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b></span></div>
       <div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span></button>`).join("")}</div></div>`;
   }
   const blk=b=>`<button class="ob-blk ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}">${b.st==="ok"||b.st==="ko"?"✓ ":""}${b.i+1}<small>${b.st==="ok"||b.st==="ko"?`${b.ok}/${b.ids.length}`:b.st==="part"?`fatte ${b.f}/${b.ids.length}`:`${b.ids.length} dom.`}</small></button>`;
