@@ -416,9 +416,12 @@ table.mud td.num,table.mud th.num{text-align:right;font-variant-numeric:tabular-
 .ordblk .ob-blk.next{border:2.2px solid #008577;box-shadow:0 0 0 3px rgba(18,165,148,.22)}
 .ordblk .ob-sub{margin:10px 0 6px;font-size:13px;font-weight:600;color:#055e55;opacity:.85}
 .ordblk .ob-note{margin:12px 0 0;font-size:12.5px;opacity:.8}
-.ordblk--named .ob-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;margin-top:16px}
-.ordblk--named .ob-topic{align-items:flex-start;min-height:70px;padding:13px 15px;background:#effffb;font-size:14px;line-height:1.4;text-align:left;overflow-wrap:anywhere}
+.ordblk--named .ob-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px}
+.ordblk--named .ob-topic{align-items:center;min-width:0;min-height:0;width:100%;aspect-ratio:1;padding:12px;background:#effffb;font-size:14px;line-height:1.3;text-align:center;overflow:hidden;overflow-wrap:anywhere}
+.ordblk--named .ob-topic-label{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden;max-width:100%;max-height:100%}
 .ordblk--named .ob-topic:hover{background:#dcfff6}
+@media(min-width:1200px){.ordblk--named .ob-grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media(max-width:600px){.ordblk--named .ob-grid{gap:6px}.ordblk--named .ob-topic{padding:4px;font-size:10px;line-height:1.15;border-radius:8px}.ordblk--named .ob-topic-label{-webkit-line-clamp:3}}
 .ob-pick{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .ob-pick button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:120px;border-radius:16px;border:2px solid #00a896;background:#dcfff6;color:#06403a;font:700 26px var(--font);cursor:pointer}
 .ob-pick button#ob-risp{background:#00a896;color:#fff}
@@ -2281,7 +2284,7 @@ function ordBlocksHtml(m){
   const nx=O.all.find(b=>b.st===""||b.st==="part"), next=nx?nx.i:-1, secs=[...new Set(O.G.map(g=>g.name))], N=BY_MAT[m].length;
   if(O.G.every(g=>g.name==="Argomenti" && g.label)){
     return `<div class="ordblk ordblk--named"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b></span></div>
-      <div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.i===next?"next":""}" data-ordblk="${b.i}">${esc(b.label)}</button>`).join("")}</div></div>`;
+      <div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span></button>`).join("")}</div></div>`;
   }
   const blk=b=>`<button class="ob-blk ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}">${b.st==="ok"||b.st==="ko"?"✓ ":""}${b.i+1}<small>${b.st==="ok"||b.st==="ko"?`${b.ok}/${b.ids.length}`:b.st==="part"?`fatte ${b.f}/${b.ids.length}`:`${b.ids.length} dom.`}</small></button>`;
   return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Prima le uguali, poi la stessa risposta, poi lo stesso argomento</small></span>
