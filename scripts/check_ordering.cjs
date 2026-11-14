@@ -52,6 +52,8 @@ ctx.esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','
 const renderer=template.split('function ordBlocksHtml(m){')[1].split('\nfunction starBlocks(m){')[0];
 vm.runInContext('function ordBlocksHtml(m){'+renderer,ctx);
 ctx.Q=built.q;
+// Il riepilogo giornaliero e separato dalle etichette delle schede.
+ctx.dailyNewHtml=()=>"";
 const studyBack=template.split('function studyReturnView(T){')[1].split('\nfunction renderRiepilogo(){')[0];
 vm.runInContext('function studyReturnView(T){'+studyBack,ctx);
 assert.equal(ctx.studyReturnView({items:[{n:original[0]}],meta:{src:'ordine'}}),'materia');
