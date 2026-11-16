@@ -53,7 +53,7 @@ const renderer=template.split('function ordBlocksHtml(m){')[1].split('\nfunction
 vm.runInContext('function ordBlocksHtml(m){'+renderer,ctx);
 ctx.Q=built.q;
 // Il riepilogo giornaliero e separato dalle etichette delle schede.
-ctx.dailyNewHtml=()=>"";
+ctx.orderInsights=()=>({today:0,worst:[]});
 const studyBack=template.split('function studyReturnView(T){')[1].split('\nfunction renderRiepilogo(){')[0];
 vm.runInContext('function studyReturnView(T){'+studyBack,ctx);
 assert.equal(ctx.studyReturnView({items:[{n:original[0]}],meta:{src:'ordine'}}),'materia');
@@ -68,7 +68,7 @@ for(const m of [4,5]){
  const html=ctx.ordBlocksHtml(m);
  assert.equal((html.match(/data-ordblk=/g)||[]).length,approved.blocks.length);
  for(const block of approved.blocks) assert(html.includes(ctx.esc(block.label)));
- assert(!/ob-count|ob-arg|ob-sub|✓|giuste|fatte|domande fatte/.test(html),'Le schede devono mostrare solo gli argomenti');
+ assert(!/ob-count|ob-arg|ob-sub|✓|giuste/.test(html),'Le schede devono mostrare solo gli argomenti');
 }
 for(const name of ['index.html','palestra_ocf.html','preview.html']){
  const text=fs.readFileSync(path.join(root,name),'utf8');

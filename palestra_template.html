@@ -2281,16 +2281,24 @@ function ordBlocks(m){
   return {G, all, tot:i, fatte:last.size, oggi, done:all.filter(b=>b.f===b.ids.length).length, pass:all.filter(b=>b.st==="ok").length};
 }
 const SEZ_D={"Uguali":"la stessa domanda scritta in modi diversi","Stessa risposta":"domande diverse, risposta quasi uguale","Stesso argomento":"domande diverse sullo stesso argomento, un argomento alla volta"};
-function dailyNewHtml(m){
-  const days=studyDays(m), today=dayKey(Date.now()), count=(days.find(d=>d.k===today)||{ids:[]}).ids.length;
-  return `<div class="paper card" style="margin-bottom:16px"><b>Domande nuove fatte oggi: ${count}</b><p class="hint">Conta ogni domanda una sola volta, il giorno della prima risposta.</p><details><summary>Vedi i giorni precedenti</summary>${days.filter(d=>d.k!==today).map(d=>`<p>${esc(d.k.split("-").reverse().join("/"))}: <b>${d.ids.length}</b></p>`).join("")||`<p class="hint">Ancora nessun giorno precedente.</p>`}</details></div>`;
+function orderInsights(m){
+  const today=dayKey(Date.now()), seenToday=new Set(), errors=new Map();
+  const allowed=new Set((ORD[m]||[]).flatMap(g=>g[2].flat()));
+  S.h.filter(h=>["ordine","ordine-errori"].includes(h.src)).forEach(h=>{
+    (h.q||[]).forEach(x=>{ if(!allowed.has(x[0]) || !x[1]) return;
+      if(dayKey(h.start||h.t)===today) seenToday.add(x[0]);
+      if(x[1]===-1) errors.set(x[0],(errors.get(x[0])||0)+1);
+    });
+  });
+  return {today:seenToday.size, worst:[...errors].sort((a,b)=>b[1]-a[1]||a[0]-b[0]).map(x=>x[0])};
 }
 function ordBlocksHtml(m){
   const O=ordBlocks(m); if(!O) return "";
   const nx=O.all.find(b=>b.st===""||b.st==="part"), next=nx?nx.i:-1, secs=[...new Set(O.G.map(g=>g.name))], N=BY_MAT[m].length;
   if(O.G.every(g=>g.name==="Argomenti" && g.label)){
-    return `${dailyNewHtml(m)}<div class="ordblk ordblk--named"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b></span></div>
-      <div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span></button>`).join("")}</div></div>`;
+    const insights=orderInsights(m);
+    return `<div class="ordblk ordblk--named"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b> <span style="font-size:14px">· ${insights.today} domande fatte oggi</span></span></div>
+      <div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span></button>`).join("")}</div><div style="margin-top:18px"><button class="btn btn-filled" id="order-worst" ${insights.worst.length?"":"disabled"}>Studia quelle che sbagli di più</button>${insights.worst.length?"":`<p class="hint">Gli errori di questi blocchi si accumulano qui quando rispondi.</p>`}</div></div>`;
   }
   const blk=b=>`<button class="ob-blk ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}">${b.st==="ok"||b.st==="ko"?"✓ ":""}${b.i+1}<small>${b.st==="ok"||b.st==="ko"?`${b.ok}/${b.ids.length}`:b.st==="part"?`fatte ${b.f}/${b.ids.length}`:`${b.ids.length} dom.`}</small></button>`;
   return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Prima le uguali, poi la stessa risposta, poi lo stesso argomento</small></span>
@@ -2376,6 +2384,7 @@ function renderCategorie(){
   $("#cat-openall").onclick=()=>{ G.forEach(g=>state.catOpen.add(g.ci)); re(); };
   $("#cat-closeall").onclick=()=>{ state.catOpen.clear(); re(); };
   $("#cat-none").onclick=()=>{ state.picked.clear(); re(); };
+  const ow=$("#order-worst"); if(ow) ow.onclick=()=>{const ids=orderInsights(m).worst.slice(0,15); if(ids.length) startSession({kind:"studio",title:`Studia quelle che sbagli di più · Materia ${m}`,ids,fb:"now",w:"all",src:"ordine-errori"});};
   document.querySelectorAll("[data-ordblk]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.ordblk, O=ordBlocks(m), x=O && O.all.find(y=>y.i===i); if(!x) return;
     const title=x.label?`${x.label} · Materia ${m}`:`Studia in ordine · blocco ${i+1} · Materia ${m}`;
     dialog({title:x.label||`Blocco ${i+1} · ${x.ids.length} domande`, body:`<div class="ob-pick"><button id="ob-leggi">Leggi</button><button id="ob-risp">Rispondi</button></div>`, actions:[]});
@@ -2542,7 +2551,7 @@ function openSaved(h){
 /* ================= riepilogo ================= */
 function studyReturnView(T){
   const first=T.items && T.items[0], m=first && Q[first.n-1][0];
-  return T.meta && T.meta.src==="ordine" && ORD[m] && ORD[m].every(g=>g[0]==="Argomenti")?"categorie":"materia";
+  return T.meta && ["ordine","ordine-errori"].includes(T.meta.src) && ORD[m] && ORD[m].every(g=>g[0]==="Argomenti")?"categorie":"materia";
 }
 function renderRiepilogo(){
   const T=state.T, items=T.counted||T.items, isSim=T.kind==="sim";
