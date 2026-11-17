@@ -1119,7 +1119,7 @@ function recoverLive(){
   if(e){ S.h.push(e); derive(); lsWrite(); }
 }
 // --- aggiornamento automatico: una scheda o un'app rimasta aperta passa da sola alla versione nuova
-const APP_VERSION="20261117-094502";
+const APP_VERSION="20261117-094723";
 async function checkUpdate(){
   if(IN_CLAUDE || location.protocol!=="https:") return;
   try{
@@ -3093,7 +3093,7 @@ const SEZ_D={"Uguali":"la stessa domanda scritta in modi diversi","Stessa rispos
 function orderInsights(m){
   const today=dayKey(Date.now()), seenToday=new Set(), yesterday=new Set(), errors=new Map();
   const blocks=(ORD[m]||[]).flatMap(g=>g[2]), allowed=new Set(blocks.flat()), first=new Map();
-  S.h.forEach(h=>{ const t=h.start||h.t; (h.q||[]).forEach(x=>{
+  S.h.filter(h=>h.src==="ordine").forEach(h=>{ const t=h.start||h.t; (h.q||[]).forEach(x=>{
     if(allowed.has(x[0]) && x[1] && (!first.has(x[0]) || t<first.get(x[0]))) first.set(x[0],t);
   }); });
   blocks.forEach(ids=>{ const times=ids.filter(n=>first.has(n)).map(n=>first.get(n));
@@ -3101,7 +3101,7 @@ function orderInsights(m){
   });
   S.h.filter(h=>["ordine","ordine-errori"].includes(h.src)).forEach(h=>{
     (h.q||[]).forEach(x=>{ if(!allowed.has(x[0]) || !x[1]) return;
-      if(dayKey(h.start||h.t)===today && dayKey(first.get(x[0]))===today) seenToday.add(x[0]);
+      if(dayKey(h.start||h.t)===today && first.has(x[0]) && dayKey(first.get(x[0]))===today) seenToday.add(x[0]);
       if(x[1]===-1) errors.set(x[0],(errors.get(x[0])||0)+1);
     });
   });
@@ -3113,7 +3113,7 @@ function ordBlocksHtml(m){
   if(O.G.every(g=>g.name==="Argomenti" && g.label)){
     const insights=orderInsights(m);
     return `<div class="ordblk ordblk--named"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b> <span style="font-size:14px">· ${insights.today} domande nuove oggi</span></span></div>
-      <p class="hint" style="margin:10px 0 0">Viola · blocchi iniziati per la prima volta ieri.</p><div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.st} ${b.ids.some(n=>insights.yesterday.has(n))?"ob-yesterday":""} ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span>${b.ids.some(n=>insights.yesterday.has(n))?`<span class="ob-yesterday-label">Nuovo ieri</span>`:""}</button>`).join("")}</div><div style="margin-top:18px"><button class="btn btn-filled" id="order-worst" ${insights.worst.length?"":"disabled"}>Studia quelle che sbagli di più</button>${insights.worst.length?"":`<p class="hint">Gli errori di questi blocchi si accumulano qui quando rispondi.</p>`}</div></div>`;
+      <p class="hint" style="margin:10px 0 0">Viola · blocchi iniziati per la prima volta ieri in Studia in ordine.</p><div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.st} ${b.ids.some(n=>insights.yesterday.has(n))?"ob-yesterday":""} ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span>${b.ids.some(n=>insights.yesterday.has(n))?`<span class="ob-yesterday-label">Nuovo ieri</span>`:""}</button>`).join("")}</div><div style="margin-top:18px"><button class="btn btn-filled" id="order-worst" ${insights.worst.length?"":"disabled"}>Studia quelle che sbagli di più</button>${insights.worst.length?"":`<p class="hint">Gli errori di questi blocchi si accumulano qui quando rispondi.</p>`}</div></div>`;
   }
   const blk=b=>`<button class="ob-blk ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}">${b.st==="ok"||b.st==="ko"?"✓ ":""}${b.i+1}<small>${b.st==="ok"||b.st==="ko"?`${b.ok}/${b.ids.length}`:b.st==="part"?`fatte ${b.f}/${b.ids.length}`:`${b.ids.length} dom.`}</small></button>`;
   return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Prima le uguali, poi la stessa risposta, poi lo stesso argomento</small></span>

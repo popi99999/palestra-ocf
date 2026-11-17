@@ -14,3 +14,7 @@ assert.equal(r.today,1,'Oggi contano solo le domande nuove');
 assert.equal(r.worst[0],1,'Gli errori ripetuti restano cumulati');
 ctx.S.h.reverse();r=ctx.orderInsights(5);assert(r.yesterday.has(3));assert(!r.yesterday.has(1),'Ordine storico sincronizzato indipendente');
 console.log('OK: ripassi, completamenti, nuovi ieri/oggi, errori e storico disordinato');
+
+ctx.S.h.push({src:'giorno',start:now-10*day,q:[[3,1],[5,1]]},{src:'sim',start:now-20*day,q:[[3,1]]});
+r=ctx.orderInsights(5);assert(r.yesterday.has(3),'Vecchi test fuori da Studia in ordine non devono nascondere i nuovi blocchi di ieri');assert.equal(r.today,1);
+console.log('OK: vecchi test e blocchi del giorno non alterano le date dei blocchi verde acqua');
