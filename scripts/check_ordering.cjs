@@ -53,7 +53,7 @@ const renderer=template.split('function ordBlocksHtml(m){')[1].split('\nfunction
 vm.runInContext('function ordBlocksHtml(m){'+renderer,ctx);
 ctx.Q=built.q;
 // Il riepilogo giornaliero e separato dalle etichette delle schede.
-ctx.orderInsights=()=>({today:0,yesterday:new Set(),worst:[]});
+ctx.orderInsights=()=>({today:0,yesterday:new Set(),newToday:new Set(),worst:[]});
 const studyBack=template.split('function studyReturnView(T){')[1].split('\nfunction renderRiepilogo(){')[0];
 vm.runInContext('function studyReturnView(T){'+studyBack,ctx);
 assert.equal(ctx.studyReturnView({items:[{n:original[0]}],meta:{src:'ordine'}}),'materia');
