@@ -968,7 +968,7 @@ function cleanSession(h){
   for(const f of ["selC","selS"]) if(h[f]===null) o[f]=null; else if(Array.isArray(h[f])) o[f]=intArr(h[f]);
   if(["all","new","err","worst","redo"].includes(h.w)) o.w=h.w;
   if(["free","q60","q85","tot"].includes(h.tm)) o.tm=h.tm;
-  if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena","blk","day","tag","giorno","stelle","ordine"].includes(h.src)) o.src=h.src;
+  if(["bar","cat","group","home-new","home-err","redo","worst","pdf","catena","blk","day","tag","giorno","stelle","ordine","ordine-errori"].includes(h.src)) o.src=h.src;
   if(["rand","err","less","orig"].includes(h.ord)) o.ord=h.ord;
   if(h.fb===0 || h.fb===1) o.fb=h.fb;
   { const b=int(h.blk,1,1000); if(h.blk!=null && b) o.blk=b; if(h.bok===1) o.bok=1; const r=int(h.rnd,1,100000); if(h.rnd!=null && r) o.rnd=r; }
@@ -2293,8 +2293,8 @@ function orderInsights(m){
     if(allowed.has(x[0]) && x[1] && (!first.has(x[0]) || t<first.get(x[0]))) first.set(x[0],t);
   }); });
   blocks.forEach(ids=>{ const times=ids.filter(n=>first.has(n)).map(n=>first.get(n));
-    if(times.length && dayKey(Math.min(...times))===prevDayKey(today)) ids.forEach(n=>yesterday.add(n));
-    if(times.length && dayKey(Math.min(...times))===today) ids.forEach(n=>newToday.add(n));
+    if(times.length===ids.length && dayKey(Math.max(...times))===prevDayKey(today)) ids.forEach(n=>yesterday.add(n));
+    if(times.length===ids.length && dayKey(Math.max(...times))===today) ids.forEach(n=>newToday.add(n));
   });
   S.h.filter(h=>["ordine","ordine-errori"].includes(h.src)).forEach(h=>{
     (h.q||[]).forEach(x=>{ if(!allowed.has(x[0]) || !x[1]) return;
@@ -2310,7 +2310,7 @@ function ordBlocksHtml(m){
   if(O.G.every(g=>g.name==="Argomenti" && g.label)){
     const insights=orderInsights(m);
     return `<div class="ordblk ordblk--named"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b> <span style="font-size:14px">· ${insights.today} domande nuove oggi</span></span></div>
-      <p class="hint" style="margin:10px 0 0">Viola · nuovi oggi. Lilla · nuovi ieri.</p><div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.st} ${b.ids.some(n=>insights.newToday.has(n))?"ob-newtoday":b.ids.some(n=>insights.yesterday.has(n))?"ob-yesterday":""} ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span>${b.ids.some(n=>insights.newToday.has(n))?`<span class="ob-yesterday-label">Nuovo oggi</span>`:b.ids.some(n=>insights.yesterday.has(n))?`<span class="ob-yesterday-label">Nuovo ieri</span>`:""}</button>`).join("")}</div><div style="margin-top:18px"><button class="btn btn-filled" id="order-worst" ${insights.worst.length?"":"disabled"}>Studia quelle che sbagli di più</button>${insights.worst.length?"":`<p class="hint">Gli errori di questi blocchi si accumulano qui quando rispondi.</p>`}</div></div>`;
+      <p class="hint" style="margin:10px 0 0">Viola · completati per la prima volta oggi. Lilla · completati per la prima volta ieri.</p><div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.st} ${b.ids.some(n=>insights.newToday.has(n))?"ob-newtoday":b.ids.some(n=>insights.yesterday.has(n))?"ob-yesterday":""} ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span>${b.ids.some(n=>insights.newToday.has(n))?`<span class="ob-yesterday-label">Nuovo oggi</span>`:b.ids.some(n=>insights.yesterday.has(n))?`<span class="ob-yesterday-label">Nuovo ieri</span>`:""}</button>`).join("")}</div><div style="margin-top:18px"><button class="btn btn-filled" id="order-worst" ${insights.worst.length?"":"disabled"}>Studia quelle che sbagli di più</button>${insights.worst.length?"":`<p class="hint">Gli errori di questi blocchi si accumulano qui quando rispondi.</p>`}</div></div>`;
   }
   const blk=b=>`<button class="ob-blk ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}">${b.st==="ok"||b.st==="ko"?"✓ ":""}${b.i+1}<small>${b.st==="ok"||b.st==="ko"?`${b.ok}/${b.ids.length}`:b.st==="part"?`fatte ${b.f}/${b.ids.length}`:`${b.ids.length} dom.`}</small></button>`;
   return `<div class="ordblk"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b><small>Prima le uguali, poi la stessa risposta, poi lo stesso argomento</small></span>

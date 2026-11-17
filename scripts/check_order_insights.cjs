@@ -4,19 +4,21 @@ const f=t.slice(t.indexOf('function orderInsights(m){'),t.indexOf('function ordB
 const now=Date.UTC(2026,10,17,12), day=86400000;
 const ctx={Date:class extends Date{static now(){return now}},dayKey:t=>new Date(t).toISOString().slice(0,10),prevDayKey:k=>new Date(Date.parse(k)-day).toISOString().slice(0,10),ORD:{5:[['Argomenti',-1,[[1,2],[3,4],[5,6]],'X']]},S:{h:[]}};
 vm.createContext(ctx);vm.runInContext(f,ctx);
-ctx.S.h=[{src:'ordine',start:now-2*day,q:[[1,1]]},{src:'ordine',start:now-day,q:[[1,-1],[2,1],[3,-1]]},{src:'ordine',start:now,q:[[1,-1],[3,1],[5,-1]]}];
+ctx.S.h=[{src:'ordine',start:now-2*day,q:[[1,1],[2,1]]},{src:'ordine',start:now-day,q:[[1,-1],[2,1],[3,-1],[4,1]]},{src:'ordine',start:now,q:[[1,-1],[3,1],[5,-1],[6,1]]}];
 let r=ctx.orderInsights(5);
 assert(!r.yesterday.has(1),'Ripasso di un vecchio blocco non deve colorarlo');
 assert(!r.yesterday.has(2),'Completare un vecchio blocco non lo rende nuovo');
 assert(r.yesterday.has(3),'Blocco iniziato ieri deve essere viola');
 assert(!r.yesterday.has(5),'Blocco nuovo oggi non deve essere viola');
-assert.equal(r.today,1,'Oggi contano solo le domande nuove');
+assert.equal(r.today,2,'Oggi contano solo le domande nuove');
 assert.equal(r.worst[0],1,'Gli errori ripetuti restano cumulati');
 ctx.S.h.reverse();r=ctx.orderInsights(5);assert(r.yesterday.has(3));assert(!r.yesterday.has(1),'Ordine storico sincronizzato indipendente');
 console.log('OK: ripassi, completamenti, nuovi ieri/oggi, errori e storico disordinato');
 
 ctx.S.h.push({src:'giorno',start:now-10*day,q:[[3,1],[5,1]]},{src:'sim',start:now-20*day,q:[[3,1]]});
-r=ctx.orderInsights(5);assert(r.yesterday.has(3),'Vecchi test fuori da Studia in ordine non devono nascondere i nuovi blocchi di ieri');assert.equal(r.today,1);
+r=ctx.orderInsights(5);assert(r.yesterday.has(3),'Vecchi test fuori da Studia in ordine non devono nascondere i nuovi blocchi di ieri');assert.equal(r.today,2);
 console.log('OK: vecchi test e blocchi del giorno non alterano le date dei blocchi verde acqua');
 
 assert(r.newToday.has(5));assert(!r.newToday.has(3));console.log('OK: nuovi oggi distinti dai nuovi ieri');
+
+ctx.S.h=[{src:'ordine',start:now-day,q:[[1,1]]},{src:'ordine',start:now,q:[[1,1],[2,-1]]}];r=ctx.orderInsights(5);assert(r.newToday.has(1));assert(!r.yesterday.has(1));console.log('OK: iniziato ieri e completato oggi diventa viola oggi');
