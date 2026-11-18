@@ -34,7 +34,7 @@ def generate(subject):
             prev=groups.pop(max(range(len(groups)),key=lambda i:affinity(groups[i])));sequence.extend(prev)
     blocks=[];labels=collections.Counter()
     for i in range(0,len(sequence),15):
-        ids=sequence[i:i+15];topics=collections.Counter(lookup[n]['sub'] or lookup[n]['contenuto'] for n in ids)
+        ids=sequence[i:i+15];topics=collections.Counter((lookup[n]['contenuto']+': '+lookup[n]['sub']) if subject[0]['materia']==1 else (lookup[n]['sub'] or lookup[n]['contenuto']) for n in ids)
         label=' / '.join(k for k,v in topics.most_common(2));labels[label]+=1
         blocks.append({'label':label,'ids':ids})
     seen=collections.Counter()

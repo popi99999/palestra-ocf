@@ -1,0 +1,2677 @@
+{
+  "subject": 1,
+  "source_sha256": "904a171559e703a99bb7ea12cc8f34f3713cd7367df3b6881afb7b96cc915f21",
+  "method": "Argomento continuo; famiglie curate o conservative; somiglianza di domanda e risposta nello stesso contesto",
+  "blocks": [
+    {
+      "label": "Abusi di mercato: Definizioni",
+      "ids": [
+        1,
+        4,
+        14,
+        13,
+        3,
+        2,
+        10,
+        5,
+        6,
+        7,
+        8,
+        17,
+        12,
+        15,
+        9
+      ]
+    },
+    {
+      "label": "Abusi di mercato: Sanzioni amministrative / Abusi di mercato: Definizioni",
+      "ids": [
+        16,
+        11,
+        18,
+        19,
+        27,
+        30,
+        31,
+        21,
+        29,
+        26,
+        25,
+        28,
+        20,
+        23,
+        22
+      ]
+    },
+    {
+      "label": "Abusi di mercato: Sanzioni penali / Abusi di mercato: Sanzioni amministrative",
+      "ids": [
+        32,
+        24,
+        33,
+        34,
+        44,
+        45,
+        43,
+        35,
+        36,
+        41,
+        37,
+        42,
+        38,
+        39,
+        40
+      ]
+    },
+    {
+      "label": "Abusi di mercato: Ambito di applicazione / Appello al pubblico risparmio: Offerta al pubblico di acquisto o di scambio",
+      "ids": [
+        46,
+        47,
+        49,
+        48,
+        59,
+        57,
+        58,
+        52,
+        54,
+        55,
+        56,
+        51,
+        50,
+        53,
+        60
+      ]
+    },
+    {
+      "label": "Appello al pubblico risparmio: Offerta al pubblico di acquisto o di scambio · 1",
+      "ids": [
+        109,
+        81,
+        80,
+        65,
+        71,
+        72,
+        83,
+        117,
+        118,
+        119,
+        91,
+        90,
+        89,
+        88,
+        99
+      ]
+    },
+    {
+      "label": "Appello al pubblico risparmio: Offerta al pubblico di acquisto o di scambio · 2",
+      "ids": [
+        103,
+        100,
+        95,
+        85,
+        87,
+        93,
+        86,
+        101,
+        92,
+        94,
+        97,
+        102,
+        104,
+        96,
+        68
+      ]
+    },
+    {
+      "label": "Appello al pubblico risparmio: Offerta al pubblico di acquisto o di scambio · 3",
+      "ids": [
+        66,
+        67,
+        114,
+        69,
+        113,
+        70,
+        73,
+        112,
+        115,
+        116,
+        77,
+        75,
+        82,
+        107,
+        84
+      ]
+    },
+    {
+      "label": "Appello al pubblico risparmio: Offerta al pubblico di acquisto o di scambio · 4",
+      "ids": [
+        74,
+        120,
+        106,
+        63,
+        62,
+        111,
+        61,
+        64,
+        110,
+        76,
+        78,
+        79,
+        108,
+        98,
+        105
+      ]
+    },
+    {
+      "label": "Appello al pubblico risparmio: Offerta al pubblico di sottoscrizione e di vendita · 1",
+      "ids": [
+        121,
+        154,
+        155,
+        125,
+        158,
+        126,
+        164,
+        124,
+        123,
+        165,
+        122,
+        140,
+        152,
+        150,
+        144
+      ]
+    },
+    {
+      "label": "Appello al pubblico risparmio: Offerta al pubblico di sottoscrizione e di vendita · 2",
+      "ids": [
+        151,
+        145,
+        146,
+        147,
+        142,
+        143,
+        149,
+        141,
+        153,
+        156,
+        138,
+        139,
+        159,
+        160,
+        161
+      ]
+    },
+    {
+      "label": "Appello al pubblico risparmio: Offerta al pubblico di sottoscrizione e di vendita · 3",
+      "ids": [
+        127,
+        128,
+        163,
+        129,
+        136,
+        135,
+        137,
+        130,
+        131,
+        132,
+        133,
+        157,
+        134,
+        162,
+        148
+      ]
+    },
+    {
+      "label": "Attività dei consulenti finanziari: Ambito di attività e incompatibilità",
+      "ids": [
+        166,
+        167,
+        168,
+        171,
+        186,
+        170,
+        169,
+        181,
+        179,
+        176,
+        180,
+        175,
+        177,
+        178,
+        184
+      ]
+    },
+    {
+      "label": "Attività dei consulenti finanziari: Regole generali di comportamento / Attività dei consulenti finanziari: Ambito di attività e incompatibilità",
+      "ids": [
+        185,
+        172,
+        173,
+        174,
+        182,
+        183,
+        187,
+        194,
+        192,
+        190,
+        191,
+        198,
+        193,
+        197,
+        195
+      ]
+    },
+    {
+      "label": "Attività dei consulenti finanziari: Regole di presentazione e comportamento / Attività dei consulenti finanziari: Regole generali di comportamento",
+      "ids": [
+        196,
+        189,
+        188,
+        199,
+        203,
+        209,
+        201,
+        200,
+        204,
+        202,
+        208,
+        207,
+        205,
+        213,
+        210
+      ]
+    },
+    {
+      "label": "Attività dei consulenti finanziari: Regole di presentazione e comportamento / Attività dei consulenti finanziari: Conservazione della documentazione",
+      "ids": [
+        215,
+        214,
+        216,
+        217,
+        212,
+        206,
+        211,
+        218,
+        222,
+        223,
+        221,
+        219,
+        220,
+        224,
+        226
+      ]
+    },
+    {
+      "label": "Attività dei consulenti finanziari: Requisiti di conoscenza e competenza e aggiornamento professionale / Attività dei consulenti finanziari: Informativa sulla sostenibilità",
+      "ids": [
+        227,
+        231,
+        229,
+        233,
+        232,
+        234,
+        236,
+        225,
+        230,
+        228,
+        238,
+        237,
+        235,
+        239,
+        240
+      ]
+    },
+    {
+      "label": "Attività dei consulenti finanziari: Informativa sulla sostenibilità / Disciplina dell'Albo unico dei consulenti finanziari: Albo unico dei consulenti finanziari",
+      "ids": [
+        241,
+        242,
+        243,
+        249,
+        247,
+        246,
+        244,
+        248,
+        245,
+        250,
+        251,
+        252,
+        258,
+        257,
+        256
+      ]
+    },
+    {
+      "label": "Disciplina dell'Albo unico dei consulenti finanziari: Pubblicità degli atti dell'Organismo / Disciplina dell'Albo unico dei consulenti finanziari: Albo unico dei consulenti finanziari",
+      "ids": [
+        259,
+        254,
+        253,
+        255,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        270,
+        274,
+        271
+      ]
+    },
+    {
+      "label": "Disciplina dell'Albo unico dei consulenti finanziari: Requisiti per l'iscrizione nelle tre sezioni dell'albo e situazioni impeditive / Disciplina dell'Albo unico dei consulenti finanziari: Prova valutativa",
+      "ids": [
+        273,
+        275,
+        272,
+        268,
+        269,
+        278,
+        277,
+        281,
+        276,
+        280,
+        279,
+        282,
+        283,
+        284,
+        288
+      ]
+    },
+    {
+      "label": "Disciplina dell'Albo unico dei consulenti finanziari: Iscrizione all'albo / Disciplina dell'Albo unico dei consulenti finanziari: Prova valutativa",
+      "ids": [
+        289,
+        285,
+        287,
+        291,
+        290,
+        286,
+        292,
+        294,
+        293,
+        298,
+        296,
+        295,
+        299,
+        297,
+        300
+      ]
+    },
+    {
+      "label": "Disciplina dell'Albo unico dei consulenti finanziari: Cancellazione dall'albo / Disciplina dell'Albo unico dei consulenti finanziari: Obblighi nei confronti dell'Organismo",
+      "ids": [
+        301,
+        306,
+        307,
+        303,
+        304,
+        305,
+        302,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        329,
+        321
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Informazione societaria · 1",
+      "ids": [
+        323,
+        324,
+        333,
+        331,
+        330,
+        334,
+        335,
+        336,
+        332,
+        348,
+        349,
+        356,
+        357,
+        350,
+        352
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Informazione societaria · 2",
+      "ids": [
+        351,
+        354,
+        353,
+        355,
+        347,
+        337,
+        314,
+        319,
+        315,
+        316,
+        317,
+        318,
+        341,
+        338,
+        340
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Informazione societaria / Emittenti e società con azioni quotate: Assetti proprietari e patti parasociali",
+      "ids": [
+        339,
+        346,
+        343,
+        342,
+        345,
+        344,
+        327,
+        322,
+        325,
+        328,
+        326,
+        320,
+        358,
+        385,
+        384
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Assetti proprietari e patti parasociali",
+      "ids": [
+        383,
+        382,
+        377,
+        376,
+        381,
+        379,
+        370,
+        371,
+        372,
+        369,
+        374,
+        373,
+        375,
+        368,
+        389
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Assetti proprietari e patti parasociali / Emittenti e società con azioni quotate: Tutela delle minoranze",
+      "ids": [
+        388,
+        365,
+        386,
+        359,
+        360,
+        364,
+        366,
+        367,
+        363,
+        361,
+        362,
+        387,
+        380,
+        378,
+        390
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Tutela delle minoranze",
+      "ids": [
+        394,
+        391,
+        395,
+        393,
+        392,
+        398,
+        397,
+        396,
+        401,
+        403,
+        404,
+        405,
+        402,
+        400,
+        399
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Tutela delle minoranze / Emittenti e società con azioni quotate: Esercizio del diritto di voto",
+      "ids": [
+        406,
+        412,
+        410,
+        411,
+        407,
+        414,
+        408,
+        413,
+        409,
+        415,
+        418,
+        416,
+        417,
+        421,
+        422
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Esercizio del diritto di voto",
+      "ids": [
+        424,
+        425,
+        429,
+        428,
+        426,
+        427,
+        419,
+        420,
+        439,
+        436,
+        434,
+        435,
+        437,
+        433,
+        431
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Organi di amministrazione e controllo / Emittenti e società con azioni quotate: Esercizio del diritto di voto",
+      "ids": [
+        432,
+        430,
+        438,
+        423,
+        440,
+        451,
+        444,
+        452,
+        442,
+        443,
+        445,
+        447,
+        446,
+        449,
+        466
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Organi di amministrazione e controllo",
+      "ids": [
+        465,
+        464,
+        461,
+        453,
+        448,
+        450,
+        441,
+        455,
+        454,
+        458,
+        460,
+        462,
+        457,
+        459,
+        456
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Revisione contabile / Emittenti e società con azioni quotate: Organi di amministrazione e controllo",
+      "ids": [
+        463,
+        467,
+        468,
+        469,
+        470,
+        471,
+        472,
+        482,
+        481,
+        487,
+        488,
+        478,
+        480,
+        479,
+        477
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Revisione contabile / Emittenti e società con azioni quotate: Disposizioni generali",
+      "ids": [
+        476,
+        474,
+        473,
+        475,
+        486,
+        484,
+        485,
+        483,
+        489,
+        490,
+        507,
+        492,
+        493,
+        494,
+        495
+      ]
+    },
+    {
+      "label": "Emittenti e società con azioni quotate: Disposizioni generali / Gestione collettiva del risparmio: Autorizzazione, albo e attività delle SGR",
+      "ids": [
+        496,
+        491,
+        497,
+        504,
+        505,
+        502,
+        499,
+        501,
+        500,
+        506,
+        498,
+        503,
+        508,
+        509,
+        510
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Autorizzazione, albo e attività delle SGR · 1",
+      "ids": [
+        511,
+        553,
+        512,
+        523,
+        513,
+        516,
+        519,
+        520,
+        514,
+        517,
+        518,
+        515,
+        543,
+        522,
+        521
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Autorizzazione, albo e attività delle SGR · 2",
+      "ids": [
+        533,
+        527,
+        528,
+        531,
+        548,
+        526,
+        529,
+        530,
+        532,
+        541,
+        539,
+        535,
+        525,
+        536,
+        544
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Autorizzazione, albo e attività delle SGR · 3",
+      "ids": [
+        547,
+        534,
+        538,
+        545,
+        546,
+        537,
+        550,
+        542,
+        540,
+        552,
+        551,
+        554,
+        555,
+        549,
+        524
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Esponenti aziendali e partecipanti al capitale · 1",
+      "ids": [
+        556,
+        557,
+        564,
+        561,
+        572,
+        579,
+        578,
+        580,
+        582,
+        581,
+        574,
+        577,
+        575,
+        573,
+        576
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Esponenti aziendali e partecipanti al capitale · 2",
+      "ids": [
+        558,
+        559,
+        560,
+        565,
+        563,
+        562,
+        583,
+        585,
+        584,
+        569,
+        570,
+        589,
+        567,
+        571,
+        568
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Prestazione del servizio e commercializzazione / Gestione collettiva del risparmio: Esponenti aziendali e partecipanti al capitale",
+      "ids": [
+        588,
+        587,
+        586,
+        590,
+        591,
+        566,
+        592,
+        623,
+        628,
+        629,
+        630,
+        627,
+        637,
+        595,
+        599
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Prestazione del servizio e commercializzazione · 1",
+      "ids": [
+        597,
+        600,
+        601,
+        596,
+        594,
+        598,
+        620,
+        593,
+        636,
+        618,
+        621,
+        614,
+        622,
+        619,
+        616
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Prestazione del servizio e commercializzazione · 2",
+      "ids": [
+        624,
+        617,
+        615,
+        633,
+        632,
+        635,
+        631,
+        634,
+        625,
+        626,
+        602,
+        603,
+        608,
+        610,
+        611
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Operatività all'estero / Gestione collettiva del risparmio: Prestazione del servizio e commercializzazione",
+      "ids": [
+        612,
+        604,
+        605,
+        606,
+        607,
+        613,
+        609,
+        638,
+        642,
+        645,
+        644,
+        640,
+        643,
+        647,
+        646
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Operatività all'estero / Gestione collettiva del risparmio: Provvedimenti ingiuntivi e crisi",
+      "ids": [
+        649,
+        648,
+        641,
+        639,
+        653,
+        651,
+        654,
+        652,
+        650,
+        655,
+        657,
+        656,
+        658,
+        669,
+        665
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Provvedimenti ingiuntivi e crisi",
+      "ids": [
+        666,
+        668,
+        671,
+        684,
+        670,
+        676,
+        678,
+        673,
+        679,
+        672,
+        677,
+        680,
+        674,
+        675,
+        663
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Provvedimenti ingiuntivi e crisi / Gestione collettiva del risparmio: Autorizzazione, albo e attività delle SICAV e delle SICAF",
+      "ids": [
+        664,
+        661,
+        659,
+        660,
+        662,
+        667,
+        683,
+        682,
+        681,
+        685,
+        686,
+        710,
+        703,
+        694,
+        698
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Autorizzazione, albo e attività delle SICAV e delle SICAF · 1",
+      "ids": [
+        697,
+        689,
+        730,
+        731,
+        693,
+        696,
+        687,
+        695,
+        701,
+        712,
+        724,
+        716,
+        715,
+        727,
+        714
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Autorizzazione, albo e attività delle SICAV e delle SICAF · 2",
+      "ids": [
+        717,
+        721,
+        718,
+        719,
+        722,
+        725,
+        723,
+        720,
+        713,
+        700,
+        702,
+        729,
+        732,
+        726,
+        733
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Autorizzazione, albo e attività delle SICAV e delle SICAF / Gestione collettiva del risparmio: Aspetti organizzativi di SGR e SICAV",
+      "ids": [
+        728,
+        691,
+        692,
+        688,
+        690,
+        699,
+        704,
+        707,
+        711,
+        706,
+        708,
+        705,
+        709,
+        734,
+        736
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Aspetti organizzativi di SGR e SICAV · 1",
+      "ids": [
+        735,
+        752,
+        754,
+        753,
+        776,
+        737,
+        751,
+        777,
+        742,
+        740,
+        741,
+        739,
+        738,
+        746,
+        747
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Aspetti organizzativi di SGR e SICAV · 2",
+      "ids": [
+        743,
+        748,
+        750,
+        749,
+        745,
+        744,
+        756,
+        757,
+        758,
+        759,
+        766,
+        769,
+        767,
+        768,
+        755
+      ]
+    },
+    {
+      "label": "Gestione collettiva del risparmio: Aspetti organizzativi di SGR e SICAV / La normativa antiriciclaggio: Soggetti obbligati",
+      "ids": [
+        760,
+        761,
+        762,
+        774,
+        775,
+        764,
+        773,
+        763,
+        765,
+        771,
+        772,
+        770,
+        778,
+        779,
+        780
+      ]
+    },
+    {
+      "label": "La normativa antiriciclaggio: Obblighi di adeguata verifica della clientela / La normativa antiriciclaggio: Soggetti obbligati",
+      "ids": [
+        783,
+        786,
+        787,
+        785,
+        782,
+        784,
+        781,
+        788,
+        808,
+        800,
+        803,
+        802,
+        805,
+        804,
+        791
+      ]
+    },
+    {
+      "label": "La normativa antiriciclaggio: Obblighi di adeguata verifica della clientela / La normativa antiriciclaggio: Obblighi di conservazione e di segnalazione",
+      "ids": [
+        806,
+        807,
+        795,
+        796,
+        797,
+        798,
+        801,
+        790,
+        799,
+        789,
+        794,
+        792,
+        793,
+        809,
+        819
+      ]
+    },
+    {
+      "label": "La normativa antiriciclaggio: Obblighi di conservazione e di segnalazione",
+      "ids": [
+        815,
+        816,
+        812,
+        820,
+        810,
+        811,
+        817,
+        814,
+        823,
+        821,
+        822,
+        813,
+        825,
+        826,
+        827
+      ]
+    },
+    {
+      "label": "La normativa antiriciclaggio: Disposizioni sanzionatorie / La normativa antiriciclaggio: Obblighi di conservazione e di segnalazione",
+      "ids": [
+        828,
+        818,
+        824,
+        829,
+        830,
+        839,
+        840,
+        842,
+        844,
+        841,
+        843,
+        836,
+        845,
+        834,
+        835
+      ]
+    },
+    {
+      "label": "La normativa antiriciclaggio: Limiti all'uso di contante e sanzioni relative / La normativa antiriciclaggio: Disposizioni sanzionatorie",
+      "ids": [
+        831,
+        832,
+        833,
+        837,
+        838,
+        846,
+        847,
+        848,
+        849,
+        859,
+        860,
+        864,
+        863,
+        865,
+        858
+      ]
+    },
+    {
+      "label": "La normativa antiriciclaggio: Limiti all'uso di contante e sanzioni relative",
+      "ids": [
+        866,
+        861,
+        862,
+        870,
+        869,
+        868,
+        871,
+        867,
+        857,
+        855,
+        854,
+        853,
+        856,
+        850,
+        852
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Mercati di Borsa Italiana / La normativa antiriciclaggio: Disposizioni generali",
+      "ids": [
+        851,
+        872,
+        873,
+        876,
+        874,
+        875,
+        877,
+        878,
+        897,
+        911,
+        920,
+        937,
+        923,
+        924,
+        927
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Mercati di Borsa Italiana · 1",
+      "ids": [
+        929,
+        931,
+        930,
+        909,
+        908,
+        906,
+        883,
+        904,
+        907,
+        941,
+        946,
+        928,
+        925,
+        922,
+        882
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Mercati di Borsa Italiana · 2",
+      "ids": [
+        880,
+        901,
+        890,
+        899,
+        912,
+        905,
+        889,
+        919,
+        891,
+        914,
+        913,
+        896,
+        885,
+        915,
+        933
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Mercati di Borsa Italiana · 3",
+      "ids": [
+        934,
+        898,
+        916,
+        945,
+        935,
+        940,
+        939,
+        884,
+        943,
+        944,
+        886,
+        894,
+        932,
+        942,
+        887
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Mercati di Borsa Italiana · 4",
+      "ids": [
+        888,
+        893,
+        903,
+        917,
+        948,
+        949,
+        900,
+        902,
+        910,
+        950,
+        921,
+        926,
+        918,
+        881,
+        879
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Sistemi multilaterali e internalizzatori sistematici / Mercati degli strumenti finanziari: Mercati di Borsa Italiana",
+      "ids": [
+        892,
+        938,
+        895,
+        947,
+        936,
+        951,
+        982,
+        981,
+        952,
+        960,
+        961,
+        962,
+        959,
+        956,
+        953
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Sistemi multilaterali e internalizzatori sistematici",
+      "ids": [
+        955,
+        983,
+        965,
+        972,
+        974,
+        975,
+        980,
+        977,
+        964,
+        970,
+        963,
+        971,
+        966,
+        969,
+        968
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Sistemi multilaterali e internalizzatori sistematici / Mercati degli strumenti finanziari: Gestione accentrata di strumenti finanziari",
+      "ids": [
+        967,
+        973,
+        976,
+        979,
+        978,
+        954,
+        958,
+        957,
+        984,
+        986,
+        988,
+        985,
+        1007,
+        992,
+        996
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Gestione accentrata di strumenti finanziari",
+      "ids": [
+        997,
+        994,
+        995,
+        998,
+        999,
+        1000,
+        1001,
+        1005,
+        1003,
+        1004,
+        1002,
+        993,
+        987,
+        990,
+        989
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Mercati regolamentati / Mercati degli strumenti finanziari: Gestione accentrata di strumenti finanziari",
+      "ids": [
+        991,
+        1006,
+        1008,
+        1021,
+        1027,
+        1037,
+        1042,
+        1041,
+        1063,
+        1056,
+        1022,
+        1023,
+        1033,
+        1035,
+        1036
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Mercati regolamentati · 1",
+      "ids": [
+        1034,
+        1014,
+        1017,
+        1010,
+        1009,
+        1015,
+        1059,
+        1030,
+        1029,
+        1032,
+        1031,
+        1018,
+        1019,
+        1049,
+        1062
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Mercati regolamentati · 2",
+      "ids": [
+        1039,
+        1045,
+        1043,
+        1046,
+        1048,
+        1044,
+        1047,
+        1060,
+        1061,
+        1038,
+        1024,
+        1025,
+        1028,
+        1057,
+        1013
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Mercati regolamentati / Mercati degli strumenti finanziari: Obblighi di comunicazione e regime di trasparenza",
+      "ids": [
+        1016,
+        1020,
+        1026,
+        1040,
+        1011,
+        1012,
+        1054,
+        1058,
+        1055,
+        1050,
+        1052,
+        1053,
+        1051,
+        1064,
+        1083
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Obblighi di comunicazione e regime di trasparenza",
+      "ids": [
+        1084,
+        1082,
+        1069,
+        1079,
+        1072,
+        1070,
+        1089,
+        1077,
+        1081,
+        1078,
+        1068,
+        1076,
+        1071,
+        1065,
+        1088
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Obblighi di comunicazione e regime di trasparenza / Mercati degli strumenti finanziari: Integrità dei mercati",
+      "ids": [
+        1067,
+        1073,
+        1085,
+        1074,
+        1086,
+        1075,
+        1080,
+        1066,
+        1087,
+        1090,
+        1096,
+        1095,
+        1094,
+        1092,
+        1093
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Disciplina degli investimenti sostenibili / Mercati degli strumenti finanziari: Integrità dei mercati",
+      "ids": [
+        1091,
+        1097,
+        1098,
+        1099,
+        1101,
+        1100,
+        1102,
+        1104,
+        1103,
+        1107,
+        1109,
+        1110,
+        1113,
+        1112,
+        1108
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Disciplina degli investimenti sostenibili · 1",
+      "ids": [
+        1114,
+        1105,
+        1115,
+        1116,
+        1117,
+        1106,
+        1111,
+        1168,
+        1169,
+        1167,
+        1173,
+        1174,
+        1175,
+        1158,
+        1126
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Disciplina degli investimenti sostenibili · 2",
+      "ids": [
+        1164,
+        1163,
+        1166,
+        1129,
+        1133,
+        1162,
+        1161,
+        1160,
+        1135,
+        1130,
+        1128,
+        1134,
+        1127,
+        1159,
+        1170
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Disciplina degli investimenti sostenibili · 3",
+      "ids": [
+        1171,
+        1172,
+        1131,
+        1132,
+        1157,
+        1125,
+        1156,
+        1124,
+        1123,
+        1155,
+        1118,
+        1121,
+        1122,
+        1119,
+        1165
+      ]
+    },
+    {
+      "label": "Mercati degli strumenti finanziari: Disciplina degli investimenti sostenibili · 4",
+      "ids": [
+        1120,
+        1136,
+        1137,
+        1141,
+        1145,
+        1152,
+        1154,
+        1153,
+        1151,
+        1140,
+        1143,
+        1138,
+        1139,
+        1147,
+        1146
+      ]
+    },
+    {
+      "label": "Organismo di vigilanza e tenuta dell'albo unico dei consulenti finanziari: Requisiti di rappresentatività ass. prof. / Mercati degli strumenti finanziari: Disciplina degli investimenti sostenibili",
+      "ids": [
+        1144,
+        1148,
+        1142,
+        1149,
+        1150,
+        1176,
+        1177,
+        1180,
+        1185,
+        1186,
+        1181,
+        1183,
+        1178,
+        1179,
+        1187
+      ]
+    },
+    {
+      "label": "Organismo di vigilanza e tenuta dell'albo unico dei consulenti finanziari: Tenuta dell'Albo / Organismo di vigilanza e tenuta dell'albo unico dei consulenti finanziari: Requisiti di rappresentatività ass. prof.",
+      "ids": [
+        1184,
+        1182,
+        1188,
+        1189,
+        1192,
+        1191,
+        1194,
+        1196,
+        1200,
+        1201,
+        1199,
+        1198,
+        1190,
+        1193,
+        1195
+      ]
+    },
+    {
+      "label": "Organismo di vigilanza e tenuta dell'albo unico dei consulenti finanziari: Vigilanza dell'Organismo sui consulenti finanziari / Organismo di vigilanza e tenuta dell'albo unico dei consulenti finanziari: Vigilanza della CONSOB sull'Organismo",
+      "ids": [
+        1202,
+        1197,
+        1203,
+        1204,
+        1209,
+        1210,
+        1205,
+        1208,
+        1206,
+        1207,
+        1211,
+        1219,
+        1214,
+        1217,
+        1215
+      ]
+    },
+    {
+      "label": "Organismo di vigilanza e tenuta dell'albo unico dei consulenti finanziari: Trattazione dei reclami contro i provvedimenti di iscrizione, cancellazione e riammissione all'albo adottati dall'Organismo / Organismo di vigilanza e tenuta dell'albo unico dei consulenti finanziari: Vigilanza della CONSOB sull'Organismo",
+      "ids": [
+        1212,
+        1213,
+        1218,
+        1216,
+        1220,
+        1227,
+        1228,
+        1224,
+        1225,
+        1221,
+        1223,
+        1226,
+        1222,
+        1229,
+        1233
+      ]
+    },
+    {
+      "label": "Promozione e collocamento a distanza e offerta fuori sede: Svolgimento",
+      "ids": [
+        1245,
+        1237,
+        1240,
+        1241,
+        1232,
+        1242,
+        1235,
+        1244,
+        1238,
+        1239,
+        1246,
+        1230,
+        1231,
+        1243,
+        1236
+      ]
+    },
+    {
+      "label": "Promozione e collocamento a distanza e offerta fuori sede: Offerta fuori sede / Promozione e collocamento a distanza e offerta fuori sede: Ruolo del consulente finanziario abilitato all'offerta fuori sede",
+      "ids": [
+        1234,
+        1247,
+        1251,
+        1249,
+        1256,
+        1252,
+        1248,
+        1255,
+        1250,
+        1254,
+        1253,
+        1257,
+        1260,
+        1259,
+        1258
+      ]
+    },
+    {
+      "label": "Promozione e collocamento a distanza e offerta fuori sede: Soggetti / Promozione e collocamento a distanza e offerta fuori sede: Ruolo del consulente finanziario abilitato all'offerta fuori sede",
+      "ids": [
+        1265,
+        1266,
+        1262,
+        1261,
+        1263,
+        1264,
+        1267,
+        1278,
+        1269,
+        1276,
+        1277,
+        1270,
+        1272,
+        1273,
+        1280
+      ]
+    },
+    {
+      "label": "Promozione e collocamento a distanza e offerta fuori sede: Limiti impiego di comunicazione a distanza / Promozione e collocamento a distanza e offerta fuori sede: Soggetti",
+      "ids": [
+        1279,
+        1275,
+        1281,
+        1282,
+        1274,
+        1268,
+        1271,
+        1283,
+        1284,
+        1285,
+        1287,
+        1288,
+        1291,
+        1292,
+        1289
+      ]
+    },
+    {
+      "label": "Provvedimenti sanzionatori e cautelari nei confronti dei consulenti finanziari: Provvedimenti cautelari / Provvedimenti sanzionatori e cautelari nei confronti dei consulenti finanziari: Sanzioni",
+      "ids": [
+        1290,
+        1286,
+        1293,
+        1294,
+        1301,
+        1302,
+        1298,
+        1296,
+        1295,
+        1300,
+        1299,
+        1297,
+        1303,
+        1316,
+        1317
+      ]
+    },
+    {
+      "label": "Provvedimenti sanzionatori e cautelari nei confronti dei consulenti finanziari: Sanzioni · 1",
+      "ids": [
+        1308,
+        1341,
+        1319,
+        1340,
+        1323,
+        1335,
+        1326,
+        1327,
+        1325,
+        1331,
+        1329,
+        1304,
+        1314,
+        1315,
+        1306
+      ]
+    },
+    {
+      "label": "Provvedimenti sanzionatori e cautelari nei confronti dei consulenti finanziari: Sanzioni · 2",
+      "ids": [
+        1328,
+        1322,
+        1333,
+        1334,
+        1324,
+        1321,
+        1320,
+        1330,
+        1332,
+        1311,
+        1339,
+        1313,
+        1312,
+        1305,
+        1310
+      ]
+    },
+    {
+      "label": "Requisiti e deontologia dei consulenti finanziari: Requisiti di onorabilità / Provvedimenti sanzionatori e cautelari nei confronti dei consulenti finanziari: Sanzioni",
+      "ids": [
+        1309,
+        1307,
+        1337,
+        1336,
+        1318,
+        1342,
+        1338,
+        1343,
+        1354,
+        1351,
+        1353,
+        1355,
+        1345,
+        1346,
+        1356
+      ]
+    },
+    {
+      "label": "Requisiti e deontologia dei consulenti finanziari: Requisiti di professionalità / Requisiti e deontologia dei consulenti finanziari: Requisiti di onorabilità",
+      "ids": [
+        1350,
+        1344,
+        1347,
+        1348,
+        1352,
+        1349,
+        1357,
+        1372,
+        1368,
+        1363,
+        1360,
+        1359,
+        1361,
+        1371,
+        1374
+      ]
+    },
+    {
+      "label": "Requisiti e deontologia dei consulenti finanziari: Requisiti di professionalità / Servizi e attività di investimento: Soggetti e autorizzazione",
+      "ids": [
+        1366,
+        1367,
+        1364,
+        1365,
+        1373,
+        1369,
+        1370,
+        1358,
+        1362,
+        1375,
+        1385,
+        1383,
+        1382,
+        1386,
+        1422
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Soggetti e autorizzazione · 1",
+      "ids": [
+        1384,
+        1379,
+        1401,
+        1399,
+        1408,
+        1391,
+        1392,
+        1380,
+        1377,
+        1376,
+        1410,
+        1423,
+        1387,
+        1388,
+        1393
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Soggetti e autorizzazione · 2",
+      "ids": [
+        1390,
+        1395,
+        1389,
+        1394,
+        1409,
+        1412,
+        1411,
+        1396,
+        1397,
+        1398,
+        1400,
+        1381,
+        1404,
+        1405,
+        1421
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Soggetti e autorizzazione / Servizi e attività di investimento: Esponenti aziendali e partecipanti al capitale",
+      "ids": [
+        1417,
+        1416,
+        1420,
+        1418,
+        1419,
+        1406,
+        1407,
+        1414,
+        1415,
+        1402,
+        1403,
+        1413,
+        1378,
+        1424,
+        1428
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Esponenti aziendali e partecipanti al capitale · 1",
+      "ids": [
+        1434,
+        1431,
+        1432,
+        1433,
+        1427,
+        1426,
+        1430,
+        1425,
+        1429,
+        1446,
+        1448,
+        1450,
+        1451,
+        1454,
+        1449
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Esponenti aziendali e partecipanti al capitale · 2",
+      "ids": [
+        1453,
+        1447,
+        1444,
+        1443,
+        1445,
+        1436,
+        1437,
+        1440,
+        1441,
+        1439,
+        1438,
+        1456,
+        1455,
+        1435,
+        1442
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Autorizzazione imprese di investimento / Servizi e attività di investimento: Esponenti aziendali e partecipanti al capitale",
+      "ids": [
+        1452,
+        1457,
+        1469,
+        1460,
+        1459,
+        1470,
+        1471,
+        1468,
+        1473,
+        1474,
+        1475,
+        1477,
+        1476,
+        1478,
+        1461
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Autorizzazione imprese di investimento / Servizi e attività di investimento: Criteri di svolgimento dei servizi e delle attività di investimento",
+      "ids": [
+        1458,
+        1466,
+        1467,
+        1463,
+        1464,
+        1462,
+        1472,
+        1465,
+        1479,
+        1480,
+        1488,
+        1492,
+        1490,
+        1481,
+        1487
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Criteri di svolgimento dei servizi e delle attività di investimento",
+      "ids": [
+        1505,
+        1508,
+        1506,
+        1507,
+        1483,
+        1504,
+        1498,
+        1482,
+        1502,
+        1485,
+        1484,
+        1491,
+        1489,
+        1499,
+        1501
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Criteri di svolgimento dei servizi e delle attività di investimento / Servizi e attività di investimento: I contratti",
+      "ids": [
+        1500,
+        1497,
+        1503,
+        1495,
+        1496,
+        1494,
+        1486,
+        1493,
+        1509,
+        1524,
+        1514,
+        1510,
+        1512,
+        1511,
+        1522
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: I contratti / Servizi e attività di investimento: Tutela investitori",
+      "ids": [
+        1525,
+        1513,
+        1518,
+        1517,
+        1515,
+        1516,
+        1523,
+        1521,
+        1520,
+        1519,
+        1526,
+        1528,
+        1529,
+        1533,
+        1531
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Tutela investitori",
+      "ids": [
+        1534,
+        1536,
+        1535,
+        1532,
+        1547,
+        1548,
+        1540,
+        1539,
+        1541,
+        1542,
+        1544,
+        1543,
+        1538,
+        1545,
+        1537
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Operatività transfrontaliera / Servizi e attività di investimento: Tutela investitori",
+      "ids": [
+        1546,
+        1527,
+        1530,
+        1549,
+        1550,
+        1556,
+        1552,
+        1578,
+        1580,
+        1562,
+        1564,
+        1565,
+        1566,
+        1558,
+        1559
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Operatività transfrontaliera",
+      "ids": [
+        1567,
+        1557,
+        1563,
+        1555,
+        1554,
+        1551,
+        1553,
+        1577,
+        1561,
+        1560,
+        1568,
+        1570,
+        1575,
+        1576,
+        1574
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Provvedimenti ingiuntivi e crisi / Servizi e attività di investimento: Operatività transfrontaliera",
+      "ids": [
+        1571,
+        1572,
+        1573,
+        1569,
+        1579,
+        1581,
+        1582,
+        1586,
+        1587,
+        1583,
+        1584,
+        1588,
+        1597,
+        1604,
+        1598
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Provvedimenti ingiuntivi e crisi",
+      "ids": [
+        1603,
+        1590,
+        1592,
+        1593,
+        1595,
+        1605,
+        1591,
+        1589,
+        1594,
+        1601,
+        1600,
+        1599,
+        1596,
+        1602,
+        1585
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Informazioni commerciali e promozionali · 1",
+      "ids": [
+        1606,
+        1607,
+        1608,
+        1609,
+        1618,
+        1622,
+        1617,
+        1643,
+        1615,
+        1621,
+        1610,
+        1646,
+        1649,
+        1650,
+        1651
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Informazioni commerciali e promozionali · 2",
+      "ids": [
+        1647,
+        1624,
+        1625,
+        1627,
+        1626,
+        1644,
+        1632,
+        1631,
+        1633,
+        1634,
+        1636,
+        1630,
+        1645,
+        1639,
+        1638
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Informazioni commerciali e promozionali · 3",
+      "ids": [
+        1640,
+        1637,
+        1612,
+        1616,
+        1611,
+        1614,
+        1613,
+        1619,
+        1620,
+        1623,
+        1642,
+        1641,
+        1652,
+        1629,
+        1628
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Adeguatezza / Servizi e attività di investimento: Informazioni commerciali e promozionali",
+      "ids": [
+        1635,
+        1648,
+        1653,
+        1681,
+        1662,
+        1663,
+        1654,
+        1655,
+        1665,
+        1666,
+        1660,
+        1668,
+        1667,
+        1676,
+        1664
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Adeguatezza · 1",
+      "ids": [
+        1677,
+        1673,
+        1680,
+        1679,
+        1675,
+        1657,
+        1661,
+        1658,
+        1682,
+        1678,
+        1684,
+        1672,
+        1669,
+        1670,
+        1671
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Adeguatezza · 2",
+      "ids": [
+        1683,
+        1656,
+        1659,
+        1695,
+        1674,
+        1692,
+        1689,
+        1690,
+        1691,
+        1693,
+        1685,
+        1686,
+        1688,
+        1687,
+        1694
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Appropriatezza · 1",
+      "ids": [
+        1696,
+        1706,
+        1698,
+        1702,
+        1699,
+        1708,
+        1722,
+        1717,
+        1709,
+        1721,
+        1701,
+        1700,
+        1715,
+        1726,
+        1727
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Appropriatezza · 2",
+      "ids": [
+        1723,
+        1720,
+        1713,
+        1719,
+        1724,
+        1718,
+        1710,
+        1711,
+        1712,
+        1705,
+        1697,
+        1703,
+        1704,
+        1716,
+        1714
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Mera esecuzione e strumenti finanziari non complessi / Servizi e attività di investimento: Appropriatezza",
+      "ids": [
+        1728,
+        1707,
+        1725,
+        1729,
+        1730,
+        1734,
+        1731,
+        1735,
+        1737,
+        1746,
+        1738,
+        1739,
+        1747,
+        1741,
+        1743
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Mera esecuzione e strumenti finanziari non complessi / Servizi e attività di investimento: Best execution",
+      "ids": [
+        1742,
+        1745,
+        1740,
+        1744,
+        1733,
+        1736,
+        1748,
+        1732,
+        1749,
+        1750,
+        1761,
+        1754,
+        1755,
+        1757,
+        1759
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Best execution / Servizi e attività di investimento: Gestione degli ordini",
+      "ids": [
+        1758,
+        1753,
+        1751,
+        1762,
+        1752,
+        1760,
+        1756,
+        1763,
+        1764,
+        1769,
+        1767,
+        1771,
+        1765,
+        1766,
+        1768
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Incentivi agli intermediari / Servizi e attività di investimento: Rapporti con controparti qualificate",
+      "ids": [
+        1770,
+        1772,
+        1778,
+        1776,
+        1773,
+        1775,
+        1774,
+        1777,
+        1779,
+        1780,
+        1782,
+        1783,
+        1781,
+        1784,
+        1785
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Rendiconti / Servizi e attività di investimento: Governo degli strumenti finanziari",
+      "ids": [
+        1794,
+        1795,
+        1786,
+        1798,
+        1796,
+        1797,
+        1791,
+        1793,
+        1792,
+        1788,
+        1787,
+        1789,
+        1790,
+        1799,
+        1803
+      ]
+    },
+    {
+      "label": "Servizi e attività di investimento: Governo degli strumenti finanziari / Trasparenza delle condizioni contrattuali e dei rapporti con i clienti: Operazioni e servizi bancari e finanziari",
+      "ids": [
+        1805,
+        1804,
+        1810,
+        1806,
+        1808,
+        1809,
+        1801,
+        1800,
+        1807,
+        1802,
+        1812,
+        1811,
+        1813,
+        1826,
+        1830
+      ]
+    },
+    {
+      "label": "Trasparenza delle condizioni contrattuali e dei rapporti con i clienti: Operazioni e servizi bancari e finanziari · 1",
+      "ids": [
+        1831,
+        1821,
+        1824,
+        1848,
+        1825,
+        1827,
+        1828,
+        1822,
+        1814,
+        1829,
+        1847,
+        1845,
+        1842,
+        1846,
+        1840
+      ]
+    },
+    {
+      "label": "Trasparenza delle condizioni contrattuali e dei rapporti con i clienti: Operazioni e servizi bancari e finanziari · 2",
+      "ids": [
+        1838,
+        1839,
+        1841,
+        1837,
+        1816,
+        1815,
+        1817,
+        1818,
+        1820,
+        1819,
+        1832,
+        1833,
+        1823,
+        1835,
+        1834
+      ]
+    },
+    {
+      "label": "Trasparenza delle condizioni contrattuali e dei rapporti con i clienti: Credito ai consumatori / Trasparenza delle condizioni contrattuali e dei rapporti con i clienti: Operazioni e servizi bancari e finanziari",
+      "ids": [
+        1836,
+        1844,
+        1843,
+        1849,
+        1856,
+        1855,
+        1864,
+        1861,
+        1859,
+        1860,
+        1863,
+        1850,
+        1857,
+        1862,
+        1866
+      ]
+    },
+    {
+      "label": "Trasparenza delle condizioni contrattuali e dei rapporti con i clienti: Credito ai consumatori / Trasparenza delle condizioni contrattuali e dei rapporti con i clienti: Servizi di pagamento",
+      "ids": [
+        1872,
+        1870,
+        1871,
+        1858,
+        1865,
+        1851,
+        1852,
+        1853,
+        1854,
+        1868,
+        1867,
+        1869,
+        1873,
+        1874,
+        1877
+      ]
+    },
+    {
+      "label": "Vigilanza su mercati e intermediari: Natura e regulators / Trasparenza delle condizioni contrattuali e dei rapporti con i clienti: Regole generali e controlli",
+      "ids": [
+        1876,
+        1875,
+        1878,
+        1879,
+        1881,
+        1882,
+        1880,
+        1883,
+        1884,
+        1895,
+        1890,
+        1887,
+        1898,
+        1899,
+        1900
+      ]
+    },
+    {
+      "label": "Vigilanza su mercati e intermediari: Natura e regulators · 1",
+      "ids": [
+        1901,
+        1906,
+        1907,
+        1905,
+        1913,
+        1914,
+        1912,
+        1893,
+        1892,
+        1917,
+        1894,
+        1919,
+        1915,
+        1888,
+        1902
+      ]
+    },
+    {
+      "label": "Vigilanza su mercati e intermediari: Natura e regulators · 2",
+      "ids": [
+        1903,
+        1904,
+        1908,
+        1909,
+        1920,
+        1921,
+        1910,
+        1911,
+        1916,
+        1891,
+        1885,
+        1886,
+        1889,
+        1918,
+        1897
+      ]
+    },
+    {
+      "label": "Vigilanza su mercati e intermediari: TUB / Vigilanza su mercati e intermediari: Natura e regulators",
+      "ids": [
+        1896,
+        1922,
+        1929,
+        1941,
+        1928,
+        1923,
+        1925,
+        1930,
+        1932,
+        1942,
+        1937,
+        1938,
+        1931,
+        1936,
+        1944
+      ]
+    },
+    {
+      "label": "Vigilanza su mercati e intermediari: TUB / Vigilanza su mercati e intermediari: Conflitti di interesse",
+      "ids": [
+        1943,
+        1945,
+        1939,
+        1934,
+        1933,
+        1940,
+        1946,
+        1935,
+        1926,
+        1927,
+        1924,
+        1947,
+        1948,
+        1949,
+        1950
+      ]
+    },
+    {
+      "label": "Vigilanza su mercati e intermediari: Conflitti di interesse",
+      "ids": [
+        1954,
+        1955,
+        1951,
+        1953,
+        1952,
+        1960,
+        1958,
+        1959,
+        1962,
+        1961,
+        1956,
+        1957,
+        1963,
+        1965,
+        1964
+      ]
+    },
+    {
+      "label": "Vigilanza su mercati e intermediari: Conservazione delle registrazioni",
+      "ids": [
+        1966,
+        1971,
+        1979,
+        1975,
+        1977,
+        1980,
+        1968,
+        1967,
+        1969,
+        1970,
+        1976,
+        1973,
+        1974,
+        1978,
+        1972
+      ]
+    },
+    {
+      "label": "Vigilanza su mercati e intermediari: Sistema organizzativo · 1",
+      "ids": [
+        1981,
+        1987,
+        1989,
+        1994,
+        1996,
+        2000,
+        1988,
+        1991,
+        1992,
+        1993,
+        1982,
+        1983,
+        1985,
+        1986,
+        1997
+      ]
+    },
+    {
+      "label": "Vigilanza su mercati e intermediari: Sistema organizzativo · 2",
+      "ids": [
+        1990,
+        1995,
+        1984,
+        1998,
+        1999
+      ]
+    }
+  ]
+}
