@@ -36,3 +36,29 @@ Il controllo indipendente ha segnalato tre famiglie con ruoli invertiti (2928/29
 ## Bilanciamento dei blocchi
 
 Il numero di sessioni è il minimo compatibile con il massimo di 15: le dimensioni differiscono al massimo di una domanda. La partizione non riordina nessun quesito. Quando ci sono più tagli possibili da 14/15, preferisce non dividere famiglie note e, a parità, cerca i collegamenti più deboli. Le etichette dei blocchi di passaggio indicano entrambe le sezioni o categorie. I gruppi possono proseguire nel blocco successivo quando il limite di 15 lo richiede.
+
+## Aggiornamento 18 novembre 2026
+
+M1, M2 e M3 ora usano percorsi per argomento continuo, salvati in
+`percorsi_approvati/m*.json`, generati con `genera_percorsi_argomenti.py`.
+Prima si mantengono insieme contesto e sottotema; dentro il sottotema si
+accostano famiglie identiche, equivalenti e con stessa risposta informativa.
+Le famiglie sono conservative: non eliminano numeri, negazioni o ruoli.
+I vicini successivi considerano sia domanda sia risposta corretta.
+M3 conserva le famiglie curate compatibili con lo stesso contesto;
+i vecchi raggruppamenti generici della sezione Stesso argomento vengono
+riordinati nel sottotema, per evitare ritorni su temi precedenti.
+
+M3: 34 blocchi (ultimo 5); M2: 107 (ultimo 10); M1: 134 (ultimo 5).
+I blocchi ordinari hanno 15 domande; il nome deriva dai sottotemi contenuti.
+Le schede usano la stessa griglia quadrata, colori e ripasso errori di M4/M5.
+Testi, alternative, risposte e ID restano invariati. Lo storico resta per ID.
+
+Il contatore accanto a Studia in ordine mostra le domande dei blocchi
+completati per la prima volta oggi. Non conta nuovamente i blocchi ripassati.
+La data del primo completamento viene ricostruita dalle prime risposte a
+tutte le domande del blocco, nelle sole sessioni ordine. Una singola domanda
+già affrontata non riduce quindi un blocco da 15 a 14 nel contatore.
+Verifica reale M4 del 18 novembre: 8 blocchi distinti svolti, 2 ripassi e
+6 nuovi completamenti = 90 domande nei nuovi blocchi, rispetto a 44 prime
+risposte individuali nel percorso precedente.

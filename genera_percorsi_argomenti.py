@@ -8,7 +8,10 @@ def generate(subject):
     lookup={q['n']:prepare(q) for q in subject}; remaining=set(lookup); units=[]
     if subject[0]['materia']==3:
         for g in json.loads(Path('ordine_m3.json').read_text())['groups']:
-            units.append(g['ids']);remaining.difference_update(g['ids'])
+            if g['section']==3:continue
+            split=collections.defaultdict(list)
+            for n in g['ids']:split[lookup[n]['contenuto'],lookup[n]['sub']].append(n)
+            units.extend(split.values());remaining.difference_update(g['ids'])
     else:
         for match in [lambda a,b:normalized(a['domanda'])==normalized(b['domanda']),equivalent,same_answer]:
             contexts=collections.defaultdict(list)

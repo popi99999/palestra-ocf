@@ -12,5 +12,7 @@ class TopicPathsTests(unittest.TestCase):
    self.assertTrue(all(len(b['ids'])==15 for b in plan['blocks'][:-1]));self.assertEqual(len({b['label'] for b in plan['blocks']}),len(plan['blocks']))
  def test_m3_curated_families_stay_adjacent(self):
   plan=json.loads(Path('percorsi_approvati/m3.json').read_text());ids=[n for b in plan['blocks'] for n in b['ids']];pos={n:i for i,n in enumerate(ids)}
+  bank={q['n']:q for q in json.loads(Path('ocf_5000_quesiti.json').read_text())}
   for g in json.loads(Path('ordine_m3.json').read_text())['groups']:
+   if g['section']==3 or len({(bank[n]['contenuto'],bank[n]['sub']) for n in g['ids']})>1:continue
    positions=[pos[n] for n in g['ids']];self.assertEqual(positions,list(range(positions[0],positions[0]+len(positions))))
