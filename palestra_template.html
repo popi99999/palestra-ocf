@@ -2302,14 +2302,14 @@ function orderInsights(m){
       if(x[1]===-1) errors.set(x[0],(errors.get(x[0])||0)+1);
     });
   });
-  return {today:seenToday.size, yesterday, newToday, worst:[...errors].sort((a,b)=>b[1]-a[1]||a[0]-b[0]).map(x=>x[0])};
+  return {today:newToday.size, yesterday, newToday, worst:[...errors].sort((a,b)=>b[1]-a[1]||a[0]-b[0]).map(x=>x[0])};
 }
 function ordBlocksHtml(m){
   const O=ordBlocks(m); if(!O) return "";
   const nx=O.all.find(b=>b.st===""||b.st==="part"), next=nx?nx.i:-1, secs=[...new Set(O.G.map(g=>g.name))], N=BY_MAT[m].length;
   if(O.G.every(g=>g.name==="Argomenti" && g.label)){
     const insights=orderInsights(m);
-    return `<div class="ordblk ordblk--named"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b> <span style="font-size:14px">· ${insights.today} domande nuove oggi</span></span></div>
+    return `<div class="ordblk ordblk--named"><div class="ob-head"><span class="ob-ic" aria-hidden="true">${icon("format_list_numbered")}</span><span class="sb-txt"><b>Studia in ordine</b> <span style="font-size:14px">· ${insights.today} domande nei nuovi blocchi di oggi</span></span></div>
       <p class="hint" style="margin:10px 0 0">Viola · completati per la prima volta oggi. Lilla · completati per la prima volta ieri.</p><div class="ob-grid">${O.all.map(b=>`<button type="button" class="ob-blk ob-topic ${b.st} ${b.ids.some(n=>insights.newToday.has(n))?"ob-newtoday":b.ids.some(n=>insights.yesterday.has(n))?"ob-yesterday":""} ${b.i===next?"next":""}" data-ordblk="${b.i}" title="${esc(b.label)}"><span class="ob-topic-label">${esc(b.label)}</span>${b.ids.some(n=>insights.newToday.has(n))?`<span class="ob-yesterday-label">Nuovo oggi</span>`:b.ids.some(n=>insights.yesterday.has(n))?`<span class="ob-yesterday-label">Nuovo ieri</span>`:""}</button>`).join("")}</div><div style="margin-top:18px"><button class="btn btn-filled" id="order-worst" ${insights.worst.length?"":"disabled"}>Studia quelle che sbagli di più</button>${insights.worst.length?"":`<p class="hint">Gli errori di questi blocchi si accumulano qui quando rispondi.</p>`}</div></div>`;
   }
   const blk=b=>`<button class="ob-blk ${b.st} ${b.i===next?"next":""}" data-ordblk="${b.i}">${b.st==="ok"||b.st==="ko"?"✓ ":""}${b.i+1}<small>${b.st==="ok"||b.st==="ko"?`${b.ok}/${b.ids.length}`:b.st==="part"?`fatte ${b.f}/${b.ids.length}`:`${b.ids.length} dom.`}</small></button>`;

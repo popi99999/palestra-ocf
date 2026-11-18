@@ -56,8 +56,8 @@ ctx.Q=built.q;
 ctx.orderInsights=()=>({today:0,yesterday:new Set(),newToday:new Set(),worst:[]});
 const studyBack=template.split('function studyReturnView(T){')[1].split('\nfunction renderRiepilogo(){')[0];
 vm.runInContext('function studyReturnView(T){'+studyBack,ctx);
-assert.equal(ctx.studyReturnView({items:[{n:original[0]}],meta:{src:'ordine'}}),'materia');
-for(const m of [4,5]){
+assert.equal(ctx.studyReturnView({items:[{n:original[0]}],meta:{src:'giorno'}}),'materia');
+for(const m of [1,2,3,4,5]){
  const approved=approvedFor(m);if(!approved) continue;
  const ids=approved.blocks.flatMap(b=>b.ids);
  assert.equal(ctx.studyReturnView({items:[{n:ids[0]}],meta:{src:'ordine'}}),'categorie');
